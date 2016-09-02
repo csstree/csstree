@@ -1,0 +1,73 @@
+{
+  "name": "css-tree",
+  "version": "1.0.0",
+  "description": "Detailed CSS parser",
+  "keywords": [
+    "css",
+    "minifier",
+    "minify",
+    "compress",
+    "optimisation"
+  ],
+  "homepage": "https://github.com/csstree/parser",
+  "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
+  "maintainers": [
+    {
+      "name": "Roman Dvornov",
+      "email": "rdvornov@gmail.com",
+      "github-username": "lahmatiy"
+    }
+  ],
+  "license": "MIT",
+  "repository": "csstree/parser",
+  "bugs": {
+    "url": "https://github.com/csstree/parser/issues"
+  },
+  "main": "./lib/index",
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "mocha": true,
+      "es6": true
+    },
+    "rules": {
+      "no-duplicate-case": 2,
+      "no-undef": 2,
+      "no-unused-vars": [2, {"vars": "all", "args": "after-used"}]
+    }
+  },
+  "scripts": {
+    "test": "mocha --reporter dot",
+    "codestyle": "jscs lib && eslint lib test",
+    "codestyle-and-test": "npm run codestyle && npm test",
+    "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null",
+    "coverage": "istanbul cover _mocha -- -R dot",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R dot && cat ./coverage/lcov.info | coveralls",
+    "travis": "npm run codestyle-and-test && npm run coveralls",
+    "browserify": "browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
+    "prepublish": "npm run browserify"
+  },
+  "dependencies": {
+    "source-map": "^0.5.3"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "coveralls": "^2.11.6",
+    "eslint": "^2.2.0",
+    "istanbul": "^0.4.2",
+    "jscs": "~2.10.0",
+    "mocha": "~2.4.2",
+    "uglify-js": "^2.6.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "bin",
+    "dist/csstree.js",
+    "lib",
+    "HISTORY.md",
+    "LICENSE",
+    "README.md"
+  ]
+}
