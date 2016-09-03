@@ -4,10 +4,8 @@
   "description": "Detailed CSS parser",
   "keywords": [
     "css",
-    "minifier",
-    "minify",
-    "compress",
-    "optimisation"
+    "parser",
+    "ast"
   ],
   "homepage": "https://github.com/csstree/parser",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
