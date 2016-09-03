@@ -51,9 +51,9 @@
   "devDependencies": {
     "browserify": "^13.0.0",
     "coveralls": "^2.11.6",
-    "eslint": "^2.2.0",
+    "eslint": "^3.4.0",
     "istanbul": "^0.4.2",
-    "jscs": "~2.10.0",
+    "jscs": "~3.0.7",
     "mocha": "^3.0.2",
     "uglify-js": "^2.6.1"
   },
