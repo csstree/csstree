@@ -1,0 +1,225 @@
+<!doctype html>
+
+<html>
+<head>
+    <style>
+        html,
+        body
+        {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-family: tahoma, verdana, arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        body
+        {
+            display: flex;
+        }
+        A
+        {
+            color: #0099DD;
+        }
+        A:hover
+        {
+            color: #0077BB;
+        }
+        aside
+        {
+            width: 260px;
+            overflow: auto;
+            background: #f0f0f0;
+            padding: 16px;
+            box-shadow: inset -4px 0 4px -2px rgba(0, 0, 0, .1);
+        }
+        aside section
+        {
+            margin-bottom: 24px;
+        }
+        aside h2
+        {
+            text-transform: capitalize;
+            margin: 0 0 16px;
+        }
+        aside ul
+        {
+            margin: 0;
+            padding: 0 0 0 24px;
+        }
+        article
+        {
+            flex: 1;
+            overflow: auto;
+            padding: 16px;
+        }
+        article h1
+        {
+            margin: 0 0 16px;
+        }
+        article section
+        {
+            background: #f8f8f8;
+            padding: 10px;
+            margin-bottom: 1em;
+        }
+        .error
+        {
+            color: #DD0000;
+        }
+    </style>
+</head>
+<body>
+    <aside>
+    </aside>
+    <article>
+        <h1>Name</h1>
+        Formal syntax:
+        <section class="output"></section>
+        <section class="nested"></section>
+    </article>
+
+    <script src="../dist/csssyntax.js"></script>
+    <script>
+        /* eslint-env browser */
+        fetch('grammar.json').then(function(res) {
+            return res.json();
+        }).then(function(syntaxes) {
+            function escapeHtml(str) {
+                return str
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+            }
+
+            function updateContent() {
+                var ref = location.hash.substr(1);
+                var section = ref.split(':')[0];
+                var name = ref.split(':')[1];
+                var contentEl = document.querySelector('article');
+                var nestedEl = document.querySelector('.nested');
+                var info = syntaxes[section] && syntaxes[section][name];
+
+                contentEl.style.display = name ? '' : 'none';
+
+                if (!name) {
+                    return;
+                }
+
+                document.querySelector('h1').innerText = section === 'Property'
+                    ? '<\'' + name + '\'>'
+                    : '<' + name + '>';
+
+                document.querySelector('.output').innerText = info.syntax ? cssSyntax.stringify(info.syntax) : 'Syntax is missed';
+
+                if (info.syntax) {
+                    var nested = {};
+                    cssSyntax.walk(info.syntax, function walk(node) {
+                        var section;
+                        var nestedName;
+
+                        switch (node.type) {
+                            case 'Type':
+                                nestedName = node.name;
+                                ref = nestedName;
+                                section = 'Type';
+                                break;
+
+                            case 'Property':
+                                nestedName = node.name;
+                                ref = '\'' + node.name + '\'';
+                                section = 'Property';
+                                break;
+
+                            case 'Function':
+                                nestedName = node.name + '()';
+                                ref = nestedName;
+                                section = 'Type';
+                                break;
+
+                            default:
+                                return;
+                        }
+
+                        var nestedInfo = syntaxes[section] && syntaxes[section][nestedName];
+
+                        if (nestedInfo && nestedInfo.type === 'basic-type') {
+                            return;
+                        }
+
+                        if (nestedName === name) {
+                            return;
+                        }
+
+                        if (nestedInfo && nestedInfo.syntax) {
+                            if (ref in nested === false) {
+                                nested[ref] = {
+                                    section: section,
+                                    name: nestedName,
+                                    syntax: cssSyntax.stringify(nestedInfo.syntax)
+                                };
+                                cssSyntax.walk(nestedInfo.syntax, walk);
+                            }
+                        } else {
+                            nested[ref] = {
+                                error: 'missed syntax'
+                            };
+                        }
+                    });
+
+                    console.log(nested);
+
+                    nestedEl.innerHTML = '';
+                    Object.keys(nested).forEach(function(ref) {
+                        var item = document.createElement('div');
+                        var info = nested[ref];
+
+                        item.innerHTML = info.error
+                            ? '&lt;' + ref + '&gt; = <span class="error">' + info.error + '</span>'
+                            : '<a href="#' + info.section + ':' + info.name + '">&lt;' + ref + '&gt;</a> = ' + escapeHtml(info.syntax);
+
+                        nestedEl.appendChild(item);
+                    });
+                    nestedEl.style.display = nestedEl.firstChild ? '' : 'none';
+                }
+            }
+
+            for (var section in syntaxes) {
+                var sectionEl = document.createElement('section');
+                var headerEl = document.createElement('h2');
+                var listEl = document.createElement('ul');
+                var brokenCount = 0;
+
+                Object.keys(syntaxes[section]).sort().forEach(function(name) {
+                    var info = syntaxes[section][name];
+                    var itemEl = document.createElement('li');
+                    var linkEl = document.createElement('a');
+
+                    brokenCount += info.broken;
+                    linkEl.href = '#' + section + ':' + name;
+                    linkEl.className = info.broken ? 'error' : '';
+                    linkEl.appendChild(document.createTextNode(
+                        section === 'Property' ? '<\'' + name + '\'>' : '<' + name + '>'
+                    ));
+
+                    itemEl.appendChild(linkEl);
+                    listEl.appendChild(itemEl);
+                });
+
+                headerEl.innerHTML =
+                    section +
+                    ' (' + listEl.childNodes.length + ')' +
+                    (brokenCount ? ' <span class="error"><small>[broken:' + brokenCount + ']</small></span>' : '');
+                sectionEl.appendChild(headerEl);
+                sectionEl.appendChild(listEl);
+
+                document.querySelector('aside').appendChild(sectionEl);
+            }
+
+            window.addEventListener('hashchange', updateContent, false);
+            updateContent();
+        });
+    </script>
+</body>
+</html>
