@@ -1,7 +1,7 @@
 var assert = require('assert');
-var parse = require('../lib/grammar/parse.js');
-var stringify = require('../lib/grammar/stringify.js');
-var walk = require('../lib/grammar/walk.js');
+var parse = require('../lib/syntax/parse.js');
+var stringify = require('../lib/syntax/stringify.js');
+var walk = require('../lib/syntax/walk.js');
 var data = require('../data');
 
 function normalize(str) {
@@ -22,7 +22,7 @@ function createTest(name, syntax) {
     });
 }
 
-describe('CSS syntax grammar', function() {
+describe('CSS syntax', function() {
     it('combinator precedence', function() {
         var ast = parse('a b   |   c ||   d &&   e f');
         assert.equal(stringify(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');

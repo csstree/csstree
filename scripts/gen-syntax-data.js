@@ -1,6 +1,6 @@
-var parse = require('../lib/grammar/parse.js');
-var walk = require('../lib/grammar/walk.js');
-var types = require('../lib/grammar/types');
+var parse = require('../lib/syntax/parse.js');
+var walk = require('../lib/syntax/walk.js');
+var types = require('../lib/syntax/types');
 var data = require('../data');
 
 var map = {
@@ -136,5 +136,5 @@ for (var type in map) {
 
 console.log(warns.sort().join('\n'));
 
-console.log('Write data to ./docs/grammar.json');
-require('fs').writeFileSync(__dirname + '/../docs/grammar.json', JSON.stringify(map, null, 4));
+console.log('Write data to ./docs/syntax.json');
+require('fs').writeFileSync(__dirname + '/../docs/syntax.json', JSON.stringify(map, null, 4));

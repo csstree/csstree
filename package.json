@@ -44,7 +44,7 @@
     "travis": "npm run codestyle-and-test && npm run coveralls",
     "gen-syntax-data": "node scripts/gen-syntax-data.js",
     "browserify:parser": "browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
-    "browserify:syntax": "browserify --standalone cssSyntax lib/grammar/index.js | uglifyjs --compress --mangle -o dist/csssyntax.js",
+    "browserify:syntax": "browserify --standalone cssSyntax lib/syntax/index.js | uglifyjs --compress --mangle -o dist/csssyntax.js",
     "browserify": "npm run browserify:parser && npm run browserify:syntax",
     "prepublish": "npm run browserify && npm run gen-syntax-data"
   },
