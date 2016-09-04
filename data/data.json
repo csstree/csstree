@@ -631,7 +631,7 @@
       "status": "nonstandard"
     },
     "-webkit-tap-highlight-color": {
-      "syntax": "&lt;color&gt;[, &lt;",
+      "syntax": "&lt;color&gt;#",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",

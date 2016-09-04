@@ -31,11 +31,6 @@ describe('CSS syntax grammar', function() {
     describe('parse/stringify', function() {
         ['properties', 'syntaxes'].forEach(function(section) {
             for (var name in data[section]) {
-                // currently broken
-                if (section === 'properties' && name === '-webkit-tap-highlight-color') {
-                    continue;
-                }
-
                 // odd syntax
                 if (section === 'syntaxes' && name === 'an-plus-b') {
                     continue;
