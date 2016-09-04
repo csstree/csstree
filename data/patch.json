@@ -1,0 +1,114 @@
+{
+  "properties": {
+    "-webkit-mask-attachment": {
+      "comment": "extra space between [ and ,",
+      "syntax": "&lt;attachment&gt; [, &lt;attachment&gt; ]*"
+    },
+    "-webkit-mask-clip": {
+      "comment": "extra space between [ and ,",
+      "syntax": "&lt;clip-style&gt; [, &lt;clip-style&gt; ]*"
+    },
+    "-webkit-mask-composite": {
+      "comment": "extra space between [ and ,",
+      "syntax": "&lt;composite-style&gt; [, &lt;composite-style&gt; ]*"
+    },
+    "-webkit-mask-image": {
+      "comment": "extra space between [ and ,",
+      "syntax": "&lt;mask-image&gt; [, &lt;mask-image&gt; ]*"
+    },
+    "-webkit-mask-origin": {
+      "comment": "missed spaces between brackets, extra space between [ and ,",
+      "syntax": "[ padding | border | content ] [, [ border | padding | content ] ]*"
+    },
+    "-webkit-mask-position": {
+      "comment": "# instead of *, extra space between [ and ,",
+      "syntax": "&lt;mask-position&gt; [, &lt;mask-position&gt; ]*"
+    },
+    "-webkit-mask-position-y": {
+      "comment": "extra space after `top`",
+      "syntax": "[ &lt;length-percentage&gt; | top | center | bottom ]#"
+    },
+    "-webkit-mask-position": {
+      "comment": "extra space between [ and ,",
+      "syntax": "&lt;repeat-style&gt; [, &lt;repeat-style&gt; ]*"
+    },
+    "-webkit-tap-highlight-color": {
+      "comment": "broken syntax",
+      "syntax": "&lt;color&gt;#"
+    },
+    "azimuth": {
+      "comment": "missed space",
+      "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards"
+    },
+    "font": {
+      "comment": "wrong quotes",
+      "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar"
+    },
+    "font-variant": {
+      "comment": "# should stick to term, missed spaces for function body, trailing space",
+      "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic( &lt;feature-value-name&gt; ) || historical-forms || styleset( &lt;feature-value-name&gt;# ) || character-variant( &lt;feature-value-name&gt;# ) || swash( &lt;feature-value-name&gt; ) || ornaments( &lt;feature-value-name&gt; ) || annotation( &lt;feature-value-name&gt; ) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]"
+    },
+    "font-variant-alternates": {
+      "comment": "# should stick to term, missed spaces for function body, trailing space",
+      "syntax": "normal | [ stylistic( &lt;feature-value-name&gt; ) || historical-forms || styleset( &lt;feature-value-name&gt;# ) || character-variant( &lt;feature-value-name&gt;# ) || swash( &lt;feature-value-name&gt; ) || ornaments( &lt;feature-value-name&gt; ) || annotation( &lt;feature-value-name&gt; ) ]"
+    },
+    "font-variant-east-asian": {
+      "comment": "trailing space",
+      "syntax": "normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]"
+    },
+    "scroll-snap-points-x": {
+      "comment": "missed spaces in function body",
+      "syntax": "none | repeat( &lt;length&gt; )"
+    },
+    "scroll-snap-points-y": {
+      "comment": "missed spaces in function body",
+      "syntax": "none | repeat( &lt;length&gt; )"
+    },
+    "text-emphasis-style": {
+      "comment": "missed between brackets",
+      "syntax": "none | [ [ filled | open ] || [ dot | circle | double-circle | triangle | sesame ] ] | &lt;string&gt;"
+    },
+    "text-size-adjust": {
+      "comment": "trailing space",
+      "syntax": "none | auto | &lt;percentage&gt;"
+    },
+    "touch-action": {
+      "comment": "missed between brackets",
+      "syntax": "auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] ] | manipulation"
+    },
+    "transition-timing-function": {
+      "comment": "extra space in the beginning",
+      "syntax": "&lt;single-transition-timing-function&gt;#"
+    }
+  },
+  "syntaxes": {
+    "mask-position": {
+      "comment": "extra space after `top`",
+      "syntax": "[ &lt;length-percentage&gt; | left | center | right ] [ &lt;length-percentage&gt; | top | center | bottom ]?"
+    },
+    "matrix()": {
+      "comment": "redundant max",
+      "syntax": "matrix( &lt;number&gt; [, &lt;number&gt; ]{5} )"
+    },
+    "matrix3d()": {
+      "comment": "redundant max",
+      "syntax": "matrix3d( &lt;number&gt; [, &lt;number&gt; ]{15} )"
+    },
+    "position": {
+      "comment": "missed spaces between brackets",
+      "syntax": "[ [ left | center | right | top | bottom | &lt;length-percentage&gt; ] | [ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] | [ center | [ left | right ] &lt;length-percentage&gt;? ] && [ center | [ top | bottom ] &lt;length-percentage&gt;? ] ]"
+    },
+    "scale3d()": {
+      "comment": "missed space before comma",
+      "syntax": "scale3d( &lt;number&gt; , &lt;number&gt; , &lt;number&gt; )"
+    },
+    "shape": {
+      "comment": "missed spaces in function body",
+      "syntax": "rect( &lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt; )"
+    },
+    "single-transition-timing-function": {
+      "comment": "missed spaces",
+      "syntax": "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps( &lt;integer&gt; [, [ start | end ] ]? ) | cubic-bezier( &lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt; )"
+    }
+  }
+}

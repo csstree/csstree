@@ -1,7 +1,7 @@
 var parse = require('../lib/grammar/parse.js');
 var walk = require('../lib/grammar/walk.js');
 var types = require('../lib/grammar/types');
-var data = require('../data/data.json');
+var data = require('../data');
 
 var map = {
     Property: {},
@@ -65,10 +65,6 @@ for (var key in data.properties) {
 }
 
 for (var key in data.syntaxes) {
-    if (key === 'an-plus-b') {
-        continue;
-    }
-
     var syntax = data.syntaxes[key]
                     .replace(/&lt;/g, '<')
                     .replace(/&gt;/g, '>')

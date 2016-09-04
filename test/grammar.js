@@ -2,7 +2,7 @@ var assert = require('assert');
 var parse = require('../lib/grammar/parse.js');
 var stringify = require('../lib/grammar/stringify.js');
 var walk = require('../lib/grammar/walk.js');
-var data = require('../data/data.json');
+var data = require('../data');
 
 function normalize(str) {
     // Looks like there is no common rules for spaces (some syntaxes
@@ -31,11 +31,6 @@ describe('CSS syntax grammar', function() {
     describe('parse/stringify', function() {
         ['properties', 'syntaxes'].forEach(function(section) {
             for (var name in data[section]) {
-                // odd syntax
-                if (section === 'syntaxes' && name === 'an-plus-b') {
-                    continue;
-                }
-
                 var info = data[section][name];
                 var syntax = (info.syntax || info)
                     .replace(/&lt;/g, '<')

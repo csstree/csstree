@@ -466,7 +466,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-attachment": {
-      "syntax": "&lt;attachment&gt; [, &lt;attachment&gt; ]*",
+      "syntax": "&lt;attachment&gt; [ , &lt;attachment&gt; ]*",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -481,7 +481,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-clip": {
-      "syntax": "&lt;clip-style&gt; [, &lt;clip-style&gt; ]*",
+      "syntax": "&lt;clip-style&gt; [ , &lt;clip-style&gt; ]*",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -496,7 +496,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-composite": {
-      "syntax": "&lt;composite-style&gt; [, &lt;composite-style&gt; ]*",
+      "syntax": "&lt;composite-style&gt; [ , &lt;composite-style&gt; ]*",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -511,7 +511,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-image": {
-      "syntax": "&lt;mask-image&gt; [, &lt;mask-image&gt; ]*",
+      "syntax": "&lt;mask-image&gt; [ , &lt;mask-image&gt; ]*",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -526,7 +526,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-origin": {
-      "syntax": "[ padding | border | content ] [, [ border | padding | content ] ]*",
+      "syntax": "[ padding | border | content ][ , [ border | padding | content ]]*",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -541,7 +541,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-position": {
-      "syntax": "&lt;mask-position&gt; [, &lt;mask-position&gt; ]#",
+      "syntax": "&lt;mask-position&gt; [ , &lt;mask-position&gt; ]#",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -571,7 +571,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-position-y": {
-      "syntax": "[ &lt;length-percentage&gt; | top | center | bottom ]#",
+      "syntax": "[ &lt;length-percentage&gt; | top  | center | bottom ]#",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -586,7 +586,7 @@
       "status": "nonstandard"
     },
     "-webkit-mask-repeat": {
-      "syntax": "&lt;repeat-style&gt; [, &lt;repeat-style&gt; ]*",
+      "syntax": "&lt;repeat-style&gt; [ , &lt;repeat-style&gt; ]*",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -631,7 +631,7 @@
       "status": "nonstandard"
     },
     "-webkit-tap-highlight-color": {
-      "syntax": "&lt;color&gt;#",
+      "syntax": "&lt;color&gt;[, &lt;",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -946,7 +946,7 @@
       "status": "experimental"
     },
     "azimuth": {
-      "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards",
+      "syntax": "&lt;angle&gt; | [[ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards",
       "media": "aural",
       "inherited": true,
       "animationType": "discrete",
@@ -3081,7 +3081,7 @@
       "status": "standard"
     },
     "font": {
-      "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar",
+      "syntax": "[ [ &lt;‘font-style’&gt; || &lt;font-variant-css21&gt; || &lt;‘font-weight’&gt; || &lt;‘font-stretch’&gt; ]? &lt;‘font-size’&gt; [ / &lt;‘line-height’&gt; ]? &lt;‘font-family’&gt; ] | caption | icon | menu | message-box | small-caption | status-bar",
       "media": "visual",
       "inherited": true,
       "animationType": [
@@ -3308,7 +3308,7 @@
       "status": "standard"
     },
     "font-variant": {
-      "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic( &lt;feature-value-name&gt; ) || historical-forms || styleset( &lt;feature-value-name&gt;# ) || character-variant( &lt;feature-value-name&gt;# ) || swash( &lt;feature-value-name&gt; ) || ornaments( &lt;feature-value-name&gt; ) || annotation( &lt;feature-value-name&gt; ) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]",
+      "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] ",
       "media": "visual",
       "inherited": true,
       "animationType": "discrete",
@@ -3328,7 +3328,7 @@
       "status": "standard"
     },
     "font-variant-alternates": {
-      "syntax": "normal | [ stylistic( &lt;feature-value-name&gt; ) || historical-forms || styleset( &lt;feature-value-name&gt;# ) || character-variant( &lt;feature-value-name&gt;# ) || swash( &lt;feature-value-name&gt; ) || ornaments( &lt;feature-value-name&gt; ) || annotation( &lt;feature-value-name&gt; ) ]",
+      "syntax": "normal | [ stylistic(&lt;feature-value-name&gt;) || historical-forms || styleset(&lt;feature-value-name&gt; #) || character-variant(&lt;feature-value-name&gt; #) || swash(&lt;feature-value-name&gt;) || ornaments(&lt;feature-value-name&gt;) || annotation(&lt;feature-value-name&gt;) ] ",
       "media": "visual",
       "inherited": true,
       "animationType": "discrete",
@@ -3368,7 +3368,7 @@
       "status": "standard"
     },
     "font-variant-east-asian": {
-      "syntax": "normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]",
+      "syntax": "normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] ",
       "media": "visual",
       "inherited": true,
       "animationType": "discrete",
@@ -5352,7 +5352,7 @@
       "status": "standard"
     },
     "scroll-snap-points-x": {
-      "syntax": "none | repeat( &lt;length&gt; )",
+      "syntax": "none | repeat(&lt;length&gt;)",
       "media": "interactive",
       "inherited": false,
       "animationType": "discrete",
@@ -5367,7 +5367,7 @@
       "status": "obsolete"
     },
     "scroll-snap-points-y": {
-      "syntax": "none | repeat( &lt;length&gt; )",
+      "syntax": "none | repeat(&lt;length&gt;)",
       "media": "interactive",
       "inherited": false,
       "animationType": "discrete",
@@ -5711,14 +5711,12 @@
       "status": "standard"
     },
     "text-emphasis-style": {
-      "syntax": "none | [ [ filled | open ] || [ dot | circle | double-circle | triangle | sesame ] ] | &lt;string&gt;",
+      "syntax": "none | [[filled | open ] || [dot | circle | double-circle | triangle | sesame ]] | &lt;string&gt",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
       "percentages": "no",
-      "groups": [
-        "CSS Text Decoration"
-      ],
+      "groups": ["CSS Text Decoration"],
       "initial": "<code>none</code>",
       "appliesto": "allElements",
       "computed": "asSpecified",
@@ -5809,7 +5807,7 @@
       "status": "standard"
     },
     "text-size-adjust": {
-      "syntax": "none | auto | &lt;percentage&gt;",
+      "syntax": "none | auto | &lt;percentage&gt; ",
       "media": "visual",
       "inherited": true,
       "animationType": "discrete",
@@ -5874,7 +5872,7 @@
       "status": "standard"
     },
     "touch-action": {
-      "syntax": "auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] ] | manipulation",
+      "syntax": "auto | none | [[ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ]] | manipulation",
       "media": "visual",
       "inherited": false,
       "animationType": "discrete",
@@ -6021,7 +6019,7 @@
       "status": "standard"
     },
     "transition-timing-function": {
-      "syntax": "&lt;single-transition-timing-function&gt;#",
+      "syntax": " &lt;single-transition-timing-function&gt;#",
       "media": "interactive",
       "inherited": false,
       "animationType": "discrete",
@@ -6467,12 +6465,12 @@
     "line-name-list": "[ &lt;line-names&gt; | &lt;name-repeat&gt; ]+",
     "linear-gradient()": "linear-gradient( [ &lt;angle&gt; | to &lt;side-or-corner&gt; ]? , &lt;color-stop-list&gt; )",
     "mask-layer": "&lt;mask-reference&gt; &lt;masking-mode&gt;? || &lt;position&gt; [ / &lt;bg-size&gt; ]? || &lt;repeat-style&gt; || &lt;geometry-box&gt; || [ &lt;geometry-box&gt; | no-clip ] || &lt;compositing-operator&gt;",
-    "mask-position": "[ &lt;length-percentage&gt; | left | center | right ] [ &lt;length-percentage&gt; | top | center | bottom ]?",
+    "mask-position": "[ &lt;length-percentage&gt; | left | center | right ] [ &lt;length-percentage&gt; | top  | center | bottom ]?",
     "mask-reference": "none | &lt;image&gt; | &lt;mask-source&gt;",
     "mask-source": "&lt;url&gt;",
     "masking-mode": "alpha | luminance | match-source",
-    "matrix()": "matrix( &lt;number&gt; [, &lt;number&gt; ]{5} )",
-    "matrix3d()": "matrix3d( &lt;number&gt; [, &lt;number&gt; ]{15} )",
+    "matrix()": "matrix( &lt;number&gt; [, &lt;number&gt; ]{5,5} )",
+    "matrix3d()": "matrix3d( &lt;number&gt; [, &lt;number&gt; ]{15,15} )",
     "named-color": "&lt;ident&gt;",
     "namespace-prefix": "IDENT",
     "number-percentage": "&lt;number&gt; | &lt;percentage&gt;",
@@ -6482,7 +6480,7 @@
     "opacity()": "opacity( [ &lt;number-percentage&gt; ] )",
     "perspective()": "perspective( &lt;length&gt; )",
     "polygon()": "polygon( &lt;fill-rule&gt;? , [ &lt;length-percentage&gt; &lt;length-percentage&gt; ]# )",
-    "position": "[ [ left | center | right | top | bottom | &lt;length-percentage&gt; ] | [ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] | [ center | [ left | right ] &lt;length-percentage&gt;? ] && [ center | [ top | bottom ] &lt;length-percentage&gt;? ] ]",
+    "position": "[[ left | center | right | top | bottom | &lt;length-percentage&gt; ] | [ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] | [ center | [ left | right ] &lt;length-percentage&gt;? ] && [ center | [ top | bottom ] &lt;length-percentage&gt;? ]]",
     "radial-gradient()": "radial-gradient( [ &lt;ending-shape&gt; || &lt;size&gt; ]? [ at &lt;position&gt; ]? , &lt;color-stop-list&gt; )",
     "relative-size": "larger | smaller",
     "repeat-style": "repeat-x | repeat-y | [ repeat | space | round | no-repeat ]{1,2}",
@@ -6498,7 +6496,7 @@
     "rotateZ()": "rotateZ( &lt;angle&gt; )",
     "saturate()": "saturate( &lt;number-percentage&gt; )",
     "scale()": "scale( &lt;number&gt; [, &lt;number&gt; ]? )",
-    "scale3d()": "scale3d( &lt;number&gt; , &lt;number&gt; , &lt;number&gt; )",
+    "scale3d()": "scale3d( &lt;number&gt; , &lt;number&gt;, &lt;number&gt; )",
     "scaleX()": "scaleX( &lt;number&gt; )",
     "scaleY()": "scaleY( &lt;number&gt; )",
     "scaleZ()": "scaleZ( &lt;number&gt; )",
@@ -6509,7 +6507,7 @@
     "sepia()": "sepia( &lt;number-percentage&gt; )",
     "shadow": "inset? &amp;&amp; &lt;length&gt;{2,4} &amp;&amp; &lt;color&gt;?",
     "shadow-t": "[ &lt;length&gt;{2,3} &amp;&amp; &lt;color&gt;? ]",
-    "shape": "rect( &lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt; )",
+    "shape": "rect(&lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt;)",
     "shape-box": "&lt;box&gt; | margin-box",
     "side-or-corner": "[ left | right ] || [ top | bottom ]",
     "single-animation": "&lt;time&gt; || &lt;single-timing-function&gt; || &lt;time&gt; || &lt;single-animation-iteration-count&gt; || &lt;single-animation-direction&gt; || &lt;single-animation-fill-mode&gt; || &lt;single-animation-play-state&gt; || &lt;single-animation-name&gt;",
@@ -6520,7 +6518,7 @@
     "single-animation-play-state": "running | paused",
     "single-timing-function": "&lt;single-transition-timing-function&gt;",
     "single-transition": "[ none | &lt;single-transition-property&gt; ] || &lt;time&gt; || &lt;single-transition-timing-function&gt; || &lt;time&gt;",
-    "single-transition-timing-function": "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps( &lt;integer&gt; [, [ start | end ] ]? ) | cubic-bezier( &lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt; )",
+    "single-transition-timing-function": "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps(&lt;integer&gt;[, [ start | end ] ]?) | cubic-bezier(&lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt;)",
     "single-transition-property": "all | IDENT",
     "size": "closest-side | farthest-side | closest-corner | farthest-corner | &lt;length&gt; | &lt;length-percentage&gt;{2}",
     "symbol": "&lt;string&gt; | &lt;image&gt; | &lt;ident&gt;",
@@ -6753,16 +6751,16 @@
       },
       "status": "standard"
     },
-    "@font-feature-values": {
-      "syntax": "@font-feature-values &lt;font-family&gt; {\n  [ @swash | @ornaments | @annotation | @stylistic | @styleset | @character-variant\n  {\n    [ &lt;IDENT&gt;: &lt;integer&gt;+ ]?\n  }\n  ]?\n}",
-      "interfaces": [
-        "CSSFontFeatureValuesRule"
-      ],
-      "groups": [
-        "CSS Fonts"
-      ],
-      "status": "standard"
-    },
+        "@font-feature-values": {
+            "syntax": "@font-feature-values &lt;font-family&gt; {\n  [ @swash | @ornaments | @annotation | @stylistic | @styleset | @character-variant\n  {\n    [ &lt;IDENT&gt;: &lt;integer&gt;+ ]?\n  }\n  ]?\n}",
+            "interfaces": [
+                "CSSFontFeatureValuesRule"
+            ],
+            "groups": [
+                "CSS Fonts"
+            ],
+            "status": "standard"
+        },
     "@import": {
       "syntax": "@import [ &lt;string&gt; | &lt;url&gt; ] [ &lt;media-query-list&gt; ]?;",
       "groups": [
