@@ -42,8 +42,11 @@
     "coverage": "istanbul cover _mocha -- -R dot",
     "coveralls": "istanbul cover _mocha --report lcovonly -- -R dot && cat ./coverage/lcov.info | coveralls",
     "travis": "npm run codestyle-and-test && npm run coveralls",
-    "browserify": "browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
-    "prepublish": "npm run browserify"
+    "gen-syntax-data": "node scripts/gen-syntax-data.js",
+    "browserify:parser": "browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
+    "browserify:syntax": "browserify --standalone cssSyntax lib/grammar/index.js | uglifyjs --compress --mangle -o dist/csssyntax.js",
+    "browserify": "npm run browserify:parser && npm run browserify:syntax",
+    "prepublish": "npm run browserify && npm run gen-syntax-data"
   },
   "dependencies": {
     "source-map": "^0.5.3"
@@ -62,7 +65,9 @@
   },
   "files": [
     "bin",
+    "docs",
     "dist/csstree.js",
+    "dist/csssyntax.js",
     "lib",
     "HISTORY.md",
     "LICENSE",
