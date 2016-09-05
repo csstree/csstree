@@ -120,7 +120,7 @@
     },
     "inset()": {
       "comment": "changed <border-radius> to <'border-radius'>",
-      "syntax": "inset( &lt;length-percentage&gt;{1,4} [ round &lt;'border-radius'&gt; ]? )",
+      "syntax": "inset( &lt;length-percentage&gt;{1,4} [ round &lt;'border-radius'&gt; ]? )"
     },
     "left": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
