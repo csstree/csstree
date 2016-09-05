@@ -107,7 +107,7 @@
                     return;
                 }
 
-                document.querySelector('h1').innerText = section === 'Property'
+                document.querySelector('h1').innerText = section === PROPERTY
                     ? '<\'' + name + '\'>'
                     : '<' + name + '>';
 
@@ -116,40 +116,40 @@
                 if (info.syntax) {
                     var nested = {};
                     cssSyntax.walk(info.syntax, function walk(node) {
-                        var section;
+                        var nestedSection;
                         var nestedName;
 
                         switch (node.type) {
                             case 'Type':
                                 nestedName = node.name;
                                 ref = nestedName;
-                                section = 'Type';
+                                nestedSection = TYPE;
                                 break;
 
                             case 'Property':
                                 nestedName = node.name;
                                 ref = '\'' + node.name + '\'';
-                                section = 'Property';
+                                nestedSection = PROPERTY;
                                 break;
 
                             default:
                                 return;
                         }
 
-                        var nestedInfo = syntaxes[section] && syntaxes[section][nestedName];
+                        var nestedInfo = syntaxes[nestedSection] && syntaxes[nestedSection][nestedName];
 
                         if (nestedInfo && nestedInfo.type === 'basic-type') {
                             return;
                         }
 
-                        if (nestedName === name) {
+                        if (nestedName === name && nestedSection === section) {
                             return;
                         }
 
                         if (nestedInfo && nestedInfo.syntax) {
                             if (ref in nested === false) {
                                 nested[ref] = {
-                                    section: section,
+                                    section: nestedSection,
                                     name: nestedName,
                                     syntax: cssSyntax.stringify(nestedInfo.syntax)
                                 };
@@ -179,6 +179,9 @@
                 }
             }
 
+            var PROPERTY = 'properties';
+            var TYPE = 'types';
+
             for (var section in syntaxes) {
                 var sectionEl = document.createElement('section');
                 var headerEl = document.createElement('h2');
@@ -194,7 +197,7 @@
                     linkEl.href = '#' + section + ':' + name;
                     linkEl.className = info.broken ? 'error' : '';
                     linkEl.appendChild(document.createTextNode(
-                        section === 'Property' ? '<\'' + name + '\'>' : '<' + name + '>'
+                        section === PROPERTY ? '<\'' + name + '\'>' : '<' + name + '>'
                     ));
 
                     itemEl.appendChild(linkEl);

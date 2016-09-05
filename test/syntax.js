@@ -32,10 +32,7 @@ describe('CSS syntax', function() {
         ['properties', 'syntaxes'].forEach(function(section) {
             for (var name in data[section]) {
                 var info = data[section][name];
-                var syntax = (info.syntax || info)
-                    .replace(/&lt;/g, '<')
-                    .replace(/&gt;/g, '>')
-                    .replace(/&amp;/g, '&');
+                var syntax = info.syntax || info;
 
                 createTest(section + '/' + name, syntax);
             }
