@@ -36,17 +36,17 @@
   },
   "scripts": {
     "test": "mocha --reporter dot",
-    "codestyle": "jscs lib && eslint lib test",
+    "codestyle": "jscs data lib scripts test && eslint data lib scripts test",
     "codestyle-and-test": "npm run codestyle && npm test",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null",
     "coverage": "istanbul cover _mocha -- -R dot",
     "coveralls": "istanbul cover _mocha --report lcovonly -- -R dot && cat ./coverage/lcov.info | coveralls",
     "travis": "npm run codestyle-and-test && npm run coveralls",
-    "gen-syntax-data": "node scripts/gen-syntax-data.js",
-    "browserify:parser": "browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
-    "browserify:syntax": "browserify --standalone cssSyntax lib/syntax/index.js | uglifyjs --compress --mangle -o dist/csssyntax.js",
-    "browserify": "npm run browserify:parser && npm run browserify:syntax",
-    "prepublish": "npm run browserify && npm run gen-syntax-data"
+    "gen:syntax": "node scripts/gen-syntax-data.js",
+    "build:parser": "browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
+    "build:syntax": "browserify --standalone cssSyntax lib/syntax/index.js | uglifyjs --compress --mangle -o dist/csssyntax.js",
+    "build": "npm run build:parser && npm run build:syntax",
+    "prepublish": "npm run build && npm run gen:syntax"
   },
   "dependencies": {
     "source-map": "^0.5.3"
