@@ -1,12 +1,8 @@
 var resultFilename = require('path').resolve(__dirname + '/../docs/syntax.json');
 var data = require('../data');
-var types = require('../lib/syntax/types');
-var Syntax = require('../lib/syntax/syntax');
-var syntax = new Syntax();
-
-for (var key in types) {
-    syntax.addType(key, types[key]);
-}
+var syntax = require('../lib/syntax/syntax').create({
+    types: require('../lib/syntax/types')
+});
 
 for (var key in data.properties) {
     syntax.addProperty(key, data.properties[key].syntax);
