@@ -31,10 +31,6 @@ function reg(type, name, ast) {
             case 'Property':
                 ref = node.name;
                 break;
-            case 'Function':
-                type = 'Type';
-                ref = node.name + '()';
-                break;
             default:
                 return;
         }
@@ -100,10 +96,6 @@ for (var type in map) {
                     case 'Type':
                     case 'Property':
                         ref = node.name;
-                        break;
-                    case 'Function':
-                        type = 'Type';
-                        ref = node.name + '()';
                         break;
                     default:
                         return;

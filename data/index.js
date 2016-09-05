@@ -6,10 +6,11 @@ for (var key in patch.properties) {
 }
 
 for (var key in patch.syntaxes) {
-    original.syntaxes[key] = patch.syntaxes[key].syntax;
+    if (patch.syntaxes[key].syntax) {
+        original.syntaxes[key] = patch.syntaxes[key].syntax;
+    } else {
+        delete original.syntaxes[key];
+    }
 }
-
-// odd syntax, delete for now
-delete original.syntaxes['an-plus-b'];
 
 module.exports = original;

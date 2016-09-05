@@ -1,12 +1,16 @@
 {
   "properties": {
+    "-webkit-mask": {
+      "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
+      "syntax": "&lt;mask-image&gt; [ &lt;'-webkit-mask-repeat'&gt; || &lt;'-webkit-mask-attachment'&gt; || &lt;'-webkit-mask-position'&gt; || &lt;'-webkit-mask-origin'&gt; || &lt;'-webkit-mask-clip'&gt; ]*"
+    },
     "-webkit-mask-attachment": {
       "comment": "extra space between [ and ,",
       "syntax": "&lt;attachment&gt; [, &lt;attachment&gt; ]*"
     },
     "-webkit-mask-clip": {
-      "comment": "extra space between [ and ,",
-      "syntax": "&lt;clip-style&gt; [, &lt;clip-style&gt; ]*"
+      "comment": "change type to <-webkit-mask-clip-style> since it differ from <mask-clip>, extra space between [ and ,",
+      "syntax": "&lt;-webkit-mask-clip-style&gt; [, &lt;-webkit-mask-clip-style&gt; ]*"
     },
     "-webkit-mask-composite": {
       "comment": "extra space between [ and ,",
@@ -28,7 +32,7 @@
       "comment": "extra space after `top`",
       "syntax": "[ &lt;length-percentage&gt; | top | center | bottom ]#"
     },
-    "-webkit-mask-position": {
+    "-webkit-mask-repeat": {
       "comment": "extra space between [ and ,",
       "syntax": "&lt;repeat-style&gt; [, &lt;repeat-style&gt; ]*"
     },
@@ -39,6 +43,10 @@
     "azimuth": {
       "comment": "missed space",
       "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards"
+    },
+    "content": {
+      "comment": "outdated syntax, used syntax from https://drafts.csswg.org/css-content/#typedef-content-list",
+      "syntax": "[ <image> ',' ]* [ normal | none | <content-list> ] [/ <string> ]?"
     },
     "font": {
       "comment": "wrong quotes",
@@ -82,6 +90,54 @@
     }
   },
   "syntaxes": {
+    "-webkit-mask-clip-style": {
+      "comment": "missed; there is no enaugh information about `-webkit-mask-clip` property, but looks like all those values are working",
+      "syntax": "border | border-box | padding | padding-box | content | content-box | text"
+    },
+    "an-plus-b": {
+      "comment": "syntax is incorrect and can't be parsed, drop for now",
+      "syntax": null
+    },
+    "border-radius": {
+      "comment": "missed, https://drafts.csswg.org/css-backgrounds-3/#the-border-radius",
+      "syntax": "<length-percentage>{1,2}"
+    },
+    "bottom": {
+      "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
+      "syntax": "<length> | auto"
+    },
+    "content-list": {
+      "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
+      "syntax": "[ <string> | contents | <uri> | <quote> ]+"
+    },
+    "family-name": {
+      "comment": "upper case",
+      "syntax": "&lt;string&gt; | &lt;ident&gt;+"
+    },
+    "feature-value-name": {
+      "comment": "missed angle brackets",
+      "syntax": "<ident>"
+    },
+    "inset()": {
+      "comment": "changed <border-radius> to <'border-radius'>",
+      "syntax": "inset( &lt;length-percentage&gt;{1,4} [ round &lt;'border-radius'&gt; ]? )",
+    },
+    "left": {
+      "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
+      "syntax": "<length> | auto"
+    },
+    "named-color": {
+      "comment": "replaced <ident> to list of colors according to https://www.w3.org/TR/css-color-4/#named-colors",
+      "syntax": "transparent | currentcolor | aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen"
+    },
+    "namespace-prefix": {
+      "comment": "missed angle brackets",
+      "syntax": "<ident>"
+    },
+    "mask-image": {
+      "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
+      "syntax": "<mask-reference>#"
+    },
     "mask-position": {
       "comment": "extra space after `top`",
       "syntax": "[ &lt;length-percentage&gt; | left | center | right ] [ &lt;length-percentage&gt; | top | center | bottom ]?"
@@ -94,9 +150,25 @@
       "comment": "redundant max",
       "syntax": "matrix3d( &lt;number&gt; [, &lt;number&gt; ]{15} )"
     },
+    "name-repeat": {
+      "comment": "missed, and looks like obsolete, keep it as is since other property syntaxes should be changed too; https://www.w3.org/TR/2015/WD-css-grid-1-20150917/#typedef-name-repeat",
+      "syntax": "repeat( [ <positive-integer> | auto-fill ], <line-names>+)"
+    },
+    "outline-radius": {
+      "comment": "missed, looks like it's a similar to <border-radius> https://developer.mozilla.org/en/docs/Web/CSS/-moz-outline-radius",
+      "syntax": "<border-radius>"
+    },
+    "path()": {
+      "comment": "missed, `motion` property was renamed, but left it as is for now; path() syntax was get from last draft https://drafts.fxtf.org/motion-1/#funcdef-offset-path-path",
+      "syntax": "path( <string> )"
+    },
     "position": {
       "comment": "missed spaces between brackets",
       "syntax": "[ [ left | center | right | top | bottom | &lt;length-percentage&gt; ] | [ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] | [ center | [ left | right ] &lt;length-percentage&gt;? ] && [ center | [ top | bottom ] &lt;length-percentage&gt;? ] ]"
+    },
+    "right": {
+      "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
+      "syntax": "<length> | auto"
     },
     "scale3d()": {
       "comment": "missed space before comma",
@@ -106,9 +178,37 @@
       "comment": "missed spaces in function body",
       "syntax": "rect( &lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt; )"
     },
+    "single-animation-name": {
+      "comment": "missed angle brackets",
+      "syntax": "none | <ident>"
+    },
+    "single-transition-property": {
+      "comment": "missed angle brackets",
+      "syntax": "all | <ident>"
+    },
     "single-transition-timing-function": {
       "comment": "missed spaces",
       "syntax": "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps( &lt;integer&gt; [, [ start | end ] ]? ) | cubic-bezier( &lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt; )"
+    },
+    "top": {
+      "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
+      "syntax": "<length> | auto"
+    },
+    "uri": {
+      "comment": "deprecated, add alias to not change syntaxes",
+      "syntax": "<url>"
+    },
+    "quote": {
+      "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-quote",
+      "syntax": "[ open-quote | close-quote | no-open-quote | no-close-quote ]"
+    },
+    "x": {
+      "comment": "missed; not sure we should add it, but no others except `cursor` is using it so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
+      "syntax": "<number>"
+    },
+    "y": {
+      "comment": "missed; not sure we should add it, but no others except `cursor` is using so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
+      "syntax": "<number>"
     }
   }
 }
