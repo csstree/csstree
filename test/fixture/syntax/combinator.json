@@ -1,0 +1,45 @@
+{
+    "juxtaposing": {
+        "syntax": {
+            "properties": {
+                "test": "foo bar"
+            }
+        },
+        "testcases": [{
+            "value": "foo bar",
+            "match": true
+        }, {
+            "value": "foo",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }, {
+            "value": "baz",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar foo",
+            "error": "Uncomplete match"
+        }]
+    },
+    "a bar": {
+        "syntax": {
+            "properties": {
+                "test": "foo | bar"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "bar",
+            "match": true
+        }, {
+            "value": "baz",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar",
+            "error": "Uncomplete match"
+        }]
+    }
+}
