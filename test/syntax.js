@@ -43,7 +43,7 @@ function createMatchTest(name, syntax, test) {
         if (test.error) {
             assert.throws(function() {
                 syntax.match('test', css);
-            }, new RegExp('^Error: ' + test.error));
+            }, new RegExp('^SyntaxMatchError: ' + test.error));
         } else {
             // left it for future
             // assert.equal(
