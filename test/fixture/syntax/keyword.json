@@ -1,0 +1,45 @@
+{
+    "simple": {
+        "syntax": {
+            "properties": {
+                "test": "foo"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }]
+    },
+    "with multiplier": {
+        "syntax": {
+            "properties": {
+                "test": "foo+"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "foo foo",
+            "match": true
+        }, {
+            "value": "foo foo foo foo",
+            "match": true
+        }, {
+            "value": "foo foo bar",
+            "error": "Uncomplete match"
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }]
+    }
+}

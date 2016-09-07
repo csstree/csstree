@@ -1,0 +1,194 @@
+{
+    "simple": {
+        "syntax": {
+            "properties": {
+                "test": "foo, bar"
+            }
+        },
+        "testcases": [{
+            "value": "foo, bar",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "foo",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }]
+    },
+    "first is omissible": {
+        "syntax": {
+            "properties": {
+                "test": "foo?, bar"
+            }
+        },
+        "testcases": [{
+            "value": "foo, bar",
+            "match": true
+        }, {
+            "value": "bar",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "foo",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar",
+            "error": "Mismatch"
+        }, {
+            "value": ", bar",
+            "error": "Mismatch"
+        }]
+    },
+    "last is omissible": {
+        "syntax": {
+            "properties": {
+                "test": "foo, bar?"
+            }
+        },
+        "testcases": [{
+            "value": "foo, bar",
+            "match": true
+        }, {
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar",
+            "error": "Mismatch"
+        }, {
+            "value": "foo,",
+            "error": "Mismatch"
+        }]
+    },
+    "both is omissible": {
+        "syntax": {
+            "properties": {
+                "test": "foo?, bar?"
+            }
+        },
+        "testcases": [{
+            "value": "",
+            "match": true
+        }, {
+            "value": "foo, bar",
+            "match": true
+        }, {
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "bar",
+            "match": true
+        }, {
+            "value": "foo ,",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar",
+            "error": "Mismatch"
+        }, {
+            "value": ", bar",
+            "error": "Mismatch"
+        }]
+    },
+    "three omissible": {
+        "syntax": {
+            "properties": {
+                "test": "foo?, bar?, baz?"
+            }
+        },
+        "testcases": [{
+            "value": "",
+            "match": true
+        }, {
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "bar",
+            "match": true
+        }, {
+            "value": "baz",
+            "match": true
+        }, {
+            "value": "foo, bar",
+            "match": true
+        }, {
+            "value": "foo, baz",
+            "match": true
+        }, {
+            "value": "bar, baz",
+            "match": true
+        }, {
+            "value": "foo, bar, baz",
+            "match": true
+        }, {
+            "value": "foo ,",
+            "error": "Mismatch"
+        }, {
+            "value": "foo ,,",
+            "error": "Mismatch"
+        }, {
+            "value": "foo ,, bar",
+            "error": "Mismatch"
+        }, {
+            "value": "foo ,, baz",
+            "error": "Mismatch"
+        }, {
+            "value": ", bar",
+            "error": "Mismatch"
+        }, {
+            "value": ", bar , baz",
+            "error": "Mismatch"
+        }]
+    },
+    "four omissible": {
+        "syntax": {
+            "properties": {
+                "test": "foo?, bar?, baz?, qux?"
+            }
+        },
+        "testcases": [{
+            "value": "",
+            "match": true
+        }, {
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "qux",
+            "match": true
+        }, {
+            "value": "foo, bar",
+            "match": true
+        }, {
+            "value": "foo, bar, qux",
+            "match": true
+        }, {
+            "value": "foo, qux",
+            "match": true
+        }, {
+            "value": "foo ,",
+            "error": "Mismatch"
+        }, {
+            "value": "foo ,,",
+            "error": "Mismatch"
+        }, {
+            "value": "foo ,, qux",
+            "error": "Mismatch"
+        }, {
+            "value": "foo ,,, qux",
+            "error": "Mismatch"
+        }]
+    }
+}

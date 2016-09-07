@@ -1,0 +1,51 @@
+{
+    "simple": {
+        "syntax": {
+            "types": {
+                "bar": "foo"
+            },
+            "properties": {
+                "test": "<bar>"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }]
+    },
+    "with multiplier": {
+        "syntax": {
+            "types": {
+                "bar": "foo"
+            },
+            "properties": {
+                "test": "<bar>+"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "foo foo",
+            "match": true
+        }, {
+            "value": "foo foo foo foo",
+            "match": true
+        }, {
+            "value": "foo foo bar",
+            "error": "Uncomplete match"
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }]
+    }
+}
