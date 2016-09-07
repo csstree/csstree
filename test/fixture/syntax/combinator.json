@@ -41,5 +41,98 @@
             "value": "foo bar",
             "error": "Uncomplete match"
         }]
+    },
+    "a double ampersand": {
+        "syntax": {
+            "properties": {
+                "test": "foo && bar"
+            }
+        },
+        "testcases": [{
+            "value": "foo bar",
+            "match": true
+        }, {
+            "value": "bar foo",
+            "match": true
+        }, {
+            "value": "foo",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }, {
+            "value": "foo foo",
+            "error": "Mismatch"
+        }, {
+            "value": "foo foo bar",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar foo",
+            "error": "Uncomplete match"
+        }]
+    },
+    "a double ampersand with optional": {
+        "syntax": {
+            "properties": {
+                "test": "foo && bar?"
+            }
+        },
+        "testcases": [{
+            "value": "foo bar",
+            "match": true
+        }, {
+            "value": "bar foo",
+            "match": true
+        }, {
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }, {
+            "value": "foo foo",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo foo bar",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo bar foo",
+            "error": "Uncomplete match"
+        }]
+    },
+    "a double bar": {
+        "syntax": {
+            "properties": {
+                "test": "foo || bar"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "bar",
+            "match": true
+        }, {
+            "value": "foo bar",
+            "match": true
+        }, {
+            "value": "bar foo",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "baz",
+            "error": "Mismatch"
+        }, {
+            "value": "foo foo",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo foo bar",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo bar foo",
+            "error": "Uncomplete match"
+        }]
     }
 }
