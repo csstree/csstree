@@ -190,5 +190,25 @@
             "value": "foo ,,, qux",
             "error": "Mismatch"
         }]
+    },
+    "leading comma in group": {
+        "syntax": {
+            "properties": {
+                "test": "foo [, foo]+"
+            }
+        },
+        "testcases": [{
+            "value": "foo, foo",
+            "match": true
+        }, {
+            "value": "foo, foo, foo, foo",
+            "match": true
+        }, {
+            "value": "foo ,",
+            "error": "Mismatch"
+        }, {
+            "value": "foo foo",
+            "error": "Mismatch"
+        }]
     }
 }

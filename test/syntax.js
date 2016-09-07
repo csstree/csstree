@@ -98,7 +98,7 @@ describe('CSS syntax', function() {
         ]);
     });
 
-    describe.only('match', function() {
+    describe('match', function() {
         tests.forEachTest(createMatchTest);
     });
 });
