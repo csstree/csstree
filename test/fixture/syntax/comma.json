@@ -194,10 +194,13 @@
     "leading comma in group": {
         "syntax": {
             "properties": {
-                "test": "foo [, foo]+"
+                "test": "foo [ , foo ]*"
             }
         },
         "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
             "value": "foo, foo",
             "match": true
         }, {
@@ -205,9 +208,32 @@
             "match": true
         }, {
             "value": "foo ,",
-            "error": "Mismatch"
+            "error": "Uncomplete match"
         }, {
             "value": "foo foo",
+            "error": "Uncomplete match"
+        }]
+    },
+    "trailig comma in group": {
+        "syntax": {
+            "properties": {
+                "test": "[ foo , ]* foo"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "foo, foo",
+            "match": true
+        }, {
+            "value": "foo, foo, foo, foo",
+            "match": true
+        }, {
+            "value": ", foo",
+            "error": "Mismatch"
+        }, {
+            "value": "foo ,",
             "error": "Mismatch"
         }]
     }
