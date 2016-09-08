@@ -1,0 +1,554 @@
+{
+    "<angle>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<angle>"
+            }
+        },
+        "testcases": [{
+            "value": "1deg",
+            "match": true
+        }, {
+            "value": "1DEG",
+            "match": true
+        }, {
+            "value": "1grad",
+            "match": true
+        }, {
+            "value": "1GRAD",
+            "match": true
+        }, {
+            "value": "1rad",
+            "match": true
+        }, {
+            "value": "1RAD",
+            "match": true
+        }, {
+            "value": "1turn",
+            "match": true
+        }, {
+            "value": "1TURN",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1px",
+            "error": "Mismatch"
+        }, {
+            "value": "1px 2deg",
+            "error": "Mismatch"
+        }]
+    },
+    "<time>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<time>"
+            }
+        },
+        "testcases": [{
+            "value": "1s",
+            "match": true
+        }, {
+            "value": "1S",
+            "match": true
+        }, {
+            "value": "1ms",
+            "match": true
+        }, {
+            "value": "1MS",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1px",
+            "error": "Mismatch"
+        }, {
+            "value": "1px 2s",
+            "error": "Mismatch"
+        }]
+    },
+    "<length>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<length>"
+            }
+        },
+        "testcases": [{
+            "value": "1px",
+            "match": true
+        }, {
+            "value": "1PX",
+            "match": true
+        }, {
+            "value": "1mm",
+            "match": true
+        }, {
+            "value": "1MM",
+            "match": true
+        }, {
+            "value": "1cm",
+            "match": true
+        }, {
+            "value": "1CM",
+            "match": true
+        }, {
+            "value": "1in",
+            "match": true
+        }, {
+            "value": "1IN",
+            "match": true
+        }, {
+            "value": "1pt",
+            "match": true
+        }, {
+            "value": "1PT",
+            "match": true
+        }, {
+            "value": "1pc",
+            "match": true
+        }, {
+            "value": "1PC",
+            "match": true
+        }, {
+            "value": "1em",
+            "match": true
+        }, {
+            "value": "1EM",
+            "match": true
+        }, {
+            "value": "1ex",
+            "match": true
+        }, {
+            "value": "1EX",
+            "match": true
+        }, {
+            "value": "1ch",
+            "match": true
+        }, {
+            "value": "1CH",
+            "match": true
+        }, {
+            "value": "1rem",
+            "match": true
+        }, {
+            "value": "1REM",
+            "match": true
+        }, {
+            "value": "1vh",
+            "match": true
+        }, {
+            "value": "1VH",
+            "match": true
+        }, {
+            "value": "1vw",
+            "match": true
+        }, {
+            "value": "1VW",
+            "match": true
+        }, {
+            "value": "1vmin",
+            "match": true
+        }, {
+            "value": "1VMIN",
+            "match": true
+        }, {
+            "value": "1vmax",
+            "match": true
+        }, {
+            "value": "1VMAX",
+            "match": true
+        }, {
+            "value": "1vm",
+            "match": true
+        }, {
+            "value": "1VM",
+            "match": true
+        }, {
+            "comment": "for zero lengths the unit identifier is optional https://www.w3.org/TR/css3-values/#lengths",
+            "value": "0",
+            "match": true
+        }, {
+            "comment": "for zero lengths the unit identifier is optional https://www.w3.org/TR/css3-values/#lengths",
+            "value": "-0",
+            "match": true
+        }, {
+            "comment": "for zero lengths the unit identifier is optional https://www.w3.org/TR/css3-values/#lengths",
+            "value": "0.0",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1s",
+            "error": "Mismatch"
+        }, {
+            "value": "1s 2px",
+            "error": "Mismatch"
+        }]
+    },
+    "<frequency>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<frequency>"
+            }
+        },
+        "testcases": [{
+            "value": "1hz",
+            "match": true
+        }, {
+            "value": "1Hz",
+            "match": true
+        }, {
+            "value": "1khz",
+            "match": true
+        }, {
+            "value": "1kHz",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1px",
+            "error": "Mismatch"
+        }, {
+            "value": "1px 2hz",
+            "error": "Mismatch"
+        }]
+    },
+    "<resolution>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<resolution>"
+            }
+        },
+        "testcases": [{
+            "value": "1dpi",
+            "match": true
+        }, {
+            "value": "1DPI",
+            "match": true
+        }, {
+            "value": "1dpcm",
+            "match": true
+        }, {
+            "value": "1DPCM",
+            "match": true
+        }, {
+            "value": "1dppx",
+            "match": true
+        }, {
+            "value": "1DPPX",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1px",
+            "error": "Mismatch"
+        }, {
+            "value": "1px 2dpi",
+            "error": "Mismatch"
+        }]
+    },
+    "<flex>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<flex>"
+            }
+        },
+        "testcases": [{
+            "value": "1fr",
+            "match": true
+        }, {
+            "value": "1FR",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1px",
+            "error": "Mismatch"
+        }, {
+            "value": "1px 2fr",
+            "error": "Mismatch"
+        }]
+    },
+    "<dimension>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<dimension>"
+            }
+        },
+        "testcases": [{
+            "value": "1px",
+            "match": true
+        }, {
+            "value": "1something",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1 2px",
+            "error": "Mismatch"
+        }]
+    },
+    "<percentage>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<percentage>"
+            }
+        },
+        "testcases": [{
+            "value": "1%",
+            "match": true
+        }, {
+            "value": "12.34%",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1 2%",
+            "error": "Mismatch"
+        }]
+    },
+    "<number>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<number>"
+            }
+        },
+        "testcases": [{
+            "value": "123",
+            "match": true
+        }, {
+            "value": "123.456",
+            "match": true
+        }, {
+            "value": "123.",
+            "match": true
+        }, {
+            "value": ".456",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "foo 123",
+            "error": "Mismatch"
+        }]
+    },
+    "<integer>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<integer>"
+            }
+        },
+        "testcases": [{
+            "value": "123",
+            "match": true
+        }, {
+            "value": "-123",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "123.456",
+            "error": "Mismatch"
+        }, {
+            "value": "-123.456",
+            "error": "Mismatch"
+        }, {
+            "value": "123.",
+            "error": "Mismatch"
+        }, {
+            "value": ".456",
+            "error": "Mismatch"
+        }, {
+            "value": "foo 123",
+            "error": "Mismatch"
+        }]
+    },
+    "<positive-integer>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<positive-integer>"
+            }
+        },
+        "testcases": [{
+            "value": "123",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "-123",
+            "error": "Mismatch"
+        }, {
+            "value": "123.456",
+            "error": "Mismatch"
+        }, {
+            "value": "-123.456",
+            "error": "Mismatch"
+        }, {
+            "value": "123.",
+            "error": "Mismatch"
+        }, {
+            "value": ".456",
+            "error": "Mismatch"
+        }, {
+            "value": "foo 123",
+            "error": "Mismatch"
+        }]
+    },
+    "<hex-color>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<hex-color>"
+            }
+        },
+        "testcases": [{
+            "value": "#abc",
+            "match": true
+        }, {
+            "value": "#abcd",
+            "match": true
+        }, {
+            "value": "#abcdef",
+            "match": true
+        }, {
+            "value": "#123456",
+            "match": true
+        }, {
+            "value": "#aBcDeF",
+            "match": true
+        }, {
+            "value": "#abcdef12",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "#a",
+            "error": "Mismatch"
+        }, {
+            "value": "#ab",
+            "error": "Mismatch"
+        }, {
+            "value": "#abcde",
+            "error": "Mismatch"
+        }, {
+            "value": "#abcdef1",
+            "error": "Mismatch"
+        }, {
+            "value": "#abcdef123",
+            "error": "Mismatch"
+        }, {
+            "value": "123 #abc123",
+            "error": "Mismatch"
+        }]
+    },
+    "<id-selector>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<id-selector>"
+            }
+        },
+        "testcases": [{
+            "value": "#foo",
+            "match": true
+        }, {
+            "value": "#123",
+            "match": true
+        }, {
+            "value": "#foo-123",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "123 #foo",
+            "error": "Mismatch"
+        }]
+    },
+    "<ident>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<ident>"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "123 foo",
+            "error": "Mismatch"
+        }]
+    },
+    "<string>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<string>"
+            }
+        },
+        "testcases": [{
+            "value": "\"string\"",
+            "match": true
+        }, {
+            "value": "'string'",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1 'string'",
+            "error": "Mismatch"
+        }]
+    },
+    "<url>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<url>"
+            }
+        },
+        "testcases": [{
+            "value": "url(\"string\")",
+            "match": true
+        }, {
+            "value": "url('string')",
+            "match": true
+        }, {
+            "value": "url(raw)",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1 url('string')",
+            "error": "Mismatch"
+        }]
+    }
+}

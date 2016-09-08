@@ -1,7 +1,7 @@
 var resultFilename = require('path').resolve(__dirname + '/../docs/syntax.json');
 var data = require('../data');
 var syntax = require('../lib/syntax').create({
-    types: require('../lib/syntax/types')
+    generic: true
 });
 
 for (var key in data.properties) {

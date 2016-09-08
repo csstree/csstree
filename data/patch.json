@@ -40,6 +40,10 @@
       "comment": "broken syntax",
       "syntax": "&lt;color&gt;#"
     },
+    "animation-timing-function": {
+      "comment": "<timing-function> -> <single-timing-function> https://drafts.csswg.org/css-animations/#animation-timing-function",
+      "syntax": "<single-timing-function>#"
+    },
     "azimuth": {
       "comment": "missed space",
       "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards"
@@ -76,6 +80,10 @@
       "comment": "missed between brackets",
       "syntax": "none | [ [ filled | open ] || [ dot | circle | double-circle | triangle | sesame ] ] | &lt;string&gt;"
     },
+    "text-indent": {
+      "comment": "wrong syntax, replaced for https://drafts.csswg.org/css-text-3/#text-indent-property",
+      "syntax": "[ <length-percentage> ] && hanging? && each-line?"
+    },
     "text-size-adjust": {
       "comment": "trailing space",
       "syntax": "none | auto | &lt;percentage&gt;"
@@ -97,6 +105,10 @@
     "an-plus-b": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
+    },
+    "blend-mode": {
+      "comment": "missed, https://drafts.fxtf.org/compositing-1/#ltblendmodegt",
+      "syntax": "normal | multiply | screen | overlay | darken | lighten | color-dodge |color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity"
     },
     "border-radius": {
       "comment": "missed, https://drafts.csswg.org/css-backgrounds-3/#the-border-radius",
