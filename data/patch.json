@@ -16,10 +16,6 @@
       "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
       "syntax": "<'justify-content'>"
     },
-    "-ms-flex-pack": {
-      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
-      "syntax": "<'justify-content'>"
-    },
     "-webkit-mask": {
       "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
       "syntax": "&lt;mask-image&gt; [ &lt;'-webkit-mask-repeat'&gt; || &lt;'-webkit-mask-attachment'&gt; || &lt;'-webkit-mask-position'&gt; || &lt;'-webkit-mask-origin'&gt; || &lt;'-webkit-mask-clip'&gt; ]*"
@@ -203,8 +199,8 @@
       "syntax": "path( <string> )"
     },
     "position": {
-      "comment": "missed spaces between brackets",
-      "syntax": "[ [ left | center | right | top | bottom | &lt;length-percentage&gt; ] | [ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] | [ center | [ left | right ] &lt;length-percentage&gt;? ] && [ center | [ top | bottom ] &lt;length-percentage&gt;? ] ]"
+      "comment": "missed spaces between brackets, remove redundant top level group, move first group to the end since less collecting",
+      "syntax": "[ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] | [ center | [ left | right ] &lt;length-percentage&gt;? ] && [ center | [ top | bottom ] &lt;length-percentage&gt;? ] | [ left | center | right | top | bottom | &lt;length-percentage&gt; ]"
     },
     "right": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
