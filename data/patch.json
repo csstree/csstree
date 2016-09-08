@@ -128,6 +128,10 @@
       "comment": "missed between brackets",
       "syntax": "auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] ] | manipulation"
     },
+    "transform-origin": {
+      "comment": "move first group to the end since less collecting",
+      "syntax": "[ [ &lt;length-percentage&gt; | left | center | right ] &amp;&amp; [ &lt;length-percentage&gt; | top | center | bottom ] ] &lt;length&gt;? | [ &lt;length-percentage&gt; | left | center | right | top | bottom ]"
+    },
     "transition-timing-function": {
       "comment": "extra space in the beginning",
       "syntax": "&lt;single-transition-timing-function&gt;#"
