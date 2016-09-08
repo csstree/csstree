@@ -1,20 +1,32 @@
 {
   "properties": {
     "-ms-flex-align": {
-      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
-      "syntax": "<'align-items'>"
+      "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align",
+      "syntax": "start | end | center | baseline | stretch"
     },
     "-ms-flex-item-align": {
-      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
-      "syntax": "<'align-self'>"
+      "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align",
+      "syntax": "auto | start | end | center | baseline | stretch"
     },
     "-ms-flex-line-pack": {
-      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
-      "syntax": "<'align-content'>"
+      "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-line-pack",
+      "syntax": "start | end | center | justify | distribute | stretch"
+    },
+    "-ms-flex-negative": {
+      "comment": "misssed old syntax implemented in IE; TODO: find references for comfirmation",
+      "syntax": "<'flex-shrink'>"
     },
     "-ms-flex-pack": {
-      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
-      "syntax": "<'justify-content'>"
+      "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-pack",
+      "syntax": "start | end | center | justify | distribute"
+    },
+    "-ms-flex-positive": {
+      "comment": "misssed old syntax implemented in IE; TODO: find references for comfirmation",
+      "syntax": "<'flex-grow'>"
+    },
+    "-ms-flex-preferred-size": {
+      "comment": "misssed old syntax implemented in IE; TODO: find references for comfirmation",
+      "syntax": "<'flex-basis'>"
     },
     "-webkit-mask": {
       "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
