@@ -28,6 +28,10 @@
       "comment": "misssed old syntax implemented in IE; TODO: find references for comfirmation",
       "syntax": "<'flex-basis'>"
     },
+    "-webkit-overflow-scrolling": {
+      "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling",
+      "syntax": "auto | touch"
+    },
     "-webkit-mask": {
       "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
       "syntax": "&lt;mask-image&gt; [ &lt;'-webkit-mask-repeat'&gt; || &lt;'-webkit-mask-attachment'&gt; || &lt;'-webkit-mask-position'&gt; || &lt;'-webkit-mask-origin'&gt; || &lt;'-webkit-mask-clip'&gt; ]*"
