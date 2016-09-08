@@ -1,0 +1,121 @@
+{
+    "simple": {
+        "syntax": {
+            "types": {
+                "foo()": "foo( bar )"
+            },
+            "properties": {
+                "test": "<foo()>"
+            }
+        },
+        "testcases": [{
+            "value": "foo(bar)",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "foo",
+            "error": "Mismatch"
+        }, {
+            "value": "foo()",
+            "error": "Mismatch"
+        }, {
+            "value": "foo(baz)",
+            "error": "Mismatch"
+        }]
+    },
+    "two arguments": {
+        "syntax": {
+            "types": {
+                "foo()": "foo( bar, baz )"
+            },
+            "properties": {
+                "test": "<foo()>"
+            }
+        },
+        "testcases": [{
+            "value": "foo(bar, baz)",
+            "match": true
+        }, {
+            "value": "foo()",
+            "error": "Mismatch"
+        }, {
+            "value": "foo(bar)",
+            "error": "Mismatch"
+        }, {
+            "value": "foo(baz)",
+            "error": "Mismatch"
+        }, {
+            "value": "foo(bar, qux)",
+            "error": "Mismatch"
+        }]
+    },
+    "two arguments with optional": {
+        "syntax": {
+            "types": {
+                "foo()": "foo( bar, baz? )"
+            },
+            "properties": {
+                "test": "<foo()>"
+            }
+        },
+        "testcases": [{
+            "value": "foo(bar, baz)",
+            "match": true
+        }, {
+            "value": "foo(bar)",
+            "match": true
+        }, {
+            "value": "foo()",
+            "error": "Mismatch"
+        }, {
+            "value": "foo(baz)",
+            "error": "Mismatch"
+        }, {
+            "value": "foo(bar, qux)",
+            "error": "Mismatch"
+        }]
+    },
+    "three optional arguments": {
+        "syntax": {
+            "types": {
+                "foo()": "foo( bar?, baz?, qux? )"
+            },
+            "properties": {
+                "test": "<foo()>"
+            }
+        },
+        "testcases": [{
+            "value": "foo(bar)",
+            "match": true
+        }, {
+            "value": "foo(baz)",
+            "match": true
+        }, {
+            "value": "foo(qux)",
+            "match": true
+        }, {
+            "value": "foo(bar, baz)",
+            "match": true
+        }, {
+            "value": "foo(bar, qux)",
+            "match": true
+        }, {
+            "value": "foo(baz, qux)",
+            "match": true
+        }, {
+            "value": "foo(bar, baz, qux)",
+            "match": true
+        }, {
+            "value": "foo()",
+            "match": true
+        }, {
+            "value": "foo(baz, bar)",
+            "error": "Mismatch"
+        }, {
+            "value": "foo(something)",
+            "error": "Mismatch"
+        }]
+    }
+}
