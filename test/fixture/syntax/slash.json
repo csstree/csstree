@@ -1,0 +1,37 @@
+{
+    "simple": {
+        "syntax": {
+            "properties": {
+                "test": "foo / bar"
+            }
+        },
+        "testcases": [{
+            "value": "foo / bar",
+            "match": true
+        }, {
+            "value": "foo/bar",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "/",
+            "error": "Mismatch"
+        }, {
+            "value": "foo",
+            "error": "Mismatch"
+        }, {
+            "value": "foo /",
+            "error": "Mismatch"
+        }, {
+            "value": "foo bar",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }, {
+            "value": "/ bar",
+            "error": "Mismatch"
+        }]
+    }
+}
