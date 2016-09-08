@@ -52,6 +52,10 @@
       "comment": "outdated syntax, used syntax from https://drafts.csswg.org/css-content/#typedef-content-list",
       "syntax": "[ <image> ',' ]* [ normal | none | <content-list> ] [/ <string> ]?"
     },
+    "display": {
+      "comment": "extended with -ms-flexbox",
+      "syntax": "none | inline | block | list-item | inline-list-item | inline-block | inline-table | table | table-cell | table-column | table-column-group | table-footer-group | table-header-group | table-row | table-row-group | flex | inline-flex | grid | inline-grid | run-in | ruby | ruby-base | ruby-text | ruby-base-container | ruby-text-container | contents | -ms-flexbox | -ms-inline-flexbox"
+    },
     "font": {
       "comment": "wrong quotes",
       "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar"

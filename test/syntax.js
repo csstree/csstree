@@ -1,6 +1,7 @@
 var assert = require('assert');
 var parseCss = require('../lib/parser.js');
 // var stringifyCss = require('./helpers/stringify');
+var createSyntax = require('../lib/syntax').create;
 var parse = require('../lib/syntax/parse.js');
 var stringify = require('../lib/syntax/stringify.js');
 var walk = require('../lib/syntax/walk.js');
@@ -99,6 +100,39 @@ describe('CSS syntax', function() {
     });
 
     describe('match', function() {
+        describe('vendor prefixes and hacks', function() {
+            var bar = parseCss('bar', { context: 'value' });
+            var qux = parseCss('qux', { context: 'value' });
+            var syntax = createSyntax({
+                properties: {
+                    foo: 'bar',
+                    '-baz-foo': 'qux'
+                }
+            });
+
+            it('vendor prefix', function() {
+                assert(syntax.match('-vendor-foo', bar));
+            });
+            it('hacks', function() {
+                assert(syntax.match('_foo', bar));
+            });
+            it('vendor prefix and hack', function() {
+                assert(syntax.match('_-vendor-foo', bar));
+            });
+            it('case insensetive with vendor prefix and hack', function() {
+                assert(syntax.match('FOO', bar));
+                assert(syntax.match('-VENDOR-Foo', bar));
+                assert(syntax.match('_FOO', bar));
+                assert(syntax.match('_-VENDOR-Foo', bar));
+            });
+            it('should use verdor version first', function() {
+                assert(syntax.match('-baz-foo', qux));
+                assert.throws(function() {
+                    assert(syntax.match('-baz-baz-foo', qux));
+                }, /Unknown property/);
+            });
+        });
+
         tests.forEachTest(createMatchTest);
     });
 });

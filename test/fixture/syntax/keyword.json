@@ -9,6 +9,44 @@
             "value": "foo",
             "match": true
         }, {
+            "comment": "should be case insensitive",
+            "value": "FOO",
+            "match": true
+        }, {
+            "comment": "work well for vendor prefix",
+            "value": "-prefix-Foo",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "bar",
+            "error": "Mismatch"
+        }]
+    },
+    "with vendor prefix": {
+        "syntax": {
+            "properties": {
+                "test": "-vendor-foo"
+            }
+        },
+        "testcases": [{
+            "value": "-vendor-foo",
+            "match": true
+        }, {
+            "comment": "should be case insensitive",
+            "value": "-VENDOR-FOO",
+            "match": true
+        }, {
+            "value": "foo",
+            "error": "Mismatch"
+        }, {
+            "value": "Foo",
+            "error": "Mismatch"
+        }, {
+            "value": "-vendor-vendor-Foo",
+            "error": "Mismatch"
+        }, {
             "value": "",
             "error": "Mismatch"
         }, {
