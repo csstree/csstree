@@ -10,7 +10,11 @@ function normalizeSyntax(syntax) {
 
 // apply patch
 for (var key in patch.properties) {
-    data.properties[key].syntax = patch.properties[key].syntax;
+    if (key in data.properties) {
+        data.properties[key].syntax = patch.properties[key].syntax;
+    } else {
+        data.properties[key] = patch.properties[key];
+    }
 }
 
 for (var key in patch.syntaxes) {

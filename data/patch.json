@@ -1,5 +1,25 @@
 {
   "properties": {
+    "-ms-flex-align": {
+      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
+      "syntax": "<'align-items'>"
+    },
+    "-ms-flex-item-align": {
+      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
+      "syntax": "<'align-self'>"
+    },
+    "-ms-flex-line-pack": {
+      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
+      "syntax": "<'align-content'>"
+    },
+    "-ms-flex-pack": {
+      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
+      "syntax": "<'justify-content'>"
+    },
+    "-ms-flex-pack": {
+      "comment": "misssed old name used in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120612/#changes",
+      "syntax": "<'justify-content'>"
+    },
     "-webkit-mask": {
       "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
       "syntax": "&lt;mask-image&gt; [ &lt;'-webkit-mask-repeat'&gt; || &lt;'-webkit-mask-attachment'&gt; || &lt;'-webkit-mask-position'&gt; || &lt;'-webkit-mask-origin'&gt; || &lt;'-webkit-mask-clip'&gt; ]*"
@@ -99,6 +119,10 @@
     "transition-timing-function": {
       "comment": "extra space in the beginning",
       "syntax": "&lt;single-transition-timing-function&gt;#"
+    },
+    "zoom": {
+      "comment": "missed, not in DB, https://developer.mozilla.org/en-US/docs/Web/CSS/zoom",
+      "syntax": "normal | reset | <number> | <percentage>"
     }
   },
   "syntaxes": {
