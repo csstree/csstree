@@ -158,6 +158,10 @@
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
       "syntax": "<length> | auto"
     },
+    "color-stop-list": {
+      "comment": "missed #",
+      "syntax": "<color-stop>#{2,}"
+    },
     "content-list": {
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
       "syntax": "[ <string> | contents | <uri> | <quote> ]+"
