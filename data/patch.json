@@ -108,7 +108,7 @@
     },
     "blend-mode": {
       "comment": "missed, https://drafts.fxtf.org/compositing-1/#ltblendmodegt",
-      "syntax": "normal | multiply | screen | overlay | darken | lighten | color-dodge |color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity"
+      "syntax": "normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity"
     },
     "border-radius": {
       "comment": "missed, https://drafts.csswg.org/css-backgrounds-3/#the-border-radius",
