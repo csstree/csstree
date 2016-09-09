@@ -260,7 +260,7 @@
     },
     "content-list": {
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
-      "syntax": "[ <string> | contents | <url> | <quote> | <attr()> ]+"
+      "syntax": "[ <string> | contents | <url> | <quote> | <attr()> | counter( <ident>, <'list-style-type'>? ) ]+"
     },
     "family-name": {
       "comment": "upper case",
