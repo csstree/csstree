@@ -272,6 +272,10 @@
       "comment": "extra space in the beginning",
       "syntax": "&lt;single-transition-timing-function&gt;#"
     },
+    "unicode-range": {
+      "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
+      "syntax": "<unicode-range>#"
+    },
     "word-break": {
       "comment": "extend with non-standart keywords",
       "syntax": "normal | break-all | keep-all | <-non-standart-word-break>"
