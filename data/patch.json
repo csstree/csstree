@@ -442,8 +442,8 @@
       "syntax": "scale3d( &lt;number&gt; , &lt;number&gt; , &lt;number&gt; )"
     },
     "shape": {
-      "comment": "missed spaces in function body",
-      "syntax": "rect( &lt;top&gt;, &lt;right&gt;, &lt;bottom&gt;, &lt;left&gt; )"
+      "comment": "missed spaces in function body and add backwards compatible syntax",
+      "syntax": "rect( [ [ <top>, <right>, <bottom>, <left> ] | [ <top> <right> <bottom> <left> ] ] )"
     },
     "single-animation-name": {
       "comment": "missed angle brackets",
