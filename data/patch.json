@@ -124,6 +124,10 @@
       "comment": "added missed multiplicator `?` https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands",
       "syntax": "[ center | [ top | bottom | y-start | y-end ]? &lt;length-percentage&gt;? ]#"
     },
+    "behavior": {
+      "comment": "added old IE property https://msdn.microsoft.com/en-us/library/ms530723(v=vs.85).aspx",
+      "syntax": "<url>+"
+    },
     "content": {
       "comment": "outdated syntax, used syntax from https://drafts.csswg.org/css-content/#typedef-content-list",
       "syntax": "[ <image> ',' ]* [ normal | none | <content-list> ] [/ <string> ]?"
