@@ -192,6 +192,14 @@
       "comment": "added SVG property https://www.w3.org/TR/SVG/painting.html#MarkerProperties",
       "syntax": "none | <url>"
     },
+    "max-width": {
+      "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
+      "syntax": "&lt;length&gt; | &lt;percentage&gt; | none | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
+    },
+    "min-width": {
+      "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
+      "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
+    },
     "scroll-snap-points-x": {
       "comment": "missed spaces in function body",
       "syntax": "none | repeat( &lt;length&gt; )"
@@ -265,7 +273,7 @@
       "syntax": "&lt;single-transition-timing-function&gt;#"
     },
     "word-break": {
-      "comment": "extend with non-standart values",
+      "comment": "extend with non-standart keywords",
       "syntax": "normal | break-all | keep-all | <-non-standart-word-break>"
     },
     "zoom": {
@@ -311,11 +319,15 @@
       "syntax": "circle | ellipse"
     },
     "-non-standart-image-rendering": {
-      "comment": "non-standart values http://phrogz.net/tmp/canvas_image_zoom.html",
+      "comment": "non-standart keywords http://phrogz.net/tmp/canvas_image_zoom.html",
       "syntax": "optimizeSpeed | optimize-contrast | -moz-crisp-edges | -o-crisp-edges | -webkit-optimize-contrast"
     },
+    "-non-standart-width": {
+      "comment": "non-standart keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
+      "syntax": "min-intrinsic | intrinsic | -moz-min-content | -moz-max-content | -webkit-min-content | -webkit-max-content"
+    },
     "-non-standart-word-break": {
-      "comment": "non-standart values https://css-tricks.com/almanac/properties/w/word-break/",
+      "comment": "non-standart keywords https://css-tricks.com/almanac/properties/w/word-break/",
       "syntax": "break-word"
     },
     "-webkit-gradient()": {
@@ -339,7 +351,7 @@
       "syntax": "linear | radial"
     },
     "-webkit-mask-clip-style": {
-      "comment": "missed; there is no enaugh information about `-webkit-mask-clip` property, but looks like all those values are working",
+      "comment": "missed; there is no enough information about `-webkit-mask-clip` property, but looks like all those keywords are working",
       "syntax": "border | border-box | padding | padding-box | content | content-box | text"
     },
     "-ms-filter": {
