@@ -210,6 +210,10 @@
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
     },
+    "attr()": {
+      "comment": "drop it since it's a generic",
+      "syntax": null
+    },
     "blend-mode": {
       "comment": "missed, https://drafts.fxtf.org/compositing-1/#ltblendmodegt",
       "syntax": "normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity"
@@ -228,7 +232,7 @@
     },
     "content-list": {
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
-      "syntax": "[ <string> | contents | <uri> | <quote> ]+"
+      "syntax": "[ <string> | contents | <url> | <quote> | <attr()> ]+"
     },
     "family-name": {
       "comment": "upper case",
@@ -324,7 +328,7 @@
     },
     "quote": {
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-quote",
-      "syntax": "[ open-quote | close-quote | no-open-quote | no-close-quote ]"
+      "syntax": "open-quote | close-quote | no-open-quote | no-close-quote"
     },
     "x": {
       "comment": "missed; not sure we should add it, but no others except `cursor` is using it so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
