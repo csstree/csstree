@@ -40,6 +40,14 @@
       "comment": "https://msdn.microsoft.com/en-us/library/ff521095(v=vs.85).aspx",
       "syntax": "nearest-neighbor | bicubic"
     },
+    "-ms-grid-column-align": {
+      "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466338.aspx",
+      "syntax": "start | end | center | stretch"
+    },
+    "-ms-grid-row-align": {
+      "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466348.aspx",
+      "syntax": "start | end | center | stretch"
+    },
     "-ms-high-contrast-adjust": {
       "comment": "https://msdn.microsoft.com/en-us/library/hh771863(v=vs.85).aspx",
       "syntax": "auto | none"
