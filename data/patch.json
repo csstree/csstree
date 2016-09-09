@@ -200,6 +200,10 @@
       "comment": "missed spaces in function body",
       "syntax": "none | repeat( &lt;length&gt; )"
     },
+    "src": {
+      "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
+      "syntax": "[ <url> format( <string># )? | local( <family-name> ) ]#"
+    },
     "stroke": {
       "comment": "added SVG property https://www.w3.org/TR/SVG/painting.html#StrokeProperties",
       "syntax": "<paint>"
