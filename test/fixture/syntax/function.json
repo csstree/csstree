@@ -25,6 +25,26 @@
             "error": "Mismatch"
         }]
     },
+    "should be case insensetive": {
+        "syntax": {
+            "types": {
+                "foo()": "fooBar( baz )"
+            },
+            "properties": {
+                "test": "<foo()>"
+            }
+        },
+        "testcases": [{
+            "value": "fooBar(baz)",
+            "match": true
+        }, {
+            "value": "foobar(baz)",
+            "match": true
+        }, {
+            "value": "FOOBAR(baz)",
+            "match": true
+        }]
+    },
     "two arguments": {
         "syntax": {
             "types": {
