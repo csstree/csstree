@@ -80,6 +80,14 @@
       "comment": "missed space",
       "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards"
     },
+    "background-position-x": {
+      "comment": "added missed multiplicator `?` https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands",
+      "syntax": "[ center | [ left | right | x-start | x-end ]? &lt;length-percentage&gt;? ]#"
+    },
+    "background-position-y": {
+      "comment": "added missed multiplicator `?` https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands",
+      "syntax": "[ center | [ top | bottom | y-start | y-end ]? &lt;length-percentage&gt;? ]#"
+    },
     "content": {
       "comment": "outdated syntax, used syntax from https://drafts.csswg.org/css-content/#typedef-content-list",
       "syntax": "[ <image> ',' ]* [ normal | none | <content-list> ] [/ <string> ]?"
