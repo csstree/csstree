@@ -94,7 +94,7 @@
     },
     "fill-rule": {
       "comment": "added SVG property https://www.w3.org/TR/SVG/painting.html#FillProperty",
-      "syntax": " nonzero | evenodd"
+      "syntax": "nonzero | evenodd"
     },
     "font": {
       "comment": "wrong quotes",
