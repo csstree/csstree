@@ -1,5 +1,9 @@
 {
   "properties": {
+    "-moz-osx-font-smoothing": {
+      "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
+      "syntax": "auto | unset | grayscale"
+    },
     "-ms-flex-align": {
       "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align",
       "syntax": "start | end | center | baseline | stretch"
@@ -28,9 +32,21 @@
       "comment": "misssed old syntax implemented in IE; TODO: find references for comfirmation",
       "syntax": "<'flex-basis'>"
     },
-    "-webkit-overflow-scrolling": {
-      "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling",
-      "syntax": "auto | touch"
+    "-ms-interpolation-mode": {
+      "comment": "https://msdn.microsoft.com/en-us/library/ff521095(v=vs.85).aspx",
+      "syntax": "nearest-neighbor | bicubic"
+    },
+    "-ms-high-contrast-adjust": {
+      "comment": "https://msdn.microsoft.com/en-us/library/hh771863(v=vs.85).aspx",
+      "syntax": "auto | none"
+    },
+    "-webkit-font-smoothing": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
+      "syntax": "none | antialiased | subpixel-antialiased"
+    },
+    "-webkit-line-clamp": {
+      "comment": "non-standard and deprecated but may still using by some sites",
+      "syntax": "<positive-integer>"
     },
     "-webkit-mask": {
       "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
@@ -67,6 +83,10 @@
     "-webkit-mask-repeat": {
       "comment": "extra space between [ and ,",
       "syntax": "&lt;repeat-style&gt; [, &lt;repeat-style&gt; ]*"
+    },
+    "-webkit-overflow-scrolling": {
+      "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling",
+      "syntax": "auto | touch"
     },
     "-webkit-tap-highlight-color": {
       "comment": "broken syntax",
