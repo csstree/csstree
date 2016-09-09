@@ -5,22 +5,17 @@
                 "test": "foo bar"
             }
         },
-        "testcases": [{
-            "value": "foo bar",
-            "match": true
-        }, {
-            "value": "foo",
-            "error": "Mismatch"
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }, {
-            "value": "baz",
-            "error": "Mismatch"
-        }, {
-            "value": "foo bar foo",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo bar"
+        ],
+        "invalid:Mismatch": [
+            "foo",
+            "bar",
+            "baz"
+        ],
+        "invalid:Uncomplete match": [
+            "foo bar foo"
+        ]
     },
     "a bar": {
         "syntax": {
@@ -28,19 +23,16 @@
                 "test": "foo | bar"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "bar",
-            "match": true
-        }, {
-            "value": "baz",
-            "error": "Mismatch"
-        }, {
-            "value": "foo bar",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo",
+            "bar"
+        ],
+        "invalid:Mismatch": [
+            "baz"
+        ],
+        "invalid:Uncomplete match": [
+            "foo bar"
+        ]
     },
     "a double ampersand": {
         "syntax": {
@@ -48,28 +40,19 @@
                 "test": "foo && bar"
             }
         },
-        "testcases": [{
-            "value": "foo bar",
-            "match": true
-        }, {
-            "value": "bar foo",
-            "match": true
-        }, {
-            "value": "foo",
-            "error": "Mismatch"
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }, {
-            "value": "foo foo",
-            "error": "Mismatch"
-        }, {
-            "value": "foo foo bar",
-            "error": "Mismatch"
-        }, {
-            "value": "foo bar foo",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo bar",
+            "bar foo"
+        ],
+        "invalid:Mismatch": [
+            "foo",
+            "bar",
+            "foo foo",
+            "foo foo bar"
+        ],
+        "invalid:Uncomplete match": [
+            "foo bar foo"
+        ]
     },
     "a double ampersand with optional": {
         "syntax": {
@@ -77,28 +60,19 @@
                 "test": "foo && bar?"
             }
         },
-        "testcases": [{
-            "value": "foo bar",
-            "match": true
-        }, {
-            "value": "bar foo",
-            "match": true
-        }, {
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }, {
-            "value": "foo foo",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo foo bar",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo bar foo",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo bar",
+            "bar foo",
+            "foo"
+        ],
+        "invalid:Mismatch": [
+            "bar"
+        ],
+        "invalid:Uncomplete match": [
+            "foo foo",
+            "foo foo bar",
+            "foo bar foo"
+        ]
     },
     "a double ampersand with all optional": {
         "syntax": {
@@ -106,28 +80,17 @@
                 "test": "foo? && bar?"
             }
         },
-        "testcases": [{
-            "value": "foo bar",
-            "match": true
-        }, {
-            "value": "bar foo",
-            "match": true
-        }, {
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "bar",
-            "match": true
-        }, {
-            "value": "foo foo",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo foo bar",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo bar foo",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo bar",
+            "bar foo",
+            "foo",
+            "bar"
+        ],
+        "invalid:Uncomplete match": [
+            "foo foo",
+            "foo foo bar",
+            "foo bar foo"
+        ]
     },
     "a double bar": {
         "syntax": {
@@ -135,34 +98,21 @@
                 "test": "foo || bar"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "bar",
-            "match": true
-        }, {
-            "value": "foo bar",
-            "match": true
-        }, {
-            "value": "bar foo",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "baz",
-            "error": "Mismatch"
-        }, {
-            "value": "foo foo",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo foo bar",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo bar foo",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo",
+            "bar",
+            "foo bar",
+            "bar foo"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "baz"
+        ],
+        "invalid:Uncomplete match": [
+            "foo foo",
+            "foo foo bar",
+            "foo bar foo"
+        ]
     },
     "a double bar with all optional": {
         "syntax": {
@@ -170,33 +120,18 @@
                 "test": "foo? || bar?"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "bar",
-            "match": true
-        }, {
-            "value": "foo bar",
-            "match": true
-        }, {
-            "value": "bar foo",
-            "match": true
-        }, {
-            "value": "",
-            "match": true
-        }, {
-            "value": "baz",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo foo",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo foo bar",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo bar foo",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo",
+            "bar",
+            "foo bar",
+            "bar foo",
+            ""
+        ],
+        "invalid:Uncomplete match": [
+            "baz",
+            "foo foo",
+            "foo foo bar",
+            "foo bar foo"
+        ]
     }
 }

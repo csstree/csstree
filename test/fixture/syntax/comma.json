@@ -5,22 +5,15 @@
                 "test": "foo, bar"
             }
         },
-        "testcases": [{
-            "value": "foo, bar",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "foo",
-            "error": "Mismatch"
-        }, {
-            "value": "foo bar",
-            "error": "Mismatch"
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo, bar"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "foo",
+            "foo bar",
+            "bar"
+        ]
     },
     "first is omissible": {
         "syntax": {
@@ -28,25 +21,16 @@
                 "test": "foo?, bar"
             }
         },
-        "testcases": [{
-            "value": "foo, bar",
-            "match": true
-        }, {
-            "value": "bar",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "foo",
-            "error": "Mismatch"
-        }, {
-            "value": "foo bar",
-            "error": "Mismatch"
-        }, {
-            "value": ", bar",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo, bar",
+            "bar"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "foo",
+            "foo bar",
+            ", bar"
+        ]
     },
     "last is omissible": {
         "syntax": {
@@ -54,25 +38,16 @@
                 "test": "foo, bar?"
             }
         },
-        "testcases": [{
-            "value": "foo, bar",
-            "match": true
-        }, {
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }, {
-            "value": "foo bar",
-            "error": "Mismatch"
-        }, {
-            "value": "foo,",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo, bar",
+            "foo"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "bar",
+            "foo bar",
+            "foo,"
+        ]
     },
     "both is omissible": {
         "syntax": {
@@ -80,28 +55,17 @@
                 "test": "foo?, bar?"
             }
         },
-        "testcases": [{
-            "value": "",
-            "match": true
-        }, {
-            "value": "foo, bar",
-            "match": true
-        }, {
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "bar",
-            "match": true
-        }, {
-            "value": "foo ,",
-            "error": "Mismatch"
-        }, {
-            "value": "foo bar",
-            "error": "Mismatch"
-        }, {
-            "value": ", bar",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "",
+            "foo, bar",
+            "foo",
+            "bar"
+        ],
+        "invalid:Mismatch": [
+            "foo ,",
+            "foo bar",
+            ", bar"
+        ]
     },
     "three omissible": {
         "syntax": {
@@ -109,49 +73,24 @@
                 "test": "foo?, bar?, baz?"
             }
         },
-        "testcases": [{
-            "value": "",
-            "match": true
-        }, {
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "bar",
-            "match": true
-        }, {
-            "value": "baz",
-            "match": true
-        }, {
-            "value": "foo, bar",
-            "match": true
-        }, {
-            "value": "foo, baz",
-            "match": true
-        }, {
-            "value": "bar, baz",
-            "match": true
-        }, {
-            "value": "foo, bar, baz",
-            "match": true
-        }, {
-            "value": "foo ,",
-            "error": "Mismatch"
-        }, {
-            "value": "foo ,,",
-            "error": "Mismatch"
-        }, {
-            "value": "foo ,, bar",
-            "error": "Mismatch"
-        }, {
-            "value": "foo ,, baz",
-            "error": "Mismatch"
-        }, {
-            "value": ", bar",
-            "error": "Mismatch"
-        }, {
-            "value": ", bar , baz",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "",
+            "foo",
+            "bar",
+            "baz",
+            "foo, bar",
+            "foo, baz",
+            "bar, baz",
+            "foo, bar, baz"
+        ],
+        "invalid:Mismatch": [
+            "foo ,",
+            "foo ,,",
+            "foo ,, bar",
+            "foo ,, baz",
+            ", bar",
+            ", bar , baz"
+        ]
     },
     "four omissible": {
         "syntax": {
@@ -159,37 +98,20 @@
                 "test": "foo?, bar?, baz?, qux?"
             }
         },
-        "testcases": [{
-            "value": "",
-            "match": true
-        }, {
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "qux",
-            "match": true
-        }, {
-            "value": "foo, bar",
-            "match": true
-        }, {
-            "value": "foo, bar, qux",
-            "match": true
-        }, {
-            "value": "foo, qux",
-            "match": true
-        }, {
-            "value": "foo ,",
-            "error": "Mismatch"
-        }, {
-            "value": "foo ,,",
-            "error": "Mismatch"
-        }, {
-            "value": "foo ,, qux",
-            "error": "Mismatch"
-        }, {
-            "value": "foo ,,, qux",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "",
+            "foo",
+            "qux",
+            "foo, bar",
+            "foo, bar, qux",
+            "foo, qux"
+        ],
+        "invalid:Mismatch": [
+            "foo ,",
+            "foo ,,",
+            "foo ,, qux",
+            "foo ,,, qux"
+        ]
     },
     "leading comma in group": {
         "syntax": {
@@ -197,22 +119,15 @@
                 "test": "foo [ , foo ]*"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "foo, foo",
-            "match": true
-        }, {
-            "value": "foo, foo, foo, foo",
-            "match": true
-        }, {
-            "value": "foo ,",
-            "error": "Uncomplete match"
-        }, {
-            "value": "foo foo",
-            "error": "Uncomplete match"
-        }]
+        "valid": [
+            "foo",
+            "foo, foo",
+            "foo, foo, foo, foo"
+        ],
+        "invalid:Uncomplete match": [
+            "foo ,",
+            "foo foo"
+        ]
     },
     "trailig comma in group": {
         "syntax": {
@@ -220,21 +135,14 @@
                 "test": "[ foo , ]* foo"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "foo, foo",
-            "match": true
-        }, {
-            "value": "foo, foo, foo, foo",
-            "match": true
-        }, {
-            "value": ", foo",
-            "error": "Mismatch"
-        }, {
-            "value": "foo ,",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo",
+            "foo, foo",
+            "foo, foo, foo, foo"
+        ],
+        "invalid:Mismatch": [
+            ", foo",
+            "foo ,"
+        ]
     }
 }

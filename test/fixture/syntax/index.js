@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var createSyntax = require('../../../lib/syntax').create;
+var defaultSyntax = require('../../../lib/syntax/default');
 var JsonLocator = require('../../helpers/JsonLocator.js');
 
 function forEachTest(factory) {
@@ -8,15 +9,23 @@ function forEachTest(factory) {
         var file = testFiles[filename];
 
         for (var test in file) {
-            var syntax = createSyntax(file[test].syntax);
+            var syntax = file[test].syntax ? createSyntax(file[test].syntax) : defaultSyntax;
 
-            file[test].testcases.forEach(function(testcase, idx) {
-                factory(
-                    file[test].name + ' #' + idx,
-                    syntax,
-                    testcase
-                );
-            });
+            for (var property in file[test]) {
+                if (property !== 'valid' && !/^invalid:/.test(property)) {
+                    continue;
+                }
+
+                file[test][property].forEach(function(value, idx) {
+                    factory(
+                        file[test].name + ' ' + property + '#' + idx,
+                        syntax,
+                        file[test].property || 'test',
+                        value,
+                        property !== 'valid' ? property.substr(8) : false
+                    );
+                });
+            }
         }
     };
 }

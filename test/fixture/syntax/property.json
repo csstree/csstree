@@ -6,16 +6,13 @@
                 "property": "foo"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "bar"
+        ]
     },
     "with multiplier": {
         "syntax": {
@@ -24,24 +21,17 @@
                 "property": "foo"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "foo foo",
-            "match": true
-        }, {
-            "value": "foo foo foo foo",
-            "match": true
-        }, {
-            "value": "foo foo bar",
-            "error": "Uncomplete match"
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo",
+            "foo foo",
+            "foo foo foo foo"
+        ],
+        "invalid:Uncomplete match": [
+            "foo foo bar"
+        ],
+        "invalid:Mismatch": [
+            "",
+            ""
+        ]
     }
 }

@@ -5,15 +5,12 @@
                 "test": "100 | 200"
             }
         },
-        "testcases": [{
-            "value": "100",
-            "match": true
-        }, {
-            "value": "200",
-            "match": true
-        }, {
-            "value": "300",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "100",
+            "200"
+        ],
+        "invalid:Mismatch": [
+            "300"
+        ]
     }
 }

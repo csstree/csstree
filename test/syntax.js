@@ -26,25 +26,14 @@ function createParseTest(name, syntax) {
     });
 }
 
-function createMatchTest(name, syntax, test) {
-    // temporary solution to make tests correct
-    if ('error' in test) {
-        if (typeof test.error !== 'string') {
-            throw new Error(name + ' – error field should be a string');
-        }
-    } else if ('match' in test) {
-        if (test.match !== true) {
-            throw new Error(name + ' – match field should be a true');
-        }
-    }
-
+function createMatchTest(name, syntax, property, value, error) {
     it(name, function() {
-        var css = parseCss(test.value, { context: 'value' });
+        var css = parseCss(value, { context: 'value' });
 
-        if (test.error) {
+        if (error) {
             assert.throws(function() {
-                syntax.match('test', css);
-            }, new RegExp('^SyntaxMatchError: ' + test.error));
+                syntax.match(property, css);
+            }, new RegExp('^SyntaxMatchError: ' + error));
         } else {
             // left it for future
             // assert.equal(
@@ -52,7 +41,7 @@ function createMatchTest(name, syntax, test) {
             //     stringifyCss(test.match)
             // );
 
-            assert(Boolean(syntax.match('test', css)));
+            assert(Boolean(syntax.match(property, css)));
         }
     });
 }

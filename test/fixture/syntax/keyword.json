@@ -5,24 +5,15 @@
                 "test": "foo"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "comment": "should be case insensitive",
-            "value": "FOO",
-            "match": true
-        }, {
-            "comment": "work well for vendor prefix",
-            "value": "-prefix-Foo",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo",
+            "FOO",
+            "-prefix-Foo"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "bar"
+        ]
     },
     "with vendor prefix": {
         "syntax": {
@@ -30,29 +21,17 @@
                 "test": "-vendor-foo"
             }
         },
-        "testcases": [{
-            "value": "-vendor-foo",
-            "match": true
-        }, {
-            "comment": "should be case insensitive",
-            "value": "-VENDOR-FOO",
-            "match": true
-        }, {
-            "value": "foo",
-            "error": "Mismatch"
-        }, {
-            "value": "Foo",
-            "error": "Mismatch"
-        }, {
-            "value": "-vendor-vendor-Foo",
-            "error": "Mismatch"
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "bar",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "-vendor-foo",
+            "-VENDOR-FOO"
+        ],
+        "invalid:Mismatch": [
+            "foo",
+            "Foo",
+            "-vendor-vendor-Foo",
+            "",
+            "bar"
+        ]
     },
     "with multiplier": {
         "syntax": {
@@ -60,24 +39,17 @@
                 "test": "foo+"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "foo foo",
-            "match": true
-        }, {
-            "value": "foo foo foo foo",
-            "match": true
-        }, {
-            "value": "foo foo bar",
-            "error": "Uncomplete match"
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo",
+            "foo foo",
+            "foo foo foo foo"
+        ],
+        "invalid:Uncomplete match": [
+            "foo foo bar"
+        ],
+        "invalid:Mismatch": [
+            "",
+            ""
+        ]
     }
 }

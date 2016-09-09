@@ -6,43 +6,22 @@
                 "test": "<angle>"
             }
         },
-        "testcases": [{
-            "value": "1deg",
-            "match": true
-        }, {
-            "value": "1DEG",
-            "match": true
-        }, {
-            "value": "1grad",
-            "match": true
-        }, {
-            "value": "1GRAD",
-            "match": true
-        }, {
-            "value": "1rad",
-            "match": true
-        }, {
-            "value": "1RAD",
-            "match": true
-        }, {
-            "value": "1turn",
-            "match": true
-        }, {
-            "value": "1TURN",
-            "match": true
-        }, {
-            "value": "calc(2 * 1deg)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1px",
-            "error": "Mismatch"
-        }, {
-            "value": "1px 2deg",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1deg",
+            "1DEG",
+            "1grad",
+            "1GRAD",
+            "1rad",
+            "1RAD",
+            "1turn",
+            "1TURN",
+            "calc(2 * 1deg)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1px",
+            "1px 2deg"
+        ]
     },
     "<time>": {
         "syntax": {
@@ -51,31 +30,18 @@
                 "test": "<time>"
             }
         },
-        "testcases": [{
-            "value": "1s",
-            "match": true
-        }, {
-            "value": "1S",
-            "match": true
-        }, {
-            "value": "1ms",
-            "match": true
-        }, {
-            "value": "1MS",
-            "match": true
-        }, {
-            "value": "calc(2 * 1s)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1px",
-            "error": "Mismatch"
-        }, {
-            "value": "1px 2s",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1s",
+            "1S",
+            "1ms",
+            "1MS",
+            "calc(2 * 1s)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1px",
+            "1px 2s"
+        ]
     },
     "<length>": {
         "syntax": {
@@ -84,121 +50,47 @@
                 "test": "<length>"
             }
         },
-        "testcases": [{
-            "value": "1px",
-            "match": true
-        }, {
-            "value": "1PX",
-            "match": true
-        }, {
-            "value": "1mm",
-            "match": true
-        }, {
-            "value": "1MM",
-            "match": true
-        }, {
-            "value": "1cm",
-            "match": true
-        }, {
-            "value": "1CM",
-            "match": true
-        }, {
-            "value": "1in",
-            "match": true
-        }, {
-            "value": "1IN",
-            "match": true
-        }, {
-            "value": "1pt",
-            "match": true
-        }, {
-            "value": "1PT",
-            "match": true
-        }, {
-            "value": "1pc",
-            "match": true
-        }, {
-            "value": "1PC",
-            "match": true
-        }, {
-            "value": "1em",
-            "match": true
-        }, {
-            "value": "1EM",
-            "match": true
-        }, {
-            "value": "1ex",
-            "match": true
-        }, {
-            "value": "1EX",
-            "match": true
-        }, {
-            "value": "1ch",
-            "match": true
-        }, {
-            "value": "1CH",
-            "match": true
-        }, {
-            "value": "1rem",
-            "match": true
-        }, {
-            "value": "1REM",
-            "match": true
-        }, {
-            "value": "1vh",
-            "match": true
-        }, {
-            "value": "1VH",
-            "match": true
-        }, {
-            "value": "1vw",
-            "match": true
-        }, {
-            "value": "1VW",
-            "match": true
-        }, {
-            "value": "1vmin",
-            "match": true
-        }, {
-            "value": "1VMIN",
-            "match": true
-        }, {
-            "value": "1vmax",
-            "match": true
-        }, {
-            "value": "1VMAX",
-            "match": true
-        }, {
-            "value": "1vm",
-            "match": true
-        }, {
-            "value": "1VM",
-            "match": true
-        }, {
-            "comment": "for zero lengths the unit identifier is optional https://www.w3.org/TR/css3-values/#lengths",
-            "value": "0",
-            "match": true
-        }, {
-            "comment": "for zero lengths the unit identifier is optional https://www.w3.org/TR/css3-values/#lengths",
-            "value": "-0",
-            "match": true
-        }, {
-            "comment": "for zero lengths the unit identifier is optional https://www.w3.org/TR/css3-values/#lengths",
-            "value": "0.0",
-            "match": true
-        }, {
-            "value": "calc(2 * 1px)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1s",
-            "error": "Mismatch"
-        }, {
-            "value": "1s 2px",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1px",
+            "1PX",
+            "1mm",
+            "1MM",
+            "1cm",
+            "1CM",
+            "1in",
+            "1IN",
+            "1pt",
+            "1PT",
+            "1pc",
+            "1PC",
+            "1em",
+            "1EM",
+            "1ex",
+            "1EX",
+            "1ch",
+            "1CH",
+            "1rem",
+            "1REM",
+            "1vh",
+            "1VH",
+            "1vw",
+            "1VW",
+            "1vmin",
+            "1VMIN",
+            "1vmax",
+            "1VMAX",
+            "1vm",
+            "1VM",
+            "0",
+            "-0",
+            "0.0",
+            "calc(2 * 1px)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1s",
+            "1s 2px"
+        ]
     },
     "<frequency>": {
         "syntax": {
@@ -207,31 +99,18 @@
                 "test": "<frequency>"
             }
         },
-        "testcases": [{
-            "value": "1hz",
-            "match": true
-        }, {
-            "value": "1Hz",
-            "match": true
-        }, {
-            "value": "1khz",
-            "match": true
-        }, {
-            "value": "1kHz",
-            "match": true
-        }, {
-            "value": "calc(2 * 1hz)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1px",
-            "error": "Mismatch"
-        }, {
-            "value": "1px 2hz",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1hz",
+            "1Hz",
+            "1khz",
+            "1kHz",
+            "calc(2 * 1hz)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1px",
+            "1px 2hz"
+        ]
     },
     "<resolution>": {
         "syntax": {
@@ -240,37 +119,20 @@
                 "test": "<resolution>"
             }
         },
-        "testcases": [{
-            "value": "1dpi",
-            "match": true
-        }, {
-            "value": "1DPI",
-            "match": true
-        }, {
-            "value": "1dpcm",
-            "match": true
-        }, {
-            "value": "1DPCM",
-            "match": true
-        }, {
-            "value": "1dppx",
-            "match": true
-        }, {
-            "value": "1DPPX",
-            "match": true
-        }, {
-            "value": "calc(2 * 1dpi)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1px",
-            "error": "Mismatch"
-        }, {
-            "value": "1px 2dpi",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1dpi",
+            "1DPI",
+            "1dpcm",
+            "1DPCM",
+            "1dppx",
+            "1DPPX",
+            "calc(2 * 1dpi)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1px",
+            "1px 2dpi"
+        ]
     },
     "<flex>": {
         "syntax": {
@@ -279,25 +141,16 @@
                 "test": "<flex>"
             }
         },
-        "testcases": [{
-            "value": "1fr",
-            "match": true
-        }, {
-            "value": "1FR",
-            "match": true
-        }, {
-            "value": "calc(2 * 1fr)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1px",
-            "error": "Mismatch"
-        }, {
-            "value": "1px 2fr",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1fr",
+            "1FR",
+            "calc(2 * 1fr)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1px",
+            "1px 2fr"
+        ]
     },
     "<dimension>": {
         "syntax": {
@@ -306,19 +159,14 @@
                 "test": "<dimension>"
             }
         },
-        "testcases": [{
-            "value": "1px",
-            "match": true
-        }, {
-            "value": "1something",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1 2px",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1px",
+            "1something"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1 2px"
+        ]
     },
     "<percentage>": {
         "syntax": {
@@ -327,22 +175,15 @@
                 "test": "<percentage>"
             }
         },
-        "testcases": [{
-            "value": "1%",
-            "match": true
-        }, {
-            "value": "12.34%",
-            "match": true
-        }, {
-            "value": "calc(2 * 1%)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1 2%",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "1%",
+            "12.34%",
+            "calc(2 * 1%)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1 2%"
+        ]
     },
     "<number>": {
         "syntax": {
@@ -351,28 +192,17 @@
                 "test": "<number>"
             }
         },
-        "testcases": [{
-            "value": "123",
-            "match": true
-        }, {
-            "value": "123.456",
-            "match": true
-        }, {
-            "value": "123.",
-            "match": true
-        }, {
-            "value": ".456",
-            "match": true
-        }, {
-            "value": "calc(2 * 1.5)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "foo 123",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "123",
+            "123.456",
+            "123.",
+            ".456",
+            "calc(2 * 1.5)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "foo 123"
+        ]
     },
     "<integer>": {
         "syntax": {
@@ -381,34 +211,19 @@
                 "test": "<integer>"
             }
         },
-        "testcases": [{
-            "value": "123",
-            "match": true
-        }, {
-            "value": "-123",
-            "match": true
-        }, {
-            "value": "calc(2 * 2)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "123.456",
-            "error": "Mismatch"
-        }, {
-            "value": "-123.456",
-            "error": "Mismatch"
-        }, {
-            "value": "123.",
-            "error": "Mismatch"
-        }, {
-            "value": ".456",
-            "error": "Mismatch"
-        }, {
-            "value": "foo 123",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "123",
+            "-123",
+            "calc(2 * 2)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "123.456",
+            "-123.456",
+            "123.",
+            ".456",
+            "foo 123"
+        ]
     },
     "<positive-integer>": {
         "syntax": {
@@ -417,34 +232,19 @@
                 "test": "<positive-integer>"
             }
         },
-        "testcases": [{
-            "value": "123",
-            "match": true
-        }, {
-            "value": "calc(2 * 2)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "-123",
-            "error": "Mismatch"
-        }, {
-            "value": "123.456",
-            "error": "Mismatch"
-        }, {
-            "value": "-123.456",
-            "error": "Mismatch"
-        }, {
-            "value": "123.",
-            "error": "Mismatch"
-        }, {
-            "value": ".456",
-            "error": "Mismatch"
-        }, {
-            "value": "foo 123",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "123",
+            "calc(2 * 2)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "-123",
+            "123.456",
+            "-123.456",
+            "123.",
+            ".456",
+            "foo 123"
+        ]
     },
     "<hex-color>": {
         "syntax": {
@@ -453,46 +253,23 @@
                 "test": "<hex-color>"
             }
         },
-        "testcases": [{
-            "value": "#abc",
-            "match": true
-        }, {
-            "value": "#abcd",
-            "match": true
-        }, {
-            "value": "#abcdef",
-            "match": true
-        }, {
-            "value": "#123456",
-            "match": true
-        }, {
-            "value": "#aBcDeF",
-            "match": true
-        }, {
-            "value": "#abcdef12",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "#a",
-            "error": "Mismatch"
-        }, {
-            "value": "#ab",
-            "error": "Mismatch"
-        }, {
-            "value": "#abcde",
-            "error": "Mismatch"
-        }, {
-            "value": "#abcdef1",
-            "error": "Mismatch"
-        }, {
-            "value": "#abcdef123",
-            "error": "Mismatch"
-        }, {
-            "value": "123 #abc123",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "#abc",
+            "#abcd",
+            "#abcdef",
+            "#123456",
+            "#aBcDeF",
+            "#abcdef12"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "#a",
+            "#ab",
+            "#abcde",
+            "#abcdef1",
+            "#abcdef123",
+            "123 #abc123"
+        ]
     },
     "<id-selector>": {
         "syntax": {
@@ -501,22 +278,15 @@
                 "test": "<id-selector>"
             }
         },
-        "testcases": [{
-            "value": "#foo",
-            "match": true
-        }, {
-            "value": "#123",
-            "match": true
-        }, {
-            "value": "#foo-123",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "123 #foo",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "#foo",
+            "#123",
+            "#foo-123"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "123 #foo"
+        ]
     },
     "<ident>": {
         "syntax": {
@@ -525,16 +295,13 @@
                 "test": "<ident>"
             }
         },
-        "testcases": [{
-            "value": "foo",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "123 foo",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "123 foo"
+        ]
     },
     "<string>": {
         "syntax": {
@@ -543,19 +310,14 @@
                 "test": "<string>"
             }
         },
-        "testcases": [{
-            "value": "\"string\"",
-            "match": true
-        }, {
-            "value": "'string'",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1 'string'",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "\"string\"",
+            "'string'"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1 'string'"
+        ]
     },
     "<url>": {
         "syntax": {
@@ -564,22 +326,15 @@
                 "test": "<url>"
             }
         },
-        "testcases": [{
-            "value": "url(\"string\")",
-            "match": true
-        }, {
-            "value": "url('string')",
-            "match": true
-        }, {
-            "value": "url(raw)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1 url('string')",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "url(\"string\")",
+            "url('string')",
+            "url(raw)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1 url('string')"
+        ]
     },
     "<attr()>": {
         "syntax": {
@@ -588,15 +343,12 @@
                 "test": "<attr()>"
             }
         },
-        "testcases": [{
-            "value": "attr(foo)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "1 attr(foo)",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "attr(foo)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1 attr(foo)"
+        ]
     }
 }

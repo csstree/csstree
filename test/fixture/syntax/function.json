@@ -8,22 +8,15 @@
                 "test": "<foo()>"
             }
         },
-        "testcases": [{
-            "value": "foo(bar)",
-            "match": true
-        }, {
-            "value": "",
-            "error": "Mismatch"
-        }, {
-            "value": "foo",
-            "error": "Mismatch"
-        }, {
-            "value": "foo()",
-            "error": "Mismatch"
-        }, {
-            "value": "foo(baz)",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo(bar)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "foo",
+            "foo()",
+            "foo(baz)"
+        ]
     },
     "should be case insensetive": {
         "syntax": {
@@ -34,16 +27,11 @@
                 "test": "<foo()>"
             }
         },
-        "testcases": [{
-            "value": "fooBar(baz)",
-            "match": true
-        }, {
-            "value": "foobar(baz)",
-            "match": true
-        }, {
-            "value": "FOOBAR(baz)",
-            "match": true
-        }]
+        "valid": [
+            "fooBar(baz)",
+            "foobar(baz)",
+            "FOOBAR(baz)"
+        ]
     },
     "two arguments": {
         "syntax": {
@@ -54,22 +42,15 @@
                 "test": "<foo()>"
             }
         },
-        "testcases": [{
-            "value": "foo(bar, baz)",
-            "match": true
-        }, {
-            "value": "foo()",
-            "error": "Mismatch"
-        }, {
-            "value": "foo(bar)",
-            "error": "Mismatch"
-        }, {
-            "value": "foo(baz)",
-            "error": "Mismatch"
-        }, {
-            "value": "foo(bar, qux)",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo(bar, baz)"
+        ],
+        "invalid:Mismatch": [
+            "foo()",
+            "foo(bar)",
+            "foo(baz)",
+            "foo(bar, qux)"
+        ]
     },
     "two arguments with optional": {
         "syntax": {
@@ -80,22 +61,15 @@
                 "test": "<foo()>"
             }
         },
-        "testcases": [{
-            "value": "foo(bar, baz)",
-            "match": true
-        }, {
-            "value": "foo(bar)",
-            "match": true
-        }, {
-            "value": "foo()",
-            "error": "Mismatch"
-        }, {
-            "value": "foo(baz)",
-            "error": "Mismatch"
-        }, {
-            "value": "foo(bar, qux)",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo(bar, baz)",
+            "foo(bar)"
+        ],
+        "invalid:Mismatch": [
+            "foo()",
+            "foo(baz)",
+            "foo(bar, qux)"
+        ]
     },
     "three optional arguments": {
         "syntax": {
@@ -106,36 +80,19 @@
                 "test": "<foo()>"
             }
         },
-        "testcases": [{
-            "value": "foo(bar)",
-            "match": true
-        }, {
-            "value": "foo(baz)",
-            "match": true
-        }, {
-            "value": "foo(qux)",
-            "match": true
-        }, {
-            "value": "foo(bar, baz)",
-            "match": true
-        }, {
-            "value": "foo(bar, qux)",
-            "match": true
-        }, {
-            "value": "foo(baz, qux)",
-            "match": true
-        }, {
-            "value": "foo(bar, baz, qux)",
-            "match": true
-        }, {
-            "value": "foo()",
-            "match": true
-        }, {
-            "value": "foo(baz, bar)",
-            "error": "Mismatch"
-        }, {
-            "value": "foo(something)",
-            "error": "Mismatch"
-        }]
+        "valid": [
+            "foo(bar)",
+            "foo(baz)",
+            "foo(qux)",
+            "foo(bar, baz)",
+            "foo(bar, qux)",
+            "foo(baz, qux)",
+            "foo(bar, baz, qux)",
+            "foo()"
+        ],
+        "invalid:Mismatch": [
+            "foo(baz, bar)",
+            "foo(something)"
+        ]
     }
 }
