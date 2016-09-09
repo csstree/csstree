@@ -132,6 +132,10 @@
       "comment": "extended with -ms-flexbox",
       "syntax": "none | inline | block | list-item | inline-list-item | inline-block | inline-table | table | table-cell | table-column | table-column-group | table-footer-group | table-header-group | table-row | table-row-group | flex | inline-flex | grid | inline-grid | run-in | ruby | ruby-base | ruby-text | ruby-base-container | ruby-text-container | contents | -ms-flexbox | -ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
     },
+    "image-rendering": {
+      "comment": "extended with <-non-standart-image-rendering>",
+      "syntax": "auto | crisp-edges | pixelated | <-non-standart-image-rendering>"
+    },
     "fill": {
       "comment": "added SVG property https://www.w3.org/TR/SVG/painting.html#FillProperty",
       "syntax": "<paint>"
@@ -244,6 +248,10 @@
       "comment": "extra space in the beginning",
       "syntax": "&lt;single-transition-timing-function&gt;#"
     },
+    "word-break": {
+      "comment": "extend with non-standart values",
+      "syntax": "normal | break-all | keep-all | <-non-standart-word-break>"
+    },
     "zoom": {
       "comment": "missed, not in DB, https://developer.mozilla.org/en-US/docs/Web/CSS/zoom",
       "syntax": "normal | reset | <number> | <percentage>"
@@ -285,6 +293,14 @@
     "-legacy-radial-gradient-shape": {
       "comment": "define to duoble sure it doesn't extends in future https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltshape",
       "syntax": "circle | ellipse"
+    },
+    "-non-standart-image-rendering": {
+      "comment": "non-standart values http://phrogz.net/tmp/canvas_image_zoom.html",
+      "syntax": "optimizeSpeed | optimize-contrast | -moz-crisp-edges | -o-crisp-edges | -webkit-optimize-contrast"
+    },
+    "-non-standart-word-break": {
+      "comment": "non-standart values https://css-tricks.com/almanac/properties/w/word-break/",
+      "syntax": "break-word"
     },
     "-webkit-gradient()": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
