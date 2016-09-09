@@ -100,6 +100,35 @@
             "error": "Uncomplete match"
         }]
     },
+    "a double ampersand with all optional": {
+        "syntax": {
+            "properties": {
+                "test": "foo? && bar?"
+            }
+        },
+        "testcases": [{
+            "value": "foo bar",
+            "match": true
+        }, {
+            "value": "bar foo",
+            "match": true
+        }, {
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "bar",
+            "match": true
+        }, {
+            "value": "foo foo",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo foo bar",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo bar foo",
+            "error": "Uncomplete match"
+        }]
+    },
     "a double bar": {
         "syntax": {
             "properties": {
@@ -124,6 +153,41 @@
         }, {
             "value": "baz",
             "error": "Mismatch"
+        }, {
+            "value": "foo foo",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo foo bar",
+            "error": "Uncomplete match"
+        }, {
+            "value": "foo bar foo",
+            "error": "Uncomplete match"
+        }]
+    },
+    "a double bar with all optional": {
+        "syntax": {
+            "properties": {
+                "test": "foo? || bar?"
+            }
+        },
+        "testcases": [{
+            "value": "foo",
+            "match": true
+        }, {
+            "value": "bar",
+            "match": true
+        }, {
+            "value": "foo bar",
+            "match": true
+        }, {
+            "value": "bar foo",
+            "match": true
+        }, {
+            "value": "",
+            "match": true
+        }, {
+            "value": "baz",
+            "error": "Uncomplete match"
         }, {
             "value": "foo foo",
             "error": "Uncomplete match"
