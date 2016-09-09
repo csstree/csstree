@@ -4,6 +4,10 @@
       "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "auto | unset | grayscale"
     },
+    "-ms-filter": {
+      "comment": "added missed syntax https://blogs.msdn.microsoft.com/ie/2009/02/19/the-css-corner-using-filters-in-ie8/",
+      "syntax": "<string>"
+    },
     "-ms-flex-align": {
       "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align",
       "syntax": "start | end | center | baseline | stretch"
@@ -136,6 +140,10 @@
       "comment": "added SVG property https://www.w3.org/TR/SVG/painting.html#FillProperty",
       "syntax": "nonzero | evenodd"
     },
+    "filter": {
+      "comment": "extend with IE legacy syntaxes",
+      "syntax": "none | &lt;filter-function-list&gt; | <-ms-filter>"
+    },
     "font": {
       "comment": "wrong quotes",
       "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar"
@@ -242,30 +250,6 @@
     }
   },
   "syntaxes": {
-    "-webkit-gradient()": {
-      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
-      "syntax": "-webkit-gradient( <-webkit-gradient-type>, <-webkit-gradient-point> [, <-webkit-gradient-point> | , <-webkit-gradient-radius>, <-webkit-gradient-point> ] [, <-webkit-gradient-radius>]? [, <-webkit-gradient-color-stop()>]* )"
-    },
-    "-webkit-gradient-color-stop()": {
-      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
-      "syntax": "from( <color> ) | color-stop( [ <number-zero-one> | <percentage> ] , <color> ) | to( <color> )"
-    },
-    "-webkit-gradient-point": {
-      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
-      "syntax": " [ left | center | right | <length-percentage> ] [ top | center | bottom | <length-percentage> ]"
-    },
-    "-webkit-gradient-radius": {
-      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
-      "syntax": "<length> | <percentage>"
-    },
-    "-webkit-gradient-type": {
-      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
-      "syntax": "linear | radial"
-    },
-    "-webkit-mask-clip-style": {
-      "comment": "missed; there is no enaugh information about `-webkit-mask-clip` property, but looks like all those values are working",
-      "syntax": "border | border-box | padding | padding-box | content | content-box | text"
-    },
     "-legacy-gradient()": {
       "comment": "added collection of legacy gradient syntaxes",
       "syntax": "<-webkit-gradient()> | <-legacy-linear-gradient()> | <-legacy-repeating-linear-gradient()> | <-legacy-radial-gradient()> | <-legacy-repeating-radial-gradient()>"
@@ -301,6 +285,33 @@
     "-legacy-radial-gradient-shape": {
       "comment": "define to duoble sure it doesn't extends in future https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltshape",
       "syntax": "circle | ellipse"
+    },
+    "-webkit-gradient()": {
+      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
+      "syntax": "-webkit-gradient( <-webkit-gradient-type>, <-webkit-gradient-point> [, <-webkit-gradient-point> | , <-webkit-gradient-radius>, <-webkit-gradient-point> ] [, <-webkit-gradient-radius>]? [, <-webkit-gradient-color-stop()>]* )"
+    },
+    "-webkit-gradient-color-stop()": {
+      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
+      "syntax": "from( <color> ) | color-stop( [ <number-zero-one> | <percentage> ] , <color> ) | to( <color> )"
+    },
+    "-webkit-gradient-point": {
+      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
+      "syntax": " [ left | center | right | <length-percentage> ] [ top | center | bottom | <length-percentage> ]"
+    },
+    "-webkit-gradient-radius": {
+      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
+      "syntax": "<length> | <percentage>"
+    },
+    "-webkit-gradient-type": {
+      "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
+      "syntax": "linear | radial"
+    },
+    "-webkit-mask-clip-style": {
+      "comment": "missed; there is no enaugh information about `-webkit-mask-clip` property, but looks like all those values are working",
+      "syntax": "border | border-box | padding | padding-box | content | content-box | text"
+    },
+    "-ms-filter": {
+      "syntax": "<progid>+"
     },
     "an-plus-b": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
