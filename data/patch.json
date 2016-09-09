@@ -40,6 +40,18 @@
       "comment": "https://msdn.microsoft.com/en-us/library/hh771863(v=vs.85).aspx",
       "syntax": "auto | none"
     },
+    "-webkit-column-break-after": {
+      "comment": "added, http://help.dottoro.com/lcrthhhv.php",
+      "syntax": "always | auto | avoid"
+    },
+    "-webkit-column-break-before": {
+      "comment": "added, http://help.dottoro.com/lcxquvkf.php",
+      "syntax": "always | auto | avoid"
+    },
+    "-webkit-column-break-inside": {
+      "comment": "added, http://help.dottoro.com/lclhnthl.php",
+      "syntax": "always | auto | avoid"
+    },
     "-webkit-font-smoothing": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "none | antialiased | subpixel-antialiased"
