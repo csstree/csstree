@@ -31,6 +31,9 @@
             "value": "1TURN",
             "match": true
         }, {
+            "value": "calc(2 * 1deg)",
+            "match": true
+        }, {
             "value": "",
             "error": "Mismatch"
         }, {
@@ -59,6 +62,9 @@
             "match": true
         }, {
             "value": "1MS",
+            "match": true
+        }, {
+            "value": "calc(2 * 1s)",
             "match": true
         }, {
             "value": "",
@@ -181,6 +187,9 @@
             "value": "0.0",
             "match": true
         }, {
+            "value": "calc(2 * 1px)",
+            "match": true
+        }, {
             "value": "",
             "error": "Mismatch"
         }, {
@@ -209,6 +218,9 @@
             "match": true
         }, {
             "value": "1kHz",
+            "match": true
+        }, {
+            "value": "calc(2 * 1hz)",
             "match": true
         }, {
             "value": "",
@@ -247,6 +259,9 @@
             "value": "1DPPX",
             "match": true
         }, {
+            "value": "calc(2 * 1dpi)",
+            "match": true
+        }, {
             "value": "",
             "error": "Mismatch"
         }, {
@@ -269,6 +284,9 @@
             "match": true
         }, {
             "value": "1FR",
+            "match": true
+        }, {
+            "value": "calc(2 * 1fr)",
             "match": true
         }, {
             "value": "",
@@ -316,6 +334,9 @@
             "value": "12.34%",
             "match": true
         }, {
+            "value": "calc(2 * 1%)",
+            "match": true
+        }, {
             "value": "",
             "error": "Mismatch"
         }, {
@@ -343,6 +364,9 @@
             "value": ".456",
             "match": true
         }, {
+            "value": "calc(2 * 1.5)",
+            "match": true
+        }, {
             "value": "",
             "error": "Mismatch"
         }, {
@@ -362,6 +386,9 @@
             "match": true
         }, {
             "value": "-123",
+            "match": true
+        }, {
+            "value": "calc(2 * 2)",
             "match": true
         }, {
             "value": "",
@@ -392,6 +419,9 @@
         },
         "testcases": [{
             "value": "123",
+            "match": true
+        }, {
+            "value": "calc(2 * 2)",
             "match": true
         }, {
             "value": "",
@@ -548,6 +578,24 @@
             "error": "Mismatch"
         }, {
             "value": "1 url('string')",
+            "error": "Mismatch"
+        }]
+    },
+    "<attr()>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<attr()>"
+            }
+        },
+        "testcases": [{
+            "value": "attr(foo)",
+            "match": true
+        }, {
+            "value": "",
+            "error": "Mismatch"
+        }, {
+            "value": "1 attr(foo)",
             "error": "Mismatch"
         }]
     }
