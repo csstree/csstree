@@ -561,6 +561,10 @@
       "comment": "missed angle brackets",
       "syntax": "none | <ident>"
     },
+    "single-transition": {
+      "comment": "moved <single-transition-timing-function> in the beginning to avoid wrong match to <single-transition-property>",
+      "syntax": "&lt;single-transition-timing-function&gt; || [ none | &lt;single-transition-property&gt; ] || &lt;time&gt; || &lt;time&gt;"
+    },
     "single-transition-property": {
       "comment": "missed angle brackets",
       "syntax": "all | <ident>"
