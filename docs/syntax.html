@@ -122,178 +122,178 @@
     <script>
         /* eslint-env browser */
         /* global csstree */
-        fetch('syntax.json').then(function(res) {
-            return res.json();
-        }).then(function(syntaxes) {
-            function escapeHtml(str) {
-                return str
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;');
-            }
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
 
-            function validateValue() {
-                var value = valueInput.value;
-                var isEmpty = !/\S/.test(value);
-                var error;
+        function validateValue() {
+            var value = valueInput.value;
+            var isEmpty = !/\S/.test(value);
+            var error;
 
-                if (currentProperty && !isEmpty) {
+            if (currentProperty && !isEmpty) {
+                try {
+                    var ast = csstree.parse(value, {
+                        context: 'value'
+                    });
+
                     try {
-                        var ast = csstree.parse(value, {
-                            context: 'value'
-                        });
-
-                        try {
-                            csstree.syntax.defaultSyntax.match(currentProperty, ast);
-                        } catch (e) {
-                            error = e.message;
-                        }
+                        defaultSyntax.match(currentProperty, ast);
                     } catch (e) {
                         error = e.message;
                     }
+                } catch (e) {
+                    error = e.message;
                 }
-
-                valueInputError.classList.toggle('valid', !error);
-                valueInputError.classList.toggle('empty', isEmpty);
-                valueInputError.innerText = error || '';
             }
 
-            function updateContent() {
-                var ref = location.hash.substr(1);
-                var section = ref.split(':')[0];
-                var name = ref.split(':')[1];
-                var contentEl = document.querySelector('article');
-                var nestedEl = document.querySelector('.nested');
-                var info = syntax[section] && syntax[section][name];
+            valueInputError.classList.toggle('valid', !error);
+            valueInputError.classList.toggle('empty', isEmpty);
+            valueInputError.innerText = error || '';
+        }
 
-                currentProperty = section === PROPERTY ? name : '';
-                contentEl.style.display = name ? '' : 'none';
-                valueInput.focus();
-                valueInput.select();
-                validateValue();
+        function updateContent() {
+            var ref = location.hash.substr(1);
+            var section = ref.split(':')[0];
+            var name = ref.split(':')[1];
+            var contentEl = document.querySelector('article');
+            var nestedEl = document.querySelector('.nested');
+            var info = defaultSyntax[section] && defaultSyntax[section][name];
 
-                if (!name) {
-                    return;
-                }
+            currentProperty = info && section === PROPERTY ? name : '';
+            contentEl.style.display = info ? '' : 'none';
+            nestedEl.style.display = 'none';
+            valueInput.focus();
+            valueInput.select();
+            validateValue();
 
-                document.querySelector('h1').innerText = section === PROPERTY
-                    ? '<\'' + name + '\'>'
-                    : '<' + name + '>';
+            if (!name || !info) {
+                return;
+            }
 
-                document.querySelector('.output').innerText = info.syntax ? cssSyntax.stringify(info.syntax) : 'Syntax is missed';
+            document.querySelector('h1').innerText = section === PROPERTY
+                ? '<\'' + name + '\'>'
+                : '<' + name + '>';
 
-                if (info.syntax) {
-                    var nested = {};
-                    cssSyntax.walk(info.syntax, function walk(node) {
-                        var nestedSection;
-                        var nestedName;
+            document.querySelector('.output').innerText = info.syntax ? cssSyntax.stringify(info.syntax) : info.match ? 'generic' : 'Syntax is missed';
 
-                        switch (node.type) {
-                            case 'Type':
-                                nestedName = node.name;
-                                ref = nestedName;
-                                nestedSection = TYPE;
-                                break;
+            if (info.syntax) {
+                var nested = {};
+                cssSyntax.walk(info.syntax, function walk(node) {
+                    var nestedSection;
+                    var nestedName;
 
-                            case 'Property':
-                                nestedName = node.name;
-                                ref = '\'' + node.name + '\'';
-                                nestedSection = PROPERTY;
-                                break;
+                    switch (node.type) {
+                        case 'Type':
+                            nestedName = node.name;
+                            ref = nestedName;
+                            nestedSection = TYPE;
+                            break;
 
-                            default:
-                                return;
-                        }
+                        case 'Property':
+                            nestedName = node.name;
+                            ref = '\'' + node.name + '\'';
+                            nestedSection = PROPERTY;
+                            break;
 
-                        if (nestedName === name && nestedSection === section) {
+                        default:
                             return;
-                        }
+                    }
 
-                        var nestedInfo = syntax[nestedSection] && syntax[nestedSection][nestedName];
+                    if (nestedName === name && nestedSection === section) {
+                        return;
+                    }
 
-                        if (nestedInfo && !nestedInfo.syntax) {
-                            return;
-                        }
+                    var nestedInfo = defaultSyntax[nestedSection] && defaultSyntax[nestedSection][nestedName];
 
-                        if (nestedInfo) {
-                            if (ref in nested === false) {
-                                nested[ref] = {
-                                    section: nestedSection,
-                                    name: nestedName,
-                                    syntax: cssSyntax.stringify(nestedInfo.syntax)
-                                };
-                                cssSyntax.walk(nestedInfo.syntax, walk);
-                            }
-                        } else {
+                    if (nestedInfo && !nestedInfo.syntax) {
+                        return;
+                    }
+
+                    if (nestedInfo) {
+                        if (ref in nested === false) {
                             nested[ref] = {
-                                error: 'missed syntax'
+                                section: nestedSection,
+                                name: nestedName,
+                                syntax: cssSyntax.stringify(nestedInfo.syntax)
                             };
+                            cssSyntax.walk(nestedInfo.syntax, walk);
                         }
-                    });
-
-                    nestedEl.innerHTML = '';
-                    Object.keys(nested).forEach(function(ref) {
-                        var item = document.createElement('div');
-                        var info = nested[ref];
-
-                        item.innerHTML = info.error
-                            ? '&lt;' + ref + '&gt; = <span class="error">' + info.error + '</span>'
-                            : '<a href="#' + info.section + ':' + info.name + '">&lt;' + ref + '&gt;</a> = ' + escapeHtml(info.syntax);
-
-                        nestedEl.appendChild(item);
-                    });
-                    nestedEl.style.display = nestedEl.firstChild ? '' : 'none';
-                }
-            }
-
-            var PROPERTY = 'properties';
-            var TYPE = 'types';
-            var cssSyntax = csstree.syntax;
-            var syntax = cssSyntax.create(syntaxes);
-            var brokenMap = syntax.validate();
-            var valueInput = document.getElementById('value-input');
-            var valueInputError = document.getElementById('value-input-result');
-            var currentProperty;
-
-            valueInput.addEventListener('input', function() {
-                validateValue();
-            });
-
-            [PROPERTY, TYPE].forEach(function(section) {
-                var sectionEl = document.createElement('section');
-                var headerEl = document.createElement('h2');
-                var listEl = document.createElement('ul');
-                var brokenCount = 0;
-
-                Object.keys(syntax[section]).sort().forEach(function(name) {
-                    var broken = brokenMap ? brokenMap[section].hasOwnProperty(name) : false;
-                    var itemEl = document.createElement('li');
-                    var linkEl = document.createElement('a');
-
-                    brokenCount += broken;
-                    linkEl.href = '#' + section + ':' + name;
-                    linkEl.className = broken ? 'error' : '';
-                    linkEl.appendChild(document.createTextNode(
-                        section === PROPERTY ? '<\'' + name + '\'>' : '<' + name + '>'
-                    ));
-
-                    itemEl.appendChild(linkEl);
-                    listEl.appendChild(itemEl);
+                    } else {
+                        nested[ref] = {
+                            error: 'missed syntax'
+                        };
+                    }
                 });
 
-                headerEl.innerHTML =
-                    section +
-                    ' (' + listEl.childNodes.length + ')' +
-                    (brokenCount ? ' <span class="error"><small>[broken:' + brokenCount + ']</small></span>' : '');
-                sectionEl.appendChild(headerEl);
-                sectionEl.appendChild(listEl);
+                nestedEl.innerHTML = '';
+                Object.keys(nested).forEach(function(ref) {
+                    var item = document.createElement('div');
+                    var info = nested[ref];
 
-                document.querySelector('aside').appendChild(sectionEl);
+                    item.innerHTML = info.error
+                        ? '&lt;' + ref + '&gt; = <span class="error">' + info.error + '</span>'
+                        : '<a href="#' + info.section + ':' + info.name + '">&lt;' + ref + '&gt;</a> = ' + escapeHtml(info.syntax);
+
+                    nestedEl.appendChild(item);
+                });
+
+                if (nestedEl.firstChild) {
+                    nestedEl.style.display = '';
+                }
+            }
+        }
+
+        var PROPERTY = 'properties';
+        var TYPE = 'types';
+        var cssSyntax = csstree.syntax;
+        var defaultSyntax = cssSyntax.defaultSyntax;
+        var brokenMap = defaultSyntax.validate();
+        var valueInput = document.getElementById('value-input');
+        var valueInputError = document.getElementById('value-input-result');
+        var currentProperty;
+
+        valueInput.addEventListener('input', function() {
+            validateValue();
+        });
+
+        [PROPERTY, TYPE].forEach(function(section) {
+            var sectionEl = document.createElement('section');
+            var headerEl = document.createElement('h2');
+            var listEl = document.createElement('ul');
+            var brokenCount = 0;
+
+            Object.keys(defaultSyntax[section]).sort().forEach(function(name) {
+                var broken = brokenMap ? brokenMap[section].hasOwnProperty(name) : false;
+                var itemEl = document.createElement('li');
+                var linkEl = document.createElement('a');
+
+                brokenCount += broken;
+                linkEl.href = '#' + section + ':' + name;
+                linkEl.className = broken ? 'error' : '';
+                linkEl.appendChild(document.createTextNode(
+                    section === PROPERTY ? '<\'' + name + '\'>' : '<' + name + '>'
+                ));
+
+                itemEl.appendChild(linkEl);
+                listEl.appendChild(itemEl);
             });
 
-            window.addEventListener('hashchange', updateContent, false);
-            updateContent();
+            headerEl.innerHTML =
+                section +
+                ' (' + listEl.childNodes.length + ')' +
+                (brokenCount ? ' <span class="error"><small>[broken:' + brokenCount + ']</small></span>' : '');
+            sectionEl.appendChild(headerEl);
+            sectionEl.appendChild(listEl);
+
+            document.querySelector('aside').appendChild(sectionEl);
         });
+
+        window.addEventListener('hashchange', updateContent, false);
+        updateContent();
     </script>
 </body>
 </html>
