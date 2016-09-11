@@ -390,4 +390,12 @@
         "line": 1,
         "column": 2
     }
+}, {
+    "css": "a { b: U+ }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 9,
+        "line": 1,
+        "column": 10
+    }
 }]

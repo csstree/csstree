@@ -352,6 +352,20 @@
             ]
         }
     },
+    "not an unicode range": {
+        "source": "u",
+        "translate": "u",
+        "ast": {
+            "type": "Value",
+            "important": false,
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "u"
+                }
+            ]
+        }
+    },
     "css variables": {
         "source": "var(--foo, blue)",
         "translate": "var(--foo,blue)",
