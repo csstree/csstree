@@ -204,6 +204,27 @@
             "foo 123"
         ]
     },
+    "<number-zero-one>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<number-zero-one>"
+            }
+        },
+        "valid": [
+            "0",
+            ".0",
+            "0.0",
+            ".456",
+            "1.0",
+            "1"
+        ],
+        "invalid:Mismatch": [
+            "-1",
+            "1.01",
+            "123"
+        ]
+    },
     "<integer>": {
         "syntax": {
             "generic": true,
@@ -371,6 +392,39 @@
             "u",
             "u234",
             "foo"
+        ]
+    },
+    "<expression>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<expression>"
+            }
+        },
+        "valid": [
+            "expression(...)"
+        ],
+        "invalid:Mismatch": [
+            "expression",
+            "foo()"
+        ]
+    },
+    "<progid>": {
+        "property": "filter",
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "filter": "<progid>"
+            }
+        },
+        "valid": [
+            "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='scale')",
+            "alpha(opacity=80)"
+        ],
+        "invalid:Mismatch": [
+            "progid",
+            "alpha",
+            "foo()"
         ]
     }
 }
