@@ -1,6 +1,7 @@
 var assert = require('assert');
 var parseCss = require('../lib/parser.js');
 // var stringifyCss = require('./helpers/stringify');
+var defaultSyntax = require('../lib/syntax/default');
 var createSyntax = require('../lib/syntax').create;
 var parse = require('../lib/syntax/parse.js');
 var stringify = require('../lib/syntax/stringify.js');
@@ -53,6 +54,10 @@ describe('CSS syntax', function() {
     it('combinator precedence', function() {
         var ast = parse('a b   |   c ||   d &&   e f');
         assert.equal(stringify(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
+    });
+
+    it('default syntax shouldn\'t to be broken', function() {
+        assert.equal(defaultSyntax.validate(), null);
     });
 
     describe('parse/stringify', function() {
