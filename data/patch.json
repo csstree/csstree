@@ -459,7 +459,7 @@
       "syntax": "border | border-box | padding | padding-box | content | content-box | text"
     },
     "-ms-filter": {
-      "syntax": "<progid>+"
+      "syntax": "[ <progid> | FlipH | FlipV ]+"
     },
     "age": {
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
