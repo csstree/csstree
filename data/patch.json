@@ -116,6 +116,10 @@
       "comment": "broken syntax",
       "syntax": "&lt;color&gt;#"
     },
+    "-webkit-text-security": {
+      "comment": "missed; http://help.dottoro.com/lcbkewgt.php",
+      "syntax": "none | circle | disc | square"
+    },
     "animation-timing-function": {
       "comment": "<timing-function> -> <single-timing-function> https://drafts.csswg.org/css-animations/#animation-timing-function",
       "syntax": "<single-timing-function>#"
