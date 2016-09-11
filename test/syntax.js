@@ -28,9 +28,10 @@ function createParseTest(name, syntax) {
 
 function createMatchTest(name, syntax, property, value, error) {
     it(name, function() {
-        var css = property === 'filter'
-            ? parseCss('filter:' + value, { context: 'declaration' }).value // temporary hack to parse <progid> propertly
-            : parseCss(value, { context: 'value' });
+        var css = parseCss(value, {
+            context: 'value',
+            property: property
+        });
 
         if (error) {
             assert.throws(function() {
