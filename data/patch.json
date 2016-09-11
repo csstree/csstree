@@ -140,6 +140,18 @@
       "comment": "outdated syntax, used syntax from https://drafts.csswg.org/css-content/#typedef-content-list",
       "syntax": "[ <image> ',' ]* [ normal | none | <content-list> ] [/ <string> ]?"
     },
+    "cue": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<'cue-before'> <'cue-after'>?"
+    },
+    "cue-after": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<uri> <decibel>? | none"
+    },
+    "cue-before": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<uri> <decibel>? | none"
+    },
     "display": {
       "comment": "extended with -ms-flexbox",
       "syntax": "none | inline | block | list-item | inline-list-item | inline-block | inline-table | table | table-cell | table-column | table-column-group | table-footer-group | table-header-group | table-row | table-row-group | flex | inline-flex | grid | inline-grid | run-in | ruby | ruby-base | ruby-text | ruby-base-container | ruby-text-container | contents | -ms-flexbox | -ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
@@ -200,6 +212,30 @@
       "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
     },
+    "pause": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<'pause-before'> <'pause-after'>?"
+    },
+    "pause-after": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
+    },
+    "pause-before": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
+    },
+    "rest": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<'rest-before'> <'rest-after'>?"
+    },
+    "rest-after": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
+    },
+    "rest-before": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
+    },
     "scroll-snap-points-x": {
       "comment": "missed spaces in function body",
       "syntax": "none | repeat( &lt;length&gt; )"
@@ -211,6 +247,14 @@
     "src": {
       "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
       "syntax": "[ <url> format( <string># )? | local( <family-name> ) ]#"
+    },
+    "speak": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "auto | none | normal"
+    },
+    "speak-as": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "normal | spell-out || digits || [ literal-punctuation | no-punctuation ]"
     },
     "stroke": {
       "comment": "added SVG property https://www.w3.org/TR/SVG/painting.html#StrokeProperties",
@@ -275,6 +319,38 @@
     "unicode-range": {
       "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
       "syntax": "<unicode-range>#"
+    },
+    "voice-balance": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<number> | left | center | right | leftwards | rightwards"
+    },
+    "voice-duration": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "auto | <time>"
+    },
+    "voice-family": {
+      "comment": "<name> -> <family-name>, https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "[ [ <family-name> | <generic-voice> ] , ]* [ <family-name> | <generic-voice> ] | preserve"
+    },
+    "voice-pitch": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<frequency> && absolute | [ [ x-low | low | medium | high | x-high ] || [ <frequency> | <semitones> | <percentage> ] ]"
+    },
+    "voice-range": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "<frequency> && absolute | [ [ x-low | low | medium | high | x-high ] || [ <frequency> | <semitones> | <percentage> ] ]"
+    },
+    "voice-rate": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "[ normal | x-slow | slow | medium | fast | x-fast ] || <percentage>"
+    },
+    "voice-stress": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "normal | strong | moderate | none | reduced"
+    },
+    "voice-volume": {
+      "comment": "https://www.w3.org/TR/css3-speech/#property-index",
+      "syntax": "silent | [ [ x-soft | soft | medium | loud | x-loud ] || <decibel> ]"
     },
     "word-break": {
       "comment": "extend with non-standart keywords",
@@ -361,6 +437,10 @@
     "-ms-filter": {
       "syntax": "<progid>+"
     },
+    "age": {
+      "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
+      "syntax": "child | young | old"
+    },
     "an-plus-b": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
@@ -400,6 +480,14 @@
     "inset()": {
       "comment": "changed <border-radius> to <'border-radius'>",
       "syntax": "inset( &lt;length-percentage&gt;{1,4} [ round &lt;'border-radius'&gt; ]? )"
+    },
+    "generic-voice": {
+      "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
+      "syntax": "[ <age>? <gender> <integer>? ]"
+    },
+    "gender": {
+      "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
+      "syntax": "male | female | neutral"
     },
     "gradient": {
       "comment": "added -webkit-gradient() since may to be used for legacy support",

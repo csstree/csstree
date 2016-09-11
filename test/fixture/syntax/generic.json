@@ -152,6 +152,42 @@
             "1px 2fr"
         ]
     },
+    "<decibel>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<decibel>"
+            }
+        },
+        "valid": [
+            "1db",
+            "1dB",
+            "calc(2 * 1db)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1px",
+            "1px 2db"
+        ]
+    },
+    "<semitones>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<semitones>"
+            }
+        },
+        "valid": [
+            "1st",
+            "1ST",
+            "calc(2 * 1st)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "1px",
+            "1px 2st"
+        ]
+    },
     "<dimension>": {
         "syntax": {
             "generic": true,
