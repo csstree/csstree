@@ -112,12 +112,9 @@ describe('CSS syntax', function() {
     });
 
     describe('parse/stringify', function() {
-        ['properties', 'syntaxes'].forEach(function(section) {
+        ['properties', 'types'].forEach(function(section) {
             for (var name in data[section]) {
-                var info = data[section][name];
-                var syntax = info.syntax || info;
-
-                createParseTest(section + '/' + name, syntax);
+                createParseTest(section + '/' + name, data[section][name]);
             }
         });
     });

@@ -1,5 +1,9 @@
-var data = require('./data.json');
+var mozilla = require('./mozilla-cssdata.json');
 var patch = require('./patch.json');
+var data = {
+    properties: {},
+    types: {}
+};
 
 function normalizeSyntax(syntax) {
     return syntax
@@ -10,28 +14,28 @@ function normalizeSyntax(syntax) {
 
 // apply patch
 for (var key in patch.properties) {
-    if (key in data.properties) {
-        data.properties[key].syntax = patch.properties[key].syntax;
+    if (key in mozilla.properties) {
+        mozilla.properties[key].syntax = patch.properties[key].syntax;
     } else {
-        data.properties[key] = patch.properties[key];
+        mozilla.properties[key] = patch.properties[key];
     }
 }
 
 for (var key in patch.syntaxes) {
     if (patch.syntaxes[key].syntax) {
-        data.syntaxes[key] = patch.syntaxes[key].syntax;
+        mozilla.syntaxes[key] = patch.syntaxes[key].syntax;
     } else {
-        delete data.syntaxes[key];
+        delete mozilla.syntaxes[key];
     }
 }
 
-// normalize source data syntaxes, since it uses html token
-for (var key in data.properties) {
-    data.properties[key].syntax = normalizeSyntax(data.properties[key].syntax);
+// normalize source mozilla syntaxes, since it uses html token
+for (var key in mozilla.properties) {
+    data.properties[key] = normalizeSyntax(mozilla.properties[key].syntax);
 }
 
-for (var key in data.syntaxes) {
-    data.syntaxes[key] = normalizeSyntax(data.syntaxes[key]);
+for (var key in mozilla.syntaxes) {
+    data.types[key] = normalizeSyntax(mozilla.syntaxes[key]);
 }
 
 module.exports = data;
