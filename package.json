@@ -22,6 +22,9 @@
     "url": "https://github.com/csstree/parser/issues"
   },
   "main": "./lib/index",
+  "browser": {
+    "./data": "./dist/default-syntax.json"
+  },
   "eslintConfig": {
     "env": {
       "node": true,
@@ -36,14 +39,11 @@
   },
   "scripts": {
     "gen:syntax": "node scripts/gen-syntax-data.js",
-    "build": "npm run build:parser && npm run build:syntax",
+    "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
     "codestyle-and-test": "npm run codestyle && npm test",
     "codestyle": "jscs data lib scripts test && eslint data lib scripts test",
     "test": "mocha --reporter dot",
     "coverage": "istanbul cover _mocha -- -R dot",
-    "build:all": "npm run build && npm run gen:syntax",
-    "build:parser": "browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
-    "build:syntax": "browserify --standalone cssSyntax lib/syntax/index.js | uglifyjs --compress --mangle -o dist/csssyntax.js",
     "prepublish": "npm run build:all",
     "travis": "npm run codestyle-and-test && npm run coveralls",
     "coveralls": "istanbul cover _mocha --report lcovonly -- -R dot && cat ./coverage/lcov.info | coveralls",

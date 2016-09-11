@@ -1,4 +1,4 @@
-var resultFilename = require('path').resolve(__dirname + '/../docs/syntax.json');
+var resultFilename = require('path').resolve(__dirname + '/../dist/default-syntax.json');
 var syntax = require('../lib/syntax/default');
 
 console.log('Write data to ' + resultFilename);
