@@ -68,6 +68,39 @@
         {
             color: #DD0000;
         }
+
+        .value-input-wrapper
+        {
+            margin: 2px 0 16px;
+        }
+        #value-input
+        {
+            box-sizing: border-box;
+            width: 100%;
+            font-family: arial, sans-serif;
+            font-size: 16px;
+            padding: 4px 2px;
+        }
+        #value-input-result
+        {
+            padding: 5px;
+            height: 5.5em;
+            color: #DD0000;
+            font-family: Consolas, Courier New, monospace;
+            white-space: pre;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #value-input-result.valid:before
+        {
+            content: 'Value is valid';
+            color: #00AA00;
+        }
+        #value-input-result.empty:before
+        {
+            content: 'Enter a value to test';
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -75,14 +108,20 @@
     </aside>
     <article style="display: none">
         <h1>Name</h1>
+        Test value:
+        <div class="value-input-wrapper">
+            <input id="value-input" autofocus/>
+            <div id="value-input-result"></div>
+        </div>
         Formal syntax:
         <section class="output"></section>
         <section class="nested"></section>
     </article>
 
-    <script src="../dist/csssyntax.js"></script>
+    <script src="../dist/csstree.js"></script>
     <script>
         /* eslint-env browser */
+        /* global csstree */
         fetch('syntax.json').then(function(res) {
             return res.json();
         }).then(function(syntaxes) {
@@ -93,6 +132,28 @@
                     .replace(/>/g, '&gt;');
             }
 
+            function validateValue() {
+                var value = valueInput.value;
+                var isEmpty = !/\S/.test(value);
+                var error;
+
+                if (currentProperty && !isEmpty) {
+                    var ast = csstree.parse(value, {
+                        context: 'value'
+                    });
+
+                    try {
+                        csstree.syntax.defaultSyntax.match(currentProperty, ast);
+                    } catch (e) {
+                        error = e.message;
+                    }
+                }
+
+                valueInputError.classList.toggle('valid', !error);
+                valueInputError.classList.toggle('empty', isEmpty);
+                valueInputError.innerText = error || '';
+            }
+
             function updateContent() {
                 var ref = location.hash.substr(1);
                 var section = ref.split(':')[0];
@@ -101,7 +162,11 @@
                 var nestedEl = document.querySelector('.nested');
                 var info = syntaxes[section] && syntaxes[section][name];
 
+                currentProperty = section === PROPERTY ? name : '';
                 contentEl.style.display = name ? '' : 'none';
+                valueInput.focus();
+                valueInput.select();
+                validateValue();
 
                 if (!name) {
                     return;
@@ -162,8 +227,6 @@
                         }
                     });
 
-                    console.log(nested);
-
                     nestedEl.innerHTML = '';
                     Object.keys(nested).forEach(function(ref) {
                         var item = document.createElement('div');
@@ -181,6 +244,14 @@
 
             var PROPERTY = 'properties';
             var TYPE = 'types';
+            var cssSyntax = csstree.syntax;
+            var valueInput = document.getElementById('value-input');
+            var valueInputError = document.getElementById('value-input-result');
+            var currentProperty;
+
+            valueInput.addEventListener('input', function() {
+                validateValue();
+            });
 
             for (var section in syntaxes) {
                 var sectionEl = document.createElement('section');
