@@ -350,5 +350,27 @@
             "",
             "1 attr(foo)"
         ]
+    },
+    "<unicode-range>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<unicode-range>"
+            }
+        },
+        "valid": [
+            "U+26",
+            "U+0-7F",
+            "u+0025-00FF",
+            "U+0025-00FF",
+            "U+4??"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "U",
+            "u",
+            "u234",
+            "foo"
+        ]
     }
 }

@@ -318,7 +318,7 @@
             "important": false,
             "sequence": [
                 {
-                    "type": "Identifier",
+                    "type": "UnicodeRange",
                     "name": "U+0F00"
                 }
             ]
@@ -332,7 +332,7 @@
             "important": false,
             "sequence": [
                 {
-                    "type": "Identifier",
+                    "type": "UnicodeRange",
                     "name": "U+0F00-0FFF"
                 }
             ]
@@ -346,7 +346,7 @@
             "important": false,
             "sequence": [
                 {
-                    "type": "Identifier",
+                    "type": "UnicodeRange",
                     "name": "u+0F00??"
                 }
             ]
