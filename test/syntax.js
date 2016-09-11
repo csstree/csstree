@@ -56,8 +56,59 @@ describe('CSS syntax', function() {
         assert.equal(stringify(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
     });
 
-    it('default syntax shouldn\'t to be broken', function() {
-        assert.equal(defaultSyntax.validate(), null);
+    describe('Syntax', function() {
+        it('validate', function() {
+            var syntax = createSyntax({
+                generic: true,
+                types: {
+                    ref: '<string>',
+                    valid: '<number> <ref>',
+                    invalid: '<foo>'
+                },
+                properties: {
+                    ref: '<valid>',
+                    valid: '<ident> <\'ref\'>',
+                    invalid: '<invalid>'
+                }
+            });
+
+            assert.deepEqual(syntax.validate(), {
+                types: [
+                    'invalid'
+                ],
+                properties: [
+                    'invalid'
+                ]
+            });
+        });
+
+        it('default syntax shouldn\'t to be broken', function() {
+            assert.equal(defaultSyntax.validate(), null);
+        });
+
+        describe('dump & recovery', function() {
+            var syntax = createSyntax({
+                generic: true,
+                types: {
+                    foo: '<number>'
+                },
+                properties: {
+                    test: '<foo>+'
+                }
+            });
+
+            it('syntax should be valid and correct', function() {
+                assert.equal(defaultSyntax.validate(), null);
+                assert(syntax.match('test', parseCss('1 2 3', { context: 'value' })));
+            });
+
+            it('recovery syntax from dump', function() {
+                var recoverySyntax = createSyntax(syntax.dump());
+
+                assert.equal(recoverySyntax.validate(), null);
+                assert(recoverySyntax.match('test', parseCss('1 2 3', { context: 'value' })));
+            });
+        });
     });
 
     describe('parse/stringify', function() {

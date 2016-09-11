@@ -164,7 +164,7 @@
                 var name = ref.split(':')[1];
                 var contentEl = document.querySelector('article');
                 var nestedEl = document.querySelector('.nested');
-                var info = syntaxes[section] && syntaxes[section][name];
+                var info = syntax[section] && syntax[section][name];
 
                 currentProperty = section === PROPERTY ? name : '';
                 contentEl.style.display = name ? '' : 'none';
@@ -205,17 +205,17 @@
                                 return;
                         }
 
-                        var nestedInfo = syntaxes[nestedSection] && syntaxes[nestedSection][nestedName];
-
-                        if (nestedInfo && nestedInfo.type === 'basic-type') {
-                            return;
-                        }
-
                         if (nestedName === name && nestedSection === section) {
                             return;
                         }
 
-                        if (nestedInfo && nestedInfo.syntax) {
+                        var nestedInfo = syntax[nestedSection] && syntax[nestedSection][nestedName];
+
+                        if (nestedInfo && !nestedInfo.syntax) {
+                            return;
+                        }
+
+                        if (nestedInfo) {
                             if (ref in nested === false) {
                                 nested[ref] = {
                                     section: nestedSection,
@@ -249,6 +249,8 @@
             var PROPERTY = 'properties';
             var TYPE = 'types';
             var cssSyntax = csstree.syntax;
+            var syntax = cssSyntax.create(syntaxes);
+            var brokenMap = syntax.validate();
             var valueInput = document.getElementById('value-input');
             var valueInputError = document.getElementById('value-input-result');
             var currentProperty;
@@ -257,20 +259,20 @@
                 validateValue();
             });
 
-            for (var section in syntaxes) {
+            [PROPERTY, TYPE].forEach(function(section) {
                 var sectionEl = document.createElement('section');
                 var headerEl = document.createElement('h2');
                 var listEl = document.createElement('ul');
                 var brokenCount = 0;
 
-                Object.keys(syntaxes[section]).sort().forEach(function(name) {
-                    var info = syntaxes[section][name];
+                Object.keys(syntax[section]).sort().forEach(function(name) {
+                    var broken = brokenMap ? brokenMap[section].hasOwnProperty(name) : false;
                     var itemEl = document.createElement('li');
                     var linkEl = document.createElement('a');
 
-                    brokenCount += info.broken;
+                    brokenCount += broken;
                     linkEl.href = '#' + section + ':' + name;
-                    linkEl.className = info.broken ? 'error' : '';
+                    linkEl.className = broken ? 'error' : '';
                     linkEl.appendChild(document.createTextNode(
                         section === PROPERTY ? '<\'' + name + '\'>' : '<' + name + '>'
                     ));
@@ -287,7 +289,7 @@
                 sectionEl.appendChild(listEl);
 
                 document.querySelector('aside').appendChild(sectionEl);
-            }
+            });
 
             window.addEventListener('hashchange', updateContent, false);
             updateContent();
