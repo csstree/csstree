@@ -276,5 +276,29 @@
                 ]
             }
         }
+    },
+    "alpha()": {
+        "source": "filter: alpha(opacity=60)",
+        "translate": "filter:alpha(opacity=60)",
+        "ast": {
+            "type": "Declaration",
+            "property": {
+                "type": "Property",
+                "name": "filter"
+            },
+            "value": {
+                "type": "Value",
+                "important": false,
+                "sequence": [
+                    {
+                        "type": "Progid",
+                        "value": {
+                            "type": "Raw",
+                            "value": "alpha(opacity=60)"
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
