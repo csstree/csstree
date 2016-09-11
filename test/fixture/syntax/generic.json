@@ -482,5 +482,25 @@
             "0 initial",
             "0 unset"
         ]
+    },
+    "calc": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<length>"
+            }
+        },
+        "valid": [
+            "calc(1px + 1%)",
+            "CALC(1px + 1%)",
+            "-moz-calc(1px + 1%)",
+            "-MOZ-CALC(1px + 1%)",
+            "-webkit-calc(1px + 1%)",
+            "-WEBKIT-CALC(1px + 1%)"
+        ],
+        "invalid:Mismatch": [
+            "-ms-calc(1px + 1%)",
+            "-o-calc(1px + 1%)"
+        ]
     }
 }
