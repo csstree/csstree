@@ -426,5 +426,25 @@
             "alpha",
             "foo()"
         ]
+    },
+    "<custom-ident>": {
+        "comment": "use additional <length> term since on mismatch it will try to match on CSS common pattern and will be success",
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<length> <custom-ident>"
+            }
+        },
+        "valid": [
+            "0 foo",
+            "0 bar123"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "0",
+            "0 inherit",
+            "0 initial",
+            "0 unset"
+        ]
     }
 }
