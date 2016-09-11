@@ -80,6 +80,10 @@
       "comment": "extra space between [ and ,",
       "syntax": "&lt;attachment&gt; [, &lt;attachment&gt; ]*"
     },
+    "-webkit-mask-box-image": {
+      "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
+      "syntax": "[ <uri> | <gradient> | none ] [ <length-percentage>{4} <-webkit-mask-box-repeat>{2} ]?"
+    },
     "-webkit-mask-clip": {
       "comment": "change type to <-webkit-mask-clip-style> since it differ from <mask-clip>, extra space between [ and ,",
       "syntax": "&lt;-webkit-mask-clip-style&gt; [, &lt;-webkit-mask-clip-style&gt; ]*"
@@ -119,6 +123,10 @@
     "-webkit-text-security": {
       "comment": "missed; http://help.dottoro.com/lcbkewgt.php",
       "syntax": "none | circle | disc | square"
+    },
+    "-webkit-user-drag": {
+      "comment": "missed; http://help.dottoro.com/lcbixvwm.php",
+      "syntax": "none | element | auto"
     },
     "animation-timing-function": {
       "comment": "<timing-function> -> <single-timing-function> https://drafts.csswg.org/css-animations/#animation-timing-function",
@@ -320,6 +328,10 @@
       "comment": "extra space in the beginning",
       "syntax": "&lt;single-transition-timing-function&gt;#"
     },
+    "unicode-bidi": {
+      "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
+      "syntax": "normal | embed | isolate | bidi-override | isolate-override | plaintext | -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate"
+    },
     "unicode-range": {
       "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
       "syntax": "<unicode-range>#"
@@ -414,6 +426,10 @@
       "comment": "non-standart keywords https://css-tricks.com/almanac/properties/w/word-break/",
       "syntax": "break-word"
     },
+    "-webkit-image-set()": {
+      "comment": "added alias",
+      "syntax": "<image-set()>"
+    },
     "-webkit-gradient()": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
       "syntax": "-webkit-gradient( <-webkit-gradient-type>, <-webkit-gradient-point> [, <-webkit-gradient-point> | , <-webkit-gradient-radius>, <-webkit-gradient-point> ] [, <-webkit-gradient-radius>]? [, <-webkit-gradient-color-stop()>]* )"
@@ -433,6 +449,10 @@
     "-webkit-gradient-type": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
       "syntax": "linear | radial"
+    },
+    "-webkit-mask-box-repeat": {
+      "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
+      "syntax": "repeat | stretch | round"
     },
     "-webkit-mask-clip-style": {
       "comment": "missed; there is no enough information about `-webkit-mask-clip` property, but looks like all those keywords are working",
