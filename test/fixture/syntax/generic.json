@@ -385,8 +385,11 @@
         },
         "valid": [
             "url(\"string\")",
+            "URL(\"string\")",
             "url('string')",
-            "url(raw)"
+            "URL('string')",
+            "url(raw)",
+            "URL(raw)"
         ],
         "invalid:Mismatch": [
             "",
@@ -401,7 +404,8 @@
             }
         },
         "valid": [
-            "attr(foo)"
+            "attr(foo)",
+            "ATTR(foo)"
         ],
         "invalid:Mismatch": [
             "",
@@ -438,7 +442,8 @@
             }
         },
         "valid": [
-            "expression(...)"
+            "expression(...)",
+            "EXPRESSION(...)"
         ],
         "invalid:Mismatch": [
             "expression",
@@ -455,6 +460,8 @@
         },
         "valid": [
             "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='scale')",
+            "PROGID:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='scale')",
+            "ALPHA(OPACITY=80)",
             "alpha(opacity=80)"
         ],
         "invalid:Mismatch": [
