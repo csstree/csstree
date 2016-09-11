@@ -138,12 +138,16 @@
                 var error;
 
                 if (currentProperty && !isEmpty) {
-                    var ast = csstree.parse(value, {
-                        context: 'value'
-                    });
-
                     try {
-                        csstree.syntax.defaultSyntax.match(currentProperty, ast);
+                        var ast = csstree.parse(value, {
+                            context: 'value'
+                        });
+
+                        try {
+                            csstree.syntax.defaultSyntax.match(currentProperty, ast);
+                        } catch (e) {
+                            error = e.message;
+                        }
                     } catch (e) {
                         error = e.message;
                     }
