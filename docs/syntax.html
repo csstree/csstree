@@ -267,7 +267,7 @@
             var brokenCount = 0;
 
             Object.keys(defaultSyntax[section]).sort().forEach(function(name) {
-                var broken = brokenMap ? brokenMap[section].hasOwnProperty(name) : false;
+                var broken = brokenMap ? brokenMap[section].indexOf(name) !== -1 : false;
                 var itemEl = document.createElement('li');
                 var linkEl = document.createElement('a');
 
