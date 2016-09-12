@@ -146,7 +146,7 @@
                         error = e.message;
                     }
                 } catch (e) {
-                    error = e.message;
+                    error = e.message + (e.sourceFragment ? '\n' + e.sourceFragment() : '');
                 }
             }
 
