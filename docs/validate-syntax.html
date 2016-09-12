@@ -1,0 +1,322 @@
+<!doctype html>
+
+<html>
+<head>
+    <style>
+        html,
+        body
+        {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-family: tahoma, verdana, arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        body
+        {
+            display: flex;
+        }
+        H1
+        {
+            margin: 0 0 16px;
+        }
+        H2
+        {
+            font-weight: normal;
+            margin: 0;
+            padding: 9px 8px 10px;
+        }
+        #source-block
+        {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            line-height: 1;
+        }
+        #source-wrapper
+        {
+            flex: 1;
+            overflow: hidden;
+        }
+        #source
+        {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            margin: 0;
+            padding: 4px;
+            box-sizing: border-box;
+            font-family: Consolas, Courier New, monospace;
+            font-size: 13px;
+            outline: none;
+            border: 1px solid #DDD;
+        }
+        #result-block
+        {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+        #intro
+        {
+            font-size: 30px;
+            text-align: center;
+            padding: 50px;
+            color: #888;
+        }
+        #result
+        {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        #result.error
+        {
+            color: #D00;
+        }
+        #result-output
+        {
+            flex: 1;
+            overflow: auto;
+            white-space: pre;
+            font-family: Consolas, Courier New, monospace;
+            font-size: 13px;
+            padding: 8px;
+            border: 1px solid #DDD;
+            margin: 0 8px 8px 0;
+        }
+        #result-output > :first-child
+        {
+            margin-bottom: 10px;
+        }
+        .warn
+        {
+            padding: 4px;
+            overflow: hidden;
+            overflow-x: auto;
+            padding-bottom: .5em;
+            margin-bottom: .5em;
+        }
+        .warn-type
+        {
+            color: #A66;
+            border-bottom: 2px solid #FCC;
+            font-family: Arial;
+            display: inline-block;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+        .link-to-source
+        {
+            color: #09D;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .link-to-source:hover
+        {
+            color: #A00;
+        }
+        #fill-issue
+        {
+            margin: 0px 8px 8px 0;
+            font-size: 110%;
+            border-left: 3px solid orange;
+            padding: 8px 12px;
+            background: #FED;
+        }
+        #well-done
+        {
+            margin: 0px 8px 8px 0;
+            font-size: 110%;
+            border-left: 3px solid #090;
+            padding: 8px 12px;
+            background: #EFD;
+        }
+    </style>
+</head>
+<body>
+    <div id="source-block">
+        <h1>CSS syntax checker</h1>
+        <div id="source-wrapper">
+            <textarea id="source" placeholder="Enter your CSS here"></textarea>
+        </div>
+    </div>
+    <div id="result-block">
+        <div id="intro">
+            Show me your CSS and I'll tell you what I know about it 😎
+        </div>
+        <div id="result" style="display: none">
+            <h2 id="result-header"></h2>
+            <div id="result-output"></div>
+        </div>
+        <div id="fill-issue" style="display: none">
+            I found some problems with your CSS. It might be because my knowledge about CSS syntax is wrong or incomplete. In this case, please <a href="#">fill an issue</a>.<br>
+            Thank you!
+        </div>
+        <div id="well-done" style="display: none">
+            No problems found. Your CSS looks valid. Well done!
+        </div>
+    </div>
+
+    <script src="../dist/csstree.js"></script>
+    <script>
+        /* eslint-env browser */
+        /* global csstree */
+        function repeat(str, times) {
+            return Array(times + 1).join(str);
+        }
+
+        function escape(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function createSourceLink(text, offset) {
+            return '<span class="link-to-source" title="Jump to source" data-offset="' + offset + '">' + text + '</span>';
+        }
+
+        function validate() {
+            var css = sourceInput.value.trim();
+            var ast;
+
+            document.getElementById('intro').style.display = css ? 'none' : '';
+            document.getElementById('result').style.display = css ? '' : 'none';
+            fillIssueBlock.style.display = 'none';
+            wellDoneBlock.style.display = 'none';
+
+            if (!css) {
+                return;
+            }
+
+            try {
+                ast = csstree.parse(css, {
+                    positions: true
+                });
+            } catch (e) {
+                result.classList.add('error');
+                resultHeader.innerHTML = 'Ooops, I can\'t parse your CSS:';
+                resultBlock.innerHTML = escape(e.formattedMessage || e.message)
+                    .replace(/^(Parse error: )([^\r\n]*)/, function(m, prefix, message) {
+                        return prefix + createSourceLink(message, e.offset);
+                    });
+                return;
+            }
+
+            result.classList.remove('error');
+            resultHeader.innerHTML = 'OK, that\'s what I know about your CSS:';
+
+            var declCount = 0;
+            var uniqueDecls = {};
+            var decls = [];
+            var props = {};
+            var errors = {};
+            var fails = 0;
+
+            csstree.walk(ast, function(node) {
+                if (node.type === 'Declaration') {
+                    declCount++;
+
+                    var id = csstree.translate(node);
+                    if (id in uniqueDecls) {
+                        uniqueDecls[id]++;
+                        return;
+                    }
+
+                    node.value.important = false;
+                    uniqueDecls[id] = 1;
+                    decls.push({
+                        id: id,
+                        node: node,
+                        property: node.property.name,
+                        value: node.value
+                    });
+                    props[node.property.name] = true;
+                }
+            });
+
+            var warns = [];
+            decls.forEach(function(decl) {
+                var node = decl.value;
+                try {
+                    csstree.syntax.defaultSyntax.match(decl.property, node);
+                } catch (e) {
+                    var type = e.rawMessage || e.message;
+                    var message = e.message;
+
+                    if (/^Unknown property/.test(message)) {
+                        type = 'Unknown property';
+                        message =
+                            message.replace(/:.*/, '') +
+                            '\n   value: ' + csstree.translate(node) + '\n  ^';
+                    }
+
+                    errors[type] = (errors[type] || 0) + 1;
+                    warns.push({
+                        decl: decl,
+                        message: message
+                    });
+                }
+            });
+            var fails = warns.length;
+            var uniqueDeclCount = decls.length;
+            var maxErrorCount = Math.max.apply(null, Object.keys(errors).map(function(k) {
+                return errors[k];
+            }));
+            var maxErrorCountLength = String(maxErrorCount).length;
+
+            var summaryBlock = document.createElement('div');
+            summaryBlock.innerHTML = [
+                'Unique properties: ' + Object.keys(props).length,
+                'Unique declarations: ' + uniqueDeclCount + ' (total: ' + declCount + ')',
+                '  <span style="color: green">\u2713</span> Valid:   ' + (uniqueDeclCount - fails) + (uniqueDeclCount ? ' (' + (100 * (uniqueDeclCount - fails) / uniqueDeclCount).toFixed(2) + '%)' : ''),
+                '  <span style="color: red">\u2717</span> Invalid: ' + fails + (uniqueDeclCount ? ' (' + (100 * fails / uniqueDeclCount).toFixed(2) + '%)' : ''),
+                '      ' + Object.keys(errors).sort().map(function(key) {
+                    return repeat(' ', maxErrorCountLength - String(errors[key]).length) + errors[key] + ' \u00d7 ' + key;
+                }).join('\n      ')
+            ].join('\n');
+
+            resultBlock.innerHTML = '';
+            resultBlock.appendChild(summaryBlock);
+
+            if (warns.length) {
+                warns.forEach(function(warn) {
+                    var warnBlock = document.createElement('div');
+                    var count = uniqueDecls[warn.decl.id];
+                    warnBlock.innerHTML = escape(warn.message)
+                        .replace(/^[^\r\n]+/, '<span class="warn-type">$&</span>' + (count > 1 ? ' \u00d7 ' + count : ''))
+                        .replace(/ value(:[^\r\n]*)/, createSourceLink(warn.decl.property, warn.decl.node.info.offset) + '$1')
+                        .replace(/(Unknown property: )\S+/, '$1' + createSourceLink(warn.decl.property, warn.decl.node.info.offset))
+                        .replace('------^', repeat('-', warn.decl.property.length) + '^');
+                    warnBlock.className = 'warn';
+                    resultBlock.appendChild(warnBlock);
+                });
+                fillIssueBlock.style.display = '';
+            } else {
+                wellDoneBlock.style.display = '';
+            }
+        }
+
+        var sourceInput = document.getElementById('source');
+        var resultBlock = document.getElementById('result-output');
+        var resultHeader = document.getElementById('result-header');
+        var fillIssueBlock = document.getElementById('fill-issue');
+        var wellDoneBlock = document.getElementById('well-done');
+
+        sourceInput.addEventListener('input', validate, false);
+        resultBlock.addEventListener('click', function(e) {
+            if (e.target.classList.contains('link-to-source')) {
+                if (sourceInput.setSelectionRange) {
+                    sourceInput.setSelectionRange(e.target.dataset.offset, e.target.dataset.offset);
+                }
+                sourceInput.focus();
+            }
+        }, false);
+        validate();
+    </script>
+</body>
+</html>
