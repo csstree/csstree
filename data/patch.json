@@ -4,6 +4,10 @@
       "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "auto | unset | grayscale"
     },
+    "-moz-user-select": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/user-select",
+      "syntax": "none | text | all | -moz-none"
+    },
     "-ms-filter": {
       "comment": "added missed syntax https://blogs.msdn.microsoft.com/ie/2009/02/19/the-css-corner-using-filters-in-ie8/",
       "syntax": "<string>"
@@ -55,6 +59,10 @@
     "-ms-high-contrast-adjust": {
       "comment": "https://msdn.microsoft.com/en-us/library/hh771863(v=vs.85).aspx",
       "syntax": "auto | none"
+    },
+    "-ms-user-select": {
+      "comment": "https://msdn.microsoft.com/en-us/library/hh781492(v=vs.85).aspx",
+      "syntax": "none | element | text"
     },
     "-webkit-column-break-after": {
       "comment": "added, http://help.dottoro.com/lcrthhhv.php",
@@ -131,6 +139,10 @@
     "-webkit-user-drag": {
       "comment": "missed; http://help.dottoro.com/lcbixvwm.php",
       "syntax": "none | element | auto"
+    },
+    "-webkit-user-select": {
+      "comment": "auto is supported by old webkit, https://developer.mozilla.org/en-US/docs/Web/CSS/user-select",
+      "syntax": "auto | none | text | all"
     },
     "animation-timing-function": {
       "comment": "<timing-function> -> <single-timing-function> https://drafts.csswg.org/css-animations/#animation-timing-function",
