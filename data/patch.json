@@ -196,7 +196,7 @@
       "references": [
         "https://www.w3.org/TR/SVG/text.html#BaselineShiftProperty"
       ],
-      "syntax": "baseline | sub | super | <percentage> | <length>"
+      "syntax": "baseline | sub | super | <svg-length>"
     },
     "behavior": {
       "comment": "added old IE property https://msdn.microsoft.com/en-us/library/ms530723(v=vs.85).aspx",
@@ -309,7 +309,7 @@
       "references": [
         "https://www.w3.org/TR/SVG/text.html#KerningProperty"
       ],
-      "syntax": "auto | <length>"
+      "syntax": "auto | <svg-length>"
     },
     "letter-spacing": {
       "comment": "fix syntax <length> -> <length-percentage>",
@@ -418,14 +418,14 @@
       "references": [
         "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
       ],
-      "syntax": "none | <length-percentage>#"
+      "syntax": "none | <svg-length>#"
     },
     "stroke-dashoffset": {
       "comment": "added SVG property",
       "references": [
         "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
       ],
-      "syntax": "<percentage> | <length>"
+      "syntax": "<svg-length>"
     },    
     "stroke-linecap": {
       "comment": "added SVG property",
@@ -460,7 +460,7 @@
       "references": [
         "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
       ],
-      "syntax": "<percentage> | <length>"
+      "syntax": "<svg-length>"
     },
     "text-anchor": {
       "comment": "added SVG property",
@@ -761,6 +761,13 @@
     "single-transition-timing-function": {
       "comment": "missed spaces",
       "syntax": "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps( &lt;integer&gt; [, [ start | end ] ]? ) | cubic-bezier( &lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt; )"
+    },
+    "svg-length": {
+      "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
+      "references": [
+        "https://www.w3.org/TR/SVG11/coords.html#Units"
+      ],
+      "syntax": "<percentage> | <length> | <number>"
     },
     "svg-writing-mode": {
       "comment": "SVG specific keywords (deprecated for CSS)",
