@@ -1,5 +1,21 @@
 {
   "properties": {
+    "-moz-border-radius-bottomleft": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius",
+      "syntax": "<'border-bottom-left-radius'>"
+    },
+    "-moz-border-radius-bottomright": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius",
+      "syntax": "<'border-bottom-right-radius'>"
+    },
+    "-moz-border-radius-topleft": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-left-radius",
+      "syntax": "<'border-top-left-radius'>"
+    },
+    "-moz-border-radius-topright": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius",
+      "syntax": "<'border-bottom-right-radius'>"
+    },
     "-moz-osx-font-smoothing": {
       "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "auto | unset | grayscale"
