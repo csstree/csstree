@@ -33,13 +33,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -101,13 +101,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -195,13 +195,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -293,13 +293,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -349,13 +349,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -388,13 +388,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -444,13 +444,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -512,13 +512,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -607,13 +607,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -663,13 +663,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -731,13 +731,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -838,13 +838,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "p"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Identifier",
@@ -899,13 +899,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "opacity"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Number",
@@ -938,13 +938,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "opacity"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Number",
@@ -977,13 +977,13 @@
                             "declarations": [
                                 {
                                     "type": "Declaration",
+                                    "important": false,
                                     "property": {
                                         "type": "Property",
                                         "name": "opacity"
                                     },
                                     "value": {
                                         "type": "Value",
-                                        "important": false,
                                         "sequence": [
                                             {
                                                 "type": "Number",

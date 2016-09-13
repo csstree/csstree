@@ -4,13 +4,13 @@
         "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -28,13 +28,13 @@
         "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -59,13 +59,13 @@
         "translate": "*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "*filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -83,13 +83,13 @@
         "translate": "-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "-filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -107,13 +107,13 @@
         "translate": "_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "_filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -131,13 +131,13 @@
         "translate": "-ms-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "-ms-filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -155,13 +155,13 @@
         "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -179,13 +179,13 @@
         "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -203,13 +203,13 @@
         "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -227,13 +227,13 @@
         "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -258,13 +258,13 @@
         "translate": "filter:progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -282,13 +282,13 @@
         "translate": "filter:alpha(opacity=60)",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -306,13 +306,13 @@
         "translate": "filter:ALPHA(opacity=60)",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",
@@ -330,13 +330,13 @@
         "translate": "filter:dropshadow(color=#000,offx=0,offy=-1)",
         "ast": {
             "type": "Declaration",
+            "important": false,
             "property": {
                 "type": "Property",
                 "name": "filter"
             },
             "value": {
                 "type": "Value",
-                "important": false,
                 "sequence": [
                     {
                         "type": "Progid",

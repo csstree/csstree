@@ -1,0 +1,81 @@
+{
+    "important.0": {
+        "source": "property:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": {
+                "type": "Property",
+                "name": "property"
+            },
+            "value": {
+                "type": "Value",
+                "sequence": []
+            }
+        }
+    },
+    "important.1": {
+        "source": "property:!ImpoRtant",
+        "translate": "property:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": {
+                "type": "Property",
+                "name": "property"
+            },
+            "value": {
+                "type": "Value",
+                "sequence": []
+            }
+        }
+    },
+    "important.2": {
+        "source": "property:!IMPORTANT",
+        "translate": "property:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": {
+                "type": "Property",
+                "name": "property"
+            },
+            "value": {
+                "type": "Value",
+                "sequence": []
+            }
+        }
+    },
+    "important.c.0": {
+        "source": "property:!/*test*/important",
+        "translate": "property:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": {
+                "type": "Property",
+                "name": "property"
+            },
+            "value": {
+                "type": "Value",
+                "sequence": []
+            }
+        }
+    },
+    "important.s.0": {
+        "source": "property:!  important",
+        "translate": "property:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": {
+                "type": "Property",
+                "name": "property"
+            },
+            "value": {
+                "type": "Value",
+                "sequence": []
+            }
+        }
+    }
+}

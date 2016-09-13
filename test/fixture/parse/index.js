@@ -27,7 +27,6 @@ var wrapper = {
     value: function(ast) {
         return {
             type: 'Value',
-            important: false,
             sequence: [ast]
         };
     }

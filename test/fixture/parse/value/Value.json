@@ -4,7 +4,6 @@
         "translate": "x",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Identifier",
@@ -18,7 +17,6 @@
         "translate": "10",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Number",
@@ -32,7 +30,6 @@
         "translate": "test(x)",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Function",
@@ -52,26 +49,11 @@
             ]
         }
     },
-    "value.3": {
-        "source": "10 !important",
-        "translate": "10!important",
-        "ast": {
-            "type": "Value",
-            "important": true,
-            "sequence": [
-                {
-                    "type": "Number",
-                    "value": "10"
-                }
-            ]
-        }
-    },
     "value.4": {
         "source": "-100%",
         "translate": "-100%",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Percentage",
@@ -85,7 +67,6 @@
         "translate": "0px",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Dimension",
@@ -100,7 +81,6 @@
         "translate": ".0px",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Dimension",
@@ -115,7 +95,6 @@
         "translate": "0000.000px",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Dimension",
@@ -130,7 +109,6 @@
         "translate": "rgb(10,10,10)",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Function",
@@ -173,7 +151,6 @@
         "translate": "rgb(255,0,0)",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Function",
@@ -216,7 +193,6 @@
         "translate": "rgb(10.0,00.00,10%)",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Function",
@@ -259,7 +235,6 @@
         "translate": "#ffffff",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Hash",
@@ -273,7 +248,6 @@
         "translate": "#f00",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Hash",
@@ -287,7 +261,6 @@
         "translate": "#F0f0C0",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Hash",
@@ -301,7 +274,6 @@
         "translate": "#AaBbCc",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Hash",
@@ -315,7 +287,6 @@
         "translate": "U+0F00",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "UnicodeRange",
@@ -329,7 +300,6 @@
         "translate": "U+0F00-0FFF",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "UnicodeRange",
@@ -343,7 +313,6 @@
         "translate": "u+0F00??",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "UnicodeRange",
@@ -357,7 +326,6 @@
         "translate": "u",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Identifier",
@@ -371,7 +339,6 @@
         "translate": "var(--foo,blue)",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Function",
@@ -391,7 +358,7 @@
                             "sequence": [
                                 {
                                     "type": "Value",
-                                    "important": false,
+                    
                                     "sequence": [
                                       {
                                         "type": "Identifier",
@@ -406,67 +373,10 @@
             ]
         }
     },
-    "important.0": {
-        "source": "#123456 !important",
-        "translate": "#123456!important",
-        "ast": {
-            "type": "Value",
-            "important": true,
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "123456"
-                }
-            ]
-        }
-    },
-    "important.0": {
-        "source": "#123456!important",
-        "translate": "#123456!important",
-        "ast": {
-            "type": "Value",
-            "important": true,
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "123456"
-                }
-            ]
-        }
-    },
-    "important.c.0": {
-        "source": "#123456/*test*/!/*test*/important",
-        "translate": "#123456!important",
-        "ast": {
-            "type": "Value",
-            "important": true,
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "123456"
-                }
-            ]
-        }
-    },
-    "important.s.0": {
-        "source": "#123456  !  important",
-        "translate": "#123456!important",
-        "ast": {
-            "type": "Value",
-            "important": true,
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "123456"
-                }
-            ]
-        }
-    },
     "ident name starts with minus": {
         "source": "-moz-flex",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [{
                 "type": "Identifier",
                 "name": "-moz-flex"
@@ -477,7 +387,6 @@
         "source": "expression(a=1)",
         "ast": {
             "type": "Value",
-            "important": false,
             "sequence": [
                 {
                     "type": "Function",
