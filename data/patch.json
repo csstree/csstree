@@ -1,5 +1,9 @@
 {
   "properties": {
+    "-moz-background-clip": {
+      "comment": "deprecated syntax in old Firefox, https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
+      "syntax": "padding | border"
+    },
     "-moz-border-radius-bottomleft": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius",
       "syntax": "<'border-bottom-left-radius'>"
@@ -79,6 +83,10 @@
     "-ms-user-select": {
       "comment": "https://msdn.microsoft.com/en-us/library/hh781492(v=vs.85).aspx",
       "syntax": "none | element | text"
+    },
+    "-webkit-background-clip": {
+      "comment": "https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
+      "syntax": "[ <box> | border | padding | content | text ]#"
     },
     "-webkit-column-break-after": {
       "comment": "added, http://help.dottoro.com/lcrthhhv.php",
