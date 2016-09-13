@@ -169,7 +169,7 @@
             return Array(times + 1).join(str);
         }
 
-        function escape(str) {
+        function escapeHtml(str) {
             return str
                 .replace(/&/g, '&amp;')
                 .replace(/</g, '&lt;')
@@ -200,7 +200,7 @@
             } catch (e) {
                 result.classList.add('error');
                 resultHeader.innerHTML = 'Ooops, I can\'t parse your CSS:';
-                resultBlock.innerHTML = escape(e.formattedMessage || e.message)
+                resultBlock.innerHTML = escapeHtml(e.formattedMessage || e.message)
                     .replace(/^(Parse error: )([^\r\n]*)/, function(m, prefix, message) {
                         return prefix + createSourceLink(message, e.offset);
                     });
@@ -287,7 +287,7 @@
                 warns.forEach(function(warn) {
                     var warnBlock = document.createElement('div');
                     var count = uniqueDecls[warn.decl.id];
-                    warnBlock.innerHTML = escape(warn.message)
+                    warnBlock.innerHTML = escapeHtml(warn.message)
                         .replace(/^[^\r\n]+/, '<span class="warn-type">$&</span>' + (count > 1 ? ' \u00d7 ' + count : ''))
                         .replace(/ value(:[^\r\n]*)/, createSourceLink(warn.decl.property, warn.decl.node.info.offset) + '$1')
                         .replace(/(Unknown property: )\S+/, '$1' + createSourceLink(warn.decl.property, warn.decl.node.info.offset))
