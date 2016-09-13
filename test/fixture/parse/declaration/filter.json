@@ -300,5 +300,53 @@
                 ]
             }
         }
+    },
+    "alpha() case insensetive": {
+        "source": "filter: ALPHA(opacity=60)",
+        "translate": "filter:ALPHA(opacity=60)",
+        "ast": {
+            "type": "Declaration",
+            "property": {
+                "type": "Property",
+                "name": "filter"
+            },
+            "value": {
+                "type": "Value",
+                "important": false,
+                "sequence": [
+                    {
+                        "type": "Progid",
+                        "value": {
+                            "type": "Raw",
+                            "value": "ALPHA(opacity=60)"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "dropshadow()": {
+        "source": "filter: dropshadow(color=#000,offx=0,offy=-1)",
+        "translate": "filter:dropshadow(color=#000,offx=0,offy=-1)",
+        "ast": {
+            "type": "Declaration",
+            "property": {
+                "type": "Property",
+                "name": "filter"
+            },
+            "value": {
+                "type": "Value",
+                "important": false,
+                "sequence": [
+                    {
+                        "type": "Progid",
+                        "value": {
+                            "type": "Raw",
+                            "value": "dropshadow(color=#000,offx=0,offy=-1)"
+                        }
+                    }
+                ]
+            }
+        }
     }
 }
