@@ -147,9 +147,7 @@
                         "type": "Space"
                     },
                     {
-                        "type": "Braces",
-                        "open": "(",
-                        "close": ")",
+                        "type": "Parentheses",
                         "sequence": [
                             {
                                 "type": "Identifier",

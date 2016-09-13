@@ -17,4 +17,12 @@ function createTranslateWidthSourceMapTest(name, test, context) {
 
 describe('translateWithSourceMap', function() {
     forEachTest(createTranslateWidthSourceMapTest);
+
+    it('should throws on unknown node type', function() {
+        assert.throws(function() {
+            translateWithSourceMap({
+                type: 'xxx'
+            });
+        }, /Unknown node type/);
+    });
 });

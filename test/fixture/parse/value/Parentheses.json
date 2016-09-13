@@ -1,0 +1,194 @@
+{
+    "parentheses.0": {
+        "source": "()",
+        "translate": "()",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": []
+        }
+    },
+    "parentheses.1": {
+        "source": "(1)",
+        "translate": "(1)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Number",
+                    "value": "1"
+                }
+            ]
+        }
+    },
+    "parentheses.2": {
+        "source": "(x)",
+        "translate": "(x)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "x"
+                }
+            ]
+        }
+    },
+    "parentheses.3": {
+        "source": "(x+1)",
+        "translate": "(x+1)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "x"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Number",
+                    "value": "1"
+                }
+            ]
+        }
+    },
+    "parentheses.8": {
+        "source": "(test:0)",
+        "translate": "(test:0)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "test"
+                },
+                {
+                    "type": "Operator",
+                    "value": ":"
+                },
+                {
+                    "type": "Number",
+                    "value": "0"
+                }
+            ]
+        }
+    },
+    "parentheses.c.0": {
+        "source": "(/*test*/)",
+        "translate": "()",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": []
+        }
+    },
+    "parentheses.c.1": {
+        "source": "(/*test*/1/*test*/)",
+        "translate": "(1)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Number",
+                    "value": "1"
+                }
+            ]
+        }
+    },
+    "parentheses.c.2": {
+        "source": "(/*test*/x/*test*/)",
+        "translate": "(x)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "x"
+                }
+            ]
+        }
+    },
+    "parentheses.c.3": {
+        "source": "(/*test*/x/*test*/+/*test*/1/*test*/)",
+        "translate": "(x+1)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "x"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Number",
+                    "value": "1"
+                }
+            ]
+        }
+    },
+    "parentheses.s.0": {
+        "source": "(  )",
+        "translate": "()",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": []
+        }
+    },
+    "parentheses.s.1": {
+        "source": "(  1  )",
+        "translate": "(1)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Number",
+                    "value": "1"
+                }
+            ]
+        }
+    },
+    "parentheses.s.2": {
+        "source": "(  x  )",
+        "translate": "(x)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "x"
+                }
+            ]
+        }
+    },
+    "parentheses.s.3": {
+        "source": "(  x  +  1  )",
+        "translate": "(x + 1)",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "x"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Number",
+                    "value": "1"
+                }
+            ]
+        }
+    }
+}

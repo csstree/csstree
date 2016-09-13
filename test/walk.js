@@ -3,7 +3,6 @@ var parse = require('../lib/parser.js');
 var walkAll = require('../lib/utils/walk.js').all;
 var walkRules = require('../lib/utils/walk.js').rules;
 var walkRulesRight = require('../lib/utils/walk.js').rulesRight;
-var translate = require('../lib/utils/translate.js');
 var testFiles = require('./fixture/parse').tests;
 var forEachTest = require('./fixture/parse').forEachTest;
 
@@ -63,18 +62,45 @@ function createWalkRulesTest(name, test, context, walker) {
     });
 }
 
-function createTranslateTest(name, test, context) {
-    it(name, function() {
-        var ast = parse(test.source, {
-            context: context
-        });
+describe('AST traversal', function() {
+    it('base test', function() {
+        function visit() {
+            var visitedTypes = {};
 
-        // strings should be equal
-        assert.equal(translate(ast), 'translate' in test ? test.translate : test.source);
+            walkAll(parse('@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }'), function(node) {
+                visitedTypes[node.type] = true;
+            });
+
+            return Object.keys(visitedTypes).sort();
+        }
+
+        var shouldVisitTypes = [
+            'Argument',
+            'Atrule',
+            'AtruleExpression',
+            'Block',
+            'Class',
+            'Declaration',
+            'Dimension',
+            'Function',
+            'FunctionalPseudo',
+            'Identifier',
+            'Nth',
+            'Operator',
+            'Parentheses',
+            'Percentage',
+            'Property',
+            'Ruleset',
+            'Selector',
+            'SimpleSelector',
+            'Space',
+            'StyleSheet',
+            'Value'
+        ];
+
+        assert.deepEqual(visit(), shouldVisitTypes);
     });
-}
 
-describe('AST', function() {
     describe('walk all', function() {
         forEachTest(createWalkAllTest);
     });
@@ -109,15 +135,5 @@ describe('AST', function() {
                 }
             }
         };
-    });
-
-    describe('translate', function() {
-        forEachTest(createTranslateTest);
-
-        assert.throws(function() {
-            translate({
-                type: 'xxx'
-            });
-        }, /Unknown node type/);
     });
 });
