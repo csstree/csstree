@@ -752,8 +752,8 @@
       "syntax": "path( <string> )"
     },
     "position": {
-      "comment": "missed spaces between brackets, remove redundant top level group, move first group to the end since less collecting",
-      "syntax": "[ left | center | right | &lt;length-percentage&gt; ] [ top | center | bottom | &lt;length-percentage&gt; ] | [ center | [ left | right ] &lt;length-percentage&gt;? ] && [ center | [ top | bottom ] &lt;length-percentage&gt;? ] | [ left | center | right | top | bottom | &lt;length-percentage&gt; ]"
+      "comment": "rewrite syntax (TODO: make match work with original syntax)",
+      "syntax": "[ center && [ left | right | top | bottom ] &lt;length-percentage&gt;? ] | [ [ left | right ] &lt;length-percentage&gt;? ] && [ [ top | bottom ] &lt;length-percentage&gt;? ] | [ [ left | center | right | &lt;length-percentage&gt; ] || [ top | center | bottom | &lt;length-percentage&gt; ] ]"
     },
     "right": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",

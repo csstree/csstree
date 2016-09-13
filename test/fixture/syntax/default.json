@@ -41,5 +41,68 @@
             "1, 2, 3",
             "1 2, 3, 4 5"
         ]
+    },
+    "background-position": {
+        "property": "background-position",
+        "valid": [
+            "left",
+            "right",
+            "top",
+            "bottom",
+            "center",
+            "10px",
+            "10%",
+            "left top",
+            "left center",
+            "left bottom",
+            "left 10px",
+            "left 10%",
+            "right top",
+            "right center",
+            "right bottom",
+            "right 10px",
+            "right 10%",
+            "bottom left",
+            "bottom center",
+            "bottom right",
+            "top left",
+            "top center",
+            "top right",
+            "center left",
+            "center center",
+            "center right",
+            "center bottom",
+            "center top",
+            "10px top",
+            "10% top",
+            "10px 10px",
+            "10% 10%",
+            "10% center",
+            "left 10px bottom",
+            "top 10px center",
+            "left 10px bottom 10px",
+            "top 10px right 10px",
+            "left, top"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "10",
+            "10 20"
+        ],
+        "invalid:Uncomplete match": [
+            "left right",
+            "right left",
+            "top bottom",
+            "bottom top",
+            "10px left",
+            "10px right",
+            "10px 10px 10px",
+            "left 10px 10px",
+            "left 10px right 10px",
+            "left 10px center 10px",
+            "top 10px center 10px",
+            "top 10px bottom 10px",
+            "center center center"
+        ]
     }
 }
