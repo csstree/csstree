@@ -28,6 +28,10 @@
       "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-pack",
       "syntax": "start | end | center | justify | distribute"
     },
+    "-ms-flex-order": {
+      "comment": "misssed old syntax implemented in IE; https://msdn.microsoft.com/en-us/library/jj127303(v=vs.85).aspx",
+      "syntax": "<integer>"
+    },
     "-ms-flex-positive": {
       "comment": "misssed old syntax implemented in IE; TODO: find references for comfirmation",
       "syntax": "<'flex-grow'>"
