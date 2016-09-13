@@ -414,11 +414,11 @@
       "syntax": "<paint>"
     },
     "stroke-dasharray": {
-      "comment": "added SVG property",
+      "comment": "added SVG property; a list of comma and/or white space separated <length>s and <percentage>s",
       "references": [
         "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
       ],
-      "syntax": "none | <svg-length>#"
+      "syntax": "none | [ <svg-length>+ ]#"
     },
     "stroke-dashoffset": {
       "comment": "added SVG property",

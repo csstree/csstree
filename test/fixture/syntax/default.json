@@ -33,5 +33,13 @@
         "valid": [
             "local(Example Font), url('examplefont.woff') format(\"woff\"), url('examplefont.woff') format(\"opentype\")"
         ]
+    },
+    "stroke-dasharray": {
+        "property": "stroke-dasharray",
+        "valid": [
+            "1 2 3",
+            "1, 2, 3",
+            "1 2, 3, 4 5"
+        ]
     }
 }
