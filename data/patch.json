@@ -84,6 +84,13 @@
       "comment": "https://msdn.microsoft.com/en-us/library/hh781492(v=vs.85).aspx",
       "syntax": "none | element | text"
     },
+    "-webkit-appearance": {
+      "comment": "webkit specific keywords",
+      "references": [
+        "http://css-infos.net/property/-webkit-appearance"
+      ],
+      "syntax": "none | button | button-bevel | caps-lock-indicator | caret | checkbox | default-button | listbox | listitem | media-fullscreen-button | media-mute-button | media-play-button | media-seek-back-button | media-seek-forward-button | media-slider | media-sliderthumb | menulist | menulist-button | menulist-text | menulist-textfield | push-button | radio | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbargripper-horizontal | scrollbargripper-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbartrack-horizontal | scrollbartrack-vertical | searchfield | searchfield-cancel-button | searchfield-decoration | searchfield-results-button | searchfield-results-decoration | slider-horizontal,slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | square-button | textarea | textfield"
+    },
     "-webkit-background-clip": {
       "comment": "https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
       "syntax": "[ <box> | border | padding | content | text ]#"
@@ -178,6 +185,13 @@
     "animation-timing-function": {
       "comment": "<timing-function> -> <single-timing-function> https://drafts.csswg.org/css-animations/#animation-timing-function",
       "syntax": "<single-timing-function>#"
+    },
+    "appearance": {
+      "comment": "CSS Basic User Interface Module Level 4",
+      "references": [
+        "https://drafts.csswg.org/css-ui-4/#appearance-switching"
+      ],
+      "syntax": "auto | none"
     },
     "azimuth": {
       "comment": "missed space",
