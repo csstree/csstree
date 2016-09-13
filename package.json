@@ -66,9 +66,10 @@
   },
   "files": [
     "bin",
-    "docs",
+    "data",
     "dist/csstree.js",
     "dist/csssyntax.js",
+    "docs",
     "lib",
     "HISTORY.md",
     "LICENSE",
