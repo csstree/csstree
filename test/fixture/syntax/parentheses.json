@@ -1,0 +1,88 @@
+{
+    "simple": {
+        "syntax": {
+            "types": {
+                "foo": "foo"
+            },
+            "properties": {
+                "test": "( <foo> )"
+            }
+        },
+        "valid": [
+            "(foo)",
+            "( foo )"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "()",
+            "(foo foo)",
+            "foo"
+        ]
+    },
+    "nested": {
+        "syntax": {
+            "types": {
+                "foo": "foo"
+            },
+            "properties": {
+                "test": "( ( <foo> ) )"
+            }
+        },
+        "valid": [
+            "((foo))",
+            "( ( foo ) )"
+        ],
+        "invalid:Mismatch": [
+            "()",
+            "(())",
+            "((foo foo))",
+            "(foo)"
+        ]
+    },
+    "with multiplier": {
+        "syntax": {
+            "types": {
+                "foo": "foo"
+            },
+            "properties": {
+                "test": "[ ( <foo> ) ]+"
+            }
+        },
+        "valid": [
+            "(foo)",
+            "( foo ) (foo)"
+        ],
+        "invalid:Mismatch": [
+            "",
+            "()",
+            "(foo foo)",
+            "foo"
+        ]
+    },
+    "complex": {
+        "syntax": {
+            "types": {
+                "foo()": "foo( <bar> )",
+                "bar": "<baz>#",
+                "baz": "<qux> [ / <qux> ]?",
+                "qux": "abc | ( <bar> )"
+            },
+            "properties": {
+                "test": "<foo()>"
+            }
+        },
+        "valid": [
+            "foo(abc)",
+            "foo(abc, abc)",
+            "foo(abc / abc)",
+            "foo(abc, abc / abc)",
+            "foo(abc, (abc / (abc / abc)))",
+            "foo(((((abc, abc)))))"
+        ],
+        "invalid:Mismatch": [
+            "foo()",
+            "foo(abc / abc / abc)",
+            "foo(((abc abc)))"
+        ]
+    }
+}
