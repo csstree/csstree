@@ -1,27 +1,45 @@
 var assert = require('assert');
+var path = require('path');
 var parse = require('../lib/parser.js');
 var walkAll = require('../lib/utils/walk.js').all;
 var walkRules = require('../lib/utils/walk.js').rules;
 var walkRulesRight = require('../lib/utils/walk.js').rulesRight;
+var walkDeclarations = require('../lib/utils/walk.js').declarations;
 var testFiles = require('./fixture/parse').tests;
 var forEachTest = require('./fixture/parse').forEachTest;
+var testWithRules = Object.keys(testFiles).map(function(filename) {
+    var dir = path.basename(path.dirname(filename));
+    if (dir === 'atrule' || dir === 'ruleset' || dir === 'stylesheet') {
+        return testFiles[filename];
+    };
+}).filter(Boolean);
 
-function expectedWalk(ast) {
+function expectedWalk(ast, checker) {
     function walk(node) {
-        result.push(node.type);
+        if (checker(stack, node)) {
+            result.push(node.type);
+        }
+
+        stack.push(node);
         for (var key in node) {
-            if (key !== 'parent' && key !== 'info') {
-                if (Array.isArray(node[key])) {
-                    node[key].forEach(walk);
-                } else if (node[key] && typeof node[key] === 'object') {
-                    walk(node[key]);
-                }
+            if (Array.isArray(node[key])) {
+                node[key].forEach(walk);
+            } else if (node[key] && typeof node[key] === 'object') {
+                walk(node[key]);
             }
         }
+        stack.pop();
     }
 
     var result = [];
+    var stack = [];
+
+    if (!checker) {
+        checker = Boolean;
+    }
+
     walk(ast);
+
     return result;
 }
 
@@ -41,8 +59,8 @@ function createWalkAllTest(name, test, context) {
     });
 }
 
-function createWalkRulesTest(name, test, context, walker) {
-    it(name, function() {
+function createWalkRulesTest(test, context, walker) {
+    it(test.name, function() {
         var actual = [];
         var ast = parse(test.source, {
             context: context
@@ -57,6 +75,29 @@ function createWalkRulesTest(name, test, context, walker) {
             actual.sort().join(','),
             expectedWalk(test.ast).filter(function(type) {
                 return type === 'Ruleset' || type === 'Atrule';
+            }).sort().join(',')
+        );
+    });
+}
+
+function createWalkDeclarationsTest(test, context, walker) {
+    it(test.name, function() {
+        var actual = [];
+        var ast = parse(test.source, {
+            context: context
+        });
+
+        walker(ast, function(node) {
+            actual.push(node.type);
+        });
+
+        // type arrays should be equal
+        assert.equal(
+            actual.sort().join(','),
+            expectedWalk(test.ast, function(stack, node) {
+                return node.type === 'Declaration' && stack.some(function(node) {
+                    return node.type === 'Ruleset';
+                });
             }).sort().join(',')
         );
     });
@@ -106,34 +147,26 @@ describe('AST traversal', function() {
     });
 
     describe('walk ruleset', function() {
-        for (var filename in testFiles) {
-            var file = testFiles[filename];
-
-            if (filename === 'atruleb.json' ||
-                filename === 'atruler.json' ||
-                filename === 'atrules.json' ||
-                filename === 'stylesheet.json' ||
-                filename === 'ruleset.json') {
-                for (var name in file.tests) {
-                    createWalkRulesTest(file.locator.get(name), file.tests[name], file.scope, walkRules);
-                }
+        testWithRules.forEach(function(file) {
+            for (var name in file.tests) {
+                createWalkRulesTest(file.tests[name], file.scope, walkRules);
             }
-        };
+        });
     });
 
     describe('walk rulesetRight', function() {
-        for (var filename in testFiles) {
-            var file = testFiles[filename];
-
-            if (filename === 'atruleb.json' ||
-                filename === 'atruler.json' ||
-                filename === 'atrules.json' ||
-                filename === 'stylesheet.json' ||
-                filename === 'ruleset.json') {
-                for (var name in file.tests) {
-                    createWalkRulesTest(file.locator.get(name), file.tests[name], file.scope, walkRulesRight);
-                }
+        testWithRules.forEach(function(file) {
+            for (var name in file.tests) {
+                createWalkRulesTest(file.tests[name], file.scope, walkRulesRight);
             }
-        };
+        });
+    });
+
+    describe('walk declarations', function() {
+        testWithRules.forEach(function(file) {
+            for (var name in file.tests) {
+                createWalkDeclarationsTest(file.tests[name], file.scope, walkDeclarations);
+            }
+        });
     });
 });
