@@ -140,10 +140,8 @@
                         context: 'value'
                     });
 
-                    try {
-                        defaultSyntax.match(currentProperty, ast);
-                    } catch (e) {
-                        error = e.message;
+                    if (!defaultSyntax.match(currentProperty, ast)) {
+                        error = defaultSyntax.lastMatchError.message;
                     }
                 } catch (e) {
                     error = e.message + (e.sourceFragment ? '\n' + e.sourceFragment() : '');

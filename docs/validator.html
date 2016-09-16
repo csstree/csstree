@@ -239,12 +239,13 @@
                 }
             });
 
+            var syntax = csstree.syntax.defaultSyntax;
             var warns = [];
             decls.forEach(function(decl) {
                 var node = decl.value;
-                try {
-                    csstree.syntax.defaultSyntax.match(decl.property, node);
-                } catch (e) {
+
+                if (!syntax.match(decl.property, node)) {
+                    var e = syntax.lastMatchError;
                     var type = e.rawMessage || e.message;
                     var message = e.message;
 
@@ -264,10 +265,9 @@
             });
             var fails = warns.length;
             var uniqueDeclCount = decls.length;
-            var maxErrorCount = Math.max.apply(null, Object.keys(errors).map(function(k) {
+            var maxErrorCountLength = String(Math.max.apply(null, Object.keys(errors).map(function(k) {
                 return errors[k];
-            }));
-            var maxErrorCountLength = String(maxErrorCount).length;
+            }))).length;
 
             var summaryBlock = document.createElement('div');
             summaryBlock.innerHTML = [

@@ -28,26 +28,26 @@ function createParseTest(name, syntax) {
 }
 
 function createMatchTest(name, syntax, property, value, error) {
-    it(name, function() {
-        var css = parseCss(value, {
-            context: 'value',
-            property: property
-        });
+    if (error) {
+        it(name, function() {
+            var css = parseCss(value, {
+                context: 'value',
+                property: property
+            });
 
-        if (error) {
-            assert.throws(function() {
-                syntax.match(property, css);
-            }, new RegExp('^SyntaxMatchError: ' + error));
-        } else {
-            // left it for future
-            // assert.equal(
-            //     stringifyCss(syntax.match('test', css)),
-            //     stringifyCss(test.match)
-            // );
+            assert.equal(syntax.match(property, css), null);
+            assert(new RegExp('^SyntaxMatchError: ' + error).test(syntax.lastMatchError));
+        });
+    } else {
+        it(name, function() {
+            var css = parseCss(value, {
+                context: 'value',
+                property: property
+            });
 
             assert(Boolean(syntax.match(property, css)));
-        }
-    });
+        });
+    }
 }
 
 describe('CSS syntax', function() {
@@ -172,9 +172,8 @@ describe('CSS syntax', function() {
             });
             it('should use verdor version first', function() {
                 assert(syntax.match('-baz-foo', qux));
-                assert.throws(function() {
-                    assert(syntax.match('-baz-baz-foo', qux));
-                }, /Unknown property/);
+                assert.equal(syntax.match('-baz-baz-foo', qux), null);
+                assert(/Unknown property/.test(syntax.lastMatchError));
             });
         });
 
