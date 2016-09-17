@@ -7,7 +7,7 @@
     "parser",
     "ast"
   ],
-  "homepage": "https://github.com/csstree/parser",
+  "homepage": "https://github.com/csstree/csstree",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
   "maintainers": [
     {
@@ -17,9 +17,9 @@
     }
   ],
   "license": "MIT",
-  "repository": "csstree/parser",
+  "repository": "csstree/csstree",
   "bugs": {
-    "url": "https://github.com/csstree/parser/issues"
+    "url": "https://github.com/csstree/csstree/issues"
   },
   "main": "./lib/index",
   "browser": {
