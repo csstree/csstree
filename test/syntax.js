@@ -1,11 +1,10 @@
 var assert = require('assert');
-var parseCss = require('../lib/parser.js');
-// var stringifyCss = require('./helpers/stringify');
+var parseCss = require('../lib/parser');
 var defaultSyntax = require('../lib/syntax/default');
 var createSyntax = require('../lib/syntax').create;
-var parse = require('../lib/syntax/parse.js');
-var stringify = require('../lib/syntax/stringify.js');
-var walk = require('../lib/syntax/walk.js');
+var parse = require('../lib/syntax/parse');
+var stringify = require('../lib/syntax/stringify');
+var walk = require('../lib/syntax/walk');
 var data = require('../data');
 var tests = require('./fixture/syntax');
 

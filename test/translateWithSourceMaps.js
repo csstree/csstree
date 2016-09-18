@@ -1,6 +1,6 @@
 var assert = require('assert');
-var parse = require('../lib/parser.js');
-var translateWithSourceMap = require('../lib/utils/translateWithSourceMap.js');
+var parse = require('../lib/parser');
+var translateWithSourceMap = require('../lib/utils/translateWithSourceMap');
 var forEachTest = require('./fixture/parse').forEachTest;
 
 function createTranslateWidthSourceMapTest(name, test, context) {

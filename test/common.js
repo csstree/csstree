@@ -1,6 +1,6 @@
 var fs = require('fs');
 var assert = require('assert');
-var parse = require('../lib/parser.js');
+var parse = require('../lib/parser');
 var stringify = require('./helpers/stringify.js');
 
 function normalize(str) {
