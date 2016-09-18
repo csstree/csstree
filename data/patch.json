@@ -159,6 +159,13 @@
       "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling",
       "syntax": "auto | touch"
     },
+    "-webkit-print-color-adjust": {
+      "comment": "missed",
+      "references": [
+        "https://developer.mozilla.org/en/docs/Web/CSS/-webkit-print-color-adjust"
+      ],
+      "syntax": "economy | exact"
+    },
     "-webkit-tap-highlight-color": {
       "comment": "broken syntax",
       "syntax": "&lt;color&gt;#"
