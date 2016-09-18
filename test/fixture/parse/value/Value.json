@@ -282,58 +282,6 @@
             ]
         }
     },
-    "unicode range one hex": {
-        "source": "U+0F00",
-        "translate": "U+0F00",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "UnicodeRange",
-                    "name": "U+0F00"
-                }
-            ]
-        }
-    },
-    "unicode range hex pair": {
-        "source": "U+0F00-0FFF",
-        "translate": "U+0F00-0FFF",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "UnicodeRange",
-                    "name": "U+0F00-0FFF"
-                }
-            ]
-        }
-    },
-    "unicode range hex with ?": {
-        "source": "u+0F00??",
-        "translate": "u+0F00??",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "UnicodeRange",
-                    "name": "u+0F00??"
-                }
-            ]
-        }
-    },
-    "not an unicode range": {
-        "source": "u",
-        "translate": "u",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Identifier",
-                    "name": "u"
-                }
-            ]
-        }
-    },
     "css variables": {
         "source": "var(--foo, blue)",
         "translate": "var(--foo,blue)",

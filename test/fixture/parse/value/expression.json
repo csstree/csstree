@@ -132,25 +132,6 @@
             ]
         }
     },
-    "functionExpression.7": {
-        "source": "expression(\n// )\n)",
-        "translate": "expression(\n// )\n)",
-        "ast": {
-            "type": "Function",
-            "name": "expression",
-            "arguments": [
-                {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "\n// )\n"
-                        }
-                    ]
-                }
-            ]
-        }
-    },
     "functionExpression.8": {
         "source": "expression(a = 5)",
         "translate": "expression(a = 5)",

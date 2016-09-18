@@ -104,7 +104,7 @@
     }
 }, {
     "css": ":",
-    "error": "Colon or identifier is expected",
+    "error": "Identifier is expected",
     "position": {
         "offset": 1,
         "line": 1,
@@ -152,7 +152,7 @@
     }
 }, {
     "css": ":nth-child(xxx)",
-    "error": "Unexpected identifier",
+    "error": "Unexpected input",
     "position": {
         "offset": 11,
         "line": 1,
@@ -160,15 +160,15 @@
     }
 }, {
     "css": ":nth-child(--test) {}",
-    "error": "Unexpected identifier",
+    "error": "Number or identifier is expected",
     "position": {
-        "offset": 13,
+        "offset": 12,
         "line": 1,
-        "column": 14
+        "column": 13
     }
 }, {
     "css": ":nth-child(var(--test)) {}",
-    "error": "Unexpected identifier",
+    "error": "Unexpected input",
     "position": {
         "offset": 11,
         "line": 1,

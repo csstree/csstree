@@ -1,7 +1,6 @@
 {
     "string.0": {
         "source": "'test'",
-        "translate": "'test'",
         "ast": {
             "type": "String",
             "value": "'test'"
@@ -9,7 +8,6 @@
     },
     "string.1": {
         "source": "\"test\"",
-        "translate": "\"test\"",
         "ast": {
             "type": "String",
             "value": "\"test\""
@@ -17,7 +15,6 @@
     },
     "string.2": {
         "source": "'te\\'st'",
-        "translate": "'te\\'st'",
         "ast": {
             "type": "String",
             "value": "'te\\'st'"
@@ -25,7 +22,6 @@
     },
     "string.3": {
         "source": "\"te\\\"st\"",
-        "translate": "\"te\\\"st\"",
         "ast": {
             "type": "String",
             "value": "\"te\\\"st\""
@@ -33,26 +29,23 @@
     },
     "string with escaped \\n": {
         "source": "\"te\\\nst\"",
-        "translate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "\"test\""
+            "value": "\"te\\\nst\""
         }
     },
     "string with escaped \\r": {
         "source": "\"te\\\rst\"",
-        "translate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "\"test\""
+            "value": "\"te\\\rst\""
         }
     },
     "string with escaped \\r\\n": {
         "source": "\"te\\\r\nst\"",
-        "translate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "\"test\""
+            "value": "\"te\\\r\nst\""
         }
     }
 }

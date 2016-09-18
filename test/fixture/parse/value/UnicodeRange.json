@@ -1,0 +1,75 @@
+{
+    "unicode range one hex": {
+        "source": "U+0F00",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "U+0F00"
+                }
+            ]
+        }
+    },
+    "unicode range hex pair": {
+        "source": "U+0F00-0FFF",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "U+0F00-0FFF"
+                }
+            ]
+        }
+    },
+    "unicode range hex pair #2": {
+        "source": "u+0025-00FF",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "u+0025-00FF"
+                }
+            ]
+        }
+    },
+
+    "unicode range short hex pair": {
+        "source": "U+0-7F",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "U+0-7F"
+                }
+            ]
+        }
+    },
+    "unicode range hex with ?": {
+        "source": "u+0f00??",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "u+0f00??"
+                }
+            ]
+        }
+    },
+    "not an unicode range": {
+        "source": "u",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "u"
+                }
+            ]
+        }
+    }
+}
