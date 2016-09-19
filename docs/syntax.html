@@ -135,17 +135,23 @@
             var isEmpty = !/\S/.test(value);
             var error;
 
-            if (currentProperty && !isEmpty) {
-                try {
-                    var ast = csstree.parse(value, {
-                        context: 'value'
-                    });
+            try {
+                var ast = csstree.parse(value, {
+                    context: 'value'
+                });
+            } catch (e) {
+                error = e.message + (e.sourceFragment ? '\n' + e.sourceFragment() : '');
+            }
 
+            if (!error && !isEmpty) {
+                if (currentProperty) {
                     if (!defaultSyntax.match(currentProperty, ast)) {
                         error = defaultSyntax.lastMatchError.message;
                     }
-                } catch (e) {
-                    error = e.message + (e.sourceFragment ? '\n' + e.sourceFragment() : '');
+                } else if (currentType) {
+                    if (!defaultSyntax.matchType(currentType, ast)) {
+                        error = defaultSyntax.lastMatchError.message;
+                    }
                 }
             }
 
@@ -163,6 +169,7 @@
             var info = defaultSyntax[section] && defaultSyntax[section][name];
 
             currentProperty = info && section === PROPERTY ? name : '';
+            currentType = info && section === TYPE ? name : '';
             contentEl.style.display = info ? '' : 'none';
             nestedEl.style.display = 'none';
             valueInput.focus();
@@ -254,6 +261,7 @@
         var valueInput = document.getElementById('value-input');
         var valueInputError = document.getElementById('value-input-result');
         var currentProperty;
+        var currentType;
 
         valueInput.addEventListener('input', function() {
             validateValue();

@@ -34,7 +34,7 @@ function createMatchTest(name, syntax, property, value, error) {
                 property: property
             });
 
-            assert.equal(syntax.match(property, css), null);
+            assert.equal(syntax.matchProperty(property, css), null);
             assert(new RegExp('^SyntaxMatchError: ' + error).test(syntax.lastMatchError));
         });
     } else {
@@ -44,7 +44,7 @@ function createMatchTest(name, syntax, property, value, error) {
                 property: property
             });
 
-            assert(Boolean(syntax.match(property, css)));
+            assert(Boolean(syntax.matchProperty(property, css)));
         });
     }
 }
@@ -98,14 +98,14 @@ describe('CSS syntax', function() {
 
             it('syntax should be valid and correct', function() {
                 assert.equal(defaultSyntax.validate(), null);
-                assert(syntax.match('test', parseCss('1 2 3', { context: 'value' })));
+                assert(syntax.matchProperty('test', parseCss('1 2 3', { context: 'value' })));
             });
 
             it('recovery syntax from dump', function() {
                 var recoverySyntax = createSyntax(syntax.dump());
 
                 assert.equal(recoverySyntax.validate(), null);
-                assert(recoverySyntax.match('test', parseCss('1 2 3', { context: 'value' })));
+                assert(recoverySyntax.matchProperty('test', parseCss('1 2 3', { context: 'value' })));
             });
         });
     });
@@ -155,23 +155,23 @@ describe('CSS syntax', function() {
             });
 
             it('vendor prefix', function() {
-                assert(syntax.match('-vendor-foo', bar));
+                assert(syntax.matchProperty('-vendor-foo', bar));
             });
             it('hacks', function() {
-                assert(syntax.match('_foo', bar));
+                assert(syntax.matchProperty('_foo', bar));
             });
             it('vendor prefix and hack', function() {
-                assert(syntax.match('_-vendor-foo', bar));
+                assert(syntax.matchProperty('_-vendor-foo', bar));
             });
             it('case insensetive with vendor prefix and hack', function() {
-                assert(syntax.match('FOO', bar));
-                assert(syntax.match('-VENDOR-Foo', bar));
-                assert(syntax.match('_FOO', bar));
-                assert(syntax.match('_-VENDOR-Foo', bar));
+                assert(syntax.matchProperty('FOO', bar));
+                assert(syntax.matchProperty('-VENDOR-Foo', bar));
+                assert(syntax.matchProperty('_FOO', bar));
+                assert(syntax.matchProperty('_-VENDOR-Foo', bar));
             });
             it('should use verdor version first', function() {
-                assert(syntax.match('-baz-foo', qux));
-                assert.equal(syntax.match('-baz-baz-foo', qux), null);
+                assert(syntax.matchProperty('-baz-foo', qux));
+                assert.equal(syntax.matchProperty('-baz-baz-foo', qux), null);
                 assert(/Unknown property/.test(syntax.lastMatchError));
             });
         });

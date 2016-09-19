@@ -245,7 +245,7 @@
             decls.forEach(function(decl) {
                 var node = decl.value;
 
-                if (!syntax.match(decl.property, node)) {
+                if (!syntax.matchProperty(decl.property, node)) {
                     var e = syntax.lastMatchError;
                     var type = e.rawMessage || e.message;
                     var message = e.message;
