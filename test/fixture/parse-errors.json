@@ -1,6 +1,6 @@
 [{
     "css": "100 {}",
-    "error": "Identifier is expected",
+    "error": "PercentSign is expected",
     "position": {
         "offset": 3,
         "line": 1,
