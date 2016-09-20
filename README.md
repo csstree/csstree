@@ -13,6 +13,7 @@ Related:
 * [Gulp plugin](https://github.com/csstree/gulp-csstree)
 * [Sublime plugin](https://github.com/csstree/SublimeLinter-contrib-csstree)
 * [VS Code plugin](https://github.com/csstree/vscode-csstree)
+* [Atom plugin](https://github.com/csstree/atom-csstree-validator)
 
 ## Install
 
