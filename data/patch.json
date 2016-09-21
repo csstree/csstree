@@ -297,7 +297,7 @@
     },
     "font": {
       "comment": "wrong quotes",
-      "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar"
+      "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar | <-non-standart-font>"
     },
     "font-variant": {
       "comment": "# should stick to term, missed spaces for function body, trailing space",
@@ -604,6 +604,13 @@
       "comment": "define to duoble sure it doesn't extends in future https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltshape",
       "syntax": "circle | ellipse"
     },
+    "-non-standart-font": {
+      "comment": "non standart fonts",
+      "preferences": [
+        "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
+      ],
+      "syntax": "-apple-system-body | -apple-system-headline | -apple-system-subheadline | -apple-system-caption1 | -apple-system-caption2 | -apple-system-footnote | -apple-system-short-body | -apple-system-short-headline | -apple-system-short-subheadline | -apple-system-short-caption1 | -apple-system-short-footnote | -apple-system-tall-body"
+    },
     "-non-standart-color": {
       "comment": "non standart colors",
       "references": [
@@ -709,6 +716,13 @@
     "gender": {
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
       "syntax": "male | female | neutral"
+    },
+    "generic-family": {
+      "comment": "added -apple-system",
+      "references": [
+        "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
+      ],
+      "syntax": "serif | sans-serif | cursive | fantasy | monospace | -apple-system"
     },
     "gradient": {
       "comment": "added -webkit-gradient() since may to be used for legacy support",
