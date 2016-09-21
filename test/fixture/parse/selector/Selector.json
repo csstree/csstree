@@ -60,5 +60,93 @@
                 }
             ]
         }
+    },
+    "bad selector #1": {
+        "source": "a,",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #2": {
+        "source": "a,,",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #3": {
+        "source": "a, ",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #4": {
+        "source": "a,, ",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #5": {
+        "source": "a,,b",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #6": {
+        "source": ",b",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #7": {
+        "source": ",,b",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+     "bad selector #8": {
+        "source": ",b",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+     "bad selector #9": {
+        "source": ",,b",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #10": {
+        "source": ",",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
+    },
+    "bad selector #11": {
+        "source": ",,",
+        "translate": "",
+        "ast": {
+            "type": "Selector",
+            "selectors": []
+        }
     }
 }
