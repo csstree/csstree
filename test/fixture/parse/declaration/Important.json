@@ -4,10 +4,7 @@
         "ast": {
             "type": "Declaration",
             "important": true,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": []
@@ -20,10 +17,7 @@
         "ast": {
             "type": "Declaration",
             "important": true,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": []
@@ -36,10 +30,7 @@
         "ast": {
             "type": "Declaration",
             "important": true,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": []
@@ -52,10 +43,7 @@
         "ast": {
             "type": "Declaration",
             "important": true,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": []
@@ -68,10 +56,7 @@
         "ast": {
             "type": "Declaration",
             "important": true,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": []

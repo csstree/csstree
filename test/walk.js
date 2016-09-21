@@ -130,7 +130,6 @@ describe('AST traversal', function() {
             'Operator',
             'Parentheses',
             'Percentage',
-            'Property',
             'Ruleset',
             'Selector',
             'SimpleSelector',

@@ -5,10 +5,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -26,10 +23,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "-my-property"
-            },
+            "property": "-my-property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -47,10 +41,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "//property"
-            },
+            "property": "//property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -68,10 +59,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -89,10 +77,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -110,10 +95,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -131,10 +113,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -152,10 +131,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -173,10 +149,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -194,10 +167,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -215,10 +185,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "property"
-            },
+            "property": "property",
             "value": {
                 "type": "Value",
                 "sequence": [

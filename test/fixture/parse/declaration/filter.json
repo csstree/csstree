@@ -5,10 +5,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -29,10 +26,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -60,10 +54,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "*filter"
-            },
+            "property": "*filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -84,10 +75,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "-filter"
-            },
+            "property": "-filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -108,10 +96,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "_filter"
-            },
+            "property": "_filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -132,10 +117,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "-ms-filter"
-            },
+            "property": "-ms-filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -156,10 +138,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -180,10 +159,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -204,10 +180,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -228,10 +201,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -259,10 +229,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -283,10 +250,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -307,10 +271,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [
@@ -331,10 +292,7 @@
         "ast": {
             "type": "Declaration",
             "important": false,
-            "property": {
-                "type": "Property",
-                "name": "filter"
-            },
+            "property": "filter",
             "value": {
                 "type": "Value",
                 "sequence": [

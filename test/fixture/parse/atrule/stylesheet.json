@@ -34,10 +34,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -102,10 +99,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -194,10 +188,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -292,10 +283,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -348,10 +336,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -387,10 +372,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -443,10 +425,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -511,10 +490,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -606,10 +582,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -662,10 +635,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -730,10 +700,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -837,10 +804,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "p"
-                                    },
+                                    "property": "p",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -898,10 +862,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "opacity"
-                                    },
+                                    "property": "opacity",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -937,10 +898,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "opacity"
-                                    },
+                                    "property": "opacity",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [
@@ -976,10 +934,7 @@
                                 {
                                     "type": "Declaration",
                                     "important": false,
-                                    "property": {
-                                        "type": "Property",
-                                        "name": "opacity"
-                                    },
+                                    "property": "opacity",
                                     "value": {
                                         "type": "Value",
                                         "sequence": [

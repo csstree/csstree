@@ -65,16 +65,7 @@
                             "column": 1
                         },
                         "important": false,
-                        "property": {
-                            "type": "Property",
-                            "info": {
-                                "source": "<unknown>",
-                                "offset": 5,
-                                "line": 3,
-                                "column": 1
-                            },
-                            "name": "color"
-                        },
+                        "property": "color",
                         "value": {
                             "type": "Value",
                             "info": {
