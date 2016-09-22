@@ -178,4 +178,42 @@ describe('CSS syntax', function() {
 
         tests.forEachTest(createMatchTest);
     });
+
+    describe('mimatch node', function() {
+        var syntax = createSyntax({
+            generic: true,
+            properties: {
+                'test1': '<foo()>',
+                'test2': '<bar>',
+                'test3': '<baz()>'
+            },
+            types: {
+                'foo()': 'foo( <number>#{3} )',
+                'bar': 'bar( <angle> )',
+                'baz()': 'baz( <angle> | <number> )'
+            }
+        });
+        var tests = [
+            { property: 'test1', value: 'foo(1, 2px, 3)', column: 8 },
+            { property: 'test1', value: 'foo(1, 2, 3, 4)', column: 12 },
+            { property: 'test1', value: 'foo(1, 211px)', column: 8 },
+            { property: 'test1', value: 'foo(1, 2 3)', column: 10 },
+            { property: 'test1', value: 'foo(1, 2)', column: 9, skip: true },
+            { property: 'test2', value: 'bar( foo )', column: 6 },
+            { property: 'test3', value: 'baz( foo )', column: 6 },
+            { property: 'test3', value: 'baz( 1px )', column: 6 }
+        ];
+
+        tests.forEach(function(test) {
+            (test.skip ? it.skip : it)(test.value, function() {
+                var ast = parseCss(test.value, { context: 'value', positions: true });
+                var result = syntax.matchProperty(test.property, ast);
+                var error = syntax.lastMatchError;
+
+                assert.equal(result, null);
+                assert(Boolean(error));
+                assert.equal(error.column, test.column);
+            });
+        });
+    });
 });
