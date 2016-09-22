@@ -62,13 +62,15 @@ describe('parse error', function() {
 
 describe('positions', function() {
     it('should start with line 1 column 1 by default', function() {
-        var ast = parse('.foo.bar {\n  property: value;\n}', {
+        var ast = parse('.foo.bar {\n  property: value 123 123.4 .123 123px 99% #fff url( a ) / var( --a ), "test" \'test\';\n}', {
             positions: true
         });
         var positions = [];
 
         walkAll(ast, function(node) {
-            positions.unshift([node.info.line, node.info.column, node.type]);
+            if (node.info) {
+                positions.unshift([node.info.line, node.info.column, node.type]);
+            }
         });
 
         assert.deepEqual(positions, [
@@ -77,6 +79,20 @@ describe('positions', function() {
             [1, 10, 'Block'],
             [2, 3, 'Declaration'],
             [2, 12, 'Value'],
+            [2, 79, 'String'],
+            [2, 72, 'String'],
+            [2, 70, 'Operator'],
+            [2, 60, 'Function'],
+            [2, 65, 'Identifier'],
+            [2, 58, 'Operator'],
+            [2, 49, 'Url'],
+            [2, 54, 'Raw'],
+            [2, 44, 'Hash'],
+            [2, 40, 'Percentage'],
+            [2, 34, 'Dimension'],
+            [2, 29, 'Number'],
+            [2, 23, 'Number'],
+            [2, 19, 'Number'],
             [2, 13, 'Identifier'],
             [1, 1, 'Selector'],
             [1, 1, 'SimpleSelector'],
@@ -86,7 +102,7 @@ describe('positions', function() {
     });
 
     it('should start with specified line and column', function() {
-        var ast = parse('.foo.bar {\n  property: value;\n}', {
+        var ast = parse('.foo.bar {\n  property: value 123 123.4 .123 123px 99% #fff url( a ) / var( --a ), "test" \'test\';\n}', {
             positions: true,
             line: 3,
             column: 5
@@ -94,7 +110,9 @@ describe('positions', function() {
         var positions = [];
 
         walkAll(ast, function(node) {
-            positions.unshift([node.info.line, node.info.column, node.type]);
+            if (node.info) {
+                positions.unshift([node.info.line, node.info.column, node.type]);
+            }
         });
 
         assert.deepEqual(positions, [
@@ -103,6 +121,20 @@ describe('positions', function() {
             [3, 14, 'Block'],
             [4, 3, 'Declaration'],
             [4, 12, 'Value'],
+            [4, 79, 'String'],
+            [4, 72, 'String'],
+            [4, 70, 'Operator'],
+            [4, 60, 'Function'],
+            [4, 65, 'Identifier'],
+            [4, 58, 'Operator'],
+            [4, 49, 'Url'],
+            [4, 54, 'Raw'],
+            [4, 44, 'Hash'],
+            [4, 40, 'Percentage'],
+            [4, 34, 'Dimension'],
+            [4, 29, 'Number'],
+            [4, 23, 'Number'],
+            [4, 19, 'Number'],
             [4, 13, 'Identifier'],
             [3, 5, 'Selector'],
             [3, 5, 'SimpleSelector'],
