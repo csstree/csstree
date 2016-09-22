@@ -1036,7 +1036,7 @@
                                         {
                                             "type": "Function",
                                             "name": "a",
-                                            "arguments": []
+                                            "sequence": []
                                         }
                                     ]
                                 }

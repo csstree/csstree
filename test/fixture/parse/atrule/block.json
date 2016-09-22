@@ -103,23 +103,18 @@
                     {
                         "type": "Function",
                         "name": "x",
-                        "arguments": [
+                        "sequence": [
                             {
-                                "type": "Argument",
-                                "sequence": [
-                                    {
-                                        "type": "Number",
-                                        "value": "1"
-                                    },
-                                    {
-                                        "type": "Operator",
-                                        "value": "+"
-                                    },
-                                    {
-                                        "type": "Number",
-                                        "value": "2"
-                                    }
-                                ]
+                                "type": "Number",
+                                "value": "1"
+                            },
+                            {
+                                "type": "Operator",
+                                "value": "+"
+                            },
+                            {
+                                "type": "Number",
+                                "value": "2"
                             }
                         ]
                     }
@@ -247,23 +242,18 @@
                     {
                         "type": "Function",
                         "name": "x",
-                        "arguments": [
+                        "sequence": [
                             {
-                                "type": "Argument",
-                                "sequence": [
-                                    {
-                                        "type": "Number",
-                                        "value": "1"
-                                    },
-                                    {
-                                        "type": "Operator",
-                                        "value": "+"
-                                    },
-                                    {
-                                        "type": "Number",
-                                        "value": "2"
-                                    }
-                                ]
+                                "type": "Number",
+                                "value": "1"
+                            },
+                            {
+                                "type": "Operator",
+                                "value": "+"
+                            },
+                            {
+                                "type": "Number",
+                                "value": "2"
                             }
                         ]
                     }
@@ -397,29 +387,24 @@
                     {
                         "type": "Function",
                         "name": "x",
-                        "arguments": [
+                        "sequence": [
                             {
-                                "type": "Argument",
-                                "sequence": [
-                                    {
-                                        "type": "Number",
-                                        "value": "1"
-                                    },
-                                    {
-                                        "type": "Space"
-                                    },
-                                    {
-                                        "type": "Operator",
-                                        "value": "+"
-                                    },
-                                    {
-                                        "type": "Space"
-                                    },
-                                    {
-                                        "type": "Number",
-                                        "value": "2"
-                                    }
-                                ]
+                                "type": "Number",
+                                "value": "1"
+                            },
+                            {
+                                "type": "Space"
+                            },
+                            {
+                                "type": "Operator",
+                                "value": "+"
+                            },
+                            {
+                                "type": "Space"
+                            },
+                            {
+                                "type": "Number",
+                                "value": "2"
                             }
                         ]
                     }

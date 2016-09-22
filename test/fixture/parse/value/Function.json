@@ -5,7 +5,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": []
+            "sequence": []
         }
     },
     "function.1": {
@@ -14,15 +14,10 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "n"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "n"
                 }
             ]
         }
@@ -33,15 +28,10 @@
         "ast": {
             "type": "Function",
             "name": "test-test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "n"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "n"
                 }
             ]
         }
@@ -52,23 +42,18 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "x"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Identifier",
-                            "name": "y"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "x"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y"
                 }
             ]
         }
@@ -79,24 +64,18 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "x"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "x"
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "y"
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y"
                 }
             ]
         }
@@ -107,52 +86,40 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
+                    "type": "Dimension",
+                    "value": "10",
+                    "unit": "px"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "String",
+                    "value": "'test'"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Function",
+                    "name": "test",
                     "sequence": [
                         {
-                            "type": "Dimension",
-                            "value": "10",
-                            "unit": "px"
+                            "type": "Identifier",
+                            "name": "x"
                         }
                     ]
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "String",
-                            "value": "'test'"
-                        },
-                        {
-                            "type": "Space"
-                        },
-                        {
-                            "type": "Function",
-                            "name": "test",
-                            "arguments": [
-                                {
-                                    "type": "Argument",
-                                    "sequence": [
-                                        {
-                                            "type": "Identifier",
-                                            "name": "x"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": ","
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Percentage",
-                            "value": "89"
-                        }
-                    ]
+                    "type": "Percentage",
+                    "value": "89"
                 }
             ]
         }
@@ -163,37 +130,30 @@
         "ast": {
             "type": "Function",
             "name": "rgb",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Number",
-                            "value": "-10"
-                        }
-                    ]
+                    "type": "Number",
+                    "value": "-10"
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Percentage",
-                            "value": "-20"
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": ","
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Percentage",
-                            "value": "89"
-                        }
-                    ]
+                    "type": "Percentage",
+                    "value": "-20"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Percentage",
+                    "value": "89"
                 }
             ]
         }
@@ -204,7 +164,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": []
+            "sequence": []
         }
     },
     "function.c.1": {
@@ -213,15 +173,10 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "n"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "n"
                 }
             ]
         }
@@ -232,15 +187,10 @@
         "ast": {
             "type": "Function",
             "name": "test-test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "n"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "n"
                 }
             ]
         }
@@ -251,23 +201,18 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "x"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Identifier",
-                            "name": "y"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "x"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y"
                 }
             ]
         }
@@ -278,24 +223,18 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "x"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "x"
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "y"
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y"
                 }
             ]
         }
@@ -306,49 +245,37 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
+                    "type": "Dimension",
+                    "value": "10",
+                    "unit": "px"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "String",
+                    "value": "'test'"
+                },
+                {
+                    "type": "Function",
+                    "name": "test",
                     "sequence": [
                         {
-                            "type": "Dimension",
-                            "value": "10",
-                            "unit": "px"
+                            "type": "Identifier",
+                            "name": "x"
                         }
                     ]
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "String",
-                            "value": "'test'"
-                        },
-                        {
-                            "type": "Function",
-                            "name": "test",
-                            "arguments": [
-                                {
-                                    "type": "Argument",
-                                    "sequence": [
-                                        {
-                                            "type": "Identifier",
-                                            "name": "x"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": ","
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Percentage",
-                            "value": "89"
-                        }
-                    ]
+                    "type": "Percentage",
+                    "value": "89"
                 }
             ]
         }
@@ -359,7 +286,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": []
+            "sequence": []
         }
     },
     "function.s.1": {
@@ -368,15 +295,10 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "n"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "n"
                 }
             ]
         }
@@ -387,15 +309,10 @@
         "ast": {
             "type": "Function",
             "name": "test-test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "n"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "n"
                 }
             ]
         }
@@ -406,29 +323,24 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "x"
-                        },
-                        {
-                            "type": "Space"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Space"
-                        },
-                        {
-                            "type": "Identifier",
-                            "name": "y"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "x"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y"
                 }
             ]
         }
@@ -439,24 +351,18 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "x"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "x"
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Identifier",
-                            "name": "y"
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Identifier",
+                    "name": "y"
                 }
             ]
         }
@@ -467,52 +373,40 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
+                    "type": "Dimension",
+                    "value": "10",
+                    "unit": "px"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "String",
+                    "value": "'test'"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Function",
+                    "name": "test",
                     "sequence": [
                         {
-                            "type": "Dimension",
-                            "value": "10",
-                            "unit": "px"
+                            "type": "Identifier",
+                            "name": "x"
                         }
                     ]
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "String",
-                            "value": "'test'"
-                        },
-                        {
-                            "type": "Space"
-                        },
-                        {
-                            "type": "Function",
-                            "name": "test",
-                            "arguments": [
-                                {
-                                    "type": "Argument",
-                                    "sequence": [
-                                        {
-                                            "type": "Identifier",
-                                            "name": "x"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": ","
                 },
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Percentage",
-                            "value": "89"
-                        }
-                    ]
+                    "type": "Percentage",
+                    "value": "89"
                 }
             ]
         }

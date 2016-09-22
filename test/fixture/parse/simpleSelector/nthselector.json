@@ -5,23 +5,18 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "2n"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "1"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "2n"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Nth",
+                    "value": "1"
                 }
             ]
         }
@@ -32,27 +27,22 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-last-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "3n"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "-"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "2"
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Nth",
+                    "value": "3n"
+                },
+                {
+                    "type": "Operator",
+                    "value": "-"
+                },
+                {
+                    "type": "Nth",
+                    "value": "2"
                 }
             ]
         }
@@ -63,15 +53,10 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "10"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "10"
                 }
             ]
         }
@@ -82,15 +67,10 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "2n"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "2n"
                 }
             ]
         }
@@ -101,15 +81,10 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "odd"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "odd"
                 }
             ]
         }
@@ -120,15 +95,10 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "even"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "even"
                 }
             ]
         }
@@ -139,15 +109,10 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "n"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "n"
                 }
             ]
         }
@@ -158,23 +123,18 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "2n"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "1"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "2n"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Nth",
+                    "value": "1"
                 }
             ]
         }
@@ -185,27 +145,22 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-last-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "3n"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "-"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "2"
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Nth",
+                    "value": "3n"
+                },
+                {
+                    "type": "Operator",
+                    "value": "-"
+                },
+                {
+                    "type": "Nth",
+                    "value": "2"
                 }
             ]
         }
@@ -216,23 +171,18 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "2n"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "1"
-                        }
-                    ]
+                    "type": "Nth",
+                    "value": "2n"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Nth",
+                    "value": "1"
                 }
             ]
         }
@@ -243,27 +193,22 @@
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-last-child",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "3n"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "-"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "2"
-                        }
-                    ]
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Nth",
+                    "value": "3n"
+                },
+                {
+                    "type": "Operator",
+                    "value": "-"
+                },
+                {
+                    "type": "Nth",
+                    "value": "2"
                 }
             ]
         }

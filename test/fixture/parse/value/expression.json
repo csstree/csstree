@@ -5,15 +5,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": ""
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": ""
                 }
             ]
         }
@@ -24,15 +19,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "()"
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": "()"
                 }
             ]
         }
@@ -43,15 +33,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "expression()"
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": "expression()"
                 }
             ]
         }
@@ -62,15 +47,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "/*)*/"
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": "/*)*/"
                 }
             ]
         }
@@ -81,15 +61,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "\")\""
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": "\")\""
                 }
             ]
         }
@@ -100,15 +75,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "')'"
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": "')'"
                 }
             ]
         }
@@ -119,15 +89,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "()()"
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": "()()"
                 }
             ]
         }
@@ -138,15 +103,10 @@
         "ast": {
             "type": "Function",
             "name": "expression",
-            "arguments": [
+            "sequence": [
                 {
-                    "type": "Argument",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "a = 5"
-                        }
-                    ]
+                    "type": "Raw",
+                    "value": "a = 5"
                 }
             ]
         }

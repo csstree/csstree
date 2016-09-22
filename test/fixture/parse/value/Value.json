@@ -34,15 +34,10 @@
                 {
                     "type": "Function",
                     "name": "test",
-                    "arguments": [
+                    "sequence": [
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "x"
-                                }
-                            ]
+                            "type": "Identifier",
+                            "name": "x"
                         }
                     ]
                 }
@@ -113,33 +108,26 @@
                 {
                     "type": "Function",
                     "name": "rgb",
-                    "arguments": [
+                    "sequence": [
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "10"
-                                }
-                            ]
+                            "type": "Number",
+                            "value": "10"
                         },
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "10"
-                                }
-                            ]
+                            "type": "Operator",
+                            "value": ","
                         },
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "10"
-                                }
-                            ]
+                            "type": "Number",
+                            "value": "10"
+                        },
+                        {
+                            "type": "Operator",
+                            "value": ","
+                        },
+                        {
+                            "type": "Number",
+                            "value": "10"
                         }
                     ]
                 }
@@ -155,33 +143,26 @@
                 {
                     "type": "Function",
                     "name": "rgb",
-                    "arguments": [
+                    "sequence": [
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "255"
-                                }
-                            ]
+                            "type": "Number",
+                            "value": "255"
                         },
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "0"
-                                }
-                            ]
+                            "type": "Operator",
+                            "value": ","
                         },
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "0"
-                                }
-                            ]
+                            "type": "Number",
+                            "value": "0"
+                        },
+                        {
+                            "type": "Operator",
+                            "value": ","
+                        },
+                        {
+                            "type": "Number",
+                            "value": "0"
                         }
                     ]
                 }
@@ -197,33 +178,26 @@
                 {
                     "type": "Function",
                     "name": "rgb",
-                    "arguments": [
+                    "sequence": [
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "10.0"
-                                }
-                            ]
+                            "type": "Number",
+                            "value": "10.0"
                         },
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Number",
-                                    "value": "00.00"
-                                }
-                            ]
+                            "type": "Operator",
+                            "value": ","
                         },
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Percentage",
-                                    "value": "10"
-                                }
-                            ]
+                            "type": "Number",
+                            "value": "00.00"
+                        },
+                        {
+                            "type": "Operator",
+                            "value": ","
+                        },
+                        {
+                            "type": "Percentage",
+                            "value": "10"
                         }
                     ]
                 }
@@ -291,29 +265,22 @@
                 {
                     "type": "Function",
                     "name": "var",
-                    "arguments": [
+                    "sequence": [
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "--foo"
-                                }
-                            ]
+                            "type": "Identifier",
+                            "name": "--foo"
                         },
                         {
-                            "type": "Argument",
+                            "type": "Operator",
+                            "value": ","
+                        },
+                        {
+                            "type": "Value",            
                             "sequence": [
-                                {
-                                    "type": "Value",
-                    
-                                    "sequence": [
-                                      {
-                                        "type": "Identifier",
-                                        "name": "blue"
-                                      }
-                                    ]
-                                }
+                              {
+                                "type": "Identifier",
+                                "name": "blue"
+                              }
                             ]
                         }
                     ]
@@ -339,12 +306,9 @@
                 {
                     "type": "Function",
                     "name": "expression",
-                    "arguments": [{
-                        "type": "Argument",
-                        "sequence": [{
-                            "type": "Raw",
-                            "value": "a=1"
-                        }]
+                    "sequence": [{
+                        "type": "Raw",
+                        "value": "a=1"
                     }]
                 }
             ]

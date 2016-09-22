@@ -210,27 +210,22 @@
                 {
                     "type": "FunctionalPseudo",
                     "name": "nth-child",
-                    "arguments": [
+                    "sequence": [
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Operator",
-                                    "value": "+"
-                                },
-                                {
-                                    "type": "Nth",
-                                    "value": "3n"
-                                },
-                                {
-                                    "type": "Operator",
-                                    "value": "-"
-                                },
-                                {
-                                    "type": "Nth",
-                                    "value": "2"
-                                }
-                            ]
+                            "type": "Operator",
+                            "value": "+"
+                        },
+                        {
+                            "type": "Nth",
+                            "value": "3n"
+                        },
+                        {
+                            "type": "Operator",
+                            "value": "-"
+                        },
+                        {
+                            "type": "Nth",
+                            "value": "2"
                         }
                     ]
                 }
@@ -434,15 +429,10 @@
                 {
                     "type": "FunctionalPseudo",
                     "name": "lang",
-                    "arguments": [
+                    "sequence": [
                         {
-                            "type": "Argument",
-                            "sequence": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "nl-be"
-                                }
-                            ]
+                            "type": "Identifier",
+                            "name": "nl-be"
                         }
                     ]
                 }
