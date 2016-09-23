@@ -2,9 +2,9 @@ var fs = require('fs');
 var path = require('path');
 var JsonLocator = require('../../helpers/JsonLocator.js');
 var wrapper = {
-    ruleset: function(ast) {
+    rule: function(ast) {
         return {
-            type: 'Ruleset',
+            type: 'Rule',
             selector: {
                 type: 'Selector',
                 selectors: []

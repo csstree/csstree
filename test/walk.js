@@ -9,7 +9,7 @@ var testFiles = require('./fixture/parse').tests;
 var forEachTest = require('./fixture/parse').forEachTest;
 var testWithRules = Object.keys(testFiles).map(function(filename) {
     var dir = path.basename(path.dirname(filename));
-    if (dir === 'atrule' || dir === 'ruleset' || dir === 'stylesheet') {
+    if (dir === 'atrule' || dir === 'rule' || dir === 'stylesheet') {
         return testFiles[filename];
     };
 }).filter(Boolean);
@@ -74,7 +74,7 @@ function createWalkRulesTest(test, context, walker) {
         assert.equal(
             actual.sort().join(','),
             expectedWalk(test.ast).filter(function(type) {
-                return type === 'Ruleset' || type === 'Atrule';
+                return type === 'Rule' || type === 'Atrule';
             }).sort().join(',')
         );
     });
@@ -96,7 +96,7 @@ function createWalkDeclarationsTest(test, context, walker) {
             actual.sort().join(','),
             expectedWalk(test.ast, function(stack, node) {
                 return node.type === 'Declaration' && stack.some(function(node) {
-                    return node.type === 'Ruleset';
+                    return node.type === 'Rule';
                 });
             }).sort().join(',')
         );
@@ -129,7 +129,7 @@ describe('AST traversal', function() {
             'Operator',
             'Parentheses',
             'Percentage',
-            'Ruleset',
+            'Rule',
             'Selector',
             'SimpleSelector',
             'Space',
