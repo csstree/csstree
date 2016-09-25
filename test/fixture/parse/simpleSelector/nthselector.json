@@ -1,7 +1,6 @@
 {
     "nthselector.0": {
         "source": ":nth-child(2n+1)",
-        "translate": ":nth-child(2n+1)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
@@ -23,7 +22,6 @@
     },
     "nthselector.1": {
         "source": ":nth-last-child(+3n-2)",
-        "translate": ":nth-last-child(+3n-2)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-last-child",
@@ -49,7 +47,6 @@
     },
     "nth.0": {
         "source": ":nth-child(10)",
-        "translate": ":nth-child(10)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
@@ -63,7 +60,6 @@
     },
     "nth.1": {
         "source": ":nth-child(2n)",
-        "translate": ":nth-child(2n)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
@@ -77,7 +73,6 @@
     },
     "nth.2": {
         "source": ":nth-child(odd)",
-        "translate": ":nth-child(odd)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
@@ -91,7 +86,6 @@
     },
     "nth.3": {
         "source": ":nth-child(even)",
-        "translate": ":nth-child(even)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",
@@ -105,7 +99,6 @@
     },
     "nth.4": {
         "source": ":nth-child(n)",
-        "translate": ":nth-child(n)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-child",

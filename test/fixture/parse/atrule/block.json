@@ -1,7 +1,6 @@
 {
     "atruleb.0": {
         "source": "@test{p:v}",
-        "translate": "@test{p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",

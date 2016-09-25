@@ -1,7 +1,6 @@
 {
     "functionExpression.0": {
         "source": "expression()",
-        "translate": "expression()",
         "ast": {
             "type": "Function",
             "name": "expression",
@@ -15,7 +14,6 @@
     },
     "functionExpression.1": {
         "source": "expression(())",
-        "translate": "expression(())",
         "ast": {
             "type": "Function",
             "name": "expression",
@@ -29,7 +27,6 @@
     },
     "functionExpression.2": {
         "source": "expression(expression())",
-        "translate": "expression(expression())",
         "ast": {
             "type": "Function",
             "name": "expression",
@@ -43,7 +40,6 @@
     },
     "functionExpression.3": {
         "source": "expression(/*)*/)",
-        "translate": "expression(/*)*/)",
         "ast": {
             "type": "Function",
             "name": "expression",
@@ -57,7 +53,6 @@
     },
     "functionExpression.4": {
         "source": "expression(\")\")",
-        "translate": "expression(\")\")",
         "ast": {
             "type": "Function",
             "name": "expression",
@@ -71,7 +66,6 @@
     },
     "functionExpression.5": {
         "source": "expression(')')",
-        "translate": "expression(')')",
         "ast": {
             "type": "Function",
             "name": "expression",
@@ -85,7 +79,6 @@
     },
     "functionExpression.6": {
         "source": "expression(()())",
-        "translate": "expression(()())",
         "ast": {
             "type": "Function",
             "name": "expression",
@@ -99,7 +92,6 @@
     },
     "functionExpression.8": {
         "source": "expression(a = 5)",
-        "translate": "expression(a = 5)",
         "ast": {
             "type": "Function",
             "name": "expression",

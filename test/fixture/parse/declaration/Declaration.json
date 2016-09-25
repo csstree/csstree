@@ -1,7 +1,6 @@
 {
     "declaration.0": {
         "source": "property:value",
-        "translate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -19,7 +18,6 @@
     },
     "declaration.1": {
         "source": "-my-property:value",
-        "translate": "-my-property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -37,7 +35,6 @@
     },
     "declaration property with hack": {
         "source": "//property:value",
-        "translate": "//property:value",
         "ast": {
             "type": "Declaration",
             "important": false,

@@ -1,7 +1,6 @@
 {
     "function.0": {
         "source": "test()",
-        "translate": "test()",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -10,7 +9,6 @@
     },
     "function.1": {
         "source": "test(n)",
-        "translate": "test(n)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -24,7 +22,6 @@
     },
     "function.2": {
         "source": "test-test(n)",
-        "translate": "test-test(n)",
         "ast": {
             "type": "Function",
             "name": "test-test",
@@ -38,7 +35,6 @@
     },
     "function.3": {
         "source": "test(x+y)",
-        "translate": "test(x+y)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -60,7 +56,6 @@
     },
     "function.4": {
         "source": "test(x,y)",
-        "translate": "test(x,y)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -82,7 +77,6 @@
     },
     "function.5": {
         "source": "test(10px,'test' test(x),89%)",
-        "translate": "test(10px,'test' test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",

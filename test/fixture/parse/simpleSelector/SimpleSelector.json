@@ -1,7 +1,6 @@
 {
     "combinator.1": {
         "source": "a b",
-        "translate": "a b",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -22,7 +21,6 @@
     },
     "combinator.2": {
         "source": "a+b",
-        "translate": "a+b",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -43,7 +41,6 @@
     },
     "combinator.3": {
         "source": "a>b",
-        "translate": "a>b",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -64,7 +61,6 @@
     },
     "combinator.4": {
         "source": "a~b",
-        "translate": "a~b",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -104,10 +100,8 @@
             ]
         }
     },
-
     "simpleselector.0": {
         "source": "test",
-        "translate": "test",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -120,7 +114,6 @@
     },
     "simpleselector.1": {
         "source": ".test",
-        "translate": ".test",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -133,7 +126,6 @@
     },
     "simpleselector.2": {
         "source": "#test",
-        "translate": "#test",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -146,7 +138,6 @@
     },
     "simpleselector.3": {
         "source": "[a=b]",
-        "translate": "[a=b]",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -168,7 +159,6 @@
     },
     "simpleselector.4": {
         "source": "[a=b][c='d']",
-        "translate": "[a=b][c='d']",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -203,7 +193,6 @@
     },
     "simpleselector.9": {
         "source": ":nth-child(+3n-2)",
-        "translate": ":nth-child(+3n-2)",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -279,7 +268,6 @@
     },
     "simpleselector.11": {
         "source": "*|*:not(*)",
-        "translate": "*|*:not(*)",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -306,7 +294,6 @@
     },
     "simpleselector.12": {
         "source": "x:not([ABC])",
-        "translate": "x:not([ABC])",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -339,7 +326,6 @@
     },
     "simpleselector.13": {
         "source": ":not(el.class-postfix)",
-        "translate": ":not(el.class-postfix)",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -422,7 +408,6 @@
     },
     "simpleselector.18": {
         "source": ":lang(nl-be)",
-        "translate": ":lang(nl-be)",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [
@@ -441,7 +426,6 @@
     },
     "simpleselector.19": {
         "source": ":not(.a,.b)",
-        "translate": ":not(.a,.b)",
         "ast": {
             "type": "SimpleSelector",
             "sequence": [

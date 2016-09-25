@@ -1,7 +1,6 @@
 {
     "filter.0": {
         "source": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
-        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -22,7 +21,6 @@
     },
     "filter.1": {
         "source": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
-        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -50,7 +48,6 @@
     },
     "filter.2": {
         "source": "*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
-        "translate": "*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -71,7 +68,6 @@
     },
     "filter.3": {
         "source": "-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
-        "translate": "-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -92,7 +88,6 @@
     },
     "filter.4": {
         "source": "_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
-        "translate": "_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -113,7 +108,6 @@
     },
     "filter.5": {
         "source": "-ms-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
-        "translate": "-ms-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,

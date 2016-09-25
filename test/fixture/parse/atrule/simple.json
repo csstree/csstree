@@ -1,7 +1,6 @@
 {
     "atrules.0": {
         "source": "@test;",
-        "translate": "@test;",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -14,7 +13,6 @@
     },
     "atrules.1": {
         "source": "@test x y;",
-        "translate": "@test x y;",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -39,7 +37,6 @@
     },
     "atrules.2": {
         "source": "@test \"blah\";",
-        "translate": "@test \"blah\";",
         "ast": {
             "type": "Atrule",
             "name": "test",

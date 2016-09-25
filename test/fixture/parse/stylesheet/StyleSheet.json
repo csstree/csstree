@@ -444,7 +444,6 @@
     },
     "stylesheet.0": {
         "source": "s{p:v}",
-        "translate": "s{p:v}",
         "ast": {
             "type": "StyleSheet",
             "rules": [
@@ -489,7 +488,6 @@
     },
     "stylesheet.1": {
         "source": "s0{p0:v0}s1{p1:v1}",
-        "translate": "s0{p0:v0}s1{p1:v1}",
         "ast": {
             "type": "StyleSheet",
             "rules": [
@@ -570,7 +568,6 @@
     },
     "stylesheet.2": {
         "source": "@test;",
-        "translate": "@test;",
         "ast": {
             "type": "StyleSheet",
             "rules": [
@@ -588,7 +585,6 @@
     },
     "stylesheet.3": {
         "source": "@test0;@test1;",
-        "translate": "@test0;@test1;",
         "ast": {
             "type": "StyleSheet",
             "rules": [
@@ -615,7 +611,6 @@
     },
     "stylesheet.4": {
         "source": "s{p:v}@test;",
-        "translate": "s{p:v}@test;",
         "ast": {
             "type": "StyleSheet",
             "rules": [
@@ -921,7 +916,6 @@
     },
     "empty selector ruleset": {
         "source": "{}",
-        "translate": "{}",
         "ast": {
             "type": "StyleSheet",
             "rules": [

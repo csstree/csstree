@@ -1,7 +1,6 @@
 {
     "pseudoe.0": {
         "source": "::test",
-        "translate": "::test",
         "ast": {
             "type": "PseudoElement",
             "name": "test"
@@ -9,7 +8,6 @@
     },
     "pseudoe.1": {
         "source": "::test-test",
-        "translate": "::test-test",
         "ast": {
             "type": "PseudoElement",
             "name": "test-test"

@@ -1,7 +1,6 @@
 {
     "value.0": {
         "source": "x",
-        "translate": "x",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -14,7 +13,6 @@
     },
     "value.1": {
         "source": "10",
-        "translate": "10",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -27,7 +25,6 @@
     },
     "value.2": {
         "source": "test(x)",
-        "translate": "test(x)",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -46,7 +43,6 @@
     },
     "value.4": {
         "source": "-100%",
-        "translate": "-100%",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -59,7 +55,6 @@
     },
     "value.dimension.0": {
         "source": "0px",
-        "translate": "0px",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -73,7 +68,6 @@
     },
     "value.dimension.1": {
         "source": ".0px",
-        "translate": ".0px",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -87,7 +81,6 @@
     },
     "value.dimension.2": {
         "source": "0000.000px",
-        "translate": "0000.000px",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -136,7 +129,6 @@
     },
     "value.rgb.1": {
         "source": "rgb(255,0,0)",
-        "translate": "rgb(255,0,0)",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -171,7 +163,6 @@
     },
     "value.rgb.2": {
         "source": "rgb(10.0,00.00,10%)",
-        "translate": "rgb(10.0,00.00,10%)",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -206,7 +197,6 @@
     },
     "value.vhash.0": {
         "source": "#ffffff",
-        "translate": "#ffffff",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -219,7 +209,6 @@
     },
     "value.vhash.1": {
         "source": "#f00",
-        "translate": "#f00",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -232,7 +221,6 @@
     },
     "value.vhash.2": {
         "source": "#F0f0C0",
-        "translate": "#F0f0C0",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -245,7 +233,6 @@
     },
     "value.vhash.3": {
         "source": "#AaBbCc",
-        "translate": "#AaBbCc",
         "ast": {
             "type": "Value",
             "sequence": [
@@ -275,12 +262,12 @@
                             "value": ","
                         },
                         {
-                            "type": "Value",            
+                            "type": "Value",
                             "sequence": [
-                              {
-                                "type": "Identifier",
-                                "name": "blue"
-                              }
+                                {
+                                    "type": "Identifier",
+                                    "name": "blue"
+                                }
                             ]
                         }
                     ]
@@ -292,10 +279,12 @@
         "source": "-moz-flex",
         "ast": {
             "type": "Value",
-            "sequence": [{
-                "type": "Identifier",
-                "name": "-moz-flex"
-            }]
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "-moz-flex"
+                }
+            ]
         }
     },
     "expression": {
@@ -306,10 +295,12 @@
                 {
                     "type": "Function",
                     "name": "expression",
-                    "sequence": [{
-                        "type": "Raw",
-                        "value": "a=1"
-                    }]
+                    "sequence": [
+                        {
+                            "type": "Raw",
+                            "value": "a=1"
+                        }
+                    ]
                 }
             ]
         }

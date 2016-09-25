@@ -1,7 +1,6 @@
 {
     "shash.0": {
         "source": "#id",
-        "translate": "#id",
         "ast": {
             "type": "Id",
             "name": "id"
@@ -9,7 +8,6 @@
     },
     "shash.1": {
         "source": "#-id",
-        "translate": "#-id",
         "ast": {
             "type": "Id",
             "name": "-id"

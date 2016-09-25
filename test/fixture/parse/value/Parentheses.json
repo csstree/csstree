@@ -1,7 +1,6 @@
 {
     "parentheses.0": {
         "source": "()",
-        "translate": "()",
         "ast": {
             "type": "Parentheses",
             "sequence": []
@@ -9,7 +8,6 @@
     },
     "parentheses.1": {
         "source": "(1)",
-        "translate": "(1)",
         "ast": {
             "type": "Parentheses",
             "sequence": [
@@ -22,7 +20,6 @@
     },
     "parentheses.2": {
         "source": "(x)",
-        "translate": "(x)",
         "ast": {
             "type": "Parentheses",
             "sequence": [
@@ -35,7 +32,6 @@
     },
     "parentheses.3": {
         "source": "(x+1)",
-        "translate": "(x+1)",
         "ast": {
             "type": "Parentheses",
             "sequence": [
@@ -56,7 +52,6 @@
     },
     "parentheses.8": {
         "source": "(test:0)",
-        "translate": "(test:0)",
         "ast": {
             "type": "Parentheses",
             "sequence": [

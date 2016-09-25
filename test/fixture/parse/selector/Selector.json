@@ -1,7 +1,6 @@
 {
     "selector.0": {
         "source": "a,b",
-        "translate": "a,b",
         "ast": {
             "type": "Selector",
             "selectors": [
@@ -28,7 +27,6 @@
     },
     "selector.1": {
         "source": "a+b,c",
-        "translate": "a+b,c",
         "ast": {
             "type": "Selector",
             "selectors": [
@@ -117,7 +115,7 @@
             "selectors": []
         }
     },
-     "bad selector #8": {
+    "bad selector #8": {
         "source": ",b",
         "translate": "",
         "ast": {
@@ -125,7 +123,7 @@
             "selectors": []
         }
     },
-     "bad selector #9": {
+    "bad selector #9": {
         "source": ",,b",
         "translate": "",
         "ast": {

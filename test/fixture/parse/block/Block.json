@@ -1,7 +1,6 @@
 {
     "block.0": {
         "source": "",
-        "translate": "",
         "ast": {
             "type": "Block",
             "declarations": []
@@ -17,7 +16,6 @@
     },
     "block.2": {
         "source": "p:v",
-        "translate": "p:v",
         "ast": {
             "type": "Block",
             "declarations": [
@@ -63,7 +61,6 @@
     },
     "block.4": {
         "source": "p0:v0;p1:v1",
-        "translate": "p0:v0;p1:v1",
         "ast": {
             "type": "Block",
             "declarations": [

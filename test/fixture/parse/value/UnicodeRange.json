@@ -35,7 +35,6 @@
             ]
         }
     },
-
     "unicode range short hex pair": {
         "source": "U+0-7F",
         "ast": {

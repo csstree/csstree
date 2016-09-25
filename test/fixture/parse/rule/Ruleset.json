@@ -1,7 +1,6 @@
 {
     "ruleset.0": {
         "source": "s{p:v}",
-        "translate": "s{p:v}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -41,7 +40,6 @@
     },
     "ruleset.1": {
         "source": "s{p0:v0;p1:v1}",
-        "translate": "s{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -95,7 +93,6 @@
     },
     "ruleset.2": {
         "source": "s0,s1{p:v}",
-        "translate": "s0,s1{p:v}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -144,7 +141,6 @@
     },
     "ruleset.3": {
         "source": "s0,s1{p0:v0;p1:v1}",
-        "translate": "s0,s1{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -207,7 +203,6 @@
     },
     "ruleset.4": {
         "source": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
-        "translate": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -264,7 +259,6 @@
     },
     "ruleset.5": {
         "source": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
-        "translate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -940,7 +934,6 @@
     },
     "value.color.ident.0": {
         "source": "s{p:yellow}",
-        "translate": "s{p:yellow}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -980,7 +973,6 @@
     },
     "value.color.ident.1": {
         "source": "yellow{p:yellow}",
-        "translate": "yellow{p:yellow}",
         "ast": {
             "type": "Rule",
             "selector": {
