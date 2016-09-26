@@ -233,10 +233,10 @@
                     decls.push({
                         id: id,
                         node: node,
-                        property: node.property.name,
+                        property: node.property,
                         value: node.value
                     });
-                    props[node.property.name] = true;
+                    props[node.property] = true;
                 }
             });
 
