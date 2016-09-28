@@ -142,12 +142,8 @@
                     "value": ","
                 },
                 {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
                     "type": "Percentage",
-                    "value": "89"
+                    "value": "+89"
                 }
             ]
         }

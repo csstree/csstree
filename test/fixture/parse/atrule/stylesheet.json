@@ -242,12 +242,8 @@
                                 "value": "1"
                             },
                             {
-                                "type": "Operator",
-                                "value": "+"
-                            },
-                            {
                                 "type": "Number",
-                                "value": "2"
+                                "value": "+2"
                             }
                         ]
                     }

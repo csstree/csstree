@@ -119,6 +119,13 @@
         }
     },
     "with sign #4": {
+        "source": "+.2",
+        "ast": {
+            "type": "Number",
+            "value": "+.2"
+        }
+    },
+    "with sign #5": {
         "source": "-1.2e3",
         "ast": {
             "type": "Number",

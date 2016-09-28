@@ -40,12 +40,8 @@
                     "name": "x"
                 },
                 {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
                     "type": "Number",
-                    "value": "1"
+                    "value": "+1"
                 }
             ]
         }

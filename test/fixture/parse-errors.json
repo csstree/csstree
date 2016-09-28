@@ -183,6 +183,110 @@
         "column": 12
     }
 }, {
+    "css": ":nth-child(3 n)",
+    "error": "RightParenthesis is expected",
+    "position": {
+        "offset": 13,
+        "line": 1,
+        "column": 14
+    }
+}, {
+    "css": ":nth-child(+ 2n)",
+    "error": "Number or identifier is expected",
+    "position": {
+        "offset": 12,
+        "line": 1,
+        "column": 13
+    }
+}, {
+    "css": ":nth-child(+ 2)",
+    "error": "Number or identifier is expected",
+    "position": {
+        "offset": 12,
+        "line": 1,
+        "column": 13
+    }
+}, {
+    "css": ":nth-child(3n - +1)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 16,
+        "line": 1,
+        "column": 17
+    }
+}, {
+    "css": ":nth-child(3n - -1)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 16,
+        "line": 1,
+        "column": 17
+    }
+}, {
+    "css": ":nth-child(3n- +1)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 15,
+        "line": 1,
+        "column": 16
+    }
+}, {
+    "css": ":nth-child(3n- -1)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 15,
+        "line": 1,
+        "column": 16
+    }
+}, {
+    "css": ":nth-child(3n-2n)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 15,
+        "line": 1,
+        "column": 16
+    }
+}, {
+    "css": ":nth-child(3n + -6)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 16,
+        "line": 1,
+        "column": 17
+    }
+}, {
+    "css": ":nth-child(3n - 2n)",
+    "error": "RightParenthesis is expected",
+    "position": {
+        "offset": 17,
+        "line": 1,
+        "column": 18
+    }
+}, {
+    "css": ":nth-child(3n- 2n)",
+    "error": "RightParenthesis is expected",
+    "position": {
+        "offset": 16,
+        "line": 1,
+        "column": 17
+    }
+}, {
+    "css": ":nth-child(3n-x)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 14,
+        "line": 1,
+        "column": 15
+    }
+}, {
+    "css": ":nth-child(3n 1)",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 14,
+        "line": 1,
+        "column": 15
+    }
+}, {
     "css": ":not(.a{)",
     "error": "Unexpected input",
     "position": {
@@ -405,5 +509,61 @@
         "offset": 9,
         "line": 1,
         "column": 10
+    }
+}, {
+    "css": "a { b: U+-123 }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 9,
+        "line": 1,
+        "column": 10
+    }
+}, {
+    "css": "a { b: u+123???? }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 15,
+        "line": 1,
+        "column": 16
+    }
+}, {
+    "css": "a { b: u+1234567 }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 15,
+        "line": 1,
+        "column": 16
+    }
+}, {
+    "css": "a { b: u+123456z }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 15,
+        "line": 1,
+        "column": 16
+    }
+}, {
+    "css": "a { b: u+123456-1234567 }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 22,
+        "line": 1,
+        "column": 23
+    }
+}, {
+    "css": "a { b: u+123456-123456z }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 22,
+        "line": 1,
+        "column": 23
+    }
+}, {
+    "css": "a { b: u+123456-123??? }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 19,
+        "line": 1,
+        "column": 20
     }
 }]

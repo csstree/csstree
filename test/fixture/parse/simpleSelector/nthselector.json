@@ -27,12 +27,8 @@
             "name": "nth-last-child",
             "sequence": [
                 {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
                     "type": "Nth",
-                    "value": "3n"
+                    "value": "+3n"
                 },
                 {
                     "type": "Operator",
@@ -133,19 +129,15 @@
         }
     },
     "nthselector.c.1": {
-        "source": ":nth-last-child(/*test*/+/*test*/3n/*test*/-/*test*/2/*test*/)",
+        "source": ":nth-last-child(/*test*/+3n/*test*/-/*test*/2/*test*/)",
         "translate": ":nth-last-child(+3n-2)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-last-child",
             "sequence": [
                 {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
                     "type": "Nth",
-                    "value": "3n"
+                    "value": "+3n"
                 },
                 {
                     "type": "Operator",
@@ -181,19 +173,15 @@
         }
     },
     "nthselector.s.1": {
-        "source": ":nth-last-child(  +  3n  -  2  )",
+        "source": ":nth-last-child(  +3n  -  2  )",
         "translate": ":nth-last-child(+3n-2)",
         "ast": {
             "type": "FunctionalPseudo",
             "name": "nth-last-child",
             "sequence": [
                 {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
                     "type": "Nth",
-                    "value": "3n"
+                    "value": "+3n"
                 },
                 {
                     "type": "Operator",

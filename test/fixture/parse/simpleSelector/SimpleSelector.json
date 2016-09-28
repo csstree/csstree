@@ -201,12 +201,8 @@
                     "name": "nth-child",
                     "sequence": [
                         {
-                            "type": "Operator",
-                            "value": "+"
-                        },
-                        {
                             "type": "Nth",
-                            "value": "3n"
+                            "value": "+3n"
                         },
                         {
                             "type": "Operator",

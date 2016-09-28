@@ -23,6 +23,18 @@
             ]
         }
     },
+    "unicode range hex pair start with letters": {
+        "source": "U+FF00-FF10",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "U+FF00-FF10"
+                }
+            ]
+        }
+    },
     "unicode range hex pair #2": {
         "source": "u+0025-00FF",
         "ast": {
