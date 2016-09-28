@@ -32,11 +32,11 @@
     }
 }, {
     "css": ".1px {}",
-    "error": "Identifier is expected",
+    "error": "PercentSign is expected",
     "position": {
-        "offset": 1,
+        "offset": 2,
         "line": 1,
-        "column": 2
+        "column": 3
     }
 }, {
     "css": "# {}",
@@ -85,6 +85,14 @@
         "offset": 12,
         "line": 1,
         "column": 13
+    }
+}, {
+    "css": "a { width: 20. }",
+    "error": "Unexpected input",
+    "position": {
+        "offset": 13,
+        "line": 1,
+        "column": 14
     }
 }, {
     "css": ": {}",

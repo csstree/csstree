@@ -54,5 +54,75 @@
             "type": "Number",
             "value": "1.200000"
         }
+    },
+    "with exponent #1": {
+        "source": "1.2e2",
+        "ast": {
+            "type": "Number",
+            "value": "1.2e2"
+        }
+    },
+    "with exponent #2": {
+        "source": "1e2",
+        "ast": {
+            "type": "Number",
+            "value": "1e2"
+        }
+    },
+    "with exponent #3": {
+        "source": ".2e2",
+        "ast": {
+            "type": "Number",
+            "value": ".2e2"
+        }
+    },
+    "with exponent #4": {
+        "source": "1.2E2",
+        "ast": {
+            "type": "Number",
+            "value": "1.2E2"
+        }
+    },
+    "with exponent #5": {
+        "source": "1.2e+2",
+        "ast": {
+            "type": "Number",
+            "value": "1.2e+2"
+        }
+    },
+    "with exponent #6": {
+        "source": "1.2e-2",
+        "ast": {
+            "type": "Number",
+            "value": "1.2e-2"
+        }
+    },
+    "with sign #1": {
+        "source": "-1",
+        "ast": {
+            "type": "Number",
+            "value": "-1"
+        }
+    },
+    "with sign #2": {
+        "source": "-1.2",
+        "ast": {
+            "type": "Number",
+            "value": "-1.2"
+        }
+    },
+    "with sign #3": {
+        "source": "-.2",
+        "ast": {
+            "type": "Number",
+            "value": "-.2"
+        }
+    },
+    "with sign #4": {
+        "source": "-1.2e3",
+        "ast": {
+            "type": "Number",
+            "value": "-1.2e3"
+        }
     }
 }
