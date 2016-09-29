@@ -11,6 +11,7 @@ Related:
 
 * [csstree-validator](https://github.com/csstree/validator) – NPM package to validate CSS
 * [stylelint-csstree-validator](https://github.com/csstree/stylelint-validator) – plugin for stylelint to validate CSS
+* [Grunt plugin](https://github.com/sergejmueller/grunt-csstree-validator)
 * [Gulp plugin](https://github.com/csstree/gulp-csstree)
 * [Sublime plugin](https://github.com/csstree/SublimeLinter-contrib-csstree)
 * [VS Code plugin](https://github.com/csstree/vscode-csstree)
