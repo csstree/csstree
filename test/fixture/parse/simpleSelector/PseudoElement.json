@@ -1,16 +1,66 @@
 {
-    "pseudoe.0": {
+    "pseudo element #0": {
         "source": "::test",
         "ast": {
             "type": "PseudoElement",
-            "name": "test"
+            "name": "test",
+            "legacy": false
         }
     },
-    "pseudoe.1": {
+    "pseudo element #1": {
         "source": "::test-test",
         "ast": {
             "type": "PseudoElement",
-            "name": "test-test"
+            "name": "test-test",
+            "legacy": false
+        }
+    },
+    "pseudo element ::before": {
+        "source": "::before",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "before",
+            "legacy": false
+        }
+    },
+    "pseudo element :before": {
+        "source": ":before",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "before",
+            "legacy": true
+        }
+    },
+    "pseudo element :before case insesitive": {
+        "source": ":bEfOrE",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "bEfOrE",
+            "legacy": true
+        }
+    },
+    "pseudo element :after": {
+        "source": ":after",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "after",
+            "legacy": true
+        }
+    },
+    "pseudo element :first-letter": {
+        "source": ":first-letter",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "first-letter",
+            "legacy": true
+        }
+    },
+    "pseudo element :first-line": {
+        "source": ":first-line",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "first-line",
+            "legacy": true
         }
     }
 }
