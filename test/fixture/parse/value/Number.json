@@ -131,5 +131,55 @@
             "type": "Number",
             "value": "-1.2e3"
         }
+    },
+    "error #1": {
+        "source": "20.",
+        "offset": "  ^",
+        "error": "Unexpected input"
+    },
+    "error #2": {
+        "source": "1.2.",
+        "offset": "   ^",
+        "error": "Unexpected input"
+    },
+    "error #3": {
+        "source": ".",
+        "offset": "^",
+        "error": "Unexpected input"
+    },
+    "error #4": {
+        "source": "-.",
+        "offset": " ^",
+        "error": "Unexpected input"
+    },
+    "error #5": {
+        "source": "+.",
+        "offset": " ^",
+        "error": "Unexpected input"
+    },
+    "not an error #1": {
+        "source": "1e",
+        "ast": {
+            "type": "Dimension",
+            "value": "1",
+            "unit": "e"
+        }
+    },
+    "not an error #2": {
+        "source": "1e+",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "Dimension",
+                    "value": "1",
+                    "unit": "e"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                }
+            ]
+        }
     }
 }

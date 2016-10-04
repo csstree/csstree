@@ -66,6 +66,25 @@
             ]
         }
     },
+    "parentheses.9": {
+        "source": "(#123456 'string')",
+        "ast": {
+            "type": "Parentheses",
+            "sequence": [
+                {
+                    "type": "Hash",
+                    "value": "123456"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "String",
+                    "value": "'string'"
+                }
+            ]
+        }
+    },
     "parentheses.c.0": {
         "source": "(/*test*/)",
         "translate": "()",

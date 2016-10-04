@@ -300,5 +300,10 @@
                 ]
             }
         }
+    },
+    "error #1": {
+        "source": "filter: progid:something.unknown()",
+        "offset": "              ^",
+        "error": "Unexpected input"
     }
 }

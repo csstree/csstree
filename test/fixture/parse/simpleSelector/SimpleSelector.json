@@ -567,5 +567,25 @@
                 }
             ]
         }
+    },
+    "error #1": {
+        "source": "> b",
+        "offset": "^  ",
+        "error": "Unexpected combinator"
+    },
+    "error #2": {
+        "source": " > b",
+        "offset": " ^  ",
+        "error": "Unexpected combinator"
+    },
+    "error #3": {
+        "source": "b >",
+        "offset": "  ^",
+        "error": "Unexpected combinator"
+    },
+    "error #4": {
+        "source": "a + ~ b",
+        "offset": "    ^  ",
+        "error": "Unexpected combinator"
     }
 }

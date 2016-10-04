@@ -5,6 +5,10 @@ var translate = require('../lib/utils/translate');
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var stringify = require('./helpers/stringify');
 
+function repeat(str, count) {
+    return new Array(count + 1).join(str);
+}
+
 function createParseErrorTest(name, test, options) {
     it(name + ' ' + JSON.stringify(test.source), function() {
         var error;
@@ -40,7 +44,15 @@ describe('parse', function() {
         });
     });
 
-    describe('errors', function() {
+    describe('context', function() {
+        it('wrong context', function() {
+            assert.throws(function() {
+                parse('a{}', { context: 'unknown' });
+            }, 'Unknown context `unknown`');
+        });
+    });
+
+    describe('parse errors', function() {
         forEachParseTest(function(name, test, context) {
             createParseErrorTest(name, test, {
                 context: context,
@@ -51,6 +63,50 @@ describe('parse', function() {
                 positions: true
             });
         }, true);
+
+        it('formattedMessage', function() {
+            try {
+                parse('/**/\n.\nfoo');
+            } catch (e) {
+                assert.equal(e.formattedMessage,
+                    'Parse error: Identifier is expected\n' +
+                    '    1 |/**/\n' +
+                    '    2 |.\n' +
+                    '--------^\n' +
+                    '    3 |foo'
+                );
+                assert.equal(e.sourceFragment(),
+                    '    2 |.\n' +
+                    '--------^\n'
+                );
+                assert.equal(e.sourceFragment(3),
+                    '    1 |/**/\n' +
+                    '    2 |.\n' +
+                    '--------^\n' +
+                    '    3 |foo'
+                );
+            }
+        });
+
+        it('formattedMessage for source with long lines', function() {
+            try {
+                parse(
+                    '/*' + repeat('1234567890', 20) + '*/\n' +
+                    repeat(' ', 117) + '.\n' +
+                    'foo\n' +
+                    repeat(' ', 120) + 'bar'
+                );
+            } catch (e) {
+                assert.equal(e.formattedMessage,
+                    'Parse error: Identifier is expected\n' +
+                    '    1 |…12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678…\n' +
+                    '    2 |…                                                       .\n' +
+                    '----------------------------------------------------------------^\n' +
+                    '    3 |\n' +
+                    '    4 |…                                                          bar'
+                );
+            }
+        });
     });
 
     describe('positions', function() {

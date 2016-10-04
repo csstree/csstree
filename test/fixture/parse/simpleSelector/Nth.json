@@ -20,6 +20,27 @@
             ]
         }
     },
+    "nthselector.0 case insensitive": {
+        "source": ":nth-child(2N+1)",
+        "ast": {
+            "type": "FunctionalPseudo",
+            "name": "nth-child",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "value": "2N"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Nth",
+                    "value": "1"
+                }
+            ]
+        }
+    },
     "nthselector.1": {
         "source": ":nth-last-child(+3n-2)",
         "ast": {
@@ -272,6 +293,16 @@
     "error #16": {
         "source": ":nth-child(3n 1)",
         "offset": "              ^",
+        "error": "Unexpected input"
+    },
+    "error #17": {
+        "source": ":nth-child(3nn)",
+        "offset": "             ^",
+        "error": "Unexpected input"
+    },
+    "error #18": {
+        "source": ":nth-child(3n- n)",
+        "offset": "               ^",
         "error": "Unexpected input"
     }
 }

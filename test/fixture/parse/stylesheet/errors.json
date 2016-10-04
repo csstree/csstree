@@ -54,11 +54,6 @@
         "offset": "            ^",
         "error": "Number or identifier is expected"
     },
-    "error #12": {
-        "source": "a { width: 20. }",
-        "offset": "             ^",
-        "error": "Unexpected input"
-    },
     "error #13": {
         "source": ": {}",
         "offset": " ^",
@@ -120,8 +115,8 @@
         "error": "Unexpected right curly brace"
     },
     "error #25": {
-        "source": "/foo/",
-        "offset": " ^",
+        "source": "a /foo/ b",
+        "offset": "   ^     ",
         "error": "Identifier `deep` is expected"
     },
     "error #26": {

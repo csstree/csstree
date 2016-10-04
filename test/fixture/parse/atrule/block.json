@@ -1,5 +1,20 @@
 {
-    "atruleb.0": {
+    "empty block at-rule": {
+        "source": "@test{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "test",
+            "expression": {
+                "type": "AtruleExpression",
+                "sequence": []
+            },
+            "block": {
+                "type": "Block",
+                "declarations": []
+            }
+        }
+    },
+    "block at-rule #0": {
         "source": "@test{p:v}",
         "ast": {
             "type": "Atrule",
@@ -29,7 +44,7 @@
             }
         }
     },
-    "atruleb.1": {
+    "block at-rule #1": {
         "source": "@test x y {p:v}",
         "translate": "@test x y{p:v}",
         "ast": {
@@ -72,7 +87,7 @@
             }
         }
     },
-    "atruleb.2": {
+    "block at-rule #2": {
         "source": "@test x, y x(1+2) {p:v}",
         "translate": "@test x, y x(1+2){p:v}",
         "ast": {
@@ -136,7 +151,7 @@
             }
         }
     },
-    "atruleb.c.0": {
+    "block at-rule #c.0": {
         "source": "@test/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
         "translate": "@test{p:v}",
         "ast": {
@@ -167,7 +182,7 @@
             }
         }
     },
-    "atruleb.c.1": {
+    "block at-rule #c.1": {
         "source": "@test/*test*/x/*test*/ y/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
         "translate": "@test x y{p:v}",
         "ast": {
@@ -210,7 +225,7 @@
             }
         }
     },
-    "atruleb.c.2": {
+    "block at-rule #c.2": {
         "source": "@test/*test*/x/*test*/,/*test*/y/*test*/ x(/*test*/1/*test*/+/*test*/2/*test*/)/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
         "translate": "@test x,y x(1+2){p:v}",
         "ast": {
@@ -275,7 +290,7 @@
             }
         }
     },
-    "atruleb.s.0": {
+    "block at-rule #s.0": {
         "source": "@test  {  p  :  v  }",
         "translate": "@test{p:v}",
         "ast": {
@@ -306,7 +321,7 @@
             }
         }
     },
-    "atruleb.s.1": {
+    "block at-rule #s.1": {
         "source": "@test  x  y  {  p  :  v  }",
         "translate": "@test x y{p:v}",
         "ast": {
@@ -349,7 +364,7 @@
             }
         }
     },
-    "atruleb.s.2": {
+    "block at-rule #s.2": {
         "source": "@test  x  ,  y  x(  1  +  2  )  {  p  :  v  }",
         "translate": "@test x , y x(1 + 2){p:v}",
         "ast": {
@@ -418,6 +433,43 @@
                                 {
                                     "type": "Identifier",
                                     "name": "v"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "@page": {
+        "source": "@page :left { margin: 5cm; }",
+        "translate": "@page :left{margin:5cm}",
+        "ast": {
+            "type": "Atrule",
+            "name": "page",
+            "expression": {
+                "type": "AtruleExpression",
+                "sequence": [
+                    {
+                        "type": "PseudoClass",
+                        "name": "left"
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "declarations": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "margin",
+                        "value": {
+                            "type": "Value",
+                            "sequence": [
+                                {
+                                    "type": "Dimension",
+                                    "value": "5",
+                                    "unit": "cm"
                                 }
                             ]
                         }

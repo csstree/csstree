@@ -22,5 +22,22 @@
             "value": "12.34",
             "unit": "px"
         }
+    },
+    "IE hack": {
+        "source": "1px\\9",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "Dimension",
+                    "value": "1",
+                    "unit": "px"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "\\9"
+                }
+            ]
+        }
     }
 }

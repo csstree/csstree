@@ -33,5 +33,21 @@
             "type": "Comment",
             "value": "!te**st"
         }
+    },
+    "bad comment #1": {
+        "source": "/*! bad comment *",
+        "translate": "/*! bad comment **/",
+        "ast": {
+            "type": "Comment",
+            "value": "! bad comment *"
+        }
+    },
+    "bad comment #2": {
+        "source": "/*! bad comment ",
+        "translate": "/*! bad comment */",
+        "ast": {
+            "type": "Comment",
+            "value": "! bad comment "
+        }
     }
 }

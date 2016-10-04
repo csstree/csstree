@@ -26,5 +26,19 @@
             "type": "Class",
             "name": "\\31 \\ b"
         }
+    },
+    "excaped class selector #4": {
+        "source": ".\\30 \\30\r\\30\r\n\\30\n\\30\f",
+        "ast": {
+            "type": "Class",
+            "name": "\\30 \\30\r\\30\r\n\\30\n\\30\f"
+        }
+    },
+    "excaped class selector #5": {
+        "source": ".test\\(1\\)",
+        "ast": {
+            "type": "Class",
+            "name": "test\\(1\\)"
+        }
     }
 }

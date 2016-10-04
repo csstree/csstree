@@ -23,7 +23,19 @@
             ]
         }
     },
-    "unicode range hex pair start with letters": {
+    "unicode range hex pair #2": {
+        "source": "u+0025-00FF",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "u+0025-00FF"
+                }
+            ]
+        }
+    },
+    "unicode range hex pair starts with letters": {
         "source": "U+FF00-FF10",
         "ast": {
             "type": "Value",
@@ -35,14 +47,26 @@
             ]
         }
     },
-    "unicode range hex pair #2": {
-        "source": "u+0025-00FF",
+    "unicode range hex pair only numbers": {
+        "source": "U+1234-2345",
         "ast": {
             "type": "Value",
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "u+0025-00FF"
+                    "name": "U+1234-2345"
+                }
+            ]
+        }
+    },
+    "unicode range hex pair number/letters": {
+        "source": "U+1234-abcd",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "U+1234-abcd"
                 }
             ]
         }
