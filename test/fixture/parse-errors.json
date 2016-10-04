@@ -71,6 +71,70 @@
         "column": 3
     }
 }, {
+    "css": "[a|] {}",
+    "error": "Identifier is expected",
+    "position": {
+        "offset": 3,
+        "line": 1,
+        "column": 4
+    }
+}, {
+    "css": "[a| = b] {}",
+    "error": "Identifier is expected",
+    "position": {
+        "offset": 3,
+        "line": 1,
+        "column": 4
+    }
+}, {
+    "css": "[a|~=b] {}",
+    "error": "Identifier is expected",
+    "position": {
+        "offset": 3,
+        "line": 1,
+        "column": 4
+    }
+}, {
+    "css": "[*] {}",
+    "error": "Vertical line is expected",
+    "position": {
+        "offset": 2,
+        "line": 1,
+        "column": 3
+    }
+}, {
+    "css": "[*=b] {}",
+    "error": "Vertical line is expected",
+    "position": {
+        "offset": 2,
+        "line": 1,
+        "column": 3
+    }
+}, {
+    "css": "[*|=b] {}",
+    "error": "Identifier is expected",
+    "position": {
+        "offset": 3,
+        "line": 1,
+        "column": 4
+    }
+}, {
+    "css": "[ns|*] {}",
+    "error": "Identifier is expected",
+    "position": {
+        "offset": 4,
+        "line": 1,
+        "column": 5
+    }
+}, {
+    "css": "[ns|*=b] {}",
+    "error": "Identifier is expected",
+    "position": {
+        "offset": 4,
+        "line": 1,
+        "column": 5
+    }
+}, {
     "css": "a { color }",
     "error": "Colon is expected",
     "position": {

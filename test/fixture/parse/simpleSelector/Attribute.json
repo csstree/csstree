@@ -236,6 +236,22 @@
             "flags": null
         }
     },
+    "no namespace": {
+        "source": "[|href=\"#test\"]",
+        "ast": {
+            "type": "Attribute",
+            "name": {
+                "type": "Identifier",
+                "name": "|href"
+            },
+            "operator": "=",
+            "value": {
+                "type": "String",
+                "value": "\"#test\""
+            },
+            "flags": null
+        }
+    },
     "namespace w/o attrselector": {
         "source": "[xlink|href]",
         "ast": {
@@ -256,6 +272,19 @@
             "name": {
                 "type": "Identifier",
                 "name": "*|href"
+            },
+            "operator": null,
+            "value": null,
+            "flags": null
+        }
+    },
+    "no namespace w/o attrselector": {
+        "source": "[|href]",
+        "ast": {
+            "type": "Attribute",
+            "name": {
+                "type": "Identifier",
+                "name": "|href"
             },
             "operator": null,
             "value": null,
