@@ -82,5 +82,45 @@
                 }
             ]
         }
+    },
+    "error #1": {
+        "source": "U+",
+        "offset": "  ^",
+        "error": "Unexpected input"
+    },
+    "error #2": {
+        "source": "U+-123",
+        "offset": "  ^",
+        "error": "Unexpected input"
+    },
+    "error #3": {
+        "source": "u+123????",
+        "offset": "        ^",
+        "error": "Unexpected input"
+    },
+    "error #4": {
+        "source": "u+1234567",
+        "offset": "        ^",
+        "error": "Unexpected input"
+    },
+    "error #5": {
+        "source": "u+123456z",
+        "offset": "        ^",
+        "error": "Unexpected input"
+    },
+    "error #6": {
+        "source": "u+123456-1234567",
+        "offset": "               ^",
+        "error": "Unexpected input"
+    },
+    "error #7": {
+        "source": "u+123456-123456z",
+        "offset": "               ^",
+        "error": "Unexpected input"
+    },
+    "error #8": {
+        "source": "u+123456-123???",
+        "offset": "            ^",
+        "error": "Unexpected input"
     }
 }

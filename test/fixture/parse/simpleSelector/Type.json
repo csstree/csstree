@@ -173,5 +173,10 @@
             "type": "Type",
             "name": "|E"
         }
+    },
+    "error #1": {
+        "source": "a| {}",
+        "offset": "  ^",
+        "error": "Identifier or asterisk is expected"
     }
 }

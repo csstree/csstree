@@ -1,7 +1,7 @@
 var assert = require('assert');
 var parse = require('../lib/parser');
 var translate = require('../lib/utils/translate');
-var forEachTest = require('./fixture/parse').forEachTest;
+var forEachParseTest = require('./fixture/parse').forEachTest;
 
 function createTranslateTest(name, test, context) {
     it(name, function() {
@@ -15,7 +15,7 @@ function createTranslateTest(name, test, context) {
 }
 
 describe('translate', function() {
-    forEachTest(createTranslateTest);
+    forEachParseTest(createTranslateTest);
 
     it('should throws on unknown node type', function() {
         assert.throws(function() {

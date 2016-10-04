@@ -32,35 +32,52 @@ var wrapper = {
     }
 };
 
-function forEachTest(factory) {
-    for (var filename in testFiles) {
-        var file = testFiles[filename];
+function forEachTest(factory, errors) {
+    var testType = errors === true ? 'errors' : 'tests';
+    for (var filename in tests) {
+        var file = tests[filename];
 
-        for (var key in file.tests) {
-            factory(file.tests[key].name, file.tests[key], file.scope);
+        for (var key in file[testType]) {
+            factory(file[testType][key].name, file[testType][key], file.scope);
         }
     };
 }
 
-var testFiles = fs.readdirSync(__dirname).reduce(function(result, scope) {
+var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
     var dir = path.join(__dirname, scope);
 
     if (fs.statSync(dir).isDirectory()) {
         fs.readdirSync(dir).forEach(function(fn) {
             var filename = path.join(dir, fn);
             var tests = require(filename);
+            var errors = {};
             var locator = new JsonLocator(filename);
 
             for (var key in tests) {
                 tests[key].name = locator.get(key);
-                if (tests[key].ast.type.toLowerCase() !== scope.toLowerCase() && wrapper.hasOwnProperty(scope)) {
+                if (tests[key].error) {
+                    if (typeof tests[key].offset === 'string') {
+                        var offset = tests[key].offset.indexOf('^');
+                        var lines = tests[key].source.substr(0, offset).split(/\r|\r\n|\n|\f/g);
+                        var position = {
+                            offset: offset,
+                            line: lines.length,
+                            column: lines.pop().length + 1
+                        };
+
+                        tests[key].position = position;
+                    }
+                    errors[key] = tests[key];
+                    delete tests[key];
+                } else if (tests[key].ast.type.toLowerCase() !== scope.toLowerCase() && wrapper.hasOwnProperty(scope)) {
                     tests[key].ast = wrapper[scope](tests[key].ast);
                 }
             }
 
             result[filename] = {
                 scope: scope,
-                tests: tests
+                tests: tests,
+                errors: errors
             };
         });
     }
@@ -70,5 +87,5 @@ var testFiles = fs.readdirSync(__dirname).reduce(function(result, scope) {
 
 module.exports = {
     forEachTest: forEachTest,
-    tests: testFiles
+    tests: tests
 };

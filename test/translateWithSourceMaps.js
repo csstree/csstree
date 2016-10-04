@@ -1,7 +1,7 @@
 var assert = require('assert');
 var parse = require('../lib/parser');
 var translateWithSourceMap = require('../lib/utils/translateWithSourceMap');
-var forEachTest = require('./fixture/parse').forEachTest;
+var forEachParseTest = require('./fixture/parse').forEachTest;
 
 function createTranslateWidthSourceMapTest(name, test, context) {
     it(name, function() {
@@ -16,7 +16,7 @@ function createTranslateWidthSourceMapTest(name, test, context) {
 }
 
 describe('translateWithSourceMap', function() {
-    forEachTest(createTranslateWidthSourceMapTest);
+    forEachParseTest(createTranslateWidthSourceMapTest);
 
     it('should throws on unknown node type', function() {
         assert.throws(function() {

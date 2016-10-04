@@ -1,9 +1,30 @@
 {
-    "clazz.0": {
+    "basic class selector": {
         "source": ".abc",
         "ast": {
             "type": "Class",
             "name": "abc"
+        }
+    },
+    "excaped class selector #1": {
+        "source": ".\\31 0\\+",
+        "ast": {
+            "type": "Class",
+            "name": "\\31 0\\+"
+        }
+    },
+    "excaped class selector #2": {
+        "source": ".\\31 b",
+        "ast": {
+            "type": "Class",
+            "name": "\\31 b"
+        }
+    },
+    "excaped class selector #3": {
+        "source": ".\\31 \\ b",
+        "ast": {
+            "type": "Class",
+            "name": "\\31 \\ b"
         }
     }
 }

@@ -1,0 +1,111 @@
+{
+    "basic negation": {
+        "source": ":not(el.class-postfix)",
+        "ast": {
+            "type": "Negation",
+            "sequence": [
+                {
+                    "type": "SimpleSelector",
+                    "sequence": [
+                        {
+                            "type": "Type",
+                            "name": "el"
+                        },
+                        {
+                            "type": "Class",
+                            "name": "class-postfix"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "negation with selector group": {
+        "source": ":not(.a,.b)",
+        "ast": {
+            "type": "Negation",
+            "sequence": [
+                {
+                    "type": "SimpleSelector",
+                    "sequence": [
+                        {
+                            "type": "Class",
+                            "name": "a"
+                        }
+                    ]
+                },
+                {
+                    "type": "SimpleSelector",
+                    "sequence": [
+                        {
+                            "type": "Class",
+                            "name": "b"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "negation with selector group and spaces": {
+        "source": ":not(  .a  ,  .b  )",
+        "translate": ":not(.a,.b)",
+        "ast": {
+            "type": "Negation",
+            "sequence": [
+                {
+                    "type": "SimpleSelector",
+                    "sequence": [
+                        {
+                            "type": "Class",
+                            "name": "a"
+                        }
+                    ]
+                },
+                {
+                    "type": "SimpleSelector",
+                    "sequence": [
+                        {
+                            "type": "Class",
+                            "name": "b"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error #1": {
+        "source": ":not(.a{)",
+        "offset": "       ^",
+        "error": "Unexpected input"
+    },
+    "error #2": {
+        "source": ":not(,.b)",
+        "offset": "     ^",
+        "error": "Simple selector is expected"
+    },
+    "error #3": {
+        "source": ":not(.a,)",
+        "offset": "        ^",
+        "error": "Simple selector is expected"
+    },
+    "error #4": {
+        "source": ":not(.a,,)",
+        "offset": "        ^",
+        "error": "Simple selector is expected"
+    },
+    "error #5": {
+        "source": ":not(.a,.b{)",
+        "offset": "          ^",
+        "error": "Unexpected input"
+    },
+    "error #6": {
+        "source": ":not(--test) {}",
+        "offset": "      ^",
+        "error": "Identifier is expected"
+    },
+    "error #7": {
+        "source": ":not(var(--test)) {}",
+        "offset": "        ^",
+        "error": "Unexpected input"
+    }
+}

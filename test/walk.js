@@ -6,7 +6,7 @@ var walkRules = require('../lib/utils/walk').rules;
 var walkRulesRight = require('../lib/utils/walk').rulesRight;
 var walkDeclarations = require('../lib/utils/walk').declarations;
 var testFiles = require('./fixture/parse').tests;
-var forEachTest = require('./fixture/parse').forEachTest;
+var forEachParseTest = require('./fixture/parse').forEachTest;
 var testWithRules = Object.keys(testFiles).map(function(filename) {
     var dir = path.basename(path.dirname(filename));
     if (dir === 'atrule' || dir === 'rule' || dir === 'stylesheet') {
@@ -141,7 +141,7 @@ describe('AST traversal', function() {
     });
 
     describe('walk all', function() {
-        forEachTest(createWalkAllTest);
+        forEachParseTest(createWalkAllTest);
     });
 
     describe('walk ruleset', function() {
