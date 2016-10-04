@@ -63,6 +63,14 @@
         "column": 2
     }
 }, {
+    "css": "a| {}",
+    "error": "Identifier or asterisk is expected",
+    "position": {
+        "offset": 2,
+        "line": 1,
+        "column": 3
+    }
+}, {
     "css": "a { color }",
     "error": "Colon is expected",
     "position": {

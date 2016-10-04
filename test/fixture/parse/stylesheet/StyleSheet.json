@@ -29,7 +29,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "a"
                                     }
                                 ]
@@ -59,7 +59,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "body"
                                     },
                                     {
@@ -259,7 +259,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "x"
                                     }
                                 ]
@@ -310,7 +310,7 @@
                                             "type": "SimpleSelector",
                                             "sequence": [
                                                 {
-                                                    "type": "Identifier",
+                                                    "type": "Type",
                                                     "name": "a"
                                                 }
                                             ]
@@ -373,7 +373,7 @@
                                             "type": "SimpleSelector",
                                             "sequence": [
                                                 {
-                                                    "type": "Identifier",
+                                                    "type": "Type",
                                                     "name": "b"
                                                 }
                                             ]
@@ -412,7 +412,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "y"
                                     }
                                 ]
@@ -456,7 +456,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s"
                                     }
                                 ]
@@ -500,7 +500,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s0"
                                     }
                                 ]
@@ -536,7 +536,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s1"
                                     }
                                 ]
@@ -623,7 +623,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s"
                                     }
                                 ]
@@ -677,7 +677,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s"
                                     }
                                 ]
@@ -722,7 +722,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s"
                                     }
                                 ]
@@ -767,7 +767,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s0"
                                     }
                                 ]
@@ -803,7 +803,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s1"
                                     }
                                 ]
@@ -875,7 +875,7 @@
                                 "type": "SimpleSelector",
                                 "sequence": [
                                     {
-                                        "type": "Identifier",
+                                        "type": "Type",
                                         "name": "s"
                                     }
                                 ]
