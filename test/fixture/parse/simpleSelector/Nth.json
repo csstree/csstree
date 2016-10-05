@@ -2,7 +2,7 @@
     "nthselector.0": {
         "source": ":nth-child(2n+1)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -23,7 +23,7 @@
     "nthselector.0 case insensitive": {
         "source": ":nth-child(2N+1)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -44,7 +44,7 @@
     "nthselector.1": {
         "source": ":nth-last-child(+3n-2)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-last-child",
             "sequence": [
                 {
@@ -65,7 +65,7 @@
     "nth.0": {
         "source": ":nth-child(10)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -78,7 +78,7 @@
     "nth.1": {
         "source": ":nth-child(2n)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -91,7 +91,7 @@
     "nth.2": {
         "source": ":nth-child(odd)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -104,7 +104,7 @@
     "nth.3": {
         "source": ":nth-child(even)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -117,7 +117,7 @@
     "nth.4": {
         "source": ":nth-child(n)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -131,7 +131,7 @@
         "source": ":nth-child(/*test*/2n/*test*/+/*test*/1/*test*/)",
         "translate": ":nth-child(2n+1)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -153,7 +153,7 @@
         "source": ":nth-last-child(/*test*/+3n/*test*/-/*test*/2/*test*/)",
         "translate": ":nth-last-child(+3n-2)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-last-child",
             "sequence": [
                 {
@@ -175,7 +175,7 @@
         "source": ":nth-child(  2n  +  1  )",
         "translate": ":nth-child(2n+1)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
@@ -197,7 +197,7 @@
         "source": ":nth-last-child(  +3n  -  2  )",
         "translate": ":nth-last-child(+3n-2)",
         "ast": {
-            "type": "FunctionalPseudo",
+            "type": "PseudoClass",
             "name": "nth-last-child",
             "sequence": [
                 {

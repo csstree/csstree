@@ -3,14 +3,16 @@
         "source": ":test",
         "ast": {
             "type": "PseudoClass",
-            "name": "test"
+            "name": "test",
+            "sequence": null
         }
     },
     "pseudoc.1": {
         "source": ":test-test",
         "ast": {
             "type": "PseudoClass",
-            "name": "test-test"
+            "name": "test-test",
+            "sequence": null
         }
     }
 }

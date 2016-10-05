@@ -197,7 +197,7 @@
             "type": "SimpleSelector",
             "sequence": [
                 {
-                    "type": "FunctionalPseudo",
+                    "type": "PseudoClass",
                     "name": "nth-child",
                     "sequence": [
                         {
@@ -346,7 +346,7 @@
             "type": "SimpleSelector",
             "sequence": [
                 {
-                    "type": "FunctionalPseudo",
+                    "type": "PseudoClass",
                     "name": "lang",
                     "sequence": [
                         {

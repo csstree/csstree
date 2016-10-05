@@ -452,7 +452,8 @@
                 "sequence": [
                     {
                         "type": "PseudoClass",
-                        "name": "left"
+                        "name": "left",
+                        "sequence": null
                     }
                 ]
             },
