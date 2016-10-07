@@ -1,3 +1,16 @@
+## 1.0.0-alpha7 (October 7, 2016)
+
+- Added support for explicit descendant combinator (`>>`)
+- Implemented `Type` and `Universal` type nodes
+- Improved `Number` parsing by including sign and exponent (#26)
+- Parse `before`, `after`, `first-letter` and `first-line` pseudos with single colon as `PseudoElement`
+- Changed `FunctionalPseudo` node type to `PseudoClass`
+- Fixed attribute selector name parsing (namespace edge cases)
+- Fixed location calculation for specified offset when `eof` is reached
+- Added more non-standard colors (#25)
+- Removed obsolete `Syntax#getAll()` method
+- Fixed various edge cases, code clean up and performance improvements
+
 ## 1.0.0-alpha6 (September 23, 2016)
 
 - More accurate positions for syntax mismatch errors
