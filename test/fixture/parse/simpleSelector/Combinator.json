@@ -1,0 +1,448 @@
+{
+    "descendant combinator": {
+        "source": "a b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": " "
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "explicit descendant combinator": {
+        "source": "a>>b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">>"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "child combinator": {
+        "source": "a>b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "next-sibling combinator": {
+        "source": "a+b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "+"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "following-sibling combinator": {
+        "source": "a~b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "~"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "legacy shadow-piercing descendant combinator": {
+        "source": "a/deep/b",
+        "translate": "a /deep/ b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "/deep/"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "all selectors": {
+        "source": "a  b  +  c  >  d  ~  e >> f",
+        "translate": "a b+c>d~e>>f",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": " "
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "+"
+                },
+                {
+                    "type": "Type",
+                    "name": "c"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">"
+                },
+                {
+                    "type": "Type",
+                    "name": "d"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "~"
+                },
+                {
+                    "type": "Type",
+                    "name": "e"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">>"
+                },
+                {
+                    "type": "Type",
+                    "name": "f"
+                }
+            ]
+        }
+    },
+    "combinator with comments around #0": {
+        "source": "a/*test*/ /*test*/b",
+        "translate": "a b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": " "
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with comments around #1": {
+        "source": "a/*test*/+/*test*/b",
+        "translate": "a+b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "+"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with comments around #2": {
+        "source": "a/*test*/>/*test*/b",
+        "translate": "a>b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with comments around #3": {
+        "source": "a/*test*/~/*test*/b",
+        "translate": "a~b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "~"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with comments around #4": {
+        "source": "a/*test*/ /deep/ /*test*/b",
+        "translate": "a /deep/ b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "/deep/"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with comments around #5": {
+        "source": "a/*test*/>>/*test*/b",
+        "translate": "a>>b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">>"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with spaces around #0": {
+        "source": "a    b",
+        "translate": "a b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": " "
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with spaces around #1": {
+        "source": "a  +  b",
+        "translate": "a+b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "+"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with spaces around #2": {
+        "source": "a  >  b",
+        "translate": "a>b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with spaces around #3": {
+        "source": "a  ~  b",
+        "translate": "a~b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "~"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with spaces around #4": {
+        "source": "a  /deep/  b",
+        "translate": "a /deep/ b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "/deep/"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "combinator with spaces around #5": {
+        "source": "a  >>  b",
+        "translate": "a>>b",
+        "ast": {
+            "type": "SimpleSelector",
+            "sequence": [
+                {
+                    "type": "Type",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": ">>"
+                },
+                {
+                    "type": "Type",
+                    "name": "b"
+                }
+            ]
+        }
+    },
+    "error #1": {
+        "source": "> b",
+        "offset": "^  ",
+        "error": "Unexpected combinator"
+    },
+    "error #2": {
+        "source": " > b",
+        "offset": " ^  ",
+        "error": "Unexpected combinator"
+    },
+    "error #3": {
+        "source": "b >",
+        "offset": "  ^",
+        "error": "Unexpected combinator"
+    },
+    "error #4": {
+        "source": "a + ~ b",
+        "offset": "    ^  ",
+        "error": "Unexpected combinator"
+    }
+}
