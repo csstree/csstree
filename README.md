@@ -1,6 +1,6 @@
-<img align="right" width="128" height="128"
+<img align="left" width="96" height="96"
      alt="CSSTree logo"
-     src="https://cloud.githubusercontent.com/assets/270491/19243220/63390590-8f1f-11e6-9fbd-6209fa6705b1.png"/>
+     src="https://cloud.githubusercontent.com/assets/270491/19243723/6f9136c6-8f21-11e6-82ac-eeeee4c6c452.png"/>
 
 # CSSTree
 
@@ -10,7 +10,7 @@
 [![Join the CSSTree chat at https://gitter.im/csstree/csstree](https://badges.gitter.im/csstree/csstree.svg)](https://gitter.im/csstree/csstree)
 [![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)
 
-Fast detailed CSS parser with syntax
+Fast detailed CSS parser
 
 > Work in progress
 
