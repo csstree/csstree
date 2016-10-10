@@ -1,21 +1,33 @@
+<img align="right" width="128" height="128"
+     alt="CSSTree logo"
+     src="https://cloud.githubusercontent.com/assets/270491/19243220/63390590-8f1f-11e6-9fbd-6209fa6705b1.png"/>
+
+# CSSTree
+
 [![NPM version](https://img.shields.io/npm/v/css-tree.svg)](https://www.npmjs.com/package/css-tree)
 [![Build Status](https://travis-ci.org/csstree/csstree.svg?branch=master)](https://travis-ci.org/csstree/csstree)
 [![Coverage Status](https://coveralls.io/repos/github/csstree/csstree/badge.svg?branch=master)](https://coveralls.io/github/csstree/csstree?branch=master)
 [![Join the CSSTree chat at https://gitter.im/csstree/csstree](https://badges.gitter.im/csstree/csstree.svg)](https://gitter.im/csstree/csstree)
 [![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)
 
+Fast detailed CSS parser with syntax
+
+> Work in progress
+
+Docs and tools:
+
 * [CSS syntax reference](https://csstree.github.io/docs/syntax.html)
 * [CSS syntax validator](https://csstree.github.io/docs/validator.html)
 
-Related:
+Related projects:
 
 * [csstree-validator](https://github.com/csstree/validator) – NPM package to validate CSS
 * [stylelint-csstree-validator](https://github.com/csstree/stylelint-validator) – plugin for stylelint to validate CSS
 * [Grunt plugin](https://github.com/sergejmueller/grunt-csstree-validator)
 * [Gulp plugin](https://github.com/csstree/gulp-csstree)
 * [Sublime plugin](https://github.com/csstree/SublimeLinter-contrib-csstree)
-* [VS Code plugin](https://github.com/csstree/vscode-csstree)
-* [Atom plugin](https://github.com/csstree/atom-csstree-validator)
+* [VS Code plugin](https://github.com/csstree/vscode-plugin)
+* [Atom plugin](https://github.com/csstree/atom-plugin)
 
 ## Install
 
