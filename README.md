@@ -1,4 +1,4 @@
-<img align="left" width="96" height="96"
+<img align="right" width="111" height="111"
      alt="CSSTree logo"
      src="https://cloud.githubusercontent.com/assets/270491/19243723/6f9136c6-8f21-11e6-82ac-eeeee4c6c452.png"/>
 
