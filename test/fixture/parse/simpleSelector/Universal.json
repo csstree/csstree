@@ -1,0 +1,35 @@
+{
+    "universal": {
+        "source": "*",
+        "ast": {
+            "type": "Universal",
+            "name": "*"
+        }
+    },
+    "universal with namespace #1": {
+        "source": "ns|*",
+        "ast": {
+            "type": "Universal",
+            "name": "ns|*"
+        }
+    },
+    "universal with namespace #2": {
+        "source": "*|*",
+        "ast": {
+            "type": "Universal",
+            "name": "*|*"
+        }
+    },
+    "universal with namespace #3": {
+        "source": "|*",
+        "ast": {
+            "type": "Universal",
+            "name": "|*"
+        }
+    },
+    "error #1": {
+        "source": "*| {}",
+        "offset": "  ^",
+        "error": "Identifier or asterisk is expected"
+    }
+}
