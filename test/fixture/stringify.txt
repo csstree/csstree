@@ -51,9 +51,9 @@
                 "type": "Block",
                 "info": {
                     "source": "<unknown>",
-                    "offset": 3,
+                    "offset": 4,
                     "line": 2,
-                    "column": 1
+                    "column": 2
                 },
                 "declarations": [
                     {
