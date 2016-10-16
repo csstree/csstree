@@ -231,10 +231,7 @@
                             "sequence": [
                                 {
                                     "type": "Progid",
-                                    "value": {
-                                        "type": "Raw",
-                                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                    }
+                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                                 }
                             ]
                         }
@@ -301,17 +298,11 @@
                             "sequence": [
                                 {
                                     "type": "Progid",
-                                    "value": {
-                                        "type": "Raw",
-                                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                    }
+                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                                 },
                                 {
                                     "type": "Progid",
-                                    "value": {
-                                        "type": "Raw",
-                                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
-                                    }
+                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
                                 }
                             ]
                         }
@@ -842,10 +833,7 @@
                             "sequence": [
                                 {
                                     "type": "Progid",
-                                    "value": {
-                                        "type": "Raw",
-                                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                    }
+                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                                 }
                             ]
                         }
@@ -913,17 +901,11 @@
                             "sequence": [
                                 {
                                     "type": "Progid",
-                                    "value": {
-                                        "type": "Raw",
-                                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                    }
+                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                                 },
                                 {
                                     "type": "Progid",
-                                    "value": {
-                                        "type": "Raw",
-                                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
-                                    }
+                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
                                 }
                             ]
                         }

@@ -128,10 +128,7 @@
                                     "sequence": [
                                         {
                                             "type": "Progid",
-                                            "value": {
-                                                "type": "Raw",
-                                                "value": "progid:DXImageTransform.Microsoft.gradient (startColorstr=#33CCCCCC, endColorstr=#33CCCCCC)"
-                                            }
+                                            "value": "progid:DXImageTransform.Microsoft.gradient (startColorstr=#33CCCCCC, endColorstr=#33CCCCCC)"
                                         }
                                     ]
                                 }
@@ -176,10 +173,7 @@
                                     "sequence": [
                                         {
                                             "type": "Progid",
-                                            "value": {
-                                                "type": "Raw",
-                                                "value": "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"
-                                            }
+                                            "value": "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"
                                         }
                                     ]
                                 }

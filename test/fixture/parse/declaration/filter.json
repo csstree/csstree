@@ -10,10 +10,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     }
                 ]
             }
@@ -30,17 +27,11 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     },
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
                     }
                 ]
             }
@@ -57,10 +48,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     }
                 ]
             }
@@ -77,10 +65,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     }
                 ]
             }
@@ -97,10 +82,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     }
                 ]
             }
@@ -117,10 +99,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     }
                 ]
             }
@@ -138,10 +117,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     }
                 ]
             }
@@ -159,10 +135,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')"
                     }
                 ]
             }
@@ -180,10 +153,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     }
                 ]
             }
@@ -201,17 +171,11 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                     },
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
-                        }
+                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
                     }
                 ]
             }
@@ -229,10 +193,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)"
-                        }
+                        "value": "progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)"
                     }
                 ]
             }
@@ -250,10 +211,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "alpha(opacity=60)"
-                        }
+                        "value": "alpha(opacity=60)"
                     }
                 ]
             }
@@ -271,10 +229,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "ALPHA(opacity=60)"
-                        }
+                        "value": "ALPHA(opacity=60)"
                     }
                 ]
             }
@@ -292,10 +247,7 @@
                 "sequence": [
                     {
                         "type": "Progid",
-                        "value": {
-                            "type": "Raw",
-                            "value": "dropshadow(color=#000,offx=0,offy=-1)"
-                        }
+                        "value": "dropshadow(color=#000,offx=0,offy=-1)"
                     }
                 ]
             }
