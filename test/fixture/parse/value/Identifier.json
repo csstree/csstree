@@ -1,0 +1,21 @@
+{
+    "ident #0": {
+        "source": "x",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "x"
+                }
+            ]
+        }
+    },
+    "ident name starts with minus": {
+        "source": "-moz-flex",
+        "ast": {
+            "type": "Identifier",
+            "name": "-moz-flex"
+        }
+    }
+}

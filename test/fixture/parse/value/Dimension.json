@@ -1,5 +1,5 @@
 {
-    "dimension.0": {
+    "dimension #0": {
         "source": "10px",
         "ast": {
             "type": "Dimension",
@@ -7,7 +7,7 @@
             "unit": "px"
         }
     },
-    "dimension.1": {
+    "dimension #1": {
         "source": ".10px",
         "ast": {
             "type": "Dimension",
@@ -15,11 +15,19 @@
             "unit": "px"
         }
     },
-    "dimension.2": {
+    "dimension #2": {
         "source": "12.34px",
         "ast": {
             "type": "Dimension",
             "value": "12.34",
+            "unit": "px"
+        }
+    },
+    "dimension #3": {
+        "source": "0000.000px",
+        "ast": {
+            "type": "Dimension",
+            "value": "0000.000",
             "unit": "px"
         }
     },

@@ -1,37 +1,44 @@
 {
-    "vhash.0": {
+    "hash #0": {
         "source": "#100",
         "ast": {
             "type": "Hash",
             "value": "100"
         }
     },
-    "vhash.1": {
+    "hash #1": {
         "source": "#id",
         "ast": {
             "type": "Hash",
             "value": "id"
         }
     },
-    "vhash.2": {
+    "hash #2": {
         "source": "#123abc",
         "ast": {
             "type": "Hash",
             "value": "123abc"
         }
     },
-    "vhash.3": {
+    "hash #3": {
         "source": "#abc123",
         "ast": {
             "type": "Hash",
             "value": "abc123"
         }
     },
-    "vhash.4": {
+    "hash #4": {
         "source": "#a1b2c3d4",
         "ast": {
             "type": "Hash",
             "value": "a1b2c3d4"
+        }
+    },
+    "hash #5": {
+        "source": "#AaBbCc",
+        "ast": {
+            "type": "Hash",
+            "value": "AaBbCc"
         }
     }
 }

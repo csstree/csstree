@@ -1,5 +1,5 @@
 {
-    "functionExpression.0": {
+    "expression #0": {
         "source": "expression()",
         "ast": {
             "type": "Function",
@@ -12,7 +12,7 @@
             ]
         }
     },
-    "functionExpression.1": {
+    "expression #1": {
         "source": "expression(())",
         "ast": {
             "type": "Function",
@@ -25,7 +25,7 @@
             ]
         }
     },
-    "functionExpression.2": {
+    "expression #2": {
         "source": "expression(expression())",
         "ast": {
             "type": "Function",
@@ -38,7 +38,7 @@
             ]
         }
     },
-    "functionExpression.3": {
+    "expression #3": {
         "source": "expression(/*)*/)",
         "ast": {
             "type": "Function",
@@ -51,7 +51,7 @@
             ]
         }
     },
-    "functionExpression.4": {
+    "expression #4": {
         "source": "expression(\")\")",
         "ast": {
             "type": "Function",
@@ -64,7 +64,7 @@
             ]
         }
     },
-    "functionExpression.5": {
+    "expression #5": {
         "source": "expression(')')",
         "ast": {
             "type": "Function",
@@ -77,7 +77,7 @@
             ]
         }
     },
-    "functionExpression.6": {
+    "expression #6": {
         "source": "expression(()())",
         "ast": {
             "type": "Function",
@@ -90,7 +90,7 @@
             ]
         }
     },
-    "functionExpression.8": {
+    "expression #8": {
         "source": "expression(a = 5)",
         "ast": {
             "type": "Function",

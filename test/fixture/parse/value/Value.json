@@ -1,16 +1,4 @@
 {
-    "value.0": {
-        "source": "x",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Identifier",
-                    "name": "x"
-                }
-            ]
-        }
-    },
     "value.1": {
         "source": "10",
         "ast": {
@@ -49,45 +37,6 @@
                 {
                     "type": "Percentage",
                     "value": "-100"
-                }
-            ]
-        }
-    },
-    "value.dimension.0": {
-        "source": "0px",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Dimension",
-                    "value": "0",
-                    "unit": "px"
-                }
-            ]
-        }
-    },
-    "value.dimension.1": {
-        "source": ".0px",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Dimension",
-                    "value": ".0",
-                    "unit": "px"
-                }
-            ]
-        }
-    },
-    "value.dimension.2": {
-        "source": "0000.000px",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Dimension",
-                    "value": "0000.000",
-                    "unit": "px"
                 }
             ]
         }
@@ -195,54 +144,6 @@
             ]
         }
     },
-    "value.vhash.0": {
-        "source": "#ffffff",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "ffffff"
-                }
-            ]
-        }
-    },
-    "value.vhash.1": {
-        "source": "#f00",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "f00"
-                }
-            ]
-        }
-    },
-    "value.vhash.2": {
-        "source": "#F0f0C0",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "F0f0C0"
-                }
-            ]
-        }
-    },
-    "value.vhash.3": {
-        "source": "#AaBbCc",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Hash",
-                    "value": "AaBbCc"
-                }
-            ]
-        }
-    },
     "css variables": {
         "source": "var(--foo, blue)",
         "translate": "var(--foo,blue)",
@@ -275,34 +176,9 @@
             ]
         }
     },
-    "ident name starts with minus": {
-        "source": "-moz-flex",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Identifier",
-                    "name": "-moz-flex"
-                }
-            ]
-        }
-    },
-    "expression": {
-        "source": "expression(a=1)",
-        "ast": {
-            "type": "Value",
-            "sequence": [
-                {
-                    "type": "Function",
-                    "name": "expression",
-                    "sequence": [
-                        {
-                            "type": "Raw",
-                            "value": "a=1"
-                        }
-                    ]
-                }
-            ]
-        }
+    "error: closing parenthesis is not allowed": {
+        "source": "foo)",
+        "offset": "   ^",
+        "error": "Unexpected input"
     }
 }
