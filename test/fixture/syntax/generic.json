@@ -260,6 +260,24 @@
             "123"
         ]
     },
+    "<number-one-or-greater>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<number-one-or-greater>"
+            }
+        },
+        "valid": [
+            "1",
+            "1.0",
+            "123.456"
+        ],
+        "invalid:Mismatch": [
+            "-1",
+            "0.01",
+            ".999"
+        ]
+    },
     "<integer>": {
         "syntax": {
             "generic": true,
