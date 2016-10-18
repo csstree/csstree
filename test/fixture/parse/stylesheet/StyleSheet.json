@@ -6,6 +6,30 @@
             "rules": []
         }
     },
+    "whitespace only": {
+        "source": "  ",
+        "translate": "",
+        "ast": {
+            "type": "StyleSheet",
+            "rules": []
+        }
+    },
+    "comment only": {
+        "source": "/* no css */",
+        "translate": "",        
+        "ast": {
+            "type": "StyleSheet",
+            "rules": []
+        }
+    },
+    "comment and whitespaces only": {
+        "source": "  /* no css */  ",
+        "translate": "",        
+        "ast": {
+            "type": "StyleSheet",
+            "rules": []
+        }
+    },
     "BOM.1": {
         "source": "\uFEFF",
         "translate": "",
