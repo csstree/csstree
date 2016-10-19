@@ -93,5 +93,10 @@
         "source": ",,",
         "offset": "^",
         "error": "Unexpected comma"
+    },
+    "bad selector #7": {
+        "source": "a,{",
+        "offset": " ^",
+        "error": "Unexpected trailing comma"
     }
 }
