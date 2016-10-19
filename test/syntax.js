@@ -55,6 +55,73 @@ describe('CSS syntax', function() {
         assert.equal(stringify(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
     });
 
+    describe('bad syntax', function() {
+        it('expected a quote', function() {
+            assert.throws(function() {
+                parse('\'x');
+            }, /^SyntaxParseError: Expect a quote\n/);
+        });
+
+        it('expected a number', function() {
+            var tests = [
+                '<x>{}',
+                '<x>{,2}',
+                '<x>{ 2}',
+                '<x>{1, }'
+            ];
+            tests.forEach(function(test) {
+                assert.throws(function() {
+                    parse(test);
+                }, /^SyntaxParseError: Expect a number\n/, test);
+            });
+        });
+
+        it('missed keyword', function() {
+            var tests = [
+                '<>',
+                '<\'\'>'
+            ];
+            tests.forEach(function(test) {
+                assert.throws(function() {
+                    parse(test);
+                }, /^SyntaxParseError: Expect a keyword\n/, test);
+            });
+        });
+
+        it('unexpected combinator', function() {
+            var tests = [
+                '<x>&&',
+                '&&<x>',
+                '<x>&&||'
+            ];
+            tests.forEach(function(test) {
+                assert.throws(function() {
+                    parse(test);
+                }, /^SyntaxParseError: Unexpected combinator\n/, test);
+            });
+        });
+
+        it('unexpected input', function() {
+            assert.throws(function() {
+                parse('!');
+            }, /^SyntaxParseError: Unexpected input\n/);
+        });
+
+        it('bad syntax', function() {
+            var tests = [
+                'a&b',
+                '<a',
+                'b(',
+                '[a'
+            ];
+            tests.forEach(function(test) {
+                assert.throws(function() {
+                    parse(test);
+                }, /^SyntaxParseError: Expect `.`\n/, test);
+            });
+        });
+    });
+
     describe('Syntax', function() {
         it('validate', function() {
             var syntax = createSyntax({
