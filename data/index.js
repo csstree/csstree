@@ -1,4 +1,5 @@
-var mozilla = require('./mozilla-cssdata.json');
+var mdnProperties = require('./mdn-data-properties.json');
+var mdnSyntaxes = require('./mdn-data-syntaxes.json');
 var patch = require('./patch.json');
 var data = {
     properties: {},
@@ -9,33 +10,38 @@ function normalizeSyntax(syntax) {
     return syntax
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
+        .replace(/&nbsp;/g, ' ')
         .replace(/&amp;/g, '&');
 }
 
 // apply patch
 for (var key in patch.properties) {
-    if (key in mozilla.properties) {
-        mozilla.properties[key].syntax = patch.properties[key].syntax;
+    if (key in mdnProperties) {
+        if (patch.properties[key]) {
+            mdnProperties[key].syntax = patch.properties[key].syntax;
+        } else {
+            delete mdnProperties[key];
+        }
     } else {
-        mozilla.properties[key] = patch.properties[key];
+        mdnProperties[key] = patch.properties[key];
     }
 }
 
 for (var key in patch.syntaxes) {
     if (patch.syntaxes[key].syntax) {
-        mozilla.syntaxes[key] = patch.syntaxes[key].syntax;
+        mdnSyntaxes[key] = patch.syntaxes[key].syntax;
     } else {
-        delete mozilla.syntaxes[key];
+        delete mdnSyntaxes[key];
     }
 }
 
-// normalize source mozilla syntaxes, since it uses html token
-for (var key in mozilla.properties) {
-    data.properties[key] = normalizeSyntax(mozilla.properties[key].syntax);
+// normalize source mdnProperties syntaxes, since it uses html token
+for (var key in mdnProperties) {
+    data.properties[key] = normalizeSyntax(mdnProperties[key].syntax);
 }
 
-for (var key in mozilla.syntaxes) {
-    data.types[key] = normalizeSyntax(mozilla.syntaxes[key]);
+for (var key in mdnSyntaxes) {
+    data.types[key] = normalizeSyntax(mdnSyntaxes[key]);
 }
 
 module.exports = data;
