@@ -480,7 +480,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-attachment": {
-    "syntax": "&lt;attachment&gt; [ , &lt;attachment&gt; ]*",
+    "syntax": "&lt;attachment&gt; [, &lt;attachment&gt; ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -495,7 +495,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-clip": {
-    "syntax": "&lt;clip-style&gt; [ , &lt;clip-style&gt; ]*",
+    "syntax": "&lt;clip-style&gt; [, &lt;clip-style&gt; ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -510,7 +510,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-composite": {
-    "syntax": "&lt;composite-style&gt; [ , &lt;composite-style&gt; ]*",
+    "syntax": "&lt;composite-style&gt; [, &lt;composite-style&gt; ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -525,7 +525,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-image": {
-    "syntax": "&lt;mask-image&gt; [ , &lt;mask-image&gt; ]*",
+    "syntax": "&lt;mask-image&gt; [, &lt;mask-image&gt; ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -540,7 +540,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-origin": {
-    "syntax": "[ padding | border | content ][ , [ border | padding | content ]]*",
+    "syntax": "[ padding | border | content ] [, [ border | padding | content ] ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -555,7 +555,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-position": {
-    "syntax": "&lt;mask-position&gt; [ , &lt;mask-position&gt; ]#",
+    "syntax": "&lt;mask-position&gt;#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -585,7 +585,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-position-y": {
-    "syntax": "[ &lt;length-percentage&gt; | top  | center | bottom ]#",
+    "syntax": "[ &lt;length-percentage&gt; | top | center | bottom ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -600,7 +600,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-repeat": {
-    "syntax": "&lt;repeat-style&gt; [ , &lt;repeat-style&gt; ]*",
+    "syntax": "&lt;repeat-style&gt; [, &lt;repeat-style&gt; ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -960,7 +960,7 @@
     "status": "experimental"
   },
   "azimuth": {
-    "syntax": "&lt;angle&gt; | [[ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards",
+    "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards",
     "media": "aural",
     "inherited": true,
     "animationType": "discrete",
@@ -1194,7 +1194,7 @@
     "status": "standard"
   },
   "background-position-x": {
-    "syntax": "[ center | [ left | right | x-start | x-end ] &lt;length-percentage&gt;? ]#",
+    "syntax": "[ center | [ left | right | x-start | x-end ]? &lt;length-percentage&gt;? ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1209,7 +1209,7 @@
     "status": "experimental"
   },
   "background-position-y": {
-    "syntax": "[ center | [ top | bottom | y-start | y-end ] &lt;length-percentage&gt;? ]#",
+    "syntax": "[ center | [ top | bottom | y-start | y-end ]? &lt;length-percentage&gt;? ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3322,7 +3322,7 @@
     "status": "standard"
   },
   "font-variant": {
-    "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&nbsp;&lt;feature-value-name&gt;&nbsp;) || historical-forms || styleset(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || character-variant(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || swash(&nbsp;&lt;feature-value-name&gt;&nbsp;) || ornaments(&nbsp;&lt;feature-value-name&gt;&nbsp;) || annotation(&nbsp;&lt;feature-value-name&gt;&nbsp;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] ",
+    "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&nbsp;&lt;feature-value-name&gt;&nbsp;) || historical-forms || styleset(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || character-variant(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || swash(&nbsp;&lt;feature-value-name&gt;&nbsp;) || ornaments(&nbsp;&lt;feature-value-name&gt;&nbsp;) || annotation(&nbsp;&lt;feature-value-name&gt;&nbsp;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3342,7 +3342,7 @@
     "status": "standard"
   },
   "font-variant-alternates": {
-    "syntax": "normal | [ stylistic(&nbsp;&lt;feature-value-name&gt;&nbsp;) || historical-forms || styleset(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || character-variant(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || swash(&nbsp;&lt;feature-value-name&gt;&nbsp;) || ornaments(&nbsp;&lt;feature-value-name&gt;&nbsp;) || annotation(&nbsp;&lt;feature-value-name&gt;&nbsp;) ] ",
+    "syntax": "normal | [ stylistic(&nbsp;&lt;feature-value-name&gt;&nbsp;) || historical-forms || styleset(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || character-variant(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || swash(&nbsp;&lt;feature-value-name&gt;&nbsp;) || ornaments(&nbsp;&lt;feature-value-name&gt;&nbsp;) || annotation(&nbsp;&lt;feature-value-name&gt;&nbsp;) ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3382,7 +3382,7 @@
     "status": "standard"
   },
   "font-variant-east-asian": {
-    "syntax": "normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ] ",
+    "syntax": "normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -5366,7 +5366,7 @@
     "status": "standard"
   },
   "scroll-snap-points-x": {
-    "syntax": "none | repeat(&lt;length&gt;)",
+    "syntax": "none | repeat( &lt;length&gt; )",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -5381,7 +5381,7 @@
     "status": "obsolete"
   },
   "scroll-snap-points-y": {
-    "syntax": "none | repeat(&lt;length&gt;)",
+    "syntax": "none | repeat( &lt;length&gt; )",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -5738,7 +5738,7 @@
     "status": "standard"
   },
   "text-indent": {
-    "syntax": "&lt;length-percentage&gt; &amp;&amp; [ hanging || each-line ]",
+    "syntax": "&lt;length-percentage&gt; &amp;&amp; hanging? &amp;&amp; each-line?",
     "media": "visual",
     "inherited": true,
     "animationType": "lpc",
@@ -5821,7 +5821,7 @@
     "status": "standard"
   },
   "text-size-adjust": {
-    "syntax": "none | auto | &lt;percentage&gt; ",
+    "syntax": "none | auto | &lt;percentage&gt;",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -5886,7 +5886,7 @@
     "status": "standard"
   },
   "touch-action": {
-    "syntax": "auto | none | [[ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ]] | manipulation",
+    "syntax": "auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] ] | manipulation",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -6033,7 +6033,7 @@
     "status": "standard"
   },
   "transition-timing-function": {
-    "syntax": " &lt;single-transition-timing-function&gt;#",
+    "syntax": "&lt;single-transition-timing-function&gt;#",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",

@@ -120,10 +120,6 @@
       "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
       "syntax": "&lt;mask-image&gt; [ &lt;'-webkit-mask-repeat'&gt; || &lt;'-webkit-mask-attachment'&gt; || &lt;'-webkit-mask-position'&gt; || &lt;'-webkit-mask-origin'&gt; || &lt;'-webkit-mask-clip'&gt; ]*"
     },
-    "-webkit-mask-attachment": {
-      "comment": "extra space between [ and ,",
-      "syntax": "&lt;attachment&gt; [, &lt;attachment&gt; ]*"
-    },
     "-webkit-mask-box-image": {
       "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
       "syntax": "[ <url> | <gradient> | none ] [ <length-percentage>{4} <-webkit-mask-box-repeat>{2} ]?"
@@ -131,30 +127,6 @@
     "-webkit-mask-clip": {
       "comment": "change type to <-webkit-mask-clip-style> since it differ from <mask-clip>, extra space between [ and ,",
       "syntax": "&lt;-webkit-mask-clip-style&gt; [, &lt;-webkit-mask-clip-style&gt; ]*"
-    },
-    "-webkit-mask-composite": {
-      "comment": "extra space between [ and ,",
-      "syntax": "&lt;composite-style&gt; [, &lt;composite-style&gt; ]*"
-    },
-    "-webkit-mask-image": {
-      "comment": "extra space between [ and ,",
-      "syntax": "&lt;mask-image&gt; [, &lt;mask-image&gt; ]*"
-    },
-    "-webkit-mask-origin": {
-      "comment": "missed spaces between brackets, extra space between [ and ,",
-      "syntax": "[ padding | border | content ] [, [ border | padding | content ] ]*"
-    },
-    "-webkit-mask-position": {
-      "comment": "# instead of *, extra space between [ and ,",
-      "syntax": "&lt;mask-position&gt; [, &lt;mask-position&gt; ]*"
-    },
-    "-webkit-mask-position-y": {
-      "comment": "extra space after `top`",
-      "syntax": "[ &lt;length-percentage&gt; | top | center | bottom ]#"
-    },
-    "-webkit-mask-repeat": {
-      "comment": "extra space between [ and ,",
-      "syntax": "&lt;repeat-style&gt; [, &lt;repeat-style&gt; ]*"
     },
     "-webkit-overflow-scrolling": {
       "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling",
@@ -166,10 +138,6 @@
         "https://developer.mozilla.org/en/docs/Web/CSS/-webkit-print-color-adjust"
       ],
       "syntax": "economy | exact"
-    },
-    "-webkit-tap-highlight-color": {
-      "comment": "broken syntax",
-      "syntax": "&lt;color&gt;#"
     },
     "-webkit-text-security": {
       "comment": "missed; http://help.dottoro.com/lcbkewgt.php",
@@ -189,18 +157,6 @@
         "https://www.w3.org/TR/SVG/text.html#AlignmentBaselineProperty"
       ],
       "syntax": "auto | baseline | before-edge | text-before-edge | middle | central | after-edge | text-after-edge | ideographic | alphabetic | hanging | mathematical"
-    },
-    "azimuth": {
-      "comment": "missed space",
-      "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards"
-    },
-    "background-position-x": {
-      "comment": "added missed multiplicator `?` https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands",
-      "syntax": "[ center | [ left | right | x-start | x-end ]? &lt;length-percentage&gt;? ]#"
-    },
-    "background-position-y": {
-      "comment": "added missed multiplicator `?` https://drafts.csswg.org/css-backgrounds-4/#background-position-longhands",
-      "syntax": "[ center | [ top | bottom | y-start | y-end ]? &lt;length-percentage&gt;? ]#"
     },
     "baseline-shift": {
       "comment": "added SVG property",
@@ -286,20 +242,8 @@
       "syntax": "none | &lt;filter-function-list&gt; | <-ms-filter>"
     },
     "font": {
-      "comment": "wrong quotes",
+      "comment": "extend with non-standart fonts",
       "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar | <-non-standart-font>"
-    },
-    "font-variant": {
-      "comment": "# should stick to term, missed spaces for function body, trailing space",
-      "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic( &lt;feature-value-name&gt; ) || historical-forms || styleset( &lt;feature-value-name&gt;# ) || character-variant( &lt;feature-value-name&gt;# ) || swash( &lt;feature-value-name&gt; ) || ornaments( &lt;feature-value-name&gt; ) || annotation( &lt;feature-value-name&gt; ) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]"
-    },
-    "font-variant-alternates": {
-      "comment": "# should stick to term, missed spaces for function body, trailing space",
-      "syntax": "normal | [ stylistic( &lt;feature-value-name&gt; ) || historical-forms || styleset( &lt;feature-value-name&gt;# ) || character-variant( &lt;feature-value-name&gt;# ) || swash( &lt;feature-value-name&gt; ) || ornaments( &lt;feature-value-name&gt; ) || annotation( &lt;feature-value-name&gt; ) ]"
-    },
-    "font-variant-east-asian": {
-      "comment": "trailing space",
-      "syntax": "normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]"
     },
     "glyph-orientation-horizontal": {
       "comment": "added SVG property",
@@ -324,6 +268,9 @@
     },
     "letter-spacing": {
       "comment": "fix syntax <length> -> <length-percentage>",
+      "references": [
+        "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/letter-spacing"
+      ],
       "syntax": "normal | &lt;length-percentage&gt;"
     },
     "marker": {
@@ -389,14 +336,6 @@
     "rest-before": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
-    },
-    "scroll-snap-points-x": {
-      "comment": "missed spaces in function body",
-      "syntax": "none | repeat( &lt;length&gt; )"
-    },
-    "scroll-snap-points-y": {
-      "comment": "missed spaces in function body",
-      "syntax": "none | repeat( &lt;length&gt; )"
     },
     "shape-rendering": {
       "comment": "added SVG property",
@@ -480,25 +419,9 @@
       ],
       "syntax": "start | middle | end"
     },
-    "text-indent": {
-      "comment": "wrong syntax, replaced for https://drafts.csswg.org/css-text-3/#text-indent-property",
-      "syntax": "[ <length-percentage> ] && hanging? && each-line?"
-    },
-    "text-size-adjust": {
-      "comment": "trailing space",
-      "syntax": "none | auto | &lt;percentage&gt;"
-    },
-    "touch-action": {
-      "comment": "missed between brackets",
-      "syntax": "auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] ] | manipulation"
-    },
     "transform-origin": {
       "comment": "move first group to the end since less collecting",
       "syntax": "[ [ &lt;length-percentage&gt; | left | center | right ] &amp;&amp; [ &lt;length-percentage&gt; | top | center | bottom ] ] &lt;length&gt;? | [ &lt;length-percentage&gt; | left | center | right | top | bottom ]"
-    },
-    "transition-timing-function": {
-      "comment": "extra space in the beginning",
-      "syntax": "&lt;single-transition-timing-function&gt;#"
     },
     "unicode-bidi": {
       "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
@@ -676,14 +599,6 @@
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
       "syntax": "[ <string> | contents | <url> | <quote> | <attr()> | counter( <ident>, <'list-style-type'>? ) ]+"
     },
-    "family-name": {
-      "comment": "upper case",
-      "syntax": "&lt;string&gt; | &lt;ident&gt;+"
-    },
-    "feature-value-name": {
-      "comment": "missed angle brackets",
-      "syntax": "<ident>"
-    },
     "inset()": {
       "comment": "changed <border-radius> to <'border-radius'>",
       "syntax": "inset( &lt;length-percentage&gt;{1,4} [ round &lt;'border-radius'&gt; ]? )"
@@ -714,10 +629,6 @@
     "mask-image": {
       "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
       "syntax": "<mask-reference>#"
-    },
-    "mask-position": {
-      "comment": "extra space after `top`",
-      "syntax": "[ &lt;length-percentage&gt; | left | center | right ] [ &lt;length-percentage&gt; | top | center | bottom ]?"
     },
     "matrix()": {
       "comment": "redundant max",
@@ -755,29 +666,13 @@
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
       "syntax": "<length> | auto"
     },
-    "scale3d()": {
-      "comment": "missed space before comma",
-      "syntax": "scale3d( &lt;number&gt; , &lt;number&gt; , &lt;number&gt; )"
-    },
     "shape": {
       "comment": "missed spaces in function body and add backwards compatible syntax",
       "syntax": "rect( [ [ <top>, <right>, <bottom>, <left> ] | [ <top> <right> <bottom> <left> ] ] )"
     },
-    "single-animation-name": {
-      "comment": "missed angle brackets",
-      "syntax": "none | <ident>"
-    },
     "single-transition": {
       "comment": "moved <single-transition-timing-function> in the beginning to avoid wrong match to <single-transition-property>",
       "syntax": "&lt;single-transition-timing-function&gt; || [ none | &lt;single-transition-property&gt; ] || &lt;time&gt; || &lt;time&gt;"
-    },
-    "single-transition-property": {
-      "comment": "missed angle brackets",
-      "syntax": "all | <ident>"
-    },
-    "single-transition-timing-function": {
-      "comment": "missed spaces",
-      "syntax": "ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps( &lt;integer&gt; [, [ start | end ] ]? ) | cubic-bezier( &lt;number&gt;, &lt;number&gt;, &lt;number&gt;, &lt;number&gt; )"
     },
     "svg-length": {
       "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
