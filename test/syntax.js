@@ -3,7 +3,7 @@ var parseCss = require('../lib/parser');
 var defaultSyntax = require('../lib/syntax/default');
 var createSyntax = require('../lib/syntax').create;
 var parse = require('../lib/syntax/parse');
-var stringify = require('../lib/syntax/stringify');
+var translate = require('../lib/syntax/translate');
 var walk = require('../lib/syntax/walk');
 var data = require('../data');
 var tests = require('./fixture/syntax');
@@ -22,7 +22,7 @@ function createParseTest(name, syntax) {
         var ast = parse(syntax);
 
         assert.equal(ast.type, 'Sequence');
-        assert.equal(normalize(stringify(ast)), normalize(syntax));
+        assert.equal(normalize(translate(ast)), normalize(syntax));
     });
 }
 
@@ -52,7 +52,7 @@ function createMatchTest(name, syntax, property, value, error) {
 describe('CSS syntax', function() {
     it('combinator precedence', function() {
         var ast = parse('a b   |   c ||   d &&   e f');
-        assert.equal(stringify(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
+        assert.equal(translate(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
     });
 
     describe('bad syntax', function() {
@@ -177,7 +177,7 @@ describe('CSS syntax', function() {
         });
     });
 
-    describe('parse/stringify', function() {
+    describe('parse/translate', function() {
         ['properties', 'types'].forEach(function(section) {
             for (var name in data[section]) {
                 createParseTest(section + '/' + name, data[section][name]);

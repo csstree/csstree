@@ -184,7 +184,7 @@
                 ? '<\'' + name + '\'>'
                 : '<' + name + '>';
 
-            document.querySelector('.output').innerText = info.syntax ? cssSyntax.stringify(info.syntax) : info.match ? 'generic' : 'Syntax is missed';
+            document.querySelector('.output').innerText = info.syntax ? cssSyntax.translate(info.syntax) : info.match ? 'generic' : 'Syntax is missed';
 
             if (info.syntax) {
                 var nested = {};
@@ -224,7 +224,7 @@
                             nested[ref] = {
                                 section: nestedSection,
                                 name: nestedName,
-                                syntax: cssSyntax.stringify(nestedInfo.syntax)
+                                syntax: cssSyntax.translate(nestedInfo.syntax)
                             };
                             cssSyntax.walk(nestedInfo.syntax, walk);
                         }
