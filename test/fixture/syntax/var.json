@@ -1,0 +1,19 @@
+{
+    "should pass through (values with `var()` is always valid for now)": {
+        "syntax": {
+            "types": {
+                "bar": "foo"
+            },
+            "properties": {
+                "test": "<bar>"
+            }
+        },
+        "valid": [
+            "foo",
+            "var(--name)",
+            "var(--name) qux",
+            "VAR(--name)",
+            "VAR(--name) qux"
+        ]
+    }
+}
