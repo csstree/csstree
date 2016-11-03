@@ -198,4 +198,4 @@ Visit all declarations.
 
 MIT
 
-[Template:CSSData](https://developer.mozilla.org/en-US/docs/Template:CSSData) by Mozilla Contributors is licensed under [CC-BY-SA 2.5](http://creativecommons.org/licenses/by-sa/2.5/)
+Syntax matching use [mdn/data](https://github.com/mdn/data) dictionaries by Mozilla Contributors
