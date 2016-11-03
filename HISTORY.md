@@ -1,3 +1,18 @@
+## 1.0.0-alpha8 (November 11, 2016)
+
+- Fixed `Scanner#skip()` issue method when cursor is moving to the end of source
+- Simplified `Progid` node
+- Changed behaviour for bad selector processing, now parsing fails instead of selector ignoring
+- Fixed `<id-selector>` generic syntax
+- Added `q` unit for `<length>` generic syntax
+- Refactored syntax parser (performance)
+- Reduced startup time by implementing lazy syntax parsing (default syntax doesn't parse on module load)
+- Updated syntax dictionaries and used [`mdn/data`](https://github.com/mdn/data) instead of `Template:CSSData`
+- Renamed `syntax.stringify()` method to `syntax.translate()`
+- Simplified generic syntax functions, those functions receive a single AST node for checking and should return `true` or `false`
+- Added exception for values that contains `var()`, those values are always valid for now
+- Added more tests and increase code coverage to `98.5%`
+
 ## 1.0.0-alpha7 (October 7, 2016)
 
 - Added support for explicit descendant combinator (`>>`)
