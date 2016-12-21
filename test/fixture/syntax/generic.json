@@ -15,7 +15,8 @@
             "1RAD",
             "1turn",
             "1TURN",
-            "calc(2 * 1deg)"
+            "calc(2 * 1deg)",
+            "0"
         ],
         "invalid:Mismatch": [
             "",
