@@ -1,3 +1,7 @@
+## 1.0.0-alpha9 (December 21, 2016)
+
+- Fixed `<angle>` generic according to specs that allow a `<number>` equals to zero to be used as valid value (#30)
+
 ## 1.0.0-alpha8 (November 11, 2016)
 
 - Fixed `Scanner#skip()` issue method when cursor is moving to the end of source
