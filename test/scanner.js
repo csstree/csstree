@@ -1,6 +1,6 @@
 var assert = require('assert');
 var Scanner = require('../lib/parser/scanner');
-var TokenName = require('../lib/parser/const').TokenName;
+var TokenName = require('../lib/parser/const').NAME;
 
 describe('parser/scanner', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg);\n}';
