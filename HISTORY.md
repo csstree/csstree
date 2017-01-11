@@ -1,3 +1,10 @@
+## 1.0.0-alpha10 (January 11, 2017)
+
+- Reworked `Scanner` to be a single point to its functionality
+- Exposed `Scanner` class to be useful for external projects
+- Changed `walk()` function behaviour to traverse AST nodes in natural order
+- Implemented `walkUp()` function to traverse AST nodes from deepest to parent (behaves as `walk()` before)
+
 ## 1.0.0-alpha9 (December 21, 2016)
 
 - Fixed `<angle>` generic according to specs that allow a `<number>` equals to zero to be used as valid value (#30)
