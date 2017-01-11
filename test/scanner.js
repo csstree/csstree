@@ -1,6 +1,5 @@
 var assert = require('assert');
-var Scanner = require('../lib/parser/scanner');
-var TokenName = require('../lib/parser/const').NAME;
+var Scanner = require('../lib/scanner');
 
 describe('parser/scanner', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg);\n}';
@@ -35,6 +34,13 @@ describe('parser/scanner', function() {
         return idx + 1 < tokens.length ? tokens[idx + 1].offset : css.length;
     });
 
+    it('edge case: no arguments', function() {
+        var scanner = new Scanner();
+
+        assert.equal(scanner.eof, true);
+        assert.equal(scanner.tokenType, 0);
+    });
+
     it('edge case: empty input', function() {
         var scanner = new Scanner('');
 
@@ -53,7 +59,7 @@ describe('parser/scanner', function() {
         var actual = [];
 
         while (!scanner.eof) {
-            actual.push(TokenName[scanner.tokenType]);
+            actual.push(Scanner.NAME[scanner.tokenType]);
             scanner.next();
         }
 
@@ -96,7 +102,7 @@ describe('parser/scanner', function() {
             })
             .map(function(skip) {
                 scanner.skip(skip);
-                return TokenName[scanner.tokenType];
+                return Scanner.NAME[scanner.tokenType];
             });
 
         assert.equal(actual.length, 8); // 6 x Indentifier + 2 x FullStop
