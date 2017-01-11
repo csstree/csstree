@@ -2,6 +2,7 @@ var assert = require('assert');
 var path = require('path');
 var parse = require('../lib/parser');
 var walkAll = require('../lib/utils/walk').all;
+var walkAllRight = require('../lib/utils/walk').allRight;
 var walkRules = require('../lib/utils/walk').rules;
 var walkRulesRight = require('../lib/utils/walk').rulesRight;
 var walkDeclarations = require('../lib/utils/walk').declarations;
@@ -14,9 +15,9 @@ var testWithRules = Object.keys(testFiles).map(function(filename) {
     };
 }).filter(Boolean);
 
-function expectedWalk(ast, checker) {
+function expectedWalk(ast, right, checker) {
     function walk(node) {
-        if (checker(stack, node)) {
+        if (right && checker(stack, node)) {
             result.push(node.type);
         }
 
@@ -29,6 +30,10 @@ function expectedWalk(ast, checker) {
             }
         }
         stack.pop();
+
+        if (!right && checker(stack, node)) {
+            result.push(node.type);
+        }
     }
 
     var result = [];
@@ -43,19 +48,22 @@ function expectedWalk(ast, checker) {
     return result;
 }
 
-function createWalkAllTest(name, test, context) {
+function createWalkTest(name, test, context, walker, right) {
     it(name, function() {
         var actual = [];
         var ast = parse(test.source, {
             context: context
         });
 
-        walkAll(ast, function(node) {
+        walker(ast, function(node) {
             actual.push(node.type);
         });
 
         // type arrays should be equal
-        assert.equal(actual.sort().join(','), expectedWalk(test.ast).sort().join(','));
+        assert.equal(
+            actual.sort().join(','),
+            expectedWalk(test.ast, right).sort().join(',')
+        );
     });
 }
 
@@ -73,7 +81,7 @@ function createWalkRulesTest(test, context, walker) {
         // type arrays should be equal
         assert.equal(
             actual.sort().join(','),
-            expectedWalk(test.ast).filter(function(type) {
+            expectedWalk(test.ast, true).filter(function(type) {
                 return type === 'Rule' || type === 'Atrule';
             }).sort().join(',')
         );
@@ -94,7 +102,7 @@ function createWalkDeclarationsTest(test, context, walker) {
         // type arrays should be equal
         assert.equal(
             actual.sort().join(','),
-            expectedWalk(test.ast, function(stack, node) {
+            expectedWalk(test.ast, false, function(stack, node) {
                 return node.type === 'Declaration' && stack.some(function(node) {
                     return node.type === 'Rule';
                 });
@@ -141,7 +149,15 @@ describe('AST traversal', function() {
     });
 
     describe('walk all', function() {
-        forEachParseTest(createWalkAllTest);
+        forEachParseTest(function(name, test, context) {
+            createWalkTest(name, test, context, walkAll, false);
+        });
+    });
+
+    describe('walk allRight', function() {
+        forEachParseTest(function(name, test, context) {
+            createWalkTest(name, test, context, walkAllRight, true);
+        });
     });
 
     describe('walk ruleset', function() {
