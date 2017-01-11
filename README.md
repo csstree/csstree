@@ -43,25 +43,24 @@ var csstree = require('css-tree');
 csstree.walk(csstree.parse('.a { color: red; }'), function(node) {
   console.log(node.type);
 });
-// Class
-// SimpleSelector
-// Selector
-// Property
-// Identifier
-// Value
-// Declaration
-// Block
-// Ruleset
 // StyleSheet
+// Rule
+// Selector
+// SimpleSelector
+// Class
+// Block
+// Declaration
+// Value
+// Identifier
 ```
 
 ## API
 
 ### parse(source[, options])
 
-Parse CSS to AST.
+Parses CSS to AST.
 
-> NOTE: Currenly parser omit redundant separators, spaces and comments (except exclamation comments, i.e. `/*! comment */`) on AST build.
+> NOTE: Currenly parser omits redundant separators, spaces and comments (except exclamation comments, i.e. `/*! comment */`) on AST build.
 
 Options:
 
@@ -140,7 +139,7 @@ console.log(csstree.translateWithSourceMap(ast));
 
 ### walk(ast, handler)
 
-Visit all nodes of AST and call handler for each one. `handler` receives three arguments:
+Visits each node of AST in natural way and calls handler for each one. `handler` receives three arguments:
 
 - `node` – current AST node
 - `item` – node wrapper when node is a list member; this wrapper contains references to `prev` and `next` nodes in list
@@ -151,7 +150,7 @@ Context for handler an object, that contains references to some parent nodes:
 - `root` – refers to `ast` or root node
 - `stylesheet` – refers to closest `StyleSheet` node, it may be a top-level or at-rule block stylesheet
 - `atruleExpression` – refers to `AtruleExpression` node if current node inside at-rule expression
-- `ruleset` – refers to `Ruleset` node if current node inside a ruleset
+- `ruleset` – refers to `Rule` node if current node inside a ruleset
 - `selector` – refers to `Selector` node if current node inside a selector
 - `declaration` – refers to `Declaration` node if current node inside a declaration
 - `function` – refers to closest `Function` or `FunctionalPseudo` node if current node inside one of them
@@ -182,9 +181,44 @@ console.log(urls);
 // [ 'foo.jpg', 'bar.png' ]
 ```
 
+### walkRight(ast, handler)
+
+Same as `walk()` but visits nodes in down-to-top order. Useful to process deepest nodes and then their parents.
+
+```js
+var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; }');
+
+csstree.walk(ast, function(node) {
+  console.log(node.type);
+});
+// StyleSheet
+// Rule
+// Selector
+// SimpleSelector
+// Class
+// Block
+// Declaration
+// Value
+// Identifier
+
+csstree.walkRight(ast, function(node) {
+  console.log(node.type);
+});
+// Class
+// SimpleSelector
+// Selector
+// Identifier
+// Value
+// Declaration
+// Block
+// Rule
+// StyleSheet
+```
+
 ### walkRules(ast, handler)
 
-Same as `walk()` but visits `Ruleset` and `Atrule` nodes only.
+Same as `walk()` but visits `Rule` and `Atrule` nodes only.
 
 ### walkRulesRight(ast, handler)
 
@@ -198,4 +232,4 @@ Visit all declarations.
 
 MIT
 
-Syntax matching use [mdn/data](https://github.com/mdn/data) dictionaries by Mozilla Contributors
+Syntax matching use [mdn/data](https://github.com/mdn/data) by Mozilla Contributors
