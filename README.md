@@ -181,7 +181,7 @@ console.log(urls);
 // [ 'foo.jpg', 'bar.png' ]
 ```
 
-### walkRight(ast, handler)
+### walkUp(ast, handler)
 
 Same as `walk()` but visits nodes in down-to-top order. Useful to process deepest nodes and then their parents.
 
@@ -202,7 +202,7 @@ csstree.walk(ast, function(node) {
 // Value
 // Identifier
 
-csstree.walkRight(ast, function(node) {
+csstree.walkUp(ast, function(node) {
   console.log(node.type);
 });
 // Class

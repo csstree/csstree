@@ -2,7 +2,7 @@ var assert = require('assert');
 var path = require('path');
 var parse = require('../lib/parser');
 var walkAll = require('../lib/utils/walk').all;
-var walkAllRight = require('../lib/utils/walk').allRight;
+var walkAllUp = require('../lib/utils/walk').allUp;
 var walkRules = require('../lib/utils/walk').rules;
 var walkRulesRight = require('../lib/utils/walk').rulesRight;
 var walkDeclarations = require('../lib/utils/walk').declarations;
@@ -154,9 +154,9 @@ describe('AST traversal', function() {
         });
     });
 
-    describe('walk allRight', function() {
+    describe('walk allUp', function() {
         forEachParseTest(function(name, test, context) {
-            createWalkTest(name, test, context, walkAllRight, true);
+            createWalkTest(name, test, context, walkAllUp, true);
         });
     });
 
