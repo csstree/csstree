@@ -107,6 +107,38 @@
             ]
         }
     },
+    "fullstop breaks an unicode range": {
+        "source": "u+0.200",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "u+0"
+                },
+                {
+                    "type": "Number",
+                    "value": ".200"
+                }
+            ]
+        }
+    },
+    "number with exponent having a plus breaks an unicode range": {
+        "source": "u+12e+12",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "UnicodeRange",
+                    "name": "u+12e"
+                },
+                {
+                    "type": "Number",
+                    "value": "+12"
+                }
+            ]
+        }
+    },
     "error #1": {
         "source": "U+",
         "offset": "  ^",
@@ -145,6 +177,46 @@
     "error #8": {
         "source": "u+123456-123???",
         "offset": "            ^",
+        "error": "Unexpected input"
+    },
+    "error #9": {
+        "source": "u+.200",
+        "offset": " ^",
+        "error": "Unexpected input"
+    },
+    "error #10": {
+        "source": "u+?",
+        "offset": "  ^",
+        "error": "Unexpected input"
+    },
+    "error #11": {
+        "source": "u+12--34",
+        "offset": "     ^",
+        "error": "Unexpected input"
+    },
+    "error #12": {
+        "source": "u+12-+34",
+        "offset": "     ^",
+        "error": "Unexpected input"
+    },
+    "error #13": {
+        "source": "u+12-.34",
+        "offset": "     ^",
+        "error": "Unexpected input"
+    },
+    "error #14": {
+        "source": "u+12-",
+        "offset": "    ^",
+        "error": "Unexpected input"
+    },
+    "error #15": {
+        "source": "u+12-3e-4",
+        "offset": "       ^",
+        "error": "Unexpected input"
+    },
+    "error #16": {
+        "source": "u+12-3e+4",
+        "offset": "       ^",
         "error": "Unexpected input"
     }
 }

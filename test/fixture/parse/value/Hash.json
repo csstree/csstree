@@ -40,5 +40,90 @@
             "type": "Hash",
             "value": "AaBbCc"
         }
+    },
+    "edge case #1": {
+        "source": "#1.2AaB",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "Hash",
+                    "value": "1"
+                },
+                {
+                    "type": "Dimension",
+                    "value": ".2",
+                    "unit": "AaB"
+                }
+            ]
+        }
+    },
+    "edge case #2": {
+        "source": "#a1.2AaB",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "Hash",
+                    "value": "a1"
+                },
+                {
+                    "type": "Dimension",
+                    "value": ".2",
+                    "unit": "AaB"
+                }
+            ]
+        }
+    },
+    "edge case #3": {
+        "source": "#1e-2Aa",
+        "ast": {
+            "type": "Value",
+            "sequence": [
+                {
+                    "type": "Hash",
+                    "value": "1e"
+                },
+                {
+                    "type": "Dimension",
+                    "value": "-2",
+                    "unit": "Aa"
+                }
+            ]
+        }
+    },
+    "edge case #4": {
+        "source": "#1e57e9",
+        "ast": {
+            "type": "Hash",
+            "value": "1e57e9"
+        }
+    },
+    "edge case #5": {
+        "source": "#a1e-2Aa",
+        "ast": {
+            "type": "Hash",
+            "value": "a1e-2Aa"
+        }
+    },
+    "error #1": {
+        "source": "#+123",
+        "offset": " ^",
+        "error": "Unexpected input"
+    },
+    "error #2": {
+        "source": "#-123",
+        "offset": " ^",
+        "error": "Unexpected input"
+    },
+    "error #3": {
+        "source": "#.123",
+        "offset": " ^",
+        "error": "Unexpected input"
+    },
+    "error #4": {
+        "source": "#~123",
+        "offset": " ^",
+        "error": "Number or identifier is expected"
     }
 }
