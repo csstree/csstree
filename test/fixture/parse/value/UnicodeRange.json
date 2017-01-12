@@ -6,7 +6,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "U+0F00"
+                    "value": "U+0F00"
                 }
             ]
         }
@@ -18,7 +18,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "U+0F00-0FFF"
+                    "value": "U+0F00-0FFF"
                 }
             ]
         }
@@ -30,7 +30,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "u+0025-00FF"
+                    "value": "u+0025-00FF"
                 }
             ]
         }
@@ -42,7 +42,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "U+FF00-FF10"
+                    "value": "U+FF00-FF10"
                 }
             ]
         }
@@ -54,7 +54,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "U+1234-2345"
+                    "value": "U+1234-2345"
                 }
             ]
         }
@@ -66,7 +66,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "U+1234-abcd"
+                    "value": "U+1234-abcd"
                 }
             ]
         }
@@ -78,7 +78,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "U+0-7F"
+                    "value": "U+0-7F"
                 }
             ]
         }
@@ -90,7 +90,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "u+0f00??"
+                    "value": "u+0f00??"
                 }
             ]
         }
@@ -114,7 +114,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "u+0"
+                    "value": "u+0"
                 },
                 {
                     "type": "Number",
@@ -130,7 +130,7 @@
             "sequence": [
                 {
                     "type": "UnicodeRange",
-                    "name": "u+12e"
+                    "value": "u+12e"
                 },
                 {
                     "type": "Number",

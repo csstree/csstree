@@ -976,7 +976,7 @@
                                     "sequence": [
                                         {
                                             "type": "UnicodeRange",
-                                            "name": "U+2074"
+                                            "value": "U+2074"
                                         },
                                         {
                                             "type": "Operator",
@@ -987,7 +987,7 @@
                                         },
                                         {
                                             "type": "UnicodeRange",
-                                            "name": "U+20AC"
+                                            "value": "U+20AC"
                                         },
                                         {
                                             "type": "Operator",
@@ -998,7 +998,7 @@
                                         },
                                         {
                                             "type": "UnicodeRange",
-                                            "name": "U+2212"
+                                            "value": "U+2212"
                                         },
                                         {
                                             "type": "Operator",
@@ -1009,7 +1009,7 @@
                                         },
                                         {
                                             "type": "UnicodeRange",
-                                            "name": "U+2215"
+                                            "value": "U+2215"
                                         },
                                         {
                                             "type": "Operator",
@@ -1020,7 +1020,7 @@
                                         },
                                         {
                                             "type": "UnicodeRange",
-                                            "name": "U+E0FF"
+                                            "value": "U+E0FF"
                                         }
                                     ]
                                 }
