@@ -1,9 +1,107 @@
 {
-    "nthselector.0": {
+    "nth-child": {
         "source": ":nth-child(2n+1)",
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                }
+            ]
+        }
+    },
+    "nth-child case insensetive": {
+        "source": ":Nth-Child(2n+1)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "Nth-Child",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                }
+            ]
+        }
+    },
+    "nth-last-child": {
+        "source": ":nth-last-child(2n+1)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-last-child",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                }
+            ]
+        }
+    },
+    "nth-last-child case insensetive": {
+        "source": ":Nth-last-Child(2n+1)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "Nth-last-Child",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                }
+            ]
+        }
+    },
+    "nth-of-type": {
+        "source": ":nth-of-type(2n+1)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-of-type",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                }
+            ]
+        }
+    },
+    "nth-of-type case insensetive": {
+        "source": ":Nth-Of-Type(2n+1)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "Nth-Of-Type",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                }
+            ]
+        }
+    },
+    "nth-last-of-type": {
+        "source": ":nth-last-of-type(2n+1)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-last-of-type",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                }
+            ]
+        }
+    },
+    "nth-last-of-type case insensetive": {
+        "source": ":Nth-Last-Of-Type(2n+1)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "Nth-Last-Of-Type",
             "sequence": [
                 {
                     "type": "Nth",
@@ -220,6 +318,43 @@
                     "type": "Nth",
                     "a": "123456",
                     "b": "-12345678"
+                }
+            ]
+        }
+    },
+    "of clause": {
+        "source": ":nth-child(2n+1 of li,.test)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-child",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "2",
+                    "b": "1"
+                },
+                {
+                    "type": "OfClauseSelector",
+                    "selectors": [
+                        {
+                            "type": "SimpleSelector",
+                            "sequence": [
+                                {
+                                    "type": "Type",
+                                    "name": "li"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SimpleSelector",
+                            "sequence": [
+                                {
+                                    "type": "Class",
+                                    "name": "test"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
