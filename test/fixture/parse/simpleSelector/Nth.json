@@ -7,36 +7,23 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "2n"
-                },
-                {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "Nth",
-                    "value": "1"
+                    "a": "2",
+                    "b": "1"
                 }
             ]
         }
     },
     "nthselector.0 case insensitive": {
         "source": ":nth-child(2N+1)",
+        "translate": ":nth-child(2n+1)",
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "2N"
-                },
-                {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "Nth",
-                    "value": "1"
+                    "a": "2",
+                    "b": "1"
                 }
             ]
         }
@@ -49,15 +36,8 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "+3n"
-                },
-                {
-                    "type": "Operator",
-                    "value": "-"
-                },
-                {
-                    "type": "Nth",
-                    "value": "2"
+                    "a": "+3",
+                    "b": "-2"
                 }
             ]
         }
@@ -70,7 +50,8 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "10"
+                    "a": null,
+                    "b": "10"
                 }
             ]
         }
@@ -83,33 +64,60 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "2n"
+                    "a": "2",
+                    "b": null
                 }
             ]
         }
     },
-    "nth.2": {
+    "odd keyword": {
         "source": ":nth-child(odd)",
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
-                    "type": "Nth",
-                    "value": "odd"
+                    "type": "Identifier",
+                    "name": "odd"
                 }
             ]
         }
     },
-    "nth.3": {
+    "odd keyword be case insensitive": {
+        "source": ":nth-child(OdD)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-child",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "OdD"
+                }
+            ]
+        }
+    },
+    "even keyword": {
         "source": ":nth-child(even)",
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
             "sequence": [
                 {
-                    "type": "Nth",
-                    "value": "even"
+                    "type": "Identifier",
+                    "name": "even"
+                }
+            ]
+        }
+    },
+    "even keyword should be case insensitive": {
+        "source": ":nth-child(eVeN)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-child",
+            "sequence": [
+                {
+                    "type": "Identifier",
+                    "name": "eVeN"
                 }
             ]
         }
@@ -122,7 +130,22 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "n"
+                    "a": "1",
+                    "b": null
+                }
+            ]
+        }
+    },
+    "nth.5": {
+        "source": ":nth-child(-n)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-child",
+            "sequence": [
+                {
+                    "type": "Nth",
+                    "a": "-1",
+                    "b": null
                 }
             ]
         }
@@ -136,15 +159,8 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "2n"
-                },
-                {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "Nth",
-                    "value": "1"
+                    "a": "2",
+                    "b": "1"
                 }
             ]
         }
@@ -158,15 +174,8 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "+3n"
-                },
-                {
-                    "type": "Operator",
-                    "value": "-"
-                },
-                {
-                    "type": "Nth",
-                    "value": "2"
+                    "a": "+3",
+                    "b": "-2"
                 }
             ]
         }
@@ -180,15 +189,8 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "2n"
-                },
-                {
-                    "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "Nth",
-                    "value": "1"
+                    "a": "2",
+                    "b": "1"
                 }
             ]
         }
@@ -202,15 +204,22 @@
             "sequence": [
                 {
                     "type": "Nth",
-                    "value": "+3n"
-                },
-                {
-                    "type": "Operator",
-                    "value": "-"
-                },
+                    "a": "+3",
+                    "b": "-2"
+                }
+            ]
+        }
+    },
+    "big numbers": {
+        "source": ":nth-last-child(123456n-12345678)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "nth-last-child",
+            "sequence": [
                 {
                     "type": "Nth",
-                    "value": "2"
+                    "a": "123456",
+                    "b": "-12345678"
                 }
             ]
         }
@@ -303,6 +312,61 @@
     "error #18": {
         "source": ":nth-child(3n- n)",
         "offset": "               ^",
+        "error": "Unexpected input"
+    },
+    "error #19": {
+        "source": ":nth-child(3n + -2)",
+        "offset": "                ^",
+        "error": "Unexpected input"
+    },
+    "error #20": {
+        "source": ":nth-child(3n+-2)",
+        "offset": "              ^",
+        "error": "Unexpected input"
+    },
+    "error #21": {
+        "source": ":nth-child(1.3n+2)",
+        "offset": "            ^",
+        "error": "Unexpected input"
+    },
+    "error #22": {
+        "source": ":nth-child(1e3n+2)",
+        "offset": "            ^",
+        "error": "Unexpected input"
+    },
+    "error #23": {
+        "source": ":nth-child(.3n+2)",
+        "offset": "           ^",
+        "error": "Unexpected input"
+    },
+    "error #24": {
+        "source": ":nth-child(3n+2.1)",
+        "offset": "               ^",
+        "error": "Unexpected input"
+    },
+    "error #25": {
+        "source": ":nth-child(3n+2e1)",
+        "offset": "               ^",
+        "error": "Unexpected input"
+    },
+    "error #26": {
+        "source": ":nth-child(3n+.1)",
+        "offset": "              ^",
+        "error": "Unexpected input"
+    },
+    "error #27": {
+        "source": ":nth-child(2.1)",
+        "offset": "            ^",
+        "error": "Unexpected input"
+    },
+    "error #28": {
+        "source": ":nth-child(2e1)",
+        "offset": "            ^",
+        "error": "Unexpected input"
+    },
+    "error #29": {
+        "source": ":nth-child(.1)",
+        "offset": "           ^",
         "error": "Unexpected input"
     }
 }

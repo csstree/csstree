@@ -90,32 +90,6 @@
             ]
         }
     },
-    "simpleselector.9": {
-        "source": ":nth-child(+3n-2)",
-        "ast": {
-            "type": "SimpleSelector",
-            "sequence": [
-                {
-                    "type": "PseudoClass",
-                    "name": "nth-child",
-                    "sequence": [
-                        {
-                            "type": "Nth",
-                            "value": "+3n"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": "-"
-                        },
-                        {
-                            "type": "Nth",
-                            "value": "2"
-                        }
-                    ]
-                }
-            ]
-        }
-    },
     "simpleselector.16": {
         "source": ".\\31  b",
         "ast": {
