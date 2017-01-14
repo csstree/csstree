@@ -7,8 +7,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -21,8 +25,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -35,8 +43,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -49,8 +61,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -63,8 +79,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -77,8 +97,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -91,8 +115,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -105,8 +133,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -120,8 +152,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -134,8 +170,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "+3",
-                    "b": "-2"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "+3",
+                        "b": "-2"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -148,8 +188,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": null,
-                    "b": "10"
+                    "nth": {
+                        "type": "An+B",
+                        "a": null,
+                        "b": "10"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -162,8 +206,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": null
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": null
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -175,8 +223,12 @@
             "name": "nth-child",
             "children": [
                 {
-                    "type": "Identifier",
-                    "name": "odd"
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "odd"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -188,8 +240,12 @@
             "name": "nth-child",
             "children": [
                 {
-                    "type": "Identifier",
-                    "name": "OdD"
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "OdD"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -201,8 +257,12 @@
             "name": "nth-child",
             "children": [
                 {
-                    "type": "Identifier",
-                    "name": "even"
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "even"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -214,8 +274,12 @@
             "name": "nth-child",
             "children": [
                 {
-                    "type": "Identifier",
-                    "name": "eVeN"
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "eVeN"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -228,8 +292,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "1",
-                    "b": null
+                    "nth": {
+                        "type": "An+B",
+                        "a": "1",
+                        "b": null
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -242,8 +310,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "-1",
-                    "b": null
+                    "nth": {
+                        "type": "An+B",
+                        "a": "-1",
+                        "b": null
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -257,8 +329,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -272,8 +348,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "+3",
-                    "b": "-2"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "+3",
+                        "b": "-2"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -287,8 +367,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -302,8 +386,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "+3",
-                    "b": "-2"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "+3",
+                        "b": "-2"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -316,8 +404,12 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "123456",
-                    "b": "-12345678"
+                    "nth": {
+                        "type": "An+B",
+                        "a": "123456",
+                        "b": "-12345678"
+                    },
+                    "selector": null
                 }
             ]
         }
@@ -330,31 +422,34 @@
             "children": [
                 {
                     "type": "Nth",
-                    "a": "2",
-                    "b": "1"
-                },
-                {
-                    "type": "OfClauseSelector",
-                    "children": [
-                        {
-                            "type": "SimpleSelector",
-                            "children": [
-                                {
-                                    "type": "Type",
-                                    "name": "li"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "SimpleSelector",
-                            "children": [
-                                {
-                                    "type": "Class",
-                                    "name": "test"
-                                }
-                            ]
-                        }
-                    ]
+                    "nth": {
+                        "type": "An+B",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "SimpleSelector",
+                                "children": [
+                                    {
+                                        "type": "Type",
+                                        "name": "li"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "SimpleSelector",
+                                "children": [
+                                    {
+                                        "type": "Class",
+                                        "name": "test"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }

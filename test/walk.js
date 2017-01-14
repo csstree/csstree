@@ -124,6 +124,7 @@ describe('AST traversal', function() {
         }
 
         var shouldVisitTypes = [
+            'An+B',
             'Atrule',
             'AtruleExpression',
             'Block',
