@@ -21,7 +21,7 @@ var wrapper = {
     stylesheet: function(ast) {
         return {
             type: 'StyleSheet',
-            rules: [ast]
+            children: [ast]
         };
     },
     value: function(ast) {

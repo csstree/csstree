@@ -3,7 +3,7 @@
         "source": "",
         "ast": {
             "type": "StyleSheet",
-            "rules": []
+            "children": []
         }
     },
     "whitespace only": {
@@ -11,7 +11,7 @@
         "translate": "",
         "ast": {
             "type": "StyleSheet",
-            "rules": []
+            "children": []
         }
     },
     "comment only": {
@@ -19,7 +19,7 @@
         "translate": "",        
         "ast": {
             "type": "StyleSheet",
-            "rules": []
+            "children": []
         }
     },
     "comment and whitespaces only": {
@@ -27,7 +27,7 @@
         "translate": "",        
         "ast": {
             "type": "StyleSheet",
-            "rules": []
+            "children": []
         }
     },
     "BOM.1": {
@@ -35,7 +35,7 @@
         "translate": "",
         "ast": {
             "type": "StyleSheet",
-            "rules": []
+            "children": []
         }
     },
     "BOM.2": {
@@ -43,7 +43,7 @@
         "translate": "a{}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -73,7 +73,7 @@
         "translate": "body:not([x|x]){}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -123,7 +123,7 @@
         "translate": ".ie-test{filter:progid:DXImageTransform.Microsoft.gradient (startColorstr=#33CCCCCC, endColorstr=#33CCCCCC)}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -168,7 +168,7 @@
         "translate": ".t{filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40)!important}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -213,7 +213,7 @@
         "translate": "@media test{@page{p:v}}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Atrule",
                     "name": "media",
@@ -228,7 +228,7 @@
                     },
                     "block": {
                         "type": "StyleSheet",
-                        "rules": [
+                        "children": [
                             {
                                 "type": "Atrule",
                                 "name": "page",
@@ -267,7 +267,7 @@
         "translate": "x{p:v}@media test{a{p:v}@page{p:v}b{p:v}}y{p:v}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -318,7 +318,7 @@
                     },
                     "block": {
                         "type": "StyleSheet",
-                        "rules": [
+                        "children": [
                             {
                                 "type": "Rule",
                                 "selector": {
@@ -464,7 +464,7 @@
         "source": "s{p:v}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -508,7 +508,7 @@
         "source": "s0{p0:v0}s1{p1:v1}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -588,7 +588,7 @@
         "source": "@test;",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Atrule",
                     "name": "test",
@@ -605,7 +605,7 @@
         "source": "@test0;@test1;",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Atrule",
                     "name": "test0",
@@ -631,7 +631,7 @@
         "source": "s{p:v}@test;",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -685,7 +685,7 @@
         "translate": "s{p:v}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -730,7 +730,7 @@
         "translate": "s{p:v}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -775,7 +775,7 @@
         "translate": "s0{p0:v0}s1{p1:v1}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -856,7 +856,7 @@
         "translate": "@test0;@test1;",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Atrule",
                     "name": "test0",
@@ -883,7 +883,7 @@
         "translate": "s{p:v}@test;",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -936,7 +936,7 @@
         "source": "{}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Rule",
                     "selector": {
@@ -956,7 +956,7 @@
         "translate": "@x{unicode-range:U+2074, U+20AC, U+2212, U+2215, U+E0FF}@x{a:a()}",
         "ast": {
             "type": "StyleSheet",
-            "rules": [
+            "children": [
                 {
                     "type": "Atrule",
                     "name": "x",

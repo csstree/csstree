@@ -6,7 +6,7 @@
         "line": 1,
         "column": 1
     },
-    "rules": [
+    "children": [
         {
             "type": "Rule",
             "info": {
