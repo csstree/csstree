@@ -2,18 +2,24 @@
     "basic negation": {
         "source": ":not(el.class-postfix)",
         "ast": {
-            "type": "Negation",
+            "type": "PseudoClass",
+            "name": "not",
             "children": [
                 {
-                    "type": "SimpleSelector",
+                    "type": "Selector",
                     "children": [
                         {
-                            "type": "Type",
-                            "name": "el"
-                        },
-                        {
-                            "type": "Class",
-                            "name": "class-postfix"
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Type",
+                                    "name": "el"
+                                },
+                                {
+                                    "type": "Class",
+                                    "name": "class-postfix"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -23,23 +29,29 @@
     "negation with selector group": {
         "source": ":not(.a,.b)",
         "ast": {
-            "type": "Negation",
+            "type": "PseudoClass",
+            "name": "not",
             "children": [
                 {
-                    "type": "SimpleSelector",
+                    "type": "Selector",
                     "children": [
                         {
-                            "type": "Class",
-                            "name": "a"
-                        }
-                    ]
-                },
-                {
-                    "type": "SimpleSelector",
-                    "children": [
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "a"
+                                }
+                            ]
+                        },
                         {
-                            "type": "Class",
-                            "name": "b"
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "b"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -50,23 +62,61 @@
         "source": ":not(  .a  ,  .b  )",
         "translate": ":not(.a,.b)",
         "ast": {
-            "type": "Negation",
+            "type": "PseudoClass",
+            "name": "not",
             "children": [
                 {
-                    "type": "SimpleSelector",
+                    "type": "Selector",
                     "children": [
                         {
-                            "type": "Class",
-                            "name": "a"
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "b"
+                                }
+                            ]
                         }
                     ]
-                },
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":NoT(.a,.b)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "NoT",
+            "children": [
                 {
-                    "type": "SimpleSelector",
+                    "type": "Selector",
                     "children": [
                         {
-                            "type": "Class",
-                            "name": "b"
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "b"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -81,17 +131,17 @@
     "error #2": {
         "source": ":not(,.b)",
         "offset": "     ^",
-        "error": "Simple selector is expected"
+        "error": "Unexpected comma"
     },
     "error #3": {
         "source": ":not(.a,)",
-        "offset": "        ^",
-        "error": "Simple selector is expected"
+        "offset": "       ^",
+        "error": "Unexpected trailing comma"
     },
     "error #4": {
         "source": ":not(.a,,)",
         "offset": "        ^",
-        "error": "Simple selector is expected"
+        "error": "Unexpected comma"
     },
     "error #5": {
         "source": ":not(.a,.b{)",

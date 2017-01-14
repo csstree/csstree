@@ -87,20 +87,26 @@
                                         "name": "body"
                                     },
                                     {
-                                        "type": "Negation",
+                                        "type": "PseudoClass",
+                                        "name": "not",
                                         "children": [
                                             {
-                                                "type": "SimpleSelector",
+                                                "type": "Selector",
                                                 "children": [
                                                     {
-                                                        "type": "Attribute",
-                                                        "name": {
-                                                            "type": "Identifier",
-                                                            "name": "x|x"
-                                                        },
-                                                        "operator": null,
-                                                        "value": null,
-                                                        "flags": null
+                                                        "type": "SimpleSelector",
+                                                        "children": [
+                                                            {
+                                                                "type": "Attribute",
+                                                                "name": {
+                                                                    "type": "Identifier",
+                                                                    "name": "x|x"
+                                                                },
+                                                                "operator": null,
+                                                                "value": null,
+                                                                "flags": null
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             }

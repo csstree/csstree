@@ -120,14 +120,20 @@
                     "name": "*|*"
                 },
                 {
-                    "type": "Negation",
+                    "type": "PseudoClass",
+                    "name": "not",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Universal",
-                                    "name": "*"
+                                    "type": "SimpleSelector",
+                                    "children": [
+                                        {
+                                            "type": "Universal",
+                                            "name": "*"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -146,20 +152,26 @@
                     "name": "x"
                 },
                 {
-                    "type": "Negation",
+                    "type": "PseudoClass",
+                    "name": "not",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Attribute",
-                                    "name": {
-                                        "type": "Identifier",
-                                        "name": "ABC"
-                                    },
-                                    "operator": null,
-                                    "value": null,
-                                    "flags": null
+                                    "type": "SimpleSelector",
+                                    "children": [
+                                        {
+                                            "type": "Attribute",
+                                            "name": {
+                                                "type": "Identifier",
+                                                "name": "ABC"
+                                            },
+                                            "operator": null,
+                                            "value": null,
+                                            "flags": null
+                                        }
+                                    ]
                                 }
                             ]
                         }
