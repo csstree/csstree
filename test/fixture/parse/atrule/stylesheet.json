@@ -30,7 +30,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -95,7 +95,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -184,7 +184,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -270,7 +270,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -323,7 +323,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -359,7 +359,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -412,7 +412,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -477,7 +477,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -564,7 +564,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -617,7 +617,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -682,7 +682,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -781,7 +781,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -839,7 +839,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -875,7 +875,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,
@@ -911,7 +911,7 @@
                         },
                         "block": {
                             "type": "Block",
-                            "declarations": [
+                            "children": [
                                 {
                                     "type": "Declaration",
                                     "important": false,

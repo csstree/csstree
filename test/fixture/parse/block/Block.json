@@ -3,7 +3,7 @@
         "source": "",
         "ast": {
             "type": "Block",
-            "declarations": []
+            "children": []
         }
     },
     "block.1": {
@@ -11,14 +11,14 @@
         "translate": "",
         "ast": {
             "type": "Block",
-            "declarations": []
+            "children": []
         }
     },
     "block.2": {
         "source": "p:v",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -41,7 +41,7 @@
         "translate": "p:v",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -63,7 +63,7 @@
         "source": "p0:v0;p1:v1",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -100,7 +100,7 @@
         "translate": "",
         "ast": {
             "type": "Block",
-            "declarations": []
+            "children": []
         }
     },
     "block.c.1": {
@@ -108,7 +108,7 @@
         "translate": "",
         "ast": {
             "type": "Block",
-            "declarations": []
+            "children": []
         }
     },
     "block.c.2": {
@@ -116,7 +116,7 @@
         "translate": "p:v",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -139,7 +139,7 @@
         "translate": "p:v",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -162,7 +162,7 @@
         "translate": "p0:v0;p1:v1",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -199,7 +199,7 @@
         "translate": "",
         "ast": {
             "type": "Block",
-            "declarations": []
+            "children": []
         }
     },
     "block.s.1": {
@@ -207,7 +207,7 @@
         "translate": "",
         "ast": {
             "type": "Block",
-            "declarations": []
+            "children": []
         }
     },
     "block.s.2": {
@@ -215,7 +215,7 @@
         "translate": "p:v",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -238,7 +238,7 @@
         "translate": "p:v",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
@@ -261,7 +261,7 @@
         "translate": "p0:v0;p1:v1",
         "ast": {
             "type": "Block",
-            "declarations": [
+            "children": [
                 {
                     "type": "Declaration",
                     "important": false,
