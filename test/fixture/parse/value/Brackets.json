@@ -1,0 +1,40 @@
+{
+    "empty": {
+        "source": "[]",
+        "ast": {
+            "type": "Brackets",
+            "children": []
+        }
+    },
+    "single identifier": {
+        "source": "[foo]",
+        "ast": {
+            "type": "Brackets",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
+    "multiple identifier": {
+        "source": "[foo bar]",
+        "ast": {
+            "type": "Brackets",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "foo"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "bar"
+                }
+            ]
+        }
+    }
+}
