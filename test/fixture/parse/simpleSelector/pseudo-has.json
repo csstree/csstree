@@ -1,9 +1,9 @@
 {
     "basic": {
-        "source": ":matches(test)",
+        "source": ":has(test)",
         "ast": {
             "type": "PseudoClass",
-            "name": "matches",
+            "name": "has",
             "children": [
                 {
                     "type": "Selector",
@@ -22,11 +22,11 @@
             ]
         }
     },
-    "selector group": {
-        "source": ":matches(.a,.b.c)",
+    "negation with selector group": {
+        "source": ":has(.a,.b.c)",
         "ast": {
             "type": "PseudoClass",
-            "name": "matches",
+            "name": "has",
             "children": [
                 {
                     "type": "Selector",
@@ -59,11 +59,11 @@
         }
     },
     "selector group and spaces": {
-        "source": ":matches(  .a  ,  .b  )",
-        "translate": ":matches(.a,.b)",
+        "source": ":has(  .a  ,  .b  )",
+        "translate": ":has(.a,.b)",
         "ast": {
             "type": "PseudoClass",
-            "name": "matches",
+            "name": "has",
             "children": [
                 {
                     "type": "Selector",
@@ -92,10 +92,10 @@
         }
     },
     "should be case insensitive": {
-        "source": ":MatcheS(.a,.b)",
+        "source": ":HaS(.a,.b)",
         "ast": {
             "type": "PseudoClass",
-            "name": "MatcheS",
+            "name": "HaS",
             "children": [
                 {
                     "type": "Selector",
@@ -123,49 +123,90 @@
             ]
         }
     },
+    "should support relative selectors": {
+        "source": ":has(> .a,+.b)",
+        "translate": ":has(>.a,+.b)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "has",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Combinator",
+                                    "name": ">"
+                                },
+                                {
+                                    "type": "Class",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Combinator",
+                                    "name": "+"
+                                },
+                                {
+                                    "type": "Class",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
     "error #1": {
-        "source": ":matches(.a{)",
-        "offset": "           ^",
+        "source": ":has(.a{)",
+        "offset": "       ^",
         "error": "Unexpected input"
     },
     "error #2": {
-        "source": ":matches(,.b)",
-        "offset": "         ^",
+        "source": ":has(,.b)",
+        "offset": "     ^",
         "error": "Unexpected comma"
     },
     "error #3": {
-        "source": ":matches(.a,)",
-        "offset": "           ^",
+        "source": ":has(.a,)",
+        "offset": "       ^",
         "error": "Unexpected trailing comma"
     },
     "error #4": {
-        "source": ":matches(.a,,)",
-        "offset": "            ^",
+        "source": ":has(.a,,)",
+        "offset": "        ^",
         "error": "Unexpected comma"
     },
     "error #5": {
-        "source": ":matches(.a,.b{)",
-        "offset": "              ^",
+        "source": ":has(.a,.b{)",
+        "offset": "          ^",
         "error": "Unexpected input"
     },
     "error #6": {
-        "source": ":matches(--test)",
-        "offset": "          ^",
+        "source": ":has(--test)",
+        "offset": "      ^",
         "error": "Identifier is expected"
     },
     "error #7": {
-        "source": ":matches(var(--test))",
-        "offset": "            ^",
+        "source": ":has(var(--test))",
+        "offset": "        ^",
         "error": "Unexpected input"
     },
     "error #8": {
-        "source": ":matches(> test)",
-        "offset": "         ^",
+        "source": ":has(>+a)",
+        "offset": "      ^",
         "error": "Unexpected combinator"
     },
     "error #9": {
-        "source": ":matches(foo,> bar)",
-        "offset": "             ^",
+        "source": ":has(~foo, >+a)",
+        "offset": "            ^",
         "error": "Unexpected combinator"
     }
 }

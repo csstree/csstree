@@ -1,6 +1,6 @@
 {
-    "basic negation": {
-        "source": ":not(el.class-postfix)",
+    "basic": {
+        "source": ":not(test)",
         "ast": {
             "type": "PseudoClass",
             "name": "not",
@@ -13,11 +13,7 @@
                             "children": [
                                 {
                                     "type": "Type",
-                                    "name": "el"
-                                },
-                                {
-                                    "type": "Class",
-                                    "name": "class-postfix"
+                                    "name": "test"
                                 }
                             ]
                         }
@@ -26,8 +22,8 @@
             ]
         }
     },
-    "negation with selector group": {
-        "source": ":not(.a,.b)",
+    "selector group": {
+        "source": ":not(.a,.b.c)",
         "ast": {
             "type": "PseudoClass",
             "name": "not",
@@ -50,6 +46,10 @@
                                 {
                                     "type": "Class",
                                     "name": "b"
+                                },
+                                {
+                                    "type": "Class",
+                                    "name": "c"
                                 }
                             ]
                         }
@@ -58,7 +58,7 @@
             ]
         }
     },
-    "negation with selector group and spaces": {
+    "selector group and spaces": {
         "source": ":not(  .a  ,  .b  )",
         "translate": ":not(.a,.b)",
         "ast": {
@@ -149,13 +149,23 @@
         "error": "Unexpected input"
     },
     "error #6": {
-        "source": ":not(--test) {}",
+        "source": ":not(--test)",
         "offset": "      ^",
         "error": "Identifier is expected"
     },
     "error #7": {
-        "source": ":not(var(--test)) {}",
+        "source": ":not(var(--test))",
         "offset": "        ^",
         "error": "Unexpected input"
+    },
+    "error #8": {
+        "source": ":not(> test)",
+        "offset": "     ^",
+        "error": "Unexpected combinator"
+    },
+    "error #9": {
+        "source": ":not(foo,> bar)",
+        "offset": "         ^",
+        "error": "Unexpected combinator"
     }
 }
