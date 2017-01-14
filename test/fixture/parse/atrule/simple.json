@@ -6,7 +6,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": null
         }
@@ -18,7 +18,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -42,7 +42,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "String",
                         "value": "\"blah\""
@@ -60,7 +60,7 @@
             "name": "import",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Url",
                         "value": {
@@ -81,7 +81,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": null
         }
@@ -94,7 +94,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -119,7 +119,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": null
         }
@@ -132,7 +132,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -157,7 +157,7 @@
             "name": "font-face",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": null
         }

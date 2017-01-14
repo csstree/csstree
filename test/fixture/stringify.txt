@@ -32,7 +32,7 @@
                             "line": 1,
                             "column": 1
                         },
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Class",
                                 "info": {
@@ -74,7 +74,7 @@
                                 "line": 3,
                                 "column": 7
                             },
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "info": {

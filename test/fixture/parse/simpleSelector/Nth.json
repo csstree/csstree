@@ -4,7 +4,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -18,7 +18,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "Nth-Child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -32,7 +32,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-last-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -46,7 +46,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "Nth-last-Child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -60,7 +60,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-of-type",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -74,7 +74,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "Nth-Of-Type",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -88,7 +88,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-last-of-type",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -102,7 +102,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "Nth-Last-Of-Type",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -117,7 +117,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -131,7 +131,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-last-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "+3",
@@ -145,7 +145,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": null,
@@ -159,7 +159,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -173,7 +173,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "odd"
@@ -186,7 +186,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "OdD"
@@ -199,7 +199,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "even"
@@ -212,7 +212,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "eVeN"
@@ -225,7 +225,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "1",
@@ -239,7 +239,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "-1",
@@ -254,7 +254,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -269,7 +269,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-last-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "+3",
@@ -284,7 +284,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -299,7 +299,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-last-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "+3",
@@ -313,7 +313,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-last-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "123456",
@@ -327,7 +327,7 @@
         "ast": {
             "type": "PseudoClass",
             "name": "nth-child",
-            "sequence": [
+            "children": [
                 {
                     "type": "Nth",
                     "a": "2",
@@ -338,7 +338,7 @@
                     "selectors": [
                         {
                             "type": "SimpleSelector",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Type",
                                     "name": "li"
@@ -347,7 +347,7 @@
                         },
                         {
                             "type": "SimpleSelector",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Class",
                                     "name": "test"

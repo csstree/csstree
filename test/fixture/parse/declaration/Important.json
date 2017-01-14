@@ -7,7 +7,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": []
+                "children": []
             }
         }
     },
@@ -20,7 +20,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": []
+                "children": []
             }
         }
     },
@@ -33,7 +33,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": []
+                "children": []
             }
         }
     },
@@ -46,7 +46,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": []
+                "children": []
             }
         }
     },
@@ -59,7 +59,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": []
+                "children": []
             }
         }
     }

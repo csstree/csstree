@@ -15,7 +15,7 @@ var wrapper = {
     simpleSelector: function(ast) {
         return {
             type: 'SimpleSelector',
-            sequence: [ast]
+            children: [ast]
         };
     },
     stylesheet: function(ast) {
@@ -27,7 +27,7 @@ var wrapper = {
     value: function(ast) {
         return {
             type: 'Value',
-            sequence: [ast]
+            children: [ast]
         };
     }
 };

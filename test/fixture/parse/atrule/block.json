@@ -6,7 +6,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": {
                 "type": "Block",
@@ -21,7 +21,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": {
                 "type": "Block",
@@ -32,7 +32,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -52,7 +52,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -75,7 +75,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -95,7 +95,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -117,7 +117,7 @@
                     {
                         "type": "Function",
                         "name": "x",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Number",
                                 "value": "1"
@@ -139,7 +139,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -159,7 +159,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": {
                 "type": "Block",
@@ -170,7 +170,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -190,7 +190,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -213,7 +213,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -233,7 +233,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -252,7 +252,7 @@
                     {
                         "type": "Function",
                         "name": "x",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Number",
                                 "value": "1"
@@ -278,7 +278,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -298,7 +298,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": []
+                "children": []
             },
             "block": {
                 "type": "Block",
@@ -309,7 +309,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -329,7 +329,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -352,7 +352,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -372,7 +372,7 @@
             "name": "test",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "x"
@@ -397,7 +397,7 @@
                     {
                         "type": "Function",
                         "name": "x",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Number",
                                 "value": "1"
@@ -429,7 +429,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -449,11 +449,11 @@
             "name": "page",
             "expression": {
                 "type": "AtruleExpression",
-                "sequence": [
+                "children": [
                     {
                         "type": "PseudoClass",
                         "name": "left",
-                        "sequence": null
+                        "children": null
                     }
                 ]
             },
@@ -466,7 +466,7 @@
                         "property": "margin",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Dimension",
                                     "value": "5",

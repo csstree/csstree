@@ -7,7 +7,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -24,7 +24,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -45,7 +45,7 @@
             "property": "*filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -62,7 +62,7 @@
             "property": "-filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -79,7 +79,7 @@
             "property": "_filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -96,7 +96,7 @@
             "property": "-ms-filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -114,7 +114,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -132,7 +132,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')"
@@ -150,7 +150,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -168,7 +168,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -190,7 +190,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)"
@@ -208,7 +208,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "alpha(opacity=60)"
@@ -226,7 +226,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "ALPHA(opacity=60)"
@@ -244,7 +244,7 @@
             "property": "filter",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Progid",
                         "value": "dropshadow(color=#000,offx=0,offy=-1)"

@@ -3,10 +3,10 @@
         "source": ":not(el.class-postfix)",
         "ast": {
             "type": "Negation",
-            "sequence": [
+            "children": [
                 {
                     "type": "SimpleSelector",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Type",
                             "name": "el"
@@ -24,10 +24,10 @@
         "source": ":not(.a,.b)",
         "ast": {
             "type": "Negation",
-            "sequence": [
+            "children": [
                 {
                     "type": "SimpleSelector",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Class",
                             "name": "a"
@@ -36,7 +36,7 @@
                 },
                 {
                     "type": "SimpleSelector",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Class",
                             "name": "b"
@@ -51,10 +51,10 @@
         "translate": ":not(.a,.b)",
         "ast": {
             "type": "Negation",
-            "sequence": [
+            "children": [
                 {
                     "type": "SimpleSelector",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Class",
                             "name": "a"
@@ -63,7 +63,7 @@
                 },
                 {
                     "type": "SimpleSelector",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Class",
                             "name": "b"

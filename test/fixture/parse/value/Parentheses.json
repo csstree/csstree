@@ -3,14 +3,14 @@
         "source": "()",
         "ast": {
             "type": "Parentheses",
-            "sequence": []
+            "children": []
         }
     },
     "parentheses.1": {
         "source": "(1)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Number",
                     "value": "1"
@@ -22,7 +22,7 @@
         "source": "(x)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -34,7 +34,7 @@
         "source": "(x+1)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -50,7 +50,7 @@
         "source": "(test:0)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "test"
@@ -70,7 +70,7 @@
         "source": "(#123456 'string')",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Hash",
                     "value": "123456"
@@ -90,7 +90,7 @@
         "translate": "()",
         "ast": {
             "type": "Parentheses",
-            "sequence": []
+            "children": []
         }
     },
     "parentheses.c.1": {
@@ -98,7 +98,7 @@
         "translate": "(1)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Number",
                     "value": "1"
@@ -111,7 +111,7 @@
         "translate": "(x)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -124,7 +124,7 @@
         "translate": "(x+1)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -145,7 +145,7 @@
         "translate": "()",
         "ast": {
             "type": "Parentheses",
-            "sequence": []
+            "children": []
         }
     },
     "parentheses.s.1": {
@@ -153,7 +153,7 @@
         "translate": "(1)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Number",
                     "value": "1"
@@ -166,7 +166,7 @@
         "translate": "(x)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -179,7 +179,7 @@
         "translate": "(x + 1)",
         "ast": {
             "type": "Parentheses",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"

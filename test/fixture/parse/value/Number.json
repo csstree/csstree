@@ -169,7 +169,7 @@
         "source": "1e+",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Dimension",
                     "value": "1",

@@ -8,7 +8,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s"
@@ -26,7 +26,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -47,7 +47,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s"
@@ -65,7 +65,7 @@
                         "property": "p0",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v0"
@@ -79,7 +79,7 @@
                         "property": "p1",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v1"
@@ -100,7 +100,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s0"
@@ -109,7 +109,7 @@
                     },
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s1"
@@ -127,7 +127,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -148,7 +148,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s0"
@@ -157,7 +157,7 @@
                     },
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s1"
@@ -175,7 +175,7 @@
                         "property": "p0",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v0"
@@ -189,7 +189,7 @@
                         "property": "p1",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v1"
@@ -210,7 +210,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Class",
                                 "name": "test"
@@ -228,7 +228,7 @@
                         "property": "filter",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Progid",
                                     "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -242,7 +242,7 @@
                         "property": "color",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "red"
@@ -263,7 +263,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Class",
                                 "name": "test"
@@ -281,7 +281,7 @@
                         "property": "color",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "red"
@@ -295,7 +295,7 @@
                         "property": "filter",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Progid",
                                     "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -321,7 +321,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Class",
                                 "name": "test"
@@ -339,7 +339,7 @@
                         "property": "color",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "red"
@@ -360,7 +360,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Class",
                                 "name": "test"
@@ -378,7 +378,7 @@
                         "property": "//color",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "red"
@@ -400,7 +400,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s"
@@ -418,7 +418,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -440,7 +440,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s"
@@ -458,7 +458,7 @@
                         "property": "p0",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v0"
@@ -472,7 +472,7 @@
                         "property": "p1",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v1"
@@ -494,7 +494,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s0"
@@ -503,7 +503,7 @@
                     },
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s1"
@@ -521,7 +521,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -543,7 +543,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s0"
@@ -552,7 +552,7 @@
                     },
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s1"
@@ -570,7 +570,7 @@
                         "property": "p0",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v0"
@@ -584,7 +584,7 @@
                         "property": "p1",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v1"
@@ -606,7 +606,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s"
@@ -624,7 +624,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -646,7 +646,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s"
@@ -664,7 +664,7 @@
                         "property": "p0",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v0"
@@ -678,7 +678,7 @@
                         "property": "p1",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v1"
@@ -700,7 +700,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s0"
@@ -709,7 +709,7 @@
                     },
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s1"
@@ -727,7 +727,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v"
@@ -749,7 +749,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s0"
@@ -758,7 +758,7 @@
                     },
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s1"
@@ -776,7 +776,7 @@
                         "property": "p0",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v0"
@@ -790,7 +790,7 @@
                         "property": "p1",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "v1"
@@ -812,7 +812,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Class",
                                 "name": "test"
@@ -830,7 +830,7 @@
                         "property": "filter",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Progid",
                                     "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -844,7 +844,7 @@
                         "property": "color",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "red"
@@ -866,7 +866,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Class",
                                 "name": "test"
@@ -884,7 +884,7 @@
                         "property": "color",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "red"
@@ -898,7 +898,7 @@
                         "property": "filter",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Progid",
                                     "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
@@ -923,7 +923,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "s"
@@ -941,7 +941,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "yellow"
@@ -962,7 +962,7 @@
                 "selectors": [
                     {
                         "type": "SimpleSelector",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Type",
                                 "name": "yellow"
@@ -980,7 +980,7 @@
                         "property": "p",
                         "value": {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "yellow"

@@ -51,7 +51,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "a"
@@ -81,17 +81,17 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "body"
                                     },
                                     {
                                         "type": "Negation",
-                                        "sequence": [
+                                        "children": [
                                             {
                                                 "type": "SimpleSelector",
-                                                "sequence": [
+                                                "children": [
                                                     {
                                                         "type": "Attribute",
                                                         "name": {
@@ -131,7 +131,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Class",
                                         "name": "ie-test"
@@ -149,7 +149,7 @@
                                 "property": "filter",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Progid",
                                             "value": "progid:DXImageTransform.Microsoft.gradient (startColorstr=#33CCCCCC, endColorstr=#33CCCCCC)"
@@ -176,7 +176,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Class",
                                         "name": "t"
@@ -194,7 +194,7 @@
                                 "property": "filter",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Progid",
                                             "value": "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"
@@ -219,7 +219,7 @@
                     "name": "media",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Identifier",
                                 "name": "test"
@@ -234,7 +234,7 @@
                                 "name": "page",
                                 "expression": {
                                     "type": "AtruleExpression",
-                                    "sequence": []
+                                    "children": []
                                 },
                                 "block": {
                                     "type": "Block",
@@ -245,7 +245,7 @@
                                             "property": "p",
                                             "value": {
                                                 "type": "Value",
-                                                "sequence": [
+                                                "children": [
                                                     {
                                                         "type": "Identifier",
                                                         "name": "v"
@@ -275,7 +275,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "x"
@@ -293,7 +293,7 @@
                                 "property": "p",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v"
@@ -309,7 +309,7 @@
                     "name": "media",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": [
+                        "children": [
                             {
                                 "type": "Identifier",
                                 "name": "test"
@@ -326,7 +326,7 @@
                                     "selectors": [
                                         {
                                             "type": "SimpleSelector",
-                                            "sequence": [
+                                            "children": [
                                                 {
                                                     "type": "Type",
                                                     "name": "a"
@@ -344,7 +344,7 @@
                                             "property": "p",
                                             "value": {
                                                 "type": "Value",
-                                                "sequence": [
+                                                "children": [
                                                     {
                                                         "type": "Identifier",
                                                         "name": "v"
@@ -360,7 +360,7 @@
                                 "name": "page",
                                 "expression": {
                                     "type": "AtruleExpression",
-                                    "sequence": []
+                                    "children": []
                                 },
                                 "block": {
                                     "type": "Block",
@@ -371,7 +371,7 @@
                                             "property": "p",
                                             "value": {
                                                 "type": "Value",
-                                                "sequence": [
+                                                "children": [
                                                     {
                                                         "type": "Identifier",
                                                         "name": "v"
@@ -389,7 +389,7 @@
                                     "selectors": [
                                         {
                                             "type": "SimpleSelector",
-                                            "sequence": [
+                                            "children": [
                                                 {
                                                     "type": "Type",
                                                     "name": "b"
@@ -407,7 +407,7 @@
                                             "property": "p",
                                             "value": {
                                                 "type": "Value",
-                                                "sequence": [
+                                                "children": [
                                                     {
                                                         "type": "Identifier",
                                                         "name": "v"
@@ -428,7 +428,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "y"
@@ -446,7 +446,7 @@
                                 "property": "p",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v"
@@ -472,7 +472,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s"
@@ -490,7 +490,7 @@
                                 "property": "p",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v"
@@ -516,7 +516,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s0"
@@ -534,7 +534,7 @@
                                 "property": "p0",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v0"
@@ -552,7 +552,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s1"
@@ -570,7 +570,7 @@
                                 "property": "p1",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v1"
@@ -594,7 +594,7 @@
                     "name": "test",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": null
                 }
@@ -611,7 +611,7 @@
                     "name": "test0",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": null
                 },
@@ -620,7 +620,7 @@
                     "name": "test1",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": null
                 }
@@ -639,7 +639,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s"
@@ -657,7 +657,7 @@
                                 "property": "p",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v"
@@ -673,7 +673,7 @@
                     "name": "test",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": null
                 }
@@ -693,7 +693,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s"
@@ -711,7 +711,7 @@
                                 "property": "p",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v"
@@ -738,7 +738,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s"
@@ -756,7 +756,7 @@
                                 "property": "p",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v"
@@ -783,7 +783,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s0"
@@ -801,7 +801,7 @@
                                 "property": "p0",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v0"
@@ -819,7 +819,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s1"
@@ -837,7 +837,7 @@
                                 "property": "p1",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v1"
@@ -862,7 +862,7 @@
                     "name": "test0",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": null
                 },
@@ -871,7 +871,7 @@
                     "name": "test1",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": null
                 }
@@ -891,7 +891,7 @@
                         "selectors": [
                             {
                                 "type": "SimpleSelector",
-                                "sequence": [
+                                "children": [
                                     {
                                         "type": "Type",
                                         "name": "s"
@@ -909,7 +909,7 @@
                                 "property": "p",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "v"
@@ -925,7 +925,7 @@
                     "name": "test",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": null
                 }
@@ -962,7 +962,7 @@
                     "name": "x",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": {
                         "type": "Block",
@@ -973,7 +973,7 @@
                                 "property": "unicode-range",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "UnicodeRange",
                                             "value": "U+2074"
@@ -1033,7 +1033,7 @@
                     "name": "x",
                     "expression": {
                         "type": "AtruleExpression",
-                        "sequence": []
+                        "children": []
                     },
                     "block": {
                         "type": "Block",
@@ -1044,11 +1044,11 @@
                                 "property": "a",
                                 "value": {
                                     "type": "Value",
-                                    "sequence": [
+                                    "children": [
                                         {
                                             "type": "Function",
                                             "name": "a",
-                                            "sequence": []
+                                            "children": []
                                         }
                                     ]
                                 }

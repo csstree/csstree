@@ -3,7 +3,7 @@
         "source": "x",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"

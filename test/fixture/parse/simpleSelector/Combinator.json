@@ -3,7 +3,7 @@
         "source": "a b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -23,7 +23,7 @@
         "source": "a>>b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -43,7 +43,7 @@
         "source": "a>b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -63,7 +63,7 @@
         "source": "a+b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -83,7 +83,7 @@
         "source": "a~b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -104,7 +104,7 @@
         "translate": "a /deep/ b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -125,7 +125,7 @@
         "translate": "a b+c>d~e>>f",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -178,7 +178,7 @@
         "translate": "a b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -199,7 +199,7 @@
         "translate": "a+b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -220,7 +220,7 @@
         "translate": "a>b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -241,7 +241,7 @@
         "translate": "a~b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -262,7 +262,7 @@
         "translate": "a /deep/ b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -283,7 +283,7 @@
         "translate": "a>>b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -304,7 +304,7 @@
         "translate": "a b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -325,7 +325,7 @@
         "translate": "a+b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -346,7 +346,7 @@
         "translate": "a>b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -367,7 +367,7 @@
         "translate": "a~b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -388,7 +388,7 @@
         "translate": "a /deep/ b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"
@@ -409,7 +409,7 @@
         "translate": "a>>b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "a"

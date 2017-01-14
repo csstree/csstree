@@ -3,7 +3,7 @@
         "source": "U+0F00",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "U+0F00"
@@ -15,7 +15,7 @@
         "source": "U+0F00-0FFF",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "U+0F00-0FFF"
@@ -27,7 +27,7 @@
         "source": "u+0025-00FF",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "u+0025-00FF"
@@ -39,7 +39,7 @@
         "source": "U+FF00-FF10",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "U+FF00-FF10"
@@ -51,7 +51,7 @@
         "source": "U+1234-2345",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "U+1234-2345"
@@ -63,7 +63,7 @@
         "source": "U+1234-abcd",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "U+1234-abcd"
@@ -75,7 +75,7 @@
         "source": "U+0-7F",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "U+0-7F"
@@ -87,7 +87,7 @@
         "source": "u+0f00??",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "u+0f00??"
@@ -99,7 +99,7 @@
         "source": "u",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "u"
@@ -111,7 +111,7 @@
         "source": "u+0.200",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "u+0"
@@ -127,7 +127,7 @@
         "source": "u+12e+12",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "UnicodeRange",
                     "value": "u+12e"

@@ -45,7 +45,7 @@
         "source": "#1.2AaB",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Hash",
                     "value": "1"
@@ -62,7 +62,7 @@
         "source": "#a1.2AaB",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Hash",
                     "value": "a1"
@@ -79,7 +79,7 @@
         "source": "#1e-2Aa",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Hash",
                     "value": "1e"

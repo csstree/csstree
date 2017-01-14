@@ -4,7 +4,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": []
+            "children": []
         }
     },
     "function.1": {
@@ -12,7 +12,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "n"
@@ -25,7 +25,7 @@
         "ast": {
             "type": "Function",
             "name": "test-test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "n"
@@ -38,7 +38,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -59,7 +59,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -80,7 +80,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Dimension",
                     "value": "10",
@@ -100,7 +100,7 @@
                 {
                     "type": "Function",
                     "name": "test",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Identifier",
                             "name": "x"
@@ -124,7 +124,7 @@
         "ast": {
             "type": "Function",
             "name": "rgb",
-            "sequence": [
+            "children": [
                 {
                     "type": "Number",
                     "value": "-10"
@@ -154,7 +154,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": []
+            "children": []
         }
     },
     "function.c.1": {
@@ -163,7 +163,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "n"
@@ -177,7 +177,7 @@
         "ast": {
             "type": "Function",
             "name": "test-test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "n"
@@ -191,7 +191,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -213,7 +213,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -235,7 +235,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Dimension",
                     "value": "10",
@@ -252,7 +252,7 @@
                 {
                     "type": "Function",
                     "name": "test",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Identifier",
                             "name": "x"
@@ -276,7 +276,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": []
+            "children": []
         }
     },
     "function.s.1": {
@@ -285,7 +285,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "n"
@@ -299,7 +299,7 @@
         "ast": {
             "type": "Function",
             "name": "test-test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "n"
@@ -313,7 +313,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -341,7 +341,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Identifier",
                     "name": "x"
@@ -363,7 +363,7 @@
         "ast": {
             "type": "Function",
             "name": "test",
-            "sequence": [
+            "children": [
                 {
                     "type": "Dimension",
                     "value": "10",
@@ -383,7 +383,7 @@
                 {
                     "type": "Function",
                     "name": "test",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Identifier",
                             "name": "x"

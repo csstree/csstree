@@ -7,7 +7,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -24,7 +24,7 @@
             "property": "-my-property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -41,7 +41,7 @@
             "property": "//property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -59,7 +59,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -77,7 +77,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -95,7 +95,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -113,7 +113,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -131,7 +131,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -149,7 +149,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -167,7 +167,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"
@@ -185,7 +185,7 @@
             "property": "property",
             "value": {
                 "type": "Value",
-                "sequence": [
+                "children": [
                     {
                         "type": "Identifier",
                         "name": "value"

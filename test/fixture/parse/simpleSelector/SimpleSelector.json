@@ -3,7 +3,7 @@
         "source": "test",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "test"
@@ -15,7 +15,7 @@
         "source": ".test",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Class",
                     "name": "test"
@@ -27,7 +27,7 @@
         "source": "#test",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Id",
                     "name": "test"
@@ -39,7 +39,7 @@
         "source": "[a=b]",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Attribute",
                     "name": {
@@ -60,7 +60,7 @@
         "source": "[a=b][c='d']",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Attribute",
                     "name": {
@@ -94,7 +94,7 @@
         "source": ".\\31  b",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Class",
                     "name": "\\31 "
@@ -114,17 +114,17 @@
         "source": "*|*:not(*)",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Universal",
                     "name": "*|*"
                 },
                 {
                     "type": "Negation",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "SimpleSelector",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Universal",
                                     "name": "*"
@@ -140,17 +140,17 @@
         "source": "x:not([ABC])",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "Type",
                     "name": "x"
                 },
                 {
                     "type": "Negation",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "SimpleSelector",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Attribute",
                                     "name": {
@@ -172,11 +172,11 @@
         "source": ":lang(nl-be)",
         "ast": {
             "type": "SimpleSelector",
-            "sequence": [
+            "children": [
                 {
                     "type": "PseudoClass",
                     "name": "lang",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Identifier",
                             "name": "nl-be"

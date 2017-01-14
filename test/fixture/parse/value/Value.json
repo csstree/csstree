@@ -3,7 +3,7 @@
         "source": "10",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Number",
                     "value": "10"
@@ -15,11 +15,11 @@
         "source": "test(x)",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Function",
                     "name": "test",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Identifier",
                             "name": "x"
@@ -33,7 +33,7 @@
         "source": "-100%",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Percentage",
                     "value": "-100"
@@ -46,11 +46,11 @@
         "translate": "rgb(10,10,10)",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Function",
                     "name": "rgb",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Number",
                             "value": "10"
@@ -80,11 +80,11 @@
         "source": "rgb(255,0,0)",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Function",
                     "name": "rgb",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Number",
                             "value": "255"
@@ -114,11 +114,11 @@
         "source": "rgb(10.0,00.00,10%)",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Function",
                     "name": "rgb",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Number",
                             "value": "10.0"
@@ -149,11 +149,11 @@
         "translate": "var(--foo,blue)",
         "ast": {
             "type": "Value",
-            "sequence": [
+            "children": [
                 {
                     "type": "Function",
                     "name": "var",
-                    "sequence": [
+                    "children": [
                         {
                             "type": "Identifier",
                             "name": "--foo"
@@ -164,7 +164,7 @@
                         },
                         {
                             "type": "Value",
-                            "sequence": [
+                            "children": [
                                 {
                                     "type": "Identifier",
                                     "name": "blue"
