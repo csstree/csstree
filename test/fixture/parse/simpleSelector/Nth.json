@@ -335,7 +335,7 @@
                 },
                 {
                     "type": "OfClauseSelector",
-                    "selectors": [
+                    "children": [
                         {
                             "type": "SimpleSelector",
                             "children": [

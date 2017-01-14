@@ -3,7 +3,7 @@
         "source": "a,b",
         "ast": {
             "type": "Selector",
-            "selectors": [
+            "children": [
                 {
                     "type": "SimpleSelector",
                     "children": [
@@ -29,7 +29,7 @@
         "source": "a+b,c",
         "ast": {
             "type": "Selector",
-            "selectors": [
+            "children": [
                 {
                     "type": "SimpleSelector",
                     "children": [

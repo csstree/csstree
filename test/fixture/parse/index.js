@@ -7,7 +7,7 @@ var wrapper = {
             type: 'Rule',
             selector: {
                 type: 'Selector',
-                selectors: []
+                children: []
             },
             block: ast
         };

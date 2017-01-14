@@ -23,7 +23,7 @@
                     "line": 1,
                     "column": 1
                 },
-                "selectors": [
+                "children": [
                     {
                         "type": "SimpleSelector",
                         "info": {
