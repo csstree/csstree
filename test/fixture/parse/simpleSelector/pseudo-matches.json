@@ -1,0 +1,161 @@
+{
+    "basic negation": {
+        "source": ":matches(el.class-postfix)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "matches",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Type",
+                                    "name": "el"
+                                },
+                                {
+                                    "type": "Class",
+                                    "name": "class-postfix"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "negation with selector group": {
+        "source": ":matches(.a,.b)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "matches",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "negation with selector group and spaces": {
+        "source": ":matches(  .a  ,  .b  )",
+        "translate": ":matches(.a,.b)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "matches",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":MatcheS(.a,.b)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "MatcheS",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "SimpleSelector",
+                            "children": [
+                                {
+                                    "type": "Class",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error #1": {
+        "source": ":matches(.a{)",
+        "offset": "           ^",
+        "error": "Unexpected input"
+    },
+    "error #2": {
+        "source": ":matches(,.b)",
+        "offset": "         ^",
+        "error": "Unexpected comma"
+    },
+    "error #3": {
+        "source": ":matches(.a,)",
+        "offset": "           ^",
+        "error": "Unexpected trailing comma"
+    },
+    "error #4": {
+        "source": ":matches(.a,,)",
+        "offset": "            ^",
+        "error": "Unexpected comma"
+    },
+    "error #5": {
+        "source": ":matches(.a,.b{)",
+        "offset": "              ^",
+        "error": "Unexpected input"
+    },
+    "error #6": {
+        "source": ":matches(--test) {}",
+        "offset": "          ^",
+        "error": "Identifier is expected"
+    },
+    "error #7": {
+        "source": ":matches(var(--test)) {}",
+        "offset": "            ^",
+        "error": "Unexpected input"
+    }
+}
