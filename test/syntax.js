@@ -246,7 +246,7 @@ describe('CSS syntax', function() {
         tests.forEachTest(createMatchTest);
     });
 
-    describe('mimatch node', function() {
+    describe('mismatch node', function() {
         var syntax = createSyntax({
             generic: true,
             properties: {
