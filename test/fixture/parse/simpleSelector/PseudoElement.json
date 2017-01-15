@@ -4,6 +4,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "test",
+            "children": null,
             "legacy": false
         }
     },
@@ -12,6 +13,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "test-test",
+            "children": null,
             "legacy": false
         }
     },
@@ -20,6 +22,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "before",
+            "children": null,
             "legacy": false
         }
     },
@@ -28,6 +31,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "before",
+            "children": null,
             "legacy": true
         }
     },
@@ -36,6 +40,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "bEfOrE",
+            "children": null,
             "legacy": true
         }
     },
@@ -44,6 +49,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "after",
+            "children": null,
             "legacy": true
         }
     },
@@ -52,6 +58,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "first-letter",
+            "children": null,
             "legacy": true
         }
     },
@@ -60,6 +67,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "first-line",
+            "children": null,
             "legacy": true
         }
     }

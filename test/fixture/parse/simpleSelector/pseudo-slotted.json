@@ -1,0 +1,99 @@
+{
+    "basic": {
+        "source": "::slotted(test)",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "slotted",
+            "children": [
+                {
+                    "type": "SimpleSelector",
+                    "children": [
+                        {
+                            "type": "Type",
+                            "name": "test"
+                        }
+                    ]
+                }
+            ],
+            "legacy": false
+        }
+    },
+    "spaces around selector": {
+        "source": "::slotted(  .a.b  )",
+        "translate": "::slotted(.a.b)",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "slotted",
+            "children": [
+                {
+                    "type": "SimpleSelector",
+                    "children": [
+                        {
+                            "type": "Class",
+                            "name": "a"
+                        },
+                        {
+                            "type": "Class",
+                            "name": "b"
+                        }
+                    ]
+                }
+            ],
+            "legacy": false
+        }
+    },
+    "should be case insensitive": {
+        "source": "::SloTted(.a)",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "SloTted",
+            "children": [
+                {
+                    "type": "SimpleSelector",
+                    "children": [
+                        {
+                            "type": "Class",
+                            "name": "a"
+                        }
+                    ]
+                }
+            ],
+            "legacy": false
+        }
+    },
+    "error #1": {
+        "source": "::slotted(.a{)",
+        "offset": "            ^",
+        "error": "Unexpected input"
+    },
+    "error #2": {
+        "source": "::slotted(,.b)",
+        "offset": "          ^",
+        "error": "Simple selector expected"
+    },
+    "error #3": {
+        "source": "::slotted(.a,)",
+        "offset": "            ^",
+        "error": "RightParenthesis is expected"
+    },
+    "error #4": {
+        "source": "::slotted(--test)",
+        "offset": "           ^",
+        "error": "Identifier is expected"
+    },
+    "error #5": {
+        "source": "::slotted(var(--test))",
+        "offset": "             ^",
+        "error": "Unexpected input"
+    },
+    "error #6": {
+        "source": "::slotted(> test)",
+        "offset": "          ^",
+        "error": "Unexpected input"
+    },
+    "error #7": {
+        "source": "::slotted(foo,bar)",
+        "offset": "             ^",
+        "error": "RightParenthesis is expected"
+    }
+}
