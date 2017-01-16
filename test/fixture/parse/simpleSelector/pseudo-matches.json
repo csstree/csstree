@@ -6,7 +6,7 @@
             "name": "matches",
             "children": [
                 {
-                    "type": "Selector",
+                    "type": "SelectorList",
                     "children": [
                         {
                             "type": "SimpleSelector",
@@ -29,7 +29,7 @@
             "name": "matches",
             "children": [
                 {
-                    "type": "Selector",
+                    "type": "SelectorList",
                     "children": [
                         {
                             "type": "SimpleSelector",
@@ -66,7 +66,7 @@
             "name": "matches",
             "children": [
                 {
-                    "type": "Selector",
+                    "type": "SelectorList",
                     "children": [
                         {
                             "type": "SimpleSelector",
@@ -98,7 +98,7 @@
             "name": "MatcheS",
             "children": [
                 {
-                    "type": "Selector",
+                    "type": "SelectorList",
                     "children": [
                         {
                             "type": "SimpleSelector",

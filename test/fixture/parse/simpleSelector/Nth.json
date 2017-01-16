@@ -428,7 +428,7 @@
                         "b": "1"
                     },
                     "selector": {
-                        "type": "Selector",
+                        "type": "SelectorList",
                         "children": [
                             {
                                 "type": "SimpleSelector",

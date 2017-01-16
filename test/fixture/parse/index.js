@@ -6,7 +6,7 @@ var wrapper = {
         return {
             type: 'Rule',
             selector: {
-                type: 'Selector',
+                type: 'SelectorList',
                 children: []
             },
             block: ast

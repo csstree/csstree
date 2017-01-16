@@ -1,34 +1,25 @@
 {
-    "selector.0": {
-        "source": "a,b",
+    "single selector": {
+        "source": "test",
         "ast": {
-            "type": "Selector",
+            "type": "SelectorList",
             "children": [
                 {
                     "type": "SimpleSelector",
                     "children": [
                         {
                             "type": "Type",
-                            "name": "a"
-                        }
-                    ]
-                },
-                {
-                    "type": "SimpleSelector",
-                    "children": [
-                        {
-                            "type": "Type",
-                            "name": "b"
+                            "name": "test"
                         }
                     ]
                 }
             ]
         }
     },
-    "selector.1": {
+    "several selectors": {
         "source": "a+b,c",
         "ast": {
-            "type": "Selector",
+            "type": "SelectorList",
             "children": [
                 {
                     "type": "SimpleSelector",

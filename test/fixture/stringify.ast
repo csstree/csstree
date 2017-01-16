@@ -387,7 +387,7 @@
                             }
                         },
                         "selector": {
-                            "type": "Selector",
+                            "type": "SelectorList",
                             "info": {
                                 "source": "stringify.css",
                                 "offset": 101,
@@ -530,7 +530,7 @@
                 }
             },
             "selector": {
-                "type": "Selector",
+                "type": "SelectorList",
                 "info": {
                     "source": "stringify.css",
                     "offset": 139,
@@ -875,7 +875,7 @@
                                 "name": "not",
                                 "children": [
                                     {
-                                        "type": "Selector",
+                                        "type": "SelectorList",
                                         "info": {
                                             "source": "stringify.css",
                                             "offset": 214,
@@ -1115,7 +1115,7 @@
                                 "name": "matches",
                                 "children": [
                                     {
-                                        "type": "Selector",
+                                        "type": "SelectorList",
                                         "info": {
                                             "source": "stringify.css",
                                             "offset": 271,
@@ -1242,7 +1242,7 @@
                                             "name": "odd"
                                         },
                                         "selector": {
-                                            "type": "Selector",
+                                            "type": "SelectorList",
                                             "info": {
                                                 "source": "stringify.css",
                                                 "offset": 304,
@@ -1371,7 +1371,7 @@
                                             "b": "1"
                                         },
                                         "selector": {
-                                            "type": "Selector",
+                                            "type": "SelectorList",
                                             "info": {
                                                 "source": "stringify.css",
                                                 "offset": 331,
@@ -1481,7 +1481,7 @@
                                 "name": "has",
                                 "children": [
                                     {
-                                        "type": "Selector",
+                                        "type": "SelectorList",
                                         "info": {
                                             "source": "stringify.css",
                                             "offset": 343,

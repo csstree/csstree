@@ -125,7 +125,7 @@ describe('parse', function() {
             assert.deepEqual(positions, [
                 [1, 1, 'StyleSheet'],
                 [1, 1, 'Rule'],
-                [1, 1, 'Selector'],
+                [1, 1, 'SelectorList'],
                 [1, 1, 'SimpleSelector'],
                 [1, 1, 'Class'],
                 [1, 5, 'Class'],
@@ -167,7 +167,7 @@ describe('parse', function() {
             assert.deepEqual(positions, [
                 [3, 5, 'StyleSheet'],
                 [3, 5, 'Rule'],
-                [3, 5, 'Selector'],
+                [3, 5, 'SelectorList'],
                 [3, 5, 'SimpleSelector'],
                 [3, 5, 'Class'],
                 [3, 9, 'Class'],

@@ -124,7 +124,7 @@
                     "name": "not",
                     "children": [
                         {
-                            "type": "Selector",
+                            "type": "SelectorList",
                             "children": [
                                 {
                                     "type": "SimpleSelector",
@@ -156,7 +156,7 @@
                     "name": "not",
                     "children": [
                         {
-                            "type": "Selector",
+                            "type": "SelectorList",
                             "children": [
                                 {
                                     "type": "SimpleSelector",
