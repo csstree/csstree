@@ -25,4 +25,15 @@ describe('translateWithSourceMap', function() {
             });
         }, /Unknown node type/);
     });
+
+    it.only('should generate a map', function() {
+        var ast = parse('.a {\n  color: red;\n}\n', {
+            filename: 'test.css',
+            positions: true
+        });
+        var result = translateWithSourceMap(ast);
+
+        assert.equal(result.css, '.a{color:red}');
+        assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CACE,S"}');
+    });
 });
