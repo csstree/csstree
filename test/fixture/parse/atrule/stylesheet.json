@@ -18,7 +18,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -83,7 +83,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -172,7 +172,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -258,7 +258,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -311,7 +311,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Class",
@@ -347,7 +347,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Class",
@@ -400,7 +400,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -465,7 +465,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -552,7 +552,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -605,7 +605,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -670,7 +670,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -769,7 +769,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Type",
@@ -827,7 +827,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Percentage",
@@ -863,7 +863,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Percentage",
@@ -899,7 +899,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Percentage",

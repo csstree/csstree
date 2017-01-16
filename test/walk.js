@@ -139,8 +139,8 @@ describe('AST traversal', function() {
             'Percentage',
             'PseudoClass',
             'Rule',
+            'Selector',
             'SelectorList',
-            'SimpleSelector',
             'Space',
             'StyleSheet',
             'Value'

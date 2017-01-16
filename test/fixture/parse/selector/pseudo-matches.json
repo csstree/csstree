@@ -1,15 +1,15 @@
 {
     "basic": {
-        "source": ":not(test)",
+        "source": ":matches(test)",
         "ast": {
             "type": "PseudoClass",
-            "name": "not",
+            "name": "matches",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Type",
@@ -23,16 +23,16 @@
         }
     },
     "selector group": {
-        "source": ":not(.a,.b.c)",
+        "source": ":matches(.a,.b.c)",
         "ast": {
             "type": "PseudoClass",
-            "name": "not",
+            "name": "matches",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -41,7 +41,7 @@
                             ]
                         },
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -59,17 +59,17 @@
         }
     },
     "selector group and spaces": {
-        "source": ":not(  .a  ,  .b  )",
-        "translate": ":not(.a,.b)",
+        "source": ":matches(  .a  ,  .b  )",
+        "translate": ":matches(.a,.b)",
         "ast": {
             "type": "PseudoClass",
-            "name": "not",
+            "name": "matches",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -78,7 +78,7 @@
                             ]
                         },
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -92,16 +92,16 @@
         }
     },
     "should be case insensitive": {
-        "source": ":NoT(.a,.b)",
+        "source": ":MatcheS(.a,.b)",
         "ast": {
             "type": "PseudoClass",
-            "name": "NoT",
+            "name": "MatcheS",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -110,7 +110,7 @@
                             ]
                         },
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -124,48 +124,48 @@
         }
     },
     "error #1": {
-        "source": ":not(.a{)",
-        "offset": "       ^",
+        "source": ":matches(.a{)",
+        "offset": "           ^",
         "error": "Unexpected input"
     },
     "error #2": {
-        "source": ":not(,.b)",
-        "offset": "     ^",
+        "source": ":matches(,.b)",
+        "offset": "         ^",
         "error": "Unexpected comma"
     },
     "error #3": {
-        "source": ":not(.a,)",
-        "offset": "       ^",
+        "source": ":matches(.a,)",
+        "offset": "           ^",
         "error": "Unexpected trailing comma"
     },
     "error #4": {
-        "source": ":not(.a,,)",
-        "offset": "        ^",
+        "source": ":matches(.a,,)",
+        "offset": "            ^",
         "error": "Unexpected comma"
     },
     "error #5": {
-        "source": ":not(.a,.b{)",
-        "offset": "          ^",
+        "source": ":matches(.a,.b{)",
+        "offset": "              ^",
         "error": "Unexpected input"
     },
     "error #6": {
-        "source": ":not(--test)",
-        "offset": "      ^",
+        "source": ":matches(--test)",
+        "offset": "          ^",
         "error": "Identifier is expected"
     },
     "error #7": {
-        "source": ":not(var(--test))",
-        "offset": "        ^",
+        "source": ":matches(var(--test))",
+        "offset": "            ^",
         "error": "Unexpected input"
     },
     "error #8": {
-        "source": ":not(> test)",
-        "offset": "     ^",
+        "source": ":matches(> test)",
+        "offset": "         ^",
         "error": "Unexpected combinator"
     },
     "error #9": {
-        "source": ":not(foo,> bar)",
-        "offset": "         ^",
+        "source": ":matches(foo,> bar)",
+        "offset": "             ^",
         "error": "Unexpected combinator"
     }
 }

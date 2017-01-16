@@ -6,7 +6,7 @@
             "name": "slotted",
             "children": [
                 {
-                    "type": "SimpleSelector",
+                    "type": "Selector",
                     "children": [
                         {
                             "type": "Type",
@@ -26,7 +26,7 @@
             "name": "slotted",
             "children": [
                 {
-                    "type": "SimpleSelector",
+                    "type": "Selector",
                     "children": [
                         {
                             "type": "Class",
@@ -49,7 +49,7 @@
             "name": "SloTted",
             "children": [
                 {
-                    "type": "SimpleSelector",
+                    "type": "Selector",
                     "children": [
                         {
                             "type": "Class",

@@ -1,15 +1,15 @@
 {
     "basic": {
-        "source": ":has(test)",
+        "source": ":not(test)",
         "ast": {
             "type": "PseudoClass",
-            "name": "has",
+            "name": "not",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Type",
@@ -22,17 +22,17 @@
             ]
         }
     },
-    "negation with selector group": {
-        "source": ":has(.a,.b.c)",
+    "selector group": {
+        "source": ":not(.a,.b.c)",
         "ast": {
             "type": "PseudoClass",
-            "name": "has",
+            "name": "not",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -41,7 +41,7 @@
                             ]
                         },
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -59,17 +59,17 @@
         }
     },
     "selector group and spaces": {
-        "source": ":has(  .a  ,  .b  )",
-        "translate": ":has(.a,.b)",
+        "source": ":not(  .a  ,  .b  )",
+        "translate": ":not(.a,.b)",
         "ast": {
             "type": "PseudoClass",
-            "name": "has",
+            "name": "not",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -78,7 +78,7 @@
                             ]
                         },
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -92,16 +92,16 @@
         }
     },
     "should be case insensitive": {
-        "source": ":HaS(.a,.b)",
+        "source": ":NoT(.a,.b)",
         "ast": {
             "type": "PseudoClass",
-            "name": "HaS",
+            "name": "NoT",
             "children": [
                 {
                     "type": "SelectorList",
                     "children": [
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
                                 {
                                     "type": "Class",
@@ -110,49 +110,8 @@
                             ]
                         },
                         {
-                            "type": "SimpleSelector",
+                            "type": "Selector",
                             "children": [
-                                {
-                                    "type": "Class",
-                                    "name": "b"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    },
-    "should support relative selectors": {
-        "source": ":has(> .a,+.b)",
-        "translate": ":has(>.a,+.b)",
-        "ast": {
-            "type": "PseudoClass",
-            "name": "has",
-            "children": [
-                {
-                    "type": "SelectorList",
-                    "children": [
-                        {
-                            "type": "SimpleSelector",
-                            "children": [
-                                {
-                                    "type": "Combinator",
-                                    "name": ">"
-                                },
-                                {
-                                    "type": "Class",
-                                    "name": "a"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "SimpleSelector",
-                            "children": [
-                                {
-                                    "type": "Combinator",
-                                    "name": "+"
-                                },
                                 {
                                     "type": "Class",
                                     "name": "b"
@@ -165,48 +124,48 @@
         }
     },
     "error #1": {
-        "source": ":has(.a{)",
+        "source": ":not(.a{)",
         "offset": "       ^",
         "error": "Unexpected input"
     },
     "error #2": {
-        "source": ":has(,.b)",
+        "source": ":not(,.b)",
         "offset": "     ^",
         "error": "Unexpected comma"
     },
     "error #3": {
-        "source": ":has(.a,)",
+        "source": ":not(.a,)",
         "offset": "       ^",
         "error": "Unexpected trailing comma"
     },
     "error #4": {
-        "source": ":has(.a,,)",
+        "source": ":not(.a,,)",
         "offset": "        ^",
         "error": "Unexpected comma"
     },
     "error #5": {
-        "source": ":has(.a,.b{)",
+        "source": ":not(.a,.b{)",
         "offset": "          ^",
         "error": "Unexpected input"
     },
     "error #6": {
-        "source": ":has(--test)",
+        "source": ":not(--test)",
         "offset": "      ^",
         "error": "Identifier is expected"
     },
     "error #7": {
-        "source": ":has(var(--test))",
+        "source": ":not(var(--test))",
         "offset": "        ^",
         "error": "Unexpected input"
     },
     "error #8": {
-        "source": ":has(>+a)",
-        "offset": "      ^",
+        "source": ":not(> test)",
+        "offset": "     ^",
         "error": "Unexpected combinator"
     },
     "error #9": {
-        "source": ":has(~foo, >+a)",
-        "offset": "            ^",
+        "source": ":not(foo,> bar)",
+        "offset": "         ^",
         "error": "Unexpected combinator"
     }
 }

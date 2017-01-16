@@ -403,7 +403,7 @@
                             },
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "info": {
                                         "source": "stringify.css",
                                         "offset": 101,
@@ -546,7 +546,7 @@
                 },
                 "children": [
                     {
-                        "type": "SimpleSelector",
+                        "type": "Selector",
                         "info": {
                             "source": "stringify.css",
                             "offset": 139,
@@ -891,7 +891,7 @@
                                         },
                                         "children": [
                                             {
-                                                "type": "SimpleSelector",
+                                                "type": "Selector",
                                                 "info": {
                                                     "source": "stringify.css",
                                                     "offset": 214,
@@ -926,7 +926,7 @@
                                                 ]
                                             },
                                             {
-                                                "type": "SimpleSelector",
+                                                "type": "Selector",
                                                 "info": {
                                                     "source": "stringify.css",
                                                     "offset": 216,
@@ -1065,7 +1065,7 @@
                         ]
                     },
                     {
-                        "type": "SimpleSelector",
+                        "type": "Selector",
                         "info": {
                             "source": "stringify.css",
                             "offset": 256,
@@ -1151,7 +1151,7 @@
                                 "name": "slotted",
                                 "children": [
                                     {
-                                        "type": "SimpleSelector",
+                                        "type": "Selector",
                                         "info": {
                                             "source": "stringify.css",
                                             "offset": 282,
@@ -1258,7 +1258,7 @@
                                             },
                                             "children": [
                                                 {
-                                                    "type": "SimpleSelector",
+                                                    "type": "Selector",
                                                     "info": {
                                                         "source": "stringify.css",
                                                         "offset": 304,
@@ -1293,7 +1293,7 @@
                                                     ]
                                                 },
                                                 {
-                                                    "type": "SimpleSelector",
+                                                    "type": "Selector",
                                                     "info": {
                                                         "source": "stringify.css",
                                                         "offset": 307,
@@ -1387,7 +1387,7 @@
                                             },
                                             "children": [
                                                 {
-                                                    "type": "SimpleSelector",
+                                                    "type": "Selector",
                                                     "info": {
                                                         "source": "stringify.css",
                                                         "offset": 331,
@@ -1448,7 +1448,7 @@
                         ]
                     },
                     {
-                        "type": "SimpleSelector",
+                        "type": "Selector",
                         "info": {
                             "source": "stringify.css",
                             "offset": 337,
@@ -1497,7 +1497,7 @@
                                         },
                                         "children": [
                                             {
-                                                "type": "SimpleSelector",
+                                                "type": "Selector",
                                                 "info": {
                                                     "source": "stringify.css",
                                                     "offset": 343,

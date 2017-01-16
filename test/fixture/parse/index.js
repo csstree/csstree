@@ -12,9 +12,9 @@ var wrapper = {
             block: ast
         };
     },
-    simpleSelector: function(ast) {
+    selector: function(ast) {
         return {
-            type: 'SimpleSelector',
+            type: 'Selector',
             children: [ast]
         };
     },

@@ -2,7 +2,7 @@
     "simpleselector.0": {
         "source": "test",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -14,7 +14,7 @@
     "simpleselector.1": {
         "source": ".test",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Class",
@@ -26,7 +26,7 @@
     "simpleselector.2": {
         "source": "#test",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Id",
@@ -38,7 +38,7 @@
     "simpleselector.3": {
         "source": "[a=b]",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Attribute",
@@ -59,7 +59,7 @@
     "simpleselector.4": {
         "source": "[a=b][c='d']",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Attribute",
@@ -93,7 +93,7 @@
     "simpleselector.16": {
         "source": ".\\31  b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Class",
@@ -113,7 +113,7 @@
     "negation with namespaced identifier": {
         "source": "*|*:not(*)",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Universal",
@@ -127,7 +127,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Universal",
@@ -145,7 +145,7 @@
     "negation with identifier and attribute selector": {
         "source": "x:not([ABC])",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -159,7 +159,7 @@
                             "type": "SelectorList",
                             "children": [
                                 {
-                                    "type": "SimpleSelector",
+                                    "type": "Selector",
                                     "children": [
                                         {
                                             "type": "Attribute",
@@ -183,7 +183,7 @@
     "simpleselector.18": {
         "source": ":lang(nl-be)",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "PseudoClass",

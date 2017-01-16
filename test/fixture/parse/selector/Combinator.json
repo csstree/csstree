@@ -2,7 +2,7 @@
     "descendant combinator": {
         "source": "a b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -22,7 +22,7 @@
     "explicit descendant combinator": {
         "source": "a>>b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -42,7 +42,7 @@
     "child combinator": {
         "source": "a>b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -62,7 +62,7 @@
     "next-sibling combinator": {
         "source": "a+b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -82,7 +82,7 @@
     "following-sibling combinator": {
         "source": "a~b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -103,7 +103,7 @@
         "source": "a/deep/b",
         "translate": "a /deep/ b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -124,7 +124,7 @@
         "source": "a  b  +  c  >  d  ~  e >> f",
         "translate": "a b+c>d~e>>f",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -177,7 +177,7 @@
         "source": "a/*test*/ /*test*/b",
         "translate": "a b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -198,7 +198,7 @@
         "source": "a/*test*/+/*test*/b",
         "translate": "a+b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -219,7 +219,7 @@
         "source": "a/*test*/>/*test*/b",
         "translate": "a>b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -240,7 +240,7 @@
         "source": "a/*test*/~/*test*/b",
         "translate": "a~b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -261,7 +261,7 @@
         "source": "a/*test*/ /deep/ /*test*/b",
         "translate": "a /deep/ b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -282,7 +282,7 @@
         "source": "a/*test*/>>/*test*/b",
         "translate": "a>>b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -303,7 +303,7 @@
         "source": "a    b",
         "translate": "a b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -324,7 +324,7 @@
         "source": "a  +  b",
         "translate": "a+b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -345,7 +345,7 @@
         "source": "a  >  b",
         "translate": "a>b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -366,7 +366,7 @@
         "source": "a  ~  b",
         "translate": "a~b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -387,7 +387,7 @@
         "source": "a  /deep/  b",
         "translate": "a /deep/ b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
@@ -408,7 +408,7 @@
         "source": "a  >>  b",
         "translate": "a>>b",
         "ast": {
-            "type": "SimpleSelector",
+            "type": "Selector",
             "children": [
                 {
                     "type": "Type",
