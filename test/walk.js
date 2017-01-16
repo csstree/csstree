@@ -60,9 +60,9 @@ function createWalkTest(name, test, context, walker, right) {
         });
 
         // type arrays should be equal
-        assert.equal(
-            actual.sort().join(','),
-            expectedWalk(test.ast, right).sort().join(',')
+        assert.deepEqual(
+            actual.sort(),
+            expectedWalk(test.ast, right).sort()
         );
     });
 }
@@ -79,11 +79,11 @@ function createWalkRulesTest(test, context, walker) {
         });
 
         // type arrays should be equal
-        assert.equal(
-            actual.sort().join(','),
+        assert.deepEqual(
+            actual.sort(),
             expectedWalk(test.ast, true).filter(function(type) {
                 return type === 'Rule' || type === 'Atrule';
-            }).sort().join(',')
+            }).sort()
         );
     });
 }
@@ -100,13 +100,11 @@ function createWalkDeclarationsTest(test, context, walker) {
         });
 
         // type arrays should be equal
-        assert.equal(
-            actual.sort().join(','),
-            expectedWalk(test.ast, false, function(stack, node) {
-                return node.type === 'Declaration' && stack.some(function(node) {
-                    return node.type === 'Rule';
-                });
-            }).sort().join(',')
+        assert.deepEqual(
+            actual.sort(),
+            expectedWalk(test.ast, false).filter(function(type) {
+                return type === 'Declaration';
+            }).sort()
         );
     });
 }

@@ -1,0 +1,198 @@
+{
+    "basic": {
+        "source": ".test{@test;}",
+        "ast": {
+            "type": "Rule",
+            "selector": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "Class",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "test",
+                        "expression": {
+                            "type": "AtruleExpression",
+                            "children": []
+                        },
+                        "block": null
+                    }
+                ]
+            }
+        }
+    },
+    "with expression": {
+        "source": ".test{@test not(something);}",
+        "ast": {
+            "type": "Rule",
+            "selector": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "Class",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "test",
+                        "expression": {
+                            "type": "AtruleExpression",
+                            "children": [
+                                {
+                                    "type": "Function",
+                                    "name": "not",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "something"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": null
+                    }
+                ]
+            }
+        }
+    },
+    "with block": {
+        "source": ".test{@test foo{a:1}}",
+        "ast": {
+            "type": "Rule",
+            "selector": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "Class",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "test",
+                        "expression": {
+                            "type": "AtruleExpression",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "foo"
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "a",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "recursion": {
+        "source": ".test{@test foo{@test foo{}}}",
+        "ast": {
+            "type": "Rule",
+            "selector": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "Class",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "test",
+                        "expression": {
+                            "type": "AtruleExpression",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "foo"
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "StyleSheet",
+                            "children": [
+                                {
+                                    "type": "Atrule",
+                                    "name": "test",
+                                    "expression": {
+                                        "type": "AtruleExpression",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "foo"
+                                            }
+                                        ]
+                                    },
+                                    "block": {
+                                        "type": "Block",
+                                        "children": []
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
