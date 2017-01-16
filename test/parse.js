@@ -118,7 +118,7 @@ describe('parse', function() {
 
             walk(ast, function(node) {
                 if (node.info) {
-                    positions.push([node.info.line, node.info.column, node.type]);
+                    positions.push([node.info.start.line, node.info.start.column, node.type]);
                 }
             });
 
@@ -160,7 +160,7 @@ describe('parse', function() {
 
             walk(ast, function(node) {
                 if (node.info) {
-                    positions.push([node.info.line, node.info.column, node.type]);
+                    positions.push([node.info.start.line, node.info.start.column, node.type]);
                 }
             });
 

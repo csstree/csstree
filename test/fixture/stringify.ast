@@ -1,0 +1,2463 @@
+{
+    "type": "StyleSheet",
+    "info": {
+        "source": "stringify.css",
+        "offset": 0,
+        "length": 778,
+        "start": {
+            "line": 1,
+            "column": 1
+        },
+        "end": {
+            "line": 24,
+            "column": 1
+        }
+    },
+    "children": [
+        {
+            "type": "Comment",
+            "info": {
+                "source": "stringify.css",
+                "offset": 0,
+                "length": 16,
+                "start": {
+                    "line": 1,
+                    "column": 1
+                },
+                "end": {
+                    "line": 1,
+                    "column": 17
+                }
+            },
+            "value": "! something "
+        },
+        {
+            "type": "Atrule",
+            "info": {
+                "source": "stringify.css",
+                "offset": 18,
+                "length": 17,
+                "start": {
+                    "line": 2,
+                    "column": 1
+                },
+                "end": {
+                    "line": 2,
+                    "column": 18
+                }
+            },
+            "name": "charset",
+            "expression": {
+                "type": "AtruleExpression",
+                "info": {
+                    "source": "stringify.css",
+                    "offset": 27,
+                    "length": 7,
+                    "start": {
+                        "line": 2,
+                        "column": 10
+                    },
+                    "end": {
+                        "line": 2,
+                        "column": 17
+                    }
+                },
+                "children": [
+                    {
+                        "type": "String",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 27,
+                            "length": 7,
+                            "start": {
+                                "line": 2,
+                                "column": 10
+                            },
+                            "end": {
+                                "line": 2,
+                                "column": 17
+                            }
+                        },
+                        "value": "'utf-8'"
+                    }
+                ]
+            },
+            "block": null
+        },
+        {
+            "type": "Atrule",
+            "info": {
+                "source": "stringify.css",
+                "offset": 37,
+                "length": 34,
+                "start": {
+                    "line": 3,
+                    "column": 1
+                },
+                "end": {
+                    "line": 5,
+                    "column": 2
+                }
+            },
+            "name": "page",
+            "expression": {
+                "type": "AtruleExpression",
+                "info": {
+                    "source": "stringify.css",
+                    "offset": 43,
+                    "length": 5,
+                    "start": {
+                        "line": 3,
+                        "column": 7
+                    },
+                    "end": {
+                        "line": 3,
+                        "column": 12
+                    }
+                },
+                "children": [
+                    {
+                        "type": "PseudoClass",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 43,
+                            "length": 5,
+                            "start": {
+                                "line": 3,
+                                "column": 7
+                            },
+                            "end": {
+                                "line": 3,
+                                "column": 12
+                            }
+                        },
+                        "name": "left",
+                        "children": null
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "info": {
+                    "source": "stringify.css",
+                    "offset": 50,
+                    "length": 20,
+                    "start": {
+                        "line": 3,
+                        "column": 14
+                    },
+                    "end": {
+                        "line": 5,
+                        "column": 1
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 56,
+                            "length": 11,
+                            "start": {
+                                "line": 4,
+                                "column": 5
+                            },
+                            "end": {
+                                "line": 4,
+                                "column": 16
+                            }
+                        },
+                        "important": false,
+                        "property": "margin",
+                        "value": {
+                            "type": "Value",
+                            "info": {
+                                "source": "stringify.css",
+                                "offset": 63,
+                                "length": 4,
+                                "start": {
+                                    "line": 4,
+                                    "column": 12
+                                },
+                                "end": {
+                                    "line": 4,
+                                    "column": 16
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Dimension",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 64,
+                                        "length": 3,
+                                        "start": {
+                                            "line": 4,
+                                            "column": 13
+                                        },
+                                        "end": {
+                                            "line": 4,
+                                            "column": 16
+                                        }
+                                    },
+                                    "value": "2",
+                                    "unit": "em"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Atrule",
+            "info": {
+                "source": "stringify.css",
+                "offset": 73,
+                "length": 73,
+                "start": {
+                    "line": 6,
+                    "column": 1
+                },
+                "end": {
+                    "line": 10,
+                    "column": 2
+                }
+            },
+            "name": "media",
+            "expression": {
+                "type": "AtruleExpression",
+                "info": {
+                    "source": "stringify.css",
+                    "offset": 80,
+                    "length": 19,
+                    "start": {
+                        "line": 6,
+                        "column": 8
+                    },
+                    "end": {
+                        "line": 6,
+                        "column": 27
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 80,
+                            "length": 6,
+                            "start": {
+                                "line": 6,
+                                "column": 8
+                            },
+                            "end": {
+                                "line": 6,
+                                "column": 14
+                            }
+                        },
+                        "name": "screen"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "Identifier",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 87,
+                            "length": 3,
+                            "start": {
+                                "line": 6,
+                                "column": 15
+                            },
+                            "end": {
+                                "line": 6,
+                                "column": 18
+                            }
+                        },
+                        "name": "and"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "Parentheses",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 91,
+                            "length": 8,
+                            "start": {
+                                "line": 6,
+                                "column": 19
+                            },
+                            "end": {
+                                "line": 6,
+                                "column": 27
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 92,
+                                    "length": 3,
+                                    "start": {
+                                        "line": 6,
+                                        "column": 20
+                                    },
+                                    "end": {
+                                        "line": 6,
+                                        "column": 23
+                                    }
+                                },
+                                "name": "foo"
+                            },
+                            {
+                                "type": "Operator",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 95,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 6,
+                                        "column": 23
+                                    },
+                                    "end": {
+                                        "line": 6,
+                                        "column": 24
+                                    }
+                                },
+                                "value": ":"
+                            },
+                            {
+                                "type": "Space"
+                            },
+                            {
+                                "type": "Number",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 97,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 6,
+                                        "column": 25
+                                    },
+                                    "end": {
+                                        "line": 6,
+                                        "column": 26
+                                    }
+                                },
+                                "value": "1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "StyleSheet",
+                "info": {
+                    "source": "stringify.css",
+                    "offset": 101,
+                    "length": 44,
+                    "start": {
+                        "line": 6,
+                        "column": 29
+                    },
+                    "end": {
+                        "line": 10,
+                        "column": 1
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Rule",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 107,
+                            "length": 36,
+                            "start": {
+                                "line": 7,
+                                "column": 5
+                            },
+                            "end": {
+                                "line": 9,
+                                "column": 6
+                            }
+                        },
+                        "selector": {
+                            "type": "Selector",
+                            "info": {
+                                "source": "stringify.css",
+                                "offset": 107,
+                                "length": 7,
+                                "start": {
+                                    "line": 7,
+                                    "column": 5
+                                },
+                                "end": {
+                                    "line": 7,
+                                    "column": 12
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "SimpleSelector",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 107,
+                                        "length": 7,
+                                        "start": {
+                                            "line": 7,
+                                            "column": 5
+                                        },
+                                        "end": {
+                                            "line": 7,
+                                            "column": 12
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "Class",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 107,
+                                                "length": 6,
+                                                "start": {
+                                                    "line": 7,
+                                                    "column": 5
+                                                },
+                                                "end": {
+                                                    "line": 7,
+                                                    "column": 11
+                                                }
+                                            },
+                                            "name": "class"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "info": {
+                                "source": "stringify.css",
+                                "offset": 115,
+                                "length": 27,
+                                "start": {
+                                    "line": 7,
+                                    "column": 13
+                                },
+                                "end": {
+                                    "line": 9,
+                                    "column": 5
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 125,
+                                        "length": 10,
+                                        "start": {
+                                            "line": 8,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "line": 8,
+                                            "column": 19
+                                        }
+                                    },
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "info": {
+                                            "source": "stringify.css",
+                                            "offset": 131,
+                                            "length": 4,
+                                            "start": {
+                                                "line": 8,
+                                                "column": 15
+                                            },
+                                            "end": {
+                                                "line": 8,
+                                                "column": 19
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "info": {
+                                                    "source": "stringify.css",
+                                                    "offset": 132,
+                                                    "length": 3,
+                                                    "start": {
+                                                        "line": 8,
+                                                        "column": 16
+                                                    },
+                                                    "end": {
+                                                        "line": 8,
+                                                        "column": 19
+                                                    }
+                                                },
+                                                "name": "red"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Rule",
+            "info": {
+                "source": "stringify.css",
+                "offset": 150,
+                "length": 626,
+                "start": {
+                    "line": 12,
+                    "column": 1
+                },
+                "end": {
+                    "line": 23,
+                    "column": 2
+                }
+            },
+            "selector": {
+                "type": "Selector",
+                "info": {
+                    "source": "stringify.css",
+                    "offset": 150,
+                    "length": 213,
+                    "start": {
+                        "line": 12,
+                        "column": 1
+                    },
+                    "end": {
+                        "line": 14,
+                        "column": 13
+                    }
+                },
+                "children": [
+                    {
+                        "type": "SimpleSelector",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 150,
+                            "length": 116,
+                            "start": {
+                                "line": 12,
+                                "column": 1
+                            },
+                            "end": {
+                                "line": 12,
+                                "column": 117
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "Universal",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 150,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 1
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 2
+                                    }
+                                },
+                                "name": "*"
+                            },
+                            {
+                                "type": "Class",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 151,
+                                    "length": 6,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 2
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 8
+                                    }
+                                },
+                                "name": "class"
+                            },
+                            {
+                                "type": "Combinator",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 157,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 8
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 9
+                                    }
+                                },
+                                "name": " "
+                            },
+                            {
+                                "type": "Type",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 158,
+                                    "length": 7,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 9
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 16
+                                    }
+                                },
+                                "name": "element"
+                            },
+                            {
+                                "type": "Id",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 165,
+                                    "length": 3,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 16
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 19
+                                    }
+                                },
+                                "name": "id"
+                            },
+                            {
+                                "type": "Attribute",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 168,
+                                    "length": 6,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 19
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 25
+                                    }
+                                },
+                                "name": {
+                                    "type": "Identifier",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 169,
+                                        "length": 4,
+                                        "start": {
+                                            "line": 12,
+                                            "column": 20
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "column": 24
+                                        }
+                                    },
+                                    "name": "attr"
+                                },
+                                "operator": null,
+                                "value": null,
+                                "flags": null
+                            },
+                            {
+                                "type": "Combinator",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 174,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 25
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 26
+                                    }
+                                },
+                                "name": " "
+                            },
+                            {
+                                "type": "Attribute",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 175,
+                                    "length": 13,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 26
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 39
+                                    }
+                                },
+                                "name": {
+                                    "type": "Identifier",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 176,
+                                        "length": 4,
+                                        "start": {
+                                            "line": 12,
+                                            "column": 27
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "column": 31
+                                        }
+                                    },
+                                    "name": "attr"
+                                },
+                                "operator": "|=",
+                                "value": {
+                                    "type": "String",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 182,
+                                        "length": 5,
+                                        "start": {
+                                            "line": 12,
+                                            "column": 33
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "column": 38
+                                        }
+                                    },
+                                    "value": "\"asd\""
+                                },
+                                "flags": null
+                            },
+                            {
+                                "type": "Attribute",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 188,
+                                    "length": 14,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 39
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 53
+                                    }
+                                },
+                                "name": {
+                                    "type": "Identifier",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 189,
+                                        "length": 4,
+                                        "start": {
+                                            "line": 12,
+                                            "column": 40
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "column": 44
+                                        }
+                                    },
+                                    "name": "attr"
+                                },
+                                "operator": "=",
+                                "value": {
+                                    "type": "Identifier",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 194,
+                                        "length": 5,
+                                        "start": {
+                                            "line": 12,
+                                            "column": 45
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "column": 50
+                                        }
+                                    },
+                                    "name": "value"
+                                },
+                                "flags": "i"
+                            },
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 202,
+                                    "length": 7,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 53
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 60
+                                    }
+                                },
+                                "name": "pseudo",
+                                "children": null
+                            },
+                            {
+                                "type": "PseudoElement",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 209,
+                                    "length": 8,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 60
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 68
+                                    }
+                                },
+                                "name": "pseudo",
+                                "children": null,
+                                "legacy": false
+                            },
+                            {
+                                "type": "Combinator",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 218,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 69
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 70
+                                    }
+                                },
+                                "name": "~"
+                            },
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 220,
+                                    "length": 10,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 71
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 81
+                                    }
+                                },
+                                "name": "not",
+                                "children": [
+                                    {
+                                        "type": "Selector",
+                                        "info": {
+                                            "source": "stringify.css",
+                                            "offset": 225,
+                                            "length": 4,
+                                            "start": {
+                                                "line": 12,
+                                                "column": 76
+                                            },
+                                            "end": {
+                                                "line": 12,
+                                                "column": 80
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "SimpleSelector",
+                                                "info": {
+                                                    "source": "stringify.css",
+                                                    "offset": 225,
+                                                    "length": 1,
+                                                    "start": {
+                                                        "line": 12,
+                                                        "column": 76
+                                                    },
+                                                    "end": {
+                                                        "line": 12,
+                                                        "column": 77
+                                                    }
+                                                },
+                                                "children": [
+                                                    {
+                                                        "type": "Type",
+                                                        "info": {
+                                                            "source": "stringify.css",
+                                                            "offset": 225,
+                                                            "length": 1,
+                                                            "start": {
+                                                                "line": 12,
+                                                                "column": 76
+                                                            },
+                                                            "end": {
+                                                                "line": 12,
+                                                                "column": 77
+                                                            }
+                                                        },
+                                                        "name": "a"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "SimpleSelector",
+                                                "info": {
+                                                    "source": "stringify.css",
+                                                    "offset": 227,
+                                                    "length": 2,
+                                                    "start": {
+                                                        "line": 12,
+                                                        "column": 78
+                                                    },
+                                                    "end": {
+                                                        "line": 12,
+                                                        "column": 80
+                                                    }
+                                                },
+                                                "children": [
+                                                    {
+                                                        "type": "Type",
+                                                        "info": {
+                                                            "source": "stringify.css",
+                                                            "offset": 228,
+                                                            "length": 1,
+                                                            "start": {
+                                                                "line": 12,
+                                                                "column": 79
+                                                            },
+                                                            "end": {
+                                                                "line": 12,
+                                                                "column": 80
+                                                            }
+                                                        },
+                                                        "name": "b"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Combinator",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 231,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 82
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 83
+                                    }
+                                },
+                                "name": "+"
+                            },
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 233,
+                                    "length": 15,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 84
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 99
+                                    }
+                                },
+                                "name": "nth-child",
+                                "children": [
+                                    {
+                                        "type": "Nth",
+                                        "nth": {
+                                            "type": "Identifier",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 244,
+                                                "length": 3,
+                                                "start": {
+                                                    "line": 12,
+                                                    "column": 95
+                                                },
+                                                "end": {
+                                                    "line": 12,
+                                                    "column": 98
+                                                }
+                                            },
+                                            "name": "odd"
+                                        },
+                                        "selector": null
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 248,
+                                    "length": 18,
+                                    "start": {
+                                        "line": 12,
+                                        "column": 99
+                                    },
+                                    "end": {
+                                        "line": 12,
+                                        "column": 117
+                                    }
+                                },
+                                "name": "nth-child",
+                                "children": [
+                                    {
+                                        "type": "Nth",
+                                        "nth": {
+                                            "type": "An+B",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 259,
+                                                "length": 6,
+                                                "start": {
+                                                    "line": 12,
+                                                    "column": 110
+                                                },
+                                                "end": {
+                                                    "line": 12,
+                                                    "column": 116
+                                                }
+                                            },
+                                            "a": "2",
+                                            "b": "1"
+                                        },
+                                        "selector": null
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "SimpleSelector",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 267,
+                            "length": 81,
+                            "start": {
+                                "line": 12,
+                                "column": 118
+                            },
+                            "end": {
+                                "line": 13,
+                                "column": 80
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "Universal",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 269,
+                                    "length": 5,
+                                    "start": {
+                                        "line": 13,
+                                        "column": 1
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "column": 6
+                                    }
+                                },
+                                "name": "svg|*"
+                            },
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 274,
+                                    "length": 10,
+                                    "start": {
+                                        "line": 13,
+                                        "column": 6
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "column": 16
+                                    }
+                                },
+                                "name": "matches",
+                                "children": [
+                                    {
+                                        "type": "Selector",
+                                        "info": {
+                                            "source": "stringify.css",
+                                            "offset": 283,
+                                            "length": 0,
+                                            "start": {
+                                                "line": 13,
+                                                "column": 15
+                                            },
+                                            "end": {
+                                                "line": 13,
+                                                "column": 15
+                                            }
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "PseudoElement",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 284,
+                                    "length": 12,
+                                    "start": {
+                                        "line": 13,
+                                        "column": 16
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "column": 28
+                                    }
+                                },
+                                "name": "slotted",
+                                "children": [
+                                    {
+                                        "type": "SimpleSelector",
+                                        "info": {
+                                            "source": "stringify.css",
+                                            "offset": 294,
+                                            "length": 1,
+                                            "start": {
+                                                "line": 13,
+                                                "column": 26
+                                            },
+                                            "end": {
+                                                "line": 13,
+                                                "column": 27
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Type",
+                                                "info": {
+                                                    "source": "stringify.css",
+                                                    "offset": 294,
+                                                    "length": 1,
+                                                    "start": {
+                                                        "line": 13,
+                                                        "column": 26
+                                                    },
+                                                    "end": {
+                                                        "line": 13,
+                                                        "column": 27
+                                                    }
+                                                },
+                                                "name": "c"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "legacy": false
+                            },
+                            {
+                                "type": "Combinator",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 297,
+                                    "length": 1,
+                                    "start": {
+                                        "line": 13,
+                                        "column": 29
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "column": 30
+                                    }
+                                },
+                                "name": ">"
+                            },
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 299,
+                                    "length": 24,
+                                    "start": {
+                                        "line": 13,
+                                        "column": 31
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "column": 55
+                                    }
+                                },
+                                "name": "nth-child",
+                                "children": [
+                                    {
+                                        "type": "Nth",
+                                        "nth": {
+                                            "type": "Identifier",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 310,
+                                                "length": 3,
+                                                "start": {
+                                                    "line": 13,
+                                                    "column": 42
+                                                },
+                                                "end": {
+                                                    "line": 13,
+                                                    "column": 45
+                                                }
+                                            },
+                                            "name": "odd"
+                                        },
+                                        "selector": {
+                                            "type": "Selector",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 316,
+                                                "length": 6,
+                                                "start": {
+                                                    "line": 13,
+                                                    "column": 48
+                                                },
+                                                "end": {
+                                                    "line": 13,
+                                                    "column": 54
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "type": "SimpleSelector",
+                                                    "info": {
+                                                        "source": "stringify.css",
+                                                        "offset": 316,
+                                                        "length": 2,
+                                                        "start": {
+                                                            "line": 13,
+                                                            "column": 48
+                                                        },
+                                                        "end": {
+                                                            "line": 13,
+                                                            "column": 50
+                                                        }
+                                                    },
+                                                    "children": [
+                                                        {
+                                                            "type": "Type",
+                                                            "info": {
+                                                                "source": "stringify.css",
+                                                                "offset": 317,
+                                                                "length": 1,
+                                                                "start": {
+                                                                    "line": 13,
+                                                                    "column": 49
+                                                                },
+                                                                "end": {
+                                                                    "line": 13,
+                                                                    "column": 50
+                                                                }
+                                                            },
+                                                            "name": "a"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "SimpleSelector",
+                                                    "info": {
+                                                        "source": "stringify.css",
+                                                        "offset": 319,
+                                                        "length": 3,
+                                                        "start": {
+                                                            "line": 13,
+                                                            "column": 51
+                                                        },
+                                                        "end": {
+                                                            "line": 13,
+                                                            "column": 54
+                                                        }
+                                                    },
+                                                    "children": [
+                                                        {
+                                                            "type": "PseudoClass",
+                                                            "info": {
+                                                                "source": "stringify.css",
+                                                                "offset": 320,
+                                                                "length": 2,
+                                                                "start": {
+                                                                    "line": 13,
+                                                                    "column": 52
+                                                                },
+                                                                "end": {
+                                                                    "line": 13,
+                                                                    "column": 54
+                                                                }
+                                                            },
+                                                            "name": "b",
+                                                            "children": null
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 323,
+                                    "length": 25,
+                                    "start": {
+                                        "line": 13,
+                                        "column": 55
+                                    },
+                                    "end": {
+                                        "line": 13,
+                                        "column": 80
+                                    }
+                                },
+                                "name": "nth-child",
+                                "children": [
+                                    {
+                                        "type": "Nth",
+                                        "nth": {
+                                            "type": "An+B",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 334,
+                                                "length": 6,
+                                                "start": {
+                                                    "line": 13,
+                                                    "column": 66
+                                                },
+                                                "end": {
+                                                    "line": 13,
+                                                    "column": 72
+                                                }
+                                            },
+                                            "a": "2",
+                                            "b": "1"
+                                        },
+                                        "selector": {
+                                            "type": "Selector",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 343,
+                                                "length": 4,
+                                                "start": {
+                                                    "line": 13,
+                                                    "column": 75
+                                                },
+                                                "end": {
+                                                    "line": 13,
+                                                    "column": 79
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "type": "SimpleSelector",
+                                                    "info": {
+                                                        "source": "stringify.css",
+                                                        "offset": 343,
+                                                        "length": 4,
+                                                        "start": {
+                                                            "line": 13,
+                                                            "column": 75
+                                                        },
+                                                        "end": {
+                                                            "line": 13,
+                                                            "column": 79
+                                                        }
+                                                    },
+                                                    "children": [
+                                                        {
+                                                            "type": "Attribute",
+                                                            "info": {
+                                                                "source": "stringify.css",
+                                                                "offset": 344,
+                                                                "length": 3,
+                                                                "start": {
+                                                                    "line": 13,
+                                                                    "column": 76
+                                                                },
+                                                                "end": {
+                                                                    "line": 13,
+                                                                    "column": 79
+                                                                }
+                                                            },
+                                                            "name": {
+                                                                "type": "Identifier",
+                                                                "info": {
+                                                                    "source": "stringify.css",
+                                                                    "offset": 345,
+                                                                    "length": 1,
+                                                                    "start": {
+                                                                        "line": 13,
+                                                                        "column": 77
+                                                                    },
+                                                                    "end": {
+                                                                        "line": 13,
+                                                                        "column": 78
+                                                                    }
+                                                                },
+                                                                "name": "a"
+                                                            },
+                                                            "operator": null,
+                                                            "value": null,
+                                                            "flags": null
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "SimpleSelector",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 349,
+                            "length": 14,
+                            "start": {
+                                "line": 13,
+                                "column": 81
+                            },
+                            "end": {
+                                "line": 14,
+                                "column": 13
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "PseudoClass",
+                                "info": {
+                                    "source": "stringify.css",
+                                    "offset": 351,
+                                    "length": 11,
+                                    "start": {
+                                        "line": 14,
+                                        "column": 1
+                                    },
+                                    "end": {
+                                        "line": 14,
+                                        "column": 12
+                                    }
+                                },
+                                "name": "has",
+                                "children": [
+                                    {
+                                        "type": "Selector",
+                                        "info": {
+                                            "source": "stringify.css",
+                                            "offset": 356,
+                                            "length": 5,
+                                            "start": {
+                                                "line": 14,
+                                                "column": 6
+                                            },
+                                            "end": {
+                                                "line": 14,
+                                                "column": 11
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "SimpleSelector",
+                                                "info": {
+                                                    "source": "stringify.css",
+                                                    "offset": 356,
+                                                    "length": 5,
+                                                    "start": {
+                                                        "line": 14,
+                                                        "column": 6
+                                                    },
+                                                    "end": {
+                                                        "line": 14,
+                                                        "column": 11
+                                                    }
+                                                },
+                                                "children": [
+                                                    {
+                                                        "type": "Combinator",
+                                                        "info": {
+                                                            "source": "stringify.css",
+                                                            "offset": 356,
+                                                            "length": 1,
+                                                            "start": {
+                                                                "line": 14,
+                                                                "column": 6
+                                                            },
+                                                            "end": {
+                                                                "line": 14,
+                                                                "column": 7
+                                                            }
+                                                        },
+                                                        "name": ">"
+                                                    },
+                                                    {
+                                                        "type": "Type",
+                                                        "info": {
+                                                            "source": "stringify.css",
+                                                            "offset": 358,
+                                                            "length": 3,
+                                                            "start": {
+                                                                "line": 14,
+                                                                "column": 8
+                                                            },
+                                                            "end": {
+                                                                "line": 14,
+                                                                "column": 11
+                                                            }
+                                                        },
+                                                        "name": "img"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "info": {
+                    "source": "stringify.css",
+                    "offset": 364,
+                    "length": 411,
+                    "start": {
+                        "line": 14,
+                        "column": 14
+                    },
+                    "end": {
+                        "line": 23,
+                        "column": 1
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 370,
+                            "length": 12,
+                            "start": {
+                                "line": 15,
+                                "column": 5
+                            },
+                            "end": {
+                                "line": 15,
+                                "column": 17
+                            }
+                        },
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "info": {
+                                "source": "stringify.css",
+                                "offset": 376,
+                                "length": 6,
+                                "start": {
+                                    "line": 15,
+                                    "column": 11
+                                },
+                                "end": {
+                                    "line": 15,
+                                    "column": 17
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 377,
+                                        "length": 5,
+                                        "start": {
+                                            "line": 15,
+                                            "column": 12
+                                        },
+                                        "end": {
+                                            "line": 15,
+                                            "column": 17
+                                        }
+                                    },
+                                    "name": "green"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 389,
+                            "length": 112,
+                            "start": {
+                                "line": 16,
+                                "column": 5
+                            },
+                            "end": {
+                                "line": 16,
+                                "column": 117
+                            }
+                        },
+                        "important": false,
+                        "property": "filter",
+                        "value": {
+                            "type": "Value",
+                            "info": {
+                                "source": "stringify.css",
+                                "offset": 396,
+                                "length": 105,
+                                "start": {
+                                    "line": 16,
+                                    "column": 12
+                                },
+                                "end": {
+                                    "line": 16,
+                                    "column": 117
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Progid",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 397,
+                                        "length": 86,
+                                        "start": {
+                                            "line": 16,
+                                            "column": 13
+                                        },
+                                        "end": {
+                                            "line": 16,
+                                            "column": 99
+                                        }
+                                    },
+                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img.png',sizingMethod='scale')"
+                                },
+                                {
+                                    "type": "Progid",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 484,
+                                        "length": 17,
+                                        "start": {
+                                            "line": 16,
+                                            "column": 100
+                                        },
+                                        "end": {
+                                            "line": 16,
+                                            "column": 117
+                                        }
+                                    },
+                                    "value": "alpha(opacity=80)"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 508,
+                            "length": 24,
+                            "start": {
+                                "line": 17,
+                                "column": 5
+                            },
+                            "end": {
+                                "line": 17,
+                                "column": 29
+                            }
+                        },
+                        "important": false,
+                        "property": "width",
+                        "value": {
+                            "type": "Value",
+                            "info": {
+                                "source": "stringify.css",
+                                "offset": 514,
+                                "length": 18,
+                                "start": {
+                                    "line": 17,
+                                    "column": 11
+                                },
+                                "end": {
+                                    "line": 17,
+                                    "column": 29
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Function",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 515,
+                                        "length": 17,
+                                        "start": {
+                                            "line": 17,
+                                            "column": 12
+                                        },
+                                        "end": {
+                                            "line": 17,
+                                            "column": 29
+                                        }
+                                    },
+                                    "name": "expression",
+                                    "children": [
+                                        {
+                                            "type": "Raw",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 526,
+                                                "length": 5,
+                                                "start": {
+                                                    "line": 17,
+                                                    "column": 23
+                                                },
+                                                "end": {
+                                                    "line": 17,
+                                                    "column": 28
+                                                }
+                                            },
+                                            "value": "1 + 2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "info": {
+                            "source": "stringify.css",
+                            "offset": 539,
+                            "length": 233,
+                            "start": {
+                                "line": 18,
+                                "column": 5
+                            },
+                            "end": {
+                                "line": 22,
+                                "column": 89
+                            }
+                        },
+                        "important": true,
+                        "property": "background",
+                        "value": {
+                            "type": "Value",
+                            "info": {
+                                "source": "stringify.css",
+                                "offset": 550,
+                                "length": 212,
+                                "start": {
+                                    "line": 18,
+                                    "column": 16
+                                },
+                                "end": {
+                                    "line": 22,
+                                    "column": 79
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 560,
+                                        "length": 5,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 14
+                                        }
+                                    },
+                                    "name": "ident"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Number",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 566,
+                                        "length": 6,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 15
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 21
+                                        }
+                                    },
+                                    "value": "1.2e+3"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Percentage",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 573,
+                                        "length": 4,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 22
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 26
+                                        }
+                                    },
+                                    "value": "100"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Dimension",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 578,
+                                        "length": 3,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 27
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 30
+                                        }
+                                    },
+                                    "value": "4",
+                                    "unit": "em"
+                                },
+                                {
+                                    "type": "Operator",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 581,
+                                        "length": 1,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 30
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 31
+                                        }
+                                    },
+                                    "value": "/"
+                                },
+                                {
+                                    "type": "Dimension",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 582,
+                                        "length": 3,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 31
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 34
+                                        }
+                                    },
+                                    "value": "5",
+                                    "unit": "ex"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Function",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 586,
+                                        "length": 18,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 35
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 53
+                                        }
+                                    },
+                                    "name": "calc",
+                                    "children": [
+                                        {
+                                            "type": "Dimension",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 591,
+                                                "length": 3,
+                                                "start": {
+                                                    "line": 19,
+                                                    "column": 40
+                                                },
+                                                "end": {
+                                                    "line": 19,
+                                                    "column": 43
+                                                }
+                                            },
+                                            "value": "1",
+                                            "unit": "em"
+                                        },
+                                        {
+                                            "type": "Space"
+                                        },
+                                        {
+                                            "type": "Operator",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 595,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 19,
+                                                    "column": 44
+                                                },
+                                                "end": {
+                                                    "line": 19,
+                                                    "column": 45
+                                                }
+                                            },
+                                            "value": "+"
+                                        },
+                                        {
+                                            "type": "Space"
+                                        },
+                                        {
+                                            "type": "Percentage",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 597,
+                                                "length": 2,
+                                                "start": {
+                                                    "line": 19,
+                                                    "column": 46
+                                                },
+                                                "end": {
+                                                    "line": 19,
+                                                    "column": 48
+                                                }
+                                            },
+                                            "value": "3"
+                                        },
+                                        {
+                                            "type": "Operator",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 600,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 19,
+                                                    "column": 49
+                                                },
+                                                "end": {
+                                                    "line": 19,
+                                                    "column": 50
+                                                }
+                                            },
+                                            "value": "*"
+                                        },
+                                        {
+                                            "type": "Number",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 602,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 19,
+                                                    "column": 51
+                                                },
+                                                "end": {
+                                                    "line": 19,
+                                                    "column": 52
+                                                }
+                                            },
+                                            "value": "5"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Operator",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 604,
+                                        "length": 1,
+                                        "start": {
+                                            "line": 19,
+                                            "column": 53
+                                        },
+                                        "end": {
+                                            "line": 19,
+                                            "column": 54
+                                        }
+                                    },
+                                    "value": ","
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Url",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 615,
+                                        "length": 16,
+                                        "start": {
+                                            "line": 20,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "line": 20,
+                                            "column": 25
+                                        }
+                                    },
+                                    "value": {
+                                        "type": "Raw",
+                                        "info": {
+                                            "source": "stringify.css",
+                                            "offset": 619,
+                                            "length": 11,
+                                            "start": {
+                                                "line": 20,
+                                                "column": 13
+                                            },
+                                            "end": {
+                                                "line": 20,
+                                                "column": 24
+                                            }
+                                        },
+                                        "value": "path/to.png"
+                                    }
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Url",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 632,
+                                        "length": 22,
+                                        "start": {
+                                            "line": 20,
+                                            "column": 26
+                                        },
+                                        "end": {
+                                            "line": 20,
+                                            "column": 48
+                                        }
+                                    },
+                                    "value": {
+                                        "type": "String",
+                                        "info": {
+                                            "source": "stringify.css",
+                                            "offset": 637,
+                                            "length": 15,
+                                            "start": {
+                                                "line": 20,
+                                                "column": 31
+                                            },
+                                            "end": {
+                                                "line": 20,
+                                                "column": 46
+                                            }
+                                        },
+                                        "value": "'path/test.svg'"
+                                    }
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "UnicodeRange",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 664,
+                                        "length": 9,
+                                        "start": {
+                                            "line": 21,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "line": 21,
+                                            "column": 18
+                                        }
+                                    },
+                                    "value": "u+123-456"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "UnicodeRange",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 674,
+                                        "length": 8,
+                                        "start": {
+                                            "line": 21,
+                                            "column": 19
+                                        },
+                                        "end": {
+                                            "line": 21,
+                                            "column": 27
+                                        }
+                                    },
+                                    "value": "u+123???"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Function",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 692,
+                                        "length": 16,
+                                        "start": {
+                                            "line": 22,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "line": 22,
+                                            "column": 25
+                                        }
+                                    },
+                                    "name": "rgba",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 697,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 14
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 15
+                                                }
+                                            },
+                                            "value": "1"
+                                        },
+                                        {
+                                            "type": "Operator",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 698,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 15
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 16
+                                                }
+                                            },
+                                            "value": ","
+                                        },
+                                        {
+                                            "type": "Number",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 700,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 17
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 18
+                                                }
+                                            },
+                                            "value": "2"
+                                        },
+                                        {
+                                            "type": "Operator",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 701,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 18
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 19
+                                                }
+                                            },
+                                            "value": ","
+                                        },
+                                        {
+                                            "type": "Number",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 703,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 20
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 21
+                                                }
+                                            },
+                                            "value": "3"
+                                        },
+                                        {
+                                            "type": "Operator",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 704,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 21
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 22
+                                                }
+                                            },
+                                            "value": ","
+                                        },
+                                        {
+                                            "type": "Number",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 706,
+                                                "length": 1,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 23
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 24
+                                                }
+                                            },
+                                            "value": "4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Hash",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 709,
+                                        "length": 4,
+                                        "start": {
+                                            "line": 22,
+                                            "column": 26
+                                        },
+                                        "end": {
+                                            "line": 22,
+                                            "column": 30
+                                        }
+                                    },
+                                    "value": "asd"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Hash",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 714,
+                                        "length": 7,
+                                        "start": {
+                                            "line": 22,
+                                            "column": 31
+                                        },
+                                        "end": {
+                                            "line": 22,
+                                            "column": 38
+                                        }
+                                    },
+                                    "value": "123abc"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "String",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 722,
+                                        "length": 8,
+                                        "start": {
+                                            "line": 22,
+                                            "column": 39
+                                        },
+                                        "end": {
+                                            "line": 22,
+                                            "column": 47
+                                        }
+                                    },
+                                    "value": "\"string\""
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "String",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 731,
+                                        "length": 8,
+                                        "start": {
+                                            "line": 22,
+                                            "column": 48
+                                        },
+                                        "end": {
+                                            "line": 22,
+                                            "column": 56
+                                        }
+                                    },
+                                    "value": "'string'"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Parentheses",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 740,
+                                        "length": 13,
+                                        "start": {
+                                            "line": 22,
+                                            "column": 57
+                                        },
+                                        "end": {
+                                            "line": 22,
+                                            "column": 70
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 741,
+                                                "length": 11,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 58
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 69
+                                                }
+                                            },
+                                            "name": "parenthesis"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Brackets",
+                                    "info": {
+                                        "source": "stringify.css",
+                                        "offset": 754,
+                                        "length": 7,
+                                        "start": {
+                                            "line": 22,
+                                            "column": 71
+                                        },
+                                        "end": {
+                                            "line": 22,
+                                            "column": 78
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "info": {
+                                                "source": "stringify.css",
+                                                "offset": 755,
+                                                "length": 5,
+                                                "start": {
+                                                    "line": 22,
+                                                    "column": 72
+                                                },
+                                                "end": {
+                                                    "line": 22,
+                                                    "column": 77
+                                                }
+                                            },
+                                            "name": "ident"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
