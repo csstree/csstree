@@ -26,7 +26,7 @@ describe('translateWithSourceMap', function() {
         }, /Unknown node type/);
     });
 
-    it.only('should generate a map', function() {
+    it('should generate a map', function() {
         var ast = parse('.a {\n  color: red;\n}\n', {
             filename: 'test.css',
             positions: true

@@ -3,7 +3,7 @@
     "info": {
         "source": "stringify.css",
         "offset": 0,
-        "length": 778,
+        "length": 755,
         "start": {
             "line": 1,
             "column": 1
@@ -35,7 +35,7 @@
             "type": "Atrule",
             "info": {
                 "source": "stringify.css",
-                "offset": 18,
+                "offset": 17,
                 "length": 17,
                 "start": {
                     "line": 2,
@@ -51,7 +51,7 @@
                 "type": "AtruleExpression",
                 "info": {
                     "source": "stringify.css",
-                    "offset": 27,
+                    "offset": 26,
                     "length": 7,
                     "start": {
                         "line": 2,
@@ -67,7 +67,7 @@
                         "type": "String",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 27,
+                            "offset": 26,
                             "length": 7,
                             "start": {
                                 "line": 2,
@@ -88,8 +88,8 @@
             "type": "Atrule",
             "info": {
                 "source": "stringify.css",
-                "offset": 37,
-                "length": 34,
+                "offset": 35,
+                "length": 32,
                 "start": {
                     "line": 3,
                     "column": 1
@@ -104,7 +104,7 @@
                 "type": "AtruleExpression",
                 "info": {
                     "source": "stringify.css",
-                    "offset": 43,
+                    "offset": 41,
                     "length": 5,
                     "start": {
                         "line": 3,
@@ -120,7 +120,7 @@
                         "type": "PseudoClass",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 43,
+                            "offset": 41,
                             "length": 5,
                             "start": {
                                 "line": 3,
@@ -140,8 +140,8 @@
                 "type": "Block",
                 "info": {
                     "source": "stringify.css",
-                    "offset": 50,
-                    "length": 20,
+                    "offset": 48,
+                    "length": 18,
                     "start": {
                         "line": 3,
                         "column": 14
@@ -156,7 +156,7 @@
                         "type": "Declaration",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 56,
+                            "offset": 53,
                             "length": 11,
                             "start": {
                                 "line": 4,
@@ -173,7 +173,7 @@
                             "type": "Value",
                             "info": {
                                 "source": "stringify.css",
-                                "offset": 63,
+                                "offset": 60,
                                 "length": 4,
                                 "start": {
                                     "line": 4,
@@ -189,7 +189,7 @@
                                     "type": "Dimension",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 64,
+                                        "offset": 61,
                                         "length": 3,
                                         "start": {
                                             "line": 4,
@@ -213,8 +213,8 @@
             "type": "Atrule",
             "info": {
                 "source": "stringify.css",
-                "offset": 73,
-                "length": 73,
+                "offset": 68,
+                "length": 69,
                 "start": {
                     "line": 6,
                     "column": 1
@@ -229,7 +229,7 @@
                 "type": "AtruleExpression",
                 "info": {
                     "source": "stringify.css",
-                    "offset": 80,
+                    "offset": 75,
                     "length": 19,
                     "start": {
                         "line": 6,
@@ -245,7 +245,7 @@
                         "type": "Identifier",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 80,
+                            "offset": 75,
                             "length": 6,
                             "start": {
                                 "line": 6,
@@ -265,7 +265,7 @@
                         "type": "Identifier",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 87,
+                            "offset": 82,
                             "length": 3,
                             "start": {
                                 "line": 6,
@@ -285,7 +285,7 @@
                         "type": "Parentheses",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 91,
+                            "offset": 86,
                             "length": 8,
                             "start": {
                                 "line": 6,
@@ -301,7 +301,7 @@
                                 "type": "Identifier",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 92,
+                                    "offset": 87,
                                     "length": 3,
                                     "start": {
                                         "line": 6,
@@ -318,7 +318,7 @@
                                 "type": "Operator",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 95,
+                                    "offset": 90,
                                     "length": 1,
                                     "start": {
                                         "line": 6,
@@ -338,7 +338,7 @@
                                 "type": "Number",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 97,
+                                    "offset": 92,
                                     "length": 1,
                                     "start": {
                                         "line": 6,
@@ -359,8 +359,8 @@
                 "type": "StyleSheet",
                 "info": {
                     "source": "stringify.css",
-                    "offset": 101,
-                    "length": 44,
+                    "offset": 96,
+                    "length": 40,
                     "start": {
                         "line": 6,
                         "column": 29
@@ -375,8 +375,8 @@
                         "type": "Rule",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 107,
-                            "length": 36,
+                            "offset": 101,
+                            "length": 34,
                             "start": {
                                 "line": 7,
                                 "column": 5
@@ -390,7 +390,7 @@
                             "type": "Selector",
                             "info": {
                                 "source": "stringify.css",
-                                "offset": 107,
+                                "offset": 101,
                                 "length": 7,
                                 "start": {
                                     "line": 7,
@@ -406,7 +406,7 @@
                                     "type": "SimpleSelector",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 107,
+                                        "offset": 101,
                                         "length": 7,
                                         "start": {
                                             "line": 7,
@@ -422,7 +422,7 @@
                                             "type": "Class",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 107,
+                                                "offset": 101,
                                                 "length": 6,
                                                 "start": {
                                                     "line": 7,
@@ -443,8 +443,8 @@
                             "type": "Block",
                             "info": {
                                 "source": "stringify.css",
-                                "offset": 115,
-                                "length": 27,
+                                "offset": 109,
+                                "length": 25,
                                 "start": {
                                     "line": 7,
                                     "column": 13
@@ -459,7 +459,7 @@
                                     "type": "Declaration",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 125,
+                                        "offset": 118,
                                         "length": 10,
                                         "start": {
                                             "line": 8,
@@ -476,7 +476,7 @@
                                         "type": "Value",
                                         "info": {
                                             "source": "stringify.css",
-                                            "offset": 131,
+                                            "offset": 124,
                                             "length": 4,
                                             "start": {
                                                 "line": 8,
@@ -492,7 +492,7 @@
                                                 "type": "Identifier",
                                                 "info": {
                                                     "source": "stringify.css",
-                                                    "offset": 132,
+                                                    "offset": 125,
                                                     "length": 3,
                                                     "start": {
                                                         "line": 8,
@@ -518,8 +518,8 @@
             "type": "Rule",
             "info": {
                 "source": "stringify.css",
-                "offset": 150,
-                "length": 626,
+                "offset": 139,
+                "length": 615,
                 "start": {
                     "line": 12,
                     "column": 1
@@ -533,8 +533,8 @@
                 "type": "Selector",
                 "info": {
                     "source": "stringify.css",
-                    "offset": 150,
-                    "length": 213,
+                    "offset": 139,
+                    "length": 211,
                     "start": {
                         "line": 12,
                         "column": 1
@@ -549,7 +549,7 @@
                         "type": "SimpleSelector",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 150,
+                            "offset": 139,
                             "length": 116,
                             "start": {
                                 "line": 12,
@@ -565,7 +565,7 @@
                                 "type": "Universal",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 150,
+                                    "offset": 139,
                                     "length": 1,
                                     "start": {
                                         "line": 12,
@@ -582,7 +582,7 @@
                                 "type": "Class",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 151,
+                                    "offset": 140,
                                     "length": 6,
                                     "start": {
                                         "line": 12,
@@ -599,7 +599,7 @@
                                 "type": "Combinator",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 157,
+                                    "offset": 146,
                                     "length": 1,
                                     "start": {
                                         "line": 12,
@@ -616,7 +616,7 @@
                                 "type": "Type",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 158,
+                                    "offset": 147,
                                     "length": 7,
                                     "start": {
                                         "line": 12,
@@ -633,7 +633,7 @@
                                 "type": "Id",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 165,
+                                    "offset": 154,
                                     "length": 3,
                                     "start": {
                                         "line": 12,
@@ -650,7 +650,7 @@
                                 "type": "Attribute",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 168,
+                                    "offset": 157,
                                     "length": 6,
                                     "start": {
                                         "line": 12,
@@ -665,7 +665,7 @@
                                     "type": "Identifier",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 169,
+                                        "offset": 158,
                                         "length": 4,
                                         "start": {
                                             "line": 12,
@@ -686,7 +686,7 @@
                                 "type": "Combinator",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 174,
+                                    "offset": 163,
                                     "length": 1,
                                     "start": {
                                         "line": 12,
@@ -703,7 +703,7 @@
                                 "type": "Attribute",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 175,
+                                    "offset": 164,
                                     "length": 13,
                                     "start": {
                                         "line": 12,
@@ -718,7 +718,7 @@
                                     "type": "Identifier",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 176,
+                                        "offset": 165,
                                         "length": 4,
                                         "start": {
                                             "line": 12,
@@ -736,7 +736,7 @@
                                     "type": "String",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 182,
+                                        "offset": 171,
                                         "length": 5,
                                         "start": {
                                             "line": 12,
@@ -755,7 +755,7 @@
                                 "type": "Attribute",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 188,
+                                    "offset": 177,
                                     "length": 14,
                                     "start": {
                                         "line": 12,
@@ -770,7 +770,7 @@
                                     "type": "Identifier",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 189,
+                                        "offset": 178,
                                         "length": 4,
                                         "start": {
                                             "line": 12,
@@ -788,7 +788,7 @@
                                     "type": "Identifier",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 194,
+                                        "offset": 183,
                                         "length": 5,
                                         "start": {
                                             "line": 12,
@@ -807,7 +807,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 202,
+                                    "offset": 191,
                                     "length": 7,
                                     "start": {
                                         "line": 12,
@@ -825,7 +825,7 @@
                                 "type": "PseudoElement",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 209,
+                                    "offset": 198,
                                     "length": 8,
                                     "start": {
                                         "line": 12,
@@ -844,7 +844,7 @@
                                 "type": "Combinator",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 218,
+                                    "offset": 207,
                                     "length": 1,
                                     "start": {
                                         "line": 12,
@@ -861,7 +861,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 220,
+                                    "offset": 209,
                                     "length": 10,
                                     "start": {
                                         "line": 12,
@@ -878,7 +878,7 @@
                                         "type": "Selector",
                                         "info": {
                                             "source": "stringify.css",
-                                            "offset": 225,
+                                            "offset": 214,
                                             "length": 4,
                                             "start": {
                                                 "line": 12,
@@ -894,7 +894,7 @@
                                                 "type": "SimpleSelector",
                                                 "info": {
                                                     "source": "stringify.css",
-                                                    "offset": 225,
+                                                    "offset": 214,
                                                     "length": 1,
                                                     "start": {
                                                         "line": 12,
@@ -910,7 +910,7 @@
                                                         "type": "Type",
                                                         "info": {
                                                             "source": "stringify.css",
-                                                            "offset": 225,
+                                                            "offset": 214,
                                                             "length": 1,
                                                             "start": {
                                                                 "line": 12,
@@ -929,7 +929,7 @@
                                                 "type": "SimpleSelector",
                                                 "info": {
                                                     "source": "stringify.css",
-                                                    "offset": 227,
+                                                    "offset": 216,
                                                     "length": 2,
                                                     "start": {
                                                         "line": 12,
@@ -945,7 +945,7 @@
                                                         "type": "Type",
                                                         "info": {
                                                             "source": "stringify.css",
-                                                            "offset": 228,
+                                                            "offset": 217,
                                                             "length": 1,
                                                             "start": {
                                                                 "line": 12,
@@ -968,7 +968,7 @@
                                 "type": "Combinator",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 231,
+                                    "offset": 220,
                                     "length": 1,
                                     "start": {
                                         "line": 12,
@@ -985,7 +985,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 233,
+                                    "offset": 222,
                                     "length": 15,
                                     "start": {
                                         "line": 12,
@@ -1004,7 +1004,7 @@
                                             "type": "Identifier",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 244,
+                                                "offset": 233,
                                                 "length": 3,
                                                 "start": {
                                                     "line": 12,
@@ -1025,7 +1025,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 248,
+                                    "offset": 237,
                                     "length": 18,
                                     "start": {
                                         "line": 12,
@@ -1044,7 +1044,7 @@
                                             "type": "An+B",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 259,
+                                                "offset": 248,
                                                 "length": 6,
                                                 "start": {
                                                     "line": 12,
@@ -1068,8 +1068,8 @@
                         "type": "SimpleSelector",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 267,
-                            "length": 81,
+                            "offset": 256,
+                            "length": 80,
                             "start": {
                                 "line": 12,
                                 "column": 118
@@ -1084,7 +1084,7 @@
                                 "type": "Universal",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 269,
+                                    "offset": 257,
                                     "length": 5,
                                     "start": {
                                         "line": 13,
@@ -1101,7 +1101,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 274,
+                                    "offset": 262,
                                     "length": 10,
                                     "start": {
                                         "line": 13,
@@ -1118,7 +1118,7 @@
                                         "type": "Selector",
                                         "info": {
                                             "source": "stringify.css",
-                                            "offset": 283,
+                                            "offset": 271,
                                             "length": 0,
                                             "start": {
                                                 "line": 13,
@@ -1137,7 +1137,7 @@
                                 "type": "PseudoElement",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 284,
+                                    "offset": 272,
                                     "length": 12,
                                     "start": {
                                         "line": 13,
@@ -1154,7 +1154,7 @@
                                         "type": "SimpleSelector",
                                         "info": {
                                             "source": "stringify.css",
-                                            "offset": 294,
+                                            "offset": 282,
                                             "length": 1,
                                             "start": {
                                                 "line": 13,
@@ -1170,7 +1170,7 @@
                                                 "type": "Type",
                                                 "info": {
                                                     "source": "stringify.css",
-                                                    "offset": 294,
+                                                    "offset": 282,
                                                     "length": 1,
                                                     "start": {
                                                         "line": 13,
@@ -1192,7 +1192,7 @@
                                 "type": "Combinator",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 297,
+                                    "offset": 285,
                                     "length": 1,
                                     "start": {
                                         "line": 13,
@@ -1209,7 +1209,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 299,
+                                    "offset": 287,
                                     "length": 24,
                                     "start": {
                                         "line": 13,
@@ -1228,7 +1228,7 @@
                                             "type": "Identifier",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 310,
+                                                "offset": 298,
                                                 "length": 3,
                                                 "start": {
                                                     "line": 13,
@@ -1245,7 +1245,7 @@
                                             "type": "Selector",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 316,
+                                                "offset": 304,
                                                 "length": 6,
                                                 "start": {
                                                     "line": 13,
@@ -1261,7 +1261,7 @@
                                                     "type": "SimpleSelector",
                                                     "info": {
                                                         "source": "stringify.css",
-                                                        "offset": 316,
+                                                        "offset": 304,
                                                         "length": 2,
                                                         "start": {
                                                             "line": 13,
@@ -1277,7 +1277,7 @@
                                                             "type": "Type",
                                                             "info": {
                                                                 "source": "stringify.css",
-                                                                "offset": 317,
+                                                                "offset": 305,
                                                                 "length": 1,
                                                                 "start": {
                                                                     "line": 13,
@@ -1296,7 +1296,7 @@
                                                     "type": "SimpleSelector",
                                                     "info": {
                                                         "source": "stringify.css",
-                                                        "offset": 319,
+                                                        "offset": 307,
                                                         "length": 3,
                                                         "start": {
                                                             "line": 13,
@@ -1312,7 +1312,7 @@
                                                             "type": "PseudoClass",
                                                             "info": {
                                                                 "source": "stringify.css",
-                                                                "offset": 320,
+                                                                "offset": 308,
                                                                 "length": 2,
                                                                 "start": {
                                                                     "line": 13,
@@ -1337,7 +1337,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 323,
+                                    "offset": 311,
                                     "length": 25,
                                     "start": {
                                         "line": 13,
@@ -1356,7 +1356,7 @@
                                             "type": "An+B",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 334,
+                                                "offset": 322,
                                                 "length": 6,
                                                 "start": {
                                                     "line": 13,
@@ -1374,7 +1374,7 @@
                                             "type": "Selector",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 343,
+                                                "offset": 331,
                                                 "length": 4,
                                                 "start": {
                                                     "line": 13,
@@ -1390,7 +1390,7 @@
                                                     "type": "SimpleSelector",
                                                     "info": {
                                                         "source": "stringify.css",
-                                                        "offset": 343,
+                                                        "offset": 331,
                                                         "length": 4,
                                                         "start": {
                                                             "line": 13,
@@ -1406,7 +1406,7 @@
                                                             "type": "Attribute",
                                                             "info": {
                                                                 "source": "stringify.css",
-                                                                "offset": 344,
+                                                                "offset": 332,
                                                                 "length": 3,
                                                                 "start": {
                                                                     "line": 13,
@@ -1421,7 +1421,7 @@
                                                                 "type": "Identifier",
                                                                 "info": {
                                                                     "source": "stringify.css",
-                                                                    "offset": 345,
+                                                                    "offset": 333,
                                                                     "length": 1,
                                                                     "start": {
                                                                         "line": 13,
@@ -1451,8 +1451,8 @@
                         "type": "SimpleSelector",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 349,
-                            "length": 14,
+                            "offset": 337,
+                            "length": 13,
                             "start": {
                                 "line": 13,
                                 "column": 81
@@ -1467,7 +1467,7 @@
                                 "type": "PseudoClass",
                                 "info": {
                                     "source": "stringify.css",
-                                    "offset": 351,
+                                    "offset": 338,
                                     "length": 11,
                                     "start": {
                                         "line": 14,
@@ -1484,7 +1484,7 @@
                                         "type": "Selector",
                                         "info": {
                                             "source": "stringify.css",
-                                            "offset": 356,
+                                            "offset": 343,
                                             "length": 5,
                                             "start": {
                                                 "line": 14,
@@ -1500,7 +1500,7 @@
                                                 "type": "SimpleSelector",
                                                 "info": {
                                                     "source": "stringify.css",
-                                                    "offset": 356,
+                                                    "offset": 343,
                                                     "length": 5,
                                                     "start": {
                                                         "line": 14,
@@ -1516,7 +1516,7 @@
                                                         "type": "Combinator",
                                                         "info": {
                                                             "source": "stringify.css",
-                                                            "offset": 356,
+                                                            "offset": 343,
                                                             "length": 1,
                                                             "start": {
                                                                 "line": 14,
@@ -1533,7 +1533,7 @@
                                                         "type": "Type",
                                                         "info": {
                                                             "source": "stringify.css",
-                                                            "offset": 358,
+                                                            "offset": 345,
                                                             "length": 3,
                                                             "start": {
                                                                 "line": 14,
@@ -1560,8 +1560,8 @@
                 "type": "Block",
                 "info": {
                     "source": "stringify.css",
-                    "offset": 364,
-                    "length": 411,
+                    "offset": 351,
+                    "length": 402,
                     "start": {
                         "line": 14,
                         "column": 14
@@ -1576,7 +1576,7 @@
                         "type": "Declaration",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 370,
+                            "offset": 356,
                             "length": 12,
                             "start": {
                                 "line": 15,
@@ -1593,7 +1593,7 @@
                             "type": "Value",
                             "info": {
                                 "source": "stringify.css",
-                                "offset": 376,
+                                "offset": 362,
                                 "length": 6,
                                 "start": {
                                     "line": 15,
@@ -1609,7 +1609,7 @@
                                     "type": "Identifier",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 377,
+                                        "offset": 363,
                                         "length": 5,
                                         "start": {
                                             "line": 15,
@@ -1629,7 +1629,7 @@
                         "type": "Declaration",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 389,
+                            "offset": 374,
                             "length": 112,
                             "start": {
                                 "line": 16,
@@ -1646,7 +1646,7 @@
                             "type": "Value",
                             "info": {
                                 "source": "stringify.css",
-                                "offset": 396,
+                                "offset": 381,
                                 "length": 105,
                                 "start": {
                                     "line": 16,
@@ -1662,7 +1662,7 @@
                                     "type": "Progid",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 397,
+                                        "offset": 382,
                                         "length": 86,
                                         "start": {
                                             "line": 16,
@@ -1679,7 +1679,7 @@
                                     "type": "Progid",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 484,
+                                        "offset": 469,
                                         "length": 17,
                                         "start": {
                                             "line": 16,
@@ -1699,7 +1699,7 @@
                         "type": "Declaration",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 508,
+                            "offset": 492,
                             "length": 24,
                             "start": {
                                 "line": 17,
@@ -1716,7 +1716,7 @@
                             "type": "Value",
                             "info": {
                                 "source": "stringify.css",
-                                "offset": 514,
+                                "offset": 498,
                                 "length": 18,
                                 "start": {
                                     "line": 17,
@@ -1732,7 +1732,7 @@
                                     "type": "Function",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 515,
+                                        "offset": 499,
                                         "length": 17,
                                         "start": {
                                             "line": 17,
@@ -1749,7 +1749,7 @@
                                             "type": "Raw",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 526,
+                                                "offset": 510,
                                                 "length": 5,
                                                 "start": {
                                                     "line": 17,
@@ -1771,8 +1771,8 @@
                         "type": "Declaration",
                         "info": {
                             "source": "stringify.css",
-                            "offset": 539,
-                            "length": 233,
+                            "offset": 522,
+                            "length": 229,
                             "start": {
                                 "line": 18,
                                 "column": 5
@@ -1788,8 +1788,8 @@
                             "type": "Value",
                             "info": {
                                 "source": "stringify.css",
-                                "offset": 550,
-                                "length": 212,
+                                "offset": 533,
+                                "length": 208,
                                 "start": {
                                     "line": 18,
                                     "column": 16
@@ -1804,7 +1804,7 @@
                                     "type": "Identifier",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 560,
+                                        "offset": 542,
                                         "length": 5,
                                         "start": {
                                             "line": 19,
@@ -1824,7 +1824,7 @@
                                     "type": "Number",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 566,
+                                        "offset": 548,
                                         "length": 6,
                                         "start": {
                                             "line": 19,
@@ -1844,7 +1844,7 @@
                                     "type": "Percentage",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 573,
+                                        "offset": 555,
                                         "length": 4,
                                         "start": {
                                             "line": 19,
@@ -1864,7 +1864,7 @@
                                     "type": "Dimension",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 578,
+                                        "offset": 560,
                                         "length": 3,
                                         "start": {
                                             "line": 19,
@@ -1882,7 +1882,7 @@
                                     "type": "Operator",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 581,
+                                        "offset": 563,
                                         "length": 1,
                                         "start": {
                                             "line": 19,
@@ -1899,7 +1899,7 @@
                                     "type": "Dimension",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 582,
+                                        "offset": 564,
                                         "length": 3,
                                         "start": {
                                             "line": 19,
@@ -1920,7 +1920,7 @@
                                     "type": "Function",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 586,
+                                        "offset": 568,
                                         "length": 18,
                                         "start": {
                                             "line": 19,
@@ -1937,7 +1937,7 @@
                                             "type": "Dimension",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 591,
+                                                "offset": 573,
                                                 "length": 3,
                                                 "start": {
                                                     "line": 19,
@@ -1958,7 +1958,7 @@
                                             "type": "Operator",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 595,
+                                                "offset": 577,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 19,
@@ -1978,7 +1978,7 @@
                                             "type": "Percentage",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 597,
+                                                "offset": 579,
                                                 "length": 2,
                                                 "start": {
                                                     "line": 19,
@@ -1995,7 +1995,7 @@
                                             "type": "Operator",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 600,
+                                                "offset": 582,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 19,
@@ -2012,7 +2012,7 @@
                                             "type": "Number",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 602,
+                                                "offset": 584,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 19,
@@ -2031,7 +2031,7 @@
                                     "type": "Operator",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 604,
+                                        "offset": 586,
                                         "length": 1,
                                         "start": {
                                             "line": 19,
@@ -2051,7 +2051,7 @@
                                     "type": "Url",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 615,
+                                        "offset": 596,
                                         "length": 16,
                                         "start": {
                                             "line": 20,
@@ -2066,7 +2066,7 @@
                                         "type": "Raw",
                                         "info": {
                                             "source": "stringify.css",
-                                            "offset": 619,
+                                            "offset": 600,
                                             "length": 11,
                                             "start": {
                                                 "line": 20,
@@ -2087,7 +2087,7 @@
                                     "type": "Url",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 632,
+                                        "offset": 613,
                                         "length": 22,
                                         "start": {
                                             "line": 20,
@@ -2102,7 +2102,7 @@
                                         "type": "String",
                                         "info": {
                                             "source": "stringify.css",
-                                            "offset": 637,
+                                            "offset": 618,
                                             "length": 15,
                                             "start": {
                                                 "line": 20,
@@ -2123,7 +2123,7 @@
                                     "type": "UnicodeRange",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 664,
+                                        "offset": 644,
                                         "length": 9,
                                         "start": {
                                             "line": 21,
@@ -2143,7 +2143,7 @@
                                     "type": "UnicodeRange",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 674,
+                                        "offset": 654,
                                         "length": 8,
                                         "start": {
                                             "line": 21,
@@ -2163,7 +2163,7 @@
                                     "type": "Function",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 692,
+                                        "offset": 671,
                                         "length": 16,
                                         "start": {
                                             "line": 22,
@@ -2180,7 +2180,7 @@
                                             "type": "Number",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 697,
+                                                "offset": 676,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 22,
@@ -2197,7 +2197,7 @@
                                             "type": "Operator",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 698,
+                                                "offset": 677,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 22,
@@ -2214,7 +2214,7 @@
                                             "type": "Number",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 700,
+                                                "offset": 679,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 22,
@@ -2231,7 +2231,7 @@
                                             "type": "Operator",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 701,
+                                                "offset": 680,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 22,
@@ -2248,7 +2248,7 @@
                                             "type": "Number",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 703,
+                                                "offset": 682,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 22,
@@ -2265,7 +2265,7 @@
                                             "type": "Operator",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 704,
+                                                "offset": 683,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 22,
@@ -2282,7 +2282,7 @@
                                             "type": "Number",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 706,
+                                                "offset": 685,
                                                 "length": 1,
                                                 "start": {
                                                     "line": 22,
@@ -2304,7 +2304,7 @@
                                     "type": "Hash",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 709,
+                                        "offset": 688,
                                         "length": 4,
                                         "start": {
                                             "line": 22,
@@ -2324,7 +2324,7 @@
                                     "type": "Hash",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 714,
+                                        "offset": 693,
                                         "length": 7,
                                         "start": {
                                             "line": 22,
@@ -2344,7 +2344,7 @@
                                     "type": "String",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 722,
+                                        "offset": 701,
                                         "length": 8,
                                         "start": {
                                             "line": 22,
@@ -2364,7 +2364,7 @@
                                     "type": "String",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 731,
+                                        "offset": 710,
                                         "length": 8,
                                         "start": {
                                             "line": 22,
@@ -2384,7 +2384,7 @@
                                     "type": "Parentheses",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 740,
+                                        "offset": 719,
                                         "length": 13,
                                         "start": {
                                             "line": 22,
@@ -2400,7 +2400,7 @@
                                             "type": "Identifier",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 741,
+                                                "offset": 720,
                                                 "length": 11,
                                                 "start": {
                                                     "line": 22,
@@ -2422,7 +2422,7 @@
                                     "type": "Brackets",
                                     "info": {
                                         "source": "stringify.css",
-                                        "offset": 754,
+                                        "offset": 733,
                                         "length": 7,
                                         "start": {
                                             "line": 22,
@@ -2438,7 +2438,7 @@
                                             "type": "Identifier",
                                             "info": {
                                                 "source": "stringify.css",
-                                                "offset": 755,
+                                                "offset": 734,
                                                 "length": 5,
                                                 "start": {
                                                     "line": 22,
