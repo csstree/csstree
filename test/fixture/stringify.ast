@@ -1,14 +1,14 @@
 {
     "type": "StyleSheet",
-    "info": {
+    "loc": {
         "source": "stringify.css",
-        "offset": 0,
-        "length": 755,
         "start": {
+            "offset": 0,
             "line": 1,
             "column": 1
         },
         "end": {
+            "offset": 755,
             "line": 24,
             "column": 1
         }
@@ -16,15 +16,15 @@
     "children": [
         {
             "type": "Comment",
-            "info": {
+            "loc": {
                 "source": "stringify.css",
-                "offset": 0,
-                "length": 16,
                 "start": {
+                    "offset": 0,
                     "line": 1,
                     "column": 1
                 },
                 "end": {
+                    "offset": 16,
                     "line": 1,
                     "column": 17
                 }
@@ -33,15 +33,15 @@
         },
         {
             "type": "Atrule",
-            "info": {
+            "loc": {
                 "source": "stringify.css",
-                "offset": 17,
-                "length": 17,
                 "start": {
+                    "offset": 17,
                     "line": 2,
                     "column": 1
                 },
                 "end": {
+                    "offset": 34,
                     "line": 2,
                     "column": 18
                 }
@@ -49,15 +49,15 @@
             "name": "charset",
             "expression": {
                 "type": "AtruleExpression",
-                "info": {
+                "loc": {
                     "source": "stringify.css",
-                    "offset": 26,
-                    "length": 7,
                     "start": {
+                        "offset": 26,
                         "line": 2,
                         "column": 10
                     },
                     "end": {
+                        "offset": 33,
                         "line": 2,
                         "column": 17
                     }
@@ -65,15 +65,15 @@
                 "children": [
                     {
                         "type": "String",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 26,
-                            "length": 7,
                             "start": {
+                                "offset": 26,
                                 "line": 2,
                                 "column": 10
                             },
                             "end": {
+                                "offset": 33,
                                 "line": 2,
                                 "column": 17
                             }
@@ -86,15 +86,15 @@
         },
         {
             "type": "Atrule",
-            "info": {
+            "loc": {
                 "source": "stringify.css",
-                "offset": 35,
-                "length": 32,
                 "start": {
+                    "offset": 35,
                     "line": 3,
                     "column": 1
                 },
                 "end": {
+                    "offset": 67,
                     "line": 5,
                     "column": 2
                 }
@@ -102,15 +102,15 @@
             "name": "page",
             "expression": {
                 "type": "AtruleExpression",
-                "info": {
+                "loc": {
                     "source": "stringify.css",
-                    "offset": 41,
-                    "length": 5,
                     "start": {
+                        "offset": 41,
                         "line": 3,
                         "column": 7
                     },
                     "end": {
+                        "offset": 46,
                         "line": 3,
                         "column": 12
                     }
@@ -118,15 +118,15 @@
                 "children": [
                     {
                         "type": "PseudoClass",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 41,
-                            "length": 5,
                             "start": {
+                                "offset": 41,
                                 "line": 3,
                                 "column": 7
                             },
                             "end": {
+                                "offset": 46,
                                 "line": 3,
                                 "column": 12
                             }
@@ -138,15 +138,15 @@
             },
             "block": {
                 "type": "Block",
-                "info": {
+                "loc": {
                     "source": "stringify.css",
-                    "offset": 48,
-                    "length": 18,
                     "start": {
+                        "offset": 48,
                         "line": 3,
                         "column": 14
                     },
                     "end": {
+                        "offset": 66,
                         "line": 5,
                         "column": 1
                     }
@@ -154,15 +154,15 @@
                 "children": [
                     {
                         "type": "Declaration",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 53,
-                            "length": 11,
                             "start": {
+                                "offset": 53,
                                 "line": 4,
                                 "column": 5
                             },
                             "end": {
+                                "offset": 64,
                                 "line": 4,
                                 "column": 16
                             }
@@ -171,15 +171,15 @@
                         "property": "margin",
                         "value": {
                             "type": "Value",
-                            "info": {
+                            "loc": {
                                 "source": "stringify.css",
-                                "offset": 60,
-                                "length": 4,
                                 "start": {
+                                    "offset": 60,
                                     "line": 4,
                                     "column": 12
                                 },
                                 "end": {
+                                    "offset": 64,
                                     "line": 4,
                                     "column": 16
                                 }
@@ -187,15 +187,15 @@
                             "children": [
                                 {
                                     "type": "Dimension",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 61,
-                                        "length": 3,
                                         "start": {
+                                            "offset": 61,
                                             "line": 4,
                                             "column": 13
                                         },
                                         "end": {
+                                            "offset": 64,
                                             "line": 4,
                                             "column": 16
                                         }
@@ -211,15 +211,15 @@
         },
         {
             "type": "Atrule",
-            "info": {
+            "loc": {
                 "source": "stringify.css",
-                "offset": 68,
-                "length": 69,
                 "start": {
+                    "offset": 68,
                     "line": 6,
                     "column": 1
                 },
                 "end": {
+                    "offset": 137,
                     "line": 10,
                     "column": 2
                 }
@@ -227,15 +227,15 @@
             "name": "media",
             "expression": {
                 "type": "AtruleExpression",
-                "info": {
+                "loc": {
                     "source": "stringify.css",
-                    "offset": 75,
-                    "length": 19,
                     "start": {
+                        "offset": 75,
                         "line": 6,
                         "column": 8
                     },
                     "end": {
+                        "offset": 94,
                         "line": 6,
                         "column": 27
                     }
@@ -243,15 +243,15 @@
                 "children": [
                     {
                         "type": "Identifier",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 75,
-                            "length": 6,
                             "start": {
+                                "offset": 75,
                                 "line": 6,
                                 "column": 8
                             },
                             "end": {
+                                "offset": 81,
                                 "line": 6,
                                 "column": 14
                             }
@@ -263,15 +263,15 @@
                     },
                     {
                         "type": "Identifier",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 82,
-                            "length": 3,
                             "start": {
+                                "offset": 82,
                                 "line": 6,
                                 "column": 15
                             },
                             "end": {
+                                "offset": 85,
                                 "line": 6,
                                 "column": 18
                             }
@@ -283,15 +283,15 @@
                     },
                     {
                         "type": "Parentheses",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 86,
-                            "length": 8,
                             "start": {
+                                "offset": 86,
                                 "line": 6,
                                 "column": 19
                             },
                             "end": {
+                                "offset": 94,
                                 "line": 6,
                                 "column": 27
                             }
@@ -299,15 +299,15 @@
                         "children": [
                             {
                                 "type": "Identifier",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 87,
-                                    "length": 3,
                                     "start": {
+                                        "offset": 87,
                                         "line": 6,
                                         "column": 20
                                     },
                                     "end": {
+                                        "offset": 90,
                                         "line": 6,
                                         "column": 23
                                     }
@@ -316,15 +316,15 @@
                             },
                             {
                                 "type": "Operator",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 90,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 90,
                                         "line": 6,
                                         "column": 23
                                     },
                                     "end": {
+                                        "offset": 91,
                                         "line": 6,
                                         "column": 24
                                     }
@@ -336,15 +336,15 @@
                             },
                             {
                                 "type": "Number",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 92,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 92,
                                         "line": 6,
                                         "column": 25
                                     },
                                     "end": {
+                                        "offset": 93,
                                         "line": 6,
                                         "column": 26
                                     }
@@ -357,15 +357,15 @@
             },
             "block": {
                 "type": "StyleSheet",
-                "info": {
+                "loc": {
                     "source": "stringify.css",
-                    "offset": 96,
-                    "length": 40,
                     "start": {
+                        "offset": 96,
                         "line": 6,
                         "column": 29
                     },
                     "end": {
+                        "offset": 136,
                         "line": 10,
                         "column": 1
                     }
@@ -373,30 +373,30 @@
                 "children": [
                     {
                         "type": "Rule",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 101,
-                            "length": 34,
                             "start": {
+                                "offset": 101,
                                 "line": 7,
                                 "column": 5
                             },
                             "end": {
+                                "offset": 135,
                                 "line": 9,
                                 "column": 6
                             }
                         },
                         "selector": {
                             "type": "SelectorList",
-                            "info": {
+                            "loc": {
                                 "source": "stringify.css",
-                                "offset": 101,
-                                "length": 7,
                                 "start": {
+                                    "offset": 101,
                                     "line": 7,
                                     "column": 5
                                 },
                                 "end": {
+                                    "offset": 108,
                                     "line": 7,
                                     "column": 12
                                 }
@@ -404,15 +404,15 @@
                             "children": [
                                 {
                                     "type": "Selector",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 101,
-                                        "length": 7,
                                         "start": {
+                                            "offset": 101,
                                             "line": 7,
                                             "column": 5
                                         },
                                         "end": {
+                                            "offset": 108,
                                             "line": 7,
                                             "column": 12
                                         }
@@ -420,15 +420,15 @@
                                     "children": [
                                         {
                                             "type": "Class",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 101,
-                                                "length": 6,
                                                 "start": {
+                                                    "offset": 101,
                                                     "line": 7,
                                                     "column": 5
                                                 },
                                                 "end": {
+                                                    "offset": 107,
                                                     "line": 7,
                                                     "column": 11
                                                 }
@@ -441,15 +441,15 @@
                         },
                         "block": {
                             "type": "Block",
-                            "info": {
+                            "loc": {
                                 "source": "stringify.css",
-                                "offset": 109,
-                                "length": 25,
                                 "start": {
+                                    "offset": 109,
                                     "line": 7,
                                     "column": 13
                                 },
                                 "end": {
+                                    "offset": 134,
                                     "line": 9,
                                     "column": 5
                                 }
@@ -457,15 +457,15 @@
                             "children": [
                                 {
                                     "type": "Declaration",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 118,
-                                        "length": 10,
                                         "start": {
+                                            "offset": 118,
                                             "line": 8,
                                             "column": 9
                                         },
                                         "end": {
+                                            "offset": 128,
                                             "line": 8,
                                             "column": 19
                                         }
@@ -474,15 +474,15 @@
                                     "property": "color",
                                     "value": {
                                         "type": "Value",
-                                        "info": {
+                                        "loc": {
                                             "source": "stringify.css",
-                                            "offset": 124,
-                                            "length": 4,
                                             "start": {
+                                                "offset": 124,
                                                 "line": 8,
                                                 "column": 15
                                             },
                                             "end": {
+                                                "offset": 128,
                                                 "line": 8,
                                                 "column": 19
                                             }
@@ -490,15 +490,15 @@
                                         "children": [
                                             {
                                                 "type": "Identifier",
-                                                "info": {
+                                                "loc": {
                                                     "source": "stringify.css",
-                                                    "offset": 125,
-                                                    "length": 3,
                                                     "start": {
+                                                        "offset": 125,
                                                         "line": 8,
                                                         "column": 16
                                                     },
                                                     "end": {
+                                                        "offset": 128,
                                                         "line": 8,
                                                         "column": 19
                                                     }
@@ -516,30 +516,30 @@
         },
         {
             "type": "Rule",
-            "info": {
+            "loc": {
                 "source": "stringify.css",
-                "offset": 139,
-                "length": 615,
                 "start": {
+                    "offset": 139,
                     "line": 12,
                     "column": 1
                 },
                 "end": {
+                    "offset": 754,
                     "line": 23,
                     "column": 2
                 }
             },
             "selector": {
                 "type": "SelectorList",
-                "info": {
+                "loc": {
                     "source": "stringify.css",
-                    "offset": 139,
-                    "length": 211,
                     "start": {
+                        "offset": 139,
                         "line": 12,
                         "column": 1
                     },
                     "end": {
+                        "offset": 350,
                         "line": 14,
                         "column": 13
                     }
@@ -547,15 +547,15 @@
                 "children": [
                     {
                         "type": "Selector",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 139,
-                            "length": 116,
                             "start": {
+                                "offset": 139,
                                 "line": 12,
                                 "column": 1
                             },
                             "end": {
+                                "offset": 255,
                                 "line": 12,
                                 "column": 117
                             }
@@ -563,15 +563,15 @@
                         "children": [
                             {
                                 "type": "Universal",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 139,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 139,
                                         "line": 12,
                                         "column": 1
                                     },
                                     "end": {
+                                        "offset": 140,
                                         "line": 12,
                                         "column": 2
                                     }
@@ -580,15 +580,15 @@
                             },
                             {
                                 "type": "Class",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 140,
-                                    "length": 6,
                                     "start": {
+                                        "offset": 140,
                                         "line": 12,
                                         "column": 2
                                     },
                                     "end": {
+                                        "offset": 146,
                                         "line": 12,
                                         "column": 8
                                     }
@@ -597,15 +597,15 @@
                             },
                             {
                                 "type": "Combinator",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 146,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 146,
                                         "line": 12,
                                         "column": 8
                                     },
                                     "end": {
+                                        "offset": 147,
                                         "line": 12,
                                         "column": 9
                                     }
@@ -614,15 +614,15 @@
                             },
                             {
                                 "type": "Type",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 147,
-                                    "length": 7,
                                     "start": {
+                                        "offset": 147,
                                         "line": 12,
                                         "column": 9
                                     },
                                     "end": {
+                                        "offset": 154,
                                         "line": 12,
                                         "column": 16
                                     }
@@ -631,15 +631,15 @@
                             },
                             {
                                 "type": "Id",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 154,
-                                    "length": 3,
                                     "start": {
+                                        "offset": 154,
                                         "line": 12,
                                         "column": 16
                                     },
                                     "end": {
+                                        "offset": 157,
                                         "line": 12,
                                         "column": 19
                                     }
@@ -648,30 +648,30 @@
                             },
                             {
                                 "type": "Attribute",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 157,
-                                    "length": 6,
                                     "start": {
+                                        "offset": 157,
                                         "line": 12,
                                         "column": 19
                                     },
                                     "end": {
+                                        "offset": 163,
                                         "line": 12,
                                         "column": 25
                                     }
                                 },
                                 "name": {
                                     "type": "Identifier",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 158,
-                                        "length": 4,
                                         "start": {
+                                            "offset": 158,
                                             "line": 12,
                                             "column": 20
                                         },
                                         "end": {
+                                            "offset": 162,
                                             "line": 12,
                                             "column": 24
                                         }
@@ -684,15 +684,15 @@
                             },
                             {
                                 "type": "Combinator",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 163,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 163,
                                         "line": 12,
                                         "column": 25
                                     },
                                     "end": {
+                                        "offset": 164,
                                         "line": 12,
                                         "column": 26
                                     }
@@ -701,30 +701,30 @@
                             },
                             {
                                 "type": "Attribute",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 164,
-                                    "length": 13,
                                     "start": {
+                                        "offset": 164,
                                         "line": 12,
                                         "column": 26
                                     },
                                     "end": {
+                                        "offset": 177,
                                         "line": 12,
                                         "column": 39
                                     }
                                 },
                                 "name": {
                                     "type": "Identifier",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 165,
-                                        "length": 4,
                                         "start": {
+                                            "offset": 165,
                                             "line": 12,
                                             "column": 27
                                         },
                                         "end": {
+                                            "offset": 169,
                                             "line": 12,
                                             "column": 31
                                         }
@@ -734,15 +734,15 @@
                                 "operator": "|=",
                                 "value": {
                                     "type": "String",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 171,
-                                        "length": 5,
                                         "start": {
+                                            "offset": 171,
                                             "line": 12,
                                             "column": 33
                                         },
                                         "end": {
+                                            "offset": 176,
                                             "line": 12,
                                             "column": 38
                                         }
@@ -753,30 +753,30 @@
                             },
                             {
                                 "type": "Attribute",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 177,
-                                    "length": 14,
                                     "start": {
+                                        "offset": 177,
                                         "line": 12,
                                         "column": 39
                                     },
                                     "end": {
+                                        "offset": 191,
                                         "line": 12,
                                         "column": 53
                                     }
                                 },
                                 "name": {
                                     "type": "Identifier",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 178,
-                                        "length": 4,
                                         "start": {
+                                            "offset": 178,
                                             "line": 12,
                                             "column": 40
                                         },
                                         "end": {
+                                            "offset": 182,
                                             "line": 12,
                                             "column": 44
                                         }
@@ -786,15 +786,15 @@
                                 "operator": "=",
                                 "value": {
                                     "type": "Identifier",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 183,
-                                        "length": 5,
                                         "start": {
+                                            "offset": 183,
                                             "line": 12,
                                             "column": 45
                                         },
                                         "end": {
+                                            "offset": 188,
                                             "line": 12,
                                             "column": 50
                                         }
@@ -805,15 +805,15 @@
                             },
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 191,
-                                    "length": 7,
                                     "start": {
+                                        "offset": 191,
                                         "line": 12,
                                         "column": 53
                                     },
                                     "end": {
+                                        "offset": 198,
                                         "line": 12,
                                         "column": 60
                                     }
@@ -823,15 +823,15 @@
                             },
                             {
                                 "type": "PseudoElement",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 198,
-                                    "length": 8,
                                     "start": {
+                                        "offset": 198,
                                         "line": 12,
                                         "column": 60
                                     },
                                     "end": {
+                                        "offset": 206,
                                         "line": 12,
                                         "column": 68
                                     }
@@ -842,15 +842,15 @@
                             },
                             {
                                 "type": "Combinator",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 207,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 207,
                                         "line": 12,
                                         "column": 69
                                     },
                                     "end": {
+                                        "offset": 208,
                                         "line": 12,
                                         "column": 70
                                     }
@@ -859,15 +859,15 @@
                             },
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 209,
-                                    "length": 10,
                                     "start": {
+                                        "offset": 209,
                                         "line": 12,
                                         "column": 71
                                     },
                                     "end": {
+                                        "offset": 219,
                                         "line": 12,
                                         "column": 81
                                     }
@@ -876,15 +876,15 @@
                                 "children": [
                                     {
                                         "type": "SelectorList",
-                                        "info": {
+                                        "loc": {
                                             "source": "stringify.css",
-                                            "offset": 214,
-                                            "length": 4,
                                             "start": {
+                                                "offset": 214,
                                                 "line": 12,
                                                 "column": 76
                                             },
                                             "end": {
+                                                "offset": 218,
                                                 "line": 12,
                                                 "column": 80
                                             }
@@ -892,15 +892,15 @@
                                         "children": [
                                             {
                                                 "type": "Selector",
-                                                "info": {
+                                                "loc": {
                                                     "source": "stringify.css",
-                                                    "offset": 214,
-                                                    "length": 1,
                                                     "start": {
+                                                        "offset": 214,
                                                         "line": 12,
                                                         "column": 76
                                                     },
                                                     "end": {
+                                                        "offset": 215,
                                                         "line": 12,
                                                         "column": 77
                                                     }
@@ -908,15 +908,15 @@
                                                 "children": [
                                                     {
                                                         "type": "Type",
-                                                        "info": {
+                                                        "loc": {
                                                             "source": "stringify.css",
-                                                            "offset": 214,
-                                                            "length": 1,
                                                             "start": {
+                                                                "offset": 214,
                                                                 "line": 12,
                                                                 "column": 76
                                                             },
                                                             "end": {
+                                                                "offset": 215,
                                                                 "line": 12,
                                                                 "column": 77
                                                             }
@@ -927,15 +927,15 @@
                                             },
                                             {
                                                 "type": "Selector",
-                                                "info": {
+                                                "loc": {
                                                     "source": "stringify.css",
-                                                    "offset": 216,
-                                                    "length": 2,
                                                     "start": {
+                                                        "offset": 216,
                                                         "line": 12,
                                                         "column": 78
                                                     },
                                                     "end": {
+                                                        "offset": 218,
                                                         "line": 12,
                                                         "column": 80
                                                     }
@@ -943,15 +943,15 @@
                                                 "children": [
                                                     {
                                                         "type": "Type",
-                                                        "info": {
+                                                        "loc": {
                                                             "source": "stringify.css",
-                                                            "offset": 217,
-                                                            "length": 1,
                                                             "start": {
+                                                                "offset": 217,
                                                                 "line": 12,
                                                                 "column": 79
                                                             },
                                                             "end": {
+                                                                "offset": 218,
                                                                 "line": 12,
                                                                 "column": 80
                                                             }
@@ -966,15 +966,15 @@
                             },
                             {
                                 "type": "Combinator",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 220,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 220,
                                         "line": 12,
                                         "column": 82
                                     },
                                     "end": {
+                                        "offset": 221,
                                         "line": 12,
                                         "column": 83
                                     }
@@ -983,15 +983,15 @@
                             },
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 222,
-                                    "length": 15,
                                     "start": {
+                                        "offset": 222,
                                         "line": 12,
                                         "column": 84
                                     },
                                     "end": {
+                                        "offset": 237,
                                         "line": 12,
                                         "column": 99
                                     }
@@ -1002,15 +1002,15 @@
                                         "type": "Nth",
                                         "nth": {
                                             "type": "Identifier",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 233,
-                                                "length": 3,
                                                 "start": {
+                                                    "offset": 233,
                                                     "line": 12,
                                                     "column": 95
                                                 },
                                                 "end": {
+                                                    "offset": 236,
                                                     "line": 12,
                                                     "column": 98
                                                 }
@@ -1023,15 +1023,15 @@
                             },
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 237,
-                                    "length": 18,
                                     "start": {
+                                        "offset": 237,
                                         "line": 12,
                                         "column": 99
                                     },
                                     "end": {
+                                        "offset": 255,
                                         "line": 12,
                                         "column": 117
                                     }
@@ -1042,15 +1042,15 @@
                                         "type": "Nth",
                                         "nth": {
                                             "type": "An+B",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 248,
-                                                "length": 6,
                                                 "start": {
+                                                    "offset": 248,
                                                     "line": 12,
                                                     "column": 110
                                                 },
                                                 "end": {
+                                                    "offset": 254,
                                                     "line": 12,
                                                     "column": 116
                                                 }
@@ -1066,15 +1066,15 @@
                     },
                     {
                         "type": "Selector",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 256,
-                            "length": 80,
                             "start": {
+                                "offset": 256,
                                 "line": 12,
                                 "column": 118
                             },
                             "end": {
+                                "offset": 336,
                                 "line": 13,
                                 "column": 80
                             }
@@ -1082,15 +1082,15 @@
                         "children": [
                             {
                                 "type": "Universal",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 257,
-                                    "length": 5,
                                     "start": {
+                                        "offset": 257,
                                         "line": 13,
                                         "column": 1
                                     },
                                     "end": {
+                                        "offset": 262,
                                         "line": 13,
                                         "column": 6
                                     }
@@ -1099,15 +1099,15 @@
                             },
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 262,
-                                    "length": 10,
                                     "start": {
+                                        "offset": 262,
                                         "line": 13,
                                         "column": 6
                                     },
                                     "end": {
+                                        "offset": 272,
                                         "line": 13,
                                         "column": 16
                                     }
@@ -1116,15 +1116,15 @@
                                 "children": [
                                     {
                                         "type": "SelectorList",
-                                        "info": {
+                                        "loc": {
                                             "source": "stringify.css",
-                                            "offset": 271,
-                                            "length": 0,
                                             "start": {
+                                                "offset": 271,
                                                 "line": 13,
                                                 "column": 15
                                             },
                                             "end": {
+                                                "offset": 271,
                                                 "line": 13,
                                                 "column": 15
                                             }
@@ -1135,15 +1135,15 @@
                             },
                             {
                                 "type": "PseudoElement",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 272,
-                                    "length": 12,
                                     "start": {
+                                        "offset": 272,
                                         "line": 13,
                                         "column": 16
                                     },
                                     "end": {
+                                        "offset": 284,
                                         "line": 13,
                                         "column": 28
                                     }
@@ -1152,15 +1152,15 @@
                                 "children": [
                                     {
                                         "type": "Selector",
-                                        "info": {
+                                        "loc": {
                                             "source": "stringify.css",
-                                            "offset": 282,
-                                            "length": 1,
                                             "start": {
+                                                "offset": 282,
                                                 "line": 13,
                                                 "column": 26
                                             },
                                             "end": {
+                                                "offset": 283,
                                                 "line": 13,
                                                 "column": 27
                                             }
@@ -1168,15 +1168,15 @@
                                         "children": [
                                             {
                                                 "type": "Type",
-                                                "info": {
+                                                "loc": {
                                                     "source": "stringify.css",
-                                                    "offset": 282,
-                                                    "length": 1,
                                                     "start": {
+                                                        "offset": 282,
                                                         "line": 13,
                                                         "column": 26
                                                     },
                                                     "end": {
+                                                        "offset": 283,
                                                         "line": 13,
                                                         "column": 27
                                                     }
@@ -1190,15 +1190,15 @@
                             },
                             {
                                 "type": "Combinator",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 285,
-                                    "length": 1,
                                     "start": {
+                                        "offset": 285,
                                         "line": 13,
                                         "column": 29
                                     },
                                     "end": {
+                                        "offset": 286,
                                         "line": 13,
                                         "column": 30
                                     }
@@ -1207,15 +1207,15 @@
                             },
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 287,
-                                    "length": 24,
                                     "start": {
+                                        "offset": 287,
                                         "line": 13,
                                         "column": 31
                                     },
                                     "end": {
+                                        "offset": 311,
                                         "line": 13,
                                         "column": 55
                                     }
@@ -1226,15 +1226,15 @@
                                         "type": "Nth",
                                         "nth": {
                                             "type": "Identifier",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 298,
-                                                "length": 3,
                                                 "start": {
+                                                    "offset": 298,
                                                     "line": 13,
                                                     "column": 42
                                                 },
                                                 "end": {
+                                                    "offset": 301,
                                                     "line": 13,
                                                     "column": 45
                                                 }
@@ -1243,15 +1243,15 @@
                                         },
                                         "selector": {
                                             "type": "SelectorList",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 304,
-                                                "length": 6,
                                                 "start": {
+                                                    "offset": 304,
                                                     "line": 13,
                                                     "column": 48
                                                 },
                                                 "end": {
+                                                    "offset": 310,
                                                     "line": 13,
                                                     "column": 54
                                                 }
@@ -1259,15 +1259,15 @@
                                             "children": [
                                                 {
                                                     "type": "Selector",
-                                                    "info": {
+                                                    "loc": {
                                                         "source": "stringify.css",
-                                                        "offset": 304,
-                                                        "length": 2,
                                                         "start": {
+                                                            "offset": 304,
                                                             "line": 13,
                                                             "column": 48
                                                         },
                                                         "end": {
+                                                            "offset": 306,
                                                             "line": 13,
                                                             "column": 50
                                                         }
@@ -1275,15 +1275,15 @@
                                                     "children": [
                                                         {
                                                             "type": "Type",
-                                                            "info": {
+                                                            "loc": {
                                                                 "source": "stringify.css",
-                                                                "offset": 305,
-                                                                "length": 1,
                                                                 "start": {
+                                                                    "offset": 305,
                                                                     "line": 13,
                                                                     "column": 49
                                                                 },
                                                                 "end": {
+                                                                    "offset": 306,
                                                                     "line": 13,
                                                                     "column": 50
                                                                 }
@@ -1294,15 +1294,15 @@
                                                 },
                                                 {
                                                     "type": "Selector",
-                                                    "info": {
+                                                    "loc": {
                                                         "source": "stringify.css",
-                                                        "offset": 307,
-                                                        "length": 3,
                                                         "start": {
+                                                            "offset": 307,
                                                             "line": 13,
                                                             "column": 51
                                                         },
                                                         "end": {
+                                                            "offset": 310,
                                                             "line": 13,
                                                             "column": 54
                                                         }
@@ -1310,15 +1310,15 @@
                                                     "children": [
                                                         {
                                                             "type": "PseudoClass",
-                                                            "info": {
+                                                            "loc": {
                                                                 "source": "stringify.css",
-                                                                "offset": 308,
-                                                                "length": 2,
                                                                 "start": {
+                                                                    "offset": 308,
                                                                     "line": 13,
                                                                     "column": 52
                                                                 },
                                                                 "end": {
+                                                                    "offset": 310,
                                                                     "line": 13,
                                                                     "column": 54
                                                                 }
@@ -1335,15 +1335,15 @@
                             },
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 311,
-                                    "length": 25,
                                     "start": {
+                                        "offset": 311,
                                         "line": 13,
                                         "column": 55
                                     },
                                     "end": {
+                                        "offset": 336,
                                         "line": 13,
                                         "column": 80
                                     }
@@ -1354,15 +1354,15 @@
                                         "type": "Nth",
                                         "nth": {
                                             "type": "An+B",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 322,
-                                                "length": 6,
                                                 "start": {
+                                                    "offset": 322,
                                                     "line": 13,
                                                     "column": 66
                                                 },
                                                 "end": {
+                                                    "offset": 328,
                                                     "line": 13,
                                                     "column": 72
                                                 }
@@ -1372,15 +1372,15 @@
                                         },
                                         "selector": {
                                             "type": "SelectorList",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 331,
-                                                "length": 4,
                                                 "start": {
+                                                    "offset": 331,
                                                     "line": 13,
                                                     "column": 75
                                                 },
                                                 "end": {
+                                                    "offset": 335,
                                                     "line": 13,
                                                     "column": 79
                                                 }
@@ -1388,15 +1388,15 @@
                                             "children": [
                                                 {
                                                     "type": "Selector",
-                                                    "info": {
+                                                    "loc": {
                                                         "source": "stringify.css",
-                                                        "offset": 331,
-                                                        "length": 4,
                                                         "start": {
+                                                            "offset": 331,
                                                             "line": 13,
                                                             "column": 75
                                                         },
                                                         "end": {
+                                                            "offset": 335,
                                                             "line": 13,
                                                             "column": 79
                                                         }
@@ -1404,30 +1404,30 @@
                                                     "children": [
                                                         {
                                                             "type": "Attribute",
-                                                            "info": {
+                                                            "loc": {
                                                                 "source": "stringify.css",
-                                                                "offset": 332,
-                                                                "length": 3,
                                                                 "start": {
+                                                                    "offset": 332,
                                                                     "line": 13,
                                                                     "column": 76
                                                                 },
                                                                 "end": {
+                                                                    "offset": 335,
                                                                     "line": 13,
                                                                     "column": 79
                                                                 }
                                                             },
                                                             "name": {
                                                                 "type": "Identifier",
-                                                                "info": {
+                                                                "loc": {
                                                                     "source": "stringify.css",
-                                                                    "offset": 333,
-                                                                    "length": 1,
                                                                     "start": {
+                                                                        "offset": 333,
                                                                         "line": 13,
                                                                         "column": 77
                                                                     },
                                                                     "end": {
+                                                                        "offset": 334,
                                                                         "line": 13,
                                                                         "column": 78
                                                                     }
@@ -1449,15 +1449,15 @@
                     },
                     {
                         "type": "Selector",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 337,
-                            "length": 13,
                             "start": {
+                                "offset": 337,
                                 "line": 13,
                                 "column": 81
                             },
                             "end": {
+                                "offset": 350,
                                 "line": 14,
                                 "column": 13
                             }
@@ -1465,15 +1465,15 @@
                         "children": [
                             {
                                 "type": "PseudoClass",
-                                "info": {
+                                "loc": {
                                     "source": "stringify.css",
-                                    "offset": 338,
-                                    "length": 11,
                                     "start": {
+                                        "offset": 338,
                                         "line": 14,
                                         "column": 1
                                     },
                                     "end": {
+                                        "offset": 349,
                                         "line": 14,
                                         "column": 12
                                     }
@@ -1482,15 +1482,15 @@
                                 "children": [
                                     {
                                         "type": "SelectorList",
-                                        "info": {
+                                        "loc": {
                                             "source": "stringify.css",
-                                            "offset": 343,
-                                            "length": 5,
                                             "start": {
+                                                "offset": 343,
                                                 "line": 14,
                                                 "column": 6
                                             },
                                             "end": {
+                                                "offset": 348,
                                                 "line": 14,
                                                 "column": 11
                                             }
@@ -1498,15 +1498,15 @@
                                         "children": [
                                             {
                                                 "type": "Selector",
-                                                "info": {
+                                                "loc": {
                                                     "source": "stringify.css",
-                                                    "offset": 343,
-                                                    "length": 5,
                                                     "start": {
+                                                        "offset": 343,
                                                         "line": 14,
                                                         "column": 6
                                                     },
                                                     "end": {
+                                                        "offset": 348,
                                                         "line": 14,
                                                         "column": 11
                                                     }
@@ -1514,15 +1514,15 @@
                                                 "children": [
                                                     {
                                                         "type": "Combinator",
-                                                        "info": {
+                                                        "loc": {
                                                             "source": "stringify.css",
-                                                            "offset": 343,
-                                                            "length": 1,
                                                             "start": {
+                                                                "offset": 343,
                                                                 "line": 14,
                                                                 "column": 6
                                                             },
                                                             "end": {
+                                                                "offset": 344,
                                                                 "line": 14,
                                                                 "column": 7
                                                             }
@@ -1531,15 +1531,15 @@
                                                     },
                                                     {
                                                         "type": "Type",
-                                                        "info": {
+                                                        "loc": {
                                                             "source": "stringify.css",
-                                                            "offset": 345,
-                                                            "length": 3,
                                                             "start": {
+                                                                "offset": 345,
                                                                 "line": 14,
                                                                 "column": 8
                                                             },
                                                             "end": {
+                                                                "offset": 348,
                                                                 "line": 14,
                                                                 "column": 11
                                                             }
@@ -1558,15 +1558,15 @@
             },
             "block": {
                 "type": "Block",
-                "info": {
+                "loc": {
                     "source": "stringify.css",
-                    "offset": 351,
-                    "length": 402,
                     "start": {
+                        "offset": 351,
                         "line": 14,
                         "column": 14
                     },
                     "end": {
+                        "offset": 753,
                         "line": 23,
                         "column": 1
                     }
@@ -1574,15 +1574,15 @@
                 "children": [
                     {
                         "type": "Declaration",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 356,
-                            "length": 12,
                             "start": {
+                                "offset": 356,
                                 "line": 15,
                                 "column": 5
                             },
                             "end": {
+                                "offset": 368,
                                 "line": 15,
                                 "column": 17
                             }
@@ -1591,15 +1591,15 @@
                         "property": "color",
                         "value": {
                             "type": "Value",
-                            "info": {
+                            "loc": {
                                 "source": "stringify.css",
-                                "offset": 362,
-                                "length": 6,
                                 "start": {
+                                    "offset": 362,
                                     "line": 15,
                                     "column": 11
                                 },
                                 "end": {
+                                    "offset": 368,
                                     "line": 15,
                                     "column": 17
                                 }
@@ -1607,15 +1607,15 @@
                             "children": [
                                 {
                                     "type": "Identifier",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 363,
-                                        "length": 5,
                                         "start": {
+                                            "offset": 363,
                                             "line": 15,
                                             "column": 12
                                         },
                                         "end": {
+                                            "offset": 368,
                                             "line": 15,
                                             "column": 17
                                         }
@@ -1627,15 +1627,15 @@
                     },
                     {
                         "type": "Declaration",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 374,
-                            "length": 112,
                             "start": {
+                                "offset": 374,
                                 "line": 16,
                                 "column": 5
                             },
                             "end": {
+                                "offset": 486,
                                 "line": 16,
                                 "column": 117
                             }
@@ -1644,15 +1644,15 @@
                         "property": "filter",
                         "value": {
                             "type": "Value",
-                            "info": {
+                            "loc": {
                                 "source": "stringify.css",
-                                "offset": 381,
-                                "length": 105,
                                 "start": {
+                                    "offset": 381,
                                     "line": 16,
                                     "column": 12
                                 },
                                 "end": {
+                                    "offset": 486,
                                     "line": 16,
                                     "column": 117
                                 }
@@ -1660,15 +1660,15 @@
                             "children": [
                                 {
                                     "type": "Progid",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 382,
-                                        "length": 86,
                                         "start": {
+                                            "offset": 382,
                                             "line": 16,
                                             "column": 13
                                         },
                                         "end": {
+                                            "offset": 468,
                                             "line": 16,
                                             "column": 99
                                         }
@@ -1677,15 +1677,15 @@
                                 },
                                 {
                                     "type": "Progid",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 469,
-                                        "length": 17,
                                         "start": {
+                                            "offset": 469,
                                             "line": 16,
                                             "column": 100
                                         },
                                         "end": {
+                                            "offset": 486,
                                             "line": 16,
                                             "column": 117
                                         }
@@ -1697,15 +1697,15 @@
                     },
                     {
                         "type": "Declaration",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 492,
-                            "length": 24,
                             "start": {
+                                "offset": 492,
                                 "line": 17,
                                 "column": 5
                             },
                             "end": {
+                                "offset": 516,
                                 "line": 17,
                                 "column": 29
                             }
@@ -1714,15 +1714,15 @@
                         "property": "width",
                         "value": {
                             "type": "Value",
-                            "info": {
+                            "loc": {
                                 "source": "stringify.css",
-                                "offset": 498,
-                                "length": 18,
                                 "start": {
+                                    "offset": 498,
                                     "line": 17,
                                     "column": 11
                                 },
                                 "end": {
+                                    "offset": 516,
                                     "line": 17,
                                     "column": 29
                                 }
@@ -1730,15 +1730,15 @@
                             "children": [
                                 {
                                     "type": "Function",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 499,
-                                        "length": 17,
                                         "start": {
+                                            "offset": 499,
                                             "line": 17,
                                             "column": 12
                                         },
                                         "end": {
+                                            "offset": 516,
                                             "line": 17,
                                             "column": 29
                                         }
@@ -1747,15 +1747,15 @@
                                     "children": [
                                         {
                                             "type": "Raw",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 510,
-                                                "length": 5,
                                                 "start": {
+                                                    "offset": 510,
                                                     "line": 17,
                                                     "column": 23
                                                 },
                                                 "end": {
+                                                    "offset": 515,
                                                     "line": 17,
                                                     "column": 28
                                                 }
@@ -1769,15 +1769,15 @@
                     },
                     {
                         "type": "Declaration",
-                        "info": {
+                        "loc": {
                             "source": "stringify.css",
-                            "offset": 522,
-                            "length": 229,
                             "start": {
+                                "offset": 522,
                                 "line": 18,
                                 "column": 5
                             },
                             "end": {
+                                "offset": 751,
                                 "line": 22,
                                 "column": 89
                             }
@@ -1786,15 +1786,15 @@
                         "property": "background",
                         "value": {
                             "type": "Value",
-                            "info": {
+                            "loc": {
                                 "source": "stringify.css",
-                                "offset": 533,
-                                "length": 208,
                                 "start": {
+                                    "offset": 533,
                                     "line": 18,
                                     "column": 16
                                 },
                                 "end": {
+                                    "offset": 741,
                                     "line": 22,
                                     "column": 79
                                 }
@@ -1802,15 +1802,15 @@
                             "children": [
                                 {
                                     "type": "Identifier",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 542,
-                                        "length": 5,
                                         "start": {
+                                            "offset": 542,
                                             "line": 19,
                                             "column": 9
                                         },
                                         "end": {
+                                            "offset": 547,
                                             "line": 19,
                                             "column": 14
                                         }
@@ -1822,15 +1822,15 @@
                                 },
                                 {
                                     "type": "Number",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 548,
-                                        "length": 6,
                                         "start": {
+                                            "offset": 548,
                                             "line": 19,
                                             "column": 15
                                         },
                                         "end": {
+                                            "offset": 554,
                                             "line": 19,
                                             "column": 21
                                         }
@@ -1842,15 +1842,15 @@
                                 },
                                 {
                                     "type": "Percentage",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 555,
-                                        "length": 4,
                                         "start": {
+                                            "offset": 555,
                                             "line": 19,
                                             "column": 22
                                         },
                                         "end": {
+                                            "offset": 559,
                                             "line": 19,
                                             "column": 26
                                         }
@@ -1862,15 +1862,15 @@
                                 },
                                 {
                                     "type": "Dimension",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 560,
-                                        "length": 3,
                                         "start": {
+                                            "offset": 560,
                                             "line": 19,
                                             "column": 27
                                         },
                                         "end": {
+                                            "offset": 563,
                                             "line": 19,
                                             "column": 30
                                         }
@@ -1880,15 +1880,15 @@
                                 },
                                 {
                                     "type": "Operator",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 563,
-                                        "length": 1,
                                         "start": {
+                                            "offset": 563,
                                             "line": 19,
                                             "column": 30
                                         },
                                         "end": {
+                                            "offset": 564,
                                             "line": 19,
                                             "column": 31
                                         }
@@ -1897,15 +1897,15 @@
                                 },
                                 {
                                     "type": "Dimension",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 564,
-                                        "length": 3,
                                         "start": {
+                                            "offset": 564,
                                             "line": 19,
                                             "column": 31
                                         },
                                         "end": {
+                                            "offset": 567,
                                             "line": 19,
                                             "column": 34
                                         }
@@ -1918,15 +1918,15 @@
                                 },
                                 {
                                     "type": "Function",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 568,
-                                        "length": 18,
                                         "start": {
+                                            "offset": 568,
                                             "line": 19,
                                             "column": 35
                                         },
                                         "end": {
+                                            "offset": 586,
                                             "line": 19,
                                             "column": 53
                                         }
@@ -1935,15 +1935,15 @@
                                     "children": [
                                         {
                                             "type": "Dimension",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 573,
-                                                "length": 3,
                                                 "start": {
+                                                    "offset": 573,
                                                     "line": 19,
                                                     "column": 40
                                                 },
                                                 "end": {
+                                                    "offset": 576,
                                                     "line": 19,
                                                     "column": 43
                                                 }
@@ -1956,15 +1956,15 @@
                                         },
                                         {
                                             "type": "Operator",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 577,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 577,
                                                     "line": 19,
                                                     "column": 44
                                                 },
                                                 "end": {
+                                                    "offset": 578,
                                                     "line": 19,
                                                     "column": 45
                                                 }
@@ -1976,15 +1976,15 @@
                                         },
                                         {
                                             "type": "Percentage",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 579,
-                                                "length": 2,
                                                 "start": {
+                                                    "offset": 579,
                                                     "line": 19,
                                                     "column": 46
                                                 },
                                                 "end": {
+                                                    "offset": 581,
                                                     "line": 19,
                                                     "column": 48
                                                 }
@@ -1993,15 +1993,15 @@
                                         },
                                         {
                                             "type": "Operator",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 582,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 582,
                                                     "line": 19,
                                                     "column": 49
                                                 },
                                                 "end": {
+                                                    "offset": 583,
                                                     "line": 19,
                                                     "column": 50
                                                 }
@@ -2010,15 +2010,15 @@
                                         },
                                         {
                                             "type": "Number",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 584,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 584,
                                                     "line": 19,
                                                     "column": 51
                                                 },
                                                 "end": {
+                                                    "offset": 585,
                                                     "line": 19,
                                                     "column": 52
                                                 }
@@ -2029,15 +2029,15 @@
                                 },
                                 {
                                     "type": "Operator",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 586,
-                                        "length": 1,
                                         "start": {
+                                            "offset": 586,
                                             "line": 19,
                                             "column": 53
                                         },
                                         "end": {
+                                            "offset": 587,
                                             "line": 19,
                                             "column": 54
                                         }
@@ -2049,30 +2049,30 @@
                                 },
                                 {
                                     "type": "Url",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 596,
-                                        "length": 16,
                                         "start": {
+                                            "offset": 596,
                                             "line": 20,
                                             "column": 9
                                         },
                                         "end": {
+                                            "offset": 612,
                                             "line": 20,
                                             "column": 25
                                         }
                                     },
                                     "value": {
                                         "type": "Raw",
-                                        "info": {
+                                        "loc": {
                                             "source": "stringify.css",
-                                            "offset": 600,
-                                            "length": 11,
                                             "start": {
+                                                "offset": 600,
                                                 "line": 20,
                                                 "column": 13
                                             },
                                             "end": {
+                                                "offset": 611,
                                                 "line": 20,
                                                 "column": 24
                                             }
@@ -2085,30 +2085,30 @@
                                 },
                                 {
                                     "type": "Url",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 613,
-                                        "length": 22,
                                         "start": {
+                                            "offset": 613,
                                             "line": 20,
                                             "column": 26
                                         },
                                         "end": {
+                                            "offset": 635,
                                             "line": 20,
                                             "column": 48
                                         }
                                     },
                                     "value": {
                                         "type": "String",
-                                        "info": {
+                                        "loc": {
                                             "source": "stringify.css",
-                                            "offset": 618,
-                                            "length": 15,
                                             "start": {
+                                                "offset": 618,
                                                 "line": 20,
                                                 "column": 31
                                             },
                                             "end": {
+                                                "offset": 633,
                                                 "line": 20,
                                                 "column": 46
                                             }
@@ -2121,15 +2121,15 @@
                                 },
                                 {
                                     "type": "UnicodeRange",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 644,
-                                        "length": 9,
                                         "start": {
+                                            "offset": 644,
                                             "line": 21,
                                             "column": 9
                                         },
                                         "end": {
+                                            "offset": 653,
                                             "line": 21,
                                             "column": 18
                                         }
@@ -2141,15 +2141,15 @@
                                 },
                                 {
                                     "type": "UnicodeRange",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 654,
-                                        "length": 8,
                                         "start": {
+                                            "offset": 654,
                                             "line": 21,
                                             "column": 19
                                         },
                                         "end": {
+                                            "offset": 662,
                                             "line": 21,
                                             "column": 27
                                         }
@@ -2161,15 +2161,15 @@
                                 },
                                 {
                                     "type": "Function",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 671,
-                                        "length": 16,
                                         "start": {
+                                            "offset": 671,
                                             "line": 22,
                                             "column": 9
                                         },
                                         "end": {
+                                            "offset": 687,
                                             "line": 22,
                                             "column": 25
                                         }
@@ -2178,15 +2178,15 @@
                                     "children": [
                                         {
                                             "type": "Number",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 676,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 676,
                                                     "line": 22,
                                                     "column": 14
                                                 },
                                                 "end": {
+                                                    "offset": 677,
                                                     "line": 22,
                                                     "column": 15
                                                 }
@@ -2195,15 +2195,15 @@
                                         },
                                         {
                                             "type": "Operator",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 677,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 677,
                                                     "line": 22,
                                                     "column": 15
                                                 },
                                                 "end": {
+                                                    "offset": 678,
                                                     "line": 22,
                                                     "column": 16
                                                 }
@@ -2212,15 +2212,15 @@
                                         },
                                         {
                                             "type": "Number",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 679,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 679,
                                                     "line": 22,
                                                     "column": 17
                                                 },
                                                 "end": {
+                                                    "offset": 680,
                                                     "line": 22,
                                                     "column": 18
                                                 }
@@ -2229,15 +2229,15 @@
                                         },
                                         {
                                             "type": "Operator",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 680,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 680,
                                                     "line": 22,
                                                     "column": 18
                                                 },
                                                 "end": {
+                                                    "offset": 681,
                                                     "line": 22,
                                                     "column": 19
                                                 }
@@ -2246,15 +2246,15 @@
                                         },
                                         {
                                             "type": "Number",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 682,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 682,
                                                     "line": 22,
                                                     "column": 20
                                                 },
                                                 "end": {
+                                                    "offset": 683,
                                                     "line": 22,
                                                     "column": 21
                                                 }
@@ -2263,15 +2263,15 @@
                                         },
                                         {
                                             "type": "Operator",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 683,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 683,
                                                     "line": 22,
                                                     "column": 21
                                                 },
                                                 "end": {
+                                                    "offset": 684,
                                                     "line": 22,
                                                     "column": 22
                                                 }
@@ -2280,15 +2280,15 @@
                                         },
                                         {
                                             "type": "Number",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 685,
-                                                "length": 1,
                                                 "start": {
+                                                    "offset": 685,
                                                     "line": 22,
                                                     "column": 23
                                                 },
                                                 "end": {
+                                                    "offset": 686,
                                                     "line": 22,
                                                     "column": 24
                                                 }
@@ -2302,15 +2302,15 @@
                                 },
                                 {
                                     "type": "Hash",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 688,
-                                        "length": 4,
                                         "start": {
+                                            "offset": 688,
                                             "line": 22,
                                             "column": 26
                                         },
                                         "end": {
+                                            "offset": 692,
                                             "line": 22,
                                             "column": 30
                                         }
@@ -2322,15 +2322,15 @@
                                 },
                                 {
                                     "type": "Hash",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 693,
-                                        "length": 7,
                                         "start": {
+                                            "offset": 693,
                                             "line": 22,
                                             "column": 31
                                         },
                                         "end": {
+                                            "offset": 700,
                                             "line": 22,
                                             "column": 38
                                         }
@@ -2342,15 +2342,15 @@
                                 },
                                 {
                                     "type": "String",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 701,
-                                        "length": 8,
                                         "start": {
+                                            "offset": 701,
                                             "line": 22,
                                             "column": 39
                                         },
                                         "end": {
+                                            "offset": 709,
                                             "line": 22,
                                             "column": 47
                                         }
@@ -2362,15 +2362,15 @@
                                 },
                                 {
                                     "type": "String",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 710,
-                                        "length": 8,
                                         "start": {
+                                            "offset": 710,
                                             "line": 22,
                                             "column": 48
                                         },
                                         "end": {
+                                            "offset": 718,
                                             "line": 22,
                                             "column": 56
                                         }
@@ -2382,15 +2382,15 @@
                                 },
                                 {
                                     "type": "Parentheses",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 719,
-                                        "length": 13,
                                         "start": {
+                                            "offset": 719,
                                             "line": 22,
                                             "column": 57
                                         },
                                         "end": {
+                                            "offset": 732,
                                             "line": 22,
                                             "column": 70
                                         }
@@ -2398,15 +2398,15 @@
                                     "children": [
                                         {
                                             "type": "Identifier",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 720,
-                                                "length": 11,
                                                 "start": {
+                                                    "offset": 720,
                                                     "line": 22,
                                                     "column": 58
                                                 },
                                                 "end": {
+                                                    "offset": 731,
                                                     "line": 22,
                                                     "column": 69
                                                 }
@@ -2420,15 +2420,15 @@
                                 },
                                 {
                                     "type": "Brackets",
-                                    "info": {
+                                    "loc": {
                                         "source": "stringify.css",
-                                        "offset": 733,
-                                        "length": 7,
                                         "start": {
+                                            "offset": 733,
                                             "line": 22,
                                             "column": 71
                                         },
                                         "end": {
+                                            "offset": 740,
                                             "line": 22,
                                             "column": 78
                                         }
@@ -2436,15 +2436,15 @@
                                     "children": [
                                         {
                                             "type": "Identifier",
-                                            "info": {
+                                            "loc": {
                                                 "source": "stringify.css",
-                                                "offset": 734,
-                                                "length": 5,
                                                 "start": {
+                                                    "offset": 734,
                                                     "line": 22,
                                                     "column": 72
                                                 },
                                                 "end": {
+                                                    "offset": 739,
                                                     "line": 22,
                                                     "column": 77
                                                 }

@@ -18,6 +18,8 @@ describe('Common', function() {
         positions: true
     });
 
+    // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true), 'utf-8');
+
     it('utils.strigify()', function() {
         assert.equal(
             stringify(ast, true),

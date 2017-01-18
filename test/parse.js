@@ -117,8 +117,8 @@ describe('parse', function() {
             var positions = [];
 
             walk(ast, function(node) {
-                if (node.info) {
-                    positions.push([node.info.start.line, node.info.start.column, node.type]);
+                if (node.loc) {
+                    positions.push([node.loc.start.line, node.loc.start.column, node.type]);
                 }
             });
 
@@ -159,8 +159,8 @@ describe('parse', function() {
             var positions = [];
 
             walk(ast, function(node) {
-                if (node.info) {
-                    positions.push([node.info.start.line, node.info.start.column, node.type]);
+                if (node.loc) {
+                    positions.push([node.loc.start.line, node.loc.start.column, node.type]);
                 }
             });
 

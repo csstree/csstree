@@ -11,7 +11,7 @@ module.exports = function stringify(ast, withInfo) {
         if (source && typeof source === 'object') {
             var result = {};
             for (var key in source) {
-                if (withInfo || key !== 'info') {
+                if (withInfo || key !== 'loc') {
                     result[key] = clean(source[key]);
                 }
             }
