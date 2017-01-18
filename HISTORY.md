@@ -1,3 +1,31 @@
+## 1.0.0-alpha11 (January 18, 2017)
+
+- Added support for `:matches(<selector-list>)` (#28)
+- Added support for `:has(<relative-selector-list>)`
+- Added support for `::slotted(<compound-selector>)`
+- Implemented `Brackets` node type
+- Implemented basic support for at-rule inside rule block (#24)
+- Renamed `Selector` node type to `SelectorList`
+- Renamed `SimpleSelector` node type to `Selector`
+- Renamed `UnicodeRange.name` property to `UnicodeRange.value`
+- Replaced `Negation` node type for regular `PseudoClass`
+- Unified name of node property to store nested nodes, it always `children` now:
+    - `StyleSheet.rules` -> `StyleSheet.children`
+    - `SelectorList.selectors` -> `SelectorList.children`
+    - `Block.declarations` -> `Block.children`
+    - `*.sequence` -> `*.children`
+- Fixed edge cases in parsing `Hex` and `UnicodeRange` when number not an integer
+- Changed `nth-` pseudos parsing
+    - Implemented `An+B` node type to represent expressions like `2n + 1` or `-3n`
+    - Fixed edge cases when `a` or `b` is not an integer
+    - Changed `odd` and `even` keywords processing, keywords are storing as `Identifier` node type now
+    - Changed `Nth` node type format to store a `nth`-query and an optional `selector`
+    - Implemented `of` clause for `nth-` pseudos (a.e. `:nth-child(2n + 1 of li, img)`)
+    - Limited `Nth` parsing rules to `:nth-child()`, `:nth-last-child()`, `:nth-of-type()` and `:nth-last-of-type()` pseudos
+- Changed the way to store locations
+    - Renamed `info` node property to `loc`
+    - Changed format of `loc` to store `start` and `end` positions
+
 ## 1.0.0-alpha10 (January 11, 2017)
 
 - Reworked `Scanner` to be a single point to its functionality
