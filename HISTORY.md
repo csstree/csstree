@@ -1,3 +1,10 @@
+## 1.0.0-alpha13 (January 19, 2017)
+
+- Changed location storing in `SyntaxMatchError`
+    - Changed property to store mismatch offset to `mismatchOffset`
+    - Changed `offset` property to store bad node offset in source CSS if any
+    - Added `loc` property that stores bad node `loc` if any
+
 ## 1.0.0-alpha12 (January 19, 2017)
 
 - Fixed `Syntax#matchProperty()` method to always return a positive result for custom properties since syntax is never defined for them (#31)
