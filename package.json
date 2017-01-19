@@ -1,7 +1,7 @@
 {
   "name": "css-tree",
-  "version": "1.0.0-alpha10",
-  "description": "Detailed CSS parser",
+  "version": "1.0.0-alpha11",
+  "description": "Fast detailed CSS parser",
   "keywords": [
     "css",
     "parser",
