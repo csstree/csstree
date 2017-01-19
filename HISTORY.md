@@ -1,3 +1,8 @@
+## 1.0.0-alpha12 (January 19, 2017)
+
+- Fixed `Syntax#matchProperty()` method to always return a positive result for custom properties since syntax is never defined for them (#31)
+- Implemented `fromPlainObject()` and `toPlainObject()` to convert plain object to AST or AST to plain object (currently converts `List` <-> `Array`)
+
 ## 1.0.0-alpha11 (January 18, 2017)
 
 - Added support for `:matches(<selector-list>)` (#28)
