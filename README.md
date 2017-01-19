@@ -45,8 +45,8 @@ csstree.walk(csstree.parse('.a { color: red; }'), function(node) {
 });
 // StyleSheet
 // Rule
+// SelectorList
 // Selector
-// SimpleSelector
 // Class
 // Block
 // Declaration
@@ -77,8 +77,8 @@ Contexts:
 - `atrule` – at-rule (e.g. `@media screen, print { ... }`)
 - `atruleExpression` – at-rule expression (`screen, print` for example above)
 - `ruleset` – rule (e.g. `.foo, .bar:hover { color: red; border: 1px solid black; }`)
-- `selector` – selector group (`.foo, .bar:hover` for ruleset example)
-- `simpleSelector` – selector (`.foo` or `.bar:hover` for ruleset example)
+- `selectorList` – selector group (`.foo, .bar:hover` for ruleset example)
+- `selector` – selector (`.foo` or `.bar:hover` for ruleset example)
 - `block` – block content w/o curly braces (`color: red; border: 1px solid black;` for ruleset example)
 - `declaration` – declaration (`color: red` or `border: 1px solid black` for ruleset example)
 - `value` – declaration value (`red` or `1px solid black` for ruleset example)
@@ -151,7 +151,7 @@ Context for handler an object, that contains references to some parent nodes:
 - `stylesheet` – refers to closest `StyleSheet` node, it may be a top-level or at-rule block stylesheet
 - `atruleExpression` – refers to `AtruleExpression` node if current node inside at-rule expression
 - `ruleset` – refers to `Rule` node if current node inside a ruleset
-- `selector` – refers to `Selector` node if current node inside a selector
+- `selector` – refers to `SelectorList` node if current node inside a selector list
 - `declaration` – refers to `Declaration` node if current node inside a declaration
 - `function` – refers to closest `Function` or `FunctionalPseudo` node if current node inside one of them
 
@@ -194,8 +194,8 @@ csstree.walk(ast, function(node) {
 });
 // StyleSheet
 // Rule
+// SelectorList
 // Selector
-// SimpleSelector
 // Class
 // Block
 // Declaration
@@ -206,8 +206,8 @@ csstree.walkUp(ast, function(node) {
   console.log(node.type);
 });
 // Class
-// SimpleSelector
 // Selector
+// SelectorList
 // Identifier
 // Value
 // Declaration
