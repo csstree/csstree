@@ -15,5 +15,11 @@
             "VAR(--name)",
             "VAR(--name) qux"
         ]
+    },
+    "custom properties should be ignored": {
+        "property": "--var",
+        "valid": [
+            "any value"
+        ]
     }
 }
