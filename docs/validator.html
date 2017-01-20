@@ -290,8 +290,8 @@
                     var count = uniqueDecls[warn.decl.id];
                     warnBlock.innerHTML = escapeHtml(warn.message)
                         .replace(/^[^\r\n]+/, '<span class="warn-type">$&</span>' + (count > 1 ? ' \u00d7 ' + count : ''))
-                        .replace(/ value(:[^\r\n]*)/, createSourceLink(warn.decl.property, warn.decl.node.info.offset) + '$1')
-                        .replace(/(Unknown property: )\S+/, '$1' + createSourceLink(warn.decl.property, warn.decl.node.info.offset))
+                        .replace(/ value(:[^\r\n]*)/, createSourceLink(warn.decl.property, warn.decl.node.loc.start.offset) + '$1')
+                        .replace(/(Unknown property: )\S+/, '$1' + createSourceLink(warn.decl.property, warn.decl.node.loc.start.offset))
                         .replace('------^', repeat('-', warn.decl.property.length) + '^');
                     warnBlock.className = 'warn';
                     resultBlock.appendChild(warnBlock);

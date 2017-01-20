@@ -145,7 +145,7 @@
 
             if (!error && !isEmpty) {
                 if (currentProperty) {
-                    if (!defaultSyntax.match(currentProperty, ast)) {
+                    if (!defaultSyntax.matchProperty(currentProperty, ast)) {
                         error = defaultSyntax.lastMatchError.message;
                     }
                 } else if (currentType) {
