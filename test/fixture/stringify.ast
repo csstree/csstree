@@ -1000,6 +1000,19 @@
                                 "children": [
                                     {
                                         "type": "Nth",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 233,
+                                                "line": 12,
+                                                "column": 95
+                                            },
+                                            "end": {
+                                                "offset": 236,
+                                                "line": 12,
+                                                "column": 98
+                                            }
+                                        },
                                         "nth": {
                                             "type": "Identifier",
                                             "loc": {
@@ -1040,6 +1053,19 @@
                                 "children": [
                                     {
                                         "type": "Nth",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 248,
+                                                "line": 12,
+                                                "column": 110
+                                            },
+                                            "end": {
+                                                "offset": 254,
+                                                "line": 12,
+                                                "column": 116
+                                            }
+                                        },
                                         "nth": {
                                             "type": "An+B",
                                             "loc": {
@@ -1224,6 +1250,19 @@
                                 "children": [
                                     {
                                         "type": "Nth",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 298,
+                                                "line": 13,
+                                                "column": 42
+                                            },
+                                            "end": {
+                                                "offset": 310,
+                                                "line": 13,
+                                                "column": 54
+                                            }
+                                        },
                                         "nth": {
                                             "type": "Identifier",
                                             "loc": {
@@ -1352,6 +1391,19 @@
                                 "children": [
                                     {
                                         "type": "Nth",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 322,
+                                                "line": 13,
+                                                "column": 66
+                                            },
+                                            "end": {
+                                                "offset": 335,
+                                                "line": 13,
+                                                "column": 79
+                                            }
+                                        },
                                         "nth": {
                                             "type": "An+B",
                                             "loc": {
