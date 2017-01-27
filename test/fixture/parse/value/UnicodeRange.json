@@ -157,7 +157,7 @@
     "error #4": {
         "source": "u+1234567",
         "offset": "        ^",
-        "error": "Unexpected input"
+        "error": "Too long hex sequence"
     },
     "error #5": {
         "source": "u+123456z",
@@ -167,7 +167,7 @@
     "error #6": {
         "source": "u+123456-1234567",
         "offset": "               ^",
-        "error": "Unexpected input"
+        "error": "Too long hex sequence"
     },
     "error #7": {
         "source": "u+123456-123456z",
