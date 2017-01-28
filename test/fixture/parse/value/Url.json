@@ -106,5 +106,15 @@
                 "value": "'p (1).png'"
             }
         }
+    },
+    "error #1": {
+        "source": "url(a(1).png)",
+        "offset": "     ^",
+        "error": "RightParenthesis is expected"
+    },
+    "error #2": {
+        "source": "url(a - b.png)",
+        "offset": "      ^",
+        "error": "RightParenthesis is expected"
     }
 }
