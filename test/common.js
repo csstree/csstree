@@ -13,14 +13,10 @@ function normalize(str) {
 
 describe('Common', function() {
     var cssStr = normalize(fs.readFileSync(__dirname + css, 'utf-8'));
-    try {
     var ast = parse(cssStr, {
         filename: path.basename(css),
         positions: true
     });
-} catch(e) {
-    console.log(e.formattedMessage || e.message);
-}
 
     // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true), 'utf-8');
 
