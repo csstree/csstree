@@ -62,5 +62,49 @@
                 "value": "http://test.com"
             }
         }
+    },
+    "uri with parentheses": {
+        "source": "url(  p\\(1\\).png  )",
+        "translate": "url(p\\(1\\).png)",
+        "ast": {
+            "type": "Url",
+            "value": {
+                "type": "Raw",
+                "value": "p\\(1\\).png"
+            }
+        }
+    },
+    "uri escaping": {
+        "source": "url(  \\31 \\ \\(2\\)\\.png  )",
+        "translate": "url(\\31 \\ \\(2\\)\\.png)",
+        "ast": {
+            "type": "Url",
+            "value": {
+                "type": "Raw",
+                "value": "\\31 \\ \\(2\\)\\.png"
+            }
+        }
+    },
+    "uri with special symbols": {
+        "source": "url(  p{1};.png  )",
+        "translate": "url(p{1};.png)",
+        "ast": {
+            "type": "Url",
+            "value": {
+                "type": "Raw",
+                "value": "p{1};.png"
+            }
+        }
+    },
+    "uri with parentheses in string": {
+        "source": "url(  'p (1).png'  )",
+        "translate": "url('p (1).png')",
+        "ast": {
+            "type": "Url",
+            "value": {
+                "type": "String",
+                "value": "'p (1).png'"
+            }
+        }
     }
 }
