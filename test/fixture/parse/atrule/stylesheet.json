@@ -10,7 +10,7 @@
                 "children": []
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -75,7 +75,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -164,7 +164,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -250,7 +250,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -303,7 +303,7 @@
                 "children": []
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -392,7 +392,7 @@
                 "children": []
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -457,7 +457,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -544,7 +544,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -597,7 +597,7 @@
                 "children": []
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -662,7 +662,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -761,7 +761,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",
@@ -819,7 +819,7 @@
                 ]
             },
             "block": {
-                "type": "StyleSheet",
+                "type": "Block",
                 "children": [
                     {
                         "type": "Rule",

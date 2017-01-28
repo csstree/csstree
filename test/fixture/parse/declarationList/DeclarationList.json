@@ -1,23 +1,23 @@
 {
     "block.0": {
-        "source": "{}",
+        "source": "",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": []
         }
     },
     "block.1": {
-        "source": "{;}",
-        "translate": "{}",
+        "source": ";",
+        "translate": "",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": []
         }
     },
     "block.2": {
-        "source": "{p:v}",
+        "source": "p:v",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -37,10 +37,10 @@
         }
     },
     "block.3": {
-        "source": "{p:v;}",
-        "translate": "{p:v}",
+        "source": "p:v;",
+        "translate": "p:v",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -60,9 +60,9 @@
         }
     },
     "block.4": {
-        "source": "{p0:v0;p1:v1}",
+        "source": "p0:v0;p1:v1",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -96,26 +96,26 @@
         }
     },
     "block.c.0": {
-        "source": "{/*test*/}",
-        "translate": "{}",
+        "source": "/*test*/",
+        "translate": "",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": []
         }
     },
     "block.c.1": {
-        "source": "{/*test*/;/*test*/}",
-        "translate": "{}",
+        "source": "/*test*/;/*test*/",
+        "translate": "",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": []
         }
     },
     "block.c.2": {
-        "source": "{/*test*/p:v/*test*/}",
-        "translate": "{p:v}",
+        "source": "/*test*/p:v/*test*/",
+        "translate": "p:v",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -135,10 +135,10 @@
         }
     },
     "block.c.3": {
-        "source": "{/*test*/p:v/*test*/;/*test*/}",
-        "translate": "{p:v}",
+        "source": "/*test*/p:v/*test*/;/*test*/",
+        "translate": "p:v",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -158,10 +158,10 @@
         }
     },
     "block.c.4": {
-        "source": "{/*test*/p0:v0/*test*/;/*test*/p1:v1/*test*/}",
-        "translate": "{p0:v0;p1:v1}",
+        "source": "/*test*/p0:v0/*test*/;/*test*/p1:v1/*test*/",
+        "translate": "p0:v0;p1:v1",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -195,26 +195,26 @@
         }
     },
     "block.s.0": {
-        "source": "{  }",
-        "translate": "{}",
+        "source": "  ",
+        "translate": "",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": []
         }
     },
     "block.s.1": {
-        "source": "{  ;  }",
-        "translate": "{}",
+        "source": "  ;  ",
+        "translate": "",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": []
         }
     },
     "block.s.2": {
-        "source": "{  p:v  }",
-        "translate": "{p:v}",
+        "source": "  p:v  ",
+        "translate": "p:v",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -234,10 +234,10 @@
         }
     },
     "block.s.3": {
-        "source": "{  p:v  ;  }",
-        "translate": "{p:v}",
+        "source": "  p:v  ;  ",
+        "translate": "p:v",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -257,10 +257,10 @@
         }
     },
     "block.s.4": {
-        "source": "{  p0:v0  ;  p1:v1  }",
-        "translate": "{p0:v0;p1:v1}",
+        "source": "  p0:v0  ;  p1:v1  ",
+        "translate": "p0:v0;p1:v1",
         "ast": {
-            "type": "Block",
+            "type": "DeclarationList",
             "children": [
                 {
                     "type": "Declaration",
@@ -288,160 +288,6 @@
                                 "name": "v1"
                             }
                         ]
-                    }
-                }
-            ]
-        }
-    },
-    "at-rule in block": {
-        "source": "{@foo a b;test:123}",
-        "ast": {
-            "type": "Block",
-            "children": [
-                {
-                    "type": "Atrule",
-                    "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": [
-                            {
-                                "type": "Identifier",
-                                "name": "a"
-                            },
-                            {
-                                "type": "Space"
-                            },
-                            {
-                                "type": "Identifier",
-                                "name": "b"
-                            }
-                        ]
-                    },
-                    "block": null
-                },
-                {
-                    "type": "Declaration",
-                    "important": false,
-                    "property": "test",
-                    "value": {
-                        "type": "Value",
-                        "children": [
-                            {
-                                "type": "Number",
-                                "value": "123"
-                            }
-                        ]
-                    }
-                }
-            ]
-        }
-    },
-    "at-rule with block in block": {
-        "source": "{@foo{}test:123}",
-        "ast": {
-            "type": "Block",
-            "children": [
-                {
-                    "type": "Atrule",
-                    "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
-                    "block": {
-                        "type": "Block",
-                        "children": []
-                    }
-                },
-                {
-                    "type": "Declaration",
-                    "important": false,
-                    "property": "test",
-                    "value": {
-                        "type": "Value",
-                        "children": [
-                            {
-                                "type": "Number",
-                                "value": "123"
-                            }
-                        ]
-                    }
-                }
-            ]
-        }
-    },
-    "at-rule in the ending of block": {
-        "source": "{test:123;@foo a b;}",
-        "ast": {
-            "type": "Block",
-            "children": [
-                {
-                    "type": "Declaration",
-                    "important": false,
-                    "property": "test",
-                    "value": {
-                        "type": "Value",
-                        "children": [
-                            {
-                                "type": "Number",
-                                "value": "123"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "Atrule",
-                    "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": [
-                            {
-                                "type": "Identifier",
-                                "name": "a"
-                            },
-                            {
-                                "type": "Space"
-                            },
-                            {
-                                "type": "Identifier",
-                                "name": "b"
-                            }
-                        ]
-                    },
-                    "block": null
-                }
-            ]
-        }
-    },
-    "at-rule with block in the ending of block": {
-        "source": "{test:123;@foo{}}",
-        "ast": {
-            "type": "Block",
-            "children": [
-                {
-                    "type": "Declaration",
-                    "important": false,
-                    "property": "test",
-                    "value": {
-                        "type": "Value",
-                        "children": [
-                            {
-                                "type": "Number",
-                                "value": "123"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "Atrule",
-                    "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
-                    "block": {
-                        "type": "Block",
-                        "children": []
                     }
                 }
             ]

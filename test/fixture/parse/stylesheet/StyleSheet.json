@@ -233,7 +233,7 @@
                         ]
                     },
                     "block": {
-                        "type": "StyleSheet",
+                        "type": "Block",
                         "children": [
                             {
                                 "type": "Atrule",
@@ -323,7 +323,7 @@
                         ]
                     },
                     "block": {
-                        "type": "StyleSheet",
+                        "type": "Block",
                         "children": [
                             {
                                 "type": "Rule",
