@@ -19,26 +19,6 @@
             ]
         }
     },
-    "explicit descendant combinator": {
-        "source": "a>>b",
-        "ast": {
-            "type": "Selector",
-            "children": [
-                {
-                    "type": "Type",
-                    "name": "a"
-                },
-                {
-                    "type": "Combinator",
-                    "name": ">>"
-                },
-                {
-                    "type": "Type",
-                    "name": "b"
-                }
-            ]
-        }
-    },
     "child combinator": {
         "source": "a>b",
         "ast": {
@@ -121,8 +101,8 @@
         }
     },
     "all selectors": {
-        "source": "a  b  +  c  >  d  ~  e >> f",
-        "translate": "a b+c>d~e>>f",
+        "source": "a  b  +  c  >  d  ~  e",
+        "translate": "a b+c>d~e",
         "ast": {
             "type": "Selector",
             "children": [
@@ -161,14 +141,6 @@
                 {
                     "type": "Type",
                     "name": "e"
-                },
-                {
-                    "type": "Combinator",
-                    "name": ">>"
-                },
-                {
-                    "type": "Type",
-                    "name": "f"
                 }
             ]
         }
@@ -278,27 +250,6 @@
             ]
         }
     },
-    "combinator with comments around #5": {
-        "source": "a/*test*/>>/*test*/b",
-        "translate": "a>>b",
-        "ast": {
-            "type": "Selector",
-            "children": [
-                {
-                    "type": "Type",
-                    "name": "a"
-                },
-                {
-                    "type": "Combinator",
-                    "name": ">>"
-                },
-                {
-                    "type": "Type",
-                    "name": "b"
-                }
-            ]
-        }
-    },
     "combinator with spaces around #0": {
         "source": "a    b",
         "translate": "a b",
@@ -396,27 +347,6 @@
                 {
                     "type": "Combinator",
                     "name": "/deep/"
-                },
-                {
-                    "type": "Type",
-                    "name": "b"
-                }
-            ]
-        }
-    },
-    "combinator with spaces around #5": {
-        "source": "a  >>  b",
-        "translate": "a>>b",
-        "ast": {
-            "type": "Selector",
-            "children": [
-                {
-                    "type": "Type",
-                    "name": "a"
-                },
-                {
-                    "type": "Combinator",
-                    "name": ">>"
                 },
                 {
                     "type": "Type",
