@@ -191,8 +191,8 @@
     },
     "error #6": {
         "source": ":has(--test)",
-        "offset": "      ^",
-        "error": "Identifier is expected"
+        "offset": "     ^",
+        "error": "Unexpected input"
     },
     "error #7": {
         "source": ":has(var(--test))",

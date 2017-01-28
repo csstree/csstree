@@ -161,7 +161,7 @@
     },
     "error #34": {
         "source": "--test { padding: 20px }",
-        "offset": " ^",
-        "error": "Identifier is expected"
+        "offset": "^",
+        "error": "Unexpected input"
     }
 }

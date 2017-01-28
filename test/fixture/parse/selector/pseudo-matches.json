@@ -150,8 +150,8 @@
     },
     "error #6": {
         "source": ":matches(--test)",
-        "offset": "          ^",
-        "error": "Identifier is expected"
+        "offset": "         ^",
+        "error": "Unexpected input"
     },
     "error #7": {
         "source": ":matches(var(--test))",

@@ -6,20 +6,6 @@
             "name": "x"
         }
     },
-    "ident.2": {
-        "source": "-x",
-        "ast": {
-            "type": "Type",
-            "name": "-x"
-        }
-    },
-    "ident.3": {
-        "source": "-x-test",
-        "ast": {
-            "type": "Type",
-            "name": "-x-test"
-        }
-    },
     "ident.4": {
         "source": "x\\:y",
         "ast": {
@@ -178,5 +164,15 @@
         "source": "a| {}",
         "offset": "  ^",
         "error": "Identifier or asterisk is expected"
+    },
+    "error #2": {
+        "source": "-x",
+        "offset": "^",
+        "error": "Unexpected input"
+    },
+    "error #3": {
+        "source": "-x-test",
+        "offset": "^",
+        "error": "Unexpected input"
     }
 }
