@@ -238,10 +238,7 @@
                             {
                                 "type": "Atrule",
                                 "name": "page",
-                                "expression": {
-                                    "type": "AtruleExpression",
-                                    "children": []
-                                },
+                                "expression": null,
                                 "block": {
                                     "type": "Block",
                                     "children": [
@@ -364,10 +361,7 @@
                             {
                                 "type": "Atrule",
                                 "name": "page",
-                                "expression": {
-                                    "type": "AtruleExpression",
-                                    "children": []
-                                },
+                                "expression": null,
                                 "block": {
                                     "type": "Block",
                                     "children": [
@@ -598,10 +592,7 @@
                 {
                     "type": "Atrule",
                     "name": "test",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": null
                 }
             ]
@@ -615,19 +606,13 @@
                 {
                     "type": "Atrule",
                     "name": "test0",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": null
                 },
                 {
                     "type": "Atrule",
                     "name": "test1",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": null
                 }
             ]
@@ -677,10 +662,7 @@
                 {
                     "type": "Atrule",
                     "name": "test",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": null
                 }
             ]
@@ -866,19 +848,13 @@
                 {
                     "type": "Atrule",
                     "name": "test0",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": null
                 },
                 {
                     "type": "Atrule",
                     "name": "test1",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": null
                 }
             ]
@@ -929,10 +905,7 @@
                 {
                     "type": "Atrule",
                     "name": "test",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": null
                 }
             ]
@@ -966,10 +939,7 @@
                 {
                     "type": "Atrule",
                     "name": "x",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": {
                         "type": "Block",
                         "children": [
@@ -1037,10 +1007,7 @@
                 {
                     "type": "Atrule",
                     "name": "x",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": {
                         "type": "Block",
                         "children": [

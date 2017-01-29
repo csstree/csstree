@@ -23,10 +23,7 @@
                     {
                         "type": "Atrule",
                         "name": "test",
-                        "expression": {
-                            "type": "AtruleExpression",
-                            "children": []
-                        },
+                        "expression": null,
                         "block": null
                     }
                 ]

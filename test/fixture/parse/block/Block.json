@@ -344,10 +344,7 @@
                 {
                     "type": "Atrule",
                     "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": {
                         "type": "Block",
                         "children": []
@@ -435,10 +432,7 @@
                 {
                     "type": "Atrule",
                     "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
-                        "children": []
-                    },
+                    "expression": null,
                     "block": {
                         "type": "Block",
                         "children": []

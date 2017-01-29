@@ -4,10 +4,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
-                "children": []
-            },
+            "expression": null,
             "block": {
                 "type": "Block",
                 "children": []
@@ -19,10 +16,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
-                "children": []
-            },
+            "expression": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -157,10 +151,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
-                "children": []
-            },
+            "expression": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -296,10 +287,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
-                "children": []
-            },
+            "expression": null,
             "block": {
                 "type": "Block",
                 "children": [
