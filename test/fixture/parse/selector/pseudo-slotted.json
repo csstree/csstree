@@ -78,8 +78,8 @@
     },
     "error #4": {
         "source": "::slotted(--test)",
-        "offset": "           ^",
-        "error": "Identifier is expected"
+        "offset": "          ^",
+        "error": "Unexpected input"
     },
     "error #5": {
         "source": "::slotted(var(--test))",

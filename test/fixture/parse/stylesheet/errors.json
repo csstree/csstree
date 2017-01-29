@@ -81,18 +81,18 @@
     },
     "error #18": {
         "source": ":pseudo({}",
-        "offset": "        ^",
-        "error": "Unexpected input"
+        "offset": "          ^",
+        "error": "RightParenthesis is expected"
     },
     "error #19": {
-        "source": ":pseudo(--test) {}",
-        "offset": "         ^",
+        "source": ":lang(--test) {}",
+        "offset": "       ^",
         "error": "Identifier is expected"
     },
     "error #20": {
-        "source": ":pseudo(var(--test)) {}",
-        "offset": "             ^",
-        "error": "Identifier is expected"
+        "source": ":lang(var(--test)) {}",
+        "offset": "         ^",
+        "error": "RightParenthesis is expected"
     },
     "error #21": {
         "source": "[",
