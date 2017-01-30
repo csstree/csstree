@@ -64,12 +64,12 @@
     "error #1": {
         "source": "::slotted(.a{)",
         "offset": "            ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #2": {
         "source": "::slotted(,.b)",
         "offset": "          ^",
-        "error": "Simple selector expected"
+        "error": "Selector is expected"
     },
     "error #3": {
         "source": "::slotted(.a,)",
@@ -79,17 +79,17 @@
     "error #4": {
         "source": "::slotted(--test)",
         "offset": "          ^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     },
     "error #5": {
         "source": "::slotted(var(--test))",
         "offset": "             ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #6": {
         "source": "::slotted(> test)",
         "offset": "          ^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     },
     "error #7": {
         "source": "::slotted(foo,bar)",

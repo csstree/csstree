@@ -53,41 +53,41 @@
     "bad selector #1": {
         "source": "a, ",
         "offset": "  ^",
-        "error": "Simple selector expected"
+        "error": "Selector is expected"
     },
     "bad selector #2": {
         "source": "a,, ",
         "offset": "  ^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "bad selector #3": {
         "source": "a,,b",
         "offset": "  ^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "bad selector #4": {
         "source": ",b",
         "offset": "^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "bad selector #5": {
         "source": ",,b",
         "offset": "^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "bad selector #6": {
         "source": ",",
         "offset": "^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "bad selector #7": {
         "source": ",,",
         "offset": "^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "bad selector #7": {
         "source": "a,{",
-        "offset": " ^",
-        "error": "Unexpected trailing comma"
+        "offset": "  ^",
+        "error": "Selector is expected"
     }
 }

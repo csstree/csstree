@@ -911,25 +911,6 @@
             ]
         }
     },
-    "empty selector ruleset": {
-        "source": "{}",
-        "ast": {
-            "type": "StyleSheet",
-            "children": [
-                {
-                    "type": "Rule",
-                    "selector": {
-                        "type": "SelectorList",
-                        "children": []
-                    },
-                    "block": {
-                        "type": "Block",
-                        "children": []
-                    }
-                }
-            ]
-        }
-    },
     "issue #250": {
         "source": "@x {\n  unicode-range: U+2074, U+20AC, U+2212, U+2215, U+E0FF;\n}\n@x {\n  a: a();\n}",
         "translate": "@x{unicode-range:U+2074, U+20AC, U+2212, U+2215, U+E0FF}@x{a:a()}",
@@ -1027,6 +1008,27 @@
                                 }
                             }
                         ]
+                    }
+                }
+            ]
+        }
+    },
+    "error#1 - empty selector ruleset": {
+        "source": "{}",
+        "offset": "^",
+        "error": "Selector is expected",
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Rule",
+                    "selector": {
+                        "type": "SelectorList",
+                        "children": []
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": []
                     }
                 }
             ]

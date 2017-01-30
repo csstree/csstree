@@ -167,37 +167,37 @@
     "error #1": {
         "source": ":has(.a{)",
         "offset": "       ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #2": {
         "source": ":has(,.b)",
         "offset": "     ^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "error #3": {
         "source": ":has(.a,)",
-        "offset": "       ^",
-        "error": "Unexpected trailing comma"
+        "offset": "        ^",
+        "error": "Selector is expected"
     },
     "error #4": {
         "source": ":has(.a,,)",
         "offset": "        ^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "error #5": {
         "source": ":has(.a,.b{)",
         "offset": "          ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #6": {
         "source": ":has(--test)",
         "offset": "     ^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     },
     "error #7": {
         "source": ":has(var(--test))",
         "offset": "        ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #8": {
         "source": ":has(>+a)",

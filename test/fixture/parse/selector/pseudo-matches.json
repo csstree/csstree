@@ -126,37 +126,37 @@
     "error #1": {
         "source": ":matches(.a{)",
         "offset": "           ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #2": {
         "source": ":matches(,.b)",
         "offset": "         ^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "error #3": {
         "source": ":matches(.a,)",
-        "offset": "           ^",
-        "error": "Unexpected trailing comma"
+        "offset": "            ^",
+        "error": "Selector is expected"
     },
     "error #4": {
         "source": ":matches(.a,,)",
         "offset": "            ^",
-        "error": "Unexpected comma"
+        "error": "Selector is expected"
     },
     "error #5": {
         "source": ":matches(.a,.b{)",
         "offset": "              ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #6": {
         "source": ":matches(--test)",
         "offset": "         ^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     },
     "error #7": {
         "source": ":matches(var(--test))",
         "offset": "            ^",
-        "error": "Unexpected input"
+        "error": "RightParenthesis is expected"
     },
     "error #8": {
         "source": ":matches(> test)",

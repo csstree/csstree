@@ -168,11 +168,11 @@
     "error #2": {
         "source": "-x",
         "offset": "^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     },
     "error #3": {
         "source": "-x-test",
         "offset": "^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     }
 }

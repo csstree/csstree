@@ -197,5 +197,20 @@
                 }
             ]
         }
+    },
+    "error#1": {
+        "source": "foo,",
+        "offset": "   ^",
+        "error": "Unexpected input"
+    },
+    "error#2": {
+        "source": "foo)",
+        "offset": "   ^",
+        "error": "Unexpected input"
+    },
+    "error#3": {
+        "source": "foo{",
+        "offset": "   ^",
+        "error": "Unexpected input"
     }
 }

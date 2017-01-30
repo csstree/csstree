@@ -102,12 +102,12 @@
     "error #22": {
         "source": "]",
         "offset": "^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     },
     "error #23": {
         "source": ")",
         "offset": "^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     },
     "error #24": {
         "source": "}",
@@ -162,6 +162,6 @@
     "error #34": {
         "source": "--test { padding: 20px }",
         "offset": "^",
-        "error": "Unexpected input"
+        "error": "Selector is expected"
     }
 }

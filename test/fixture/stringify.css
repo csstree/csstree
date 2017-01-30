@@ -10,7 +10,7 @@
 }
 
 *.class element#id[attr] [attr|="asd"][attr=value i]:pseudo::pseudo ~ :not(a, b) + :nth-child(odd):nth-child(2n + 1),
-svg|*:matches()::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a]),
+svg|*:matches(a)::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a]),
 :has(> img) {
     color: green;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img.png',sizingMethod='scale') alpha(opacity=80);
