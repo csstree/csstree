@@ -12,7 +12,7 @@
 
 Fast detailed CSS parser
 
-> Work in progress
+> Work in progress. Project in alpha stage since AST format is subject to change.
 
 Docs and tools:
 
@@ -76,12 +76,13 @@ Contexts:
 - `stylesheet` (default) – regular stylesheet, should be suitable in most cases
 - `atrule` – at-rule (e.g. `@media screen, print { ... }`)
 - `atruleExpression` – at-rule expression (`screen, print` for example above)
-- `ruleset` – rule (e.g. `.foo, .bar:hover { color: red; border: 1px solid black; }`)
-- `selectorList` – selector group (`.foo, .bar:hover` for ruleset example)
-- `selector` – selector (`.foo` or `.bar:hover` for ruleset example)
-- `block` – block content w/o curly braces (`color: red; border: 1px solid black;` for ruleset example)
-- `declaration` – declaration (`color: red` or `border: 1px solid black` for ruleset example)
-- `value` – declaration value (`red` or `1px solid black` for ruleset example)
+- `rule` – rule (e.g. `.foo, .bar:hover { color: red; border: 1px solid black; }`)
+- `selectorList` – selector group (`.foo, .bar:hover` for rule example)
+- `selector` – selector (`.foo` or `.bar:hover` for rule example)
+- `block` – block with curly braces (`{ color: red; border: 1px solid black; }` for rule example)
+- `declarationList` – block content w/o curly braces (`color: red; border: 1px solid black;` for rule example), useful to parse HTML `style` attribute value
+- `declaration` – declaration (`color: red` or `border: 1px solid black` for rule example)
+- `value` – declaration value (`red` or `1px solid black` for rule example)
 
 ```js
 // simple parsing with no options
@@ -147,13 +148,14 @@ Visits each node of AST in natural way and calls handler for each one. `handler`
 
 Context for handler an object, that contains references to some parent nodes:
 
-- `root` – refers to `ast` or root node
-- `stylesheet` – refers to closest `StyleSheet` node, it may be a top-level or at-rule block stylesheet
-- `atruleExpression` – refers to `AtruleExpression` node if current node inside at-rule expression
-- `ruleset` – refers to `Rule` node if current node inside a ruleset
-- `selector` – refers to `SelectorList` node if current node inside a selector list
-- `declaration` – refers to `Declaration` node if current node inside a declaration
-- `function` – refers to closest `Function` or `FunctionalPseudo` node if current node inside one of them
+- `root` – refers to `ast` root node (actually it's a node passed to walker function)
+- `stylesheet` – refers to `StyleSheet` node, usually it's a root node
+- `atruleExpression` – refers to `AtruleExpression` node if any
+- `rule` – refers to closest `Rule` node if any
+- `selector` – refers to `SelectorList` node if any
+- `block` - refers to closest `Block` node if any
+- `declaration` – refers to `Declaration` node if any
+- `function` – refers to closest `Function`, `PseudoClass` or `PseudoElement` node if current node inside one of them
 
 ```js
 // collect all urls in declarations
