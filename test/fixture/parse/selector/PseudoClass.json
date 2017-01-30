@@ -14,5 +14,31 @@
             "name": "test-test",
             "children": null
         }
+    },
+    "unknown function pseudo class": {
+        "source": ":unknown(1 + 2)",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "unknown",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "1 + 2"
+                }
+            ]
+        }
+    },
+    "unknown function pseudo class with spaces and comments": {
+        "source": ":unknown( 1 + 2 /* comment */ + 3 )",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "unknown",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": " 1 + 2 /* comment */ + 3 "
+                }
+            ]
+        }
     }
 }
