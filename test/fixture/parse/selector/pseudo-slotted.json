@@ -89,7 +89,7 @@
     "error #6": {
         "source": "::slotted(> test)",
         "offset": "          ^",
-        "error": "Selector is expected"
+        "error": "Unexpected combinator"
     },
     "error #7": {
         "source": "::slotted(foo,bar)",
