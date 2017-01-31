@@ -10,12 +10,13 @@
 [![Join the CSSTree chat at https://gitter.im/csstree/csstree](https://badges.gitter.im/csstree/csstree.svg)](https://gitter.im/csstree/csstree)
 [![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)
 
-Fast detailed CSS parser
+[Fast](https://github.com/postcss/benchmark) detailed CSS parser
 
 > Work in progress. Project in alpha stage since AST format is subject to change.
 
 Docs and tools:
 
+* [AST Explorer](https://astexplorer.net/#/gist/244e2fb4da940df52bf0f4b94277db44/e79aff44611020b22cfd9708f3a99ce09b7d67a8) – explore CSSTree AST format with zero setup
 * [CSS syntax reference](https://csstree.github.io/docs/syntax.html)
 * [CSS syntax validator](https://csstree.github.io/docs/validator.html)
 
