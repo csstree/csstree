@@ -1,0 +1,188 @@
+{
+    "basic": {
+        "source": "var(--name)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                }
+            ]
+        }
+    },
+    "with fallback": {
+        "source": "var(--name,value)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "value"
+                }
+            ]
+        }
+    },
+    "falback is {}-block": {
+        "source": "var(--name,{foo:bar;baz:{}})",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "{foo:bar;baz:{}}"
+                }
+            ]
+        }
+    },
+    "complex balanced": {
+        "source": "var(--name,{[({()})()()[({})]]}[{()}]([]))",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "{[({()})()()[({})]]}[{()}]([])"
+                }
+            ]
+        }
+    },
+    "should ignore everything inside falback's block": {
+        "source": "var(--name,{!important})",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "{!important}"
+                }
+            ]
+        }
+    },
+    "empty fallback": {
+        "source": "var(--name,)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": ""
+                }
+            ]
+        }
+    },
+    "should preserve single spaces": {
+        "source": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": " "
+                }
+            ]
+        }
+    },
+    "spaces and comments": {
+        "source": "var( /* 1 */ --name /* 2 */ , /* 3 */ )",
+        "translate": "var(--name, /* 3 */ )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": " /* 3 */ "
+                }
+            ]
+        }
+    },
+    "error #1": {
+        "source": "var(name)",
+        "offset": "    ^",
+        "error": "Hyphen minus is expected"
+    },
+    "error #2": {
+        "source": "var(-name)",
+        "offset": "     ^",
+        "error": "Hyphen minus is expected"
+    },
+    "error #3": {
+        "source": "var(--name,([)])",
+        "offset": "             ^",
+        "error": "Unexpected input"
+    },
+    "error #4": {
+        "source": "var(--name, ()])",
+        "offset": "              ^",
+        "error": "RightParenthesis is expected"
+    },
+    "error #5": {
+        "source": "var(--name, !important ())",
+        "offset": "            ^",
+        "error": "RightParenthesis is expected"
+    }
+}

@@ -144,38 +144,6 @@
             ]
         }
     },
-    "css variables": {
-        "source": "var(--foo, blue)",
-        "translate": "var(--foo,blue)",
-        "ast": {
-            "type": "Value",
-            "children": [
-                {
-                    "type": "Function",
-                    "name": "var",
-                    "children": [
-                        {
-                            "type": "Identifier",
-                            "name": "--foo"
-                        },
-                        {
-                            "type": "Operator",
-                            "value": ","
-                        },
-                        {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "blue"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    },
     "error: closing parenthesis is not allowed": {
         "source": "foo)",
         "offset": "   ^",

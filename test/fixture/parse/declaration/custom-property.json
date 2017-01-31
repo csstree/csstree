@@ -1,0 +1,137 @@
+{
+    "basic": {
+        "source": "--var:value",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": "value"
+            }
+        }
+    },
+    "with important": {
+        "source": "--var:value!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": "value"
+            }
+        }
+    },
+    "value is {}-block": {
+        "source": "--var:{foo:bar;baz:{}}",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": "{foo:bar;baz:{}}"
+            }
+        }
+    },
+    "complex balanced": {
+        "source": "--var:{[({()})()()[({})]]}[{()}]([])",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": "{[({()})()()[({})]]}[{()}]([])"
+            }
+        }
+    },
+    "should ignore everything inside block": {
+        "source": "--var:{!important}",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": "{!important}"
+            }
+        }
+    },
+    "empty": {
+        "source": "--var:",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": ""
+            }
+        }
+    },
+    "empty with important": {
+        "source": "--var:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": ""
+            }
+        }
+    },
+    "should preserve single spaces": {
+        "source": "--var: ",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": " "
+            }
+        }
+    },
+    "should preserve single spaces with important": {
+        "source": "--var: !important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": " "
+            }
+        }
+    },
+    "spaces and comments": {
+        "source": "--var: /* 1 */ ",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": " /* 1 */ "
+            }
+        }
+    },
+    "error #1": {
+        "source": "--var: ([)]",
+        "offset": "         ^",
+        "error": "Unexpected input"
+    },
+    "error #2": {
+        "source": "--var: ()]",
+        "offset": "         ^",
+        "error": "Unexpected input"
+    },
+    "error #3": {
+        "source": "--var: !important ()",
+        "offset": "                  ^",
+        "error": "Unexpected input"
+    }
+}
