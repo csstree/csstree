@@ -1,0 +1,116 @@
+{
+    "with string": {
+        "source": "@import 'test';",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "String",
+                        "value": "'test'"
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with url": {
+        "source": "@import url(test);",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": {
+                            "type": "Raw",
+                            "value": "test"
+                        }
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with media": {
+        "source": "@import 'test' all, screen and (min-width: 600px);",
+        "translate": "@import 'test' all,screen and (min-width:600px);",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "String",
+                        "value": "'test'"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "all"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "and"
+                                    },
+                                    {
+                                        "type": "MediaFeature",
+                                        "name": "min-width",
+                                        "value": {
+                                            "type": "Dimension",
+                                            "value": "600",
+                                            "unit": "px"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "error#1": {
+        "source": "@import;",
+        "offset": "       ^",
+        "error": "String or url() is expected"
+    },
+    "error#2": {
+        "source": "@import  ;",
+        "offset": "         ^",
+        "error": "String or url() is expected"
+    },
+    "error#3": {
+        "source": "@import 'test' 'asd' ;",
+        "offset": "               ^",
+        "error": "Semicolon or EOF is expected"
+    },
+    "error#4": {
+        "source": "@import 'test' {}",
+        "offset": "               ^",
+        "error": "Semicolon or EOF is expected"
+    }
+}

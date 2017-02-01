@@ -1,0 +1,279 @@
+{
+    "single media type": {
+        "source": "@media screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "screen"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "single media type with negation": {
+        "source": "@media not screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "not"
+                            },
+                            {
+                                "type": "Identifier",
+                                "name": "screen"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "single media type with negation": {
+        "source": "@media only screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "only"
+                            },
+                            {
+                                "type": "Identifier",
+                                "name": "screen"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "boolean media feature": {
+        "source": "@media (foo){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "media feature with number value": {
+        "source": "@media (foo:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": {
+                                    "type": "Number",
+                                    "value": "1"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "media feature with identifier value": {
+        "source": "@media (foo:bar){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": {
+                                    "type": "Identifier",
+                                    "value": "bar"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "media feature with identifier value": {
+        "source": "@media (foo:2px){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": {
+                                    "type": "Dimension",
+                                    "value": "2",
+                                    "unit": "px"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "media feature with spaces": {
+        "source": "@media  (  foo  :  1  )  {}",
+        "translate": "@media (foo:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": {
+                                    "type": "Number",
+                                    "value": "1"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "error#1": {
+        "source": "@media;",
+        "offset": "      ^",
+        "error": "Identifier or parenthesis is expected"
+    },
+    "error#2": {
+        "source": "@media {}",
+        "offset": "       ^",
+        "error": "Identifier or parenthesis is expected"
+    },
+    "error#3": {
+        "source": "@media xxx foo {}",
+        "offset": "           ^",
+        "error": "Unexpected identifier"
+    },
+    "error#4": {
+        "source": "@media and (min-width: 600px) {}",
+        "offset": "       ^",
+        "error": "Unexpected `and` keyword"
+    },
+    "error#5": {
+        "source": "@media screen (min-width: 600px) {}",
+        "offset": "              ^",
+        "error": "`and` keyword is expected"
+    },
+    "error#6": {
+        "source": "@media (foo) and and (bar) {}",
+        "offset": "                 ^",
+        "error": "LeftParenthesis is expected"
+    },
+    "error#7": {
+        "source": "@media (foo) xxx (bar) {}",
+        "offset": "             ^",
+        "error": "Unexpected identifier"
+    },
+    "error#8": {
+        "source": "@media (foo) (bar) {}",
+        "offset": "             ^",
+        "error": "`and` keyword is expected"
+    },
+    "error#9": {
+        "source": "@media (foo 123) {}",
+        "offset": "            ^",
+        "error": "Colon is expected"
+    },
+    "error#10": {
+        "source": "@media (foo: bar baz) {}",
+        "offset": "                 ^",
+        "error": "RightParenthesis is expected"
+    }
+}
