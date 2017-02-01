@@ -224,11 +224,16 @@
                     "type": "Atrule",
                     "name": "media",
                     "expression": {
-                        "type": "AtruleExpression",
+                        "type": "MediaQueryList",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "test"
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "test"
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -311,11 +316,16 @@
                     "type": "Atrule",
                     "name": "media",
                     "expression": {
-                        "type": "AtruleExpression",
+                        "type": "MediaQueryList",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "test"
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "test"
+                                    }
+                                ]
                             }
                         ]
                     },

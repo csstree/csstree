@@ -114,7 +114,7 @@ describe('AST traversal', function() {
         function visit() {
             var visitedTypes = {};
 
-            walkAll(parse('@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }'), function(node) {
+            walkAll(parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }'), function(node) {
                 visitedTypes[node.type] = true;
             });
 
@@ -130,17 +130,20 @@ describe('AST traversal', function() {
             'Declaration',
             'Dimension',
             'Function',
-            'Identifier',
+            'MediaFeature',
+            'MediaQuery',
+            'MediaQueryList',
             'Nth',
             'Operator',
-            'Parentheses',
             'Percentage',
             'PseudoClass',
             'Rule',
             'Selector',
             'SelectorList',
             'Space',
+            'String',
             'StyleSheet',
+            'Url',
             'Value'
         ];
 

@@ -66,7 +66,8 @@ Parses CSS to AST.
 Options:
 
 - `context` String – parsing context, useful when some part of CSS is parsing (see below)
-- `property` String – make sense for `declaration` context to apply some property specific parse rules
+- `atrule` String – make sense for `atruleExpression` context to apply some atrule specific parse rules
+- `property` String – make sense for `value` context to apply some property specific parse rules
 - `positions` Boolean – should AST contains node position or not, store data in `info` property of nodes (`false` by default)
 - `filename` String – filename of source that adds to info when `positions` is true, uses for source map generation (`<unknown>` by default)
 - `line` Number – initial line number, useful when parse fragment of CSS to compute correct positions

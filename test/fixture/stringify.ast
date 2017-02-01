@@ -226,7 +226,7 @@
             },
             "name": "media",
             "expression": {
-                "type": "AtruleExpression",
+                "type": "MediaQueryList",
                 "loc": {
                     "source": "stringify.css",
                     "start": {
@@ -242,53 +242,13 @@
                 },
                 "children": [
                     {
-                        "type": "Identifier",
+                        "type": "MediaQuery",
                         "loc": {
                             "source": "stringify.css",
                             "start": {
                                 "offset": 75,
                                 "line": 6,
                                 "column": 8
-                            },
-                            "end": {
-                                "offset": 81,
-                                "line": 6,
-                                "column": 14
-                            }
-                        },
-                        "name": "screen"
-                    },
-                    {
-                        "type": "Space"
-                    },
-                    {
-                        "type": "Identifier",
-                        "loc": {
-                            "source": "stringify.css",
-                            "start": {
-                                "offset": 82,
-                                "line": 6,
-                                "column": 15
-                            },
-                            "end": {
-                                "offset": 85,
-                                "line": 6,
-                                "column": 18
-                            }
-                        },
-                        "name": "and"
-                    },
-                    {
-                        "type": "Space"
-                    },
-                    {
-                        "type": "Parentheses",
-                        "loc": {
-                            "source": "stringify.css",
-                            "start": {
-                                "offset": 86,
-                                "line": 6,
-                                "column": 19
                             },
                             "end": {
                                 "offset": 94,
@@ -302,54 +262,68 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 87,
+                                        "offset": 75,
                                         "line": 6,
-                                        "column": 20
+                                        "column": 8
                                     },
                                     "end": {
-                                        "offset": 90,
+                                        "offset": 81,
                                         "line": 6,
-                                        "column": 23
+                                        "column": 14
                                     }
                                 },
-                                "name": "foo"
+                                "name": "screen"
                             },
                             {
-                                "type": "Operator",
+                                "type": "Identifier",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 90,
+                                        "offset": 82,
                                         "line": 6,
-                                        "column": 23
+                                        "column": 15
                                     },
                                     "end": {
-                                        "offset": 91,
+                                        "offset": 85,
                                         "line": 6,
-                                        "column": 24
+                                        "column": 18
                                     }
                                 },
-                                "value": ":"
+                                "name": "and"
                             },
                             {
-                                "type": "Space"
-                            },
-                            {
-                                "type": "Number",
+                                "type": "MediaFeature",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 92,
+                                        "offset": 86,
                                         "line": 6,
-                                        "column": 25
+                                        "column": 19
                                     },
                                     "end": {
-                                        "offset": 93,
+                                        "offset": 94,
                                         "line": 6,
-                                        "column": 26
+                                        "column": 27
                                     }
                                 },
-                                "value": "1"
+                                "name": "foo",
+                                "value": {
+                                    "type": "Number",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 92,
+                                            "line": 6,
+                                            "column": 25
+                                        },
+                                        "end": {
+                                            "offset": 93,
+                                            "line": 6,
+                                            "column": 26
+                                        }
+                                    },
+                                    "value": "1"
+                                }
                             }
                         ]
                     }

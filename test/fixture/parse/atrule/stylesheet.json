@@ -1,10 +1,10 @@
 {
     "atruler.0": {
-        "source": "@media {s{p:v}}",
-        "translate": "@media{s{p:v}}",
+        "source": "@atrule {s{p:v}}",
+        "translate": "@atrule{s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": null,
             "block": {
                 "type": "Block",
@@ -50,11 +50,11 @@
         }
     },
     "atruler.1": {
-        "source": "@media x y {s{p:v}}",
-        "translate": "@media x y{s{p:v}}",
+        "source": "@atrule x y {s{p:v}}",
+        "translate": "@atrule x y{s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": {
                 "type": "AtruleExpression",
                 "children": [
@@ -115,11 +115,11 @@
         }
     },
     "atruler.2": {
-        "source": "@media screen and (max-width: 300px) {s{p:v}}",
-        "translate": "@media screen and (max-width: 300px){s{p:v}}",
+        "source": "@atrule screen and (max-width: 300px) {s{p:v}}",
+        "translate": "@atrule screen and (max-width: 300px){s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": {
                 "type": "AtruleExpression",
                 "children": [
@@ -204,11 +204,11 @@
         }
     },
     "atruler.3": {
-        "source": "@media x, y f(1+2) {s{p:v}}",
-        "translate": "@media x, y f(1+2){s{p:v}}",
+        "source": "@atrule x, y f(1+2) {s{p:v}}",
+        "translate": "@atrule x, y f(1+2){s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": {
                 "type": "AtruleExpression",
                 "children": [
@@ -290,11 +290,11 @@
         }
     },
     "atruler.4": {
-        "source": "@media { .a { p: v; } .b { p: v } }",
-        "translate": "@media{.a{p:v}.b{p:v}}",
+        "source": "@atrule { .a { p: v; } .b { p: v } }",
+        "translate": "@atrule{.a{p:v}.b{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": null,
             "block": {
                 "type": "Block",
@@ -376,11 +376,11 @@
         }
     },
     "atruler.c.0": {
-        "source": "@media/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
-        "translate": "@media{s{p:v}}",
+        "source": "@atrule/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
+        "translate": "@atrule{s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": null,
             "block": {
                 "type": "Block",
@@ -426,11 +426,11 @@
         }
     },
     "atruler.c.1": {
-        "source": "@media/*test*/x/*test*/ y/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
-        "translate": "@media x y{s{p:v}}",
+        "source": "@atrule/*test*/x/*test*/ y/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
+        "translate": "@atrule x y{s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": {
                 "type": "AtruleExpression",
                 "children": [
@@ -491,11 +491,11 @@
         }
     },
     "atruler.c.2": {
-        "source": "@media/*test*/x/*test*/,/*test*/y/*test*/ f(/*test*/1/*test*/+/*test*/2/*test*/)/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
-        "translate": "@media x,y f(1+2){s{p:v}}",
+        "source": "@atrule/*test*/x/*test*/,/*test*/y/*test*/ f(/*test*/1/*test*/+/*test*/2/*test*/)/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
+        "translate": "@atrule x,y f(1+2){s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": {
                 "type": "AtruleExpression",
                 "children": [
@@ -578,11 +578,11 @@
         }
     },
     "atruler.s.0": {
-        "source": "@media  {  s  {  p  :  v  }  }",
-        "translate": "@media{s{p:v}}",
+        "source": "@atrule  {  s  {  p  :  v  }  }",
+        "translate": "@atrule{s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": null,
             "block": {
                 "type": "Block",
@@ -628,11 +628,11 @@
         }
     },
     "atruler.s.1": {
-        "source": "@media  x  y  {  s  {  p  :  v  }  }",
-        "translate": "@media x y{s{p:v}}",
+        "source": "@atrule  x  y  {  s  {  p  :  v  }  }",
+        "translate": "@atrule x y{s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": {
                 "type": "AtruleExpression",
                 "children": [
@@ -693,11 +693,11 @@
         }
     },
     "atruler.s.2": {
-        "source": "@media  x  ,  y  f(  1  +  2  )  {  s  {  p  :  v  }  }",
-        "translate": "@media x , y f(1 + 2){s{p:v}}",
+        "source": "@atrule  x  ,  y  f(  1  +  2  )  {  s  {  p  :  v  }  }",
+        "translate": "@atrule x , y f(1 + 2){s{p:v}}",
         "ast": {
             "type": "Atrule",
-            "name": "media",
+            "name": "atrule",
             "expression": {
                 "type": "AtruleExpression",
                 "children": [
