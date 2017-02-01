@@ -1,0 +1,39 @@
+{
+    "with string": {
+        "source": "@charset 'test';",
+        "ast": {
+            "type": "Atrule",
+            "name": "charset",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "String",
+                        "value": "'test'"
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "error#1": {
+        "source": "@charset;",
+        "offset": "        ^",
+        "error": "String is expected"
+    },
+    "error#2": {
+        "source": "@charset ;",
+        "offset": "         ^",
+        "error": "String is expected"
+    },
+    "error#3": {
+        "source": "@charset {}",
+        "offset": "         ^",
+        "error": "String is expected"
+    },
+    "error#4": {
+        "source": "@charset 'test' {}",
+        "offset": "                ^",
+        "error": "Semicolon or EOF is expected"
+    }
+}
