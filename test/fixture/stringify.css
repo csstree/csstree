@@ -21,3 +21,11 @@ svg|*:matches(a)::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a])
         u+123-456 u+123???
         rgba(1, 2, 3, 4) #asd #123abc "string" 'string' (parenthesis) [ident] !important;
 }
+
+@media (device-aspect-ratio: 16/9) {
+    *|span:before {
+        --custom1: { something !important };
+        --custom2: ([]) !important;
+        background: element(#id);
+    }
+}

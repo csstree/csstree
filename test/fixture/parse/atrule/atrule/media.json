@@ -196,6 +196,36 @@
             }
         }
     },
+    "media feature with ratio": {
+        "source": "@media (foo:3/4){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": {
+                                    "type": "Ratio",
+                                    "left": "3",
+                                    "right": "4"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "media feature with spaces": {
         "source": "@media  (  foo  :  1  )  {}",
         "translate": "@media (foo:1){}",
@@ -214,6 +244,37 @@
                                 "value": {
                                     "type": "Number",
                                     "value": "1"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "media feature with ratio and spaces": {
+        "source": "@media (  foo  :  3  /  4  ) {}",
+        "translate": "@media (foo:3/4){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": {
+                                    "type": "Ratio",
+                                    "left": "3",
+                                    "right": "4"
                                 }
                             }
                         ]
@@ -275,5 +336,40 @@
         "source": "@media (foo: bar baz) {}",
         "offset": "                 ^",
         "error": "RightParenthesis is expected"
+    },
+    "error#11": {
+        "source": "@media (foo: 1/) {}",
+        "offset": "               ^",
+        "error": "Number is expected"
+    },
+    "error#12": {
+        "source": "@media (foo: 1.2/1) {}",
+        "offset": "              ^",
+        "error": "Positive integer is expected"
+    },
+    "error#13": {
+        "source": "@media (foo: 1e2/1) {}",
+        "offset": "              ^",
+        "error": "Positive integer is expected"
+    },
+    "error#14": {
+        "source": "@media (foo: -1/5) {}",
+        "offset": "             ^",
+        "error": "Positive integer is expected"
+    },    
+    "error#15": {
+        "source": "@media (foo: 1/1.2) {}",
+        "offset": "                ^",
+        "error": "Positive integer is expected"
+    },
+    "error#16": {
+        "source": "@media (foo: 1/1e2) {}",
+        "offset": "                ^",
+        "error": "Positive integer is expected"
+    },
+    "error#17": {
+        "source": "@media (foo: 1/-5) {}",
+        "offset": "               ^",
+        "error": "Positive integer is expected"
     }
 }

@@ -10,7 +10,7 @@ var types = [
     'Class', 'Combinator', 'Comment', 'Declaration', 'Dimension', 'Function',
     'Hash', 'Id', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
     'Number', 'Operator', 'Parentheses', 'Percentage', 'Progid', 'PseudoClass',
-    'PseudoElement', 'Raw', 'Rule', 'Selector', 'SelectorList', 'Space', 'String',
+    'PseudoElement', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'Space', 'String',
     'StyleSheet', 'Type', 'UnicodeRange', 'Universal', 'Url', 'Value'
 ];
 
