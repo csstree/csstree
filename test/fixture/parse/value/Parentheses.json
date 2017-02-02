@@ -46,26 +46,6 @@
             ]
         }
     },
-    "parentheses.8": {
-        "source": "(test:0)",
-        "ast": {
-            "type": "Parentheses",
-            "children": [
-                {
-                    "type": "Identifier",
-                    "name": "test"
-                },
-                {
-                    "type": "Operator",
-                    "value": ":"
-                },
-                {
-                    "type": "Number",
-                    "value": "0"
-                }
-            ]
-        }
-    },
     "parentheses.9": {
         "source": "(#123456 'string')",
         "ast": {

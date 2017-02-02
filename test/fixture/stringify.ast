@@ -101,7 +101,7 @@
             },
             "name": "page",
             "expression": {
-                "type": "AtruleExpression",
+                "type": "SelectorList",
                 "loc": {
                     "source": "stringify.css",
                     "start": {
@@ -117,7 +117,7 @@
                 },
                 "children": [
                     {
-                        "type": "PseudoClass",
+                        "type": "Selector",
                         "loc": {
                             "source": "stringify.css",
                             "start": {
@@ -131,8 +131,26 @@
                                 "column": 12
                             }
                         },
-                        "name": "left",
-                        "children": null
+                        "children": [
+                            {
+                                "type": "PseudoClass",
+                                "loc": {
+                                    "source": "stringify.css",
+                                    "start": {
+                                        "offset": 41,
+                                        "line": 3,
+                                        "column": 7
+                                    },
+                                    "end": {
+                                        "offset": 46,
+                                        "line": 3,
+                                        "column": 12
+                                    }
+                                },
+                                "name": "left",
+                                "children": null
+                            }
+                        ]
                     }
                 ]
             },
@@ -2054,6 +2072,9 @@
                                             "value": "3"
                                         },
                                         {
+                                            "type": "Space"
+                                        },
+                                        {
                                             "type": "Operator",
                                             "loc": {
                                                 "source": "stringify.css",
@@ -2069,6 +2090,9 @@
                                                 }
                                             },
                                             "value": "*"
+                                        },
+                                        {
+                                            "type": "Space"
                                         },
                                         {
                                             "type": "Number",
@@ -2105,9 +2129,6 @@
                                         }
                                     },
                                     "value": ","
-                                },
-                                {
-                                    "type": "Space"
                                 },
                                 {
                                     "type": "Url",

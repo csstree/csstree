@@ -83,7 +83,7 @@
     },
     "block at-rule #2": {
         "source": "@test x, y x(1+2) {p:v}",
-        "translate": "@test x, y x(1+2){p:v}",
+        "translate": "@test x,y x(1+2){p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -97,9 +97,6 @@
                     {
                         "type": "Operator",
                         "value": ","
-                    },
-                    {
-                        "type": "Space"
                     },
                     {
                         "type": "Identifier",
@@ -354,7 +351,7 @@
     },
     "block at-rule #s.2": {
         "source": "@test  x  ,  y  x(  1  +  2  )  {  p  :  v  }",
-        "translate": "@test x , y x(1 + 2){p:v}",
+        "translate": "@test x,y x(1 + 2){p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -366,14 +363,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
-                    },
-                    {
                         "type": "Operator",
                         "value": ","
-                    },
-                    {
-                        "type": "Space"
                     },
                     {
                         "type": "Identifier",
@@ -436,12 +427,17 @@
             "type": "Atrule",
             "name": "page",
             "expression": {
-                "type": "AtruleExpression",
+                "type": "SelectorList",
                 "children": [
                     {
-                        "type": "PseudoClass",
-                        "name": "left",
-                        "children": null
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "PseudoClass",
+                                "name": "left",
+                                "children": null
+                            }
+                        ]
                     }
                 ]
             },

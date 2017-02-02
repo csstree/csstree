@@ -1,0 +1,212 @@
+{
+    "basic": {
+        "source": "calc(1 + 2 * 3 / 4 - 5)",
+        "ast": {
+            "type": "Function",
+            "name": "calc",
+            "children": [
+                {
+                    "type": "Number",
+                    "value": "1"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Number",
+                    "value": "2"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "*"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Number",
+                    "value": "3"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "/"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Number",
+                    "value": "4"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "-"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Number",
+                    "value": "5"
+                }
+            ]
+        }
+    },
+    "with dimension and percentage": {
+        "source": "calc(1% + 2 * 3em)",
+        "ast": {
+            "type": "Function",
+            "name": "calc",
+            "children": [
+                {
+                    "type": "Percentage",
+                    "value": "1"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Number",
+                    "value": "2"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "*"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Dimension",
+                    "value": "3",
+                    "unit": "em"
+                }
+            ]
+        }
+    },
+    "nested": {
+        "source": "calc(1% + (2 * (3em / 4)))",
+        "ast": {
+            "type": "Function",
+            "name": "calc",
+            "children": [
+                {
+                    "type": "Percentage",
+                    "value": "1"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Parentheses",
+                    "children": [
+                        {
+                            "type": "Number",
+                            "value": "2"
+                        },
+                        {
+                            "type": "Space"
+                        },
+                        {
+                            "type": "Operator",
+                            "value": "*"
+                        },
+                        {
+                            "type": "Space"
+                        },
+                        {
+                            "type": "Parentheses",
+                            "children": [
+                                {
+                                    "type": "Dimension",
+                                    "value": "3",
+                                    "unit": "em"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Operator",
+                                    "value": "/"
+                                },
+                                {
+                                    "type": "Space"
+                                },
+                                {
+                                    "type": "Number",
+                                    "value": "4"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "custom property": {
+        "source": "calc(1% + var(--foo))",
+        "ast": {
+            "type": "Function",
+            "name": "calc",
+            "children": [
+                {
+                    "type": "Percentage",
+                    "value": "1"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Operator",
+                    "value": "+"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Function",
+                    "name": "var",
+                    "children": [
+                        {
+                            "type": "Identifier",
+                            "name": "--foo"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

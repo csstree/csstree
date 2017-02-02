@@ -923,7 +923,7 @@
     },
     "issue #250": {
         "source": "@x {\n  unicode-range: U+2074, U+20AC, U+2212, U+2215, U+E0FF;\n}\n@x {\n  a: a();\n}",
-        "translate": "@x{unicode-range:U+2074, U+20AC, U+2212, U+2215, U+E0FF}@x{a:a()}",
+        "translate": "@x{unicode-range:U+2074,U+20AC,U+2212,U+2215,U+E0FF}@x{a:a()}",
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -950,18 +950,12 @@
                                             "value": ","
                                         },
                                         {
-                                            "type": "Space"
-                                        },
-                                        {
                                             "type": "UnicodeRange",
                                             "value": "U+20AC"
                                         },
                                         {
                                             "type": "Operator",
                                             "value": ","
-                                        },
-                                        {
-                                            "type": "Space"
                                         },
                                         {
                                             "type": "UnicodeRange",
@@ -972,18 +966,12 @@
                                             "value": ","
                                         },
                                         {
-                                            "type": "Space"
-                                        },
-                                        {
                                             "type": "UnicodeRange",
                                             "value": "U+2215"
                                         },
                                         {
                                             "type": "Operator",
                                             "value": ","
-                                        },
-                                        {
-                                            "type": "Space"
                                         },
                                         {
                                             "type": "UnicodeRange",

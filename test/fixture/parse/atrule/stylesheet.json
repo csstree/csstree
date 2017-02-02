@@ -114,98 +114,9 @@
             }
         }
     },
-    "atruler.2": {
-        "source": "@atrule screen and (max-width: 300px) {s{p:v}}",
-        "translate": "@atrule screen and (max-width: 300px){s{p:v}}",
-        "ast": {
-            "type": "Atrule",
-            "name": "atrule",
-            "expression": {
-                "type": "AtruleExpression",
-                "children": [
-                    {
-                        "type": "Identifier",
-                        "name": "screen"
-                    },
-                    {
-                        "type": "Space"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "and"
-                    },
-                    {
-                        "type": "Space"
-                    },
-                    {
-                        "type": "Parentheses",
-                        "children": [
-                            {
-                                "type": "Identifier",
-                                "name": "max-width"
-                            },
-                            {
-                                "type": "Operator",
-                                "value": ":"
-                            },
-                            {
-                                "type": "Space"
-                            },
-                            {
-                                "type": "Dimension",
-                                "value": "300",
-                                "unit": "px"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "block": {
-                "type": "Block",
-                "children": [
-                    {
-                        "type": "Rule",
-                        "selector": {
-                            "type": "SelectorList",
-                            "children": [
-                                {
-                                    "type": "Selector",
-                                    "children": [
-                                        {
-                                            "type": "Type",
-                                            "name": "s"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "block": {
-                            "type": "Block",
-                            "children": [
-                                {
-                                    "type": "Declaration",
-                                    "important": false,
-                                    "property": "p",
-                                    "value": {
-                                        "type": "Value",
-                                        "children": [
-                                            {
-                                                "type": "Identifier",
-                                                "name": "v"
-                                            }
-                                        ]
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-    },
     "atruler.3": {
         "source": "@atrule x, y f(1+2) {s{p:v}}",
-        "translate": "@atrule x, y f(1+2){s{p:v}}",
+        "translate": "@atrule x,y f(1+2){s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -219,9 +130,6 @@
                     {
                         "type": "Operator",
                         "value": ","
-                    },
-                    {
-                        "type": "Space"
                     },
                     {
                         "type": "Identifier",
@@ -693,8 +601,8 @@
         }
     },
     "atruler.s.2": {
-        "source": "@atrule  x  ,  y  f(  1  +  2  )  {  s  {  p  :  v  }  }",
-        "translate": "@atrule x , y f(1 + 2){s{p:v}}",
+        "source": "@atrule  x  ,  y  f(  1    2  )  {  s  {  p  :  v  }  }",
+        "translate": "@atrule x,y f(1 2){s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -706,14 +614,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
-                    },
-                    {
                         "type": "Operator",
                         "value": ","
-                    },
-                    {
-                        "type": "Space"
                     },
                     {
                         "type": "Identifier",
@@ -729,13 +631,6 @@
                             {
                                 "type": "Number",
                                 "value": "1"
-                            },
-                            {
-                                "type": "Space"
-                            },
-                            {
-                                "type": "Operator",
-                                "value": "+"
                             },
                             {
                                 "type": "Space"
