@@ -316,6 +316,31 @@
             }
         }
     },
+    "should case insensitive": {
+        "source": "@mEdiA screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "mEdiA",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "screen"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
         {
             "source": "@media;",

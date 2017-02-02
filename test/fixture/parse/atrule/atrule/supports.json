@@ -70,6 +70,41 @@
             }
         }
     },
+    "should be case insensitive": {
+        "source": "@SuppOrts (flex:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "SuppOrts",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "flex",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "custom property": {
         "source": "@supports (--custom: 1){}",
         "ast": {

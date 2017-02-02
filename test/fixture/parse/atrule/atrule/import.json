@@ -93,6 +93,41 @@
             "block": null
         }
     },
+    "should be case insensetive": {
+        "source": "@ImpOrt 'test' all;",
+        "translate": "@ImpOrt 'test' all;",
+        "ast": {
+            "type": "Atrule",
+            "name": "ImpOrt",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "String",
+                        "value": "'test'"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "all"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
     "error#1": {
         "source": "@import;",
         "offset": "       ^",
