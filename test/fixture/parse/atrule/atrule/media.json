@@ -53,7 +53,7 @@
             }
         }
     },
-    "single media type with negation": {
+    "single media type with only": {
         "source": "@media only screen{}",
         "ast": {
             "type": "Atrule",
@@ -153,7 +153,7 @@
                                 "name": "foo",
                                 "value": {
                                     "type": "Identifier",
-                                    "value": "bar"
+                                    "name": "bar"
                                 }
                             }
                         ]
@@ -166,7 +166,7 @@
             }
         }
     },
-    "media feature with identifier value": {
+    "media feature with dimension value": {
         "source": "@media (foo:2px){}",
         "ast": {
             "type": "Atrule",
@@ -287,89 +287,91 @@
             }
         }
     },
-    "error#1": {
-        "source": "@media;",
-        "offset": "      ^",
-        "error": "Identifier or parenthesis is expected"
-    },
-    "error#2": {
-        "source": "@media {}",
-        "offset": "       ^",
-        "error": "Identifier or parenthesis is expected"
-    },
-    "error#3": {
-        "source": "@media xxx foo {}",
-        "offset": "           ^",
-        "error": "Unexpected identifier"
-    },
-    "error#4": {
-        "source": "@media and (min-width: 600px) {}",
-        "offset": "       ^",
-        "error": "Unexpected `and` keyword"
-    },
-    "error#5": {
-        "source": "@media screen (min-width: 600px) {}",
-        "offset": "              ^",
-        "error": "`and` keyword is expected"
-    },
-    "error#6": {
-        "source": "@media (foo) and and (bar) {}",
-        "offset": "                 ^",
-        "error": "LeftParenthesis is expected"
-    },
-    "error#7": {
-        "source": "@media (foo) xxx (bar) {}",
-        "offset": "             ^",
-        "error": "Unexpected identifier"
-    },
-    "error#8": {
-        "source": "@media (foo) (bar) {}",
-        "offset": "             ^",
-        "error": "`and` keyword is expected"
-    },
-    "error#9": {
-        "source": "@media (foo 123) {}",
-        "offset": "            ^",
-        "error": "Colon is expected"
-    },
-    "error#10": {
-        "source": "@media (foo: bar baz) {}",
-        "offset": "                 ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error#11": {
-        "source": "@media (foo: 1/) {}",
-        "offset": "               ^",
-        "error": "Number is expected"
-    },
-    "error#12": {
-        "source": "@media (foo: 1.2/1) {}",
-        "offset": "              ^",
-        "error": "Positive integer is expected"
-    },
-    "error#13": {
-        "source": "@media (foo: 1e2/1) {}",
-        "offset": "              ^",
-        "error": "Positive integer is expected"
-    },
-    "error#14": {
-        "source": "@media (foo: -1/5) {}",
-        "offset": "             ^",
-        "error": "Positive integer is expected"
-    },    
-    "error#15": {
-        "source": "@media (foo: 1/1.2) {}",
-        "offset": "                ^",
-        "error": "Positive integer is expected"
-    },
-    "error#16": {
-        "source": "@media (foo: 1/1e2) {}",
-        "offset": "                ^",
-        "error": "Positive integer is expected"
-    },
-    "error#17": {
-        "source": "@media (foo: 1/-5) {}",
-        "offset": "               ^",
-        "error": "Positive integer is expected"
-    }
+    "error": [
+        {
+            "source": "@media;",
+            "offset": "      ^",
+            "error": "Identifier or parenthesis is expected"
+        },
+        {
+            "source": "@media {}",
+            "offset": "       ^",
+            "error": "Identifier or parenthesis is expected"
+        },
+        {
+            "source": "@media xxx foo {}",
+            "offset": "           ^",
+            "error": "Unexpected identifier"
+        },
+        {
+            "source": "@media and (min-width: 600px) {}",
+            "offset": "       ^",
+            "error": "Unexpected `and` keyword"
+        },
+        {
+            "source": "@media screen (min-width: 600px) {}",
+            "offset": "              ^",
+            "error": "`and` keyword is expected"
+        },
+        {
+            "source": "@media (foo) and and (bar) {}",
+            "offset": "                 ^",
+            "error": "LeftParenthesis is expected"
+        },
+        {
+            "source": "@media (foo) xxx (bar) {}",
+            "offset": "             ^",
+            "error": "Unexpected identifier"
+        },
+        {
+            "source": "@media (foo) (bar) {}",
+            "offset": "             ^",
+            "error": "`and` keyword is expected"
+        },
+        {
+            "source": "@media (foo 123) {}",
+            "offset": "            ^",
+            "error": "Colon is expected"
+        },
+        {
+            "source": "@media (foo: bar baz) {}",
+            "offset": "                 ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "@media (foo: 1/) {}",
+            "offset": "               ^",
+            "error": "Number is expected"
+        },
+        {
+            "source": "@media (foo: 1.2/1) {}",
+            "offset": "              ^",
+            "error": "Positive integer is expected"
+        },
+        {
+            "source": "@media (foo: 1e2/1) {}",
+            "offset": "              ^",
+            "error": "Positive integer is expected"
+        },
+        {
+            "source": "@media (foo: -1/5) {}",
+            "offset": "             ^",
+            "error": "Positive integer is expected"
+        },    
+        {
+            "source": "@media (foo: 1/1.2) {}",
+            "offset": "                ^",
+            "error": "Positive integer is expected"
+        },
+        {
+            "source": "@media (foo: 1/1e2) {}",
+            "offset": "                ^",
+            "error": "Positive integer is expected"
+        },
+        {
+            "source": "@media (foo: 1/-5) {}",
+            "offset": "               ^",
+            "error": "Positive integer is expected"
+        }
+    ]
 }

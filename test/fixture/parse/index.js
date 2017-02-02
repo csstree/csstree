@@ -47,34 +47,48 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
     function scanDir(dir) {
         if (fs.statSync(dir).isDirectory()) {
             fs.readdirSync(dir).forEach(function(fn) {
-                var filename = path.join(dir, fn);
-
-                if (fs.statSync(filename).isDirectory()) {
-                    return scanDir(filename);
-                }
-
-                var tests = require(filename);
-                var errors = {};
-                var locator = new JsonLocator(filename);
-
-                for (var key in tests) {
-                    tests[key].name = locator.get(key);
-                    if (tests[key].error) {
-                        if (typeof tests[key].offset === 'string') {
-                            var offset = tests[key].offset.indexOf('^');
-                            var lines = tests[key].source.substr(0, offset).split(/\r|\r\n|\n|\f/g);
+                function processTest(test, key, storeKey) {
+                    if (test.error) {
+                        if (typeof test.offset === 'string') {
+                            var offset = test.offset.indexOf('^');
+                            var lines = test.source.substr(0, offset).split(/\r|\r\n|\n|\f/g);
                             var position = {
                                 offset: offset,
                                 line: lines.length,
                                 column: lines.pop().length + 1
                             };
 
-                            tests[key].position = position;
+                            test.position = position;
                         }
-                        errors[key] = tests[key];
-                        delete tests[key];
-                    } else if (tests[key].ast.type.toLowerCase() !== scope.toLowerCase() && wrapper.hasOwnProperty(scope)) {
-                        tests[key].ast = wrapper[scope](tests[key].ast);
+                        errors[storeKey] = test;
+                    } else {
+                        if (test.ast.type.toLowerCase() !== scope.toLowerCase() && wrapper.hasOwnProperty(scope)) {
+                            test.ast = wrapper[scope](test.ast);
+                        }
+                        tests[storeKey] = test;
+                    }
+                }
+
+                var filename = path.join(dir, fn);
+
+                if (fs.statSync(filename).isDirectory()) {
+                    return scanDir(filename);
+                }
+
+                var locator = new JsonLocator(filename);
+                var origTests = require(filename);
+                var tests = {};
+                var errors = {};
+
+                for (var key in origTests) {
+                    if (Array.isArray(origTests[key])) {
+                        origTests[key].forEach(function(test, idx) {
+                            test.name = locator.get(key, idx);
+                            processTest(test, key, key + '#' + (idx + 1));
+                        });
+                    } else {
+                        origTests[key].name = locator.get(key);
+                        processTest(origTests[key], key, key);
                     }
                 }
 

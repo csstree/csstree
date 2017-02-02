@@ -85,7 +85,7 @@
         "offset": "^",
         "error": "Selector is expected"
     },
-    "bad selector #7": {
+    "bad selector #8": {
         "source": "a,{",
         "offset": "  ^",
         "error": "Selector is expected"

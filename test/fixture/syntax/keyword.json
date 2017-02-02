@@ -33,7 +33,7 @@
             "bar"
         ]
     },
-    "with vendor prefix": {
+    "with vendor prefix ignore": {
         "syntax": {
             "properties": {
                 "test": "someExample"

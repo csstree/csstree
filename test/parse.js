@@ -52,7 +52,7 @@ describe('parse', function() {
         });
     });
 
-    describe('parse errors', function() {
+    describe('errors', function() {
         forEachParseTest(function(name, test, context) {
             createParseErrorTest(name, test, {
                 context: context,
