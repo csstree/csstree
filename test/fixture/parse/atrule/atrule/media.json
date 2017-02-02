@@ -287,6 +287,35 @@
             }
         }
     },
+    "vendor media feature": {
+        "source": "@media (-webkit-min-device-pixel-ratio:2){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "MediaFeature",
+                                "name": "-webkit-min-device-pixel-ratio",
+                                "value": {
+                                    "type": "Number",
+                                    "value": "2"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
         {
             "source": "@media;",
@@ -297,36 +326,6 @@
             "source": "@media {}",
             "offset": "       ^",
             "error": "Identifier or parenthesis is expected"
-        },
-        {
-            "source": "@media xxx foo {}",
-            "offset": "           ^",
-            "error": "Unexpected identifier"
-        },
-        {
-            "source": "@media and (min-width: 600px) {}",
-            "offset": "       ^",
-            "error": "Unexpected `and` keyword"
-        },
-        {
-            "source": "@media screen (min-width: 600px) {}",
-            "offset": "              ^",
-            "error": "`and` keyword is expected"
-        },
-        {
-            "source": "@media (foo) and and (bar) {}",
-            "offset": "                 ^",
-            "error": "LeftParenthesis is expected"
-        },
-        {
-            "source": "@media (foo) xxx (bar) {}",
-            "offset": "             ^",
-            "error": "Unexpected identifier"
-        },
-        {
-            "source": "@media (foo) (bar) {}",
-            "offset": "             ^",
-            "error": "`and` keyword is expected"
         },
         {
             "source": "@media (foo 123) {}",
@@ -372,6 +371,16 @@
             "source": "@media (foo: 1/-5) {}",
             "offset": "               ^",
             "error": "Positive integer is expected"
+        },
+        {
+            "source": "@media foo(foo: 1) {}",
+            "offset": "          ^",
+            "error": "Space is expected"
+        },
+        {
+            "source": "@media (foo:1)(bar:2) {}",
+            "offset": "              ^",
+            "error": "Space is expected"
         }
     ]
 }
