@@ -22,5 +22,18 @@
             "name": "before",
             "children": null
         }
+    },
+    "functional pseudo element": {
+        "source": "::test(1 + 2)",
+        "ast": {
+            "type": "PseudoElement",
+            "name": "test",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "1 + 2"
+                }
+            ]
+        }
     }
 }
