@@ -14,8 +14,7 @@
                         }
                     ]
                 }
-            ],
-            "legacy": false
+            ]
         }
     },
     "spaces around selector": {
@@ -38,8 +37,7 @@
                         }
                     ]
                 }
-            ],
-            "legacy": false
+            ]
         }
     },
     "should be case insensitive": {
@@ -57,8 +55,7 @@
                         }
                     ]
                 }
-            ],
-            "legacy": false
+            ]
         }
     },
     "error #1": {

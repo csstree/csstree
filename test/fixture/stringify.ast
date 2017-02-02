@@ -829,8 +829,7 @@
                                     }
                                 },
                                 "name": "pseudo",
-                                "children": null,
-                                "legacy": false
+                                "children": null
                             },
                             {
                                 "type": "Combinator",
@@ -1239,8 +1238,7 @@
                                             }
                                         ]
                                     }
-                                ],
-                                "legacy": false
+                                ]
                             },
                             {
                                 "type": "Combinator",
@@ -2710,7 +2708,7 @@
                                             "name": "*|span"
                                         },
                                         {
-                                            "type": "PseudoElement",
+                                            "type": "PseudoClass",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -2725,8 +2723,7 @@
                                                 }
                                             },
                                             "name": "before",
-                                            "children": null,
-                                            "legacy": true
+                                            "children": null
                                         }
                                     ]
                                 }

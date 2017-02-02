@@ -40,5 +40,45 @@
                 }
             ]
         }
+    },
+    "pseudo element :before": {
+        "source": ":before",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "before",
+            "children": null
+        }
+    },
+    "pseudo element :before case insesitive": {
+        "source": ":bEfOrE",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "bEfOrE",
+            "children": null
+        }
+    },
+    "pseudo element :after": {
+        "source": ":after",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "after",
+            "children": null
+        }
+    },
+    "pseudo element :first-letter": {
+        "source": ":first-letter",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "first-letter",
+            "children": null
+        }
+    },
+    "pseudo element :first-line": {
+        "source": ":first-line",
+        "ast": {
+            "type": "PseudoClass",
+            "name": "first-line",
+            "children": null
+        }
     }
 }

@@ -4,8 +4,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "test",
-            "children": null,
-            "legacy": false
+            "children": null
         }
     },
     "pseudo element #1": {
@@ -13,8 +12,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "test-test",
-            "children": null,
-            "legacy": false
+            "children": null
         }
     },
     "pseudo element ::before": {
@@ -22,53 +20,7 @@
         "ast": {
             "type": "PseudoElement",
             "name": "before",
-            "children": null,
-            "legacy": false
-        }
-    },
-    "pseudo element :before": {
-        "source": ":before",
-        "ast": {
-            "type": "PseudoElement",
-            "name": "before",
-            "children": null,
-            "legacy": true
-        }
-    },
-    "pseudo element :before case insesitive": {
-        "source": ":bEfOrE",
-        "ast": {
-            "type": "PseudoElement",
-            "name": "bEfOrE",
-            "children": null,
-            "legacy": true
-        }
-    },
-    "pseudo element :after": {
-        "source": ":after",
-        "ast": {
-            "type": "PseudoElement",
-            "name": "after",
-            "children": null,
-            "legacy": true
-        }
-    },
-    "pseudo element :first-letter": {
-        "source": ":first-letter",
-        "ast": {
-            "type": "PseudoElement",
-            "name": "first-letter",
-            "children": null,
-            "legacy": true
-        }
-    },
-    "pseudo element :first-line": {
-        "source": ":first-line",
-        "ast": {
-            "type": "PseudoElement",
-            "name": "first-line",
-            "children": null,
-            "legacy": true
+            "children": null
         }
     }
 }
