@@ -1,0 +1,325 @@
+{
+    "base test": {
+        "source": "@supports (flex:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "flex",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "base test with spaces": {
+        "source": "@supports  (  flex  :  1  )  {}",
+        "source": "@supports (flex:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "flex",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "custom property": {
+        "source": "@supports (--custom: 1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "--custom",
+                                "value": {
+                                    "type": "Raw",
+                                    "value": " 1"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "simple supports with negation": {
+        "source": "@supports not (flex: 1) {}",
+        "translate": "@supports not (flex:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "not"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "flex",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "complex expression": {
+        "source": "@supports (not (flex: 1)) or (grid: support) {}",
+        "translate": "@supports (not (flex:1)) or (grid:support){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "not"
+                            },
+                            {
+                                "type": "Space"
+                            },
+                            {
+                                "type": "Parentheses",
+                                "children": [
+                                    {
+                                        "type": "Declaration",
+                                        "important": false,
+                                        "property": "flex",
+                                        "value": {
+                                            "type": "Value",
+                                            "children": [
+                                                {
+                                                    "type": "Number",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "or"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "grid",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "support"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "using function": {
+        "source": "@supports func(flex: 1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Function",
+                        "name": "func",
+                        "children": [
+                            {
+                                "type": "Raw",
+                                "value": "flex: 1"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "using !important": {
+        "source": "@supports (box-shadow: something var(--complex) !important) {}",
+        "translate": "@supports (box-shadow:something var(--complex)!important){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": true,
+                                "property": "box-shadow",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "something"
+                                        },
+                                        {
+                                            "type": "Space"
+                                        },
+                                        {
+                                            "type": "Function",
+                                            "name": "var",
+                                            "children": [
+                                                {
+                                                    "type": "Identifier",
+                                                    "name": "--complex"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "error": [
+        {
+            "source": "@supports;",
+            "offset": "         ^",
+            "error": "Condition is expected"
+        },
+        {
+            "source": "@supports {}",
+            "offset": "          ^",
+            "error": "Condition is expected"
+        },
+        {
+            "source": "@supports '' {}",
+            "offset": "          ^",
+            "error": "Condition is expected"
+        },
+        {
+            "source": "@supports 1 {}",
+            "offset": "          ^",
+            "error": "Condition is expected"
+        },
+        {
+            "source": "@supports flex: 1 {}",
+            "offset": "              ^",
+            "error": "Curly bracket is expected"
+        }
+    ]
+}

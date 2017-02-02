@@ -102,7 +102,11 @@ function createWalkDeclarationsTest(test, context, walker) {
         // type arrays should be equal
         assert.deepEqual(
             actual.sort(),
-            expectedWalk(test.ast, false).filter(function(type) {
+            expectedWalk(test.ast, false, function(stack) {
+                return stack.every(function(node) {
+                    return node.type !== 'AtruleExpression';
+                });
+            }).filter(function(type) {
                 return type === 'Declaration';
             }).sort()
         );
