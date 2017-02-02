@@ -70,6 +70,49 @@
             }
         }
     },
+    "base test with comments": {
+        "source": "@supports not /*0*/(/*1*/flex/*2*/:/*3*/1/*4*/)/*5*/{}",
+        "source": "@supports not (flex:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "not"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "flex",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "should be case insensitive": {
         "source": "@SuppOrts (flex:1){}",
         "ast": {
@@ -85,6 +128,41 @@
                                 "type": "Declaration",
                                 "important": false,
                                 "property": "flex",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "vendor property": {
+        "source": "@supports (-vendor-name:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "-vendor-name",
                                 "value": {
                                     "type": "Value",
                                     "children": [

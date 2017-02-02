@@ -256,6 +256,40 @@
             }
         }
     },
+    "media feature with comments": {
+        "source": "@media all /*0*/ (/*1*/foo/*2*/:/*3*/1/*4*/)  {}",
+        "translate": "@media all (foo:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "expression": {
+                "type": "MediaQueryList",
+                "children": [
+                    {
+                        "type": "MediaQuery",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "all"
+                            },
+                            {
+                                "type": "MediaFeature",
+                                "name": "foo",
+                                "value": {
+                                    "type": "Number",
+                                    "value": "1"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "media feature with ratio and spaces": {
         "source": "@media (  foo  :  3  /  4  ) {}",
         "translate": "@media (foo:3/4){}",
@@ -404,6 +438,11 @@
         },
         {
             "source": "@media (foo:1)(bar:2) {}",
+            "offset": "              ^",
+            "error": "Space is expected"
+        },
+        {
+            "source": "@media (foo:1)ident {}",
             "offset": "              ^",
             "error": "Space is expected"
         }
