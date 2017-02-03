@@ -48,11 +48,11 @@
     "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
     "codestyle-and-test": "npm run codestyle && npm test",
     "codestyle": "jscs data lib scripts test && eslint data lib scripts test",
-    "test": "mocha --reporter dot",
-    "coverage": "istanbul cover _mocha -- -R dot",
+    "test": "mocha --reporter progress",
+    "coverage": "istanbul cover _mocha -- -R min",
     "prepublish": "npm run build",
     "travis": "npm run codestyle-and-test && npm run coveralls",
-    "coveralls": "istanbul cover _mocha --report lcovonly -- -R dot && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- -R min && cat ./coverage/lcov.info | coveralls",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
   },
   "dependencies": {
