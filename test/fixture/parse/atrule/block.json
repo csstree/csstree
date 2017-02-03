@@ -462,5 +462,12 @@
                 ]
             }
         }
-    }
+    },
+    "error": [
+        {
+            "source": "@atrule { a: 1",
+            "offset": "              ^",
+            "error": "RightCurlyBracket is expected"
+        }
+    ]
 }
