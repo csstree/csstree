@@ -1,167 +1,169 @@
 {
-    "error #1": {
-        "source": "100 {}",
-        "offset": "   ^",
-        "error": "PercentSign is expected"
-    },
-    "error #2": {
-        "source": ". {}",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #3": {
-        "source": ".{}",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #4": {
-        "source": ".",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #5": {
-        "source": ".1px {}",
-        "offset": "  ^",
-        "error": "PercentSign is expected"
-    },
-    "error #6": {
-        "source": "# {}",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #7": {
-        "source": "#{}",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #8": {
-        "source": "#",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #9": {
-        "source": "a { color }",
-        "offset": "          ^",
-        "error": "Colon is expected"
-    },
-    "error #10": {
-        "source": "a { color: #}",
-        "offset": "            ^",
-        "error": "Number or identifier is expected"
-    },
-    "error #11": {
-        "source": "a { color: # }",
-        "offset": "            ^",
-        "error": "Number or identifier is expected"
-    },
-    "error #13": {
-        "source": ": {}",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #14": {
-        "source": ":{}",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #15": {
-        "source": ":",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #16": {
-        "source": "::",
-        "offset": "  ^",
-        "error": "Identifier is expected"
-    },
-    "error #17": {
-        "source": ": ",
-        "offset": " ^",
-        "error": "Identifier is expected"
-    },
-    "error #18": {
-        "source": ":pseudo({}",
-        "offset": "          ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #19": {
-        "source": ":lang(--test) {}",
-        "offset": "       ^",
-        "error": "Identifier is expected"
-    },
-    "error #20": {
-        "source": ":lang(var(--test)) {}",
-        "offset": "         ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #21": {
-        "source": "[",
-        "offset": " ^",
-        "error": "Unexpected end of input"
-    },
-    "error #22": {
-        "source": "]",
-        "offset": "^",
-        "error": "Selector is expected"
-    },
-    "error #23": {
-        "source": ")",
-        "offset": "^",
-        "error": "Selector is expected"
-    },
-    "error #24": {
-        "source": "}",
-        "offset": "^",
-        "error": "Unexpected right curly brace"
-    },
-    "error #25": {
-        "source": "a /foo/ b",
-        "offset": "   ^     ",
-        "error": "Identifier `deep` is expected"
-    },
-    "error #26": {
-        "source": ".a { value: 1 !impo-tant}",
-        "offset": "               ^",
-        "error": "Identifier `important` is expected"
-    },
-    "error #27": {
-        "source": ".a {",
-        "offset": "    ^",
-        "error": "RightCurlyBracket is expected"
-    },
-    "error #28": {
-        "source": ".a { v: . }",
-        "offset": "        ^",
-        "error": "Unexpected input"
-    },
-    "error #29": {
-        "source": ".a {\n  \n",
-        "offset": "    ^",
-        "error": "RightCurlyBracket is expected"
-    },
-    "error #30": {
-        "source": ".a",
-        "offset": "  ^",
-        "error": "LeftCurlyBracket is expected"
-    },
-    "error #31": {
-        "source": ".a \n    ",
-        "offset": "  ^",
-        "error": "LeftCurlyBracket is expected"
-    },
-    "error #32": {
-        "source": "  \n   \n.a \n    ",
-        "offset": "         ^",
-        "error": "LeftCurlyBracket is expected"
-    },
-    "error #33": {
-        "source": ".foo { var(--side): 20px }",
-        "offset": "          ^",
-        "error": "Colon is expected"
-    },
-    "error #34": {
-        "source": "--test { padding: 20px }",
-        "offset": "^",
-        "error": "Selector is expected"
-    }
+    "error": [
+        {
+            "source": "100 {}",
+            "offset": "   ^",
+            "error": "PercentSign is expected"
+        },
+        {
+            "source": ". {}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ".{}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ".",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ".1px {}",
+            "offset": "  ^",
+            "error": "PercentSign is expected"
+        },
+        {
+            "source": "# {}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "#{}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "#",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "a { color }",
+            "offset": "          ^",
+            "error": "Colon is expected"
+        },
+        {
+            "source": "a { color: #}",
+            "offset": "            ^",
+            "error": "Number or identifier is expected"
+        },
+        {
+            "source": "a { color: # }",
+            "offset": "            ^",
+            "error": "Number or identifier is expected"
+        },
+        {
+            "source": ": {}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":{}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "::",
+            "offset": "  ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ": ",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":pseudo({}",
+            "offset": "          ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":lang(--test) {}",
+            "offset": "       ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":lang(var(--test)) {}",
+            "offset": "         ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "[",
+            "offset": " ^",
+            "error": "Unexpected end of input"
+        },
+        {
+            "source": "]",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ")",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "}",
+            "offset": "^",
+            "error": "Unexpected right curly brace"
+        },
+        {
+            "source": "a /foo/ b",
+            "offset": "   ^     ",
+            "error": "Identifier `deep` is expected"
+        },
+        {
+            "source": ".a { value: 1 !impo-tant}",
+            "offset": "               ^",
+            "error": "Identifier `important` is expected"
+        },
+        {
+            "source": ".a {",
+            "offset": "    ^",
+            "error": "RightCurlyBracket is expected"
+        },
+        {
+            "source": ".a { v: . }",
+            "offset": "        ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ".a {\n  \n",
+            "offset": "    ^",
+            "error": "RightCurlyBracket is expected"
+        },
+        {
+            "source": ".a",
+            "offset": "  ^",
+            "error": "LeftCurlyBracket is expected"
+        },
+        {
+            "source": ".a \n    ",
+            "offset": "  ^",
+            "error": "LeftCurlyBracket is expected"
+        },
+        {
+            "source": "  \n   \n.a \n    ",
+            "offset": "         ^",
+            "error": "LeftCurlyBracket is expected"
+        },
+        {
+            "source": ".foo { var(--side): 20px }",
+            "offset": "          ^",
+            "error": "Colon is expected"
+        },
+        {
+            "source": "--test { padding: 20px }",
+            "offset": "^",
+            "error": "Selector is expected"
+        }
+    ]
 }

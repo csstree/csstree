@@ -39,14 +39,16 @@
             ]
         }
     },
-    "error #1": {
-        "source": ":lang(1)",
-        "offset": "      ^",
-        "error": "Identifier is expected"
-    },
-    "error #2": {
-        "source": ":lang(en en)",
-        "offset": "         ^",
-        "error": "RightParenthesis is expected"
-    }
+    "error": [
+        {
+            "source": ":lang(1)",
+            "offset": "      ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":lang(en en)",
+            "offset": "         ^",
+            "error": "RightParenthesis is expected"
+        }
+    ]
 }

@@ -164,49 +164,51 @@
             ]
         }
     },
-    "error #1": {
-        "source": ":has(.a{)",
-        "offset": "       ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #2": {
-        "source": ":has(,.b)",
-        "offset": "     ^",
-        "error": "Selector is expected"
-    },
-    "error #3": {
-        "source": ":has(.a,)",
-        "offset": "        ^",
-        "error": "Selector is expected"
-    },
-    "error #4": {
-        "source": ":has(.a,,)",
-        "offset": "        ^",
-        "error": "Selector is expected"
-    },
-    "error #5": {
-        "source": ":has(.a,.b{)",
-        "offset": "          ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #6": {
-        "source": ":has(--test)",
-        "offset": "     ^",
-        "error": "Selector is expected"
-    },
-    "error #7": {
-        "source": ":has(var(--test))",
-        "offset": "        ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #8": {
-        "source": ":has(>+a)",
-        "offset": "      ^",
-        "error": "Unexpected combinator"
-    },
-    "error #9": {
-        "source": ":has(~foo, >+a)",
-        "offset": "            ^",
-        "error": "Unexpected combinator"
-    }
+    "error": [
+        {
+            "source": ":has(.a{)",
+            "offset": "       ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":has(,.b)",
+            "offset": "     ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":has(.a,)",
+            "offset": "        ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":has(.a,,)",
+            "offset": "        ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":has(.a,.b{)",
+            "offset": "          ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":has(--test)",
+            "offset": "     ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":has(var(--test))",
+            "offset": "        ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":has(>+a)",
+            "offset": "      ^",
+            "error": "Unexpected combinator"
+        },
+        {
+            "source": ":has(~foo, >+a)",
+            "offset": "            ^",
+            "error": "Unexpected combinator"
+        }
+    ]
 }

@@ -454,149 +454,151 @@
             ]
         }
     },
-    "error #1": {
-        "source": ":nth-child(xxx)",
-        "offset": "           ^",
-        "error": "Unexpected input"
-    },
-    "error #2": {
-        "source": ":nth-child(--test) {}",
-        "offset": "            ^",
-        "error": "Number or identifier is expected"
-    },
-    "error #3": {
-        "source": ":nth-child(var(--test)) {}",
-        "offset": "           ^",
-        "error": "Unexpected input"
-    },
-    "error #4": {
-        "source": ":nth-child(3 n)",
-        "offset": "             ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #5": {
-        "source": ":nth-child(+ 2n)",
-        "offset": "            ^",
-        "error": "Number or identifier is expected"
-    },
-    "error #6": {
-        "source": ":nth-child(+ 2)",
-        "offset": "            ^",
-        "error": "Number or identifier is expected"
-    },
-    "error #7": {
-        "source": ":nth-child(3n - +1)",
-        "offset": "                ^",
-        "error": "Unexpected input"
-    },
-    "error #8": {
-        "source": ":nth-child(3n - -1)",
-        "offset": "                ^",
-        "error": "Unexpected input"
-    },
-    "error #9": {
-        "source": ":nth-child(3n- +1)",
-        "offset": "               ^",
-        "error": "Unexpected input"
-    },
-    "error #10": {
-        "source": ":nth-child(3n- -1)",
-        "offset": "               ^",
-        "error": "Unexpected input"
-    },
-    "error #11": {
-        "source": ":nth-child(3n-2n)",
-        "offset": "               ^",
-        "error": "Unexpected input"
-    },
-    "error #12": {
-        "source": ":nth-child(3n + -6)",
-        "offset": "                ^",
-        "error": "Unexpected input"
-    },
-    "error #13": {
-        "source": ":nth-child(3n - 2n)",
-        "offset": "                 ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #14": {
-        "source": ":nth-child(3n- 2n)",
-        "offset": "                ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #15": {
-        "source": ":nth-child(3n-x)",
-        "offset": "              ^",
-        "error": "Unexpected input"
-    },
-    "error #16": {
-        "source": ":nth-child(3n 1)",
-        "offset": "              ^",
-        "error": "Unexpected input"
-    },
-    "error #17": {
-        "source": ":nth-child(3nn)",
-        "offset": "             ^",
-        "error": "Unexpected input"
-    },
-    "error #18": {
-        "source": ":nth-child(3n- n)",
-        "offset": "               ^",
-        "error": "Unexpected input"
-    },
-    "error #19": {
-        "source": ":nth-child(3n + -2)",
-        "offset": "                ^",
-        "error": "Unexpected input"
-    },
-    "error #20": {
-        "source": ":nth-child(3n+-2)",
-        "offset": "              ^",
-        "error": "Unexpected input"
-    },
-    "error #21": {
-        "source": ":nth-child(1.3n+2)",
-        "offset": "            ^",
-        "error": "Unexpected input"
-    },
-    "error #22": {
-        "source": ":nth-child(1e3n+2)",
-        "offset": "            ^",
-        "error": "Unexpected input"
-    },
-    "error #23": {
-        "source": ":nth-child(.3n+2)",
-        "offset": "           ^",
-        "error": "Unexpected input"
-    },
-    "error #24": {
-        "source": ":nth-child(3n+2.1)",
-        "offset": "               ^",
-        "error": "Unexpected input"
-    },
-    "error #25": {
-        "source": ":nth-child(3n+2e1)",
-        "offset": "               ^",
-        "error": "Unexpected input"
-    },
-    "error #26": {
-        "source": ":nth-child(3n+.1)",
-        "offset": "              ^",
-        "error": "Unexpected input"
-    },
-    "error #27": {
-        "source": ":nth-child(2.1)",
-        "offset": "            ^",
-        "error": "Unexpected input"
-    },
-    "error #28": {
-        "source": ":nth-child(2e1)",
-        "offset": "            ^",
-        "error": "Unexpected input"
-    },
-    "error #29": {
-        "source": ":nth-child(.1)",
-        "offset": "           ^",
-        "error": "Unexpected input"
-    }
+    "error": [
+        {
+            "source": ":nth-child(xxx)",
+            "offset": "           ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(--test) {}",
+            "offset": "            ^",
+            "error": "Number or identifier is expected"
+        },
+        {
+            "source": ":nth-child(var(--test)) {}",
+            "offset": "           ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3 n)",
+            "offset": "             ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":nth-child(+ 2n)",
+            "offset": "            ^",
+            "error": "Number or identifier is expected"
+        },
+        {
+            "source": ":nth-child(+ 2)",
+            "offset": "            ^",
+            "error": "Number or identifier is expected"
+        },
+        {
+            "source": ":nth-child(3n - +1)",
+            "offset": "                ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n - -1)",
+            "offset": "                ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n- +1)",
+            "offset": "               ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n- -1)",
+            "offset": "               ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n-2n)",
+            "offset": "               ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n + -6)",
+            "offset": "                ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n - 2n)",
+            "offset": "                 ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":nth-child(3n- 2n)",
+            "offset": "                ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":nth-child(3n-x)",
+            "offset": "              ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n 1)",
+            "offset": "              ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3nn)",
+            "offset": "             ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n- n)",
+            "offset": "               ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n + -2)",
+            "offset": "                ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n+-2)",
+            "offset": "              ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(1.3n+2)",
+            "offset": "            ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(1e3n+2)",
+            "offset": "            ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(.3n+2)",
+            "offset": "           ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n+2.1)",
+            "offset": "               ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n+2e1)",
+            "offset": "               ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n+.1)",
+            "offset": "              ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(2.1)",
+            "offset": "            ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(2e1)",
+            "offset": "            ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(.1)",
+            "offset": "           ^",
+            "error": "Unexpected input"
+        }
+    ]
 }

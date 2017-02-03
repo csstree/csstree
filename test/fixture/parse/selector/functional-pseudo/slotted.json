@@ -58,39 +58,41 @@
             ]
         }
     },
-    "error #1": {
-        "source": "::slotted(.a{)",
-        "offset": "            ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #2": {
-        "source": "::slotted(,.b)",
-        "offset": "          ^",
-        "error": "Selector is expected"
-    },
-    "error #3": {
-        "source": "::slotted(.a,)",
-        "offset": "            ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #4": {
-        "source": "::slotted(--test)",
-        "offset": "          ^",
-        "error": "Selector is expected"
-    },
-    "error #5": {
-        "source": "::slotted(var(--test))",
-        "offset": "             ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #6": {
-        "source": "::slotted(> test)",
-        "offset": "          ^",
-        "error": "Unexpected combinator"
-    },
-    "error #7": {
-        "source": "::slotted(foo,bar)",
-        "offset": "             ^",
-        "error": "RightParenthesis is expected"
-    }
+    "error": [
+        {
+            "source": "::slotted(.a{)",
+            "offset": "            ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "::slotted(,.b)",
+            "offset": "          ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "::slotted(.a,)",
+            "offset": "            ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "::slotted(--test)",
+            "offset": "          ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "::slotted(var(--test))",
+            "offset": "             ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "::slotted(> test)",
+            "offset": "          ^",
+            "error": "Unexpected combinator"
+        },
+        {
+            "source": "::slotted(foo,bar)",
+            "offset": "             ^",
+            "error": "RightParenthesis is expected"
+        }
+    ]
 }

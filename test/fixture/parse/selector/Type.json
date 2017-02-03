@@ -160,19 +160,21 @@
             "name": "|E"
         }
     },
-    "error #1": {
-        "source": "a| {}",
-        "offset": "  ^",
-        "error": "Identifier or asterisk is expected"
-    },
-    "error #2": {
-        "source": "-x",
-        "offset": "^",
-        "error": "Selector is expected"
-    },
-    "error #3": {
-        "source": "-x-test",
-        "offset": "^",
-        "error": "Selector is expected"
-    }
+    "error": [
+        {
+            "source": "a| {}",
+            "offset": "  ^",
+            "error": "Identifier or asterisk is expected"
+        },
+        {
+            "source": "-x",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "-x-test",
+            "offset": "^",
+            "error": "Selector is expected"
+        }
+    ]
 }

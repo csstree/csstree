@@ -119,19 +119,21 @@
             }
         }
     },
-    "error #1": {
-        "source": "--var: ([)]",
-        "offset": "         ^",
-        "error": "Unexpected input"
-    },
-    "error #2": {
-        "source": "--var: ()]",
-        "offset": "         ^",
-        "error": "Unexpected input"
-    },
-    "error #3": {
-        "source": "--var: !important ()",
-        "offset": "                  ^",
-        "error": "Unexpected input"
-    }
+    "error": [
+        {
+            "source": "--var: ([)]",
+            "offset": "         ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": "--var: ()]",
+            "offset": "         ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": "--var: !important ()",
+            "offset": "                  ^",
+            "error": "Unexpected input"
+        }
+    ]
 }

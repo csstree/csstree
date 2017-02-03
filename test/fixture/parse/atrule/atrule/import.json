@@ -128,24 +128,26 @@
             "block": null
         }
     },
-    "error#1": {
-        "source": "@import;",
-        "offset": "       ^",
-        "error": "String or url() is expected"
-    },
-    "error#2": {
-        "source": "@import  ;",
-        "offset": "         ^",
-        "error": "String or url() is expected"
-    },
-    "error#3": {
-        "source": "@import 'test' 'asd' ;",
-        "offset": "               ^",
-        "error": "Semicolon or EOF is expected"
-    },
-    "error#4": {
-        "source": "@import 'test' {}",
-        "offset": "               ^",
-        "error": "Semicolon or EOF is expected"
-    }
+    "error": [
+        {
+            "source": "@import;",
+            "offset": "       ^",
+            "error": "String or url() is expected"
+        },
+        {
+            "source": "@import  ;",
+            "offset": "         ^",
+            "error": "String or url() is expected"
+        },
+        {
+            "source": "@import 'test' 'asd' ;",
+            "offset": "               ^",
+            "error": "Semicolon or EOF is expected"
+        },
+        {
+            "source": "@import 'test' {}",
+            "offset": "               ^",
+            "error": "Semicolon or EOF is expected"
+        }
+    ]
 }

@@ -27,9 +27,11 @@
             "name": "|*"
         }
     },
-    "error #1": {
-        "source": "*| {}",
-        "offset": "  ^",
-        "error": "Identifier or asterisk is expected"
-    }
+    "error": [
+        {
+            "source": "*| {}",
+            "offset": "  ^",
+            "error": "Identifier or asterisk is expected"
+        }
+    ]
 }

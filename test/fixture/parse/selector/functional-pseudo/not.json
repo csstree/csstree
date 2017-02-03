@@ -123,49 +123,51 @@
             ]
         }
     },
-    "error #1": {
-        "source": ":not(.a{)",
-        "offset": "       ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #2": {
-        "source": ":not(,.b)",
-        "offset": "     ^",
-        "error": "Selector is expected"
-    },
-    "error #3": {
-        "source": ":not(.a,)",
-        "offset": "        ^",
-        "error": "Selector is expected"
-    },
-    "error #4": {
-        "source": ":not(.a,,)",
-        "offset": "        ^",
-        "error": "Selector is expected"
-    },
-    "error #5": {
-        "source": ":not(.a,.b{)",
-        "offset": "          ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #6": {
-        "source": ":not(--test)",
-        "offset": "     ^",
-        "error": "Selector is expected"
-    },
-    "error #7": {
-        "source": ":not(var(--test))",
-        "offset": "        ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #8": {
-        "source": ":not(> test)",
-        "offset": "     ^",
-        "error": "Unexpected combinator"
-    },
-    "error #9": {
-        "source": ":not(foo,> bar)",
-        "offset": "         ^",
-        "error": "Unexpected combinator"
-    }
+    "error": [
+        {
+            "source": ":not(.a{)",
+            "offset": "       ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":not(,.b)",
+            "offset": "     ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":not(.a,)",
+            "offset": "        ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":not(.a,,)",
+            "offset": "        ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":not(.a,.b{)",
+            "offset": "          ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":not(--test)",
+            "offset": "     ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":not(var(--test))",
+            "offset": "        ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": ":not(> test)",
+            "offset": "     ^",
+            "error": "Unexpected combinator"
+        },
+        {
+            "source": ":not(foo,> bar)",
+            "offset": "         ^",
+            "error": "Unexpected combinator"
+        }
+    ]
 }
