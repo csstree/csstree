@@ -50,7 +50,7 @@
         }
     },
     "atrules.3": {
-        "source": "@import url(http://example.com)",
+        "source": "@import url(http://example.com);",
         "translate": "@import url(http://example.com);",
         "ast": {
             "type": "Atrule",
@@ -141,7 +141,7 @@
         }
     },
     "atkeyword.1": {
-        "source": "@font-face",
+        "source": "@font-face;",
         "translate": "@font-face;",
         "ast": {
             "type": "Atrule",
@@ -149,5 +149,17 @@
             "expression": null,
             "block": null
         }
-    }
+    },
+    "error": [
+        {
+            "source": "@atrule!;",
+            "offset": "       ^",
+            "error": "Semicolon or block is expected"
+        },
+        {
+            "source": "@atrule url('..')",
+            "offset": "                 ^",
+            "error": "Semicolon or block is expected"
+        }
+    ]
 }

@@ -142,12 +142,12 @@
         {
             "source": "@import 'test' 'asd' ;",
             "offset": "               ^",
-            "error": "Semicolon or EOF is expected"
+            "error": "Semicolon is expected"
         },
         {
             "source": "@import 'test' {}",
             "offset": "               ^",
-            "error": "Semicolon or EOF is expected"
+            "error": "Semicolon is expected"
         }
     ]
 }
