@@ -210,7 +210,7 @@ describe('CSS syntax', function() {
         ]);
     });
 
-    describe('match', function() {
+    describe('matchProperty', function() {
         describe('vendor prefixes and hacks', function() {
             var bar = parseCss('bar', { context: 'value' });
             var qux = parseCss('qux', { context: 'value' });
@@ -223,27 +223,62 @@ describe('CSS syntax', function() {
 
             it('vendor prefix', function() {
                 assert(syntax.matchProperty('-vendor-foo', bar));
+                assert.equal(syntax.lastMatchError, null);
             });
             it('hacks', function() {
                 assert(syntax.matchProperty('_foo', bar));
+                assert.equal(syntax.lastMatchError, null);
             });
             it('vendor prefix and hack', function() {
                 assert(syntax.matchProperty('_-vendor-foo', bar));
+                assert.equal(syntax.lastMatchError, null);
             });
             it('case insensetive with vendor prefix and hack', function() {
                 assert(syntax.matchProperty('FOO', bar));
                 assert(syntax.matchProperty('-VENDOR-Foo', bar));
                 assert(syntax.matchProperty('_FOO', bar));
                 assert(syntax.matchProperty('_-VENDOR-Foo', bar));
+                assert.equal(syntax.lastMatchError, null);
             });
             it('should use verdor version first', function() {
                 assert(syntax.matchProperty('-baz-foo', qux));
                 assert.equal(syntax.matchProperty('-baz-baz-foo', qux), null);
-                assert(/Unknown property/.test(syntax.lastMatchError));
+                assert.equal(syntax.lastMatchError.message, 'Unknown property: -baz-baz-foo');
             });
         });
 
         tests.forEachTest(createMatchTest);
+    });
+
+    describe('matchType', function() {
+        var singleNumber = parseCss('1', { context: 'value' });
+        var severalNumbers = parseCss('1, 2, 3', { context: 'value' });
+        var syntax = createSyntax({
+            types: {
+                foo: '<bar>#',
+                bar: '[ 1 | 2 | 3 ]'
+            }
+        });
+
+        it('should match type', function() {
+            assert(syntax.matchType('bar', singleNumber));
+            assert.equal(syntax.lastMatchError, null);
+        });
+
+        it('should match type using nested', function() {
+            assert(syntax.matchType('foo', severalNumbers));
+            assert.equal(syntax.lastMatchError, null);
+        });
+
+        it('should fail on matching wrong value', function() {
+            assert.equal(syntax.matchType('bar', severalNumbers), null);
+            assert.equal(syntax.lastMatchError.rawMessage, 'Uncomplete match');
+        });
+
+        it('should return null and save error for unknown type', function() {
+            assert.equal(syntax.matchType('baz', singleNumber), null);
+            assert.equal(syntax.lastMatchError.message, 'Unknown type: baz');
+        });
     });
 
     describe('mismatch node', function() {
