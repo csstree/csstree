@@ -11,7 +11,7 @@
                         "type": "MediaQuery",
                         "children": [
                             {
-                                "type": "Identifier2",
+                                "type": "Identifier",
                                 "name": "screen"
                             }
                         ]
