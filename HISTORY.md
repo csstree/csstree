@@ -1,3 +1,37 @@
+## 1.0.0-alpha14 (February 3, 2017)
+
+- Implemented `DeclarationList`, `MediaQueryList`, `MediaQuery`, `MediaFeature` and `Ratio` node types
+- Implemented `declarationList` context (useful to parse HTML `style` attribute content)
+- Implemented custom consumers for `@import`, `@media`, `@page` and `@supports` at-rules
+- Implemented `atrule` option for `parse()` config, is used for `atruleExpession` context to specify custom consumer for at-rule if any
+- Added `Scanner#skipWS()`, `Scanner#eatNonWS()`, `Scanner#consume()` and `Scanner#consumeNonWS()` helper methods
+- Added custom consumers for known functional-pseudos, consume unknown functional-pseudo content as balanced `Raw`
+- Allowed any `PseudoElement` to be a functional-pseudo (#33)
+- Improved walker implementations to reduce GC thrashing by reusing cursors
+- Changed `Atrule.block` to contain a `Block` node type only if any
+- Changed `Block.loc` positions to include curly brackets
+- Changed `Atrule.expression` to store a `null` if no expression
+- Changed parser to use `StyleSheet` node type only for top level node (when context is `stylesheet`, that's by default)
+- Changed `Parentheses`, `Brackets` and `Function` consumers to use passed sequence reader instead its own
+- Changed `Value` and `AtruleExpression` consumers to use common sequence reader (that reader was used by `Value` consumer only)
+- Changed default sequence reader to exclude storage of spaces around `Comma`
+- Changed processing of custom properties
+    - Consume custom property value as balanced `Raw`
+    - Consume `var()` fallback value as balanced `Raw`
+    - Validate first argument of `var()` is custom property name (i.e. starts with double dash)
+    - Custom property's value and fallback includes spaces around its value
+- Fixed `Nth` to have a `loc` property
+- Fixed `SelectorList.loc` and `Selector.loc` positions to exclude spaces
+- Fixed issue Browserify build fail with `default-syntax.json` is not found error (#32, @philschatz)
+- Disallowed `Type` selector starting with dash (parser throws an error in this case now)
+- Disallowed empty selectors for `Rule` (not sure if it's correct but looks reasonable)
+- Removed `>>` combinator support until any browser support (no signals about that yet)
+- Removed `PseudoElement.legacy` property
+- Removed special case for `:before`, `:after`, `:first-letter` and `:first-line` to represent them as `PseudoElement`, now those pseudos are represented as `PseudoClass` nodes
+- Removed deprecated `Syntax#match()` method
+- Splitted parser into modules and related changes, one step closer to an extensible parser
+- Various fixes and improvements, all changes have negligible impact on performace
+
 ## 1.0.0-alpha13 (January 19, 2017)
 
 - Changed location storing in `SyntaxMatchError`
