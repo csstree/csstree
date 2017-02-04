@@ -55,8 +55,16 @@ describe.only('names utils', function() {
             });
         });
 
+        it('shouldn\'t detect a verdor prefix for name that doesn\'t starts with dash', function() {
+            assert.deepEqual(keyword('test-vendor-test'), {
+                name: 'test-vendor-test',
+                prefix: '',
+                vendor: ''
+            });
+        });
+
         describe('shouldn\'t detect custom property name as verdor prefix', function() {
-            ['--test', '--vendor-test', 'test-vendor-test', '--vendor-test-test'].forEach(function(test) {
+            ['--test', '--vendor-test', '--vendor-test-test'].forEach(function(test) {
                 it(test, function() {
                     assert.deepEqual(keyword(test), {
                         name: test,
@@ -72,6 +80,7 @@ describe.only('names utils', function() {
         it('base test', function() {
             assert.deepEqual(property('test'), {
                 name: 'test',
+                variable: false,
                 prefix: '',
                 hack: '',
                 vendor: ''
@@ -83,6 +92,7 @@ describe.only('names utils', function() {
             data.name = 'xxx';
             assert.deepEqual(data, {
                 name: 'test',
+                variable: false,
                 prefix: '',
                 hack: '',
                 vendor: ''
@@ -92,6 +102,7 @@ describe.only('names utils', function() {
         it('should normalize name to lower case', function() {
             assert.deepEqual(property('TesT'), {
                 name: 'test',
+                variable: false,
                 prefix: '',
                 hack: '',
                 vendor: ''
@@ -103,6 +114,7 @@ describe.only('names utils', function() {
                 it(vendor, function() {
                     assert.deepEqual(property(vendor + 'test'), {
                         name: 'test',
+                        variable: false,
                         prefix: vendor,
                         hack: '',
                         vendor: vendor
@@ -113,6 +125,7 @@ describe.only('names utils', function() {
             it('name with dashes', function() {
                 assert.deepEqual(property('-a-test-test'), {
                     name: 'test-test',
+                    variable: false,
                     prefix: '-a-',
                     hack: '',
                     vendor: '-a-'
@@ -123,6 +136,7 @@ describe.only('names utils', function() {
         it('should normalize vendor to lower case', function() {
             assert.deepEqual(property('-VenDor-TesT'), {
                 name: 'test',
+                variable: false,
                 prefix: '-vendor-',
                 hack: '',
                 vendor: '-vendor-'
@@ -134,6 +148,7 @@ describe.only('names utils', function() {
                 it(hack, function() {
                     assert.deepEqual(property(hack + 'test'), {
                         name: 'test',
+                        variable: false,
                         prefix: hack,
                         hack: hack,
                         vendor: ''
@@ -142,12 +157,33 @@ describe.only('names utils', function() {
             });
         });
 
-        it('should detect verdor prefix and hack', function() {
+        it('should detect custom property', function() {
+            assert.deepEqual(property('--test'), {
+                name: '--test',
+                variable: true,
+                prefix: '',
+                hack: '',
+                vendor: ''
+            });
+        });
+
+        it('should detect vendor prefix and hack', function() {
             assert.deepEqual(property('//-moz-test'), {
                 name: 'test',
+                variable: false,
                 prefix: '//-moz-',
                 hack: '//',
                 vendor: '-moz-'
+            });
+        });
+
+        it('should detect custom property and hack', function() {
+            assert.deepEqual(property('//--test'), {
+                name: '--test',
+                variable: true,
+                prefix: '//',
+                hack: '//',
+                vendor: ''
             });
         });
 
@@ -164,11 +200,22 @@ describe.only('names utils', function() {
             });
         });
 
-        describe('shouldn\'t detect custom property name as verdor prefix', function() {
-            ['--test', '--vendor-test', 'test-vendor-test', '--vendor-test-test'].forEach(function(test) {
+        it('shouldn\'t detect a verdor prefix for name that doesn\'t starts with dash', function() {
+            assert.deepEqual(property('test-vendor-test'), {
+                name: 'test-vendor-test',
+                variable: false,
+                prefix: '',
+                hack: '',
+                vendor: ''
+            });
+        });
+
+        describe('shouldn\'t detect a verdor prefix for custom property names', function() {
+            ['--test', '--vendor-test', '--vendor-test-test'].forEach(function(test) {
                 it(test, function() {
                     assert.deepEqual(property(test), {
                         name: test,
+                        variable: true,
                         prefix: '',
                         hack: '',
                         vendor: ''
