@@ -2,7 +2,7 @@ var assert = require('assert');
 var keyword = require('../lib/utils/names').keyword;
 var property = require('../lib/utils/names').property;
 
-describe.only('names utils', function() {
+describe('names utils', function() {
     describe('keyword', function() {
         it('base test', function() {
             assert.deepEqual(keyword('test'), {
