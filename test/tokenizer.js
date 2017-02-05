@@ -1,7 +1,7 @@
 var assert = require('assert');
-var Scanner = require('../lib/scanner');
+var Tokenizer = require('../lib/tokenizer');
 
-describe('parser/scanner', function() {
+describe('parser/tokenizer', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg);\n}';
     var tokens = [
         { offset: 0, type: 'FullStop' },
@@ -35,63 +35,63 @@ describe('parser/scanner', function() {
     });
 
     it('edge case: no arguments', function() {
-        var scanner = new Scanner();
+        var tokenizer = new Tokenizer();
 
-        assert.equal(scanner.eof, true);
-        assert.equal(scanner.tokenType, 0);
+        assert.equal(tokenizer.eof, true);
+        assert.equal(tokenizer.tokenType, 0);
     });
 
     it('edge case: empty input', function() {
-        var scanner = new Scanner('');
+        var tokenizer = new Tokenizer('');
 
-        assert.equal(scanner.eof, true);
-        assert.equal(scanner.tokenType, 0);
+        assert.equal(tokenizer.eof, true);
+        assert.equal(tokenizer.tokenType, 0);
     });
 
     it('getTypes()', function() {
-        var scanner = new Scanner(css);
+        var tokenizer = new Tokenizer(css);
 
-        assert.deepEqual(scanner.getTypes(), types);
+        assert.deepEqual(tokenizer.getTypes(), types);
     });
 
     it('next() types', function() {
-        var scanner = new Scanner(css);
+        var tokenizer = new Tokenizer(css);
         var actual = [];
 
-        while (!scanner.eof) {
-            actual.push(Scanner.NAME[scanner.tokenType]);
-            scanner.next();
+        while (!tokenizer.eof) {
+            actual.push(Tokenizer.NAME[tokenizer.tokenType]);
+            tokenizer.next();
         }
 
         assert.deepEqual(actual, types);
     });
 
     it('next() start', function() {
-        var scanner = new Scanner(css);
+        var tokenizer = new Tokenizer(css);
         var actual = [];
 
-        while (!scanner.eof) {
-            actual.push(scanner.tokenStart);
-            scanner.next();
+        while (!tokenizer.eof) {
+            actual.push(tokenizer.tokenStart);
+            tokenizer.next();
         }
 
         assert.deepEqual(actual, start);
     });
 
     it('next() end', function() {
-        var scanner = new Scanner(css);
+        var tokenizer = new Tokenizer(css);
         var actual = [];
 
-        while (!scanner.eof) {
-            actual.push(scanner.tokenEnd);
-            scanner.next();
+        while (!tokenizer.eof) {
+            actual.push(tokenizer.tokenEnd);
+            tokenizer.next();
         }
 
         assert.deepEqual(actual, end);
     });
 
     it('skip()', function() {
-        var scanner = new Scanner(css);
+        var tokenizer = new Tokenizer(css);
         var targetTokens = tokens
             .filter(function(token) {
                 return token.type === 'Identifier' || token.type === 'FullStop';
@@ -101,8 +101,8 @@ describe('parser/scanner', function() {
                 return idx ? tokens.indexOf(token) - tokens.indexOf(idents[idx - 1]) : tokens.indexOf(token);
             })
             .map(function(skip) {
-                scanner.skip(skip);
-                return Scanner.NAME[scanner.tokenType];
+                tokenizer.skip(skip);
+                return Tokenizer.NAME[tokenizer.tokenType];
             });
 
         assert.equal(actual.length, 8); // 6 x Indentifier + 2 x FullStop
@@ -112,24 +112,24 @@ describe('parser/scanner', function() {
     });
 
     it('skip() to end', function() {
-        var scanner = new Scanner(css);
+        var tokenizer = new Tokenizer(css);
 
-        scanner.skip(tokens.length);
+        tokenizer.skip(tokens.length);
 
-        assert.equal(scanner.eof, true);
+        assert.equal(tokenizer.eof, true);
     });
 
     it('dynamic buffer', function() {
-        var bufferSize = new Scanner(css).offsetAndType.length + 10;
-        var scanner = new Scanner(new Array(bufferSize + 1).join('.'));
+        var bufferSize = new Tokenizer(css).offsetAndType.length + 10;
+        var tokenizer = new Tokenizer(new Array(bufferSize + 1).join('.'));
         var count = 0;
 
-        while (!scanner.eof) {
+        while (!tokenizer.eof) {
             count++;
-            scanner.next();
+            tokenizer.next();
         }
 
         assert.equal(count, bufferSize);
-        assert(scanner.offsetAndType.length >= bufferSize);
+        assert(tokenizer.offsetAndType.length >= bufferSize);
     });
 });
