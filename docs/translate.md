@@ -19,7 +19,7 @@ console.log(csstree.translate(ast));
 
 ## translateWithSourceMap(ast)
 
-The same as `translate()` but also generates source map (nodes should contain positions in `info` property).
+The same as `translate()` but also generates source map (nodes should contain positions in `loc` property).
 
 ```js
 var ast = csstree.parse('.test { color: red }', {
