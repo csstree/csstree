@@ -1,0 +1,77 @@
+{
+    "base test": {
+        "source": "element(#foo)",
+        "ast": {
+            "type": "Function",
+            "name": "element",
+            "children": [
+                {
+                    "type": "Id",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": "ElemenT(#foo)",
+        "ast": {
+            "type": "Function",
+            "name": "ElemenT",
+            "children": [
+                {
+                    "type": "Id",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
+    "spaces and comment": {
+        "source": "element(  /*1*/  #foo  /*2*/  )",
+        "translate": "element(#foo)",
+        "ast": {
+            "type": "Function",
+            "name": "element",
+            "children": [
+                {
+                    "type": "Id",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
+    "-moz-element": {
+        "source": "-moz-element(#foo)",
+        "ast": {
+            "type": "Function",
+            "name": "-moz-element",
+            "children": [
+                {
+                    "type": "Id",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": "element()",
+            "offset": "        ^",
+            "error": "NumberSign is expected"
+        },
+        {
+            "source": "element(#)",
+            "offset": "         ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "element(123)",
+            "offset": "        ^",
+            "error": "NumberSign is expected"
+        },
+        {
+            "source": "element(#foo #bar)",
+            "offset": "             ^",
+            "error": "RightParenthesis is expected"
+        }
+    ]
+}

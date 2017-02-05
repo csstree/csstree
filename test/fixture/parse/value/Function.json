@@ -20,6 +20,32 @@
             ]
         }
     },
+    "shouldn't normalize function name": {
+        "source": "TesT(n)",
+        "ast": {
+            "type": "Function",
+            "name": "TesT",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "n"
+                }
+            ]
+        }
+    },
+    "should allow to use vendor prefix in function name": {
+        "source": "-webkit-func(n)",
+        "ast": {
+            "type": "Function",
+            "name": "-webkit-func",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "n"
+                }
+            ]
+        }
+    },
     "function.2": {
         "source": "test-test(n)",
         "ast": {

@@ -2866,7 +2866,7 @@
                                                 "name": "element",
                                                 "children": [
                                                     {
-                                                        "type": "Hash",
+                                                        "type": "Id",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -2880,7 +2880,7 @@
                                                                 "column": 32
                                                             }
                                                         },
-                                                        "value": "id"
+                                                        "name": "id"
                                                     }
                                                 ]
                                             }

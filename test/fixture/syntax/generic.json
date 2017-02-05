@@ -348,17 +348,16 @@
         "syntax": {
             "generic": true,
             "properties": {
-                "test": "<id-selector>"
+                "test": "element( <id-selector> )"
             }
         },
         "valid": [
-            "#foo",
-            "#123",
-            "#foo-123"
+            "element(#foo)",
+            "element(#a123)",
+            "element(#foo-123)"
         ],
         "invalid:Mismatch": [
-            "",
-            "123 #foo"
+            ""
         ]
     },
     "<ident>": {
