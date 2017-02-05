@@ -276,7 +276,8 @@
         "invalid:Mismatch": [
             "-1",
             "0.01",
-            ".999"
+            ".999",
+            "abc"
         ]
     },
     "<integer>": {
@@ -502,7 +503,8 @@
             "0",
             "0 inherit",
             "0 initial",
-            "0 unset"
+            "0 unset",
+            "0 0"
         ]
     },
     "calc": {

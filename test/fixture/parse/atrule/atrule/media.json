@@ -415,6 +415,11 @@
             "error": "RightParenthesis is expected"
         },
         {
+            "source": "@media (foo: 'foo') {}",
+            "offset": "             ^",
+            "error": "Number, dimension, ratio or identifier is expected"
+        },
+        {
             "source": "@media (foo: 1/) {}",
             "offset": "               ^",
             "error": "Number is expected"
@@ -463,6 +468,11 @@
             "source": "@media (foo:1)ident {}",
             "offset": "              ^",
             "error": "Space is expected"
+        },
+        {
+            "source": "@media (foo:1",
+            "offset": "             ^",
+            "error": "RightParenthesis is expected"
         }
     ]
 }
