@@ -19,10 +19,15 @@ function normalize(str) {
 }
 
 describe('Common', function() {
-    var cssStr = normalize(fs.readFileSync(__dirname + css, 'utf-8'));
-    var ast = parse(cssStr, {
-        filename: path.basename(css),
-        positions: true
+    var cssStr;
+    var ast;
+
+    before(function() {
+        cssStr = normalize(fs.readFileSync(__dirname + css, 'utf-8'));
+        ast = parse(cssStr, {
+            filename: path.basename(css),
+            positions: true
+        });
     });
 
     // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
