@@ -1001,17 +1001,8 @@
         "ast": {
             "type": "Rule",
             "selector": {
-                "type": "SelectorList",
-                "children": [
-                    {
-                        "type": "Raw",
-                        "value": ".foo"
-                    },
-                    {
-                        "type": "Raw",
-                        "value": " a:not(a = b) "
-                    }
-                ]
+                "type": "Raw",
+                "value": ".foo, a:not(a = b) "
             },
             "block": {
                 "type": "Block",
