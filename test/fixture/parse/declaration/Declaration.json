@@ -193,5 +193,20 @@
                 ]
             }
         }
+    },
+    "shouldn't parse a value when parseValue is false": {
+        "options": {
+            "parseValue": false
+        },
+        "source": "property: value",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "property",
+            "value": {
+                "type": "Raw",
+                "value": " value"
+            }
+        }
     }
 }

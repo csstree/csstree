@@ -4,6 +4,7 @@ var walk = require('../lib/utils/walk').all;
 var translate = require('../lib/utils/translate');
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var stringify = require('./helpers/stringify');
+var merge = require('./helpers').merge;
 
 function repeat(str, count) {
     return new Array(count + 1).join(str);
@@ -29,11 +30,9 @@ function createParseErrorTest(name, test, options) {
 
 describe('parse', function() {
     describe('basic', function() {
-        forEachParseTest(function createParseTest(name, test, context) {
+        forEachParseTest(function createParseTest(name, test) {
             it(name, function() {
-                var ast = parse(test.source, {
-                    context: context
-                });
+                var ast = parse(test.source, test.options);
 
                 // AST should be equal
                 assert.equal(stringify(ast), stringify(test.ast));
@@ -53,15 +52,13 @@ describe('parse', function() {
     });
 
     describe('errors', function() {
-        forEachParseTest(function(name, test, context) {
-            createParseErrorTest(name, test, {
-                context: context,
+        forEachParseTest(function(name, test) {
+            createParseErrorTest(name, test, merge(test.options, {
                 positions: false
-            });
-            createParseErrorTest(name + ' (with positions)', test, {
-                context: context,
+            }));
+            createParseErrorTest(name + ' (with positions)', test, merge(test.options, {
                 positions: true
-            });
+            }));
         }, true);
 
         it('formattedMessage', function() {

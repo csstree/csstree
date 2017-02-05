@@ -119,6 +119,33 @@
             }
         }
     },
+    "should parse a custom property value when parseCustomProperty is true": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var:1 foo",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "Number",
+                        "value": "1"
+                    },
+                    {
+                        "type": "Space"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "foo"
+                    }
+                ]
+            }
+        }
+    },
     "error": [
         {
             "source": "--var: ([)]",

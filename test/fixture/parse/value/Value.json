@@ -144,9 +144,12 @@
             ]
         }
     },
-    "error: closing parenthesis is not allowed": {
-        "source": "foo)",
-        "offset": "   ^",
-        "error": "Unexpected input"
-    }
+    "error": [
+        {
+            "comment": "closing parenthesis is not allowed",
+            "source": "foo)",
+            "offset": "   ^",
+            "error": "Unexpected input"
+        }
+    ]
 }

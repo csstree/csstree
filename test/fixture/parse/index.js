@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var JsonLocator = require('../../helpers/JsonLocator.js');
+var merge = require('../../helpers').merge;
 var wrapper = {
     rule: function(ast) {
         return {
@@ -84,10 +85,16 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
                     if (Array.isArray(origTests[key])) {
                         origTests[key].forEach(function(test, idx) {
                             test.name = locator.get(key, idx);
+                            test.options = merge(test.options, {
+                                context: scope
+                            });
                             processTest(test, key, key + '#' + (idx + 1));
                         });
                     } else {
                         origTests[key].name = locator.get(key);
+                        origTests[key].options = merge(origTests[key].options, {
+                            context: scope
+                        });
                         processTest(origTests[key], key, key);
                     }
                 }

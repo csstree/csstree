@@ -991,5 +991,47 @@
                 ]
             }
         }
+    },
+    "shouldn't parse a selector when parseSelector is false": {
+        "options": {
+            "parseSelector": false
+        },
+        "source": ".foo, a:not(a = b) { foo: 1; }",
+        "translate": ".foo, a:not(a = b) {foo:1}",
+        "ast": {
+            "type": "Rule",
+            "selector": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": ".foo"
+                    },
+                    {
+                        "type": "Raw",
+                        "value": " a:not(a = b) "
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "foo",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Number",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
     }
 }

@@ -50,44 +50,65 @@
             ]
         }
     },
-    "bad selector #1": {
-        "source": "a, ",
-        "offset": "  ^",
-        "error": "Selector is expected"
+    "shouldn't parse a selector when parseSelector is false": {
+        "options": {
+            "parseSelector": false
+        },
+        "source": ".foo, a:not(a = b) ",
+        "ast": {
+            "type": "SelectorList",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": ".foo"
+                },
+                {
+                    "type": "Raw",
+                    "value": " a:not(a = b) "
+                }
+            ]
+        }
     },
-    "bad selector #2": {
-        "source": "a,, ",
-        "offset": "  ^",
-        "error": "Selector is expected"
-    },
-    "bad selector #3": {
-        "source": "a,,b",
-        "offset": "  ^",
-        "error": "Selector is expected"
-    },
-    "bad selector #4": {
-        "source": ",b",
-        "offset": "^",
-        "error": "Selector is expected"
-    },
-    "bad selector #5": {
-        "source": ",,b",
-        "offset": "^",
-        "error": "Selector is expected"
-    },
-    "bad selector #6": {
-        "source": ",",
-        "offset": "^",
-        "error": "Selector is expected"
-    },
-    "bad selector #7": {
-        "source": ",,",
-        "offset": "^",
-        "error": "Selector is expected"
-    },
-    "bad selector #8": {
-        "source": "a,{",
-        "offset": "  ^",
-        "error": "Selector is expected"
-    }
+    "error": [
+        {
+            "source": "a, ",
+            "offset": "  ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "a,, ",
+            "offset": "  ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "a,,b",
+            "offset": "  ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ",b",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ",,b",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ",",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ",,",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "a,{",
+            "offset": "  ^",
+            "error": "Selector is expected"
+        }
+    ]
 }

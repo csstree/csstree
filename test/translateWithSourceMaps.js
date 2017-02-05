@@ -2,13 +2,13 @@ var assert = require('assert');
 var parse = require('../lib/parser');
 var translateWithSourceMap = require('../lib/utils/translateWithSourceMap');
 var forEachParseTest = require('./fixture/parse').forEachTest;
+var merge = require('./helpers').merge;
 
-function createTranslateWidthSourceMapTest(name, test, context) {
+function createTranslateWidthSourceMapTest(name, test) {
     it(name, function() {
-        var ast = parse(test.source, {
-            context: context,
+        var ast = parse(test.source, merge(test.options, {
             positions: true
-        });
+        }));
 
         // strings should be equal
         assert.equal(translateWithSourceMap(ast).css, 'translate' in test ? test.translate : test.source);

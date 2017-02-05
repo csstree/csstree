@@ -51,9 +51,7 @@ function expectedWalk(ast, right, checker) {
 function createWalkTest(name, test, context, walker, right) {
     it(name, function() {
         var actual = [];
-        var ast = parse(test.source, {
-            context: context
-        });
+        var ast = parse(test.source, test.options);
 
         walker(ast, function(node) {
             actual.push(node.type);
@@ -70,9 +68,7 @@ function createWalkTest(name, test, context, walker, right) {
 function createWalkRulesTest(test, context, walker) {
     it(test.name, function() {
         var actual = [];
-        var ast = parse(test.source, {
-            context: context
-        });
+        var ast = parse(test.source, test.options);
 
         walker(ast, function(node) {
             actual.push(node.type);
@@ -91,9 +87,7 @@ function createWalkRulesTest(test, context, walker) {
 function createWalkDeclarationsTest(test, context, walker) {
     it(test.name, function() {
         var actual = [];
-        var ast = parse(test.source, {
-            context: context
-        });
+        var ast = parse(test.source, test.options);
 
         walker(ast, function(node) {
             actual.push(node.type);

@@ -150,6 +150,21 @@
             "block": null
         }
     },
+    "shouldn't parse a atrule expression when parseAtruleExpression is false": {
+        "options": {
+            "parseAtruleExpression": false
+        },
+        "source": "@test a b;",
+        "ast": {
+            "type": "Atrule",
+            "name": "test",
+            "expression": {
+                "type": "Raw",
+                "value": "a b"
+            },
+            "block": null
+        }
+    },
     "error": [
         {
             "source": "@atrule!;",

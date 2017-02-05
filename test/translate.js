@@ -3,11 +3,9 @@ var parse = require('../lib/parser');
 var translate = require('../lib/utils/translate');
 var forEachParseTest = require('./fixture/parse').forEachTest;
 
-function createTranslateTest(name, test, context) {
+function createTranslateTest(name, test) {
     it(name, function() {
-        var ast = parse(test.source, {
-            context: context
-        });
+        var ast = parse(test.source, test.options);
 
         // strings should be equal
         assert.equal(translate(ast), 'translate' in test ? test.translate : test.source);
