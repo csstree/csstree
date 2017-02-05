@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
-var createSyntax = require('../../../lib/syntax').create;
-var defaultSyntax = require('../../../lib/syntax/default');
+var createSyntax = require('../../../lib/lexer').create;
+var defaultSyntax = require('../../../lib/lexer/default');
 var JsonLocator = require('../../helpers/JsonLocator.js');
 
 function forEachTest(factory) {
