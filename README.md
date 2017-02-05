@@ -40,197 +40,35 @@ Related projects:
 
 ```js
 var csstree = require('css-tree');
+var ast = csstree.parse('.example { world: "!" }');
 
-csstree.walk(csstree.parse('.a { color: red; }'), function(node) {
-  console.log(node.type);
+csstree.walk(ast, function(node) {
+    if (node.type === 'Class' && node.name === 'example') {
+        node.name = 'hello';
+    }
 });
-// StyleSheet
-// Rule
-// SelectorList
-// Selector
-// Class
-// Block
-// Declaration
-// Value
-// Identifier
+
+console.log(csstree.translate(ast));
+// .hello{world:"!"}
 ```
 
 ## API
 
-### parse(source[, options])
+### General
 
-Parses CSS to AST.
+- [Parsing CSS into AST](docs/parsing.md)
+- [AST format](docs/ast.md)
+- [Translate AST to string](docs/translate.md)
+- [AST traversal](docs/traversal.md)
+- [Utils to work with AST](docs/utils.md)
+- [Working with syntax](docs/syntax.md)
 
-> NOTE: Currenly parser omits redundant separators, spaces and comments (except exclamation comments, i.e. `/*! comment */`) on AST build.
+### Classes
 
-Options:
-
-- `context` String – parsing context, useful when some part of CSS is parsing (see below)
-- `atrule` String – make sense for `atruleExpression` context to apply some atrule specific parse rules
-- `property` String – make sense for `value` context to apply some property specific parse rules
-- `positions` Boolean – should AST contains node position or not, store data in `info` property of nodes (`false` by default)
-- `filename` String – filename of source that adds to info when `positions` is true, uses for source map generation (`<unknown>` by default)
-- `line` Number – initial line number, useful when parse fragment of CSS to compute correct positions
-- `column` Number – initial column number, useful when parse fragment of CSS to compute correct positions
-
-Contexts:
-
-- `stylesheet` (default) – regular stylesheet, should be suitable in most cases
-- `atrule` – at-rule (e.g. `@media screen, print { ... }`)
-- `atruleExpression` – at-rule expression (`screen, print` for example above)
-- `rule` – rule (e.g. `.foo, .bar:hover { color: red; border: 1px solid black; }`)
-- `selectorList` – selector group (`.foo, .bar:hover` for rule example)
-- `selector` – selector (`.foo` or `.bar:hover` for rule example)
-- `block` – block with curly braces (`{ color: red; border: 1px solid black; }` for rule example)
-- `declarationList` – block content w/o curly braces (`color: red; border: 1px solid black;` for rule example), useful to parse HTML `style` attribute value
-- `declaration` – declaration (`color: red` or `border: 1px solid black` for rule example)
-- `value` – declaration value (`red` or `1px solid black` for rule example)
-
-```js
-// simple parsing with no options
-var ast = csstree.parse('.example { color: red }');
-
-// parse with options
-var ast = csstree.parse('.foo.bar', {
-    context: 'simpleSelector',
-    positions: true
-});
-```
-
-### clone(ast)
-
-Make an AST node deep copy.
-
-```js
-var orig = csstree.parse('.test { color: red }');
-var copy = csstree.clone(orig);
-
-csstree.walk(copy, function(node) {
-    if (node.type === 'Class') {
-        node.name = 'replaced';
-    }
-});
-
-console.log(csstree.translate(orig));
-// .test{color:red}
-console.log(csstree.translate(copy));
-// .replaced{color:red}
-```
-
-### translate(ast)
-
-Converts AST to string.
-
-```js
-var ast = csstree.parse('.test { color: red }');
-console.log(csstree.translate(ast));
-// > .test{color:red}
-```
-
-### translateWithSourceMap(ast)
-
-The same as `translate()` but also generates source map (nodes should contain positions in `info` property).
-
-```js
-var ast = csstree.parse('.test { color: red }', {
-    filename: 'my.css',
-    positions: true
-});
-console.log(csstree.translateWithSourceMap(ast));
-// { css: '.test{color:red}', map: SourceMapGenerator {} }
-```
-
-### walk(ast, handler)
-
-Visits each node of AST in natural way and calls handler for each one. `handler` receives three arguments:
-
-- `node` – current AST node
-- `item` – node wrapper when node is a list member; this wrapper contains references to `prev` and `next` nodes in list
-- `list` – reference to list when node is a list member; it's useful for operations on list like `remove()` or `insert()`
-
-Context for handler an object, that contains references to some parent nodes:
-
-- `root` – refers to `ast` root node (actually it's a node passed to walker function)
-- `stylesheet` – refers to `StyleSheet` node, usually it's a root node
-- `atruleExpression` – refers to `AtruleExpression` node if any
-- `rule` – refers to closest `Rule` node if any
-- `selector` – refers to `SelectorList` node if any
-- `block` - refers to closest `Block` node if any
-- `declaration` – refers to `Declaration` node if any
-- `function` – refers to closest `Function`, `PseudoClass` or `PseudoElement` node if current node inside one of them
-
-```js
-// collect all urls in declarations
-var csstree = require('./lib/index.js');
-var urls = [];
-var ast = csstree.parse(`
-  @import url(import.css);
-  .foo { background: url('foo.jpg'); }
-  .bar { background-image: url(bar.png); }
-`);
-
-csstree.walk(ast, function(node) {
-    if (this.declaration !== null && node.type === 'Url') {
-        var value = node.value;
-
-        if (value.type === 'Raw') {
-            urls.push(value.value);
-        } else {
-            urls.push(value.value.substr(1, value.value.length - 2));
-        }
-    }
-});
-
-console.log(urls);
-// [ 'foo.jpg', 'bar.png' ]
-```
-
-### walkUp(ast, handler)
-
-Same as `walk()` but visits nodes in down-to-top order. Useful to process deepest nodes and then their parents.
-
-```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; }');
-
-csstree.walk(ast, function(node) {
-  console.log(node.type);
-});
-// StyleSheet
-// Rule
-// SelectorList
-// Selector
-// Class
-// Block
-// Declaration
-// Value
-// Identifier
-
-csstree.walkUp(ast, function(node) {
-  console.log(node.type);
-});
-// Class
-// Selector
-// SelectorList
-// Identifier
-// Value
-// Declaration
-// Block
-// Rule
-// StyleSheet
-```
-
-### walkRules(ast, handler)
-
-Same as `walk()` but visits `Rule` and `Atrule` nodes only.
-
-### walkRulesRight(ast, handler)
-
-Same as `walkRules()` but visits nodes in reverse order (from last to first).
-
-### walkDeclarations(ast, handler)
-
-Visit all declarations.
+- [Tokenizer](docs/Tokenizer.md)
+- [Parser](docs/Parser.md)
+- [Lexer](docs/Lexer.md)
+- [List](docs/List.md)
 
 ## License
 
