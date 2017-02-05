@@ -144,6 +144,29 @@
             ]
         }
     },
+    "should parse a custom property value when parseCustomProperty is true": {
+        "options": {
+            "property": "--var",
+            "parseCustomProperty": true
+        },
+        "source": "1 foo",
+        "ast": {
+            "type": "Value",
+            "children": [
+                {
+                    "type": "Number",
+                    "value": "1"
+                },
+                {
+                    "type": "Space"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "foo"
+                }
+            ]
+        }
+    },
     "error": [
         {
             "comment": "closing parenthesis is not allowed",

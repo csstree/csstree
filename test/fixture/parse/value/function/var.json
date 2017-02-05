@@ -160,6 +160,43 @@
             ]
         }
     },
+    "should parse a fallback value when parseCustomProperty is true": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--foo, 1 foo)",
+        "translate": "var(--foo,1 foo)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--foo"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        {
+                            "type": "Space"
+                        },
+                        {
+                            "type": "Identifier",
+                            "name": "foo"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
     "error #1": {
         "source": "var(name)",
         "offset": "    ^",
