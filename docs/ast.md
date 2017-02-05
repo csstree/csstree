@@ -1,16 +1,16 @@
 # AST format
 
-CSSTree represents AST as object tree. Each node is object with `type` property that indicates its type. Other properties set depends on node type
+CSSTree's AST is an object tree. Each node is object with `type` property that indicates its type. Other property set depends on node type.
 
-Each node contains a `loc` property, but not included in descriptions to aboid noise. Its value contains object with positions or null depending on parsing settings.
+Each node have a `loc` property, but not included in descriptions to avoid noise. Its value contains an object with node content positions in source string or null depending on parsing settings.
 
 > Details on each node to be done
 
-Pending changes:
+Pending changes in AST:
 
 - `Progid` is subject to be removed
 - `Space` will be extended to store actual whitespaces
-- `Type`, `Universal`, `Id`, `Class`, `Attribute`, `PseudoClass` and `PseudoElement` may to be renamed with `Selector` suffix
+- `Type`, `Universal`, `Id`, `Class`, `Attribute`, `PseudoClass` and `PseudoElement` may to be renamed to add a `Selector` suffix
 - `PseudoClass` and `PseudoElement` may to be joined into single type `Pseudo` (or `PseudoSelector`)
 
 Other node types are stable enough.
@@ -65,6 +65,8 @@ Node types:
 
 ## AnPlusB
 
+Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsyntax).
+
 ```
 {
     "type": "AnPlusB",
@@ -72,6 +74,8 @@ Node types:
     "b": string | null
 }
 ```
+
+`a` and `b` may have no value (to be equals to `null`) but not both at the same time. Parser normalizes `a` value to store a valid interger, i.e. for `-n` it will contains `-1` and for `n` it will contains `1`.
 
 ## Atrule
 
