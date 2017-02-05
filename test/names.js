@@ -210,6 +210,26 @@ describe('names utils', function() {
             });
         });
 
+        it('shouldn\'t normalize custom property names', function() {
+            assert.deepEqual(property('--Test-Custom'), {
+                name: '--Test-Custom',
+                variable: true,
+                prefix: '',
+                hack: '',
+                vendor: ''
+            });
+
+            assert.deepEqual(property('--TEST-custom'), {
+                name: '--TEST-custom',
+                variable: true,
+                prefix: '',
+                hack: '',
+                vendor: ''
+            });
+
+            assert(property('--Test') !== property('--test'));
+        });
+
         describe('shouldn\'t detect a verdor prefix for custom property names', function() {
             ['--test', '--vendor-test', '--vendor-test-test'].forEach(function(test) {
                 it(test, function() {
