@@ -12,14 +12,14 @@
 - Changed `Block.loc` positions to include curly brackets
 - Changed `Atrule.expression` to store a `null` if no expression
 - Changed parser to use `StyleSheet` node type only for top level node (when context is `stylesheet`, that's by default)
-- Changed `Parentheses`, `Brackets` and `Function` consumers to use passed sequence reader instead its own
-- Changed `Value` and `AtruleExpression` consumers to use common sequence reader (that reader was used by `Value` consumer only)
+- Changed `Parentheses`, `Brackets` and `Function` consumers to use passed sequence reader instead of its own
+- Changed `Value` and `AtruleExpression` consumers to use common sequence reader (that reader was used by `Value` consumer before)
 - Changed default sequence reader to exclude storage of spaces around `Comma`
-- Changed processing of custom properties
-    - Consume custom property value as balanced `Raw`
+- Changed processing of custom properties:
+    - Consume declaration value as balanced `Raw`
     - Consume `var()` fallback value as balanced `Raw`
-    - Validate first argument of `var()` is custom property name (i.e. starts with double dash)
-    - Custom property's value and fallback includes spaces around its value
+    - Validate first argument of `var()` starts with double dash
+    - Custom property's value and fallback includes spaces around
 - Fixed `Nth` to have a `loc` property
 - Fixed `SelectorList.loc` and `Selector.loc` positions to exclude spaces
 - Fixed issue Browserify build fail with `default-syntax.json` is not found error (#32, @philschatz)
@@ -29,8 +29,8 @@
 - Removed `PseudoElement.legacy` property
 - Removed special case for `:before`, `:after`, `:first-letter` and `:first-line` to represent them as `PseudoElement`, now those pseudos are represented as `PseudoClass` nodes
 - Removed deprecated `Syntax#match()` method
-- Splitted parser into modules and related changes, one step closer to an extensible parser
-- Various fixes and improvements, all changes have negligible impact on performace
+- Parser was splitted into modules and related changes, one step closer to an extensible parser
+- Various fixes and improvements, all changes have negligible impact on performance
 
 ## 1.0.0-alpha13 (January 19, 2017)
 
