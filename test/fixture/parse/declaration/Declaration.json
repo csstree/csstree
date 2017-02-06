@@ -33,12 +33,63 @@
             }
         }
     },
-    "declaration property with hack": {
+    "declaration property with // hack": {
         "source": "//property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
             "property": "//property",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "value"
+                    }
+                ]
+            }
+        }
+    },
+    "declaration property with $ hack": {
+        "source": "$property:value",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "$property",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "value"
+                    }
+                ]
+            }
+        }
+    },
+    "declaration property with _ hack": {
+        "source": "_property:value",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "_property",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "value"
+                    }
+                ]
+            }
+        }
+    },
+    "declaration property with * hack": {
+        "source": "*property:value",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "*property",
             "value": {
                 "type": "Value",
                 "children": [
@@ -208,5 +259,17 @@
                 "value": " value"
             }
         }
-    }
+    },
+    "error": [
+        {
+            "source": "//: 1",
+            "offset": "  ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "$: 1",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        }
+    ]
 }

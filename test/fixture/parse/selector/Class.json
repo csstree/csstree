@@ -6,6 +6,13 @@
             "name": "abc"
         }
     },
+    "start with dash": {
+        "source": ".-abc",
+        "ast": {
+            "type": "Class",
+            "name": "-abc"
+        }
+    },
     "excaped class selector #1": {
         "source": ".\\31 0\\+",
         "ast": {

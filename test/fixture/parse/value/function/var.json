@@ -200,12 +200,12 @@
     "error #1": {
         "source": "var(name)",
         "offset": "    ^",
-        "error": "Hyphen minus is expected"
+        "error": "HyphenMinus is expected"
     },
     "error #2": {
         "source": "var(-name)",
         "offset": "     ^",
-        "error": "Hyphen minus is expected"
+        "error": "HyphenMinus is expected"
     },
     "error #3": {
         "source": "var(--name,([)])",

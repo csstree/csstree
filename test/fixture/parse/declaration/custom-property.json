@@ -161,6 +161,11 @@
             "source": "--var: !important ()",
             "offset": "                  ^",
             "error": "Unexpected input"
+        },
+        {
+            "source": "--: 1",
+            "offset": "  ^",
+            "error": "Identifier is expected"
         }
     ]
 }

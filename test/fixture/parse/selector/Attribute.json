@@ -60,6 +60,32 @@
             "flags": null
         }
     },
+    "starting with dash": {
+        "source": "[-b]",
+        "ast": {
+            "type": "Attribute",
+            "name": {
+                "type": "Identifier",
+                "name": "-b"
+            },
+            "operator": null,
+            "value": null,
+            "flags": null
+        }
+    },
+    "namespaced starting with dash": {
+        "source": "[*|-b]",
+        "ast": {
+            "type": "Attribute",
+            "name": {
+                "type": "Identifier",
+                "name": "*|-b"
+            },
+            "operator": null,
+            "value": null,
+            "flags": null
+        }
+    },
     "attrib.2 with flags": {
         "source": "[b i]",
         "ast": {

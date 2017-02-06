@@ -35,3 +35,7 @@ svg|*:matches(a)::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a])
         box-shadow: var(--something, fallback);
     }
 }
+
+.-a#-b:-c::-d[-e][*|-f] {
+    -foo: 123;
+}
