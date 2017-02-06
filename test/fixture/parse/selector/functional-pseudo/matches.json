@@ -158,16 +158,6 @@
             "source": ":matches(var(--test))",
             "offset": "            ^",
             "error": "RightParenthesis is expected"
-        },
-        {
-            "source": ":matches(> test)",
-            "offset": "         ^",
-            "error": "Unexpected combinator"
-        },
-        {
-            "source": ":matches(foo,> bar)",
-            "offset": "             ^",
-            "error": "Unexpected combinator"
         }
     ]
 }

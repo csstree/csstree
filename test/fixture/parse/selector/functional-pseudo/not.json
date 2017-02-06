@@ -158,16 +158,6 @@
             "source": ":not(var(--test))",
             "offset": "        ^",
             "error": "RightParenthesis is expected"
-        },
-        {
-            "source": ":not(> test)",
-            "offset": "     ^",
-            "error": "Unexpected combinator"
-        },
-        {
-            "source": ":not(foo,> bar)",
-            "offset": "         ^",
-            "error": "Unexpected combinator"
         }
     ]
 }

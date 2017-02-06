@@ -85,11 +85,6 @@
             "error": "RightParenthesis is expected"
         },
         {
-            "source": "::slotted(> test)",
-            "offset": "          ^",
-            "error": "Unexpected combinator"
-        },
-        {
             "source": "::slotted(foo,bar)",
             "offset": "             ^",
             "error": "RightParenthesis is expected"

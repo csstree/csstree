@@ -28,9 +28,9 @@ describe('Common', function() {
             filename: path.basename(css),
             positions: true
         });
-    });
 
-    // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
+        // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
+    });
 
     it('utils.strigify()', function() {
         assert.equal(

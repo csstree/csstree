@@ -124,7 +124,7 @@
         }
     },
     "should support relative selectors": {
-        "source": ":has(> .a,+.b)",
+        "source": ":has(>.a,+.b)",
         "translate": ":has(>.a,+.b)",
         "ast": {
             "type": "PseudoClass",
@@ -199,16 +199,6 @@
             "source": ":has(var(--test))",
             "offset": "        ^",
             "error": "RightParenthesis is expected"
-        },
-        {
-            "source": ":has(>+a)",
-            "offset": "      ^",
-            "error": "Unexpected combinator"
-        },
-        {
-            "source": ":has(~foo, >+a)",
-            "offset": "            ^",
-            "error": "Unexpected combinator"
         }
     ]
 }

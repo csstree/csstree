@@ -100,8 +100,7 @@
                     "name": "\\31 "
                 },
                 {
-                    "type": "Combinator",
-                    "name": " "
+                    "type": "Space"
                 },
                 {
                     "type": "Type",

@@ -9,8 +9,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Combinator",
-                    "name": " "
+                    "type": "Space"
                 },
                 {
                     "type": "Type",
@@ -101,7 +100,7 @@
         }
     },
     "all selectors": {
-        "source": "a  b  +  c  >  d  ~  e",
+        "source": "a b+c>d~e",
         "translate": "a b+c>d~e",
         "ast": {
             "type": "Selector",
@@ -111,8 +110,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Combinator",
-                    "name": " "
+                    "type": "Space"
                 },
                 {
                     "type": "Type",
@@ -156,8 +154,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Combinator",
-                    "name": " "
+                    "type": "Space"
                 },
                 {
                     "type": "Type",
@@ -261,8 +258,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Combinator",
-                    "name": " "
+                    "type": "Space"
                 },
                 {
                     "type": "Type",
@@ -354,27 +350,5 @@
                 }
             ]
         }
-    },
-    "error": [
-        {
-            "source": "> b",
-            "offset": "^  ",
-            "error": "Unexpected combinator"
-        },
-        {
-            "source": " > b",
-            "offset": " ^  ",
-            "error": "Unexpected combinator"
-        },
-        {
-            "source": "b >",
-            "offset": "  ^",
-            "error": "Unexpected combinator"
-        },
-        {
-            "source": "a + ~ b",
-            "offset": "    ^  ",
-            "error": "Unexpected combinator"
-        }
-    ]
+    }
 }

@@ -588,21 +588,7 @@
                                 "name": "class"
                             },
                             {
-                                "type": "Combinator",
-                                "loc": {
-                                    "source": "stringify.css",
-                                    "start": {
-                                        "offset": 146,
-                                        "line": 12,
-                                        "column": 8
-                                    },
-                                    "end": {
-                                        "offset": 147,
-                                        "line": 12,
-                                        "column": 9
-                                    }
-                                },
-                                "name": " "
+                                "type": "Space"
                             },
                             {
                                 "type": "Type",
@@ -675,21 +661,7 @@
                                 "flags": null
                             },
                             {
-                                "type": "Combinator",
-                                "loc": {
-                                    "source": "stringify.css",
-                                    "start": {
-                                        "offset": 163,
-                                        "line": 12,
-                                        "column": 25
-                                    },
-                                    "end": {
-                                        "offset": 164,
-                                        "line": 12,
-                                        "column": 26
-                                    }
-                                },
-                                "name": " "
+                                "type": "Space"
                             },
                             {
                                 "type": "Attribute",
