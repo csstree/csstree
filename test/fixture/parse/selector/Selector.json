@@ -5,7 +5,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Type",
+                    "type": "TypeSelector",
                     "name": "test"
                 }
             ]
@@ -103,7 +103,7 @@
                     "type": "Space"
                 },
                 {
-                    "type": "Type",
+                    "type": "TypeSelector",
                     "name": "b"
                 }
             ]
@@ -115,7 +115,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Type",
+                    "type": "TypeSelector",
                     "name": "*|*"
                 },
                 {
@@ -129,7 +129,7 @@
                                     "type": "Selector",
                                     "children": [
                                         {
-                                            "type": "Type",
+                                            "type": "TypeSelector",
                                             "name": "*"
                                         }
                                     ]
@@ -147,7 +147,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Type",
+                    "type": "TypeSelector",
                     "name": "x"
                 },
                 {

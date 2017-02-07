@@ -9,7 +9,7 @@
                     "type": "Selector",
                     "children": [
                         {
-                            "type": "Type",
+                            "type": "TypeSelector",
                             "name": "test"
                         }
                     ]

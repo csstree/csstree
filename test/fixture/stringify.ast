@@ -560,7 +560,7 @@
                         },
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -597,7 +597,7 @@
                                 "type": "Space"
                             },
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -876,7 +876,7 @@
                                                 },
                                                 "children": [
                                                     {
-                                                        "type": "Type",
+                                                        "type": "TypeSelector",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -911,7 +911,7 @@
                                                 },
                                                 "children": [
                                                     {
-                                                        "type": "Type",
+                                                        "type": "TypeSelector",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -1076,7 +1076,7 @@
                         },
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1142,7 +1142,7 @@
                                                 },
                                                 "children": [
                                                     {
-                                                        "type": "Type",
+                                                        "type": "TypeSelector",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -1198,7 +1198,7 @@
                                         },
                                         "children": [
                                             {
-                                                "type": "Type",
+                                                "type": "TypeSelector",
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
@@ -1317,7 +1317,7 @@
                                                     },
                                                     "children": [
                                                         {
-                                                            "type": "Type",
+                                                            "type": "TypeSelector",
                                                             "loc": {
                                                                 "source": "stringify.css",
                                                                 "start": {
@@ -1586,7 +1586,7 @@
                                                         "name": ">"
                                                     },
                                                     {
-                                                        "type": "Type",
+                                                        "type": "TypeSelector",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -2669,7 +2669,7 @@
                                     },
                                     "children": [
                                         {
-                                            "type": "Type",
+                                            "type": "TypeSelector",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {

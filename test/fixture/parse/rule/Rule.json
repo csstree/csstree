@@ -10,7 +10,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s"
                             }
                         ]
@@ -49,7 +49,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s"
                             }
                         ]
@@ -102,7 +102,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s0"
                             }
                         ]
@@ -111,7 +111,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s1"
                             }
                         ]
@@ -150,7 +150,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s0"
                             }
                         ]
@@ -159,7 +159,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s1"
                             }
                         ]
@@ -402,7 +402,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s"
                             }
                         ]
@@ -442,7 +442,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s"
                             }
                         ]
@@ -496,7 +496,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s0"
                             }
                         ]
@@ -505,7 +505,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s1"
                             }
                         ]
@@ -545,7 +545,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s0"
                             }
                         ]
@@ -554,7 +554,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s1"
                             }
                         ]
@@ -608,7 +608,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s"
                             }
                         ]
@@ -648,7 +648,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s"
                             }
                         ]
@@ -702,7 +702,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s0"
                             }
                         ]
@@ -711,7 +711,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s1"
                             }
                         ]
@@ -751,7 +751,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s0"
                             }
                         ]
@@ -760,7 +760,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s1"
                             }
                         ]
@@ -925,7 +925,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "s"
                             }
                         ]
@@ -964,7 +964,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "Type",
+                                "type": "TypeSelector",
                                 "name": "yellow"
                             }
                         ]

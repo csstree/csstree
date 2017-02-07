@@ -2,175 +2,175 @@
     "ident.0": {
         "source": "x",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "x"
         }
     },
     "ident.4": {
         "source": "x\\:y",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "x\\:y"
         }
     },
     "ident.6": {
         "source": "_0",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "_0"
         }
     },
     "ident.7": {
         "source": "\\1 ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\1 "
         }
     },
     "ident.8": {
         "source": "\\a ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\a "
         }
     },
     "ident.9": {
         "source": "\\d ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\d "
         }
     },
     "ident.10": {
         "source": "\\7f ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\7f "
         }
     },
     "ident.11": {
         "source": "\\30 ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\30 "
         }
     },
     "ident.12": {
         "source": "\\35 ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\35 "
         }
     },
     "ident.13": {
         "source": "\\39 ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\39 "
         }
     },
     "ident.14": {
         "source": "\\-",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\-"
         }
     },
     "ident.15": {
         "source": "\\-\\30 ",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\-\\30 "
         }
     },
     "ident.16": {
         "source": "\\-\\30 -",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\-\\30 -"
         }
     },
     "ident.17": {
         "source": "\\30 123",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\30 123"
         }
     },
     "ident.18": {
         "source": "\\--\\+\\a \\d \\30 asd",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\--\\+\\a \\d \\30 asd"
         }
     },
     "ident.19": {
         "source": "\uFFFDasd",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\uFFFDasd"
         }
     },
     "ident.20": {
         "source": "asd\\30 \\a -asd",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "asd\\30 \\a -asd"
         }
     },
     "ident.21": {
         "source": "\\20 123",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\20 123"
         }
     },
     "ident.22": {
         "source": "\\123456 123",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\123456 123"
         }
     },
     "ident.23": {
         "source": "\\123456zzz",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "\\123456zzz"
         }
     },
     "type with namespace #1": {
         "source": "ns|E",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "ns|E"
         }
     },
     "type with namespace #2": {
         "source": "*|E",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "*|E"
         }
     },
     "type with namespace #3": {
         "source": "|E",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "|E"
         }
     },
     "starting with dash": {
         "source": "-x",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "-x"
         }
     },
     "starting with dash #2": {
         "source": "-x-test",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "-x-test"
         }
     },

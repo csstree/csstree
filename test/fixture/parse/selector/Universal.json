@@ -2,28 +2,28 @@
     "universal": {
         "source": "*",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "*"
         }
     },
     "universal with namespace #1": {
         "source": "ns|*",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "ns|*"
         }
     },
     "universal with namespace #2": {
         "source": "*|*",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "*|*"
         }
     },
     "universal with namespace #3": {
         "source": "|*",
         "ast": {
-            "type": "Type",
+            "type": "TypeSelector",
             "name": "|*"
         }
     },

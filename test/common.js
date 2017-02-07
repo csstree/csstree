@@ -11,7 +11,7 @@ var types = [
     'Hash', 'IdSelector', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
     'Number', 'Operator', 'Parentheses', 'Percentage', 'Progid', 'PseudoClass',
     'PseudoElement', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'Space', 'String',
-    'StyleSheet', 'Type', 'UnicodeRange', 'Url', 'Value'
+    'StyleSheet', 'TypeSelector', 'UnicodeRange', 'Url', 'Value'
 ];
 
 function normalize(str) {
