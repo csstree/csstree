@@ -216,7 +216,7 @@
                                     "type": "Selector",
                                     "children": [
                                         {
-                                            "type": "Class",
+                                            "type": "ClassSelector",
                                             "name": "a"
                                         }
                                     ]
@@ -252,7 +252,7 @@
                                     "type": "Selector",
                                     "children": [
                                         {
-                                            "type": "Class",
+                                            "type": "ClassSelector",
                                             "name": "b"
                                         }
                                     ]

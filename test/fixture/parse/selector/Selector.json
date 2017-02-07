@@ -17,7 +17,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Class",
+                    "type": "ClassSelector",
                     "name": "test"
                 }
             ]
@@ -96,7 +96,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Class",
+                    "type": "ClassSelector",
                     "name": "\\31 "
                 },
                 {

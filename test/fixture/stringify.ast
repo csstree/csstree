@@ -417,7 +417,7 @@
                                     },
                                     "children": [
                                         {
-                                            "type": "Class",
+                                            "type": "ClassSelector",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -577,7 +577,7 @@
                                 "name": "*"
                             },
                             {
-                                "type": "Class",
+                                "type": "ClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -3082,7 +3082,7 @@
                                     },
                                     "children": [
                                         {
-                                            "type": "Class",
+                                            "type": "ClassSelector",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -3278,7 +3278,7 @@
                         },
                         "children": [
                             {
-                                "type": "Class",
+                                "type": "ClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {

@@ -28,11 +28,11 @@
                     "type": "Selector",
                     "children": [
                         {
-                            "type": "Class",
+                            "type": "ClassSelector",
                             "name": "a"
                         },
                         {
-                            "type": "Class",
+                            "type": "ClassSelector",
                             "name": "b"
                         }
                     ]
@@ -50,7 +50,7 @@
                     "type": "Selector",
                     "children": [
                         {
-                            "type": "Class",
+                            "type": "ClassSelector",
                             "name": "a"
                         }
                     ]

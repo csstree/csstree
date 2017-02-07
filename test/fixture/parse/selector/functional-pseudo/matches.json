@@ -35,7 +35,7 @@
                             "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Class",
+                                    "type": "ClassSelector",
                                     "name": "a"
                                 }
                             ]
@@ -44,11 +44,11 @@
                             "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Class",
+                                    "type": "ClassSelector",
                                     "name": "b"
                                 },
                                 {
-                                    "type": "Class",
+                                    "type": "ClassSelector",
                                     "name": "c"
                                 }
                             ]
@@ -72,7 +72,7 @@
                             "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Class",
+                                    "type": "ClassSelector",
                                     "name": "a"
                                 }
                             ]
@@ -81,7 +81,7 @@
                             "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Class",
+                                    "type": "ClassSelector",
                                     "name": "b"
                                 }
                             ]
@@ -104,7 +104,7 @@
                             "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Class",
+                                    "type": "ClassSelector",
                                     "name": "a"
                                 }
                             ]
@@ -113,7 +113,7 @@
                             "type": "Selector",
                             "children": [
                                 {
-                                    "type": "Class",
+                                    "type": "ClassSelector",
                                     "name": "b"
                                 }
                             ]

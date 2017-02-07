@@ -124,7 +124,7 @@ describe('AST traversal', function() {
             'Atrule',
             'AtruleExpression',
             'Block',
-            'Class',
+            'ClassSelector',
             'Declaration',
             'Dimension',
             'Function',

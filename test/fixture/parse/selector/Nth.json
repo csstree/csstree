@@ -443,7 +443,7 @@
                                 "type": "Selector",
                                 "children": [
                                     {
-                                        "type": "Class",
+                                        "type": "ClassSelector",
                                         "name": "test"
                                     }
                                 ]

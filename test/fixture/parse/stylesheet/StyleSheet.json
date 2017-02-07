@@ -139,7 +139,7 @@
                                 "type": "Selector",
                                 "children": [
                                     {
-                                        "type": "Class",
+                                        "type": "ClassSelector",
                                         "name": "ie-test"
                                     }
                                 ]
@@ -184,7 +184,7 @@
                                 "type": "Selector",
                                 "children": [
                                     {
-                                        "type": "Class",
+                                        "type": "ClassSelector",
                                         "name": "t"
                                     }
                                 ]
