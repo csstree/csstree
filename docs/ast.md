@@ -9,8 +9,8 @@ Each node have a `loc` property, but not included in descriptions to avoid noise
 Pending changes in AST:
 
 - `Progid` is subject to be removed
-- `Space` will be extended to store actual whitespaces
-- `Space` may to be renamed into `WhiteSpace`
+- `Space` may to be renamed into `WhiteSpaces`
+- `Hash` may to be renamed into `HexColor`
 
 Other node types are stable enough.
 
@@ -99,7 +99,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "AttributeSelector",
-    "name": string,
+    "name": <Identifier>,
     "operator": string | null,
     "value": <String> | <Identifier> | null,
     "flags": string | null
