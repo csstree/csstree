@@ -63,7 +63,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",
@@ -136,7 +137,8 @@
                         "name": "y"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Function",
@@ -347,7 +349,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",
@@ -420,7 +423,8 @@
                         "name": "y"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Function",
@@ -549,7 +553,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",
@@ -622,7 +627,8 @@
                         "name": "y"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Function",
@@ -633,7 +639,8 @@
                                 "value": "1"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "value": " "
                             },
                             {
                                 "type": "Number",

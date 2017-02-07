@@ -9,7 +9,8 @@
                     "name": "foo"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Identifier",

@@ -121,7 +121,8 @@
                     "value": "'test'"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Function",
@@ -345,14 +346,16 @@
                     "name": "x"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "+"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Identifier",
@@ -404,7 +407,8 @@
                     "value": "'test'"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Function",

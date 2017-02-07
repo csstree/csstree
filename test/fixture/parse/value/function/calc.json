@@ -10,56 +10,64 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "+"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Number",
                     "value": "2"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "*"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Number",
                     "value": "3"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "/"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Number",
                     "value": "4"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "-"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Number",
@@ -79,28 +87,32 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "+"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Number",
                     "value": "2"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "*"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Dimension",
@@ -121,14 +133,16 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "+"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Parentheses",
@@ -138,14 +152,16 @@
                             "value": "2"
                         },
                         {
-                            "type": "Space"
+                            "type": "Space",
+                            "value": " "
                         },
                         {
                             "type": "Operator",
                             "value": "*"
                         },
                         {
-                            "type": "Space"
+                            "type": "Space",
+                            "value": " "
                         },
                         {
                             "type": "Parentheses",
@@ -156,14 +172,16 @@
                                     "unit": "em"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "value": " "
                                 },
                                 {
                                     "type": "Operator",
                                     "value": "/"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "value": " "
                                 },
                                 {
                                     "type": "Number",
@@ -187,14 +205,16 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "+"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Function",

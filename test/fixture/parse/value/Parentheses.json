@@ -56,7 +56,8 @@
                     "value": "123456"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "String",
@@ -165,14 +166,16 @@
                     "name": "x"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Operator",
                     "value": "+"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "Number",

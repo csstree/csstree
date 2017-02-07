@@ -293,7 +293,9 @@
                                 "name": "screen"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "loc": null,
+                                "value": " "
                             },
                             {
                                 "type": "Identifier",
@@ -313,7 +315,9 @@
                                 "name": "and"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "loc": null,
+                                "value": " "
                             },
                             {
                                 "type": "MediaFeature",
@@ -594,7 +598,9 @@
                                 "name": "class"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "loc": null,
+                                "value": " "
                             },
                             {
                                 "type": "TypeSelector",
@@ -667,7 +673,9 @@
                                 "flags": null
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "loc": null,
+                                "value": " "
                             },
                             {
                                 "type": "AttributeSelector",
@@ -1874,7 +1882,9 @@
                                     "name": "ident"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Number",
@@ -1894,7 +1904,9 @@
                                     "value": "1.2e+3"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Percentage",
@@ -1914,7 +1926,9 @@
                                     "value": "100"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Dimension",
@@ -1970,7 +1984,9 @@
                                     "unit": "ex"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Function",
@@ -2008,7 +2024,9 @@
                                             "unit": "em"
                                         },
                                         {
-                                            "type": "Space"
+                                            "type": "Space",
+                                            "loc": null,
+                                            "value": " "
                                         },
                                         {
                                             "type": "Operator",
@@ -2028,7 +2046,9 @@
                                             "value": "+"
                                         },
                                         {
-                                            "type": "Space"
+                                            "type": "Space",
+                                            "loc": null,
+                                            "value": " "
                                         },
                                         {
                                             "type": "Percentage",
@@ -2048,7 +2068,9 @@
                                             "value": "3"
                                         },
                                         {
-                                            "type": "Space"
+                                            "type": "Space",
+                                            "loc": null,
+                                            "value": " "
                                         },
                                         {
                                             "type": "Operator",
@@ -2068,7 +2090,9 @@
                                             "value": "*"
                                         },
                                         {
-                                            "type": "Space"
+                                            "type": "Space",
+                                            "loc": null,
+                                            "value": " "
                                         },
                                         {
                                             "type": "Number",
@@ -2140,7 +2164,9 @@
                                     }
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Url",
@@ -2176,7 +2202,9 @@
                                     }
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "UnicodeRange",
@@ -2196,7 +2224,9 @@
                                     "value": "u+123-456"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "UnicodeRange",
@@ -2216,7 +2246,9 @@
                                     "value": "u+123???"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Function",
@@ -2357,7 +2389,9 @@
                                     ]
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Hash",
@@ -2377,7 +2411,9 @@
                                     "value": "asd"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Hash",
@@ -2397,7 +2433,9 @@
                                     "value": "123abc"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "String",
@@ -2417,7 +2455,9 @@
                                     "value": "\"string\""
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "String",
@@ -2437,7 +2477,9 @@
                                     "value": "'string'"
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Parentheses",
@@ -2475,7 +2517,9 @@
                                     ]
                                 },
                                 {
-                                    "type": "Space"
+                                    "type": "Space",
+                                    "loc": null,
+                                    "value": " "
                                 },
                                 {
                                     "type": "Brackets",
@@ -2971,7 +3015,9 @@
                                             "unit": "px"
                                         },
                                         {
-                                            "type": "Space"
+                                            "type": "Space",
+                                            "loc": null,
+                                            "value": " "
                                         },
                                         {
                                             "type": "Dimension",
@@ -2992,7 +3038,9 @@
                                             "unit": "px"
                                         },
                                         {
-                                            "type": "Space"
+                                            "type": "Space",
+                                            "loc": null,
+                                            "value": " "
                                         },
                                         {
                                             "type": "Identifier",

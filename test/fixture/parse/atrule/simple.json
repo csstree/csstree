@@ -21,7 +21,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",
@@ -94,7 +95,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",
@@ -129,7 +131,8 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",

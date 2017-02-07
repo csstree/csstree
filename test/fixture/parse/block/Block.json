@@ -309,7 +309,8 @@
                                 "name": "a"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "value": " "
                             },
                             {
                                 "type": "Identifier",
@@ -397,7 +398,8 @@
                                 "name": "a"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "value": " "
                             },
                             {
                                 "type": "Identifier",

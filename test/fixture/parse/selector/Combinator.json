@@ -9,7 +9,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -110,7 +111,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -154,7 +156,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -258,7 +261,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space"
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "TypeSelector",

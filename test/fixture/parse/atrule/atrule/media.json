@@ -40,7 +40,8 @@
                                 "name": "not"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "value": " "
                             },
                             {
                                 "type": "Identifier",
@@ -72,7 +73,8 @@
                                 "name": "only"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "value": " "
                             },
                             {
                                 "type": "Identifier",
@@ -279,7 +281,8 @@
                                 "name": "all"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "value": " "
                             },
                             {
                                 "type": "MediaFeature",

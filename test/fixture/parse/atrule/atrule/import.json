@@ -50,7 +50,8 @@
                         "value": "'test'"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "MediaQueryList",
@@ -72,14 +73,16 @@
                                         "name": "screen"
                                     },
                                     {
-                                        "type": "Space"
+                                        "type": "Space",
+                                        "value": " "
                                     },
                                     {
                                         "type": "Identifier",
                                         "name": "and"
                                     },
                                     {
-                                        "type": "Space"
+                                        "type": "Space",
+                                        "value": " "
                                     },
                                     {
                                         "type": "MediaFeature",
@@ -113,7 +116,8 @@
                         "value": "'test'"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "MediaQueryList",

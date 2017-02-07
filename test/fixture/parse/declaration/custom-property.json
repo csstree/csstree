@@ -136,7 +136,8 @@
                         "value": "1"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",

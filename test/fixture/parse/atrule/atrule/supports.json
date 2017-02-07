@@ -84,7 +84,8 @@
                         "name": "not"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Parentheses",
@@ -227,7 +228,8 @@
                         "name": "not"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Parentheses",
@@ -273,7 +275,8 @@
                                 "name": "not"
                             },
                             {
-                                "type": "Space"
+                                "type": "Space",
+                                "value": " "
                             },
                             {
                                 "type": "Parentheses",
@@ -297,14 +300,16 @@
                         ]
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Identifier",
                         "name": "or"
                     },
                     {
-                        "type": "Space"
+                        "type": "Space",
+                        "value": " "
                     },
                     {
                         "type": "Parentheses",
@@ -383,7 +388,8 @@
                                             "name": "something"
                                         },
                                         {
-                                            "type": "Space"
+                                            "type": "Space",
+                                            "value": " "
                                         },
                                         {
                                             "type": "Function",
