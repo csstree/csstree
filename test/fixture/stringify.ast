@@ -560,7 +560,7 @@
                         },
                         "children": [
                             {
-                                "type": "Universal",
+                                "type": "Type",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1076,7 +1076,7 @@
                         },
                         "children": [
                             {
-                                "type": "Universal",
+                                "type": "Type",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
