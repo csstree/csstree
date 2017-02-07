@@ -81,7 +81,6 @@
     },
     "legacy shadow-piercing descendant combinator": {
         "source": "a/deep/b",
-        "translate": "a /deep/ b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -240,8 +239,16 @@
                     "name": "a"
                 },
                 {
+                    "type": "Space",
+                    "value": " "
+                },
+                {
                     "type": "Combinator",
                     "name": "/deep/"
+                },
+                {
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -345,8 +352,16 @@
                     "name": "a"
                 },
                 {
+                    "type": "Space",
+                    "value": " "
+                },
+                {
                     "type": "Combinator",
                     "name": "/deep/"
+                },
+                {
+                    "type": "Space",
+                    "value": " "
                 },
                 {
                     "type": "TypeSelector",
