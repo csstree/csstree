@@ -119,7 +119,7 @@
                     "name": "*|*"
                 },
                 {
-                    "type": "PseudoClass",
+                    "type": "PseudoClassSelector",
                     "name": "not",
                     "children": [
                         {
@@ -151,7 +151,7 @@
                     "name": "x"
                 },
                 {
-                    "type": "PseudoClass",
+                    "type": "PseudoClassSelector",
                     "name": "not",
                     "children": [
                         {
@@ -185,7 +185,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "PseudoClass",
+                    "type": "PseudoClassSelector",
                     "name": "lang",
                     "children": [
                         {

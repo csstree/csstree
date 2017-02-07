@@ -133,7 +133,7 @@
                         },
                         "children": [
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -774,7 +774,7 @@
                                 "flags": "i"
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -827,7 +827,7 @@
                                 "name": "~"
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -951,7 +951,7 @@
                                 "name": "+"
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1004,7 +1004,7 @@
                                 ]
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1093,7 +1093,7 @@
                                 "name": "svg|*"
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1236,7 +1236,7 @@
                                 "name": ">"
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1352,7 +1352,7 @@
                                                     },
                                                     "children": [
                                                         {
-                                                            "type": "PseudoClass",
+                                                            "type": "PseudoClassSelector",
                                                             "loc": {
                                                                 "source": "stringify.css",
                                                                 "start": {
@@ -1377,7 +1377,7 @@
                                 ]
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1520,7 +1520,7 @@
                         },
                         "children": [
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -2686,7 +2686,7 @@
                                             "name": "*|span"
                                         },
                                         {
-                                            "type": "PseudoClass",
+                                            "type": "PseudoClassSelector",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -3312,7 +3312,7 @@
                                 "name": "-b"
                             },
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {

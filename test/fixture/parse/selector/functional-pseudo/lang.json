@@ -2,7 +2,7 @@
     "basic": {
         "source": ":lang(en)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "lang",
             "children": [
                 {
@@ -16,7 +16,7 @@
         "source": ":lang(  en /* test */ )",
         "translate": ":lang(en)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "lang",
             "children": [
                 {
@@ -29,7 +29,7 @@
     "should be case insensitive": {
         "source": ":LanG(en-US)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "LanG",
             "children": [
                 {

@@ -87,7 +87,7 @@
                                         "name": "body"
                                     },
                                     {
-                                        "type": "PseudoClass",
+                                        "type": "PseudoClassSelector",
                                         "name": "not",
                                         "children": [
                                             {

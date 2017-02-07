@@ -2,7 +2,7 @@
     "basic": {
         "source": ":matches(test)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "matches",
             "children": [
                 {
@@ -25,7 +25,7 @@
     "selector group": {
         "source": ":matches(.a,.b.c)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "matches",
             "children": [
                 {
@@ -62,7 +62,7 @@
         "source": ":matches(  .a  ,  .b  )",
         "translate": ":matches(.a,.b)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "matches",
             "children": [
                 {
@@ -94,7 +94,7 @@
     "should be case insensitive": {
         "source": ":MatcheS(.a,.b)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "MatcheS",
             "children": [
                 {

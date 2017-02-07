@@ -2,7 +2,7 @@
     "basic": {
         "source": ":not(test)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "not",
             "children": [
                 {
@@ -25,7 +25,7 @@
     "selector group": {
         "source": ":not(.a,.b.c)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "not",
             "children": [
                 {
@@ -62,7 +62,7 @@
         "source": ":not(  .a  ,  .b  )",
         "translate": ":not(.a,.b)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "not",
             "children": [
                 {
@@ -94,7 +94,7 @@
     "should be case insensitive": {
         "source": ":NoT(.a,.b)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "NoT",
             "children": [
                 {

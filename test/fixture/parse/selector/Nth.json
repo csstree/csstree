@@ -2,7 +2,7 @@
     "nth-child": {
         "source": ":nth-child(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -20,7 +20,7 @@
     "nth-child case insensetive": {
         "source": ":Nth-Child(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "Nth-Child",
             "children": [
                 {
@@ -38,7 +38,7 @@
     "nth-last-child": {
         "source": ":nth-last-child(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-last-child",
             "children": [
                 {
@@ -56,7 +56,7 @@
     "nth-last-child case insensetive": {
         "source": ":Nth-last-Child(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "Nth-last-Child",
             "children": [
                 {
@@ -74,7 +74,7 @@
     "nth-of-type": {
         "source": ":nth-of-type(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-of-type",
             "children": [
                 {
@@ -92,7 +92,7 @@
     "nth-of-type case insensetive": {
         "source": ":Nth-Of-Type(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "Nth-Of-Type",
             "children": [
                 {
@@ -110,7 +110,7 @@
     "nth-last-of-type": {
         "source": ":nth-last-of-type(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-last-of-type",
             "children": [
                 {
@@ -128,7 +128,7 @@
     "nth-last-of-type case insensetive": {
         "source": ":Nth-Last-Of-Type(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "Nth-Last-Of-Type",
             "children": [
                 {
@@ -147,7 +147,7 @@
         "source": ":nth-child(2N+1)",
         "translate": ":nth-child(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -165,7 +165,7 @@
     "nthselector.1": {
         "source": ":nth-last-child(+3n-2)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-last-child",
             "children": [
                 {
@@ -183,7 +183,7 @@
     "nth.0": {
         "source": ":nth-child(10)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -201,7 +201,7 @@
     "nth.1": {
         "source": ":nth-child(2n)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -219,7 +219,7 @@
     "odd keyword": {
         "source": ":nth-child(odd)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -236,7 +236,7 @@
     "odd keyword be case insensitive": {
         "source": ":nth-child(OdD)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -253,7 +253,7 @@
     "even keyword": {
         "source": ":nth-child(even)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -270,7 +270,7 @@
     "even keyword should be case insensitive": {
         "source": ":nth-child(eVeN)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -287,7 +287,7 @@
     "nth.4": {
         "source": ":nth-child(n)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -305,7 +305,7 @@
     "nth.5": {
         "source": ":nth-child(-n)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -324,7 +324,7 @@
         "source": ":nth-child(/*test*/2n/*test*/+/*test*/1/*test*/)",
         "translate": ":nth-child(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -343,7 +343,7 @@
         "source": ":nth-last-child(/*test*/+3n/*test*/-/*test*/2/*test*/)",
         "translate": ":nth-last-child(+3n-2)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-last-child",
             "children": [
                 {
@@ -362,7 +362,7 @@
         "source": ":nth-child(  2n  +  1  )",
         "translate": ":nth-child(2n+1)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {
@@ -381,7 +381,7 @@
         "source": ":nth-last-child(  +3n  -  2  )",
         "translate": ":nth-last-child(+3n-2)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-last-child",
             "children": [
                 {
@@ -399,7 +399,7 @@
     "big numbers": {
         "source": ":nth-last-child(123456n-12345678)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-last-child",
             "children": [
                 {
@@ -417,7 +417,7 @@
     "of clause": {
         "source": ":nth-child(2n+1 of li,.test)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "nth-child",
             "children": [
                 {

@@ -2,7 +2,7 @@
     "basic": {
         "source": ":dir(ltr)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "dir",
             "children": [
                 {
@@ -16,7 +16,7 @@
         "source": ":dir(  ltr /* test */ )",
         "translate": ":dir(ltr)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "dir",
             "children": [
                 {
@@ -29,7 +29,7 @@
     "should be case insensitive": {
         "source": ":DiR(ltr)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "DiR",
             "children": [
                 {

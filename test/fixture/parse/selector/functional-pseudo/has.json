@@ -2,7 +2,7 @@
     "basic": {
         "source": ":has(test)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "has",
             "children": [
                 {
@@ -25,7 +25,7 @@
     "negation with selector group": {
         "source": ":has(.a,.b.c)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "has",
             "children": [
                 {
@@ -62,7 +62,7 @@
         "source": ":has(  .a  ,  .b  )",
         "translate": ":has(.a,.b)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "has",
             "children": [
                 {
@@ -94,7 +94,7 @@
     "should be case insensitive": {
         "source": ":HaS(.a,.b)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "HaS",
             "children": [
                 {
@@ -127,7 +127,7 @@
         "source": ":has(>.a,+.b)",
         "translate": ":has(>.a,+.b)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "has",
             "children": [
                 {

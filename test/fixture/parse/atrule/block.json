@@ -433,7 +433,7 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "PseudoClass",
+                                "type": "PseudoClassSelector",
                                 "name": "left",
                                 "children": null
                             }

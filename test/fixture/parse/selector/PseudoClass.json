@@ -2,7 +2,7 @@
     "pseudoc.0": {
         "source": ":test",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "test",
             "children": null
         }
@@ -10,7 +10,7 @@
     "pseudoc.1": {
         "source": ":test-test",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "test-test",
             "children": null
         }
@@ -18,7 +18,7 @@
     "unknown function pseudo class": {
         "source": ":unknown(1 + 2)",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "unknown",
             "children": [
                 {
@@ -31,7 +31,7 @@
     "unknown function pseudo class with spaces and comments": {
         "source": ":unknown( 1 + 2 /* comment */ + 3 )",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "unknown",
             "children": [
                 {
@@ -44,7 +44,7 @@
     "pseudo element :before": {
         "source": ":before",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "before",
             "children": null
         }
@@ -52,7 +52,7 @@
     "pseudo element :before case insesitive": {
         "source": ":bEfOrE",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "bEfOrE",
             "children": null
         }
@@ -60,7 +60,7 @@
     "pseudo element :after": {
         "source": ":after",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "after",
             "children": null
         }
@@ -68,7 +68,7 @@
     "pseudo element :first-letter": {
         "source": ":first-letter",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "first-letter",
             "children": null
         }
@@ -76,7 +76,7 @@
     "pseudo element :first-line": {
         "source": ":first-line",
         "ast": {
-            "type": "PseudoClass",
+            "type": "PseudoClassSelector",
             "name": "first-line",
             "children": null
         }
