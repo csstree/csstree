@@ -582,12 +582,12 @@
         },
         {
             "source": "[--test=1]{}",
-            "offset": "  ^",
+            "offset": " ^",
             "error": "Identifier is expected"
         },
         {
             "source": "[--test:=1]{}",
-            "offset": "  ^",
+            "offset": " ^",
             "error": "Identifier is expected"
         },
         {
@@ -597,7 +597,7 @@
         },
         {
             "source": "[foo:--test=1]{}",
-            "offset": "      ^",
+            "offset": "     ^",
             "error": "Identifier is expected"
         }
     ]

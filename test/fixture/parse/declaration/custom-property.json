@@ -164,7 +164,7 @@
         },
         {
             "source": "--: 1",
-            "offset": "  ^",
+            "offset": " ^",
             "error": "Identifier is expected"
         }
     ]

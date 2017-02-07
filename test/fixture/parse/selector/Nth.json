@@ -462,7 +462,7 @@
         },
         {
             "source": ":nth-child(--test) {}",
-            "offset": "            ^",
+            "offset": "           ^",
             "error": "Number or identifier is expected"
         },
         {

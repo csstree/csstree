@@ -160,21 +160,25 @@
             "name": "|E"
         }
     },
+    "starting with dash": {
+        "source": "-x",
+        "ast": {
+            "type": "Type",
+            "name": "-x"
+        }
+    },
+    "starting with dash #2": {
+        "source": "-x-test",
+        "ast": {
+            "type": "Type",
+            "name": "-x-test"
+        }
+    },
     "error": [
         {
             "source": "a| {}",
             "offset": "  ^",
             "error": "Identifier or asterisk is expected"
-        },
-        {
-            "source": "-x",
-            "offset": "^",
-            "error": "Selector is expected"
-        },
-        {
-            "source": "-x-test",
-            "offset": "^",
-            "error": "Selector is expected"
         }
     ]
 }
