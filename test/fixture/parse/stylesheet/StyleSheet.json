@@ -97,7 +97,7 @@
                                                         "type": "Selector",
                                                         "children": [
                                                             {
-                                                                "type": "Attribute",
+                                                                "type": "AttributeSelector",
                                                                 "name": {
                                                                     "type": "Identifier",
                                                                     "name": "x|x"

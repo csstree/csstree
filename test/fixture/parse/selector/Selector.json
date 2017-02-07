@@ -41,7 +41,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Attribute",
+                    "type": "AttributeSelector",
                     "name": {
                         "type": "Identifier",
                         "name": "a"
@@ -62,7 +62,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Attribute",
+                    "type": "AttributeSelector",
                     "name": {
                         "type": "Identifier",
                         "name": "a"
@@ -75,7 +75,7 @@
                     "flags": null
                 },
                 {
-                    "type": "Attribute",
+                    "type": "AttributeSelector",
                     "name": {
                         "type": "Identifier",
                         "name": "c"
@@ -161,7 +161,7 @@
                                     "type": "Selector",
                                     "children": [
                                         {
-                                            "type": "Attribute",
+                                            "type": "AttributeSelector",
                                             "name": {
                                                 "type": "Identifier",
                                                 "name": "ABC"

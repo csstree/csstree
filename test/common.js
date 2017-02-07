@@ -6,7 +6,7 @@ var walk = require('../lib/utils/walk').all;
 var stringify = require('./helpers/stringify.js');
 var css = '/fixture/stringify.css';
 var types = [
-    'An+B', 'Atrule', 'AtruleExpression', 'Attribute', 'Block', 'Brackets',
+    'An+B', 'Atrule', 'AtruleExpression', 'AttributeSelector', 'Block', 'Brackets',
     'ClassSelector', 'Combinator', 'Comment', 'Declaration', 'Dimension', 'Function',
     'Hash', 'IdSelector', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
     'Number', 'Operator', 'Parentheses', 'Percentage', 'Progid', 'PseudoClass',

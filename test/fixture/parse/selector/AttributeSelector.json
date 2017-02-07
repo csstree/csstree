@@ -2,7 +2,7 @@
     "attrib.0": {
         "source": "[a=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -18,7 +18,7 @@
     "attrib.1": {
         "source": "[a='b']",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -34,7 +34,7 @@
     "attrib.1 with flags": {
         "source": "[a='b'i]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -50,7 +50,7 @@
     "attrib.2": {
         "source": "[b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "b"
@@ -63,7 +63,7 @@
     "starting with dash": {
         "source": "[-b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "-b"
@@ -76,7 +76,7 @@
     "namespaced starting with dash": {
         "source": "[*|-b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "*|-b"
@@ -89,7 +89,7 @@
     "attrib.2 with flags": {
         "source": "[b i]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "b"
@@ -102,7 +102,7 @@
     "attrib.3": {
         "source": "[ng:cloak]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "ng:cloak"
@@ -115,7 +115,7 @@
     "attrib.4": {
         "source": "[ng:cloak=x]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "ng:cloak"
@@ -132,7 +132,7 @@
         "source": "[  a  =  b  ]",
         "translate": "[a=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -149,7 +149,7 @@
         "source": "[  a  =  'b'  ]",
         "translate": "[a='b']",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -166,7 +166,7 @@
         "source": "[  a  =  'b'  i  ]",
         "translate": "[a='b'i]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -183,7 +183,7 @@
         "source": "[/*test*/a/*test*/=/*test*/b/*test*/]",
         "translate": "[a=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -200,7 +200,7 @@
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/]",
         "translate": "[a='b']",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -217,7 +217,7 @@
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/i/*test*/]",
         "translate": "[a='b'i]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -233,7 +233,7 @@
     "namespace": {
         "source": "[xlink|href=\"#test\"]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "xlink|href"
@@ -249,7 +249,7 @@
     "namespace unversal": {
         "source": "[*|href=\"#test\"]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "*|href"
@@ -265,7 +265,7 @@
     "no namespace": {
         "source": "[|href=\"#test\"]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "|href"
@@ -281,7 +281,7 @@
     "namespace w/o attrselector": {
         "source": "[xlink|href]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "xlink|href"
@@ -294,7 +294,7 @@
     "namespace unversal w/o attrselector": {
         "source": "[*|href]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "*|href"
@@ -307,7 +307,7 @@
     "no namespace w/o attrselector": {
         "source": "[|href]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "|href"
@@ -320,7 +320,7 @@
     "attrib with dashmatch": {
         "source": "[a|='b']",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -336,7 +336,7 @@
     "attrib with namespace and dashmatch": {
         "source": "[a|b|='c']",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a|b"
@@ -353,7 +353,7 @@
         "source": "[  a  |=  'b'  ]",
         "translate": "[a|='b']",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -370,7 +370,7 @@
         "source": "[  a|b  |=  'c'  ]",
         "translate": "[a|b|='c']",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a|b"
@@ -386,7 +386,7 @@
     "attrselector =": {
         "source": "[a=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -402,7 +402,7 @@
     "attrselector ~=": {
         "source": "[a~=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -418,7 +418,7 @@
     "attrselector ^=": {
         "source": "[a^=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -434,7 +434,7 @@
     "attrselector $=": {
         "source": "[a$=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -450,7 +450,7 @@
     "attrselector *=": {
         "source": "[a*=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -466,7 +466,7 @@
     "attrselector |=": {
         "source": "[a|=b]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -482,7 +482,7 @@
     "attrib with flags": {
         "source": "[a='b'i]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -499,7 +499,7 @@
         "source": "[  a  =  'b'  i  ]",
         "translate": "[a='b'i]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"
@@ -516,7 +516,7 @@
         "source": "[/*1*/a/*2*/=/*3*/'b'/*4*/i/*5*/]",
         "translate": "[a='b'i]",
         "ast": {
-            "type": "Attribute",
+            "type": "AttributeSelector",
             "name": {
                 "type": "Identifier",
                 "name": "a"

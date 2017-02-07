@@ -631,7 +631,7 @@
                                 "name": "id"
                             },
                             {
-                                "type": "Attribute",
+                                "type": "AttributeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -670,7 +670,7 @@
                                 "type": "Space"
                             },
                             {
-                                "type": "Attribute",
+                                "type": "AttributeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -722,7 +722,7 @@
                                 "flags": null
                             },
                             {
-                                "type": "Attribute",
+                                "type": "AttributeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1459,7 +1459,7 @@
                                                     },
                                                     "children": [
                                                         {
-                                                            "type": "Attribute",
+                                                            "type": "AttributeSelector",
                                                             "loc": {
                                                                 "source": "stringify.css",
                                                                 "start": {
@@ -3348,7 +3348,7 @@
                                 "children": null
                             },
                             {
-                                "type": "Attribute",
+                                "type": "AttributeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -3384,7 +3384,7 @@
                                 "flags": null
                             },
                             {
-                                "type": "Attribute",
+                                "type": "AttributeSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
