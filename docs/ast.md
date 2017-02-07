@@ -10,8 +10,9 @@ Pending changes in AST:
 
 - `Progid` is subject to be removed
 - `Space` will be extended to store actual whitespaces
+- `Space` may to be renamed into `WhiteSpace`
 - `Type`, `Universal`, `Id`, `Class`, `Attribute`, `PseudoClass` and `PseudoElement` may to be renamed to add a `Selector` suffix
-- `PseudoClass` and `PseudoElement` may to be joined into single type `Pseudo` (or `PseudoSelector`)
+- `Type` and `Universal` to be joined into single type `Type`
 
 Other node types are stable enough.
 
