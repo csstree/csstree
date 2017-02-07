@@ -10,7 +10,6 @@ Pending changes in AST:
 
 - `Progid` is subject to be removed
 - `Space` may to be renamed into `WhiteSpaces`
-- `Hash` may to be renamed into `HexColor`
 
 Other node types are stable enough.
 
@@ -31,7 +30,7 @@ Node types:
 - [DeclarationList](#declarationlist)
 - [Dimension](#dimension)
 - [Function](#function)
-- [Hash](#hash)
+- [HexColor](#hexcolor)
 - [IdSelector](#idselector)
 - [Identifier](#identifier)
 - [MediaFeature](#mediafeature)
@@ -191,11 +190,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## Hash
+## HexColor
 
 ```
 {
-    "type": "Hash",
+    "type": "HexColor",
     "value": string
 }
 ```

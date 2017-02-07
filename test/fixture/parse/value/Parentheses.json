@@ -52,7 +52,7 @@
             "type": "Parentheses",
             "children": [
                 {
-                    "type": "Hash",
+                    "type": "HexColor",
                     "value": "123456"
                 },
                 {
