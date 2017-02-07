@@ -293,6 +293,9 @@
                                 "name": "screen"
                             },
                             {
+                                "type": "Space"
+                            },
+                            {
                                 "type": "Identifier",
                                 "loc": {
                                     "source": "stringify.css",
@@ -308,6 +311,9 @@
                                     }
                                 },
                                 "name": "and"
+                            },
+                            {
+                                "type": "Space"
                             },
                             {
                                 "type": "MediaFeature",

@@ -40,6 +40,9 @@
                                 "name": "not"
                             },
                             {
+                                "type": "Space"
+                            },
+                            {
                                 "type": "Identifier",
                                 "name": "screen"
                             }
@@ -67,6 +70,9 @@
                             {
                                 "type": "Identifier",
                                 "name": "only"
+                            },
+                            {
+                                "type": "Space"
                             },
                             {
                                 "type": "Identifier",
@@ -273,6 +279,9 @@
                                 "name": "all"
                             },
                             {
+                                "type": "Space"
+                            },
+                            {
                                 "type": "MediaFeature",
                                 "name": "foo",
                                 "value": {
@@ -453,21 +462,6 @@
             "source": "@media (foo: 1/-5) {}",
             "offset": "               ^",
             "error": "Positive integer is expected"
-        },
-        {
-            "source": "@media foo(foo: 1) {}",
-            "offset": "          ^",
-            "error": "Space is expected"
-        },
-        {
-            "source": "@media (foo:1)(bar:2) {}",
-            "offset": "              ^",
-            "error": "Space is expected"
-        },
-        {
-            "source": "@media (foo:1)ident {}",
-            "offset": "              ^",
-            "error": "Space is expected"
         },
         {
             "source": "@media (foo:1",

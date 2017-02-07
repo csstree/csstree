@@ -72,8 +72,14 @@
                                         "name": "screen"
                                     },
                                     {
+                                        "type": "Space"
+                                    },
+                                    {
                                         "type": "Identifier",
                                         "name": "and"
+                                    },
+                                    {
+                                        "type": "Space"
                                     },
                                     {
                                         "type": "MediaFeature",
