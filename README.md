@@ -14,6 +14,18 @@
 
 > Work in progress. Project in alpha stage since AST format is subject to change.
 
+- [Parsing CSS into AST](docs/parsing.md)
+- [AST format](docs/ast.md)
+- [Translate AST to string](docs/translate.md)
+- [AST traversal](docs/traversal.md)
+- [Utils to work with AST](docs/utils.md)
+- [Working with syntax](docs/syntax.md)
+- API references:
+    - [Tokenizer](docs/Tokenizer.md)
+    - [Parser](docs/Parser.md)
+    - [Lexer](docs/Lexer.md)
+    - [List](docs/List.md)
+
 Docs and tools:
 
 * [AST Explorer](https://astexplorer.net/#/gist/244e2fb4da940df52bf0f4b94277db44/e79aff44611020b22cfd9708f3a99ce09b7d67a8) – explore CSSTree AST format with zero setup
@@ -51,24 +63,6 @@ csstree.walk(ast, function(node) {
 console.log(csstree.translate(ast));
 // .hello{world:"!"}
 ```
-
-## API
-
-### General
-
-- [Parsing CSS into AST](docs/parsing.md)
-- [AST format](docs/ast.md)
-- [Translate AST to string](docs/translate.md)
-- [AST traversal](docs/traversal.md)
-- [Utils to work with AST](docs/utils.md)
-- [Working with syntax](docs/syntax.md)
-
-### Classes
-
-- [Tokenizer](docs/Tokenizer.md)
-- [Parser](docs/Parser.md)
-- [Lexer](docs/Lexer.md)
-- [List](docs/List.md)
 
 ## License
 
