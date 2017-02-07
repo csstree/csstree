@@ -10,8 +10,8 @@ var types = [
     'ClassSelector', 'Combinator', 'Comment', 'Declaration', 'Dimension', 'Function',
     'Hash', 'IdSelector', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
     'Number', 'Operator', 'Parentheses', 'Percentage', 'Progid', 'PseudoClassSelector',
-    'PseudoElement', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'Space', 'String',
-    'StyleSheet', 'TypeSelector', 'UnicodeRange', 'Url', 'Value'
+    'PseudoElementSelector', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'Space',
+    'String', 'StyleSheet', 'TypeSelector', 'UnicodeRange', 'Url', 'Value'
 ];
 
 function normalize(str) {

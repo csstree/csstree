@@ -2,7 +2,7 @@
     "basic": {
         "source": "::slotted(test)",
         "ast": {
-            "type": "PseudoElement",
+            "type": "PseudoElementSelector",
             "name": "slotted",
             "children": [
                 {
@@ -21,7 +21,7 @@
         "source": "::slotted(  .a.b  )",
         "translate": "::slotted(.a.b)",
         "ast": {
-            "type": "PseudoElement",
+            "type": "PseudoElementSelector",
             "name": "slotted",
             "children": [
                 {
@@ -43,7 +43,7 @@
     "should be case insensitive": {
         "source": "::SloTted(.a)",
         "ast": {
-            "type": "PseudoElement",
+            "type": "PseudoElementSelector",
             "name": "SloTted",
             "children": [
                 {

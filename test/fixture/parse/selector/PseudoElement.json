@@ -2,7 +2,7 @@
     "pseudo element #0": {
         "source": "::test",
         "ast": {
-            "type": "PseudoElement",
+            "type": "PseudoElementSelector",
             "name": "test",
             "children": null
         }
@@ -10,7 +10,7 @@
     "pseudo element #1": {
         "source": "::test-test",
         "ast": {
-            "type": "PseudoElement",
+            "type": "PseudoElementSelector",
             "name": "test-test",
             "children": null
         }
@@ -18,7 +18,7 @@
     "pseudo element ::before": {
         "source": "::before",
         "ast": {
-            "type": "PseudoElement",
+            "type": "PseudoElementSelector",
             "name": "before",
             "children": null
         }
@@ -26,7 +26,7 @@
     "functional pseudo element": {
         "source": "::test(1 + 2)",
         "ast": {
-            "type": "PseudoElement",
+            "type": "PseudoElementSelector",
             "name": "test",
             "children": [
                 {

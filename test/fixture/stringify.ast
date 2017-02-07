@@ -792,7 +792,7 @@
                                 "children": null
                             },
                             {
-                                "type": "PseudoElement",
+                                "type": "PseudoElementSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -1165,7 +1165,7 @@
                                 ]
                             },
                             {
-                                "type": "PseudoElement",
+                                "type": "PseudoElementSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -3330,7 +3330,7 @@
                                 "children": null
                             },
                             {
-                                "type": "PseudoElement",
+                                "type": "PseudoElementSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
