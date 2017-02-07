@@ -29,7 +29,7 @@
             "type": "Selector",
             "children": [
                 {
-                    "type": "Id",
+                    "type": "IdSelector",
                     "name": "test"
                 }
             ]

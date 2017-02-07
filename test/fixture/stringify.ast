@@ -614,7 +614,7 @@
                                 "name": "element"
                             },
                             {
-                                "type": "Id",
+                                "type": "IdSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -2844,7 +2844,7 @@
                                                 "name": "element",
                                                 "children": [
                                                     {
-                                                        "type": "Id",
+                                                        "type": "IdSelector",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -3295,7 +3295,7 @@
                                 "name": "-a"
                             },
                             {
-                                "type": "Id",
+                                "type": "IdSelector",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {

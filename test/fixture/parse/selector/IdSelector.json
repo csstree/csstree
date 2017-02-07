@@ -2,14 +2,14 @@
     "shash.0": {
         "source": "#id",
         "ast": {
-            "type": "Id",
+            "type": "IdSelector",
             "name": "id"
         }
     },
     "shash.1": {
         "source": "#-id",
         "ast": {
-            "type": "Id",
+            "type": "IdSelector",
             "name": "-id"
         }
     }

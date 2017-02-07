@@ -6,7 +6,7 @@
             "name": "element",
             "children": [
                 {
-                    "type": "Id",
+                    "type": "IdSelector",
                     "name": "foo"
                 }
             ]
@@ -19,7 +19,7 @@
             "name": "ElemenT",
             "children": [
                 {
-                    "type": "Id",
+                    "type": "IdSelector",
                     "name": "foo"
                 }
             ]
@@ -33,7 +33,7 @@
             "name": "element",
             "children": [
                 {
-                    "type": "Id",
+                    "type": "IdSelector",
                     "name": "foo"
                 }
             ]
@@ -46,7 +46,7 @@
             "name": "-moz-element",
             "children": [
                 {
-                    "type": "Id",
+                    "type": "IdSelector",
                     "name": "foo"
                 }
             ]

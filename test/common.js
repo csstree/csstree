@@ -8,7 +8,7 @@ var css = '/fixture/stringify.css';
 var types = [
     'An+B', 'Atrule', 'AtruleExpression', 'Attribute', 'Block', 'Brackets',
     'Class', 'Combinator', 'Comment', 'Declaration', 'Dimension', 'Function',
-    'Hash', 'Id', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
+    'Hash', 'IdSelector', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
     'Number', 'Operator', 'Parentheses', 'Percentage', 'Progid', 'PseudoClass',
     'PseudoElement', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'Space', 'String',
     'StyleSheet', 'Type', 'UnicodeRange', 'Url', 'Value'
