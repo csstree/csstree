@@ -23,7 +23,7 @@ csstree.walk(csstree.parse('.a { color: red; }'), function(node) {
 // Rule
 // SelectorList
 // Selector
-// Class
+// ClassSelector
 // Block
 // Declaration
 // Value
@@ -47,7 +47,7 @@ Context for handler an object, that contains references to some parent nodes:
 - `selector` – refers to `SelectorList` node if any
 - `block` - refers to closest `Block` node if any
 - `declaration` – refers to `Declaration` node if any
-- `function` – refers to closest `Function`, `PseudoClass` or `PseudoElement` node if current node inside one of them
+- `function` – refers to closest `Function`, `PseudoClassSelector` or `PseudoElementSelector` node if current node inside one of them
 
 ```js
 // collect all urls in declarations
@@ -90,7 +90,7 @@ csstree.walk(ast, function(node) {
 // Rule
 // SelectorList
 // Selector
-// Class
+// ClassSelector
 // Block
 // Declaration
 // Value
@@ -99,7 +99,7 @@ csstree.walk(ast, function(node) {
 csstree.walkUp(ast, function(node) {
   console.log(node.type);
 });
-// Class
+// ClassSelector
 // Selector
 // SelectorList
 // Identifier

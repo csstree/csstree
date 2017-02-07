@@ -11,8 +11,6 @@ Pending changes in AST:
 - `Progid` is subject to be removed
 - `Space` will be extended to store actual whitespaces
 - `Space` may to be renamed into `WhiteSpace`
-- `Type`, `Universal`, `Id`, `Class`, `Attribute`, `PseudoClass` and `PseudoElement` may to be renamed to add a `Selector` suffix
-- `Type` and `Universal` to be joined into single type `Type`
 
 Other node types are stable enough.
 
@@ -23,10 +21,10 @@ Node types:
 - [AnPlusB](#anplusb)
 - [Atrule](#atrule)
 - [AtruleExpression](#atruleexpression)
-- [Attribute](#attribute)
+- [AttributeSelector](#attributeselector)
 - [Block](#block)
 - [Brackets](#brackets)
-- [Class](#class)
+- [ClassSelector](#classselector)
 - [Combinator](#combinator)
 - [Comment](#comment)
 - [Declaration](#declaration)
@@ -34,7 +32,7 @@ Node types:
 - [Dimension](#dimension)
 - [Function](#function)
 - [Hash](#hash)
-- [Id](#id)
+- [IdSelector](#idselector)
 - [Identifier](#identifier)
 - [MediaFeature](#mediafeature)
 - [MediaQuery](#mediaquery)
@@ -45,8 +43,8 @@ Node types:
 - [Parentheses](#parentheses)
 - [Percentage](#percentage)
 - [Progid](#progid)
-- [PseudoClass](#pseudoclass)
-- [PseudoElement](#pseudoelement)
+- [PseudoClassSelector](#pseudoclassselector)
+- [PseudoElementSelector](#pseudoelementselector)
 - [Ratio](#ratio)
 - [Raw](#raw)
 - [Rule](#rule)
@@ -55,9 +53,8 @@ Node types:
 - [Space](#space)
 - [String](#string)
 - [StyleSheet](#stylesheet)
-- [Type](#type)
+- [TypeSelector](#typeselector)
 - [UnicodeRange](#unicoderange)
-- [Universal](#universal)
 - [Url](#url)
 - [Value](#value)
 
@@ -97,11 +94,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## Attribute
+## AttributeSelector
 
 ```
 {
-    "type": "Attribute",
+    "type": "AttributeSelector",
     "name": string,
     "operator": string | null,
     "value": <String> | <Identifier> | null,
@@ -127,11 +124,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## Class
+## ClassSelector
 
 ```
 {
-    "type": "Class",
+    "type": "ClassSelector",
     "name": string
 }
 ```
@@ -203,11 +200,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## Id
+## IdSelector
 
 ```
 {
-    "type": "Id",
+    "type": "IdSelector",
     "name": string
 }
 ```
@@ -304,21 +301,21 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## PseudoClass
+## PseudoClassSelector
 
 ```
 {
-    "type": "PseudoClass",
+    "type": "PseudoClassSelector",
     "name": string,
     "children": List | null
 }
 ```
 
-## PseudoElement
+## PseudoElementSelector
 
 ```
 {
-    "type": "PseudoElement",
+    "type": "PseudoElementSelector",
     "name": string,
     "children": List | null
 }
@@ -375,7 +372,8 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 
 ```
 {
-    "type": "Space"
+    "type": "Space",
+    "value": string
 }
 ```
 
@@ -397,11 +395,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## Type
+## TypeSelector
 
 ```
 {
-    "type": "Type",
+    "type": "TypeSelector",
     "name": string
 }
 ```
@@ -412,15 +410,6 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 {
     "type": "UnicodeRange",
     "value": string
-}
-```
-
-## Universal
-
-```
-{
-    "type": "Universal",
-    "name": string
 }
 ```
 
