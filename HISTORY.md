@@ -1,3 +1,39 @@
+## 1.0.0-alpha15 (February 8, 2017)
+
+- Fixed broken `atruleExpression` context
+- Fixed vendor prefix detection in `keyword()` and `property()`
+- Fixed `property()` to not lowercase custom property names
+- Added `variable` boolean flag in `property()` result
+- Renamed `scanner` into `tokenizer`
+- Ranamed `syntax` into `lexer`
+- Moved `docs/*.html` files to [csstree/docs](https://github.com/csstree/docs) repo
+- Added `element()` function for `Value` context (`-moz-element()` supported as well)
+- Merged `Universal` node type into `Type`
+- Renamed node types:
+    - `Id` -> `IdSelector`
+    - `Class` -> `ClassSelector`
+    - `Type` -> `TypeSelector`
+    - `Attribute` -> `AttributeSelector`
+    - `PseudoClass` -> `PseudoClassSelector`
+    - `PseudoElement` -> `PseudoElementSelector`
+    - `Hash` -> `HexColor`
+    - `Space` -> `WhiteSpace`
+    - `An+B` -> `AnPlusB`
+- Removed `Progid` node type
+- Relaxed `MediaQuery` consumer to not validate syntax on parse and to include whitespaces in children sequence as is
+- Added `WhiteSpace.value` property to store whitespace sequence
+- Implemented parser options to specify what should be parsed in details (when option is `false` some part of CSS represents as balanced `Raw`):
+    - `parseAtruleExpression` – to parse at-rule expressions (`true` by default)
+    - `parseSelector` – to parse rule's selector (`true` by default)
+    - `parseValue` - to parse declaration's value (`true` by default)
+    - `parseCustomProperty` – to parse value and fallback of custom property (`false` by default)
+- Changed tokenization to stick leading hyphen minus to identifier token
+- Changed selector parsing:
+    - Don't convert spaces into descendant combinator
+    - Don't validate selector structure on parsing (selectors may be checked by lexer later)
+- Initial refactoring of [docs](https://github.com/csstree/csstree/blob/master/docs)
+- Various improvements and fixes
+
 ## 1.0.0-alpha14 (February 3, 2017)
 
 - Implemented `DeclarationList`, `MediaQueryList`, `MediaQuery`, `MediaFeature` and `Ratio` node types
