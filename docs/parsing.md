@@ -12,7 +12,7 @@ var ast = csstree.parse('.example { color: red }');
 
 // parse with options
 var ast = csstree.parse('.foo.bar', {
-    context: 'simpleSelector',
+    context: 'selector',
     positions: true
 });
 ```
@@ -47,7 +47,7 @@ Contexts:
 - `selectorList` – selector group (`.foo, .bar:hover` for rule example)
 - `selector` – selector (`.foo` or `.bar:hover` for rule example)
 - `block` – block with curly braces (`{ color: red; border: 1px solid black; }` for rule example)
-- `declarationList` – block content w/o curly braces (`color: red; border: 1px solid black;` for rule example), useful to parse HTML `style` attribute value
+- `declarationList` – block content w/o curly braces (`color: red; border: 1px solid black;` for rule example), useful for parsing HTML `style` attribute value
 - `declaration` – declaration (`color: red` or `border: 1px solid black` for rule example)
 - `value` – declaration value (`red` or `1px solid black` for rule example)
 
