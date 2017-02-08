@@ -227,13 +227,8 @@
                         "important": false,
                         "property": "filter",
                         "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Progid",
-                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                }
-                            ]
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                         }
                     },
                     {
@@ -294,17 +289,8 @@
                         "important": false,
                         "property": "filter",
                         "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Progid",
-                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                },
-                                {
-                                    "type": "Progid",
-                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
-                                }
-                            ]
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
                         }
                     }
                 ]
@@ -829,13 +815,8 @@
                         "important": false,
                         "property": "filter",
                         "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Progid",
-                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                }
-                            ]
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
                         }
                     },
                     {
@@ -858,7 +839,7 @@
     },
     "ruleset.s.5": {
         "source": ".test {\n    color:red;\n    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')\n}",
-        "translate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
+        "translate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')\n}",
         "ast": {
             "type": "Rule",
             "selector": {
@@ -897,17 +878,8 @@
                         "important": false,
                         "property": "filter",
                         "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Progid",
-                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                                },
-                                {
-                                    "type": "Progid",
-                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
-                                }
-                            ]
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')\n"
                         }
                     }
                 ]

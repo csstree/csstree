@@ -6,13 +6,8 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
             }
         }
     },
@@ -23,17 +18,8 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    },
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
             }
         }
     },
@@ -44,13 +30,8 @@
             "important": false,
             "property": "*filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
             }
         }
     },
@@ -61,13 +42,8 @@
             "important": false,
             "property": "-filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
             }
         }
     },
@@ -78,13 +54,8 @@
             "important": false,
             "property": "_filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
             }
         }
     },
@@ -95,13 +66,8 @@
             "important": false,
             "property": "-ms-filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
             }
         }
     },
@@ -113,13 +79,8 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
             }
         }
     },
@@ -131,13 +92,8 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')"
             }
         }
     },
@@ -149,35 +105,21 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
             }
         }
     },
     "filter.s.1": {
         "source": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n       progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
-        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
+        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n       progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
         "ast": {
             "type": "Declaration",
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                    },
-                    {
-                        "type": "Progid",
-                        "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n       progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
             }
         }
     },
@@ -189,13 +131,8 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)"
-                    }
-                ]
+                "type": "Raw",
+                "value": "progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)"
             }
         }
     },
@@ -207,13 +144,8 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "alpha(opacity=60)"
-                    }
-                ]
+                "type": "Raw",
+                "value": "alpha(opacity=60)"
             }
         }
     },
@@ -225,13 +157,8 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "ALPHA(opacity=60)"
-                    }
-                ]
+                "type": "Raw",
+                "value": "ALPHA(opacity=60)"
             }
         }
     },
@@ -243,22 +170,12 @@
             "important": false,
             "property": "filter",
             "value": {
-                "type": "Value",
-                "children": [
-                    {
-                        "type": "Progid",
-                        "value": "dropshadow(color=#000,offx=0,offy=-1)"
-                    }
-                ]
+                "type": "Raw",
+                "value": "dropshadow(color=#000,offx=0,offy=-1)"
             }
         }
     },
     "error": [
-        {
-            "source": "filter: progid:something.unknown()",
-            "offset": "              ^",
-            "error": "Unexpected input"
-        },
         {
             "source": "filter: alpha(opacity",
             "offset": "                     ^",

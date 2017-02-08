@@ -8,7 +8,6 @@ Each node have a `loc` property, but not included in descriptions to avoid noise
 
 Pending changes in AST:
 
-- `Progid` is subject to be removed
 - `Space` may to be renamed into `WhiteSpaces`
 
 Other node types are stable enough.
@@ -41,7 +40,6 @@ Node types:
 - [Operator](#operator)
 - [Parentheses](#parentheses)
 - [Percentage](#percentage)
-- [Progid](#progid)
 - [PseudoClassSelector](#pseudoclassselector)
 - [PseudoElementSelector](#pseudoelementselector)
 - [Ratio](#ratio)
@@ -287,15 +285,6 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Percentage",
-    "value": string
-}
-```
-
-## Progid
-
-```
-{
-    "type": "Progid",
     "value": string
 }
 ```

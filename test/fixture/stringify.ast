@@ -1707,13 +1707,13 @@
                         "important": false,
                         "property": "filter",
                         "value": {
-                            "type": "Value",
+                            "type": "Raw",
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 382,
+                                    "offset": 383,
                                     "line": 16,
-                                    "column": 12
+                                    "column": 13
                                 },
                                 "end": {
                                     "offset": 487,
@@ -1721,42 +1721,7 @@
                                     "column": 117
                                 }
                             },
-                            "children": [
-                                {
-                                    "type": "Progid",
-                                    "loc": {
-                                        "source": "stringify.css",
-                                        "start": {
-                                            "offset": 383,
-                                            "line": 16,
-                                            "column": 13
-                                        },
-                                        "end": {
-                                            "offset": 469,
-                                            "line": 16,
-                                            "column": 99
-                                        }
-                                    },
-                                    "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img.png',sizingMethod='scale')"
-                                },
-                                {
-                                    "type": "Progid",
-                                    "loc": {
-                                        "source": "stringify.css",
-                                        "start": {
-                                            "offset": 470,
-                                            "line": 16,
-                                            "column": 100
-                                        },
-                                        "end": {
-                                            "offset": 487,
-                                            "line": 16,
-                                            "column": 117
-                                        }
-                                    },
-                                    "value": "alpha(opacity=80)"
-                                }
-                            ]
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img.png',sizingMethod='scale') alpha(opacity=80)"
                         }
                     },
                     {
