@@ -599,6 +599,11 @@
             "source": ":nth-child(.1)",
             "offset": "           ^",
             "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(+-n)",
+            "offset": "            ^",
+            "error": "Unexpected hyphen minus"
         }
     ]
 }

@@ -198,29 +198,36 @@
             ]
         }
     },
-    "error #1": {
-        "source": "var(name)",
-        "offset": "    ^",
-        "error": "HyphenMinus is expected"
-    },
-    "error #2": {
-        "source": "var(-name)",
-        "offset": "     ^",
-        "error": "HyphenMinus is expected"
-    },
-    "error #3": {
-        "source": "var(--name,([)])",
-        "offset": "             ^",
-        "error": "Unexpected input"
-    },
-    "error #4": {
-        "source": "var(--name, ()])",
-        "offset": "              ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #5": {
-        "source": "var(--name, !important ())",
-        "offset": "            ^",
-        "error": "RightParenthesis is expected"
-    }
+    "error": [
+        {
+            "source": "var(name)",
+            "offset": "    ^",
+            "error": "HyphenMinus is expected"
+        },
+        {
+            "source": "var(-name)",
+            "offset": "     ^",
+            "error": "HyphenMinus is expected"
+        },
+        {
+            "source": "var(-!)",
+            "offset": "     ^",
+            "error": "HyphenMinus is expected"
+        },
+        {
+            "source": "var(--name,([)])",
+            "offset": "             ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": "var(--name, ()])",
+            "offset": "              ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "var(--name, !important ())",
+            "offset": "            ^",
+            "error": "RightParenthesis is expected"
+        }
+    ]
 }
