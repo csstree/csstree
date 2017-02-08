@@ -56,7 +56,7 @@
                     "value": "123456"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -166,7 +166,7 @@
                     "name": "x"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -174,7 +174,7 @@
                     "value": "+"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {

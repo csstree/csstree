@@ -9,7 +9,7 @@
                     "name": "foo"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {

@@ -50,7 +50,7 @@
                         "value": "'test'"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -73,7 +73,7 @@
                                         "name": "screen"
                                     },
                                     {
-                                        "type": "Space",
+                                        "type": "WhiteSpace",
                                         "value": " "
                                     },
                                     {
@@ -81,7 +81,7 @@
                                         "name": "and"
                                     },
                                     {
-                                        "type": "Space",
+                                        "type": "WhiteSpace",
                                         "value": " "
                                     },
                                     {
@@ -116,7 +116,7 @@
                         "value": "'test'"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {

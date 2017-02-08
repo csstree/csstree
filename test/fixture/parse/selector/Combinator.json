@@ -9,7 +9,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -110,7 +110,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -155,7 +155,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -239,7 +239,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -247,7 +247,7 @@
                     "name": "/deep/"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -268,7 +268,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -352,7 +352,7 @@
                     "name": "a"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -360,7 +360,7 @@
                     "name": "/deep/"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {

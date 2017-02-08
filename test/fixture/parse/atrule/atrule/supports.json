@@ -84,7 +84,7 @@
                         "name": "not"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -228,7 +228,7 @@
                         "name": "not"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -275,7 +275,7 @@
                                 "name": "not"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "value": " "
                             },
                             {
@@ -300,7 +300,7 @@
                         ]
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -308,7 +308,7 @@
                         "name": "or"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -388,7 +388,7 @@
                                             "name": "something"
                                         },
                                         {
-                                            "type": "Space",
+                                            "type": "WhiteSpace",
                                             "value": " "
                                         },
                                         {

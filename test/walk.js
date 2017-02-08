@@ -138,11 +138,11 @@ describe('AST traversal', function() {
             'Rule',
             'Selector',
             'SelectorList',
-            'Space',
             'String',
             'StyleSheet',
             'Url',
-            'Value'
+            'Value',
+            'WhiteSpace'
         ];
 
         assert.deepEqual(visit(), shouldVisitTypes);

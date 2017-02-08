@@ -10,7 +10,7 @@ var types = [
     'ClassSelector', 'Combinator', 'Comment', 'Declaration', 'Dimension', 'Function',
     'HexColor', 'IdSelector', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
     'Number', 'Operator', 'Parentheses', 'Percentage', 'PseudoClassSelector',
-    'PseudoElementSelector', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'Space',
+    'PseudoElementSelector', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'WhiteSpace',
     'String', 'StyleSheet', 'TypeSelector', 'UnicodeRange', 'Url', 'Value'
 ];
 

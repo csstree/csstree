@@ -10,7 +10,7 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -18,7 +18,7 @@
                     "value": "+"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -26,7 +26,7 @@
                     "value": "2"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -34,7 +34,7 @@
                     "value": "*"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -42,7 +42,7 @@
                     "value": "3"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -50,7 +50,7 @@
                     "value": "/"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -58,7 +58,7 @@
                     "value": "4"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -66,7 +66,7 @@
                     "value": "-"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -87,7 +87,7 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -95,7 +95,7 @@
                     "value": "+"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -103,7 +103,7 @@
                     "value": "2"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -111,7 +111,7 @@
                     "value": "*"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -133,7 +133,7 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -141,7 +141,7 @@
                     "value": "+"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -152,7 +152,7 @@
                             "value": "2"
                         },
                         {
-                            "type": "Space",
+                            "type": "WhiteSpace",
                             "value": " "
                         },
                         {
@@ -160,7 +160,7 @@
                             "value": "*"
                         },
                         {
-                            "type": "Space",
+                            "type": "WhiteSpace",
                             "value": " "
                         },
                         {
@@ -172,7 +172,7 @@
                                     "unit": "em"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "value": " "
                                 },
                                 {
@@ -180,7 +180,7 @@
                                     "value": "/"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "value": " "
                                 },
                                 {
@@ -205,7 +205,7 @@
                     "value": "1"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {
@@ -213,7 +213,7 @@
                     "value": "+"
                 },
                 {
-                    "type": "Space",
+                    "type": "WhiteSpace",
                     "value": " "
                 },
                 {

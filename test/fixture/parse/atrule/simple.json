@@ -21,7 +21,7 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -95,7 +95,7 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -131,7 +131,7 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {

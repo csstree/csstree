@@ -6,10 +6,6 @@ Each node have a `loc` property, but not included in descriptions to avoid noise
 
 > Details on each node to be done
 
-Pending changes in AST:
-
-- `Space` may to be renamed into `WhiteSpaces`
-
 Other node types are stable enough.
 
 Node types:
@@ -30,8 +26,8 @@ Node types:
 - [Dimension](#dimension)
 - [Function](#function)
 - [HexColor](#hexcolor)
-- [IdSelector](#idselector)
 - [Identifier](#identifier)
+- [IdSelector](#idselector)
 - [MediaFeature](#mediafeature)
 - [MediaQuery](#mediaquery)
 - [MediaQueryList](#mediaquerylist)
@@ -47,13 +43,13 @@ Node types:
 - [Rule](#rule)
 - [Selector](#selector)
 - [SelectorList](#selectorlist)
-- [Space](#space)
 - [String](#string)
 - [StyleSheet](#stylesheet)
 - [TypeSelector](#typeselector)
 - [UnicodeRange](#unicoderange)
 - [Url](#url)
 - [Value](#value)
+- [WhiteSpace](#whitespace)
 
 <!-- /MarkdownTOC -->
 
@@ -197,20 +193,20 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## IdSelector
-
-```
-{
-    "type": "IdSelector",
-    "name": string
-}
-```
-
 ## Identifier
 
 ```
 {
     "type": "Identifier",
+    "name": string
+}
+```
+
+## IdSelector
+
+```
+{
+    "type": "IdSelector",
     "name": string
 }
 ```
@@ -356,15 +352,6 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-## Space
-
-```
-{
-    "type": "Space",
-    "value": string
-}
-```
-
 ## String
 
 ```
@@ -416,5 +403,14 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 {
     "type": "Value",
     "children": List
+}
+```
+
+## WhiteSpace
+
+```
+{
+    "type": "WhiteSpace",
+    "value": string
 }
 ```

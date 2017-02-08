@@ -40,7 +40,7 @@
                                 "name": "not"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "value": " "
                             },
                             {
@@ -73,7 +73,7 @@
                                 "name": "only"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "value": " "
                             },
                             {
@@ -281,7 +281,7 @@
                                 "name": "all"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "value": " "
                             },
                             {

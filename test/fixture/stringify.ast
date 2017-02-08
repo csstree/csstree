@@ -293,7 +293,7 @@
                                 "name": "screen"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "loc": null,
                                 "value": " "
                             },
@@ -315,7 +315,7 @@
                                 "name": "and"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "loc": null,
                                 "value": " "
                             },
@@ -598,7 +598,7 @@
                                 "name": "class"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "loc": null,
                                 "value": " "
                             },
@@ -673,7 +673,7 @@
                                 "flags": null
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "loc": null,
                                 "value": " "
                             },
@@ -1847,7 +1847,7 @@
                                     "name": "ident"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -1869,7 +1869,7 @@
                                     "value": "1.2e+3"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -1891,7 +1891,7 @@
                                     "value": "100"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -1949,7 +1949,7 @@
                                     "unit": "ex"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -1989,7 +1989,7 @@
                                             "unit": "em"
                                         },
                                         {
-                                            "type": "Space",
+                                            "type": "WhiteSpace",
                                             "loc": null,
                                             "value": " "
                                         },
@@ -2011,7 +2011,7 @@
                                             "value": "+"
                                         },
                                         {
-                                            "type": "Space",
+                                            "type": "WhiteSpace",
                                             "loc": null,
                                             "value": " "
                                         },
@@ -2033,7 +2033,7 @@
                                             "value": "3"
                                         },
                                         {
-                                            "type": "Space",
+                                            "type": "WhiteSpace",
                                             "loc": null,
                                             "value": " "
                                         },
@@ -2055,7 +2055,7 @@
                                             "value": "*"
                                         },
                                         {
-                                            "type": "Space",
+                                            "type": "WhiteSpace",
                                             "loc": null,
                                             "value": " "
                                         },
@@ -2129,7 +2129,7 @@
                                     }
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2167,7 +2167,7 @@
                                     }
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2189,7 +2189,7 @@
                                     "value": "u+123-456"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2211,7 +2211,7 @@
                                     "value": "u+123???"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2354,7 +2354,7 @@
                                     ]
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2376,7 +2376,7 @@
                                     "value": "asd"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2398,7 +2398,7 @@
                                     "value": "123abc"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2420,7 +2420,7 @@
                                     "value": "\"string\""
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2442,7 +2442,7 @@
                                     "value": "'string'"
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2482,7 +2482,7 @@
                                     ]
                                 },
                                 {
-                                    "type": "Space",
+                                    "type": "WhiteSpace",
                                     "loc": null,
                                     "value": " "
                                 },
@@ -2980,7 +2980,7 @@
                                             "unit": "px"
                                         },
                                         {
-                                            "type": "Space",
+                                            "type": "WhiteSpace",
                                             "loc": null,
                                             "value": " "
                                         },
@@ -3003,7 +3003,7 @@
                                             "unit": "px"
                                         },
                                         {
-                                            "type": "Space",
+                                            "type": "WhiteSpace",
                                             "loc": null,
                                             "value": " "
                                         },

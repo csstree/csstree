@@ -63,7 +63,7 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -137,7 +137,7 @@
                         "name": "y"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -349,7 +349,7 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -423,7 +423,7 @@
                         "name": "y"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -553,7 +553,7 @@
                         "name": "x"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -627,7 +627,7 @@
                         "name": "y"
                     },
                     {
-                        "type": "Space",
+                        "type": "WhiteSpace",
                         "value": " "
                     },
                     {
@@ -639,7 +639,7 @@
                                 "value": "1"
                             },
                             {
-                                "type": "Space",
+                                "type": "WhiteSpace",
                                 "value": " "
                             },
                             {
