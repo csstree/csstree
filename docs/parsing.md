@@ -17,7 +17,7 @@ var ast = csstree.parse('.foo.bar', {
 });
 ```
 
-### options
+Options (optional):
 
 - [context](#context)
 - [atrule](#atrule)
@@ -31,7 +31,7 @@ var ast = csstree.parse('.foo.bar', {
 - [parseValue](#parsevalue)
 - [parseCustomProperty](#parsecustomproperty)
 
-#### context
+### context
 
 Type: `string`  
 Default: `'stylesheet'`
@@ -51,49 +51,49 @@ Contexts:
 - `declaration` – declaration (`color: red` or `border: 1px solid black` for rule example)
 - `value` – declaration value (`red` or `1px solid black` for rule example)
 
-#### atrule
+### atrule
 
 Type: `string` or `null`  
 Default: `null`
 
 Using for `atruleExpression` context to apply some atrule specific parse rules
 
-#### property
+### property
 
 Type: `string` or `null`  
 Default: `null`
 
 Using for `value` context to apply some property specific parse rules.
 
-#### positions
+### positions
 
 Type: `boolean`  
 Default: `false`
 
 Specify to store location of node content in source. Location is storing `loc` property of nodes. `loc` property is always `null` when option is `false`.
 
-#### filename
+### filename
 
 Type: `string`  
 Default: `'<unknown>'`
 
 Filename of source. This value adds to `loc` as `source` property when `positions` option is `true`. Using for source map generation.
 
-#### line
+### line
 
 Type: `number`  
 Default: `1`
 
 Initial line number. Useful when parse fragment of CSS to store correct positions in node's `loc` property.
 
-#### column
+### column
 
 Type: `number`  
 Default: `1`
 
 Initial column number. Useful when parse fragment of CSS to store correct positions in node's `loc` property.
 
-#### parseAtruleExpression
+### parseAtruleExpression
 
 Type: `boolean`  
 Default: `true`
@@ -126,7 +126,7 @@ cstree.parse('@example 1 2;', { parseAtruleExpression: false });
 // }
 ```
 
-#### parseSelector
+### parseSelector
 
 Type: `boolean`  
 Default: `true`
@@ -168,7 +168,7 @@ cstree.parse('.foo {}', { parseSelector: false });
 // }
 ```
 
-#### parseValue
+### parseValue
 
 Type: `boolean`  
 Default: `true`
@@ -204,7 +204,7 @@ cstree.parse('color: #aabbcc', { context: 'declaration', parseValue: false });
 // }
 ```
 
-#### parseCustomProperty
+### parseCustomProperty
 
 Type: `boolean`  
 Default: `false`
