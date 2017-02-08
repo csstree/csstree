@@ -1044,7 +1044,7 @@
                                             }
                                         },
                                         "nth": {
-                                            "type": "An+B",
+                                            "type": "AnPlusB",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -1417,7 +1417,7 @@
                                             }
                                         },
                                         "nth": {
-                                            "type": "An+B",
+                                            "type": "AnPlusB",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
