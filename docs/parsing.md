@@ -1,20 +1,42 @@
 # Parsing CSS into AST
 
-## parse(source[, options])
-
-Parses CSS to AST.
-
 > NOTE: Currenly parser omits redundant separators, spaces and comments (except exclamation comments, i.e. `/*! comment */`) on AST build.
 
-Options:
+## parse(source[, options])
 
-- `context` String – parsing context, useful when some part of CSS is parsing (see below)
-- `atrule` String – make sense for `atruleExpression` context to apply some atrule specific parse rules
-- `property` String – make sense for `value` context to apply some property specific parse rules
-- `positions` Boolean – should AST contains node position or not, store data in `loc` property of nodes (`false` by default)
-- `filename` String – filename of source that adds to `loc` when `positions` is `true`, uses for source map generation (`<unknown>` by default)
-- `line` Number – initial line number, useful when parse fragment of CSS to compute correct positions
-- `column` Number – initial column number, useful when parse fragment of CSS to compute correct positions
+Parses CSS into AST.
+
+```js
+// simple parsing with no options
+var ast = csstree.parse('.example { color: red }');
+
+// parse with options
+var ast = csstree.parse('.foo.bar', {
+    context: 'simpleSelector',
+    positions: true
+});
+```
+
+### options
+
+- [context](#context)
+- [atrule](#atrule)
+- [property](#property)
+- [positions](#positions)
+- [filename](#filename)
+- [line](#line)
+- [column](#column)
+- [parseAtruleExpression](#parseatruleexpression)
+- [parseSelector](#parseselector)
+- [parseValue](#parsevalue)
+- [parseCustomProperty](#parsecustomproperty)
+
+#### context
+
+Type: `string`  
+Default: `'stylesheet'`
+
+Defines what part of CSS is parsing.
 
 Contexts:
 
@@ -29,13 +51,191 @@ Contexts:
 - `declaration` – declaration (`color: red` or `border: 1px solid black` for rule example)
 - `value` – declaration value (`red` or `1px solid black` for rule example)
 
-```js
-// simple parsing with no options
-var ast = csstree.parse('.example { color: red }');
+#### atrule
 
-// parse with options
-var ast = csstree.parse('.foo.bar', {
-    context: 'simpleSelector',
-    positions: true
-});
+Type: `string` or `null`  
+Default: `null`
+
+Using for `atruleExpression` context to apply some atrule specific parse rules
+
+#### property
+
+Type: `string` or `null`  
+Default: `null`
+
+Using for `value` context to apply some property specific parse rules.
+
+#### positions
+
+Type: `boolean`  
+Default: `false`
+
+Specify to store location of node content in source. Location is storing `loc` property of nodes. `loc` property is always `null` when option is `false`.
+
+#### filename
+
+Type: `string`  
+Default: `'<unknown>'`
+
+Filename of source. This value adds to `loc` as `source` property when `positions` option is `true`. Using for source map generation.
+
+#### line
+
+Type: `number`  
+Default: `1`
+
+Initial line number. Useful when parse fragment of CSS to store correct positions in node's `loc` property.
+
+#### column
+
+Type: `number`  
+Default: `1`
+
+Initial column number. Useful when parse fragment of CSS to store correct positions in node's `loc` property.
+
+#### parseAtruleExpression
+
+Type: `boolean`  
+Default: `true`
+
+Defines to parse a at-rule expression in details (represents as `AtruleExpresion`, `MediaQueryList` or `SelectorList` if any). Otherwise represents expression as `Raw` node.
+
+```js
+cstree.parse('@example 1 2;');
+// {
+//     "type": "Atrule",
+//     "expression": {
+//         "type": "AtruleExpression",
+//         "children": [
+//             { "type": "Number", "value": "1" },
+//             { "type": "WhiteSpace", "value": " " },
+//             { "type": "Number", "value": "2" }
+//         ]
+//     },
+//     "block": null
+// }
+
+cstree.parse('@example 1 2;', { parseAtruleExpression: false });
+// {
+//     "type": "Atrule",
+//     "expression": {
+//         "type": "Raw",
+//         "value": "1 2"
+//     },
+//     "block": null
+// }
+```
+
+#### parseSelector
+
+Type: `boolean`  
+Default: `true`
+
+Defines to parse a rule selector in details (represents as `SelectorList`). Otherwise represents selector as `Raw` node.
+
+```js
+cstree.parse('.foo {}');
+// {
+//     "type": "Rule",
+//     "selector": {
+//         "type": "SelectorList",
+//         "children": [
+//             {
+//                 "type": "Selector",
+//                 "children": [
+//                     { "type": "ClassSelector", "name": "foo" }
+//                 ]
+//             }
+//         ]
+//     },
+//     "block": {
+//         "type": "Block",
+//         "children": []
+//     }
+// }
+
+cstree.parse('.foo {}', { parseSelector: false });
+// {
+//     "type": "Rule",
+//     "selector": {
+//         "type": "Raw",
+//         "value": ".foo "
+//     },
+//     "block": {
+//         "type": "Block",
+//         "children": []
+//     }
+// }
+```
+
+#### parseValue
+
+Type: `boolean`  
+Default: `true`
+
+Defines to parse a declaration value in details (represents as `Value`). Otherwise represents value as `Raw` node.
+
+```js
+cstree.parse('color: #aabbcc', { context: 'declaration' });
+// {
+//     "type": "Declaration",
+//     "important": false,
+//     "property": "color",
+//     "value": {
+//         "type": "Value",
+//         "children": [
+//             {
+//                 "type": "HexColor",
+//                 "value": "aabbcc"
+//             }
+//         ]
+//     }
+// }
+
+cstree.parse('color: #aabbcc', { context: 'declaration', parseValue: false });
+// {
+//     "type": "Declaration",
+//     "important": false,
+//     "property": "color",
+//     "value": {
+//         "type": "Raw",
+//         "value": " #aabbcc"
+//     }
+// }
+```
+
+#### parseCustomProperty
+
+Type: `boolean`  
+Default: `false`
+
+Defines to parse a custom property value and a `var()` fallback in details (represents as `Value`). Otherwise represents value as `Raw` node.
+
+```js
+cstree.parse('--custom: #aabbcc', { context: 'declaration' });
+// {
+//     "type": "Declaration",
+//     "important": false,
+//     "property": "--custom",
+//     "value": {
+//         "type": "Raw",
+//         "value": " #aabbcc"
+//     }
+// }
+
+cstree.parse('--custom: #aabbcc', { context: 'declaration', parseCustomProperty: true });
+// {
+//     "type": "Declaration",
+//     "important": false,
+//     "property": "--custom",
+//     "value": {
+//         "type": "Value",
+//         "children": [
+//             {
+//                 "type": "HexColor",
+//                 "value": "aabbcc"
+//             }
+//         ]
+//     }
+// }
 ```
