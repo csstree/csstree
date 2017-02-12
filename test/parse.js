@@ -1,5 +1,8 @@
 var assert = require('assert');
 var parse = require('../lib/parser');
+var Parser = require('../lib').Parser;
+var TYPE = require('../lib').Tokenizer.TYPE;
+var toPlainObject = require('../lib/utils/convert').toPlainObject;
 var walk = require('../lib/utils/walk').all;
 var translate = require('../lib/utils/translate');
 var forEachParseTest = require('./fixture/parse').forEachTest;
@@ -198,6 +201,116 @@ describe('parse', function() {
                 [182, 4, 72, 'String'],
                 [189, 4, 79, 'String']
             ]);
+        });
+    });
+
+    describe('extension', function() {
+        describe('value', function() {
+            var extended = new Parser();
+            extended.readSequenceFallback = function() {
+                if (this.scanner.tokenType === TYPE.DollarSign) {
+                    var start = this.scanner.tokenStart;
+                    this.scanner.next();
+
+                    return {
+                        type: 'Variable',
+                        loc: this.getLocation(start, this.scanner.tokenEnd),
+                        name: this.scanner.consume(TYPE.Identifier)
+                    };
+                }
+            };
+
+            it('should fail by default', function() {
+                assert.throws(function() {
+                    parse('$a', {
+                        context: 'value'
+                    });
+                }, /Unexpected input/);
+            });
+
+            it('should parse when extended', function() {
+                var ast = extended.parse('$a', {
+                    context: 'value'
+                });
+
+                assert.deepEqual(toPlainObject(ast), {
+                    type: 'Value',
+                    loc: null,
+                    children: [
+                        {
+                            type: 'Variable',
+                            loc: null,
+                            name: 'a'
+                        }
+                    ]
+                });
+            });
+
+            it('should fail on unknown', function() {
+                assert.throws(function() {
+                    extended.parse('@a', {
+                        context: 'value'
+                    });
+                }, /Unexpected input/);
+            });
+        });
+
+        describe('selector', function() {
+            var extended = new Parser();
+            extended.readSequenceSelectorFallback = function() {
+                if (this.scanner.tokenType === TYPE.Ampersand) {
+                    var start = this.scanner.tokenStart;
+                    this.scanner.next();
+
+                    return {
+                        type: 'Nested',
+                        loc: this.getLocation(start, this.scanner.tokenEnd)
+                    };
+                }
+            };
+
+            it('should fail by default', function() {
+                assert.throws(function() {
+                    parse('a &', {
+                        context: 'selector'
+                    });
+                }, /Unexpected input/);
+            });
+
+            it('should parse when extended', function() {
+                var ast = extended.parse('a &', {
+                    context: 'selector'
+                });
+
+                assert.deepEqual(toPlainObject(ast), {
+                    type: 'Selector',
+                    loc: null,
+                    children: [
+                        {
+                            type: 'TypeSelector',
+                            loc: null,
+                            name: 'a'
+                        },
+                        {
+                            type: 'WhiteSpace',
+                            loc: null,
+                            value: ' '
+                        },
+                        {
+                            type: 'Nested',
+                            loc: null
+                        }
+                    ]
+                });
+            });
+
+            it('should fail on unknown', function() {
+                assert.throws(function() {
+                    extended.parse('@a', {
+                        context: 'value'
+                    });
+                }, /Unexpected input/);
+            });
         });
     });
 });
