@@ -198,6 +198,51 @@
             ]
         }
     },
+    "spaces": {
+        "source": "a  +  b  c  ~  d  e",
+        "translate": "a+b c~d e",
+        "ast": {
+            "type": "Selector",
+            "children": [
+                {
+                    "type": "TypeSelector",
+                    "name": "a"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "+"
+                },
+                {
+                    "type": "TypeSelector",
+                    "name": "b"
+                },
+                {
+                    "type": "WhiteSpace",
+                    "value": " "
+                },
+                {
+                    "type": "TypeSelector",
+                    "name": "c"
+                },
+                {
+                    "type": "Combinator",
+                    "name": "~"
+                },
+                {
+                    "type": "TypeSelector",
+                    "name": "d"
+                },
+                {
+                    "type": "WhiteSpace",
+                    "value": " "
+                },
+                {
+                    "type": "TypeSelector",
+                    "name": "e"
+                }
+            ]
+        }
+    },
     "error": [
         {
             "source": "foo,",
