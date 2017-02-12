@@ -115,41 +115,47 @@ describe('parse', function() {
 
             walk(ast, function(node) {
                 if (node.loc) {
-                    positions.push([node.loc.start.line, node.loc.start.column, node.type]);
+                    positions.push([
+                        node.loc.start.offset,
+                        node.loc.start.line,
+                        node.loc.start.column,
+                        node.type
+                    ]);
                 }
             });
 
             assert.deepEqual(positions, [
-                [1, 1, 'StyleSheet'],
-                [1, 1, 'Rule'],
-                [1, 1, 'SelectorList'],
-                [1, 1, 'Selector'],
-                [1, 1, 'ClassSelector'],
-                [1, 5, 'ClassSelector'],
-                [1, 10, 'Block'],
-                [2, 3, 'Declaration'],
-                [2, 12, 'Value'],
-                [2, 13, 'Identifier'],
-                [2, 19, 'Number'],
-                [2, 23, 'Number'],
-                [2, 29, 'Number'],
-                [2, 34, 'Dimension'],
-                [2, 40, 'Percentage'],
-                [2, 44, 'HexColor'],
-                [2, 49, 'Url'],
-                [2, 54, 'Raw'],
-                [2, 58, 'Operator'],
-                [2, 60, 'Function'],
-                [2, 65, 'Identifier'],
-                [2, 70, 'Operator'],
-                [2, 72, 'String'],
-                [2, 79, 'String']
+                [0, 1, 1, 'StyleSheet'],
+                [0, 1, 1, 'Rule'],
+                [0, 1, 1, 'SelectorList'],
+                [0, 1, 1, 'Selector'],
+                [0, 1, 1, 'ClassSelector'],
+                [4, 1, 5, 'ClassSelector'],
+                [9, 1, 10, 'Block'],
+                [13, 2, 3, 'Declaration'],
+                [22, 2, 12, 'Value'],
+                [23, 2, 13, 'Identifier'],
+                [29, 2, 19, 'Number'],
+                [33, 2, 23, 'Number'],
+                [39, 2, 29, 'Number'],
+                [44, 2, 34, 'Dimension'],
+                [50, 2, 40, 'Percentage'],
+                [54, 2, 44, 'HexColor'],
+                [59, 2, 49, 'Url'],
+                [64, 2, 54, 'Raw'],
+                [68, 2, 58, 'Operator'],
+                [70, 2, 60, 'Function'],
+                [75, 2, 65, 'Identifier'],
+                [80, 2, 70, 'Operator'],
+                [82, 2, 72, 'String'],
+                [89, 2, 79, 'String']
             ]);
         });
 
-        it('should start with specified line and column', function() {
+        it('should start with specified offset, line and column', function() {
             var ast = parse('.foo.bar {\n  property: value 123 123.4 .123 123px 99% #fff url( a ) / var( --a ), "test" \'test\';\n}', {
                 positions: true,
+                offset: 100,
                 line: 3,
                 column: 5
             });
@@ -157,35 +163,40 @@ describe('parse', function() {
 
             walk(ast, function(node) {
                 if (node.loc) {
-                    positions.push([node.loc.start.line, node.loc.start.column, node.type]);
+                    positions.push([
+                        node.loc.start.offset,
+                        node.loc.start.line,
+                        node.loc.start.column,
+                        node.type
+                    ]);
                 }
             });
 
             assert.deepEqual(positions, [
-                [3, 5, 'StyleSheet'],
-                [3, 5, 'Rule'],
-                [3, 5, 'SelectorList'],
-                [3, 5, 'Selector'],
-                [3, 5, 'ClassSelector'],
-                [3, 9, 'ClassSelector'],
-                [3, 14, 'Block'],
-                [4, 3, 'Declaration'],
-                [4, 12, 'Value'],
-                [4, 13, 'Identifier'],
-                [4, 19, 'Number'],
-                [4, 23, 'Number'],
-                [4, 29, 'Number'],
-                [4, 34, 'Dimension'],
-                [4, 40, 'Percentage'],
-                [4, 44, 'HexColor'],
-                [4, 49, 'Url'],
-                [4, 54, 'Raw'],
-                [4, 58, 'Operator'],
-                [4, 60, 'Function'],
-                [4, 65, 'Identifier'],
-                [4, 70, 'Operator'],
-                [4, 72, 'String'],
-                [4, 79, 'String']
+                [100, 3, 5, 'StyleSheet'],
+                [100, 3, 5, 'Rule'],
+                [100, 3, 5, 'SelectorList'],
+                [100, 3, 5, 'Selector'],
+                [100, 3, 5, 'ClassSelector'],
+                [104, 3, 9, 'ClassSelector'],
+                [109, 3, 14, 'Block'],
+                [113, 4, 3, 'Declaration'],
+                [122, 4, 12, 'Value'],
+                [123, 4, 13, 'Identifier'],
+                [129, 4, 19, 'Number'],
+                [133, 4, 23, 'Number'],
+                [139, 4, 29, 'Number'],
+                [144, 4, 34, 'Dimension'],
+                [150, 4, 40, 'Percentage'],
+                [154, 4, 44, 'HexColor'],
+                [159, 4, 49, 'Url'],
+                [164, 4, 54, 'Raw'],
+                [168, 4, 58, 'Operator'],
+                [170, 4, 60, 'Function'],
+                [175, 4, 65, 'Identifier'],
+                [180, 4, 70, 'Operator'],
+                [182, 4, 72, 'String'],
+                [189, 4, 79, 'String']
             ]);
         });
     });
