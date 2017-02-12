@@ -25,7 +25,7 @@
     - [findEscaseEnd\(source, offset\)](#findescaseendsource-offset)
     - [findIdentifierEnd\(source, offset\)](#findidentifierendsource-offset)
 - [Methods](#methods)
-    - [setSource\(source, initLine, initColumn\)](#setsourcesource-initline-initcolumn)
+    - [setSource\(source, startOffset, startLine, startColumn\)](#setsourcesource-startoffset-startline-startcolumn)
     - [lookupType\(offset\)](#lookuptypeoffset)
     - [lookupNonWSType\(offset\)](#lookupnonwstypeoffset)
     - [lookupValue\(offset, referenceStr\)](#lookupvalueoffset-referencestr)
@@ -94,7 +94,7 @@
 
 ## Methods
 
-### setSource(source, initLine, initColumn)
+### setSource(source, startOffset, startLine, startColumn)
 
 ### lookupType(offset)
 

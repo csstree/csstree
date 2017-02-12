@@ -19,17 +19,22 @@ var ast = csstree.parse('.foo.bar', {
 
 Options (optional):
 
+<!-- MarkdownTOC -->
+
 - [context](#context)
 - [atrule](#atrule)
 - [property](#property)
 - [positions](#positions)
 - [filename](#filename)
+- [offset](#offset)
 - [line](#line)
 - [column](#column)
 - [parseAtruleExpression](#parseatruleexpression)
 - [parseSelector](#parseselector)
 - [parseValue](#parsevalue)
 - [parseCustomProperty](#parsecustomproperty)
+
+<!-- /MarkdownTOC -->
 
 ### context
 
@@ -79,19 +84,26 @@ Default: `'<unknown>'`
 
 Filename of source. This value adds to `loc` as `source` property when `positions` option is `true`. Using for source map generation.
 
+### offset
+
+Type: `number`  
+Default: `0`
+
+Start offset. Useful when parsing fragment of CSS to store correct positions in node's `loc` property.
+
 ### line
 
 Type: `number`  
 Default: `1`
 
-Initial line number. Useful when parse fragment of CSS to store correct positions in node's `loc` property.
+Start line number. Useful when parsing fragment of CSS to store correct positions in node's `loc` property.
 
 ### column
 
 Type: `number`  
 Default: `1`
 
-Initial column number. Useful when parse fragment of CSS to store correct positions in node's `loc` property.
+Start column number. Useful when parsing fragment of CSS to store correct positions in node's `loc` property.
 
 ### parseAtruleExpression
 
