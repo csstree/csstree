@@ -307,7 +307,7 @@ describe('parse', function() {
             it('should fail on unknown', function() {
                 assert.throws(function() {
                     extended.parse('@a', {
-                        context: 'value'
+                        context: 'selector'
                     });
                 }, /Unexpected input/);
             });
