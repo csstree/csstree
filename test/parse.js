@@ -257,7 +257,7 @@ describe('parse', function() {
 
         describe('selector', function() {
             var extended = new Parser();
-            extended.readSequenceSelectorFallback = function() {
+            extended.readSelectorSequenceFallback = function() {
                 if (this.scanner.tokenType === TYPE.Ampersand) {
                     var start = this.scanner.tokenStart;
                     this.scanner.next();
