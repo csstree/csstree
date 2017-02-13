@@ -1,3 +1,11 @@
+## 1.0.0-alpha16 (February 12, 2017)
+
+- Exposed `Parser` class
+- Added `startOffset` option to `Tokenizer` (constructor and `setSource()` method)
+- Added fallback functions for default (`readSequenceFallback`) and selector (`readSelectorSequenceFallback`) sequence readers
+- Fixed edge cases for `AnPlusB`
+- Fixed wrong whitespace ignoring in `Selector` consumer
+
 ## 1.0.0-alpha15 (February 8, 2017)
 
 - Fixed broken `atruleExpression` context
