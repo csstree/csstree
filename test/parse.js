@@ -207,18 +207,23 @@ describe('parse', function() {
     describe('extension', function() {
         describe('value', function() {
             var extended = new Parser();
-            extended.readSequenceFallback = function() {
-                if (this.scanner.tokenType === TYPE.DollarSign) {
-                    var start = this.scanner.tokenStart;
-                    this.scanner.next();
+            var defaultGetNode = extended.scopeValue.getNode;
+            extended.scopeValue = merge(extended.scopeValue, {
+                getNode: function(context) {
+                    if (this.scanner.tokenType === TYPE.DollarSign) {
+                        var start = this.scanner.tokenStart;
+                        this.scanner.next();
 
-                    return {
-                        type: 'Variable',
-                        loc: this.getLocation(start, this.scanner.tokenEnd),
-                        name: this.scanner.consume(TYPE.Identifier)
-                    };
+                        return {
+                            type: 'Variable',
+                            loc: this.getLocation(start, this.scanner.tokenEnd),
+                            name: this.scanner.consume(TYPE.Identifier)
+                        };
+                    }
+
+                    return defaultGetNode.call(this, context);
                 }
-            };
+            });
 
             it('should fail by default', function() {
                 assert.throws(function() {
@@ -257,15 +262,20 @@ describe('parse', function() {
 
         describe('selector', function() {
             var extended = new Parser();
-            extended.readSelectorSequenceFallback = function() {
-                if (this.scanner.tokenType === TYPE.Ampersand) {
-                    var start = this.scanner.tokenStart;
-                    this.scanner.next();
+            var defaultGetNode = extended.scopeSelector.getNode;
+            extended.scopeSelector = {
+                getNode: function(context) {
+                    if (this.scanner.tokenType === TYPE.Ampersand) {
+                        var start = this.scanner.tokenStart;
+                        this.scanner.next();
 
-                    return {
-                        type: 'Nested',
-                        loc: this.getLocation(start, this.scanner.tokenEnd)
-                    };
+                        return {
+                            type: 'Nested',
+                            loc: this.getLocation(start, this.scanner.tokenEnd)
+                        };
+                    }
+
+                    return defaultGetNode.call(this, context);
                 }
             };
 
@@ -309,7 +319,7 @@ describe('parse', function() {
                     extended.parse('@a', {
                         context: 'selector'
                     });
-                }, /Unexpected input/);
+                }, /Selector is expected/);
             });
         });
     });
