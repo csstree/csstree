@@ -1,6 +1,6 @@
 var assert = require('assert');
 var parse = require('../lib/parser');
-var translate = require('../lib/utils/translate');
+var translate = require('../lib/generator').translate;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 
 function createTranslateTest(name, test) {

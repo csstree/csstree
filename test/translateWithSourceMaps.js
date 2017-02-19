@@ -1,6 +1,6 @@
 var assert = require('assert');
 var parse = require('../lib/parser');
-var translateWithSourceMap = require('../lib/utils/translateWithSourceMap');
+var translateWithSourceMap = require('../lib/generator').translateWithSourceMap;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var merge = require('./helpers').merge;
 
