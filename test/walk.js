@@ -1,11 +1,11 @@
 var assert = require('assert');
 var path = require('path');
 var parse = require('../lib/parser');
-var walkAll = require('../lib/utils/walk').all;
-var walkAllUp = require('../lib/utils/walk').allUp;
-var walkRules = require('../lib/utils/walk').rules;
-var walkRulesRight = require('../lib/utils/walk').rulesRight;
-var walkDeclarations = require('../lib/utils/walk').declarations;
+var walkAll = require('../lib/walker').all;
+var walkAllUp = require('../lib/walker').allUp;
+var walkRules = require('../lib/walker').rules;
+var walkRulesRight = require('../lib/walker').rulesRight;
+var walkDeclarations = require('../lib/walker').declarations;
 var testFiles = require('./fixture/parse').tests;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var testWithRules = Object.keys(testFiles).map(function(filename) {

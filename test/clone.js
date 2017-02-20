@@ -1,7 +1,7 @@
 var assert = require('assert');
 var parse = require('../lib/parser');
 var clone = require('../lib/utils/clone');
-var walkAll = require('../lib/utils/walk').all;
+var walkAll = require('../lib/walker').all;
 
 function sumMarker(ast) {
     var result = 0;
