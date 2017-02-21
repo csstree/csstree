@@ -36,4 +36,15 @@ describe('translateWithSourceMap', function() {
         assert.equal(result.css, '.a{color:red}');
         assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CACE,S"}');
     });
+
+    it('', function() {
+        var ast = parse('.a { color: #ff0000; } .b { display: block; float: left; } @media foo { .c { color: red } }', {
+            filename: 'test.css',
+            positions: true
+        });
+        var result = translateWithSourceMap(ast);
+
+        assert.equal(result.css, '.a{color:#ff0000}.b{display:block;float:left}@media foo{.c{color:red}}');
+        assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CAAK,a,CAAkB,E,CAAK,cAAgB,U,CAAe,U,CAAa,E,CAAK,S"}');
+    });
 });
