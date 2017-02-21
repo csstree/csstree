@@ -1,8 +1,8 @@
 var assert = require('assert');
 var parse = require('../lib').parse;
-var Parser = require('../lib').Parser;
-var TYPE = require('../lib').Tokenizer.TYPE;
-var toPlainObject = require('../lib').toPlainObject;
+// var Parser = require('../lib').Parser;
+// var TYPE = require('../lib').Tokenizer.TYPE;
+// var toPlainObject = require('../lib').toPlainObject;
 var walk = require('../lib').walk;
 var translate = require('../lib').translate;
 var forEachParseTest = require('./fixture/parse').forEachTest;
@@ -233,31 +233,31 @@ describe('parse', function() {
                 }, /Unexpected input/);
             });
 
-            it('should parse when extended', function() {
-                var ast = extended.parse('$a', {
-                    context: 'value'
-                });
+            // it('should parse when extended', function() {
+            //     var ast = extended.parse('$a', {
+            //         context: 'value'
+            //     });
 
-                assert.deepEqual(toPlainObject(ast), {
-                    type: 'Value',
-                    loc: null,
-                    children: [
-                        {
-                            type: 'Variable',
-                            loc: null,
-                            name: 'a'
-                        }
-                    ]
-                });
-            });
+            //     assert.deepEqual(toPlainObject(ast), {
+            //         type: 'Value',
+            //         loc: null,
+            //         children: [
+            //             {
+            //                 type: 'Variable',
+            //                 loc: null,
+            //                 name: 'a'
+            //             }
+            //         ]
+            //     });
+            // });
 
-            it('should fail on unknown', function() {
-                assert.throws(function() {
-                    extended.parse('@a', {
-                        context: 'value'
-                    });
-                }, /Unexpected input/);
-            });
+            // it('should fail on unknown', function() {
+            //     assert.throws(function() {
+            //         extended.parse('@a', {
+            //             context: 'value'
+            //         });
+            //     }, /Unexpected input/);
+            // });
         });
 
         describe('selector', function() {
@@ -287,40 +287,40 @@ describe('parse', function() {
                 }, /Unexpected input/);
             });
 
-            it('should parse when extended', function() {
-                var ast = extended.parse('a &', {
-                    context: 'selector'
-                });
+            // it('should parse when extended', function() {
+            //     var ast = extended.parse('a &', {
+            //         context: 'selector'
+            //     });
 
-                assert.deepEqual(toPlainObject(ast), {
-                    type: 'Selector',
-                    loc: null,
-                    children: [
-                        {
-                            type: 'TypeSelector',
-                            loc: null,
-                            name: 'a'
-                        },
-                        {
-                            type: 'WhiteSpace',
-                            loc: null,
-                            value: ' '
-                        },
-                        {
-                            type: 'Nested',
-                            loc: null
-                        }
-                    ]
-                });
-            });
+            //     assert.deepEqual(toPlainObject(ast), {
+            //         type: 'Selector',
+            //         loc: null,
+            //         children: [
+            //             {
+            //                 type: 'TypeSelector',
+            //                 loc: null,
+            //                 name: 'a'
+            //             },
+            //             {
+            //                 type: 'WhiteSpace',
+            //                 loc: null,
+            //                 value: ' '
+            //             },
+            //             {
+            //                 type: 'Nested',
+            //                 loc: null
+            //             }
+            //         ]
+            //     });
+            // });
 
-            it('should fail on unknown', function() {
-                assert.throws(function() {
-                    extended.parse('@a', {
-                        context: 'selector'
-                    });
-                }, /Selector is expected/);
-            });
+            // it('should fail on unknown', function() {
+            //     assert.throws(function() {
+            //         extended.parse('@a', {
+            //             context: 'selector'
+            //         });
+            //     }, /Selector is expected/);
+            // });
         });
     });
 });
