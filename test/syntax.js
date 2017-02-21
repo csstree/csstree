@@ -1,10 +1,10 @@
 var assert = require('assert');
-var parseCss = require('../lib/parser');
-var defaultSyntax = require('../lib/lexer/default');
-var createSyntax = require('../lib/lexer').create;
-var parse = require('../lib/lexer/parse');
-var translate = require('../lib/lexer/translate');
-var walk = require('../lib/lexer/walk');
+var parseCss = require('../lib').parse;
+var defaultSyntax = require('../lib').syntax.defaultSyntax;
+var createSyntax = require('../lib').syntax.create;
+var parse = require('../lib').syntax.parse;
+var translate = require('../lib').syntax.translate;
+var walk = require('../lib').syntax.walk;
 var data = require('../data');
 var tests = require('./fixture/syntax');
 

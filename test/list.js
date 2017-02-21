@@ -1,5 +1,5 @@
 var assert = require('assert');
-var List = require('../lib/utils/list');
+var List = require('../lib').List;
 
 function getFirstArg(data) {
     return data;

@@ -1,6 +1,6 @@
 var assert = require('assert');
-var keyword = require('../lib/utils/names').keyword;
-var property = require('../lib/utils/names').property;
+var keyword = require('../lib').keyword;
+var property = require('../lib').property;
 
 describe('names utils', function() {
     describe('keyword', function() {

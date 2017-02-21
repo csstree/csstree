@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Tokenizer = require('../lib/tokenizer');
+var Tokenizer = require('../lib').Tokenizer;
 
 describe('parser/tokenizer', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg);\n}';
