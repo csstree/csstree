@@ -4,6 +4,7 @@ var parse = require('../lib').parse;
 // var TYPE = require('../lib').Tokenizer.TYPE;
 // var toPlainObject = require('../lib').toPlainObject;
 var walk = require('../lib').walk;
+var syntax = require('../lib').syntax.defaultSyntax;
 var translate = require('../lib').translate;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var stringify = require('./helpers/stringify');
@@ -42,6 +43,9 @@ describe('parse', function() {
 
                 // translated AST should be equal to original source
                 assert.equal(translate(ast), 'translate' in test ? test.translate : test.source);
+
+                // structure should be ok
+                assert.equal(syntax.checkStructure(ast), false);
             });
         });
     });
