@@ -26,8 +26,8 @@ Node types:
 - [Dimension](#dimension)
 - [Function](#function)
 - [HexColor](#hexcolor)
-- [Identifier](#identifier)
 - [IdSelector](#idselector)
+- [Identifier](#identifier)
 - [MediaFeature](#mediafeature)
 - [MediaQuery](#mediaquery)
 - [MediaQueryList](#mediaquerylist)
@@ -53,7 +53,6 @@ Node types:
 
 <!-- /MarkdownTOC -->
 
-
 ## AnPlusB
 
 Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsyntax).
@@ -61,8 +60,8 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "AnPlusB",
-    "a": string | null,
-    "b": string | null
+    "a": String | null,
+    "b": String | null
 }
 ```
 
@@ -73,7 +72,8 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Atrule",
-    "expression": <AtruleExpression> | <MediaQuery> | <SelectorList> | <Raw> | null,
+    "name": String,
+    "expression": <AtruleExpression> | <MediaQueryList> | <SelectorList> | <Raw> | null,
     "block": <Block> | null
 }
 ```
@@ -93,9 +93,9 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 {
     "type": "AttributeSelector",
     "name": <Identifier>,
-    "operator": string | null,
+    "operator": String | null,
     "value": <String> | <Identifier> | null,
-    "flags": string | null
+    "flags": String | null
 }
 ```
 
@@ -122,7 +122,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "ClassSelector",
-    "name": string
+    "name": String
 }
 ```
 
@@ -131,7 +131,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Combinator",
-    "name": string
+    "name": String
 }
 ```
 
@@ -140,7 +140,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Comment",
-    "value": string
+    "value": String
 }
 ```
 
@@ -149,8 +149,8 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Declaration",
-    "important": boolean,
-    "property": string,
+    "important": Boolean,
+    "property": String,
     "value": <Value> | <Raw>
 }
 ```
@@ -169,8 +169,8 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Dimension",
-    "value": string,
-    "unit": string
+    "value": String,
+    "unit": String
 }
 ```
 
@@ -179,7 +179,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Function",
-    "name": string,
+    "name": String,
     "children": List
 }
 ```
@@ -189,16 +189,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "HexColor",
-    "value": string
-}
-```
-
-## Identifier
-
-```
-{
-    "type": "Identifier",
-    "name": string
+    "value": String
 }
 ```
 
@@ -207,7 +198,16 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "IdSelector",
-    "name": string
+    "name": String
+}
+```
+
+## Identifier
+
+```
+{
+    "type": "Identifier",
+    "name": String
 }
 ```
 
@@ -216,8 +216,8 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "MediaFeature",
-    "name": string,
-    "value": string | null
+    "name": String,
+    "value": <Identifier> | <Number> | <Dimension> | <Ratio> | null
 }
 ```
 
@@ -244,7 +244,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Nth",
-    "nth": <Nth> | <Identifier>
+    "nth": <AnPlusB> | <Identifier>,
     "selector": <SelectorList> | null
 }
 ```
@@ -254,7 +254,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Number",
-    "value": string
+    "value": String
 }
 ```
 
@@ -263,7 +263,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Operator",
-    "value": string
+    "value": String
 }
 ```
 
@@ -281,7 +281,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Percentage",
-    "value": string
+    "value": String
 }
 ```
 
@@ -290,7 +290,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "PseudoClassSelector",
-    "name": string,
+    "name": String,
     "children": List | null
 }
 ```
@@ -300,7 +300,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "PseudoElementSelector",
-    "name": string,
+    "name": String,
     "children": List | null
 }
 ```
@@ -310,8 +310,8 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Ratio",
-    "left": string,
-    "right": string
+    "left": String,
+    "right": String
 }
 ```
 
@@ -320,7 +320,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Raw",
-    "value": string
+    "value": String
 }
 ```
 
@@ -329,7 +329,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Rule",
-    "selector": <SelectorList>,
+    "selector": <SelectorList> | <Raw>,
     "block": <Block>
 }
 ```
@@ -357,7 +357,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "String",
-    "value": string
+    "value": String
 }
 ```
 
@@ -375,7 +375,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "TypeSelector",
-    "name": string
+    "name": String
 }
 ```
 
@@ -384,7 +384,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "UnicodeRange",
-    "value": string
+    "value": String
 }
 ```
 
@@ -411,6 +411,6 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "WhiteSpace",
-    "value": string
+    "value": String
 }
 ```
