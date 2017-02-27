@@ -1,10 +1,10 @@
 var assert = require('assert');
 var parseCss = require('../lib').parse;
-var defaultSyntax = require('../lib').syntax.defaultSyntax;
-var createSyntax = require('../lib').syntax.create;
-var parse = require('../lib').syntax.parse;
-var translate = require('../lib').syntax.translate;
-var walk = require('../lib').syntax.walk;
+var defaultSyntax = require('../lib').defaultLexer;
+var createSyntax = require('../lib').createSyntax;
+var parse = require('../lib').syntax.grammar.parse;
+var translate = require('../lib').syntax.grammar.translate;
+var walk = require('../lib').syntax.grammar.walk;
 var data = require('../data');
 var tests = require('./fixture/syntax');
 
