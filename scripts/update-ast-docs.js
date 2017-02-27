@@ -1,6 +1,6 @@
 var fs = require('fs');
 var csstree = require('../lib');
-var syntax = csstree.syntax.defaultSyntax;
+var syntax = csstree.defaultLexer;
 var filename = __dirname + '/../docs/ast.md';
 
 function genNodeStructure(docs) {
@@ -11,7 +11,7 @@ function genNodeStructure(docs) {
     '\n}';
 }
 
-var md = fs.readFileSync(filename, 'utf8');
+var md = fs.readFileSync(filename, 'utf8').replace(/\r\n?/g, '\n');
 var mdParts = md.split(/(\n<!-- \/?MarkdownTOC .*?-->\n)/);
 var toc = [];
 var sections = [];
