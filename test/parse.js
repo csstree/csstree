@@ -131,6 +131,7 @@ describe('parse', function() {
                 }
             });
 
+            assert.equal(syntax.checkStructure(ast), false);
             assert.deepEqual(positions, [
                 [0, 1, 1, 'StyleSheet'],
                 [0, 1, 1, 'Rule'],
@@ -179,6 +180,7 @@ describe('parse', function() {
                 }
             });
 
+            assert.equal(syntax.checkStructure(ast), false);
             assert.deepEqual(positions, [
                 [100, 3, 5, 'StyleSheet'],
                 [100, 3, 5, 'Rule'],
