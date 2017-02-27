@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
-var createSyntax = require('../../../lib').createSyntax;
-var defaultSyntax = require('../../../lib').defaultLexer;
+var createLexer = require('../../../lib').createLexer;
+var defaultLexer = require('../../../lib').lexer;
 var JsonLocator = require('../../helpers/JsonLocator.js');
 
 function forEachTest(factory) {
@@ -9,7 +9,7 @@ function forEachTest(factory) {
         var file = testFiles[filename];
 
         for (var test in file) {
-            var syntax = file[test].syntax ? createSyntax(file[test].syntax) : defaultSyntax;
+            var lexer = file[test].syntax ? createLexer(file[test].syntax) : defaultLexer;
 
             for (var property in file[test]) {
                 if (property !== 'valid' && !/^invalid:/.test(property)) {
@@ -19,7 +19,7 @@ function forEachTest(factory) {
                 file[test][property].forEach(function(value, idx) {
                     factory(
                         file[test].name + ' ' + property + '#' + idx,
-                        syntax,
+                        lexer,
                         file[test].property || 'test',
                         value,
                         property !== 'valid' ? property.substr(8) : false

@@ -4,7 +4,7 @@ var parse = require('../lib').parse;
 // var TYPE = require('../lib').Tokenizer.TYPE;
 // var toPlainObject = require('../lib').toPlainObject;
 var walk = require('../lib').walk;
-var syntax = require('../lib').defaultLexer;
+var lexer = require('../lib').lexer;
 var translate = require('../lib').translate;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var stringify = require('./helpers/stringify');
@@ -45,7 +45,7 @@ describe('parse', function() {
                 assert.equal(translate(ast), 'translate' in test ? test.translate : test.source);
 
                 // structure should be ok
-                assert.equal(syntax.checkStructure(ast), false);
+                assert.equal(lexer.checkStructure(ast), false);
             });
         });
     });
@@ -131,7 +131,7 @@ describe('parse', function() {
                 }
             });
 
-            assert.equal(syntax.checkStructure(ast), false);
+            assert.equal(lexer.checkStructure(ast), false);
             assert.deepEqual(positions, [
                 [0, 1, 1, 'StyleSheet'],
                 [0, 1, 1, 'Rule'],
@@ -180,7 +180,7 @@ describe('parse', function() {
                 }
             });
 
-            assert.equal(syntax.checkStructure(ast), false);
+            assert.equal(lexer.checkStructure(ast), false);
             assert.deepEqual(positions, [
                 [100, 3, 5, 'StyleSheet'],
                 [100, 3, 5, 'Rule'],

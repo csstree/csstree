@@ -1,6 +1,6 @@
 var fs = require('fs');
 var csstree = require('../lib');
-var syntax = csstree.defaultLexer;
+var lexer = csstree.lexer;
 var filename = __dirname + '/../docs/ast.md';
 
 function genNodeStructure(docs) {
@@ -30,13 +30,13 @@ var types = mdParts[4]
         return dict;
     }, {});
 
-Object.keys(syntax.structure).sort().forEach(function(type) {
+Object.keys(lexer.structure).sort().forEach(function(type) {
     toc.push('- [' + type + '](#' + type.toLowerCase() + ')');
     sections.push(
         '## ' + type + '\n\n' +
         (types[type].before ? types[type].before + '\n\n' : '') +
         '```\n' +
-        genNodeStructure(syntax.structure[type].docs) +
+        genNodeStructure(lexer.structure[type].docs) +
         '\n```' +
         (types[type].after ?  '\n\n' + types[type].after : '') +
         '\n'
