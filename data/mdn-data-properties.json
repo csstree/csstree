@@ -1,6 +1,6 @@
 {
   "--*": {
-    "syntax": "&lt;declaration-value&gt;",
+    "syntax": "<declaration-value>",
     "media": "all",
     "inherited": true,
     "animationType": "discrete",
@@ -23,7 +23,7 @@
     "groups": [
       "Microsoft Extensions"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "nonReplacedBlockAndInlineBlockElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -46,7 +46,7 @@
     "status": "nonstandard"
   },
   "-moz-binding": {
-    "syntax": "&lt;url&gt; | none",
+    "syntax": "<url> | none",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -54,14 +54,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsExceptGeneratedContentOrPseudoElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-border-bottom-colors": {
-    "syntax": "[ &lt;color&gt; ]* &lt;color&gt; | none",
+    "syntax": "[ <color> ]* <color> | none",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -69,14 +69,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-border-left-colors": {
-    "syntax": "[ &lt;color&gt; ]* &lt;color&gt; | none",
+    "syntax": "[ <color> ]* <color> | none",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -84,14 +84,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-border-right-colors": {
-    "syntax": "[ &lt;color&gt; ]* &lt;color&gt; | none",
+    "syntax": "[ <color> ]* <color> | none",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -99,14 +99,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-border-top-colors": {
-    "syntax": "[ &lt;color&gt; ]* &lt;color&gt; | none",
+    "syntax": "[ <color> ]* <color> | none",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -114,7 +114,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -129,14 +129,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>content-box</code>",
+    "initial": "content-box",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-force-broken-image-icon": {
-    "syntax": "&lt;integer&gt;",
+    "syntax": "<integer>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -144,14 +144,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "images",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-image-region": {
-    "syntax": "&lt;shape&gt;",
+    "syntax": "<shape> | auto",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -159,7 +159,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "xulImageElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -174,14 +174,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>inline</code>",
+    "initial": "inline",
     "appliesto": "anyElementEffectOnProgressAndMeter",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-outline-radius": {
-    "syntax": "&lt;outline-radius&gt;{1,4} [ / &lt;outline-radius&gt;{1,4} ]?",
+    "syntax": "<outline-radius>{1,4} [ / <outline-radius>{1,4} ]?",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -216,7 +216,7 @@
     "status": "nonstandard"
   },
   "-moz-outline-radius-bottomleft": {
-    "syntax": "&lt;outline-radius&gt;",
+    "syntax": "<outline-radius>",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -224,14 +224,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-outline-radius-bottomright": {
-    "syntax": "&lt;outline-radius&gt;",
+    "syntax": "<outline-radius>",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -239,14 +239,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-outline-radius-topleft": {
-    "syntax": "&lt;outline-radius&gt;",
+    "syntax": "<outline-radius>",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -254,14 +254,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-outline-radius-topright": {
-    "syntax": "&lt;outline-radius&gt;",
+    "syntax": "<outline-radius>",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -269,7 +269,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -284,7 +284,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>stretch-to-fit</code>",
+    "initial": "stretch-to-fit",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -299,7 +299,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -314,14 +314,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-moz-user-input": {
-    "syntax": "none | enabled | disabled",
+    "syntax": "auto | none | enabled | disabled",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -329,7 +329,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -344,7 +344,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>read-only</code>",
+    "initial": "read-only",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -359,14 +359,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>default</code>",
+    "initial": "default",
     "appliesto": "allElementsCreatingNativeWindows",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-border-before": {
-    "syntax": "&lt;'border-width'&gt; || &lt;'border-style'&gt; || &lt;'color'&gt;",
+    "syntax": "<'border-width'> || <'border-style'> || <'color'>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -391,7 +391,7 @@
     "status": "nonstandard"
   },
   "-webkit-border-before-color": {
-    "syntax": "&lt;'color'&gt;",
+    "syntax": "<'color'>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -399,14 +399,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>currentcolor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "computedColor",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-border-before-style": {
-    "syntax": "&lt;'border-style'&gt;",
+    "syntax": "<'border-style'>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -414,14 +414,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-border-before-width": {
-    "syntax": "&lt;'border-width'&gt;",
+    "syntax": "<'border-width'>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -429,14 +429,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthZeroIfBorderStyleNoneOrHidden",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-box-reflect": {
-    "syntax": "[ above | below | right | left ]? &lt;length&gt;? &lt;image&gt;?",
+    "syntax": "[ above | below | right | left ]? <length>? <image>?",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -444,14 +444,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-mask": {
-    "syntax": "&lt;mask-image&gt; [ &lt;mask-repeat&gt; || &lt;mask-attachment&gt; || &lt;mask-position&gt; || &lt;mask-origin&gt; || &lt;mask-clip&gt; ]*",
+    "syntax": "<mask-image> [ <mask-repeat> || <mask-attachment> || <mask-position> || <mask-origin> || <mask-clip> ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -480,7 +480,7 @@
     "status": "nonstandard"
   },
   "-webkit-mask-attachment": {
-    "syntax": "&lt;attachment&gt; [, &lt;attachment&gt; ]*",
+    "syntax": "<attachment> [, <attachment> ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -488,14 +488,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>scroll</code>",
+    "initial": "scroll",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-mask-clip": {
-    "syntax": "&lt;clip-style&gt; [, &lt;clip-style&gt; ]*",
+    "syntax": "<clip-style> [, <clip-style> ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -503,14 +503,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>border</code>",
+    "initial": "border",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-mask-composite": {
-    "syntax": "&lt;composite-style&gt; [, &lt;composite-style&gt; ]*",
+    "syntax": "<composite-style> [, <composite-style> ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -518,14 +518,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>source-over</code>",
+    "initial": "source-over",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-mask-image": {
-    "syntax": "&lt;mask-image&gt; [, &lt;mask-image&gt; ]*",
+    "syntax": "<mask-image> [, <mask-image> ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -533,7 +533,7 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "absoluteURIOrNone",
     "order": "orderOfAppearance",
@@ -548,14 +548,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>padding</code>",
+    "initial": "padding",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-mask-position": {
-    "syntax": "&lt;mask-position&gt;#",
+    "syntax": "<mask-position>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -563,14 +563,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>0% 0%</code>",
+    "initial": "0% 0%",
     "appliesto": "allElements",
     "computed": "absoluteLengthOrPercentage",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-mask-position-x": {
-    "syntax": "[ &lt;length-percentage&gt; | left | center | right ]#",
+    "syntax": "[ <length-percentage> | left | center | right ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -578,14 +578,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>0%</code>",
+    "initial": "0%",
     "appliesto": "allElements",
     "computed": "absoluteLengthOrPercentage",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-mask-position-y": {
-    "syntax": "[ &lt;length-percentage&gt; | top | center | bottom ]#",
+    "syntax": "[ <length-percentage> | top | center | bottom ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -593,14 +593,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>0%</code>",
+    "initial": "0%",
     "appliesto": "allElements",
     "computed": "absoluteLengthOrPercentage",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-mask-repeat": {
-    "syntax": "&lt;repeat-style&gt; [, &lt;repeat-style&gt; ]*",
+    "syntax": "<repeat-style> [, <repeat-style> ]*",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -608,7 +608,7 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>repeat</code>",
+    "initial": "repeat",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -623,7 +623,7 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>repeat</code>",
+    "initial": "repeat",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -638,14 +638,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>repeat</code>",
+    "initial": "repeat",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
     "status": "nonstandard"
   },
   "-webkit-tap-highlight-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -653,14 +653,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>black</code>",
+    "initial": "black",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-text-fill-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": true,
     "animationType": "color",
@@ -668,17 +668,18 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>currentcolor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
-    "computed": "asSpecified",
+    "computed": "'color'",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-text-stroke": {
-    "syntax": "&lt;length&gt; &lt;color&gt;",
+    "syntax": "<length> || <color>",
     "media": "visual",
     "inherited": true,
     "animationType": [
+      "-webkit-text-stroke-width",
       "-webkit-text-stroke-color"
     ],
     "percentages": "no",
@@ -690,12 +691,15 @@
       "-webkit-text-stroke-color"
     ],
     "appliesto": "allElements",
-    "computed": "asSpecified",
-    "order": "uniqueOrder",
+    "computed": [
+      "-webkit-text-stroke-width",
+      "-webkit-text-stroke-color"
+    ],
+    "order": "canonicalOrder",
     "status": "nonstandard"
   },
   "-webkit-text-stroke-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": true,
     "animationType": "color",
@@ -703,14 +707,14 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>rgb(0, 0, 0)</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
-    "computed": "asSpecified",
+    "computed": "'color'",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "-webkit-text-stroke-width": {
-    "syntax": "&lt;length&gt;",
+    "syntax": "<length>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -718,9 +722,9 @@
     "groups": [
       "WebKit Extensions"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
-    "computed": "asSpecified",
+    "computed": "absoluteLength",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
@@ -732,7 +736,7 @@
     "status": "nonstandard"
   },
   "align-content": {
-    "syntax": "flex-start | flex-end | center | space-between | space-around | stretch",
+    "syntax": "flex-start | flex-end | center | space-between | space-around | space-evenly | stretch",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -740,7 +744,7 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>stretch</code>",
+    "initial": "stretch",
     "appliesto": "multilineFlexContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -755,7 +759,7 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>stretch</code>",
+    "initial": "stretch",
     "appliesto": "flexContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -770,7 +774,7 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "flexItemsAndInFlowPseudos",
     "computed": "autoOnAbsolutelyPositionedElementsValueOfAlignItemsOnParent",
     "order": "uniqueOrder",
@@ -792,7 +796,7 @@
     "status": "standard"
   },
   "animation": {
-    "syntax": "&lt;single-animation&gt;#",
+    "syntax": "<single-animation>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -825,7 +829,7 @@
     "status": "standard"
   },
   "animation-delay": {
-    "syntax": "&lt;time&gt;#",
+    "syntax": "<time>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -833,14 +837,14 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>0s</code>",
+    "initial": "0s",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "animation-direction": {
-    "syntax": "&lt;single-animation-direction&gt;#",
+    "syntax": "<single-animation-direction>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -848,14 +852,14 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "animation-duration": {
-    "syntax": "&lt;time&gt;#",
+    "syntax": "<time>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -863,14 +867,14 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>0s</code>",
+    "initial": "0s",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "animation-fill-mode": {
-    "syntax": "&lt;single-animation-fill-mode&gt;#",
+    "syntax": "<single-animation-fill-mode>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -878,14 +882,14 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "animation-iteration-count": {
-    "syntax": "&lt;single-animation-iteration-count&gt;#",
+    "syntax": "<single-animation-iteration-count>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -893,14 +897,14 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>1</code>",
+    "initial": "1",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "animation-name": {
-    "syntax": "[ none | &lt;keyframes-name&gt; ]#",
+    "syntax": "[ none | <keyframes-name> ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -908,14 +912,14 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "animation-play-state": {
-    "syntax": "&lt;single-animation-play-state&gt;#",
+    "syntax": "<single-animation-play-state>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -923,14 +927,14 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>running</code>",
+    "initial": "running",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "animation-timing-function": {
-    "syntax": "&lt;single-timing-function&gt;#",
+    "syntax": "<single-timing-function>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -938,7 +942,7 @@
     "groups": [
       "CSS Animations"
     ],
-    "initial": "<code>ease</code>",
+    "initial": "ease",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -960,7 +964,7 @@
     "status": "experimental"
   },
   "azimuth": {
-    "syntax": "&lt;angle&gt; | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards",
+    "syntax": "<angle> | [ [ left-side | far-left | left | center-left | center | center-right | right | far-right | right-side ] || behind ] | leftwards | rightwards",
     "media": "aural",
     "inherited": true,
     "animationType": "discrete",
@@ -968,14 +972,14 @@
     "groups": [
       "CSS Speech"
     ],
-    "initial": "<code>center</code>",
+    "initial": "center",
     "appliesto": "allElements",
     "computed": "normalizedAngle",
     "order": "orderOfAppearance",
     "status": "obsolete"
   },
   "backdrop-filter": {
-    "syntax": "none | &lt;filter-function-list&gt;",
+    "syntax": "none | <filter-function-list>",
     "media": "visual",
     "inherited": false,
     "animationType": "filterList",
@@ -983,7 +987,7 @@
     "groups": [
       "Filter Effects"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -998,14 +1002,14 @@
     "groups": [
       "CSS Transforms"
     ],
-    "initial": "<code>visible</code>",
+    "initial": "visible",
     "appliesto": "transformableElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "background": {
-    "syntax": "[ &lt;bg-layer&gt; , ]* &lt;final-bg-layer&gt;",
+    "syntax": "[ <bg-layer> , ]* <final-bg-layer>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -1054,7 +1058,7 @@
     "status": "standard"
   },
   "background-attachment": {
-    "syntax": "&lt;attachment&gt;#",
+    "syntax": "<attachment>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1062,7 +1066,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>scroll</code>",
+    "initial": "scroll",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -1074,7 +1078,7 @@
     "status": "standard"
   },
   "background-blend-mode": {
-    "syntax": "&lt;blend-mode&gt;#",
+    "syntax": "<blend-mode>#",
     "media": "none",
     "inherited": false,
     "animationType": "discrete",
@@ -1082,7 +1086,7 @@
     "groups": [
       "Compositing and Blending"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElementsSVGContainerGraphicsAndGraphicsReferencingElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -1094,7 +1098,7 @@
     "status": "standard"
   },
   "background-clip": {
-    "syntax": "&lt;box&gt;#",
+    "syntax": "<box>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1102,7 +1106,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>border-box</code>",
+    "initial": "border-box",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -1114,7 +1118,7 @@
     "status": "standard"
   },
   "background-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -1122,7 +1126,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>transparent</code>",
+    "initial": "transparent",
     "appliesto": "allElements",
     "computed": "'color'",
     "order": "uniqueOrder",
@@ -1134,7 +1138,7 @@
     "status": "standard"
   },
   "background-image": {
-    "syntax": "&lt;bg-image&gt;#",
+    "syntax": "<bg-image>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1142,7 +1146,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecifiedURIsAbsolute",
     "order": "uniqueOrder",
@@ -1154,7 +1158,7 @@
     "status": "standard"
   },
   "background-origin": {
-    "syntax": "&lt;box&gt;#",
+    "syntax": "<box>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1162,7 +1166,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>padding-box</code>",
+    "initial": "padding-box",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -1174,7 +1178,7 @@
     "status": "standard"
   },
   "background-position": {
-    "syntax": "&lt;position&gt;#",
+    "syntax": "<position>#",
     "media": "visual",
     "inherited": false,
     "animationType": "repeatableList simpleList lpc",
@@ -1182,7 +1186,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>0% 0%</code>",
+    "initial": "0% 0%",
     "appliesto": "allElements",
     "computed": "listEachItemTwoKeywordsOriginOffsets",
     "order": "uniqueOrder",
@@ -1194,7 +1198,7 @@
     "status": "standard"
   },
   "background-position-x": {
-    "syntax": "[ center | [ left | right | x-start | x-end ]? &lt;length-percentage&gt;? ]#",
+    "syntax": "[ center | [ left | right | x-start | x-end ]? <length-percentage>? ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1202,14 +1206,14 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>left</code>",
+    "initial": "left",
     "appliesto": "allElements",
     "computed": "listEachItemConsistingOfAbsoluteLengthPercentageAndOrigin",
     "order": "uniqueOrder",
     "status": "experimental"
   },
   "background-position-y": {
-    "syntax": "[ center | [ top | bottom | y-start | y-end ]? &lt;length-percentage&gt;? ]#",
+    "syntax": "[ center | [ top | bottom | y-start | y-end ]? <length-percentage>? ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1217,14 +1221,14 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>top</code>",
+    "initial": "top",
     "appliesto": "allElements",
     "computed": "listEachItemConsistingOfAbsoluteLengthPercentageAndOrigin",
     "order": "uniqueOrder",
     "status": "experimental"
   },
   "background-repeat": {
-    "syntax": "&lt;repeat-style&gt;#",
+    "syntax": "<repeat-style>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1232,7 +1236,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>repeat</code>",
+    "initial": "repeat",
     "appliesto": "allElements",
     "computed": "listEachItemHasTwoKeywordsOnePerDimension",
     "order": "uniqueOrder",
@@ -1244,7 +1248,7 @@
     "status": "standard"
   },
   "background-size": {
-    "syntax": "&lt;bg-size&gt;#",
+    "syntax": "<bg-size>#",
     "media": "visual",
     "inherited": false,
     "animationType": "repeatableList simpleList lpc keywords",
@@ -1252,7 +1256,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>auto auto</code>",
+    "initial": "auto auto",
     "appliesto": "allElements",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
@@ -1264,7 +1268,7 @@
     "status": "standard"
   },
   "block-size": {
-    "syntax": "&lt;'width'&gt;",
+    "syntax": "<'width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1272,14 +1276,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "sameAsWidthAndHeight",
     "computed": "sameAsWidthAndHeight",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border": {
-    "syntax": "&lt;br-width&gt; || &lt;br-style&gt; || &lt;color&gt;",
+    "syntax": "<br-width> || <br-style> || <color>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -1309,7 +1313,7 @@
     "status": "standard"
   },
   "border-block-end": {
-    "syntax": "&lt;'border-width'&gt; || &lt;'border-style'&gt; || &lt;'color'&gt;",
+    "syntax": "<'border-width'> || <'border-style'> || <'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1332,7 +1336,7 @@
     "status": "standard"
   },
   "border-block-end-color": {
-    "syntax": "&lt;'color'&gt;",
+    "syntax": "<'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1340,14 +1344,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>currentcolor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "computedColor",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-block-end-style": {
-    "syntax": "&lt;'border-style'&gt;",
+    "syntax": "<'border-style'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1355,14 +1359,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-block-end-width": {
-    "syntax": "&lt;'border-width'&gt;",
+    "syntax": "<'border-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1370,14 +1374,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthZeroIfBorderStyleNoneOrHidden",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-block-start": {
-    "syntax": "&lt;'border-width'&gt; || &lt;'border-style'&gt; || &lt;'color'&gt;",
+    "syntax": "<'border-width'> || <'border-style'> || <'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1400,7 +1404,7 @@
     "status": "standard"
   },
   "border-block-start-color": {
-    "syntax": "&lt;'color'&gt;",
+    "syntax": "<'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1408,14 +1412,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>currentcolor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "computedColor",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-block-start-style": {
-    "syntax": "&lt;'border-style'&gt;",
+    "syntax": "<'border-style'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1423,14 +1427,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-block-start-width": {
-    "syntax": "&lt;'border-width'&gt;",
+    "syntax": "<'border-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1438,14 +1442,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthZeroIfBorderStyleNoneOrHidden",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-bottom": {
-    "syntax": "&lt;br-width&gt; || &lt;br-style&gt; || &lt;color&gt;",
+    "syntax": "<br-width> || <br-style> || <color>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -1475,7 +1479,7 @@
     "status": "standard"
   },
   "border-bottom-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -1483,7 +1487,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>currentColor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "'color'",
     "order": "uniqueOrder",
@@ -1493,7 +1497,7 @@
     "status": "standard"
   },
   "border-bottom-left-radius": {
-    "syntax": "&lt;length-percentage&gt;{1,2}",
+    "syntax": "<length-percentage>{1,2}",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -1501,7 +1505,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsUAsNotRequiredWhenCollapse",
     "computed": "twoAbsoluteLengthOrPercentages",
     "order": "uniqueOrder",
@@ -1511,7 +1515,7 @@
     "status": "standard"
   },
   "border-bottom-right-radius": {
-    "syntax": "&lt;length-percentage&gt;{1,2}",
+    "syntax": "<length-percentage>{1,2}",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -1519,7 +1523,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsUAsNotRequiredWhenCollapse",
     "computed": "twoAbsoluteLengthOrPercentages",
     "order": "uniqueOrder",
@@ -1529,7 +1533,7 @@
     "status": "standard"
   },
   "border-bottom-style": {
-    "syntax": "&lt;br-style&gt;",
+    "syntax": "<br-style>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1537,7 +1541,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -1547,7 +1551,7 @@
     "status": "standard"
   },
   "border-bottom-width": {
-    "syntax": "&lt;br-width&gt;",
+    "syntax": "<br-width>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -1555,7 +1559,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthOr0IfBorderBottomStyleNoneOrHidden",
     "order": "uniqueOrder",
@@ -1573,14 +1577,14 @@
     "groups": [
       "CSS Table"
     ],
-    "initial": "<code>separate</code>",
+    "initial": "separate",
     "appliesto": "tableElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-color": {
-    "syntax": "&lt;color&gt;{1,4}",
+    "syntax": "<color>{1,4}",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -1613,7 +1617,7 @@
     "status": "standard"
   },
   "border-image": {
-    "syntax": "&lt;'border-image-source'&gt; || &lt;'border-image-slice'&gt; [ / &lt;'border-image-width'&gt; | / &lt;'border-image-width'&gt;? / &lt;'border-image-outset'&gt; ]? || &lt;'border-image-repeat'&gt;",
+    "syntax": "<'border-image-source'> || <'border-image-slice'> [ / <'border-image-width'> | / <'border-image-width'>? / <'border-image-outset'> ]? || <'border-image-repeat'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1652,7 +1656,7 @@
     "status": "standard"
   },
   "border-image-outset": {
-    "syntax": "[ &lt;length&gt; | &lt;number&gt; ]{1,4}",
+    "syntax": "[ <length> | <number> ]{1,4}",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1660,7 +1664,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>0s</code>",
+    "initial": "0s",
     "appliesto": "allElementsExceptTableElementsWhenCollapse",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
@@ -1678,7 +1682,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>stretch</code>",
+    "initial": "stretch",
     "appliesto": "allElementsExceptTableElementsWhenCollapse",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -1688,7 +1692,7 @@
     "status": "standard"
   },
   "border-image-slice": {
-    "syntax": "&lt;number-percentage&gt;{1,4} &amp;&amp; fill?",
+    "syntax": "<number-percentage>{1,4} && fill?",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1696,7 +1700,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>100%</code>",
+    "initial": "100%",
     "appliesto": "allElementsExceptTableElementsWhenCollapse",
     "computed": "oneToFourPercentagesOrAbsoluteLengthsPlusFill",
     "order": "percentagesOrLengthsFollowedByFill",
@@ -1706,7 +1710,7 @@
     "status": "standard"
   },
   "border-image-source": {
-    "syntax": "none | &lt;image&gt;",
+    "syntax": "none | <image>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1714,7 +1718,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsExceptTableElementsWhenCollapse",
     "computed": "noneOrImageWithAbsoluteURI",
     "order": "uniqueOrder",
@@ -1724,7 +1728,7 @@
     "status": "standard"
   },
   "border-image-width": {
-    "syntax": "[ &lt;length-percentage&gt; | &lt;number&gt; | auto ]{1,4}",
+    "syntax": "[ <length-percentage> | <number> | auto ]{1,4}",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1732,7 +1736,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>1</code>",
+    "initial": "1",
     "appliesto": "allElementsExceptTableElementsWhenBorderCollapseCollapse",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
@@ -1742,7 +1746,7 @@
     "status": "standard"
   },
   "border-inline-end": {
-    "syntax": "&lt;'border-width'&gt; || &lt;'border-style'&gt; || &lt;'color'&gt;",
+    "syntax": "<'border-width'> || <'border-style'> || <'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1765,7 +1769,7 @@
     "status": "standard"
   },
   "border-inline-end-color": {
-    "syntax": "&lt;'color'&gt;",
+    "syntax": "<'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1773,14 +1777,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>currentcolor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "computedColor",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-inline-end-style": {
-    "syntax": "&lt;'border-style'&gt;",
+    "syntax": "<'border-style'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1788,14 +1792,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-inline-end-width": {
-    "syntax": "&lt;'border-width'&gt;",
+    "syntax": "<'border-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1803,14 +1807,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthZeroIfBorderStyleNoneOrHidden",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-inline-start": {
-    "syntax": "&lt;'border-width'&gt; || &lt;'border-style'&gt; || &lt;'color'&gt;",
+    "syntax": "<'border-width'> || <'border-style'> || <'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1833,7 +1837,7 @@
     "status": "standard"
   },
   "border-inline-start-color": {
-    "syntax": "&lt;'color'&gt;",
+    "syntax": "<'color'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1841,14 +1845,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>currentcolor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "computedColor",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-inline-start-style": {
-    "syntax": "&lt;'border-style'&gt;",
+    "syntax": "<'border-style'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1856,14 +1860,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-inline-start-width": {
-    "syntax": "&lt;'border-width'&gt;",
+    "syntax": "<'border-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1871,14 +1875,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthZeroIfBorderStyleNoneOrHidden",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-left": {
-    "syntax": "&lt;br-width&gt; || &lt;br-style&gt; || &lt;color&gt;",
+    "syntax": "<br-width> || <br-style> || <color>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -1908,7 +1912,7 @@
     "status": "standard"
   },
   "border-left-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -1916,7 +1920,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>currentColor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "'color'",
     "order": "uniqueOrder",
@@ -1926,7 +1930,7 @@
     "status": "standard"
   },
   "border-left-style": {
-    "syntax": "&lt;br-style&gt;",
+    "syntax": "<br-style>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -1934,7 +1938,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -1944,7 +1948,7 @@
     "status": "standard"
   },
   "border-left-width": {
-    "syntax": "&lt;br-width&gt;",
+    "syntax": "<br-width>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -1952,7 +1956,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthOr0IfBorderLeftStyleNoneOrHidden",
     "order": "uniqueOrder",
@@ -1962,7 +1966,7 @@
     "status": "standard"
   },
   "border-radius": {
-    "syntax": "&lt;length-percentage&gt;{1,4} [ / &lt;length-percentage&gt;{1,4} ]?",
+    "syntax": "<length-percentage>{1,4} [ / <length-percentage>{1,4} ]?",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -1995,7 +1999,7 @@
     "status": "standard"
   },
   "border-right": {
-    "syntax": "&lt;br-width&gt; || &lt;br-style&gt; || &lt;color&gt;",
+    "syntax": "<br-width> || <br-style> || <color>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -2025,7 +2029,7 @@
     "status": "standard"
   },
   "border-right-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -2033,7 +2037,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>currentColor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "'color'",
     "order": "uniqueOrder",
@@ -2043,7 +2047,7 @@
     "status": "standard"
   },
   "border-right-style": {
-    "syntax": "&lt;br-style&gt;",
+    "syntax": "<br-style>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -2051,7 +2055,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2061,7 +2065,7 @@
     "status": "standard"
   },
   "border-right-width": {
-    "syntax": "&lt;br-width&gt;",
+    "syntax": "<br-width>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -2069,7 +2073,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthOr0IfBorderRightStyleNoneOrHidden",
     "order": "uniqueOrder",
@@ -2079,7 +2083,7 @@
     "status": "standard"
   },
   "border-spacing": {
-    "syntax": "&lt;length&gt; &lt;length&gt;?",
+    "syntax": "<length> <length>?",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -2087,14 +2091,14 @@
     "groups": [
       "CSS Table"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "tableElements",
     "computed": "twoAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "border-style": {
-    "syntax": "&lt;br-style&gt;{1,4}",
+    "syntax": "<br-style>{1,4}",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -2122,7 +2126,7 @@
     "status": "standard"
   },
   "border-top": {
-    "syntax": "&lt;br-width&gt; || &lt;br-style&gt; || &lt;color&gt;",
+    "syntax": "<br-width> || <br-style> || <color>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -2152,7 +2156,7 @@
     "status": "standard"
   },
   "border-top-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -2160,7 +2164,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>currentColor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "'color'",
     "order": "uniqueOrder",
@@ -2170,7 +2174,7 @@
     "status": "standard"
   },
   "border-top-left-radius": {
-    "syntax": "&lt;length-percentage&gt;{1,2}",
+    "syntax": "<length-percentage>{1,2}",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -2178,7 +2182,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsUAsNotRequiredWhenCollapse",
     "computed": "twoAbsoluteLengthOrPercentages",
     "order": "uniqueOrder",
@@ -2188,7 +2192,7 @@
     "status": "standard"
   },
   "border-top-right-radius": {
-    "syntax": "&lt;length-percentage&gt;{1,2}",
+    "syntax": "<length-percentage>{1,2}",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -2196,7 +2200,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsUAsNotRequiredWhenCollapse",
     "computed": "twoAbsoluteLengthOrPercentages",
     "order": "uniqueOrder",
@@ -2206,7 +2210,7 @@
     "status": "standard"
   },
   "border-top-style": {
-    "syntax": "&lt;br-style&gt;",
+    "syntax": "<br-style>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -2214,7 +2218,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2224,7 +2228,7 @@
     "status": "standard"
   },
   "border-top-width": {
-    "syntax": "&lt;br-width&gt;",
+    "syntax": "<br-width>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -2232,7 +2236,7 @@
     "groups": [
       "CSS Background and Borders"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLengthOr0IfBorderTopStyleNoneOrHidden",
     "order": "uniqueOrder",
@@ -2242,7 +2246,7 @@
     "status": "standard"
   },
   "border-width": {
-    "syntax": "&lt;br-width&gt;{1,4}",
+    "syntax": "<br-width>{1,4}",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -2275,7 +2279,7 @@
     "status": "standard"
   },
   "bottom": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -2283,7 +2287,7 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
@@ -2299,7 +2303,7 @@
       "Mozilla Extensions",
       "WebKit Extensions"
     ],
-    "initial": "<code>stretch</code>",
+    "initial": "stretch",
     "appliesto": "elementsWithDisplayBoxOrInlineBox",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2314,7 +2318,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>slice</code>",
+    "initial": "slice",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2330,14 +2334,14 @@
       "Mozilla Extensions",
       "WebKit Extensions"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "elementsWithDisplayBoxOrInlineBox",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "box-flex": {
-    "syntax": "&lt;number&gt;",
+    "syntax": "<number>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -2346,14 +2350,14 @@
       "Mozilla Extensions",
       "WebKit Extensions"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "directChildrenOfElementsWithDisplayMozBoxMozInlineBox",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "box-flex-group": {
-    "syntax": "&lt;integer&gt;",
+    "syntax": "<integer>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -2362,7 +2366,7 @@
       "Mozilla Extensions",
       "WebKit Extensions"
     ],
-    "initial": "<code>1</code>",
+    "initial": "1",
     "appliesto": "inFlowChildrenOfBoxElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2378,14 +2382,14 @@
       "Mozilla Extensions",
       "WebKit Extensions"
     ],
-    "initial": "<code>single</code>",
+    "initial": "single",
     "appliesto": "boxElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "box-ordinal-group": {
-    "syntax": "&lt;integer&gt;",
+    "syntax": "<integer>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -2394,7 +2398,7 @@
       "Mozilla Extensions",
       "WebKit Extensions"
     ],
-    "initial": "<code>1</code>",
+    "initial": "1",
     "appliesto": "childrenOfBoxElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2426,14 +2430,14 @@
       "Mozilla Extensions",
       "WebKit Extensions"
     ],
-    "initial": "<code>start</code>",
+    "initial": "start",
     "appliesto": "elementsWithDisplayMozBoxMozInlineBox",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "box-shadow": {
-    "syntax": "none | &lt;shadow&gt;#",
+    "syntax": "none | <shadow>#",
     "media": "visual",
     "inherited": false,
     "animationType": "shadowList",
@@ -2441,7 +2445,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "absoluteLengthsSpecifiedColorAsSpecified",
     "order": "uniqueOrder",
@@ -2459,7 +2463,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>content-box</code>",
+    "initial": "content-box",
     "appliesto": "allElementsAcceptingWidthOrHeight",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2474,7 +2478,7 @@
     "groups": [
       "CSS Display"
     ],
-    "initial": "<code>show</code>",
+    "initial": "show",
     "appliesto": "allElements",
     "computed": "seeProse",
     "order": "uniqueOrder",
@@ -2489,7 +2493,7 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "blockLevelElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2504,7 +2508,7 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "blockLevelElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2519,7 +2523,7 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "blockLevelElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2534,10 +2538,25 @@
     "groups": [
       "CSS Table"
     ],
-    "initial": "<code>top</code>",
+    "initial": "top",
     "appliesto": "tableCaptionElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
+    "status": "standard"
+  },
+  "caret-color": {
+    "syntax": "auto | <color>",
+    "media": "interactive",
+    "inherited": true,
+    "animationType": "color",
+    "percentages": "no",
+    "groups": [
+      "CSS User Interface"
+    ],
+    "initial": "auto",
+    "appliesto": "allElements",
+    "computed": "asAutoOrColor",
+    "order": "perGrammar",
     "status": "standard"
   },
   "clear": {
@@ -2549,14 +2568,14 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "blockLevelElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "clip": {
-    "syntax": "&lt;shape&gt; | auto",
+    "syntax": "<shape> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "rectangle",
@@ -2564,14 +2583,14 @@
     "groups": [
       "CSS Miscellaneous"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "absolutelyPositionedElements",
     "computed": "autoOrRectangle",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "clip-path": {
-    "syntax": "&lt;clip-source&gt; | [ &lt;basic-shape&gt; || &lt;geometry-box&gt; ] | none",
+    "syntax": "<clip-source> | [ <basic-shape> || <geometry-box> ] | none",
     "media": "visual",
     "inherited": false,
     "animationType": "basicShapeOtherwiseNo",
@@ -2579,14 +2598,14 @@
     "groups": [
       "CSS Miscellaneous"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecifiedURLsAbsolute",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": true,
     "animationType": "color",
@@ -2606,7 +2625,7 @@
     "status": "standard"
   },
   "column-count": {
-    "syntax": "&lt;number&gt; | auto",
+    "syntax": "<number> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "integer",
@@ -2614,7 +2633,7 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "nonReplacedBlockElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2629,14 +2648,14 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>balance</code>",
+    "initial": "balance",
     "appliesto": "multicolElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "column-gap": {
-    "syntax": "&lt;length&gt; | normal",
+    "syntax": "<length> | normal",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -2644,14 +2663,14 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "multicolElements",
     "computed": "absoluteLengthOrNormal",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "column-rule": {
-    "syntax": "&lt;'column-rule-width'&gt; || &lt;'column-rule-style'&gt; || &lt;'column-rule-color'&gt;",
+    "syntax": "<'column-rule-width'> || <'column-rule-style'> || <'column-rule-color'>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -2678,7 +2697,7 @@
     "status": "standard"
   },
   "column-rule-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -2686,14 +2705,14 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>currentColor</code>",
+    "initial": "currentcolor",
     "appliesto": "multicolElements",
     "computed": "'color'",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "column-rule-style": {
-    "syntax": "&lt;br-style&gt;",
+    "syntax": "<br-style>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -2701,14 +2720,14 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "multicolElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "column-rule-width": {
-    "syntax": "&lt;br-width&gt;",
+    "syntax": "<br-width>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -2716,7 +2735,7 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "multicolElements",
     "computed": "absoluteLength0IfColumnRuleStyleNoneOrHidden",
     "order": "uniqueOrder",
@@ -2731,14 +2750,14 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "inFlowBlockLevelElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "column-width": {
-    "syntax": "&lt;length&gt; | auto",
+    "syntax": "<length> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -2746,14 +2765,14 @@
     "groups": [
       "CSS Columns"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "nonReplacedBlockElements",
     "computed": "absoluteLengthZeroOrLarger",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "columns": {
-    "syntax": "&lt;'column-width'&gt; || &lt;'column-count'&gt;",
+    "syntax": "<'column-width'> || <'column-count'>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -2792,7 +2811,7 @@
     "status": "experimental"
   },
   "content": {
-    "syntax": "normal | none | [ &lt;string&gt; | &lt;url&gt; | &lt;counter&gt; | attr() | open-quote | close-quote | no-open-quote | no-close-quote ]+",
+    "syntax": "[ <image> , ]* [ normal | none | <content-list> ] [/ <string> ]?",
     "media": "all",
     "inherited": false,
     "animationType": "discrete",
@@ -2800,14 +2819,14 @@
     "groups": [
       "CSS Generated Content"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "beforeAndAfterPseudos",
     "computed": "normalOnElementsForPseudosNoneAbsoluteURIStringOrAsSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "counter-increment": {
-    "syntax": "[ &lt;custom-ident&gt; &lt;integer&gt;? ]+ | none",
+    "syntax": "[ <custom-ident> <integer>? ]+ | none",
     "media": "all",
     "inherited": false,
     "animationType": "discrete",
@@ -2815,14 +2834,14 @@
     "groups": [
       "CSS Lists and Counters"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "counter-reset": {
-    "syntax": "[ &lt;custom-ident&gt; &lt;integer&gt;? ]+ | none",
+    "syntax": "[ <custom-ident> <integer>? ]+ | none",
     "media": "all",
     "inherited": false,
     "animationType": "discrete",
@@ -2830,14 +2849,14 @@
     "groups": [
       "CSS Lists and Counters"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "cursor": {
-    "syntax": "[ [ &lt;url&gt; [ &lt;x&gt; &lt;y&gt; ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing ] ]",
+    "syntax": "[ [ <url> [ <x> <y> ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing ] ]",
     "media": "visual, interactive",
     "inherited": true,
     "animationType": "discrete",
@@ -2845,7 +2864,7 @@
     "groups": [
       "CSS User Interface"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecifiedURIsAbsolute",
     "order": "uniqueOrder",
@@ -2860,14 +2879,14 @@
     "groups": [
       "CSS Writing Modes"
     ],
-    "initial": "<code>ltr</code>",
+    "initial": "ltr",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "display": {
-    "syntax": "none | inline | block | list-item | inline-list-item | inline-block | inline-table | table | table-cell | table-column | table-column-group | table-footer-group | table-header-group | table-row | table-row-group | flex | inline-flex | grid | inline-grid | run-in | ruby | ruby-base | ruby-text | ruby-base-container | ruby-text-container | contents",
+    "syntax": "[ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>",
     "media": "all",
     "inherited": false,
     "animationType": "discrete",
@@ -2875,7 +2894,7 @@
     "groups": [
       "CSS Miscellaneous"
     ],
-    "initial": "<code>inline</code>",
+    "initial": "inline",
     "appliesto": "allElements",
     "computed": "asSpecifiedExceptPositionedFloatingAndRootElementsKeywordMaybeDifferent",
     "order": "uniqueOrder",
@@ -2890,7 +2909,7 @@
     "groups": [
       "CSS Display"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2905,7 +2924,7 @@
     "groups": [
       "CSS Display"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2920,7 +2939,7 @@
     "groups": [
       "CSS Display"
     ],
-    "initial": "<code>inline-level</code>",
+    "initial": "inline-level",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -2935,14 +2954,14 @@
     "groups": [
       "CSS Table"
     ],
-    "initial": "<code>show</code>",
+    "initial": "show",
     "appliesto": "tableCellElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "filter": {
-    "syntax": "none | &lt;filter-function-list&gt;",
+    "syntax": "none | <filter-function-list>",
     "media": "visual",
     "inherited": false,
     "animationType": "filterList",
@@ -2950,14 +2969,14 @@
     "groups": [
       "Filter Effects"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "flex": {
-    "syntax": "none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ]",
+    "syntax": "none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -2984,7 +3003,7 @@
     "status": "standard"
   },
   "flex-basis": {
-    "syntax": "content | &lt;'width'&gt;",
+    "syntax": "content | <'width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -2992,7 +3011,7 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "flexItemsAndInFlowPseudos",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "lengthOrPercentageBeforeKeywordIfBothPresent",
@@ -3007,14 +3026,14 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>row</code>",
+    "initial": "row",
     "appliesto": "flexContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "flex-flow": {
-    "syntax": "&lt;'flex-direction'&gt; || &lt;'flex-wrap'&gt;",
+    "syntax": "<'flex-direction'> || <'flex-wrap'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3035,7 +3054,7 @@
     "status": "standard"
   },
   "flex-grow": {
-    "syntax": "&lt;number&gt;",
+    "syntax": "<number>",
     "media": "visual",
     "inherited": false,
     "animationType": "number",
@@ -3043,14 +3062,14 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "flexItemsAndInFlowPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "flex-shrink": {
-    "syntax": "&lt;number&gt;",
+    "syntax": "<number>",
     "media": "visual",
     "inherited": false,
     "animationType": "number",
@@ -3058,7 +3077,7 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>1</code>",
+    "initial": "1",
     "appliesto": "flexItemsAndInFlowPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3073,7 +3092,7 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>nowrap</code>",
+    "initial": "nowrap",
     "appliesto": "flexContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3088,14 +3107,14 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsNoEffectIfDisplayNone",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "font": {
-    "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar",
+    "syntax": "[ [ <'font-style'> || <font-variant-css21> || <'font-weight'> || <'font-stretch'> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'> ] | caption | icon | menu | message-box | small-caption | status-bar",
     "media": "visual",
     "inherited": true,
     "animationType": [
@@ -3142,7 +3161,7 @@
     "status": "standard"
   },
   "font-family": {
-    "syntax": "[ &lt;family-name&gt; | &lt;generic-family&gt; ]#",
+    "syntax": "[ <family-name> | <generic-family> ]#",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3162,7 +3181,7 @@
     "status": "standard"
   },
   "font-feature-settings": {
-    "syntax": "normal | &lt;feature-tag-value&gt;#",
+    "syntax": "normal | <feature-tag-value>#",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3170,7 +3189,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3190,7 +3209,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3202,7 +3221,7 @@
     "status": "standard"
   },
   "font-language-override": {
-    "syntax": "normal | &lt;string&gt;",
+    "syntax": "normal | <string>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3210,7 +3229,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3221,8 +3240,28 @@
     ],
     "status": "standard"
   },
+  "font-variation-settings": {
+    "syntax": "normal | [ <string> <number> ]#",
+    "media": "visual",
+    "inherited": true,
+    "animationType": "asTransform",
+    "percentages": "no",
+    "groups": [
+      "CSS Fonts"
+    ],
+    "initial": "normal",
+    "appliesto": "allElements",
+    "computed": "asSpecified",
+    "order": "perGrammar",
+    "alsoAppliesTo": [
+      "::first-letter",
+      "::first-line",
+      "::placeholder"
+    ],
+    "status": "experimental"
+  },
   "font-size": {
-    "syntax": "&lt;absolute-size&gt; | &lt;relative-size&gt; | &lt;length-percentage&gt;",
+    "syntax": "<absolute-size> | <relative-size> | <length-percentage>",
     "media": "visual",
     "inherited": true,
     "animationType": "length",
@@ -3230,7 +3269,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
@@ -3242,7 +3281,7 @@
     "status": "standard"
   },
   "font-size-adjust": {
-    "syntax": "none | &lt;number&gt;",
+    "syntax": "none | <number>",
     "media": "visual",
     "inherited": true,
     "animationType": "number",
@@ -3250,7 +3289,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3270,7 +3309,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3290,7 +3329,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3310,7 +3349,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>weight style</code>",
+    "initial": "weight style",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -3322,7 +3361,7 @@
     "status": "standard"
   },
   "font-variant": {
-    "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; || stylistic(&nbsp;&lt;feature-value-name&gt;&nbsp;) || historical-forms || styleset(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || character-variant(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || swash(&nbsp;&lt;feature-value-name&gt;&nbsp;) || ornaments(&nbsp;&lt;feature-value-name&gt;&nbsp;) || annotation(&nbsp;&lt;feature-value-name&gt;&nbsp;) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero || &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]",
+    "syntax": "normal | none | [ <common-lig-values> || <discretionary-lig-values> || <historical-lig-values> || <contextual-alt-values> || stylistic( <feature-value-name> ) || historical-forms || styleset( <feature-value-name># ) || character-variant( <feature-value-name># ) || swash( <feature-value-name> ) || ornaments( <feature-value-name> ) || annotation( <feature-value-name> ) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || <numeric-figure-values> || <numeric-spacing-values> || <numeric-fraction-values> || ordinal || slashed-zero || <east-asian-variant-values> || <east-asian-width-values> || ruby ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3330,7 +3369,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3342,7 +3381,7 @@
     "status": "standard"
   },
   "font-variant-alternates": {
-    "syntax": "normal | [ stylistic(&nbsp;&lt;feature-value-name&gt;&nbsp;) || historical-forms || styleset(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || character-variant(&nbsp;&lt;feature-value-name&gt;#&nbsp;) || swash(&nbsp;&lt;feature-value-name&gt;&nbsp;) || ornaments(&nbsp;&lt;feature-value-name&gt;&nbsp;) || annotation(&nbsp;&lt;feature-value-name&gt;&nbsp;) ]",
+    "syntax": "normal | [ stylistic( <feature-value-name> ) || historical-forms || styleset( <feature-value-name># ) || character-variant( <feature-value-name># ) || swash( <feature-value-name> ) || ornaments( <feature-value-name> ) || annotation( <feature-value-name> ) ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3350,7 +3389,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -3370,7 +3409,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3382,7 +3421,7 @@
     "status": "standard"
   },
   "font-variant-east-asian": {
-    "syntax": "normal | [ &lt;east-asian-variant-values&gt; || &lt;east-asian-width-values&gt; || ruby ]",
+    "syntax": "normal | [ <east-asian-variant-values> || <east-asian-width-values> || ruby ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3390,7 +3429,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -3402,7 +3441,7 @@
     "status": "standard"
   },
   "font-variant-ligatures": {
-    "syntax": "normal | none | [ &lt;common-lig-values&gt; || &lt;discretionary-lig-values&gt; || &lt;historical-lig-values&gt; || &lt;contextual-alt-values&gt; ]",
+    "syntax": "normal | none | [ <common-lig-values> || <discretionary-lig-values> || <historical-lig-values> || <contextual-alt-values> ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3410,7 +3449,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -3422,7 +3461,7 @@
     "status": "standard"
   },
   "font-variant-numeric": {
-    "syntax": "normal | [ &lt;numeric-figure-values&gt; || &lt;numeric-spacing-values&gt; || &lt;numeric-fraction-values&gt; || ordinal || slashed-zero ]",
+    "syntax": "normal | [ <numeric-figure-values> || <numeric-spacing-values> || <numeric-fraction-values> || ordinal || slashed-zero ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3430,7 +3469,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -3450,7 +3489,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3470,7 +3509,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "keywordOrNumericalValueBolderLighterTransformedToRealValue",
     "order": "uniqueOrder",
@@ -3482,7 +3521,7 @@
     "status": "standard"
   },
   "grid": {
-    "syntax": "&lt;'grid-template'&gt; | &lt;'grid-template-rows'&gt; / [ auto-flow && dense? ] &lt;'grid-auto-columns'&gt;? | [ auto-flow && dense? ] &lt;'grid-auto-rows'&gt;? / &lt;'grid-template-columns'&gt;",
+    "syntax": "<'grid-template'> | <'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>? | [ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3520,7 +3559,7 @@
     "status": "standard"
   },
   "grid-area": {
-    "syntax": "&lt;grid-line&gt; [ / &lt;grid-line&gt; ]{0,3}",
+    "syntax": "<grid-line> [ / <grid-line> ]{0,3}",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3545,7 +3584,7 @@
     "status": "standard"
   },
   "grid-auto-columns": {
-    "syntax": "&lt;track-size&gt;+",
+    "syntax": "<track-size>+",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3553,7 +3592,7 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "gridContainers",
     "computed": "seeGridTemplateRowsColumns",
     "order": "uniqueOrder",
@@ -3568,14 +3607,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>row</code>",
+    "initial": "row",
     "appliesto": "gridContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-auto-rows": {
-    "syntax": "&lt;track-size&gt;+",
+    "syntax": "<track-size>+",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3583,14 +3622,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "gridContainers",
     "computed": "seeGridTemplateRowsColumns",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-column": {
-    "syntax": "&lt;grid-line&gt; [ / &lt;grid-line&gt; ]?",
+    "syntax": "<grid-line> [ / <grid-line> ]?",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3611,7 +3650,7 @@
     "status": "standard"
   },
   "grid-column-end": {
-    "syntax": "&lt;grid-line&gt;",
+    "syntax": "<grid-line>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3619,14 +3658,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "gridItemsAndBoxesWithinGridContainer",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-column-gap": {
-    "syntax": "&lt;length-percentage&gt;",
+    "syntax": "<length-percentage>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -3634,14 +3673,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "gridContainers",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-column-start": {
-    "syntax": "&lt;grid-line&gt;",
+    "syntax": "<grid-line>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3649,14 +3688,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "gridItemsAndBoxesWithinGridContainer",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-gap": {
-    "syntax": "&lt;'grid-row-gap'&gt; &lt;'grid-column-gap'&gt;?",
+    "syntax": "<'grid-row-gap'> <'grid-column-gap'>?",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -3680,7 +3719,7 @@
     "status": "standard"
   },
   "grid-row": {
-    "syntax": "&lt;grid-line&gt; [ / &lt;grid-line&gt; ]?",
+    "syntax": "<grid-line> [ / <grid-line> ]?",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3701,7 +3740,7 @@
     "status": "standard"
   },
   "grid-row-end": {
-    "syntax": "&lt;grid-line&gt;",
+    "syntax": "<grid-line>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3709,14 +3748,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "gridItemsAndBoxesWithinGridContainer",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-row-gap": {
-    "syntax": "&lt;length-percentage&gt;",
+    "syntax": "<length-percentage>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -3724,14 +3763,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "gridContainers",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-row-start": {
-    "syntax": "&lt;grid-line&gt;",
+    "syntax": "<grid-line>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3739,14 +3778,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "gridItemsAndBoxesWithinGridContainer",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-template": {
-    "syntax": "none | [ &lt;'grid-template-rows'&gt; / &lt;'grid-template-columns'&gt; ] | [ &lt;line-names&gt;? &lt;string&gt; &lt;track-size&gt;? &lt;line-names&gt;? ]+ [ / &lt;explicit-track-list&gt; ]?",
+    "syntax": "none | [ <'grid-template-rows'> / <'grid-template-columns'> ] | [ <line-names>? <string> <track-size>? <line-names>? ]+ [ / <explicit-track-list> ]?",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3772,7 +3811,7 @@
     "status": "standard"
   },
   "grid-template-areas": {
-    "syntax": "none | &lt;string&gt;+",
+    "syntax": "none | <string>+",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3780,14 +3819,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "gridContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-template-columns": {
-    "syntax": "none | &lt;track-list&gt; | &lt;auto-track-list&gt;",
+    "syntax": "none | <track-list> | <auto-track-list>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3795,14 +3834,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "gridContainers",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "grid-template-rows": {
-    "syntax": "none | &lt;track-list&gt; | &lt;auto-track-list&gt;",
+    "syntax": "none | <track-list> | <auto-track-list>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3810,14 +3849,14 @@
     "groups": [
       "CSS Grid Layout"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "gridContainers",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "height": {
-    "syntax": "[ &lt;length&gt; | &lt;percentage&gt; ] &amp;&amp; [ border-box | content-box ]? | available | min-content | max-content | fit-content | auto",
+    "syntax": "[ <length> | <percentage> ] && [ border-box | content-box ]? | available | min-content | max-content | fit-content | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -3825,7 +3864,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElementsButNonReplacedAndTableColumns",
     "computed": "percentageAutoOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -3840,14 +3879,14 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>manual</code>",
+    "initial": "manual",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "image-orientation": {
-    "syntax": "from-image | &lt;angle&gt; | [ &lt;angle&gt;? flip ]",
+    "syntax": "from-image | <angle> | [ <angle>? flip ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3855,7 +3894,7 @@
     "groups": [
       "CSS Images"
     ],
-    "initial": "<code>0deg</code>",
+    "initial": "0deg",
     "appliesto": "allElements",
     "computed": "angleRoundedToNextQuarter",
     "order": "uniqueOrder",
@@ -3870,14 +3909,14 @@
     "groups": [
       "CSS Images"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "image-resolution": {
-    "syntax": "[ from-image || &lt;resolution&gt; ] &amp;&amp; snap?",
+    "syntax": "[ from-image || <resolution> ] && snap?",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -3885,7 +3924,7 @@
     "groups": [
       "CSS Images"
     ],
-    "initial": "<code>1dppx</code>",
+    "initial": "1dppx",
     "appliesto": "allElements",
     "computed": "asSpecifiedWithExceptionOfResolution",
     "order": "uniqueOrder",
@@ -3900,14 +3939,14 @@
     "groups": [
       "CSS Miscellaneous"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "textFields",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "initial-letter": {
-    "syntax": "normal | [ &lt;number&gt; &lt;integer&gt;? ]",
+    "syntax": "normal | [ <number> <integer>? ]",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3915,7 +3954,7 @@
     "groups": [
       "CSS Inline"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "firstLetterPseudoElementsAndInlineLevelFirstChildren",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -3930,14 +3969,14 @@
     "groups": [
       "CSS Inline"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "firstLetterPseudoElementsAndInlineLevelFirstChildren",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "experimental"
   },
   "inline-size": {
-    "syntax": "&lt;'width'&gt;",
+    "syntax": "<'width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3945,7 +3984,7 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "sameAsWidthAndHeight",
     "computed": "sameAsWidthAndHeight",
     "order": "uniqueOrder",
@@ -3960,14 +3999,14 @@
     "groups": [
       "Compositing and Blending"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElementsSVGContainerGraphicsAndGraphicsReferencingElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "justify-content": {
-    "syntax": "flex-start | flex-end | center | space-between | space-around",
+    "syntax": "flex-start | flex-end | center | space-between | space-around | space-evenly",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -3975,14 +4014,14 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>flex-start</code>",
+    "initial": "flex-start",
     "appliesto": "flexContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "left": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -3990,14 +4029,14 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "letter-spacing": {
-    "syntax": "normal | &lt;length&gt;",
+    "syntax": "normal | <length>",
     "media": "visual",
     "inherited": true,
     "animationType": "length",
@@ -4005,7 +4044,7 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "optimumValueOfAbsoluteLengthOrNormal",
     "order": "uniqueOrder",
@@ -4024,14 +4063,14 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "line-height": {
-    "syntax": "normal | &lt;number&gt; | &lt;length&gt; | &lt;percentage&gt;",
+    "syntax": "normal | <number> | <length> | <percentage>",
     "media": "visual",
     "inherited": true,
     "animationType": "number length",
@@ -4039,7 +4078,7 @@
     "groups": [
       "CSS Fonts"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "absoluteLengthOrAsSpecified",
     "order": "uniqueOrder",
@@ -4051,7 +4090,7 @@
     "status": "standard"
   },
   "list-style": {
-    "syntax": "&lt;'list-style-type'&gt; || &lt;'list-style-position'&gt; || &lt;'list-style-image'&gt;",
+    "syntax": "<'list-style-type'> || <'list-style-position'> || <'list-style-image'>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -4074,7 +4113,7 @@
     "status": "standard"
   },
   "list-style-image": {
-    "syntax": "&lt;url&gt; | none",
+    "syntax": "<url> | none",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -4082,7 +4121,7 @@
     "groups": [
       "CSS Lists and Counters"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "listItems",
     "computed": "noneOrImageWithAbsoluteURI",
     "order": "uniqueOrder",
@@ -4097,14 +4136,14 @@
     "groups": [
       "CSS Lists and Counters"
     ],
-    "initial": "<code>outside</code>",
+    "initial": "outside",
     "appliesto": "listItems",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "list-style-type": {
-    "syntax": "&lt;counter-style&gt; | &lt;string&gt; | none",
+    "syntax": "<counter-style> | <string> | none",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -4112,14 +4151,14 @@
     "groups": [
       "CSS Lists and Counters"
     ],
-    "initial": "<code>disc</code>",
+    "initial": "disc",
     "appliesto": "listItems",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "margin": {
-    "syntax": "[ &lt;length&gt; | &lt;percentage&gt; | auto ]{1,4}",
+    "syntax": "[ <length> | <percentage> | auto ]{1,4}",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -4147,7 +4186,7 @@
     "status": "standard"
   },
   "margin-block-end": {
-    "syntax": "&lt;'margin-left'&gt;",
+    "syntax": "<'margin-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4155,14 +4194,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsMargin",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "margin-block-start": {
-    "syntax": "&lt;'margin-left'&gt;",
+    "syntax": "<'margin-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4170,14 +4209,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsMargin",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "margin-bottom": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -4185,7 +4224,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -4195,7 +4234,7 @@
     "status": "standard"
   },
   "margin-inline-end": {
-    "syntax": "&lt;'margin-left'&gt;",
+    "syntax": "<'margin-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4203,14 +4242,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsMargin",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "margin-inline-start": {
-    "syntax": "&lt;'margin-left'&gt;",
+    "syntax": "<'margin-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4218,14 +4257,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsMargin",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "margin-left": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -4233,7 +4272,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -4243,7 +4282,7 @@
     "status": "standard"
   },
   "margin-right": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -4251,7 +4290,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -4261,7 +4300,7 @@
     "status": "standard"
   },
   "margin-top": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -4269,7 +4308,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -4279,7 +4318,7 @@
     "status": "standard"
   },
   "marker-offset": {
-    "syntax": "&lt;length&gt; | auto",
+    "syntax": "<length> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4287,14 +4326,14 @@
     "groups": [
       "CSS Generated Content"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "elementsWithDisplayMarker",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "mask": {
-    "syntax": "&lt;mask-layer&gt;#",
+    "syntax": "<mask-layer>#",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -4321,7 +4360,7 @@
     "status": "standard"
   },
   "mask-clip": {
-    "syntax": "[ &lt;geometry-box&gt; | no-clip ]#",
+    "syntax": "[ <geometry-box> | no-clip ]#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4329,14 +4368,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>border-box</code>",
+    "initial": "border-box",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mask-composite": {
-    "syntax": "&lt;compositing-operator&gt;#",
+    "syntax": "<compositing-operator>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4344,14 +4383,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>add</code>",
+    "initial": "add",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mask-image": {
-    "syntax": "&lt;mask-reference&gt;#",
+    "syntax": "<mask-reference>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4359,14 +4398,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecifiedURIsAbsolute",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mask-mode": {
-    "syntax": "&lt;masking-mode&gt;#",
+    "syntax": "<masking-mode>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4374,14 +4413,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>match-source</code>",
+    "initial": "match-source",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mask-origin": {
-    "syntax": "&lt;geometry-box&gt;#",
+    "syntax": "<geometry-box>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4389,14 +4428,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>border-box</code>",
+    "initial": "border-box",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mask-position": {
-    "syntax": "&lt;position&gt;#",
+    "syntax": "<position>#",
     "media": "visual",
     "inherited": false,
     "animationType": "repeatableList simpleList lpc",
@@ -4404,14 +4443,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>center</code>",
+    "initial": "0% 0%",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "consistsOfTwoKeywordsForOriginAndOffsets",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mask-repeat": {
-    "syntax": "&lt;repeat-style&gt;#",
+    "syntax": "<repeat-style>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4419,14 +4458,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>no-repeat</code>",
+    "initial": "repeat",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "consistsOfTwoDimensionKeywords",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mask-size": {
-    "syntax": "&lt;bg-size&gt;#",
+    "syntax": "<bg-size>#",
     "media": "visual",
     "inherited": false,
     "animationType": "repeatableList simpleList lpc",
@@ -4434,7 +4473,7 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElementsSVGContainerElements",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
@@ -4449,14 +4488,14 @@
     "groups": [
       "CSS Masks"
     ],
-    "initial": "<code>luminance</code>",
+    "initial": "luminance",
     "appliesto": "maskElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "max-block-size": {
-    "syntax": "&lt;'max-width'&gt;",
+    "syntax": "<'max-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4464,14 +4503,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsWidthAndHeight",
     "computed": "sameAsMaxWidthAndMaxHeight",
     "order": "uniqueOrder",
-    "status": "standard"
+    "status": "experimental"
   },
   "max-height": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | none | max-content | min-content | fit-content | fill-available",
+    "syntax": "<length> | <percentage> | none | max-content | min-content | fit-content | fill-available",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -4479,14 +4518,14 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsButNonReplacedAndTableColumns",
     "computed": "percentageAsSpecifiedAbsoluteLengthOrNone",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "max-inline-size": {
-    "syntax": "&lt;'max-width'&gt;",
+    "syntax": "<'max-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4494,14 +4533,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsWidthAndHeight",
     "computed": "sameAsMaxWidthAndMaxHeight",
     "order": "uniqueOrder",
-    "status": "standard"
+    "status": "experimental"
   },
   "max-width": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | none | max-content | min-content | fit-content | fill-available",
+    "syntax": "<length> | <percentage> | none | max-content | min-content | fit-content | fill-available",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -4509,14 +4548,14 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElementsButNonReplacedAndTableRows",
     "computed": "percentageAsSpecifiedAbsoluteLengthOrNone",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "min-block-size": {
-    "syntax": "&lt;'min-width'&gt;",
+    "syntax": "<'min-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4524,14 +4563,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsWidthAndHeight",
     "computed": "sameAsMinWidthAndMinHeight",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "min-height": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto | max-content | min-content | fit-content | fill-available",
+    "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -4539,14 +4578,14 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsButNonReplacedAndTableColumns",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "min-inline-size": {
-    "syntax": "&lt;'min-width'&gt;",
+    "syntax": "<'min-width'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4554,14 +4593,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "sameAsWidthAndHeight",
     "computed": "sameAsMinWidthAndMinHeight",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "min-width": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto | max-content | min-content | fit-content | fill-available",
+    "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -4569,14 +4608,14 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsButNonReplacedAndTableRows",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "mix-blend-mode": {
-    "syntax": "&lt;blend-mode&gt;",
+    "syntax": "<blend-mode>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4584,84 +4623,12 @@
     "groups": [
       "Compositing and Blending"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allHTMLElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "stacking": true,
     "status": "standard"
-  },
-  "motion": {
-    "syntax": "&lt;'motion-path'&gt; &amp;&amp; &lt;'motion-offset'&gt; &amp;&amp; &lt;'motion-rotation'&gt;",
-    "media": "visual",
-    "inherited": false,
-    "animationType": "discrete",
-    "percentages": [
-      "motion-offset"
-    ],
-    "groups": [
-      "CSS Motion"
-    ],
-    "initial": [
-      "motion-path",
-      "motion-offset",
-      "motion-rotation"
-    ],
-    "appliesto": "allElementsSVGContainerElements",
-    "computed": [
-      "motion-path",
-      "motion-offset",
-      "motion-rotation"
-    ],
-    "order": "orderOfAppearance",
-    "stacking": true,
-    "status": "experimental"
-  },
-  "motion-offset": {
-    "syntax": "&lt;length-percentage&gt;",
-    "media": "visual",
-    "inherited": false,
-    "animationType": "lpc",
-    "percentages": "referToTotalPathLength",
-    "groups": [
-      "CSS Motion"
-    ],
-    "initial": "<code>0</code>",
-    "appliesto": "allElementsSVGContainerElements",
-    "computed": "asSpecified",
-    "order": "uniqueOrder",
-    "status": "experimental"
-  },
-  "motion-path": {
-    "syntax": "&lt;url&gt; | [ &lt;basic-shape&gt; | &lt;path()&gt; ] || &lt;geometry-box&gt; | none",
-    "media": "visual",
-    "inherited": false,
-    "animationType": "discrete",
-    "percentages": "no",
-    "groups": [
-      "CSS Motion"
-    ],
-    "initial": "<code>none</code>",
-    "appliesto": "allElementsSVGContainerElements",
-    "computed": "asSpecified",
-    "order": "uniqueOrder",
-    "stacking": true,
-    "status": "experimental"
-  },
-  "motion-rotation": {
-    "syntax": "[ auto | reverse ] &amp;&amp; &lt;angle&gt;",
-    "media": "visual",
-    "inherited": false,
-    "animationType": "number",
-    "percentages": "no",
-    "groups": [
-      "CSS Motion"
-    ],
-    "initial": "<code>auto</code>",
-    "appliesto": "allElementsSVGContainerElements",
-    "computed": "asSpecified",
-    "order": "uniqueOrder",
-    "status": "experimental"
   },
   "object-fit": {
     "syntax": "fill | contain | cover | none | scale-down",
@@ -4672,14 +4639,14 @@
     "groups": [
       "CSS Images"
     ],
-    "initial": "<code>fill</code>",
+    "initial": "fill",
     "appliesto": "replacedElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "object-position": {
-    "syntax": "&lt;position&gt;",
+    "syntax": "<position>",
     "media": "visual",
     "inherited": true,
     "animationType": "repeatableList simpleList lpc",
@@ -4687,14 +4654,67 @@
     "groups": [
       "CSS Images"
     ],
-    "initial": "<code>50% 50%</code>",
+    "initial": "50% 50%",
     "appliesto": "replacedElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
+  "offset": {
+    "syntax": "[ <'offset-position'>? [ <'offset-path'> [ <'offset-distance'> || <'offset-rotate'> ]? ]? ]! [ / <'offset-anchor'> ]?",
+    "media": "visual",
+    "inherited": false,
+    "animationType": [
+      "offset-position",
+      "offset-path",
+      "offset-distance",
+      "offset-anchor",
+      "offset-rotate"
+    ],
+    "percentages": [
+      "offset-position",
+      "offset-distance",
+      "offset-anchor"
+    ],
+    "groups": [
+      "CSS Motion"
+    ],
+    "initial": [
+      "offset-position",
+      "offset-path",
+      "offset-distance",
+      "offset-anchor",
+      "offset-rotate"
+    ],
+    "appliesto": "transformableElements",
+    "computed": [
+      "offset-position",
+      "offset-path",
+      "offset-distance",
+      "offset-anchor",
+      "offset-rotate"
+    ],
+    "order": "perGrammar",
+    "stacking": true,
+    "status": "experimental"
+  },
+  "offset-anchor": {
+    "syntax": "auto | <position>",
+    "media": "visual",
+    "inherited": false,
+    "animationType": "position",
+    "percentages": "relativeToWidthAndHeight",
+    "groups": [
+      "CSS Motion"
+    ],
+    "initial": "auto",
+    "appliesto": "transformableElements",
+    "computed": "forLengthAbsoluteValueOtherwisePercentage",
+    "order": "perGrammar",
+    "status": "experimental"
+  },
   "offset-block-end": {
-    "syntax": "&lt;'left'&gt;",
+    "syntax": "<'left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4702,14 +4722,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "sameAsBoxOffsets",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "offset-block-start": {
-    "syntax": "&lt;'left'&gt;",
+    "syntax": "<'left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4717,14 +4737,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "sameAsBoxOffsets",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "offset-inline-end": {
-    "syntax": "&lt;'left'&gt;",
+    "syntax": "<'left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4732,14 +4752,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "sameAsBoxOffsets",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "offset-inline-start": {
-    "syntax": "&lt;'left'&gt;",
+    "syntax": "<'left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -4747,14 +4767,60 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "sameAsBoxOffsets",
     "order": "uniqueOrder",
     "status": "standard"
   },
+  "offset-distance": {
+    "syntax": "<length-percentage>",
+    "media": "visual",
+    "inherited": false,
+    "animationType": "lpc",
+    "percentages": "referToTotalPathLength",
+    "groups": [
+      "CSS Motion"
+    ],
+    "initial": "0",
+    "appliesto": "transformableElements",
+    "computed": "forLengthAbsoluteValueOtherwisePercentage",
+    "order": "perGrammar",
+    "status": "experimental"
+  },
+  "offset-path": {
+    "syntax": "none | ray( [ <angle> && <size>? && contain? ] ) | <path()> | <url> | [ <basic-shape> || <geometry-box> ]",
+    "media": "visual",
+    "inherited": false,
+    "animationType": "AsAngleBasicshapeOrPath",
+    "percentages": "no",
+    "groups": [
+      "CSS Motion"
+    ],
+    "initial": "none",
+    "appliesto": "transformableElements",
+    "computed": "asSpecified",
+    "order": "perGrammar",
+    "stacking": true,
+    "status": "experimental"
+  },
+  "offset-rotate": {
+    "syntax": "[ auto | reverse ] || <angle>",
+    "media": "visual",
+    "inherited": false,
+    "animationType": "angle",
+    "percentages": "no",
+    "groups": [
+      "CSS Motion"
+    ],
+    "initial": "auto",
+    "appliesto": "transformableElements",
+    "computed": "asSpecified",
+    "order": "perGrammar",
+    "status": "experimental"
+  },
   "opacity": {
-    "syntax": "&lt;number&gt;",
+    "syntax": "<number>",
     "media": "visual",
     "inherited": false,
     "animationType": "number",
@@ -4762,7 +4828,7 @@
     "groups": [
       "CSS Colors"
     ],
-    "initial": "<code>1.0</code>",
+    "initial": "1.0",
     "appliesto": "allElements",
     "computed": "specifiedValueClipped0To1",
     "order": "uniqueOrder",
@@ -4772,7 +4838,7 @@
     "status": "standard"
   },
   "order": {
-    "syntax": "&lt;integer&gt;",
+    "syntax": "<integer>",
     "media": "visual",
     "inherited": false,
     "animationType": "integer",
@@ -4780,14 +4846,14 @@
     "groups": [
       "CSS Flexible Box Layout"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "flexItemsAndAbsolutelyPositionedFlexContainerChildren",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "orphans": {
-    "syntax": "&lt;integer&gt;",
+    "syntax": "<integer>",
     "media": "visual, paged",
     "inherited": true,
     "animationType": "discrete",
@@ -4795,14 +4861,14 @@
     "groups": [
       "CSS Pages"
     ],
-    "initial": "<code><code>2</code></code>",
+    "initial": "2",
     "appliesto": "blockContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "outline": {
-    "syntax": "[ &lt;'outline-color'&gt; || &lt;'outline-style'&gt; || &lt;'outline-width'&gt; ]",
+    "syntax": "[ <'outline-color'> || <'outline-style'> || <'outline-width'> ]",
     "media": "visual, interactive",
     "inherited": false,
     "animationType": [
@@ -4829,7 +4895,7 @@
     "status": "standard"
   },
   "outline-color": {
-    "syntax": "&lt;color&gt; | invert",
+    "syntax": "<color> | invert",
     "media": "visual, interactive",
     "inherited": false,
     "animationType": "color",
@@ -4844,7 +4910,7 @@
     "status": "standard"
   },
   "outline-offset": {
-    "syntax": "&lt;length&gt;",
+    "syntax": "<length>",
     "media": "visual, interactive",
     "inherited": false,
     "animationType": "length",
@@ -4852,14 +4918,14 @@
     "groups": [
       "CSS User Interface"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "outline-style": {
-    "syntax": "auto | &lt;br-style&gt;",
+    "syntax": "auto | <br-style>",
     "media": "visual, interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -4867,14 +4933,14 @@
     "groups": [
       "CSS User Interface"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "outline-width": {
-    "syntax": "&lt;br-width&gt;",
+    "syntax": "<br-width>",
     "media": "visual, interactive",
     "inherited": false,
     "animationType": "length",
@@ -4882,7 +4948,7 @@
     "groups": [
       "CSS User Interface"
     ],
-    "initial": "<code>medium</code>",
+    "initial": "medium",
     "appliesto": "allElements",
     "computed": "absoluteLength0ForNone",
     "order": "uniqueOrder",
@@ -4897,7 +4963,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>visible</code>",
+    "initial": "visible",
     "appliesto": "nonReplacedBlockAndInlineBlockElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -4912,7 +4978,7 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>padding-box</code>",
+    "initial": "padding-box",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -4927,7 +4993,7 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -4942,7 +5008,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>visible</code>",
+    "initial": "visible",
     "appliesto": "nonReplacedBlockAndInlineBlockElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -4957,14 +5023,14 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>visible</code>",
+    "initial": "visible",
     "appliesto": "nonReplacedBlockAndInlineBlockElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "padding": {
-    "syntax": "[ &lt;length&gt; | &lt;percentage&gt; ]{1,4}",
+    "syntax": "[ <length> | <percentage> ]{1,4}",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -4992,7 +5058,7 @@
     "status": "standard"
   },
   "padding-block-end": {
-    "syntax": "&lt;'padding-left'&gt;",
+    "syntax": "<'padding-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -5000,14 +5066,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "padding-block-start": {
-    "syntax": "&lt;'padding-left'&gt;",
+    "syntax": "<'padding-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -5015,14 +5081,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "padding-bottom": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt;",
+    "syntax": "<length> | <percentage>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -5030,7 +5096,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptInternalTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -5040,7 +5106,7 @@
     "status": "standard"
   },
   "padding-inline-end": {
-    "syntax": "&lt;'padding-left'&gt;",
+    "syntax": "<'padding-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -5048,14 +5114,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "padding-inline-start": {
-    "syntax": "&lt;'padding-left'&gt;",
+    "syntax": "<'padding-left'>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -5063,14 +5129,14 @@
     "groups": [
       "CSS Logical Properties"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElements",
     "computed": "asLength",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "padding-left": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt;",
+    "syntax": "<length> | <percentage>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -5078,7 +5144,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptInternalTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -5088,7 +5154,7 @@
     "status": "standard"
   },
   "padding-right": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt;",
+    "syntax": "<length> | <percentage>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -5096,7 +5162,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptInternalTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -5106,7 +5172,7 @@
     "status": "standard"
   },
   "padding-top": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt;",
+    "syntax": "<length> | <percentage>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -5114,7 +5180,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "allElementsExceptInternalTableDisplayTypes",
     "computed": "percentageAsSpecifiedOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -5132,7 +5198,7 @@
     "groups": [
       "CSS Pages"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "blockElementsInNormalFlow",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5147,7 +5213,7 @@
     "groups": [
       "CSS Pages"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "blockElementsInNormalFlow",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5162,14 +5228,14 @@
     "groups": [
       "CSS Pages"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "blockElementsInNormalFlow",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "perspective": {
-    "syntax": "none | &lt;length&gt;",
+    "syntax": "none | <length>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -5177,7 +5243,7 @@
     "groups": [
       "CSS Transforms"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "transformableElements",
     "computed": "absoluteLengthOrNone",
     "order": "uniqueOrder",
@@ -5185,7 +5251,7 @@
     "status": "standard"
   },
   "perspective-origin": {
-    "syntax": "&lt;position&gt;",
+    "syntax": "<position>",
     "media": "visual",
     "inherited": false,
     "animationType": "simpleList lpc",
@@ -5193,7 +5259,7 @@
     "groups": [
       "CSS Transforms"
     ],
-    "initial": "<code>50% 50%</code>",
+    "initial": "50% 50%",
     "appliesto": "transformableElements",
     "computed": "forLengthAbsoluteValueOtherwisePercentage",
     "order": "oneOrTwoValuesLengthAbsoluteKeywordsPercentages",
@@ -5208,7 +5274,7 @@
     "groups": [
       "Pointer Events"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5223,7 +5289,7 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>static</code>",
+    "initial": "static",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5231,7 +5297,7 @@
     "status": "standard"
   },
   "quotes": {
-    "syntax": "[ &lt;string&gt; &lt;string&gt; ]+ | none",
+    "syntax": "[ <string> <string> ]+ | none",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -5254,14 +5320,14 @@
     "groups": [
       "CSS User Interface"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "elementsWithOverflowNotVisibleAndReplacedElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "right": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -5269,7 +5335,7 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
@@ -5284,7 +5350,7 @@
     "groups": [
       "CSS Ruby"
     ],
-    "initial": "<code>space-around</code>",
+    "initial": "space-around",
     "appliesto": "rubyBasesAnnotationsBaseAnnotationContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5299,7 +5365,7 @@
     "groups": [
       "CSS Ruby"
     ],
-    "initial": "<code>separate</code>",
+    "initial": "separate",
     "appliesto": "rubyAnnotationsContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5314,7 +5380,7 @@
     "groups": [
       "CSS Ruby"
     ],
-    "initial": "<code>over</code>",
+    "initial": "over",
     "appliesto": "rubyAnnotationsContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5329,14 +5395,14 @@
     "groups": [
       "CSSOM View"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "scrollingBoxes",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "scroll-snap-coordinate": {
-    "syntax": "none | &lt;position&gt;#",
+    "syntax": "none | <position>#",
     "media": "interactive",
     "inherited": false,
     "animationType": "position",
@@ -5344,14 +5410,14 @@
     "groups": [
       "CSS Scroll Snap Points"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "scroll-snap-destination": {
-    "syntax": "&lt;position&gt;",
+    "syntax": "<position>",
     "media": "interactive",
     "inherited": false,
     "animationType": "position",
@@ -5359,14 +5425,14 @@
     "groups": [
       "CSS Scroll Snap Points"
     ],
-    "initial": "<code>0px 0px</code>",
+    "initial": "0px 0px",
     "appliesto": "scrollContainers",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "scroll-snap-points-x": {
-    "syntax": "none | repeat( &lt;length&gt; )",
+    "syntax": "none | repeat( <length-percentage> )",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -5374,14 +5440,14 @@
     "groups": [
       "CSS Scroll Snap Points"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "scrollContainers",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "obsolete"
   },
   "scroll-snap-points-y": {
-    "syntax": "none | repeat( &lt;length&gt; )",
+    "syntax": "none | repeat( <length-percentage> )",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -5389,7 +5455,7 @@
     "groups": [
       "CSS Scroll Snap Points"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "scrollContainers",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
@@ -5404,7 +5470,7 @@
     "groups": [
       "CSS Scroll Snap Points"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "scrollContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5419,7 +5485,7 @@
     "groups": [
       "CSS Scroll Snap Points"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "scrollContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5434,14 +5500,14 @@
     "groups": [
       "CSS Scroll Snap Points"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "scrollContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "shape-image-threshold": {
-    "syntax": "&lt;number&gt;",
+    "syntax": "<number>",
     "media": "visual",
     "inherited": false,
     "animationType": "number",
@@ -5449,14 +5515,14 @@
     "groups": [
       "CSS Shapes"
     ],
-    "initial": "<code>0.0</code>",
+    "initial": "0.0",
     "appliesto": "floats",
     "computed": "specifiedValueNumberClipped0To1",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "shape-margin": {
-    "syntax": "&lt;length-percentage&gt;",
+    "syntax": "<length-percentage>",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -5464,14 +5530,14 @@
     "groups": [
       "CSS Shapes"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "floats",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "shape-outside": {
-    "syntax": "none | &lt;shape-box&gt; || &lt;basic-shape&gt; | &lt;image&gt;",
+    "syntax": "none | <shape-box> || <basic-shape> | <image>",
     "media": "visual",
     "inherited": false,
     "animationType": "basic-shape",
@@ -5479,22 +5545,22 @@
     "groups": [
       "CSS Shapes"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "floats",
     "computed": "asDefinedForBasicShapeWithAbsoluteURIOtherwiseAsSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "tab-size": {
-    "syntax": "&lt;integer&gt; | &lt;length&gt;",
+    "syntax": "<integer> | <length>",
     "media": "visual",
     "inherited": true,
-    "animationType": "discrete",
+    "animationType": "length",
     "percentages": "no",
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>8</code>",
+    "initial": "8",
     "appliesto": "blockContainers",
     "computed": "specifiedIntegerOrAbsoluteLength",
     "order": "uniqueOrder",
@@ -5509,7 +5575,7 @@
     "groups": [
       "CSS Table"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "tableElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5542,14 +5608,14 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "blockContainers",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "text-combine-upright": {
-    "syntax": "none | all | [ digits &lt;integer&gt;? ]",
+    "syntax": "none | all | [ digits <integer>? ]",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -5557,14 +5623,14 @@
     "groups": [
       "CSS Writing Modes"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "nonReplacedInlineElements",
     "computed": "keywordPlusIntegerIfDigits",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "text-decoration": {
-    "syntax": "&lt;'text-decoration-line'&gt; || &lt;'text-decoration-style'&gt; || &lt;'text-decoration-color'&gt;",
+    "syntax": "<'text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -5596,7 +5662,7 @@
     "status": "standard"
   },
   "text-decoration-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -5604,7 +5670,7 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>currentColor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "'color'",
     "order": "uniqueOrder",
@@ -5624,7 +5690,7 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -5644,7 +5710,7 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>objects</code>",
+    "initial": "objects",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
@@ -5659,7 +5725,7 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>solid</code>",
+    "initial": "solid",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5671,7 +5737,7 @@
     "status": "standard"
   },
   "text-emphasis": {
-    "syntax": "&lt;'text-emphasis-style'&gt; || &lt;'text-emphasis-color'&gt;",
+    "syntax": "<'text-emphasis-style'> || <'text-emphasis-color'>",
     "media": "visual",
     "inherited": false,
     "animationType": [
@@ -5695,7 +5761,7 @@
     "status": "standard"
   },
   "text-emphasis-color": {
-    "syntax": "&lt;color&gt;",
+    "syntax": "<color>",
     "media": "visual",
     "inherited": false,
     "animationType": "color",
@@ -5703,14 +5769,14 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>currentColor</code>",
+    "initial": "currentcolor",
     "appliesto": "allElements",
     "computed": "'color'",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "text-emphasis-position": {
-    "syntax": "[ over | under ] &amp;&amp; [ right | left ]",
+    "syntax": "[ over | under ] && [ right | left ]",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -5718,27 +5784,27 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>over right</code>",
+    "initial": "over right",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "text-emphasis-style": {
-    "syntax": "none | [ [ filled | open ] || [ dot | circle | double-circle | triangle | sesame ] ] | &lt;string&gt;",
+    "syntax": "none | [ [ filled | open ] || [ dot | circle | double-circle | triangle | sesame ] ] | <string>",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
     "percentages": "no",
     "groups": ["CSS Text Decoration"],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "text-indent": {
-    "syntax": "&lt;length-percentage&gt; &amp;&amp; hanging? &amp;&amp; each-line?",
+    "syntax": "<length-percentage> && hanging? && each-line?",
     "media": "visual",
     "inherited": true,
     "animationType": "lpc",
@@ -5746,7 +5812,7 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>0</code>",
+    "initial": "0",
     "appliesto": "blockContainers",
     "computed": "percentageOrAbsoluteLengthPlusKeywords",
     "order": "lengthOrPercentageBeforeKeywords",
@@ -5761,14 +5827,14 @@
     "groups": [
       "CSS Writing Modes"
     ],
-    "initial": "<code>mixed</code>",
+    "initial": "mixed",
     "appliesto": "allElementsExceptTableRowGroupsRowsColumnGroupsAndColumns",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "text-overflow": {
-    "syntax": "[ clip | ellipsis | &lt;string&gt; ]{1,2}",
+    "syntax": "[ clip | ellipsis | <string> ]{1,2}",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -5776,7 +5842,7 @@
     "groups": [
       "CSS User Interface"
     ],
-    "initial": "<code>clip</code>",
+    "initial": "clip",
     "appliesto": "blockContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5794,14 +5860,14 @@
     "groups": [
       "CSS Miscellaneous"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "textElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "text-shadow": {
-    "syntax": "none | &lt;shadow-t&gt;#",
+    "syntax": "none | <shadow-t>#",
     "media": "visual",
     "inherited": true,
     "animationType": "shadowList",
@@ -5809,7 +5875,7 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "colorPlusThreeAbsoluteLengths",
     "order": "uniqueOrder",
@@ -5821,7 +5887,7 @@
     "status": "standard"
   },
   "text-size-adjust": {
-    "syntax": "none | auto | &lt;percentage&gt;",
+    "syntax": "none | auto | <percentage>",
     "media": "visual",
     "inherited": true,
     "animationType": "discrete",
@@ -5844,7 +5910,7 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5864,14 +5930,14 @@
     "groups": [
       "CSS Text Decoration"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "orderOfAppearance",
     "status": "standard"
   },
   "top": {
-    "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto",
+    "syntax": "<length> | <percentage> | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -5879,14 +5945,14 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "lengthAbsolutePercentageAsSpecifiedOtherwiseAuto",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "touch-action": {
-    "syntax": "auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] ] | manipulation",
+    "syntax": "auto | none | [ [ pan-x | pan-left | pan-right ] || [ pan-y | pan-up | pan-down ] || pinch-zoom ] | manipulation",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -5894,14 +5960,14 @@
     "groups": [
       "Pointer Events"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElementsExceptNonReplacedInlineElementsTableRowsColumnsRowColumnGroups",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "transform": {
-    "syntax": "none | &lt;transform-list&gt;",
+    "syntax": "none | <transform-list>",
     "media": "visual",
     "inherited": false,
     "animationType": "transform",
@@ -5909,7 +5975,7 @@
     "groups": [
       "CSS Transforms"
     ],
-    "initial": "<code>none</code>",
+    "initial": "none",
     "appliesto": "transformableElements",
     "computed": "asSpecifiedRelativeToAbsoluteLengths",
     "order": "uniqueOrder",
@@ -5925,14 +5991,14 @@
     "groups": [
       "CSS Transforms"
     ],
-    "initial": "<code>border-box </code>",
+    "initial": "border-box ",
     "appliesto": "transformableElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "transform-origin": {
-    "syntax": "[ &lt;length-percentage&gt; | left | center | right | top | bottom ] | [ [ &lt;length-percentage&gt; | left | center | right ] &amp;&amp; [ &lt;length-percentage&gt; | top | center | bottom ] ] &lt;length&gt;?",
+    "syntax": "[ <length-percentage> | left | center | right | top | bottom ] | [ [ <length-percentage> | left | center | right ] && [ <length-percentage> | top | center | bottom ] ] <length>?",
     "media": "visual",
     "inherited": false,
     "animationType": "simpleList lpc",
@@ -5940,7 +6006,7 @@
     "groups": [
       "CSS Transforms"
     ],
-    "initial": "<code>50% 50% 0</code>",
+    "initial": "50% 50% 0",
     "appliesto": "transformableElements",
     "computed": "forLengthAbsoluteValueOtherwisePercentage",
     "order": "oneOrTwoValuesLengthAbsoluteKeywordsPercentages",
@@ -5955,7 +6021,7 @@
     "groups": [
       "CSS Transforms"
     ],
-    "initial": "<code>flat</code>",
+    "initial": "flat",
     "appliesto": "transformableElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -5963,7 +6029,7 @@
     "status": "standard"
   },
   "transition": {
-    "syntax": "&lt;single-transition&gt;#",
+    "syntax": "<single-transition>#",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -5988,7 +6054,7 @@
     "status": "standard"
   },
   "transition-delay": {
-    "syntax": "&lt;time&gt;#",
+    "syntax": "<time>#",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -5996,14 +6062,14 @@
     "groups": [
       "CSS Transitions"
     ],
-    "initial": "<code>0s</code>",
+    "initial": "0s",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "transition-duration": {
-    "syntax": "&lt;time&gt;#",
+    "syntax": "<time>#",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -6011,14 +6077,14 @@
     "groups": [
       "CSS Transitions"
     ],
-    "initial": "<code>0s</code>",
+    "initial": "0s",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "transition-property": {
-    "syntax": "none | &lt;single-transition-property&gt;#",
+    "syntax": "none | <single-transition-property>#",
     "media": "visual",
     "inherited": false,
     "animationType": "discrete",
@@ -6026,14 +6092,14 @@
     "groups": [
       "CSS Transitions"
     ],
-    "initial": "<code>all</code>",
+    "initial": "all",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "transition-timing-function": {
-    "syntax": "&lt;single-transition-timing-function&gt;#",
+    "syntax": "<single-transition-timing-function>#",
     "media": "interactive",
     "inherited": false,
     "animationType": "discrete",
@@ -6041,7 +6107,7 @@
     "groups": [
       "CSS Transitions"
     ],
-    "initial": "<code>ease</code>",
+    "initial": "ease",
     "appliesto": "allElementsAndPseudos",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -6056,7 +6122,7 @@
     "groups": [
       "CSS Writing Modes"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElementsSomeValuesNoEffectOnNonInlineElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -6071,14 +6137,14 @@
     "groups": [
       "Mozilla Extensions"
     ],
-    "initial": "<code>none</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "nonstandard"
   },
   "vertical-align": {
-    "syntax": "baseline | sub | super | text-top | text-bottom | middle | top | bottom | &lt;percentage&gt; | &lt;length&gt;",
+    "syntax": "baseline | sub | super | text-top | text-bottom | middle | top | bottom | <percentage> | <length>",
     "media": "visual",
     "inherited": false,
     "animationType": "length",
@@ -6086,7 +6152,7 @@
     "groups": [
       "CSS Table"
     ],
-    "initial": "<code>baseline</code>",
+    "initial": "baseline",
     "appliesto": "inlineLevelAndTableCellElements",
     "computed": "absoluteLengthOrKeyword",
     "order": "uniqueOrder",
@@ -6106,7 +6172,7 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>visible</code>",
+    "initial": "visible",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -6121,14 +6187,14 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "widows": {
-    "syntax": "&lt;integer&gt;",
+    "syntax": "<integer>",
     "media": "visual, paged",
     "inherited": true,
     "animationType": "discrete",
@@ -6136,14 +6202,14 @@
     "groups": [
       "CSS Pages"
     ],
-    "initial": "<code><code>2</code></code>",
+    "initial": "2",
     "appliesto": "blockContainerElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "width": {
-    "syntax": "[ &lt;length&gt; | &lt;percentage&gt; ] &amp;&amp; [ border-box | content-box ]? | available | min-content | max-content | fit-content | auto",
+    "syntax": "[ <length> | <percentage> ] && [ border-box | content-box ]? | available | min-content | max-content | fit-content | auto",
     "media": "visual",
     "inherited": false,
     "animationType": "lpc",
@@ -6151,14 +6217,14 @@
     "groups": [
       "CSS Box Model"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElementsButNonReplacedAndTableRows",
     "computed": "percentageAutoOrAbsoluteLength",
     "order": "lengthOrPercentageBeforeKeywordIfBothPresent",
     "status": "standard"
   },
   "will-change": {
-    "syntax": "auto | &lt;animateable-feature&gt;#",
+    "syntax": "auto | <animateable-feature>#",
     "media": "all",
     "inherited": false,
     "animationType": "discrete",
@@ -6166,7 +6232,7 @@
     "groups": [
       "CSS Miscellaneous"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -6181,14 +6247,14 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "word-spacing": {
-    "syntax": "normal | &lt;length-percentage&gt;",
+    "syntax": "normal | <length-percentage>",
     "media": "visual",
     "inherited": true,
     "animationType": "length",
@@ -6196,7 +6262,7 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "optimumMinAndMaxValueOfAbsoluteLengthPercentageOrNormal",
     "order": "uniqueOrder",
@@ -6216,7 +6282,7 @@
     "groups": [
       "CSS Text"
     ],
-    "initial": "<code>normal</code>",
+    "initial": "normal",
     "appliesto": "allElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",
@@ -6231,14 +6297,14 @@
     "groups": [
       "CSS Writing Modes"
     ],
-    "initial": "<code>horizontal-tb</code>",
+    "initial": "horizontal-tb",
     "appliesto": "allElementsExceptTableRowColumnGroupsTableRowsColumns",
     "computed": "asSpecified",
     "order": "uniqueOrder",
     "status": "standard"
   },
   "z-index": {
-    "syntax": "auto | &lt;integer&gt;",
+    "syntax": "auto | <integer>",
     "media": "visual",
     "inherited": false,
     "animationType": "integer",
@@ -6246,7 +6312,7 @@
     "groups": [
       "CSS Positioning"
     ],
-    "initial": "<code>auto</code>",
+    "initial": "auto",
     "appliesto": "positionedElements",
     "computed": "asSpecified",
     "order": "uniqueOrder",

@@ -118,7 +118,7 @@
     },
     "-webkit-mask": {
       "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
-      "syntax": "&lt;mask-image&gt; [ &lt;'-webkit-mask-repeat'&gt; || &lt;'-webkit-mask-attachment'&gt; || &lt;'-webkit-mask-position'&gt; || &lt;'-webkit-mask-origin'&gt; || &lt;'-webkit-mask-clip'&gt; ]*"
+      "syntax": "<mask-image> [ <'-webkit-mask-repeat'> || <'-webkit-mask-attachment'> || <'-webkit-mask-position'> || <'-webkit-mask-origin'> || <'-webkit-mask-clip'> ]*"
     },
     "-webkit-mask-box-image": {
       "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
@@ -126,7 +126,7 @@
     },
     "-webkit-mask-clip": {
       "comment": "change type to <-webkit-mask-clip-style> since it differ from <mask-clip>, extra space between [ and ,",
-      "syntax": "&lt;-webkit-mask-clip-style&gt; [, &lt;-webkit-mask-clip-style&gt; ]*"
+      "syntax": "<-webkit-mask-clip-style> [, <-webkit-mask-clip-style> ]*"
     },
     "-webkit-overflow-scrolling": {
       "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling",
@@ -176,10 +176,6 @@
       ],
       "syntax": "nonzero | evenodd"
     },
-    "content": {
-      "comment": "outdated syntax, used syntax from https://drafts.csswg.org/css-content/#typedef-content-list",
-      "syntax": "[ <image> ',' ]* [ normal | none | <content-list> ] [/ <string> ]?"
-    },
     "cue": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "<'cue-before'> <'cue-after'>?"
@@ -195,7 +191,7 @@
     "cursor": {
       "comment": "added legacy keywords: hand, -webkit-grab. -webkit-grabbing, -webkit-zoom-in, -webkit-zoom-out, -moz-grab, -moz-grabbing, -moz-zoom-in, -moz-zoom-out",
       "refenrences": ["https://www.sitepoint.com/css3-cursor-styles/"],
-      "syntax": "[ [ &lt;url&gt; [ &lt;x&gt; &lt;y&gt; ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing | hand | -webkit-grab | -webkit-grabbing | -webkit-zoom-in | -webkit-zoom-out | -moz-grab | -moz-grabbing | -moz-zoom-in | -moz-zoom-out ] ]"
+      "syntax": "[ [ <url> [ <x> <y> ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing | hand | -webkit-grab | -webkit-grabbing | -webkit-zoom-in | -webkit-zoom-out | -moz-grab | -moz-grabbing | -moz-zoom-in | -moz-zoom-out ] ]"
     },
     "display": {
       "comment": "extended with -ms-flexbox",
@@ -239,11 +235,11 @@
     },
     "filter": {
       "comment": "extend with IE legacy syntaxes",
-      "syntax": "none | &lt;filter-function-list&gt; | <-ms-filter>"
+      "syntax": "none | <filter-function-list> | <-ms-filter>"
     },
     "font": {
       "comment": "extend with non-standart fonts",
-      "syntax": "[ [ &lt;'font-style'&gt; || &lt;font-variant-css21&gt; || &lt;'font-weight'&gt; || &lt;'font-stretch'&gt; ]? &lt;'font-size'&gt; [ / &lt;'line-height'&gt; ]? &lt;'font-family'&gt; ] | caption | icon | menu | message-box | small-caption | status-bar | <-non-standart-font>"
+      "syntax": "[ [ <'font-style'> || <font-variant-css21> || <'font-weight'> || <'font-stretch'> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'> ] | caption | icon | menu | message-box | small-caption | status-bar | <-non-standart-font>"
     },
     "glyph-orientation-horizontal": {
       "comment": "added SVG property",
@@ -271,7 +267,7 @@
       "references": [
         "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/letter-spacing"
       ],
-      "syntax": "normal | &lt;length-percentage&gt;"
+      "syntax": "normal | <length-percentage>"
     },
     "marker": {
       "comment": "added SVG property",
@@ -303,11 +299,11 @@
     },
     "max-width": {
       "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
-      "syntax": "&lt;length&gt; | &lt;percentage&gt; | none | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
+      "syntax": "<length> | <percentage> | none | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
     },
     "min-width": {
       "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-      "syntax": "&lt;length&gt; | &lt;percentage&gt; | auto | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
+      "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
     },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
@@ -421,7 +417,7 @@
     },
     "transform-origin": {
       "comment": "move first group to the end since less collecting",
-      "syntax": "[ [ &lt;length-percentage&gt; | left | center | right ] &amp;&amp; [ &lt;length-percentage&gt; | top | center | bottom ] ] &lt;length&gt;? | [ &lt;length-percentage&gt; | left | center | right | top | bottom ]"
+      "syntax": "[ [ <length-percentage> | left | center | right ] && [ <length-percentage> | top | center | bottom ] ] <length>? | [ <length-percentage> | left | center | right | top | bottom ]"
     },
     "unicode-bidi": {
       "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
@@ -491,7 +487,7 @@
     },
     "-legacy-linear-gradient-arguments": {
       "comment": "like standart syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
-      "syntax": "[ &lt;angle&gt; | &lt;side-or-corner&gt; ]? , &lt;color-stop-list&gt;"
+      "syntax": "[ <angle> | <side-or-corner> ]? , <color-stop-list>"
     },
     "-legacy-radial-gradient()": {
       "comment": "deprecated syntax that implemented by some browsers https://www.w3.org/TR/2011/WD-css3-images-20110908/#radial-gradients",
@@ -601,7 +597,7 @@
     },
     "inset()": {
       "comment": "changed <border-radius> to <'border-radius'>",
-      "syntax": "inset( &lt;length-percentage&gt;{1,4} [ round &lt;'border-radius'&gt; ]? )"
+      "syntax": "inset( <length-percentage>{1,4} [ round <'border-radius'> ]? )"
     },
     "generic-voice": {
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
@@ -620,7 +616,7 @@
     },
     "gradient": {
       "comment": "added -webkit-gradient() since may to be used for legacy support",
-      "syntax": "<-legacy-gradient()> | &lt;linear-gradient()&gt; | &lt;repeating-linear-gradient()&gt; | &lt;radial-gradient()&gt; | &lt;repeating-radial-gradient()&gt;"
+      "syntax": "<-legacy-gradient()> | <linear-gradient()> | <repeating-linear-gradient()> | <radial-gradient()> | <repeating-radial-gradient()>"
     },
     "left": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -632,11 +628,11 @@
     },
     "matrix()": {
       "comment": "redundant max",
-      "syntax": "matrix( &lt;number&gt; [, &lt;number&gt; ]{5} )"
+      "syntax": "matrix( <number> [, <number> ]{5} )"
     },
     "matrix3d()": {
       "comment": "redundant max",
-      "syntax": "matrix3d( &lt;number&gt; [, &lt;number&gt; ]{15} )"
+      "syntax": "matrix3d( <number> [, <number> ]{15} )"
     },
     "name-repeat": {
       "comment": "missed, and looks like obsolete, keep it as is since other property syntaxes should be changed too; https://www.w3.org/TR/2015/WD-css-grid-1-20150917/#typedef-name-repeat",
@@ -660,7 +656,7 @@
     },
     "position": {
       "comment": "rewrite syntax (TODO: make match work with original syntax)",
-      "syntax": "[ center && [ left | right | top | bottom ] &lt;length-percentage&gt;? ] | [ [ left | right ] &lt;length-percentage&gt;? ] && [ [ top | bottom ] &lt;length-percentage&gt;? ] | [ [ left | center | right | &lt;length-percentage&gt; ] || [ top | center | bottom | &lt;length-percentage&gt; ] ]"
+      "syntax": "[ center && [ left | right | top | bottom ] <length-percentage>? ] | [ [ left | right ] <length-percentage>? ] && [ [ top | bottom ] <length-percentage>? ] | [ [ left | center | right | <length-percentage> ] || [ top | center | bottom | <length-percentage> ] ]"
     },
     "right": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -672,7 +668,7 @@
     },
     "single-transition": {
       "comment": "moved <single-transition-timing-function> in the beginning to avoid wrong match to <single-transition-property>",
-      "syntax": "&lt;single-transition-timing-function&gt; || [ none | &lt;single-transition-property&gt; ] || &lt;time&gt; || &lt;time&gt;"
+      "syntax": "<single-transition-timing-function> || [ none | <single-transition-property> ] || <time> || <time>"
     },
     "svg-length": {
       "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
@@ -692,10 +688,6 @@
     "top": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
       "syntax": "<length> | auto"
-    },
-    "quote": {
-      "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-quote",
-      "syntax": "open-quote | close-quote | no-open-quote | no-close-quote"
     },
     "x": {
       "comment": "missed; not sure we should add it, but no others except `cursor` is using it so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
@@ -745,7 +737,7 @@
     "keyframe-block-list": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
-    },    
+    },
     "mf-plain": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
@@ -796,6 +788,10 @@
     },
     "media-query-list": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
+      "syntax": null
+    },
+    "nth": {
+      "comment": "syntax has <an-plus-b> that doesn't support currently, drop for now",
       "syntax": null
     },
     "page-selector": {
