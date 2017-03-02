@@ -305,6 +305,13 @@
       "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
     },
+    "offset-position": {
+      "comment": "missed",
+      "references": [
+        "https://drafts.fxtf.org/motion-1/#offset-position-property"
+      ],
+      "syntax": "auto | <position>"
+    },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
       "syntax": "<number-zero-one>"
