@@ -112,7 +112,6 @@
     },
     "filter.s.1": {
         "source": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n       progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
-        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n       progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
         "ast": {
             "type": "Declaration",
             "important": false,

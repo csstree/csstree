@@ -52,7 +52,6 @@
     },
     "atrules.3": {
         "source": "@import url(http://example.com);",
-        "translate": "@import url(http://example.com);",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -145,7 +144,6 @@
     },
     "atkeyword.1": {
         "source": "@atrule;",
-        "translate": "@atrule;",
         "ast": {
             "type": "Atrule",
             "name": "atrule",

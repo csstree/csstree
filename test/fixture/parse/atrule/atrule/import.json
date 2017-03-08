@@ -104,7 +104,6 @@
     },
     "should be case insensetive": {
         "source": "@ImpOrt 'test' all;",
-        "translate": "@ImpOrt 'test' all;",
         "ast": {
             "type": "Atrule",
             "name": "ImpOrt",

@@ -125,7 +125,6 @@
     },
     "should support relative selectors": {
         "source": ":has(>.a,+.b)",
-        "translate": ":has(>.a,+.b)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "has",
