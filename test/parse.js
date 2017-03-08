@@ -92,6 +92,20 @@ describe('parse', function() {
             }
         });
 
+        it('formattedMessage with tabs', function() {
+            try {
+                parse('a {\n\tb:\tc#\t\n}');
+            } catch (e) {
+                assert.equal(e.formattedMessage,
+                    'Parse error: Number or identifier is expected\n' +
+                    '    1 |a {\n' +
+                    '    2 |    b:    c#    \n' +
+                    '-------------------^\n' +
+                    '    3 |}'
+                );
+            }
+        });
+
         it('formattedMessage for source with long lines', function() {
             try {
                 parse(
