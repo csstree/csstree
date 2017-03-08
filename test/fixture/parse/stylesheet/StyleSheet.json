@@ -30,7 +30,7 @@
             "children": []
         }
     },
-    "BOM.1": {
+    "BOM UTF-16BE": {
         "source": "\uFEFF",
         "translate": "",
         "ast": {
@@ -38,32 +38,40 @@
             "children": []
         }
     },
-    "BOM.2": {
-        "source": "\uFEFFa{}",
-        "translate": "a{}",
+    "BOM UTF-16BE #2": {
+        "source": "\uFEFF@a;",
+        "translate": "@a;",
         "ast": {
             "type": "StyleSheet",
             "children": [
                 {
-                    "type": "Rule",
-                    "selector": {
-                        "type": "SelectorList",
-                        "children": [
-                            {
-                                "type": "Selector",
-                                "children": [
-                                    {
-                                        "type": "TypeSelector",
-                                        "name": "a"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    "block": {
-                        "type": "Block",
-                        "children": []
-                    }
+                    "type": "Atrule",
+                    "name": "a",
+                    "expression": null,
+                    "block": null
+                }
+            ]
+        }
+    },
+    "BOM UTF-16LE": {
+        "source": "\uFFFE",
+        "translate": "",
+        "ast": {
+            "type": "StyleSheet",
+            "children": []
+        }
+    },
+    "BOM UTF-16LE #2": {
+        "source": "\uFFFE@a;",
+        "translate": "@a;",
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Atrule",
+                    "name": "a",
+                    "expression": null,
+                    "block": null
                 }
             ]
         }
