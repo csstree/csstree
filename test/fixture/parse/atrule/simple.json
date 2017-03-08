@@ -144,11 +144,11 @@
         }
     },
     "atkeyword.1": {
-        "source": "@font-face;",
-        "translate": "@font-face;",
+        "source": "@atrule;",
+        "translate": "@atrule;",
         "ast": {
             "type": "Atrule",
-            "name": "font-face",
+            "name": "atrule",
             "expression": null,
             "block": null
         }

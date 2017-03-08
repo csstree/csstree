@@ -1,0 +1,95 @@
+{
+    "single declaration": {
+        "source": "@font-face{font-family:'name'}",
+        "ast": {
+            "type": "Atrule",
+            "name": "font-face",
+            "expression": null,
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "font-family",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "String",
+                                    "value": "'name'"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "several declarations": {
+        "source": "@font-face{font-family:name;src:url(test.woff)}",
+        "ast": {
+            "type": "Atrule",
+            "name": "font-face",
+            "expression": null,
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "font-family",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "name"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "src",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Url",
+                                    "value": {
+                                        "type": "Raw",
+                                        "value": "test.woff"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "error": [
+        {
+            "source": "@font-face;",
+            "offset": "          ^",
+            "error": "Curly bracket is expected"
+        },
+        {
+            "source": "@font-face foo {}",
+            "offset": "           ^",
+            "error": "Curly bracket is expected"
+        },
+        {
+            "source": "@font-face { a {} }",
+            "offset": "               ^",
+            "error": "Colon is expected"
+        },
+        {
+            "source": "@font-face { a:b {} }",
+            "offset": "                 ^",
+            "error": "Unexpected input"
+        }
+    ]
+}
