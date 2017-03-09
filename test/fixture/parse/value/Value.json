@@ -144,6 +144,40 @@
             ]
         }
     },
+    "should parse number with following \\0 or \\9 hack as Number": [
+        {
+            "source": "1\\0",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "Number",
+                        "value": "1"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "\\0"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "1\\9",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "Number",
+                        "value": "1"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "\\9"
+                    }
+                ]
+            }
+        }
+    ],
     "should parse a custom property value when parseCustomProperty is true": {
         "options": {
             "property": "--var",

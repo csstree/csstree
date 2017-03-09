@@ -12,5 +12,37 @@
         "invalid:Mismatch": [
             "300"
         ]
+    },
+    "\\9 hack": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "foo | <number> | <length>"
+            }
+        },
+        "valid": [
+            "foo\\9",
+            "foo \\9",
+            "0\\9",
+            "0 \\9",
+            "1px\\9",
+            "1px \\9"
+        ]
+    },
+    "\\0 hack": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "foo | <number> | <length>"
+            }
+        },
+        "valid": [
+            "foo\\0",
+            "foo \\0",
+            "0\\0",
+            "0 \\0",
+            "1px\\0",
+            "1px \\0"
+        ]
     }
 }
