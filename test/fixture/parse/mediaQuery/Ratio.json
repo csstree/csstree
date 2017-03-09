@@ -1,0 +1,89 @@
+{
+    "basic ratio": {
+        "source": "(foo:1/2)",
+        "ast": {
+            "type": "MediaFeature",
+            "name": "foo",
+            "value": {
+                "type": "Ratio",
+                "left": "1",
+                "right": "2"
+            }
+        }
+    },
+    "fractal": [
+        {
+            "source": "(foo:2.5/3)",
+            "ast": {
+                "type": "MediaFeature",
+                "name": "foo",
+                "value": {
+                    "type": "Ratio",
+                    "left": "2.5",
+                    "right": "3"
+                }
+            }
+        },
+        {
+            "source": "(foo:3/1.6)",
+            "ast": {
+                "type": "MediaFeature",
+                "name": "foo",
+                "value": {
+                    "type": "Ratio",
+                    "left": "3",
+                    "right": "1.6"
+                }
+            }
+        },
+        {
+            "source": "(foo:2.5/1.6)",
+            "ast": {
+                "type": "MediaFeature",
+                "name": "foo",
+                "value": {
+                    "type": "Ratio",
+                    "left": "2.5",
+                    "right": "1.6"
+                }
+            }
+        }
+    ],
+    "error": [
+        {
+            "source": "(foo: 1/)",
+            "offset": "        ^",
+            "error": "Number is expected"
+        },
+        {
+            "source": "(foo: 0/1)",
+            "offset": "      ^",
+            "error": "Zero number is not allowed"
+        },
+        {
+            "source": "(foo: 1e2/1)",
+            "offset": "       ^",
+            "error": "Unsigned number is expected"
+        },
+        {
+            "source": "(foo: -1/5)",
+            "offset": "      ^",
+            "error": "Unsigned number is expected"
+        },
+        {
+            "source": "(foo: 2/0)",
+            "offset": "        ^",
+            "error": "Zero number is not allowed"
+        },
+        {
+            "source": "(foo: 1/1e2)",
+            "offset": "         ^",
+            "error": "Unsigned number is expected"
+        },
+        {
+            "source": "(foo: 1/-5)",
+            "offset": "        ^",
+            "error": "Unsigned number is expected"
+        }
+    ]
+}

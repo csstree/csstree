@@ -3,6 +3,18 @@ var path = require('path');
 var JsonLocator = require('../../helpers/JsonLocator.js');
 var merge = require('../../helpers').merge;
 var wrapper = {
+    stylesheet: function(ast) {
+        return {
+            type: 'StyleSheet',
+            children: [ast]
+        };
+    },
+    mediaQuery: function(ast) {
+        return {
+            type: 'MediaQuery',
+            children: [ast]
+        };
+    },
     rule: function(ast) {
         return {
             type: 'Rule',
@@ -16,12 +28,6 @@ var wrapper = {
     selector: function(ast) {
         return {
             type: 'Selector',
-            children: [ast]
-        };
-    },
-    stylesheet: function(ast) {
-        return {
-            type: 'StyleSheet',
             children: [ast]
         };
     },
