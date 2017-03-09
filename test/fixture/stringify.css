@@ -19,7 +19,7 @@ svg|*:matches(a)::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a])
         ident 1.2e+3 100% 4em/5ex calc(1em + 3% * 5),
         url(path/to.png) url( 'path/test.svg' )
         u+123-456 u+123???
-        rgba(1, 2, 3, 4) #asd #123abc "string" 'string' (parenthesis) [ident] !important;
+        rgba(1, 2, 3, 4) #def #123abc "string" 'string' (parenthesis) [ident] !important;
 }
 
 @media (device-aspect-ratio: 16/9) {

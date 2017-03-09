@@ -1,0 +1,222 @@
+{
+    "basic": [
+        {
+            "source": "#100",
+            "ast": {
+                "type": "HexColor",
+                "value": "100"
+            }
+        },
+        {
+            "source": "#123abc",
+            "ast": {
+                "type": "HexColor",
+                "value": "123abc"
+            }
+        },
+        {
+            "source": "#abc123",
+            "ast": {
+                "type": "HexColor",
+                "value": "abc123"
+            }
+        },
+        {
+            "source": "#a1b2c3d4",
+            "ast": {
+                "type": "HexColor",
+                "value": "a1b2c3d4"
+            }
+        },
+        {
+            "source": "#AaBbCc",
+            "ast": {
+                "type": "HexColor",
+                "value": "AaBbCc"
+            }
+        }
+    ],
+    "edge cases": [
+        {
+            "source": "#1.2AaB",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "1"
+                    },
+                    {
+                        "type": "Dimension",
+                        "value": ".2",
+                        "unit": "AaB"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#a1.2AaB",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "a1"
+                    },
+                    {
+                        "type": "Dimension",
+                        "value": ".2",
+                        "unit": "AaB"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#1e-2Aa",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "1e"
+                    },
+                    {
+                        "type": "Dimension",
+                        "value": "-2",
+                        "unit": "Aa"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#a1e-2Aa",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "a1e"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "-2Aa"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#123xxx",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "123"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "xxx"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#123azz",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "123a"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "zz"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#123\\9",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "123"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "\\9"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#123a\\9",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "123a"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "\\9"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#abc\\0",
+            "ast": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "HexColor",
+                        "value": "abc"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "\\0"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "#1e57e9",
+            "ast": {
+                "type": "HexColor",
+                "value": "1e57e9"
+            }
+        }
+    ],
+    "error": [
+        {
+            "source": "#+123",
+            "offset": " ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": "#-123",
+            "offset": " ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": "#.123",
+            "offset": " ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": "#~123",
+            "offset": " ^",
+            "error": "Number or identifier is expected"
+        },
+        {
+            "source": "#id",
+            "offset": " ^",
+            "error": "Unexpected input"
+        }
+    ]
+}
