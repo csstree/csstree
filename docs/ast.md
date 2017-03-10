@@ -18,6 +18,8 @@ Node types:
 - [AttributeSelector](#attributeselector)
 - [Block](#block)
 - [Brackets](#brackets)
+- [CDC](#cdc)
+- [CDO](#cdo)
 - [ClassSelector](#classselector)
 - [Combinator](#combinator)
 - [Comment](#comment)
@@ -114,6 +116,22 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 {
     "type": "Brackets",
     "children": List
+}
+```
+
+## CDC
+
+```
+{
+    "type": "CDC"
+}
+```
+
+## CDO
+
+```
+{
+    "type": "CDO"
 }
 ```
 

@@ -31,14 +31,16 @@ var types = mdParts[4]
     }, {});
 
 Object.keys(lexer.structure).sort().forEach(function(type) {
+    var info = types[type] || {};
+
     toc.push('- [' + type + '](#' + type.toLowerCase() + ')');
     sections.push(
         '## ' + type + '\n\n' +
-        (types[type].before ? types[type].before + '\n\n' : '') +
+        (info.before ? info.before + '\n\n' : '') +
         '```\n' +
         genNodeStructure(lexer.structure[type].docs) +
         '\n```' +
-        (types[type].after ?  '\n\n' + types[type].after : '') +
+        (info.after ?  '\n\n' + info.after : '') +
         '\n'
     );
 });
