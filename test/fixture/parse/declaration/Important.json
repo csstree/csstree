@@ -1,9 +1,73 @@
 {
-    "important.0": {
-        "source": "property:!important",
+    "basic": [
+        {
+            "source": "property:!important",
+            "ast": {
+                "type": "Declaration",
+                "important": true,
+                "property": "property",
+                "value": {
+                    "type": "Value",
+                    "children": []
+                }
+            }
+        },
+        {
+            "source": "property:!ImpoRtant",
+            "ast": {
+                "type": "Declaration",
+                "important": "ImpoRtant",
+                "property": "property",
+                "value": {
+                    "type": "Value",
+                    "children": []
+                }
+            }
+        },
+        {
+            "source": "property:!IMPORTANT",
+            "ast": {
+                "type": "Declaration",
+                "important": "IMPORTANT",
+                "property": "property",
+                "value": {
+                    "type": "Value",
+                    "children": []
+                }
+            }
+        }
+    ],
+    "!ie hack": [
+        {
+            "source": "property:!ie",
+            "ast": {
+                "type": "Declaration",
+                "important": "ie",
+                "property": "property",
+                "value": {
+                    "type": "Value",
+                    "children": []
+                }
+            }
+        },
+        {
+            "source": "property:!IE7",
+            "ast": {
+                "type": "Declaration",
+                "important": "IE7",
+                "property": "property",
+                "value": {
+                    "type": "Value",
+                    "children": []
+                }
+            }
+        }
+    ],
+    "\\9 hack": {
+        "source": "property:!important\\9",
         "ast": {
             "type": "Declaration",
-            "important": true,
+            "important": "important\\9",
             "property": "property",
             "value": {
                 "type": "Value",
@@ -11,33 +75,7 @@
             }
         }
     },
-    "important.1": {
-        "source": "property:!ImpoRtant",
-        "translate": "property:!important",
-        "ast": {
-            "type": "Declaration",
-            "important": true,
-            "property": "property",
-            "value": {
-                "type": "Value",
-                "children": []
-            }
-        }
-    },
-    "important.2": {
-        "source": "property:!IMPORTANT",
-        "translate": "property:!important",
-        "ast": {
-            "type": "Declaration",
-            "important": true,
-            "property": "property",
-            "value": {
-                "type": "Value",
-                "children": []
-            }
-        }
-    },
-    "important.c.0": {
+    "divided by comment": {
         "source": "property:!/*test*/important",
         "translate": "property:!important",
         "ast": {
@@ -50,8 +88,21 @@
             }
         }
     },
-    "important.s.0": {
+    "divided by spaces": {
         "source": "property:!  important",
+        "translate": "property:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "property",
+            "value": {
+                "type": "Value",
+                "children": []
+            }
+        }
+    },
+    "divided by spaces and comments": {
+        "source": "property:! /**/ important",
         "translate": "property:!important",
         "ast": {
             "type": "Declaration",

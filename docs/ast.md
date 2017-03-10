@@ -167,7 +167,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Declaration",
-    "important": Boolean,
+    "important": Boolean | String,
     "property": String,
     "value": <Value> | <Raw>
 }
