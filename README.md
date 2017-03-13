@@ -19,12 +19,6 @@
 - [Translate AST to string](docs/translate.md)
 - [AST traversal](docs/traversal.md)
 - [Utils to work with AST](docs/utils.md)
-- [Working with syntax](docs/syntax.md)
-- API references:
-    - [Tokenizer](docs/Tokenizer.md)
-    - [Parser](docs/Parser.md)
-    - [Lexer](docs/Lexer.md)
-    - [List](docs/List.md)
 
 Docs and tools:
 

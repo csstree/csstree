@@ -12,6 +12,5 @@
 ## Classes
 
 - [Tokenizer](Tokenizer.md)
-- [Parser](Parser.md)
 - [Lexer](Lexer.md)
 - [List](List.md)

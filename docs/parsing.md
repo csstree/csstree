@@ -48,6 +48,8 @@ Contexts:
 - `stylesheet` (default) – regular stylesheet, should be suitable in most cases
 - `atrule` – at-rule (e.g. `@media screen, print { ... }`)
 - `atruleExpression` – at-rule expression (`screen, print` for example above)
+- `mediaQueryList` – used to parse comma separated media query list
+- `mediaQuery` – used to parse media query
 - `rule` – rule (e.g. `.foo, .bar:hover { color: red; border: 1px solid black; }`)
 - `selectorList` – selector group (`.foo, .bar:hover` for rule example)
 - `selector` – selector (`.foo` or `.bar:hover` for rule example)
