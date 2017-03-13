@@ -1,3 +1,44 @@
+## 1.0.0-alpha17 (March 13, 2017)
+
+- Implemented new concept of `syntax`
+    - Changed main `exports` to expose a default syntax
+    - Defined initial [CSS syntax](lib/syntax/default.js)
+    - Implemented `createSyntax()` method to create a new syntax from scratch
+    - Implemented `fork()` method to create a new syntax based on given via extension
+- Parser
+    - Implemented `mediaQueryList` and `mediaQuery` parsing contexts
+    - Implemented `CDO` and `CDC` node types
+    - Implemented additional declaration property prefix hacks (`#` and `+`)
+    - Added support for UTF-16LE BOM
+    - Added support for `@font-face` at-rule
+    - Added `chroma()` to legacy IE filter functions
+    - Improved `HexColor` to consume hex only
+    - Improved support for `\0` and `\9` hacks (#2)
+    - Relaxed number check for `Ratio` terms
+        - Allowed fractal values as a `Ratio` term
+        - Disallowed zero number as a `Ratio` term
+    - Changed important clause parsing
+        - Allowed any identifier for important (to support hacks like `!ie`)
+        - Store `true` for `important` field in case identifier equals to `important` and string otherwise
+    - Fixed parse error formatted message rendering to take into account tabs
+    - Removed exposing of `Parser` class
+    - Removed `readSelectorSequence()`, `readSequenceFallback()` and `readSelectorSequenceFallback` methods
+    - Used single universal sequence consumer for `AtruleExpression`, `Selector` and `Value`
+- Generator
+    - Reworked generator to use auto-generated functions based on syntax definition (additional work to be done in next releases)
+    - Implemented `translateMarkup(ast, before, after)` method for complex cases
+    - Reworked `translateWithSourceMap` to be more flexible (based on `translateMarkup`, additional work to be done in next releases)
+- Walker
+    - Reworked walker to use auto-generated function based on syntax definition (additional work to be done in next releases)
+- Lexer
+    - Prepared for better extensibility (additional work to be done in next releases)
+    - Implemented `checkStructure(ast)` method to check AST structure based on syntax definition
+    - Update syntax dictionaries to latest `mdn/data`
+        - Add missing `<'offset-position'>` syntax
+        - Extended `<position>` property with `-webkit-sticky` (@sergejmueller, #37)
+    - Improved mismatch error position
+- Implemented script (`gen:syntax`) to generate AST format reference page (`docs/ast.md`) using syntax definition
+
 ## 1.0.0-alpha16 (February 12, 2017)
 
 - Exposed `Parser` class
