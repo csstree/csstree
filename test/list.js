@@ -405,12 +405,12 @@ describe('List', function() {
             });
         });
 
-        it('insert head item that doesn\'t below to list', function() {
+        it('insert head item that doesn\'t belong to list', function() {
             var inserted = List.createItem({});
 
             assert.throws(function() {
                 list2.insert(inserted, list1.head);
-            }, /^Error: before doesn't below to list$/);
+            }, /^Error: before doesn't belong to list$/);
         });
     });
 
@@ -457,16 +457,16 @@ describe('List', function() {
             });
         });
 
-        it('remove head item that doesn\'t below to list', function() {
+        it('remove head item that doesn\'t belong to list', function() {
             assert.throws(function() {
                 list1.remove(list2.head);
-            }, /^Error: item doesn't below to list$/);
+            }, /^Error: item doesn't belong to list$/);
         });
 
-        it('remove tail item that doesn\'t below to list', function() {
+        it('remove tail item that doesn\'t belong to list', function() {
             assert.throws(function() {
                 list1.remove(list2.tail);
-            }, /^Error: item doesn't below to list$/);
+            }, /^Error: item doesn't belong to list$/);
         });
     });
 
