@@ -39,6 +39,7 @@ describe('parser/tokenizer', function() {
 
         assert.equal(tokenizer.eof, true);
         assert.equal(tokenizer.tokenType, 0);
+        assert.equal(tokenizer.source, '');
     });
 
     it('edge case: empty input', function() {
@@ -46,6 +47,23 @@ describe('parser/tokenizer', function() {
 
         assert.equal(tokenizer.eof, true);
         assert.equal(tokenizer.tokenType, 0);
+        assert.equal(tokenizer.source, '');
+    });
+
+    it('should convert input to string', function() {
+        var tokenizer = new Tokenizer({
+            toString: function() {
+                return css;
+            }
+        });
+
+        assert.equal(tokenizer.source, css);
+    });
+
+    it('should accept a Buffer', function() {
+        var tokenizer = new Tokenizer(new Buffer(css));
+
+        assert.equal(tokenizer.source, css);
     });
 
     it('getTypes()', function() {
