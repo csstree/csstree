@@ -1,3 +1,10 @@
+## 1.0.0-alpha18 (April 3, 2017)
+
+- Added `atrule` walk context (#39)
+- Changed a result of generate method for `AnPlusB`, `AttributeSelector`, `Function`, `MediaFeature` and `Ratio` ([1e95877](https://github.com/csstree/csstree/commit/1e9587710efa8e9338bcf0bc794b4b45f286231d))
+- Fixed typo in `List` exception messages (@strarsis, #42)
+- Improved tokenizer to convert an input to a string
+
 ## 1.0.0-alpha17 (March 13, 2017)
 
 - Implemented new concept of `syntax`
