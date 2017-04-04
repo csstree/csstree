@@ -4633,7 +4633,7 @@
   "object-fit": {
     "syntax": "fill | contain | cover | none | scale-down",
     "media": "visual",
-    "inherited": true,
+    "inherited": false,
     "animationType": "discrete",
     "percentages": "no",
     "groups": [

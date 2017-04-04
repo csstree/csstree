@@ -586,10 +586,6 @@
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
       "syntax": "child | young | old"
     },
-    "alpha-value": {
-      "comment": "wrong comma after <number>",
-      "syntax": "<number> | <percentage>"
-    },
     "attr()": {
       "comment": "drop it since it's a generic",
       "syntax": null
