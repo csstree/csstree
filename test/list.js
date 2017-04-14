@@ -607,4 +607,19 @@ describe('List', function() {
             assert.equal(list2.tail, list2tail);
         });
     });
+
+    describe('#replace()', function() {
+        it('replace for an item', function() {
+            var qux = {};
+            list2.replace(list2.tail, List.createItem(qux));
+
+            assert.deepEqual(toArray(list2), [foo, qux]);
+        });
+
+        it('replace for a list', function() {
+            list2.replace(list2.tail, list1);
+
+            assert.deepEqual(toArray(list2), [foo, foo]);
+        });
+    });
 });
