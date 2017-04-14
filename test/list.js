@@ -560,4 +560,51 @@ describe('List', function() {
             assert.equal(list2.tail, list2tail);
         });
     });
+
+    describe('#insertList()', function() {
+        it('add non-empty list to non-empty list', function() {
+            var list1head = list1.head;
+
+            list2.insertList(list1, list2.tail);
+
+            assert.equal(list1.head, null);
+            assert.equal(list1.tail, null);
+            assert.deepEqual(list1head, {
+                prev: list2.head,
+                next: list2.tail,
+                data: foo
+            });
+            assert.deepEqual(list2.head, {
+                prev: null,
+                next: list1head,
+                data: bar
+            });
+            assert.deepEqual(list2.tail, {
+                prev: list1head,
+                next: null,
+                data: bar
+            });
+        });
+
+        it('add non-empty list to empty list', function() {
+            var list2Head = list2.head;
+            var list2Tail = list2.tail;
+
+            empty.insertList(list2);
+
+            assert.equal(empty.head, list2Head);
+            assert.equal(empty.tail, list2Tail);
+            assert.equal(list2.head, null);
+            assert.equal(list2.tail, null);
+        });
+
+        it('add empty list to non-empty', function() {
+            var list2tail = list2.tail;
+
+            list2.insertList(empty);
+
+            assert.equal(empty.head, null);
+            assert.equal(list2.tail, list2tail);
+        });
+    });
 });
