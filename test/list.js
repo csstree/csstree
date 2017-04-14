@@ -29,6 +29,32 @@ function createIteratorStateCollector(retValue) {
     };
 }
 
+function toArray(list) {
+    var cursor = list.head;
+    var prev = null;
+
+    while (cursor !== null) {
+        if (cursor.prev !== prev) {
+            throw new Error('Wrong prev reference');
+        }
+        if (prev !== null && prev.next !== cursor) {
+            throw new Error('Wrong next reference');
+        }
+        prev = cursor;
+        cursor = cursor.next;
+    }
+
+    if (list.tail !== prev) {
+        throw new Error('Wrong tail reference');
+    }
+
+    if (prev !== null && prev.next !== null) {
+        throw new Error('Wrong next reference');
+    }
+
+    return list.toArray();
+}
+
 function createIteratorTests(list, method, items, until, retValue) {
     var iterate = until !== undefined
         ? list[method].bind(list, until)
@@ -349,18 +375,40 @@ describe('List', function() {
         assert.equal(copy.tail.data, list2.tail.data);
     });
 
+    it('#prepend()', function() {
+        var qux = {};
+
+        assert.deepEqual(toArray(empty.prepend(List.createItem(qux))), [qux]);
+        assert.deepEqual(toArray(list1.prepend(List.createItem(qux))), [qux, foo]);
+        assert.deepEqual(toArray(list2.prepend(List.createItem(qux))), [qux, foo, bar]);
+        assert.equal(list2.prepend(List.createItem({})), list2);
+    });
+
+    it('#prependData()', function() {
+        var qux = {};
+
+        assert.deepEqual(toArray(empty.prependData(qux)), [qux]);
+        assert.deepEqual(toArray(list1.prependData(qux)), [qux, foo]);
+        assert.deepEqual(toArray(list2.prependData(qux)), [qux, foo, bar]);
+        assert.equal(list2.prependData(qux), list2);
+    });
+
     it('#append()', function() {
         var qux = {};
 
-        assert.equal(list2.append(List.createItem(qux)), list2);
-        assert.equal(list2.tail.data, qux);
+        assert.deepEqual(toArray(empty.append(List.createItem(qux))), [qux]);
+        assert.deepEqual(toArray(list1.append(List.createItem(qux))), [foo, qux]);
+        assert.deepEqual(toArray(list2.append(List.createItem(qux))), [foo, bar, qux]);
+        assert.equal(list2.append(List.createItem({})), list2);
     });
 
     it('#appendData()', function() {
         var qux = {};
 
+        assert.deepEqual(toArray(empty.appendData(qux)), [qux]);
+        assert.deepEqual(toArray(list1.appendData(qux)), [foo, qux]);
+        assert.deepEqual(toArray(list2.appendData(qux)), [foo, bar, qux]);
         assert.equal(list2.appendData(qux), list2);
-        assert.equal(list2.tail.data, qux);
     });
 
     describe('#insert()', function() {
