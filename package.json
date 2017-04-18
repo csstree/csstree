@@ -46,6 +46,7 @@
   "scripts": {
     "lint": "jscs data lib scripts test && eslint data lib scripts test",
     "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
+    "build:parser": "browserify --standalone csstree-parser lib/syntax/default-parser.js | uglifyjs --compress --mangle -o dist/csstree-parser.js",
     "lint-and-test": "npm run lint && npm test",
     "test": "mocha --reporter progress",
     "gen:syntax": "node scripts/gen-syntax-data.js && node scripts/update-ast-docs.js",
