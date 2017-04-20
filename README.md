@@ -38,6 +38,8 @@ Related projects:
 
 ## Install
 
+[![Join the chat at https://gitter.im/csstree/csstree](https://badges.gitter.im/csstree/csstree.svg)](https://gitter.im/csstree/csstree?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ```
 > npm install css-tree
 ```
