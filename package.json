@@ -46,8 +46,8 @@
   "scripts": {
     "lint": "jscs data lib scripts test && eslint data lib scripts test",
     "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
-    "build:parser": "browserify --standalone csstree-parser lib/syntax/default-parser.js | uglifyjs --compress --mangle -o dist/csstree-parser.js",
-    "build:own:parser": "node scripts/build-standalone.js | uglifyjs --compress --mangle -o dist/csstree-parser.own.js",
+    "build:parser": "browserify --standalone csstree-parser lib/syntax/default-parser.js | google-closure-compiler-js --no-rewritePolyfills >dist/csstree-parser.js",
+    "build:own:parser": "node scripts/build-standalone.js | google-closure-compiler-js --no-rewritePolyfills >dist/csstree-parser.own.js",
     "lint-and-test": "npm run lint && npm test",
     "test": "mocha --reporter progress",
     "gen:syntax": "node scripts/gen-syntax-data.js && node scripts/update-ast-docs.js",
@@ -61,6 +61,7 @@
     "escodegen": "^1.8.1",
     "esprima": "^3.1.3",
     "estree-walker": "^0.3.1",
+    "google-closure-compiler-js": "^20170409.0.0",
     "source-map": "^0.5.3"
   },
   "devDependencies": {
