@@ -3,6 +3,7 @@ var fs = require('fs');
 var parse = require('esprima').parse;
 var walk = require('estree-walker').walk;
 var generate = require('escodegen').generate;
+var escope = require('escope');
 var LIBPATH = path.resolve(__dirname, '../lib/');
 
 function umd(source) {
@@ -35,48 +36,76 @@ function umd(source) {
     );
 }
 
-function wrapModule(programm, filename) {
-    return {
-        type: 'FunctionExpression',
-        id: null,
-        params: [
-            {
-                type: 'Identifier',
-                name: 'exports'
-            },
-            {
-                type: 'Identifier',
-                name: 'module'
+function renameScopeReferences(scope, renameMap) {
+    scope.references.forEach(function(reference) {
+        if (!reference.init && !reference.resolved) {
+            if (reference.identifier.name in renameMap) {
+                reference.identifier.name = renameMap[reference.identifier.name];
             }
-        ],
-        body: {
-            type: 'BlockStatement',
-            body: programm.body
-        },
-        generator: false,
-        expression: false,
-        leadingComments: [{
-            type: 'Block',
-            value: ' ' + path.relative(LIBPATH, filename) + ' '
-        }]
-    };
+        }
+    });
+
+    scope.childScopes.forEach(function(scope) {
+        renameScopeReferences(scope, renameMap);
+    });
+}
+
+function renameVariables(ast, moduleId) {
+    var renameMap = Object.create(null);
+    var rootScope = escope.analyze(ast).globalScope;
+
+    rootScope.variables.forEach(function(variable) {
+        variable.identifiers.forEach(function(ident) {
+            var newName = moduleId + '_' + ident.name;
+            renameMap[ident.name] = newName;
+            ident.name = newName;
+        });
+    });
+
+    renameScopeReferences(rootScope, renameMap);
+}
+
+function preprocessModule(program, filename, moduleId) {
+    renameVariables(program, moduleId);
+    program.body[0].leadingComments = [{
+        type: 'Block',
+        value: ' ' + path.relative(LIBPATH, filename) + ' '
+    }];
+
+    return program.body;
+}
+
+function replaceChild(parent, node, replaceFor) {
+    for (var key in parent) {
+        if (Array.isArray(parent[key])) {
+            var idx = parent[key].indexOf(node);
+            if (idx !== -1) {
+                parent[key].splice(idx, 1, replaceFor);
+                return;
+            }
+        } else if (parent[key] === node) {
+            parent[key] = replaceFor;
+            return;
+        }
+    }
 }
 
 function build(entryFilename) {
     function unroll(filename) {
-        if (modulesMap.has(filename)) {
-            return modulesMap.get(filename);
+        if (moduleExports.has(filename)) {
+            return moduleExports.get(filename);
         }
 
         var moduleBasePath = path.dirname(filename);
         var source = fs.readFileSync(filename, 'utf-8');
         var ast = parse(source);
+        var moduleId = '__module' + moduleExports.size;
 
-        modulesMap.set(filename, modules.push(wrapModule(ast, filename)) - 1);
+        moduleExports.set(filename, moduleId + '_moduleExports');
 
         walk(ast, {
-            enter: function(node) {
-                // require('smth') -> require(moduleId /* 'smth' */)
+            enter: function(node, parent) {
+                // require('smth') -> __moduleN__moduleExports /* require('smth') */
                 if (node.type === 'CallExpression' &&
                     node.callee.type === 'Identifier' &&
                     node.callee.name === 'require') {
@@ -86,43 +115,69 @@ function build(entryFilename) {
                             ? path.resolve(moduleBasePath, requirePath.value)
                             : requirePath.value
                     );
-                    var moduleId = unroll(requireFilename);
+                    var requireModuleExports = unroll(requireFilename);
 
-                    requirePath.value = moduleId;
-                    requirePath.trailingComments = [{
-                        type: 'Block',
-                        value: ' ' + requirePath.raw + ' '
-                    }];
-                    requirePath.raw = String(moduleId);
+                    replaceChild(parent, node, {
+                        type: 'Identifier',
+                        name: requireModuleExports,
+                        trailingComments: [{
+                            type: 'Block',
+                            value: ' ' + generate(node) + ' '
+                        }]
+                    });
+                }
+            },
+            leave: function(node, parent) {
+                // module.exports = <expression>
+                // ->
+                // var moduleExports = <expression>
+                if (node.type === 'ExpressionStatement' &&
+                    node.expression.type === 'AssignmentExpression' &&
+                    node.expression.operator === '=' &&
+                    parent !== null &&
+                    parent.type === 'Program') {
+
+                    var left = node.expression.left;
+                    if (left.type === 'MemberExpression' &&
+                        left.object.type === 'Identifier' &&
+                        left.object.name === 'module' &&
+                        left.property.type === 'Identifier' &&
+                        left.property.name === 'exports') {
+
+                        replaceChild(parent, node, {
+                            type: 'VariableDeclaration',
+                            kind: 'var',
+                            declarations: [{
+                                type: 'VariableDeclarator',
+                                id: {
+                                    type: 'Identifier',
+                                    name: 'moduleExports'
+                                },
+                                init: node.expression.right
+                            }]
+                        });
+                    }
                 }
             }
         });
 
-        return modulesMap.get(filename);
+        modules.push(preprocessModule(ast, filename, moduleId));
+
+        return moduleExports.get(filename);
     };
 
-    var modulesMap = new Map();
+    var moduleExports = new Map();
     var modules = [];
-    var entryModuleId = unroll(entryFilename);
+    var entryModuleExports = unroll(entryFilename);
 
     return umd([
-        function require(idx) {
-            /* eslint-disable */
-            if (!__exports.hasOwnProperty(idx)) {
-                __exports[idx] = null;
-                var module = { exports: {} };
-                __modules[idx](module.exports, module);
-                __exports[idx] = module.exports;
-            }
-            return __exports[idx];
-            /* eslint-enable */
-        },
-        'var __modules = ' + generate({
-            type: 'ArrayExpression',
-            elements: modules
+        generate({
+            type: 'Program',
+            body: modules.reduce(function(res, module) {
+                return res.concat(module);
+            }, [])
         }, { comment: true }),
-        'var __exports = {};',
-        'return require(' + entryModuleId + ');'
+        'return ' + entryModuleExports
     ].join('\n\n'));
 }
 

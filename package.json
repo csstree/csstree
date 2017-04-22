@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "escodegen": "^1.8.1",
+    "escope": "^3.6.0",
     "esprima": "^3.1.3",
     "estree-walker": "^0.3.1",
     "google-closure-compiler-js": "^20170409.0.0",
