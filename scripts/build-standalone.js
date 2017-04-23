@@ -128,6 +128,14 @@ function build(entryFilename) {
                 }
             },
             leave: function(node, parent) {
+                // remove 'use strict'
+                if (node.type === 'Literal' &&
+                    node.value === 'use strict') {
+                    replaceChild(parent, node, {
+                        type: 'EmptyStatement'
+                    });
+                }
+
                 // module.exports = <expression>
                 // ->
                 // var moduleExports = <expression>
