@@ -90,7 +90,7 @@ function replaceChild(parent, node, replaceFor) {
     }
 }
 
-function build(entryFilename) {
+function build(entryFilename, config) {
     function unroll(filename) {
         if (moduleExports.has(filename)) {
             return moduleExports.get(filename);
@@ -152,6 +152,17 @@ function build(entryFilename) {
                         left.property.type === 'Identifier' &&
                         left.property.name === 'exports') {
 
+                        // filter exports properties
+                        if (moduleBasePath in config.exports &&
+                            node.expression.right.type === 'ObjectExpression') {
+                            node.expression.right.properties = node.expression.right.properties
+                                .filter(function(property) {
+                                    return config.exports[moduleBasePath].indexOf(
+                                        property.key.name
+                                    ) !== -1;
+                                });
+                        }
+
                         replaceChild(parent, node, {
                             type: 'VariableDeclaration',
                             kind: 'var',
@@ -189,6 +200,12 @@ function build(entryFilename) {
     ].join('\n\n'));
 }
 
-var res = build(LIBPATH + '/syntax/default-parser.js');
+var res = build(path.join(LIBPATH, '/syntax/default-parser.js'), {
+    exports: {
+        [path.join(LIBPATH, 'syntax/atrule')]: ['parse'],
+        [path.join(LIBPATH, 'syntax/node')]: ['parse'],
+        [path.join(LIBPATH, 'syntax/pseudo')]: ['parse']
+    }
+});
 
 console.log(res);
