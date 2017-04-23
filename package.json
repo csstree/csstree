@@ -48,6 +48,7 @@
     "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
     "build:parser": "browserify --standalone csstree-parser lib/syntax/default-parser.js | google-closure-compiler-js --no-rewritePolyfills >dist/csstree-parser.js",
     "build:own:parser": "node scripts/build-standalone.js | google-closure-compiler-js --no-rewritePolyfills >dist/csstree-parser.own.js",
+    "build:own-pretty:parser": "node scripts/build-standalone.js | google-closure-compiler-js --no-rewritePolyfills | uglifyjs --beautify -o dist/csstree-parser.own.js ",
     "lint-and-test": "npm run lint && npm test",
     "test": "mocha --reporter progress",
     "gen:syntax": "node scripts/gen-syntax-data.js && node scripts/update-ast-docs.js",
