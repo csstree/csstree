@@ -453,11 +453,59 @@ describe('List', function() {
             });
         });
 
-        it('insert head item that doesn\'t belong to list', function() {
+        it('insert the item before an item that doesn\'t belong to list', function() {
             var inserted = List.createItem({});
 
             assert.throws(function() {
                 list2.insert(inserted, list1.head);
+            }, /^Error: before doesn't belong to list$/);
+        });
+    });
+
+    describe('#insertData()', function() {
+        it('should append when no ref item', function() {
+            var afterTail = {};
+
+            list2.insertData(afterTail);
+
+            assert.equal(list2.tail.data, afterTail);
+        });
+
+        it('should insert before ref item', function() {
+            var beforeHead = {};
+
+            list2.insertData(beforeHead, list2.head);
+
+            assert.equal(list2.head.data, beforeHead);
+        });
+
+        it('insert in the middle', function() {
+            var qux = {};
+            var list2head = list2.head;
+            var list2tail = list2.tail;
+
+            list2.insertData(qux, list2.tail);
+
+            assert.deepEqual(list2head, {
+                prev: null,
+                next: list2tail.prev,
+                data: foo
+            });
+            assert.deepEqual(list2tail.prev, {
+                prev: list2head,
+                next: list2tail,
+                data: qux
+            });
+            assert.deepEqual(list2tail, {
+                prev: list2tail.prev,
+                next: null,
+                data: bar
+            });
+        });
+
+        it('insert the item before an item that doesn\'t belong to list', function() {
+            assert.throws(function() {
+                list2.insertData({}, list1.head);
             }, /^Error: before doesn't belong to list$/);
         });
     });
