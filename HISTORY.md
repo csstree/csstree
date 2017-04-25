@@ -1,3 +1,12 @@
+## 1.0.0-alpha19 (April 24, 2017)
+
+- Extended `List` class with new methods:
+    - `List#prepend(item)`
+    - `List#prependData(data)`
+    - `List#insertData(data)`
+    - `List#insertList(list)`
+    - `List#replace(item, itemOrList)`
+
 ## 1.0.0-alpha18 (April 3, 2017)
 
 - Added `atrule` walk context (#39)
