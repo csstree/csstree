@@ -17,7 +17,7 @@ function createParseTest(name, syntax) {
     it(name, function() {
         var ast = parse(syntax);
 
-        assert.equal(ast.type, 'Sequence');
+        assert.equal(ast.type, 'Group');
         assert.equal(normalize(translate(ast)), normalize(syntax));
     });
 }
@@ -114,17 +114,19 @@ describe('grammar', function() {
         assert.deepEqual(visited, [
             'Keyword',     // a
             'Keyword',     // b
-            'Sequence',    // [ a b ]
-            'Sequence',    // empty sequence in c()
-            'Function',    // c()?
+            'Group',       // [ a b ]
+            'Group',       // empty sequence in c()
+            'Function',    // c()
+            'Group',       // c()?  // implicit group -> [ c() ]?
             'Type',        // <d>
             'Property',    // <'e'>
-            'Keyword',     // f{2,4}
-            'Sequence',    // [ f{2,4} ]
+            'Keyword',     // f
+            'Group',       // f{2,4}  // implicit group -> [ f ]{2,4}
+            'Group',       // [ f{2,4} ]
             'Parentheses', // ( [ f{2,4} ] )
             'Group',       // [ <d> || <'e'> || ( [ f{2,4} ] ) ]*
-            'Sequence',    // [ c()? && [<d> || <'e'> || ( [ f{2,4} ] ) ]* ]
-            'Sequence'     // [ [ a b ] | [ c()? && [<d> || <'e'> || ( [ f{2,4} ] ) ]* ] ]
+            'Group',       // [ c()? && [<d> || <'e'> || ( [ f{2,4} ] ) ]* ]
+            'Group'        // [ [ a b ] | [ c()? && [<d> || <'e'> || ( [ f{2,4} ] ) ]* ] ]
         ]);
     });
 });
