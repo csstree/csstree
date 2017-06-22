@@ -98,18 +98,18 @@ describe('lexer', function() {
     });
 
     describe('matchProperty', function() {
-        describe('vendor prefixes and hacks', function() {
-            var bar = parseCss('bar', { context: 'value' });
-            var qux = parseCss('qux', { context: 'value' });
-            var customSyntax = syntax.fork(function(prev, assign) {
-                return assign(prev, {
-                    properties: {
-                        foo: 'bar',
-                        '-baz-foo': 'qux'
-                    }
-                });
+        var bar = parseCss('bar', { context: 'value' });
+        var qux = parseCss('qux', { context: 'value' });
+        var customSyntax = syntax.fork(function(prev, assign) {
+            return assign(prev, {
+                properties: {
+                    foo: 'bar',
+                    '-baz-foo': 'qux'
+                }
             });
+        });
 
+        describe('vendor prefixes and hacks', function() {
             it('vendor prefix', function() {
                 var match = customSyntax.lexer.matchProperty('-vendor-foo', bar);
 
@@ -160,7 +160,25 @@ describe('lexer', function() {
             });
         });
 
+        it('custom property', function() {
+            var match = syntax.lexer.matchProperty('--foo', bar);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'Lexer matching doesn\'t applicable for custom properties');
+        });
+
         tests.forEachTest(createMatchTest);
+    });
+
+    describe('matchDeclaration', function() {
+        it('should match', function() {
+            var declaration = parseCss('color: red', { context: 'declaration' });
+            var match = syntax.lexer.matchDeclaration(declaration);
+
+            assert(match.matched);
+            assert(match.isNodeType(declaration.value.children.first(), 'color'));
+            assert.equal(match.error, null);
+        });
     });
 
     describe('matchType', function() {
