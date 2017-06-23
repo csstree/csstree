@@ -25,14 +25,19 @@
         },
         "source": "screen",
         "ast": {
-            "type": "MediaQueryList",
+            "type": "AtruleExpression",
             "children": [
                 {
-                    "type": "MediaQuery",
+                    "type": "MediaQueryList",
                     "children": [
                         {
-                            "type": "Identifier",
-                            "name": "screen"
+                            "type": "MediaQuery",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "screen"
+                                }
+                            ]
                         }
                     ]
                 }

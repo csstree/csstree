@@ -435,15 +435,20 @@
             "type": "Atrule",
             "name": "page",
             "expression": {
-                "type": "SelectorList",
+                "type": "AtruleExpression",
                 "children": [
                     {
-                        "type": "Selector",
+                        "type": "SelectorList",
                         "children": [
                             {
-                                "type": "PseudoClassSelector",
-                                "name": "left",
-                                "children": null
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "PseudoClassSelector",
+                                        "name": "left",
+                                        "children": null
+                                    }
+                                ]
                             }
                         ]
                     }

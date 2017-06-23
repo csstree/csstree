@@ -142,14 +142,19 @@
                     "type": "Atrule",
                     "name": "media",
                     "expression": {
-                        "type": "MediaQueryList",
+                        "type": "AtruleExpression",
                         "children": [
                             {
-                                "type": "MediaQuery",
+                                "type": "MediaQueryList",
                                 "children": [
                                     {
-                                        "type": "Identifier",
-                                        "name": "test"
+                                        "type": "MediaQuery",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "test"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -234,14 +239,19 @@
                     "type": "Atrule",
                     "name": "media",
                     "expression": {
-                        "type": "MediaQueryList",
+                        "type": "AtruleExpression",
                         "children": [
                             {
-                                "type": "MediaQuery",
+                                "type": "MediaQueryList",
                                 "children": [
                                     {
-                                        "type": "Identifier",
-                                        "name": "test"
+                                        "type": "MediaQuery",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "test"
+                                            }
+                                        ]
                                     }
                                 ]
                             }

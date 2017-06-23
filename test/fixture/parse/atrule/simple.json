@@ -160,8 +160,13 @@
             "type": "Atrule",
             "name": "test",
             "expression": {
-                "type": "Raw",
-                "value": "a b"
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "a b"
+                    }
+                ]
             },
             "block": null
         }
