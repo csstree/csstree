@@ -265,6 +265,7 @@ describe('lexer', function() {
         var ast = parseCss('rgb(1, 2, 3)', { context: 'value' });
         var testNode = ast.children.first().children.first();
         var match = syntax.lexer.matchProperty('background', ast);
+        var mismatch = syntax.lexer.matchProperty('margin', ast);
 
         it('getNodeTrace', function() {
             assert.deepEqual(match.getTrace(testNode), [
@@ -274,6 +275,7 @@ describe('lexer', function() {
                 { type: 'Type', name: 'rgb()' },
                 { type: 'Type', name: 'number' }
             ]);
+            assert.equal(mismatch.getTrace(testNode), null);
         });
 
         it('isType', function() {
@@ -281,6 +283,8 @@ describe('lexer', function() {
             assert.equal(match.isType(testNode, 'final-bg-layer'), true);
             assert.equal(match.isType(testNode, 'background-color'), false);
             assert.equal(match.isType(testNode, 'foo'), false);
+
+            assert.equal(mismatch.isType(testNode, 'color'), false);
         });
 
         it('isProperty', function() {
@@ -288,6 +292,8 @@ describe('lexer', function() {
             assert.equal(match.isProperty(testNode, 'final-bg-layer'), false);
             assert.equal(match.isProperty(testNode, 'background-color'), true);
             assert.equal(match.isProperty(testNode, 'foo'), false);
+
+            assert.equal(mismatch.isProperty(testNode, 'color'), false);
         });
 
         it('isKeyword', function() {
@@ -298,6 +304,9 @@ describe('lexer', function() {
 
             assert.equal(match.isKeyword(keywordNode), true);
             assert.equal(match.isKeyword(numberNode), false);
+
+            assert.equal(mismatch.isProperty(keywordNode), false);
+            assert.equal(mismatch.isProperty(numberNode), false);
         });
     });
 });
