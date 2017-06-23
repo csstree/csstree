@@ -290,5 +290,15 @@ describe('lexer', function() {
             assert.equal(match.isNodeProperty(testNode, 'background-color'), true);
             assert.equal(match.isNodeProperty(testNode, 'foo'), false);
         });
+
+        it('isKeyword', function() {
+            var ast = parseCss('repeat 0', { context: 'value' });
+            var keywordNode = ast.children.first();
+            var numberNode = ast.children.last();
+            var match = syntax.lexer.matchProperty('background', ast);
+
+            assert.equal(match.isKeyword(keywordNode), true);
+            assert.equal(match.isKeyword(numberNode), false);
+        });
     });
 });
