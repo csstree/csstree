@@ -176,7 +176,6 @@ describe('lexer', function() {
             var match = syntax.lexer.matchDeclaration(declaration);
 
             assert(match.matched);
-            assert(match.isNodeType(declaration.value.children.first(), 'color'));
             assert.equal(match.error, null);
         });
     });
@@ -268,7 +267,7 @@ describe('lexer', function() {
         var match = syntax.lexer.matchProperty('background', ast);
 
         it('getNodeTrace', function() {
-            assert.deepEqual(match.getNodeTrace(testNode), [
+            assert.deepEqual(match.getTrace(testNode), [
                 { type: 'Type', name: 'final-bg-layer' },
                 { type: 'Property', name: 'background-color' },
                 { type: 'Type', name: 'color' },
@@ -277,18 +276,18 @@ describe('lexer', function() {
             ]);
         });
 
-        it('isNodeType', function() {
-            assert.equal(match.isNodeType(testNode, 'color'), true);
-            assert.equal(match.isNodeType(testNode, 'final-bg-layer'), true);
-            assert.equal(match.isNodeType(testNode, 'background-color'), false);
-            assert.equal(match.isNodeType(testNode, 'foo'), false);
+        it('isType', function() {
+            assert.equal(match.isType(testNode, 'color'), true);
+            assert.equal(match.isType(testNode, 'final-bg-layer'), true);
+            assert.equal(match.isType(testNode, 'background-color'), false);
+            assert.equal(match.isType(testNode, 'foo'), false);
         });
 
-        it('isNodeProperty', function() {
-            assert.equal(match.isNodeProperty(testNode, 'color'), false);
-            assert.equal(match.isNodeProperty(testNode, 'final-bg-layer'), false);
-            assert.equal(match.isNodeProperty(testNode, 'background-color'), true);
-            assert.equal(match.isNodeProperty(testNode, 'foo'), false);
+        it('isProperty', function() {
+            assert.equal(match.isProperty(testNode, 'color'), false);
+            assert.equal(match.isProperty(testNode, 'final-bg-layer'), false);
+            assert.equal(match.isProperty(testNode, 'background-color'), true);
+            assert.equal(match.isProperty(testNode, 'foo'), false);
         });
 
         it('isKeyword', function() {
