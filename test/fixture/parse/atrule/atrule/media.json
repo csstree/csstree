@@ -5,14 +5,19 @@
             "type": "Atrule",
             "name": "media",
             "expression": {
-                "type": "MediaQueryList",
+                "type": "AtruleExpression",
                 "children": [
                     {
-                        "type": "MediaQuery",
+                        "type": "MediaQueryList",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "screen"
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -30,22 +35,27 @@
             "type": "Atrule",
             "name": "media",
             "expression": {
-                "type": "MediaQueryList",
+                "type": "AtruleExpression",
                 "children": [
                     {
-                        "type": "MediaQuery",
+                        "type": "MediaQueryList",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "not"
-                            },
-                            {
-                                "type": "WhiteSpace",
-                                "value": " "
-                            },
-                            {
-                                "type": "Identifier",
-                                "name": "screen"
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "not"
+                                    },
+                                    {
+                                        "type": "WhiteSpace",
+                                        "value": " "
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -63,22 +73,27 @@
             "type": "Atrule",
             "name": "media",
             "expression": {
-                "type": "MediaQueryList",
+                "type": "AtruleExpression",
                 "children": [
                     {
-                        "type": "MediaQuery",
+                        "type": "MediaQueryList",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "only"
-                            },
-                            {
-                                "type": "WhiteSpace",
-                                "value": " "
-                            },
-                            {
-                                "type": "Identifier",
-                                "name": "screen"
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "only"
+                                    },
+                                    {
+                                        "type": "WhiteSpace",
+                                        "value": " "
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -96,14 +111,19 @@
             "type": "Atrule",
             "name": "mEdiA",
             "expression": {
-                "type": "MediaQueryList",
+                "type": "AtruleExpression",
                 "children": [
                     {
-                        "type": "MediaQuery",
+                        "type": "MediaQueryList",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "screen"
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -124,8 +144,13 @@
             "type": "Atrule",
             "name": "media",
             "expression": {
-                "type": "Raw",
-                "value": "screen and (feature: 1) "
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "screen and (feature: 1) "
+                    }
+                ]
             },
             "block": {
                 "type": "Block",

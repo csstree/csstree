@@ -10,9 +10,10 @@ function createMatchTest(name, syntax, property, value, error) {
                 context: 'value',
                 property: property
             });
+            var match = syntax.matchProperty(property, css);
 
-            assert.equal(syntax.matchProperty(property, css), null);
-            assert(new RegExp('^SyntaxMatchError: ' + error).test(syntax.lastMatchError));
+            assert.equal(match.matched, null);
+            assert(new RegExp('^SyntaxMatchError: ' + error).test(match.error));
         });
     } else {
         it(name, function() {
@@ -73,8 +74,8 @@ describe('lexer', function() {
 
         it('custom syntax should not affect base syntax', function() {
             assert.equal(syntax.lexer.validate(), null);
-            assert(syntax.lexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })) === null);
-            assert(syntax.lexer.matchProperty('color', parseCss('red', { context: 'value' })));
+            assert(syntax.lexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })).matched === null);
+            assert(syntax.lexer.matchProperty('color', parseCss('red', { context: 'value' })).matched !== null);
         });
 
         it('custom syntax should be valid and correct', function() {
@@ -82,8 +83,8 @@ describe('lexer', function() {
         });
 
         it('custom syntax should match own grammar only', function() {
-            assert(customSyntax.lexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })));
-            assert(customSyntax.lexer.matchProperty('color', parseCss('red', { context: 'value' })) === null);
+            assert(customSyntax.lexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })).matched !== null);
+            assert(customSyntax.lexer.matchProperty('color', parseCss('red', { context: 'value' })).matched === null);
         });
 
         it('recovery syntax from dump', function() {
@@ -92,50 +93,91 @@ describe('lexer', function() {
             });
 
             assert.equal(recoverySyntax.lexer.validate(), null);
-            assert(recoverySyntax.lexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })));
+            assert(recoverySyntax.lexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })).matched !== null);
         });
     });
 
     describe('matchProperty', function() {
-        describe('vendor prefixes and hacks', function() {
-            var bar = parseCss('bar', { context: 'value' });
-            var qux = parseCss('qux', { context: 'value' });
-            var customSyntax = syntax.fork(function(prev, assign) {
-                return assign(prev, {
-                    properties: {
-                        foo: 'bar',
-                        '-baz-foo': 'qux'
-                    }
-                });
-            });
-
-            it('vendor prefix', function() {
-                assert(customSyntax.lexer.matchProperty('-vendor-foo', bar));
-                assert.equal(customSyntax.lexer.lastMatchError, null);
-            });
-            it('hacks', function() {
-                assert(customSyntax.lexer.matchProperty('_foo', bar));
-                assert.equal(customSyntax.lexer.lastMatchError, null);
-            });
-            it('vendor prefix and hack', function() {
-                assert(customSyntax.lexer.matchProperty('_-vendor-foo', bar));
-                assert.equal(customSyntax.lexer.lastMatchError, null);
-            });
-            it('case insensetive with vendor prefix and hack', function() {
-                assert(customSyntax.lexer.matchProperty('FOO', bar));
-                assert(customSyntax.lexer.matchProperty('-VENDOR-Foo', bar));
-                assert(customSyntax.lexer.matchProperty('_FOO', bar));
-                assert(customSyntax.lexer.matchProperty('_-VENDOR-Foo', bar));
-                assert.equal(customSyntax.lexer.lastMatchError, null);
-            });
-            it('should use verdor version first', function() {
-                assert(customSyntax.lexer.matchProperty('-baz-foo', qux));
-                assert.equal(customSyntax.lexer.matchProperty('-baz-baz-foo', qux), null);
-                assert.equal(customSyntax.lexer.lastMatchError.message, 'Unknown property: -baz-baz-foo');
+        var bar = parseCss('bar', { context: 'value' });
+        var qux = parseCss('qux', { context: 'value' });
+        var customSyntax = syntax.fork(function(prev, assign) {
+            return assign(prev, {
+                properties: {
+                    foo: 'bar',
+                    '-baz-foo': 'qux'
+                }
             });
         });
 
+        describe('vendor prefixes and hacks', function() {
+            it('vendor prefix', function() {
+                var match = customSyntax.lexer.matchProperty('-vendor-foo', bar);
+
+                assert(match.matched);
+                assert.equal(match.error, null);
+            });
+            it('hacks', function() {
+                var match = customSyntax.lexer.matchProperty('_foo', bar);
+
+                assert(match.matched);
+                assert.equal(customSyntax.lexer.lastMatchError, null);
+            });
+            it('vendor prefix and hack', function() {
+                var match = customSyntax.lexer.matchProperty('_-vendor-foo', bar);
+
+                assert(match.matched);
+                assert.equal(customSyntax.lexer.lastMatchError, null);
+            });
+            it('case insensetive with vendor prefix and hack', function() {
+                var match;
+
+                match = customSyntax.lexer.matchProperty('FOO', bar);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchProperty('-VENDOR-Foo', bar);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchProperty('_FOO', bar);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchProperty('_-VENDOR-Foo', bar);
+                assert(match.matched);
+                assert.equal(match.error, null);
+            });
+            it('should use verdor version first', function() {
+                var match;
+
+                match = customSyntax.lexer.matchProperty('-baz-foo', qux);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchProperty('-baz-baz-foo', qux);
+                assert.equal(match.matched, null);
+                assert.equal(match.error.message, 'Unknown property: -baz-baz-foo');
+            });
+        });
+
+        it('custom property', function() {
+            var match = syntax.lexer.matchProperty('--foo', bar);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'Lexer matching doesn\'t applicable for custom properties');
+        });
+
         tests.forEachTest(createMatchTest);
+    });
+
+    describe('matchDeclaration', function() {
+        it('should match', function() {
+            var declaration = parseCss('color: red', { context: 'declaration' });
+            var match = syntax.lexer.matchDeclaration(declaration);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
     });
 
     describe('matchType', function() {
@@ -151,23 +193,31 @@ describe('lexer', function() {
         });
 
         it('should match type', function() {
-            assert(customSyntax.lexer.matchType('bar', singleNumber));
-            assert.equal(customSyntax.lexer.lastMatchError, null);
+            var match = customSyntax.lexer.matchType('bar', singleNumber);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
         });
 
         it('should match type using nested', function() {
-            assert(customSyntax.lexer.matchType('foo', severalNumbers));
-            assert.equal(customSyntax.lexer.lastMatchError, null);
+            var match = customSyntax.lexer.matchType('foo', severalNumbers);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
         });
 
         it('should fail on matching wrong value', function() {
-            assert.equal(customSyntax.lexer.matchType('bar', severalNumbers), null);
-            assert.equal(customSyntax.lexer.lastMatchError.rawMessage, 'Uncomplete match');
+            var match = customSyntax.lexer.matchType('bar', severalNumbers);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.rawMessage, 'Uncomplete match');
         });
 
         it('should return null and save error for unknown type', function() {
-            assert.equal(customSyntax.lexer.matchType('baz', singleNumber), null);
-            assert.equal(customSyntax.lexer.lastMatchError.message, 'Unknown type: baz');
+            var match = customSyntax.lexer.matchType('baz', singleNumber);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'Unknown type: baz');
         });
     });
 
@@ -202,12 +252,61 @@ describe('lexer', function() {
             (test.skip ? it.skip : it)(test.value, function() {
                 var ast = parseCss(test.value, { context: 'value', positions: true });
                 var result = customSyntax.lexer.matchProperty(test.property, ast);
-                var error = customSyntax.lexer.lastMatchError;
+                var error = result.error;
 
-                assert.equal(result, null);
+                assert.equal(result.matched, null);
                 assert(Boolean(error));
                 assert.equal(error.column, test.column);
             });
+        });
+    });
+
+    describe('trace', function() {
+        var ast = parseCss('rgb(1, 2, 3)', { context: 'value' });
+        var testNode = ast.children.first().children.first();
+        var match = syntax.lexer.matchProperty('background', ast);
+        var mismatch = syntax.lexer.matchProperty('margin', ast);
+
+        it('getNodeTrace', function() {
+            assert.deepEqual(match.getTrace(testNode), [
+                { type: 'Type', name: 'final-bg-layer' },
+                { type: 'Property', name: 'background-color' },
+                { type: 'Type', name: 'color' },
+                { type: 'Type', name: 'rgb()' },
+                { type: 'Type', name: 'number' }
+            ]);
+            assert.equal(mismatch.getTrace(testNode), null);
+        });
+
+        it('isType', function() {
+            assert.equal(match.isType(testNode, 'color'), true);
+            assert.equal(match.isType(testNode, 'final-bg-layer'), true);
+            assert.equal(match.isType(testNode, 'background-color'), false);
+            assert.equal(match.isType(testNode, 'foo'), false);
+
+            assert.equal(mismatch.isType(testNode, 'color'), false);
+        });
+
+        it('isProperty', function() {
+            assert.equal(match.isProperty(testNode, 'color'), false);
+            assert.equal(match.isProperty(testNode, 'final-bg-layer'), false);
+            assert.equal(match.isProperty(testNode, 'background-color'), true);
+            assert.equal(match.isProperty(testNode, 'foo'), false);
+
+            assert.equal(mismatch.isProperty(testNode, 'color'), false);
+        });
+
+        it('isKeyword', function() {
+            var ast = parseCss('repeat 0', { context: 'value' });
+            var keywordNode = ast.children.first();
+            var numberNode = ast.children.last();
+            var match = syntax.lexer.matchProperty('background', ast);
+
+            assert.equal(match.isKeyword(keywordNode), true);
+            assert.equal(match.isKeyword(numberNode), false);
+
+            assert.equal(mismatch.isProperty(keywordNode), false);
+            assert.equal(mismatch.isProperty(numberNode), false);
         });
     });
 });

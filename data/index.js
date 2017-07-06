@@ -1,5 +1,5 @@
-var mdnProperties = require('./mdn-data-properties.json');
-var mdnSyntaxes = require('./mdn-data-syntaxes.json');
+var mdnProperties = require('mdn-data/css/properties.json');
+var mdnSyntaxes = require('mdn-data/css/syntaxes.json');
 var patch = require('./patch.json');
 var data = {
     properties: {},
@@ -14,26 +14,25 @@ function normalizeSyntax(syntax) {
         .replace(/&amp;/g, '&');
 }
 
-// apply patch
-for (var key in patch.properties) {
-    if (key in mdnProperties) {
-        if (patch.properties[key]) {
-            mdnProperties[key].syntax = patch.properties[key].syntax;
+function patchDict(dict, patchDict) {
+    for (var key in patchDict) {
+        if (key in dict) {
+            if (patchDict[key].syntax) {
+                dict[key].syntax = patchDict[key].syntax;
+            } else {
+                delete dict[key];
+            }
         } else {
-            delete mdnProperties[key];
+            if (patchDict[key].syntax) {
+                dict[key] = patchDict[key];
+            }
         }
-    } else {
-        mdnProperties[key] = patch.properties[key];
     }
 }
 
-for (var key in patch.syntaxes) {
-    if (patch.syntaxes[key].syntax) {
-        mdnSyntaxes[key] = patch.syntaxes[key].syntax;
-    } else {
-        delete mdnSyntaxes[key];
-    }
-}
+// apply patch
+patchDict(mdnProperties, patch.properties);
+patchDict(mdnSyntaxes, patch.syntaxes);
 
 // normalize source mdnProperties syntaxes, since it uses html token
 for (var key in mdnProperties) {
@@ -41,7 +40,7 @@ for (var key in mdnProperties) {
 }
 
 for (var key in mdnSyntaxes) {
-    data.types[key] = normalizeSyntax(mdnSyntaxes[key]);
+    data.types[key] = normalizeSyntax(mdnSyntaxes[key].syntax);
 }
 
 module.exports = data;

@@ -1,6 +1,9 @@
 {
   "properties": {
-    "--*": null,
+    "--*": {
+      "comment": "syntax is incorrect and can't be parsed, drop for now",
+      "syntax": null
+    },
     "-moz-background-clip": {
       "comment": "deprecated syntax in old Firefox, https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
       "syntax": "padding | border"
@@ -115,10 +118,6 @@
     "-webkit-line-clamp": {
       "comment": "non-standard and deprecated but may still using by some sites",
       "syntax": "<positive-integer>"
-    },
-    "-webkit-mask": {
-      "comment": "changing for property references due webkit version of properties can differ from current mask spec; needs for revision",
-      "syntax": "<mask-image> [ <'-webkit-mask-repeat'> || <'-webkit-mask-attachment'> || <'-webkit-mask-position'> || <'-webkit-mask-origin'> || <'-webkit-mask-clip'> ]*"
     },
     "-webkit-mask-box-image": {
       "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
@@ -308,13 +307,6 @@
     "min-width": {
       "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
-    },
-    "offset-position": {
-      "comment": "missed",
-      "references": [
-        "https://drafts.fxtf.org/motion-1/#offset-position-property"
-      ],
-      "syntax": "auto | <position>"
     },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
@@ -597,10 +589,6 @@
     "bottom": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
       "syntax": "<length> | auto"
-    },
-    "color-stop-list": {
-      "comment": "missed #",
-      "syntax": "<color-stop>#{2,}"
     },
     "content-list": {
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
