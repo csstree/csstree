@@ -110,7 +110,7 @@
                                                                     "type": "Identifier",
                                                                     "name": "x|x"
                                                                 },
-                                                                "operator": null,
+                                                                "matcher": null,
                                                                 "value": null,
                                                                 "flags": null
                                                             }

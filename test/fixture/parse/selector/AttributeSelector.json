@@ -7,7 +7,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -23,7 +23,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -39,7 +39,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -55,7 +55,7 @@
                 "type": "Identifier",
                 "name": "b"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": null
         }
@@ -68,7 +68,7 @@
                 "type": "Identifier",
                 "name": "-b"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": null
         }
@@ -81,7 +81,7 @@
                 "type": "Identifier",
                 "name": "*|-b"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": null
         }
@@ -94,7 +94,7 @@
                 "type": "Identifier",
                 "name": "b"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": "i"
         }
@@ -107,7 +107,7 @@
                 "type": "Identifier",
                 "name": "ng:cloak"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": null
         }
@@ -120,7 +120,7 @@
                 "type": "Identifier",
                 "name": "ng:cloak"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "Identifier",
                 "name": "x"
@@ -137,7 +137,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -154,7 +154,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -171,7 +171,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -188,7 +188,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -205,7 +205,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -222,7 +222,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -238,7 +238,7 @@
                 "type": "Identifier",
                 "name": "xlink|href"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "\"#test\""
@@ -254,7 +254,7 @@
                 "type": "Identifier",
                 "name": "*|href"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "\"#test\""
@@ -270,7 +270,7 @@
                 "type": "Identifier",
                 "name": "|href"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "\"#test\""
@@ -286,7 +286,7 @@
                 "type": "Identifier",
                 "name": "xlink|href"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": null
         }
@@ -299,7 +299,7 @@
                 "type": "Identifier",
                 "name": "*|href"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": null
         }
@@ -312,7 +312,7 @@
                 "type": "Identifier",
                 "name": "|href"
             },
-            "operator": null,
+            "matcher": null,
             "value": null,
             "flags": null
         }
@@ -325,7 +325,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "|=",
+            "matcher": "|=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -341,7 +341,7 @@
                 "type": "Identifier",
                 "name": "a|b"
             },
-            "operator": "|=",
+            "matcher": "|=",
             "value": {
                 "type": "String",
                 "value": "'c'"
@@ -358,7 +358,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "|=",
+            "matcher": "|=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -375,7 +375,7 @@
                 "type": "Identifier",
                 "name": "a|b"
             },
-            "operator": "|=",
+            "matcher": "|=",
             "value": {
                 "type": "String",
                 "value": "'c'"
@@ -391,7 +391,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -407,7 +407,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "~=",
+            "matcher": "~=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -423,7 +423,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "^=",
+            "matcher": "^=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -439,7 +439,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "$=",
+            "matcher": "$=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -455,7 +455,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "*=",
+            "matcher": "*=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -471,7 +471,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "|=",
+            "matcher": "|=",
             "value": {
                 "type": "Identifier",
                 "name": "b"
@@ -487,7 +487,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -504,7 +504,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"
@@ -521,7 +521,7 @@
                 "type": "Identifier",
                 "name": "a"
             },
-            "operator": "=",
+            "matcher": "=",
             "value": {
                 "type": "String",
                 "value": "'b'"

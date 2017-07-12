@@ -704,7 +704,7 @@
                                     },
                                     "name": "attr"
                                 },
-                                "operator": null,
+                                "matcher": null,
                                 "value": null,
                                 "flags": null
                             },
@@ -745,7 +745,7 @@
                                     },
                                     "name": "attr"
                                 },
-                                "operator": "|=",
+                                "matcher": "|=",
                                 "value": {
                                     "type": "String",
                                     "loc": {
@@ -797,7 +797,7 @@
                                     },
                                     "name": "attr"
                                 },
-                                "operator": "=",
+                                "matcher": "=",
                                 "value": {
                                     "type": "Identifier",
                                     "loc": {
@@ -1534,7 +1534,7 @@
                                                                 },
                                                                 "name": "a"
                                                             },
-                                                            "operator": null,
+                                                            "matcher": null,
                                                             "value": null,
                                                             "flags": null
                                                         }
@@ -3446,7 +3446,7 @@
                                     },
                                     "name": "-e"
                                 },
-                                "operator": null,
+                                "matcher": null,
                                 "value": null,
                                 "flags": null
                             },
@@ -3482,7 +3482,7 @@
                                     },
                                     "name": "*|-f"
                                 },
-                                "operator": null,
+                                "matcher": null,
                                 "value": null,
                                 "flags": null
                             }

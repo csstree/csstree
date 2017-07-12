@@ -46,7 +46,7 @@
                         "type": "Identifier",
                         "name": "a"
                     },
-                    "operator": "=",
+                    "matcher": "=",
                     "value": {
                         "type": "Identifier",
                         "name": "b"
@@ -67,7 +67,7 @@
                         "type": "Identifier",
                         "name": "a"
                     },
-                    "operator": "=",
+                    "matcher": "=",
                     "value": {
                         "type": "Identifier",
                         "name": "b"
@@ -80,7 +80,7 @@
                         "type": "Identifier",
                         "name": "c"
                     },
-                    "operator": "=",
+                    "matcher": "=",
                     "value": {
                         "type": "String",
                         "value": "'d'"
@@ -167,7 +167,7 @@
                                                 "type": "Identifier",
                                                 "name": "ABC"
                                             },
-                                            "operator": null,
+                                            "matcher": null,
                                             "value": null,
                                             "flags": null
                                         }
