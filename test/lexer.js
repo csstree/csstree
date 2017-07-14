@@ -267,7 +267,7 @@ describe('lexer', function() {
         var match = syntax.lexer.matchProperty('background', ast);
         var mismatch = syntax.lexer.matchProperty('margin', ast);
 
-        it('getNodeTrace', function() {
+        it('getTrace', function() {
             assert.deepEqual(match.getTrace(testNode), [
                 { type: 'Type', name: 'final-bg-layer' },
                 { type: 'Property', name: 'background-color' },

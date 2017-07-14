@@ -6,12 +6,12 @@ describe('parser/tokenizer', function() {
     var tokens = [
         { offset: 0, type: 'FullStop' },
         { offset: 1, type: 'Identifier' },
-        { offset: 5, type: 'Whitespace' },
+        { offset: 5, type: 'WhiteSpace' },
         { offset: 6, type: 'LeftCurlyBracket' },
-        { offset: 7, type: 'Whitespace' },
+        { offset: 7, type: 'WhiteSpace' },
         { offset: 10, type: 'Identifier' },
         { offset: 14, type: 'Colon' },
-        { offset: 15, type: 'Whitespace' },
+        { offset: 15, type: 'WhiteSpace' },
         { offset: 16, type: 'Identifier' },
         { offset: 19, type: 'LeftParenthesis' },
         { offset: 20, type: 'Identifier' },
@@ -21,7 +21,7 @@ describe('parser/tokenizer', function() {
         { offset: 28, type: 'Identifier' },
         { offset: 31, type: 'RightParenthesis' },
         { offset: 32, type: 'Semicolon' },
-        { offset: 33, type: 'Whitespace' },
+        { offset: 33, type: 'WhiteSpace' },
         { offset: 34, type: 'RightCurlyBracket' }
     ];
     var types = tokens.map(function(token) {
