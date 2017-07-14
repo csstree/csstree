@@ -11,6 +11,53 @@ function genNodeStructure(docs) {
     '\n}';
 }
 
+function escapeHtml(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function genNodeSamples(samples) {
+    return (
+        '<table>' +
+            '<thead><tr>' +
+                '<th>CSS</th>' +
+                '<th>Stringify (default)</th>' +
+                '<th>AST</th>' +
+            '</tr></thead>' +
+            '<tbody>\n' +
+            samples.map(function(sample) {
+                var ast = '';
+                var str = '-';
+                var lines = 1;
+
+                try {
+                    ast = csstree.parse(samples);
+                    str = csstree.translate(ast);
+                    ast = JSON.stringify(ast, null, 4);
+                    lines = (ast.match(/\n/g) || []).length + 1;
+                } catch (e) {
+                    ast = 'Parse error';
+                }
+
+                return (
+                    '<tr>' +
+                        '<td>' + escapeHtml(sample) + '</td>' +
+                        '<td>' + escapeHtml(str) + '</td>' +
+                        '<td>' +
+                            (lines > 10 ? '<details><summary>' + lines + ' lines</summary>' : '') +
+                            '<pre>' + escapeHtml(ast) + '</pre>' +
+                            (lines > 10 ? '</details>' : '') +
+                        '</td>' +
+                    '</tr>'
+                );
+            }).join('\n') +
+            '\n</tbody>' +
+        '</table>'
+    );
+}
+
 var md = fs.readFileSync(filename, 'utf8').replace(/\r\n?/g, '\n');
 var mdParts = md.split(/(\n<!-- \/?MarkdownTOC .*?-->\n)/);
 var toc = [];
@@ -19,12 +66,13 @@ var types = mdParts[4]
     .split(/\n*## +/g).slice(1)
     .reduce(function(dict, section) {
         var name = section.match(/^\w+/)[0];
-        var texts = section.replace(/^\w+\n+/, '').split(/\n*```([^`]+)```\n*/);
+        var texts = section.replace(/^\w+\n+/, '').split(/\n*```(?:[^`]+)```\n*/);
+        var afterText = (texts[1] || '').split(/\n*<table>(?:(?:.|\s)*)<\/table>\n*/i);
 
         dict[name] = {
-            before: texts[0] || '',
-            structure: texts[1],
-            after: texts[2] || ''
+            first: texts[0] || '',
+            middle: afterText[0] || '',
+            last: afterText[1] || ''
         };
 
         return dict;
@@ -32,15 +80,19 @@ var types = mdParts[4]
 
 Object.keys(lexer.structure).sort().forEach(function(type) {
     var info = types[type] || {};
+    var samples = lexer.structure[type].samples || null;
+    console.log(lexer.structure[type].samples);
 
     toc.push('- [' + type + '](#' + type.toLowerCase() + ')');
     sections.push(
         '## ' + type + '\n\n' +
-        (info.before ? info.before + '\n\n' : '') +
+        (info.first ? info.first + '\n\n' : '') +
         '```\n' +
         genNodeStructure(lexer.structure[type].docs) +
         '\n```' +
-        (info.after ?  '\n\n' + info.after : '') +
+        (info.middle ?  '\n\n' + info.middle : '') +
+        (samples !== null ? '\n\n' + genNodeSamples(samples) : '') +
+        (info.last ?  '\n\n' + info.last : '') +
         '\n'
     );
 });

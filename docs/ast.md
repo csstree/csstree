@@ -69,6 +69,25 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 
 `a` and `b` may have no value (to be equals to `null`) but not both at the same time. Parser normalizes `a` value to store a valid interger, i.e. for `-n` it will contains `-1` and for `n` it will contains `1`.
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>2n + 1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>2n+1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>2n - 1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>2n-1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>3n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>+3n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-3n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>1n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>+1n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-1n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>+n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-n</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>+1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Atrule
 
 ```
@@ -79,6 +98,12 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "block": <Block> | null
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>@charset "utf8";</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>@import "foo.css";</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>@supports (a: 1) {}</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## AtruleExpression
 
@@ -101,6 +126,20 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>[foo]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo i]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo=bar]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo=bar i]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo="bar"]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo="bar" i]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo~=bar]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo^=bar]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo$=bar]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo*=bar]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo|=bar]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Block
 
 ```
@@ -109,6 +148,12 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "children": List
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>{}</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>{ foo: bar }</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>{ @test; }</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## Brackets
 
@@ -119,6 +164,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>[]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>[foo bar]</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## CDC
 
 ```
@@ -127,6 +177,19 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>&lt;!--</td><td>&lt;!--</td><td><pre>{
+    "type": "StyleSheet",
+    "loc": null,
+    "children": [
+        {
+            "type": "CDO",
+            "loc": null
+        }
+    ]
+}</pre></td></tr>
+</tbody></table>
+
 ## CDO
 
 ```
@@ -134,6 +197,19 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "type": "CDO"
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>--&gt;</td><td>--&gt;</td><td><pre>{
+    "type": "StyleSheet",
+    "loc": null,
+    "children": [
+        {
+            "type": "CDC",
+            "loc": null
+        }
+    ]
+}</pre></td></tr>
+</tbody></table>
 
 ## ClassSelector
 
@@ -144,6 +220,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>.name</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Combinator
 
 ```
@@ -153,6 +233,13 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>+</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>&gt;</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>~</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>/deep/</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Comment
 
 ```
@@ -161,6 +248,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "value": String
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>/* comment */</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>/*! comment */</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## Declaration
 
@@ -173,6 +265,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>property: value</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>--custom-property: value</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## DeclarationList
 
 ```
@@ -181,6 +278,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "children": List
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>foo: 1; bar: 2</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## Dimension
 
@@ -192,6 +293,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>1px</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Function
 
 ```
@@ -202,6 +307,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>fn()</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>fn(1, 2)</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## HexColor
 
 ```
@@ -210,6 +320,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "value": String
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>#abc</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>#abc123</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## IdSelector
 
@@ -220,6 +335,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>#id</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Identifier
 
 ```
@@ -228,6 +347,12 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "name": String
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>ident</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-prefix-ident</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>--custom</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## MediaFeature
 
@@ -239,6 +364,14 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>feature</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>feature: ident</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>feature: 123</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>feature: 123px</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>feature: 1/2</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## MediaQuery
 
 ```
@@ -248,6 +381,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>(feature) and (feature: 2)</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## MediaQueryList
 
 ```
@@ -256,6 +393,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "children": List
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>all, (feature: test)</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## Nth
 
@@ -267,6 +408,12 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>2n + 1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>odd</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>even</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Number
 
 ```
@@ -275,6 +422,17 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "value": String
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-1</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>.2</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-.2</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>3.4</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-3.4</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>1e3</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>-1.2e2</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## Operator
 
@@ -303,6 +461,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>50%</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## PseudoClassSelector
 
 ```
@@ -312,6 +474,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "children": List | null
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>:ident</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>:ident(content)</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## PseudoElementSelector
 
@@ -323,6 +490,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>::ident</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>::ident(content)</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Ratio
 
 ```
@@ -333,6 +505,11 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>1/2</td><td>-</td><td><pre>Parse error</pre></td></tr>
+<tr><td>1 / 2</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
+
 ## Raw
 
 ```
@@ -341,6 +518,10 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "value": String
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>raw is anything</td><td>-</td><td><pre>Parse error</pre></td></tr>
+</tbody></table>
 
 ## Rule
 
@@ -351,6 +532,59 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
     "block": <Block>
 }
 ```
+
+<table><thead><tr><th>CSS</th><th>Stringify (default)</th><th>AST</th></tr></thead><tbody>
+<tr><td>selector { property: value }</td><td>selector{property:value}</td><td><details><summary>50 lines</summary><pre>{
+    "type": "StyleSheet",
+    "loc": null,
+    "children": [
+        {
+            "type": "Rule",
+            "loc": null,
+            "selector": {
+                "type": "SelectorList",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "Selector",
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "loc": null,
+                                "name": "selector"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "loc": null,
+                        "important": false,
+                        "property": "property",
+                        "value": {
+                            "type": "Value",
+                            "loc": null,
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "loc": null,
+                                    "name": "value"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}</pre></details></td></tr>
+</tbody></table>
 
 ## Selector
 
