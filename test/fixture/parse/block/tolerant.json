@@ -1,0 +1,62 @@
+{
+    "no colon after property name": {
+        "source": "{foo}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Block",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "foo"
+                }
+            ]
+        }
+    },
+    "bad symbol in property name": {
+        "source": "{!foo: value}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Block",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "!foo: value"
+                }
+            ]
+        }
+    },
+    "uncomplete !important": {
+        "source": "{bada: boom!}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Block",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "bada: boom!"
+                }
+            ]
+        }
+    },
+    "bad value": {
+        "source": "{bada: boom?}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Block",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "bada: boom?"
+                }
+            ]
+        }
+    }
+}

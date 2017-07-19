@@ -969,12 +969,12 @@
             "parseSelector": false
         },
         "source": ".foo, a:not(a = b) { foo: 1; }",
-        "translate": ".foo, a:not(a = b) {foo:1}",
+        "translate": ".foo, a:not(a = b){foo:1}",
         "ast": {
             "type": "Rule",
             "selector": {
                 "type": "Raw",
-                "value": ".foo, a:not(a = b) "
+                "value": ".foo, a:not(a = b)"
             },
             "block": {
                 "type": "Block",
