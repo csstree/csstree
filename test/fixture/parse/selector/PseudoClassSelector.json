@@ -28,6 +28,35 @@
             ]
         }
     },
+    "unknown function pseudo class with nested blocks": {
+        "source": ":unknown([{}()[{[()]}]])",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "unknown",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "[{}()[{[()]}]]"
+                }
+            ]
+        }
+    },
+    "unknown function pseudo class with nested blocks (unbalanced parenthesis in tolerant mode)": {
+        "source": ":unknown([{}()[{[)]}]])",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "unknown",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "[{}()[{[)]}]]"
+                }
+            ]
+        }
+    },
     "unknown function pseudo class with spaces and comments": {
         "source": ":unknown( 1 + 2 /* comment */ + 3 )",
         "ast": {
