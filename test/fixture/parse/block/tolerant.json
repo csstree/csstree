@@ -1,5 +1,5 @@
 {
-    "no colon after property name": {
+    "no colon after a property name": {
         "source": "{foo}",
         "options": {
             "tolerant": true
@@ -14,7 +14,7 @@
             ]
         }
     },
-    "bad symbol in property name": {
+    "bad symbol in a property name": {
         "source": "{!foo: value}",
         "options": {
             "tolerant": true
@@ -58,5 +58,70 @@
                 }
             ]
         }
-    }
+    },
+    "bad declaration should include semicolon": {
+        "source": "{foo: boom!;}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Block",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "foo: boom!;"
+                }
+            ]
+        }
+    },
+    "bad declaration should not include whitespaces": [
+        {
+            "source": "{ foo: ? }",
+            "translate": "{foo: ?}",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "foo: ?"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "{ foo }",
+            "translate": "{foo}",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "foo"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "{ foo: boom! }",
+            "translate": "{foo: boom!}",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "foo: boom!"
+                    }
+                ]
+            }
+        }
+    ]
 }
