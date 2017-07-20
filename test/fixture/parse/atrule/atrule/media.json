@@ -139,7 +139,7 @@
         "options": {
             "parseAtruleExpression": false
         },
-        "source": "@media screen and (feature: 1) {}",
+        "source": "@media screen and (feature: 1){}",
         "ast": {
             "type": "Atrule",
             "name": "media",
@@ -148,7 +148,7 @@
                 "children": [
                     {
                         "type": "Raw",
-                        "value": "screen and (feature: 1) "
+                        "value": "screen and (feature: 1)"
                     }
                 ]
             },
