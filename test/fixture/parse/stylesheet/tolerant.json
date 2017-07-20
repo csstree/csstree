@@ -1,7 +1,7 @@
 {
     "bad selector": {
-        "source": "! {}",
-        "translate": "!{}",
+        "source": " ? {}",
+        "translate": "?{}",
         "options": {
             "tolerant": true
         },
@@ -12,12 +12,75 @@
                     "type": "Rule",
                     "selector": {
                         "type": "Raw",
-                        "value": "!"
+                        "value": "?"
                     },
                     "block": {
                         "type": "Block",
                         "children": []
                     }
+                }
+            ]
+        }
+    },
+    "uncomplete pseudo in selector": {
+        "source": " foo: {}",
+        "translate": "foo:{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Rule",
+                    "selector": {
+                        "type": "Raw",
+                        "value": "foo:"
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": []
+                    }
+                }
+            ]
+        }
+    },
+    "uncomplete unknown functional-pseudo in selector": {
+        "skip": true,
+        "source": " foo:bar(x {}",
+        "translate": "foo:{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Rule",
+                    "selector": {
+                        "type": "Raw",
+                        "value": "foo:bar(x"
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": []
+                    }
+                }
+            ]
+        }
+    },
+    "no block": {
+        "source": " ? ",
+        "translate": "? ",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "? "
                 }
             ]
         }
