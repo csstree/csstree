@@ -15,7 +15,7 @@ function repeat(str, count) {
 }
 
 function createParseErrorTest(name, test, options) {
-    it(name + ' ' + JSON.stringify(test.source), function() {
+    (test.skip ? it.skip : it)(name + ' ' + JSON.stringify(test.source), function() {
         var error;
 
         assert.throws(function() {
@@ -35,7 +35,7 @@ function createParseErrorTest(name, test, options) {
 describe('parse', function() {
     describe('basic', function() {
         forEachParseTest(function createParseTest(name, test) {
-            it(name, function() {
+            (test.skip ? it.skip : it)(name, function() {
                 var ast = parse(test.source, test.options);
 
                 // AST should be equal

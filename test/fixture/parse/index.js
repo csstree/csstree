@@ -76,6 +76,7 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
                         if (test.ast.type.toLowerCase() !== scope.toLowerCase() && wrapper.hasOwnProperty(scope)) {
                             test.ast = wrapper[scope](test.ast);
                         }
+
                         tests[storeKey] = test;
                     }
                 }
