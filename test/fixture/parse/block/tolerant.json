@@ -59,21 +59,39 @@
             ]
         }
     },
-    "bad declaration should include semicolon": {
-        "source": "{foo: boom!;}",
-        "options": {
-            "tolerant": true
+    "bad declaration should include semicolon": [
+        {
+            "source": "{foo: boom!;}",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "foo: boom!;"
+                    }
+                ]
+            }
         },
-        "ast": {
-            "type": "Block",
-            "children": [
-                {
-                    "type": "Raw",
-                    "value": "foo: boom!;"
-                }
-            ]
+        {
+            "source": "{foo: boom! ; }",
+            "translate": "{foo: boom! ;}",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "foo: boom! ;"
+                    }
+                ]
+            }
         }
-    },
+    ],
     "bad declaration should not include whitespaces": [
         {
             "source": "{ foo: ? }",
