@@ -313,7 +313,13 @@ describe('lexer', function() {
 
     describe('search', function() {
         function translateFragments(fragments) {
-            return fragments.map(syntax.translate);
+            return fragments.map(function(fragment) {
+                return syntax.translate({
+                    type: 'Value',
+                    loc: null,
+                    children: fragment.nodes
+                });
+            });
         }
 
         describe('matchValueFragments', function() {
