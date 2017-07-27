@@ -313,9 +313,7 @@ describe('lexer', function() {
 
     describe('search', function() {
         function translateFragments(fragments) {
-            return fragments.map(function(fragment) {
-                return syntax.translate({ type: 'Value', children: fragment });
-            });
+            return fragments.map(syntax.translate);
         }
 
         describe('matchValueFragments', function() {
