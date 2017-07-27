@@ -77,7 +77,23 @@ Using for `value` context to apply some property specific parse rules.
 Type: `boolean`  
 Default: `false`
 
-Specify to store location of node content in source. Location is storing `loc` property of nodes. `loc` property is always `null` when option is `false`.
+Specify to store locations of node content in original source. Location is storing as `loc` field of nodes. `loc` property is always `null` when option is `false`. The structure of `loc`:
+
+```
+loc: {
+    source: 'value of `filename` option or `<unknown>`',
+    start: {
+        offset: <number>,
+        line: <number>,
+        column: <number>
+    },
+    end: {
+        offset: <number>,
+        line: <number>,
+        column: <number>
+    }
+}
+```
 
 ### filename
 
@@ -91,7 +107,7 @@ Filename of source. This value adds to `loc` as `source` property when `position
 Type: `number`  
 Default: `0`
 
-Start offset. Useful when parsing fragment of CSS to store correct positions in node's `loc` property.
+Start offset. Useful when parsing a fragment of CSS to store a correct positions for node's `loc` property.
 
 ### line
 
