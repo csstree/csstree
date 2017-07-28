@@ -322,42 +322,42 @@ describe('lexer', function() {
             });
         }
 
-        describe('matchValueFragments', function() {
-            it('should match single entry', function() {
+        describe('findValueFragments', function() {
+            it('should find single entry', function() {
                 var declaration = parseCss('border: 1px solid red', { context: 'declaration' });
-                var result = syntax.lexer.matchValueFragments(declaration.property, declaration.value, 'Type', 'color');
+                var result = syntax.lexer.findValueFragments(declaration.property, declaration.value, 'Type', 'color');
 
                 assert.deepEqual(translateFragments(result), ['red']);
             });
 
-            it('should match multiple entries', function() {
+            it('should find multiple entries', function() {
                 var declaration = parseCss('font: 10px Arial, Courier new, Times new roman', { context: 'declaration' });
-                var result = syntax.lexer.matchValueFragments(declaration.property, declaration.value, 'Type', 'family-name');
+                var result = syntax.lexer.findValueFragments(declaration.property, declaration.value, 'Type', 'family-name');
 
                 assert.deepEqual(translateFragments(result), ['Arial', 'Courier new', 'Times new roman']);
             });
         });
 
-        describe('matchDeclarationValueFragments', function() {
-            it('should match single entry', function() {
+        describe('findDeclarationValueFragments', function() {
+            it('should find single entry', function() {
                 var declaration = parseCss('border: 1px solid red', { context: 'declaration' });
-                var result = syntax.lexer.matchDeclarationValueFragments(declaration, 'Type', 'color');
+                var result = syntax.lexer.findDeclarationValueFragments(declaration, 'Type', 'color');
 
                 assert.deepEqual(translateFragments(result), ['red']);
             });
 
-            it('should match multiple entries', function() {
+            it('should find multiple entries', function() {
                 var declaration = parseCss('font: 10px Arial, Courier new, Times new roman', { context: 'declaration' });
-                var result = syntax.lexer.matchDeclarationValueFragments(declaration, 'Type', 'family-name');
+                var result = syntax.lexer.findDeclarationValueFragments(declaration, 'Type', 'family-name');
 
                 assert.deepEqual(translateFragments(result), ['Arial', 'Courier new', 'Times new roman']);
             });
         });
 
-        describe('matchAllFragments', function() {
+        describe('findAllFragments', function() {
             it('should find all entries in ast', function() {
                 var ast = parseCss('foo { border: 1px solid red; } bar { color: rgba(1,2,3,4); border-color: #123 rgb(1,2,3) }');
-                var result = syntax.lexer.matchAllFragments(ast, 'Type', 'color');
+                var result = syntax.lexer.findAllFragments(ast, 'Type', 'color');
 
                 assert.deepEqual(translateFragments(result), ['red', 'rgba(1,2,3,4)', '#123', 'rgb(1,2,3)']);
             });
