@@ -12,7 +12,7 @@
 
 [Fast](https://github.com/postcss/benchmark) detailed CSS parser
 
-> Work in progress. Project in alpha stage since AST format is subject to change.
+> Work in progress. Project in alpha stage since AST format and API is subject to change.
 
 - [Parsing CSS into AST](docs/parsing.md)
 - [AST format](docs/ast.md)
@@ -57,6 +57,10 @@ csstree.walk(ast, function(node) {
 console.log(csstree.translate(ast));
 // .hello{world:"!"}
 ```
+
+## Top level API
+
+![API map](https://cdn.rawgit.com/csstree/csstree/master/docs/api-map.svg)
 
 ## License
 
