@@ -749,10 +749,6 @@
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
     },
-    "minmax()": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
     "media-and": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null

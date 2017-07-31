@@ -95,7 +95,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 {
     "type": "AttributeSelector",
     "name": <Identifier>,
-    "operator": String | null,
+    "matcher": String | null,
     "value": <String> | <Identifier> | null,
     "flags": String | null
 }

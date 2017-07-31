@@ -10,9 +10,9 @@
 [![Join the CSSTree chat at https://gitter.im/csstree/csstree](https://badges.gitter.im/csstree/csstree.svg)](https://gitter.im/csstree/csstree)
 [![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)
 
-[Fast](https://github.com/postcss/benchmark) detailed CSS parser
+The set of tools for working with CSS, including [fast](https://github.com/postcss/benchmark) detailed parser (string->AST), walkers, generators (AST->string) and even lexer (validation and matching) based on knowledge of spec and browser implementations (see [schema](#top-level-api) for details). The main goal to be efficient and W3C spec complient, with focus on analyzing and source-to-source processing.
 
-> Work in progress. Project in alpha stage since AST format is subject to change.
+> Work in progress. The project in alpha stage since some parts need further experiments, AST format and API are subjects to change. However it's stable enough and used by packages like [CSSO](https://github.com/css/csso) (CSS minifier) in production.
 
 - [Parsing CSS into AST](docs/parsing.md)
 - [AST format](docs/ast.md)
@@ -58,8 +58,12 @@ console.log(csstree.translate(ast));
 // .hello{world:"!"}
 ```
 
+## Top level API
+
+![API map](https://cdn.rawgit.com/csstree/csstree/master/docs/api-map.svg)
+
 ## License
 
 MIT
 
-Syntax matching use [mdn/data](https://github.com/mdn/data) by Mozilla Contributors
+Syntax matching uses [mdn/data](https://github.com/mdn/data) by Mozilla Contributors
