@@ -21,7 +21,7 @@
     },
     "at-rule (unknown) may have no a semicolon": {
         "source": "@bada boom!",
-        "source": "@bada boom!;",
+        "translate": "@bada boom!;",
         "options": {
             "tolerant": true
         },
