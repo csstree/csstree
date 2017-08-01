@@ -2,8 +2,8 @@ var path = require('path');
 var fs = require('fs');
 
 fs.readdirSync(path.resolve(__dirname, 'docs')).forEach(function(filename) {
-    var name = path.parse(filename).name;
-    var docsFilename = path.resolve(__dirname, '../docs', name + '.md');
+    var name = path.basename(filename);
+    var docsFilename = path.resolve(__dirname, '../docs', name.replace(/\.js$/, '.md'));
     var updateFn = require('./docs/' + filename);
 
     console.log('Update ' + docsFilename);
