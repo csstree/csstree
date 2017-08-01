@@ -4,25 +4,28 @@ var Tokenizer = require('../lib').Tokenizer;
 describe('parser/tokenizer', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg);\n}';
     var tokens = [
-        { offset: 0, type: 'FullStop' },
-        { offset: 1, type: 'Identifier' },
-        { offset: 5, type: 'WhiteSpace' },
-        { offset: 6, type: 'LeftCurlyBracket' },
-        { offset: 7, type: 'WhiteSpace' },
-        { offset: 10, type: 'Identifier' },
-        { offset: 14, type: 'Colon' },
-        { offset: 15, type: 'WhiteSpace' },
-        { offset: 16, type: 'Url' },
-        { offset: 20, type: 'Identifier' },
-        { offset: 23, type: 'Solidus' },
-        { offset: 24, type: 'Identifier' },
-        { offset: 27, type: 'FullStop' },
-        { offset: 28, type: 'Identifier' },
-        { offset: 31, type: 'RightParenthesis' },
-        { offset: 32, type: 'Semicolon' },
-        { offset: 33, type: 'WhiteSpace' },
-        { offset: 34, type: 'RightCurlyBracket' }
+        { offset: 0, type: 'FullStop', chunk: '.' },
+        { offset: 1, type: 'Identifier', chunk: 'test' },
+        { offset: 5, type: 'WhiteSpace', chunk: '\n' },
+        { offset: 6, type: 'LeftCurlyBracket', chunk: '{' },
+        { offset: 7, type: 'WhiteSpace', chunk: '\n  ' },
+        { offset: 10, type: 'Identifier', chunk: 'prop' },
+        { offset: 14, type: 'Colon', chunk: ':' },
+        { offset: 15, type: 'WhiteSpace', chunk: ' ' },
+        { offset: 16, type: 'Url', chunk: 'url(' },
+        { offset: 20, type: 'Identifier', chunk: 'foo' },
+        { offset: 23, type: 'Solidus', chunk: '/' },
+        { offset: 24, type: 'Identifier', chunk: 'bar' },
+        { offset: 27, type: 'FullStop', chunk: '.' },
+        { offset: 28, type: 'Identifier', chunk: 'jpg' },
+        { offset: 31, type: 'RightParenthesis', chunk: ')' },
+        { offset: 32, type: 'Semicolon', chunk: ';' },
+        { offset: 33, type: 'WhiteSpace', chunk: '\n' },
+        { offset: 34, type: 'RightCurlyBracket', chunk: '}' }
     ];
+    var dump = tokens.map(function(token) {
+        return { type: token.type, chunk: token.chunk };
+    });
     var types = tokens.map(function(token) {
         return token.type;
     });
@@ -65,10 +68,10 @@ describe('parser/tokenizer', function() {
         assert.equal(tokenizer.source, css);
     });
 
-    it('getTypes()', function() {
+    it('dump()', function() {
         var tokenizer = new Tokenizer(css);
 
-        assert.deepEqual(tokenizer.getTypes(), types);
+        assert.deepEqual(tokenizer.dump(), dump);
     });
 
     it('next() types', function() {
