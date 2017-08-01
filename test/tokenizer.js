@@ -12,8 +12,7 @@ describe('parser/tokenizer', function() {
         { offset: 10, type: 'Identifier' },
         { offset: 14, type: 'Colon' },
         { offset: 15, type: 'WhiteSpace' },
-        { offset: 16, type: 'Identifier' },
-        { offset: 19, type: 'LeftParenthesis' },
+        { offset: 16, type: 'Url' },
         { offset: 20, type: 'Identifier' },
         { offset: 23, type: 'Solidus' },
         { offset: 24, type: 'Identifier' },
@@ -123,7 +122,7 @@ describe('parser/tokenizer', function() {
                 return Tokenizer.NAME[tokenizer.tokenType];
             });
 
-        assert.equal(actual.length, 8); // 6 x Indentifier + 2 x FullStop
+        assert.equal(actual.length, 7); // 5 x Indentifier + 2 x FullStop
         assert.deepEqual(actual, targetTokens.map(function(token) {
             return token.type;
         }));
