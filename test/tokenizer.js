@@ -2,26 +2,34 @@ var assert = require('assert');
 var Tokenizer = require('../lib').Tokenizer;
 
 describe('parser/tokenizer', function() {
-    var css = '.test\n{\n  prop: url(foo/bar.jpg);\n}';
+    var css = '.test\n{\n  prop: url(foo/bar.jpg) calc(1 + 1);\n}';
     var tokens = [
-        { offset: 0, type: 'FullStop', chunk: '.' },
-        { offset: 1, type: 'Identifier', chunk: 'test' },
-        { offset: 5, type: 'WhiteSpace', chunk: '\n' },
-        { offset: 6, type: 'LeftCurlyBracket', chunk: '{' },
-        { offset: 7, type: 'WhiteSpace', chunk: '\n  ' },
-        { offset: 10, type: 'Identifier', chunk: 'prop' },
-        { offset: 14, type: 'Colon', chunk: ':' },
-        { offset: 15, type: 'WhiteSpace', chunk: ' ' },
-        { offset: 16, type: 'Url', chunk: 'url(' },
-        { offset: 20, type: 'Identifier', chunk: 'foo' },
-        { offset: 23, type: 'Solidus', chunk: '/' },
-        { offset: 24, type: 'Identifier', chunk: 'bar' },
-        { offset: 27, type: 'FullStop', chunk: '.' },
-        { offset: 28, type: 'Identifier', chunk: 'jpg' },
-        { offset: 31, type: 'RightParenthesis', chunk: ')' },
-        { offset: 32, type: 'Semicolon', chunk: ';' },
-        { offset: 33, type: 'WhiteSpace', chunk: '\n' },
-        { offset: 34, type: 'RightCurlyBracket', chunk: '}' }
+        { type: 'FullStop', chunk: '.' },
+        { type: 'Identifier', chunk: 'test' },
+        { type: 'WhiteSpace', chunk: '\n' },
+        { type: 'LeftCurlyBracket', chunk: '{' },
+        { type: 'WhiteSpace', chunk: '\n  ' },
+        { type: 'Identifier', chunk: 'prop' },
+        { type: 'Colon', chunk: ':' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Url', chunk: 'url(' },
+        { type: 'Identifier', chunk: 'foo' },
+        { type: 'Solidus', chunk: '/' },
+        { type: 'Identifier', chunk: 'bar' },
+        { type: 'FullStop', chunk: '.' },
+        { type: 'Identifier', chunk: 'jpg' },
+        { type: 'RightParenthesis', chunk: ')' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Function', chunk: 'calc(' },
+        { type: 'Number', chunk: '1' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'PlusSign', chunk: '+' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Number', chunk: '1' },
+        { type: 'RightParenthesis', chunk: ')' },
+        { type: 'Semicolon', chunk: ';' },
+        { type: 'WhiteSpace', chunk: '\n' },
+        { type: 'RightCurlyBracket', chunk: '}' }
     ];
     var dump = tokens.map(function(token) {
         return { type: token.type, chunk: token.chunk };
@@ -30,11 +38,14 @@ describe('parser/tokenizer', function() {
         return token.type;
     });
     var start = tokens.map(function(token) {
-        return token.offset;
-    });
-    var end = tokens.map(function(token, idx, tokens) {
-        return idx + 1 < tokens.length ? tokens[idx + 1].offset : css.length;
-    });
+        var start = this.offset;
+        this.offset += token.chunk.length;
+        return start;
+    }, { offset: 0 });
+    var end = tokens.map(function(token) {
+        this.offset += token.chunk.length;
+        return this.offset;
+    }, { offset: 0 });
 
     it('edge case: no arguments', function() {
         var tokenizer = new Tokenizer();

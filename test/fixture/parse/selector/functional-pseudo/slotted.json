@@ -81,8 +81,8 @@
         },
         {
             "source": "::slotted(var(--test))",
-            "offset": "             ^",
-            "error": "RightParenthesis is expected"
+            "offset": "          ^",
+            "error": "Selector is expected"
         },
         {
             "source": "::slotted(foo,bar)",
