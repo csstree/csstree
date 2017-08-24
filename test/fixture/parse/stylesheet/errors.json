@@ -93,7 +93,7 @@
         {
             "source": ":lang(var(--test)) {}",
             "offset": "         ^",
-            "error": "RightParenthesis is expected"
+            "error": "Identifier is expected but function found"
         },
         {
             "source": "[",
@@ -153,7 +153,7 @@
         {
             "source": ".foo { var(--side): 20px }",
             "offset": "          ^",
-            "error": "Colon is expected"
+            "error": "Identifier is expected but function found"
         },
         {
             "source": "--test { padding: 20px }",

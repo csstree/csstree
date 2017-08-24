@@ -2,37 +2,50 @@ var assert = require('assert');
 var Tokenizer = require('../lib').Tokenizer;
 
 describe('parser/tokenizer', function() {
-    var css = '.test\n{\n  prop: url(foo/bar.jpg);\n}';
+    var css = '.test\n{\n  prop: url(foo/bar.jpg) calc(1 + 1);\n}';
     var tokens = [
-        { offset: 0, type: 'FullStop' },
-        { offset: 1, type: 'Identifier' },
-        { offset: 5, type: 'WhiteSpace' },
-        { offset: 6, type: 'LeftCurlyBracket' },
-        { offset: 7, type: 'WhiteSpace' },
-        { offset: 10, type: 'Identifier' },
-        { offset: 14, type: 'Colon' },
-        { offset: 15, type: 'WhiteSpace' },
-        { offset: 16, type: 'Identifier' },
-        { offset: 19, type: 'LeftParenthesis' },
-        { offset: 20, type: 'Identifier' },
-        { offset: 23, type: 'Solidus' },
-        { offset: 24, type: 'Identifier' },
-        { offset: 27, type: 'FullStop' },
-        { offset: 28, type: 'Identifier' },
-        { offset: 31, type: 'RightParenthesis' },
-        { offset: 32, type: 'Semicolon' },
-        { offset: 33, type: 'WhiteSpace' },
-        { offset: 34, type: 'RightCurlyBracket' }
+        { type: 'FullStop', chunk: '.' },
+        { type: 'Identifier', chunk: 'test' },
+        { type: 'WhiteSpace', chunk: '\n' },
+        { type: 'LeftCurlyBracket', chunk: '{' },
+        { type: 'WhiteSpace', chunk: '\n  ' },
+        { type: 'Identifier', chunk: 'prop' },
+        { type: 'Colon', chunk: ':' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Url', chunk: 'url(' },
+        { type: 'Identifier', chunk: 'foo' },
+        { type: 'Solidus', chunk: '/' },
+        { type: 'Identifier', chunk: 'bar' },
+        { type: 'FullStop', chunk: '.' },
+        { type: 'Identifier', chunk: 'jpg' },
+        { type: 'RightParenthesis', chunk: ')' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Function', chunk: 'calc(' },
+        { type: 'Number', chunk: '1' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'PlusSign', chunk: '+' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Number', chunk: '1' },
+        { type: 'RightParenthesis', chunk: ')' },
+        { type: 'Semicolon', chunk: ';' },
+        { type: 'WhiteSpace', chunk: '\n' },
+        { type: 'RightCurlyBracket', chunk: '}' }
     ];
+    var dump = tokens.map(function(token) {
+        return { type: token.type, chunk: token.chunk };
+    });
     var types = tokens.map(function(token) {
         return token.type;
     });
     var start = tokens.map(function(token) {
-        return token.offset;
-    });
-    var end = tokens.map(function(token, idx, tokens) {
-        return idx + 1 < tokens.length ? tokens[idx + 1].offset : css.length;
-    });
+        var start = this.offset;
+        this.offset += token.chunk.length;
+        return start;
+    }, { offset: 0 });
+    var end = tokens.map(function(token) {
+        this.offset += token.chunk.length;
+        return this.offset;
+    }, { offset: 0 });
 
     it('edge case: no arguments', function() {
         var tokenizer = new Tokenizer();
@@ -66,10 +79,10 @@ describe('parser/tokenizer', function() {
         assert.equal(tokenizer.source, css);
     });
 
-    it('getTypes()', function() {
+    it('dump()', function() {
         var tokenizer = new Tokenizer(css);
 
-        assert.deepEqual(tokenizer.getTypes(), types);
+        assert.deepEqual(tokenizer.dump(), dump);
     });
 
     it('next() types', function() {
@@ -123,7 +136,7 @@ describe('parser/tokenizer', function() {
                 return Tokenizer.NAME[tokenizer.tokenType];
             });
 
-        assert.equal(actual.length, 8); // 6 x Indentifier + 2 x FullStop
+        assert.equal(actual.length, 7); // 5 x Indentifier + 2 x FullStop
         assert.deepEqual(actual, targetTokens.map(function(token) {
             return token.type;
         }));

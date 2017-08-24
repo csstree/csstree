@@ -156,8 +156,8 @@
         },
         {
             "source": ":not(var(--test))",
-            "offset": "        ^",
-            "error": "RightParenthesis is expected"
+            "offset": "     ^",
+            "error": "Selector is expected"
         }
     ]
 }

@@ -4,7 +4,7 @@ var translate = require('../lib').translate;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 
 function createTranslateTest(name, test) {
-    it(name, function() {
+    (test.skip ? it.skip : it)(name, function() {
         var ast = parse(test.source, test.options);
 
         // strings should be equal

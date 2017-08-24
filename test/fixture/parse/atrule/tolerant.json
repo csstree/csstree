@@ -1,0 +1,84 @@
+{
+    "at-rule (unknown) may have any content in expression": {
+        "source": "@bada boom!;",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "bada",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "boom!"
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "at-rule (unknown) may have no a semicolon": {
+        "source": "@bada boom!",
+        "translate": "@bada boom!;",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "bada",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "boom!"
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "at-rule (known) may have any content in expression": {
+        "source": "@import boom!;",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "boom!"
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "at-rule (known) may have no a semicolon": {
+        "source": "@import boom!",
+        "translate": "@import boom!;",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "expression": {
+                "type": "AtruleExpression",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "boom!"
+                    }
+                ]
+            },
+            "block": null
+        }
+    }
+}

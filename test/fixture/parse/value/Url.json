@@ -109,7 +109,7 @@
     },
     "error #1": {
         "source": "url(a(1).png)",
-        "offset": "     ^",
+        "offset": "    ^",
         "error": "RightParenthesis is expected"
     },
     "error #2": {

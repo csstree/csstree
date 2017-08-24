@@ -2,6 +2,41 @@ var fs = require('fs');
 var path = require('path');
 var parseJSON = require('json-to-ast');
 
+function checkForDuplicateKeys(ast, filename) {
+    if (!ast) {
+        return;
+    }
+
+    if (ast.type === 'object') {
+        var map = Object.create(null);
+
+        for (var i = 0; i < ast.properties.length; i++) {
+            var property = ast.properties[i];
+
+            if (hasOwnProperty.call(map, property.key.value)) {
+                throw new Error('Duplicate key `' + property.key.value + '` at ' + getLocation(filename, property.key.position.start));
+            }
+
+            map[property.key.value] = true;
+            checkForDuplicateKeys(property.value, filename);
+        }
+    }
+
+    if (ast.type === 'array') {
+        ast.items.forEach(function(item) {
+            checkForDuplicateKeys(item, filename);
+        });
+    }
+}
+
+function getLocation(filename, loc) {
+    return [
+        filename,
+        loc.line,
+        loc.column
+    ].join(':');
+}
+
 function JsonLocator(filename) {
     this.filename = path.relative(__dirname + '/../..', filename);
     this.map = Object.create(null);
@@ -9,12 +44,10 @@ function JsonLocator(filename) {
     var ast = parseJSON(fs.readFileSync(filename, 'utf-8'));
 
     if (ast && ast.type === 'object') {
+        checkForDuplicateKeys(ast, filename);
+
         for (var i = 0; i < ast.properties.length; i++) {
             var property = ast.properties[i];
-
-            if (hasOwnProperty.call(this.map, property.key.value)) {
-                throw new Error('Duplicate key `' + property.key.value + '` in ' + this.getLocation(property.key.position.start));
-            }
 
             // use JSON.parse to unescape chars
             this.map[JSON.parse('"' + property.key.value + '"')] = {
@@ -26,11 +59,7 @@ function JsonLocator(filename) {
 }
 
 JsonLocator.prototype.getLocation = function(loc) {
-    return [
-        this.filename,
-        loc.line,
-        loc.column
-    ].join(':');
+    return getLocation(this.filename, loc);
 };
 
 JsonLocator.prototype.get = function(name, index) {

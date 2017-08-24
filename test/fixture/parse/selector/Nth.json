@@ -487,7 +487,7 @@
         {
             "source": ":nth-child(var(--test)) {}",
             "offset": "           ^",
-            "error": "Unexpected input"
+            "error": "Number or identifier is expected"
         },
         {
             "source": ":nth-child(3 n)",

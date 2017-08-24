@@ -5,7 +5,7 @@ var forEachParseTest = require('./fixture/parse').forEachTest;
 var merge = require('./helpers').merge;
 
 function createTranslateWidthSourceMapTest(name, test) {
-    it(name, function() {
+    (test.skip ? it.skip : it)(name, function() {
         var ast = parse(test.source, merge(test.options, {
             positions: true
         }));

@@ -578,7 +578,7 @@
         {
             "source": "[var(--test)=1]{}",
             "offset": "    ^",
-            "error": "Attribute selector (=, ~=, ^=, $=, *=, |=) is expected"
+            "error": "Identifier is expected but function found"
         },
         {
             "source": "[--test=1]{}",
