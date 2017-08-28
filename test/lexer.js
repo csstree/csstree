@@ -156,7 +156,7 @@ describe('lexer', function() {
 
                 match = customSyntax.lexer.matchProperty('-baz-baz-foo', qux);
                 assert.equal(match.matched, null);
-                assert.equal(match.error.message, 'Unknown property: -baz-baz-foo');
+                assert.equal(match.error.message, 'Unknown property `-baz-baz-foo`');
             });
         });
 
@@ -217,7 +217,7 @@ describe('lexer', function() {
             var match = customSyntax.lexer.matchType('baz', singleNumber);
 
             assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'Unknown type: baz');
+            assert.equal(match.error.message, 'Unknown type `baz`');
         });
     });
 

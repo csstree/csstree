@@ -83,7 +83,7 @@ describe('parse', function() {
         });
     });
 
-    describe.only('tolerant', function() {
+    describe('tolerant', function() {
         it('should not fail on parse', function() {
             assert.throws(function() {
                 parse('{ foo }', {
