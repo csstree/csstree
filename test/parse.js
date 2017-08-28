@@ -6,6 +6,7 @@ var parse = require('../lib').parse;
 var walk = require('../lib').walk;
 var lexer = require('../lib').lexer;
 var translate = require('../lib').translate;
+var List = require('../lib').List;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var stringify = require('./helpers/stringify');
 var merge = require('./helpers').merge;
@@ -51,10 +52,73 @@ describe('parse', function() {
     });
 
     describe('context', function() {
+        it('should take parse context', function() {
+            assert.throws(function() {
+                parse('property: value');
+            }, /Identifier is expected/);
+
+            assert.deepEqual(parse('property: value', {
+                context: 'declaration'
+            }), {
+                type: 'Declaration',
+                loc: null,
+                important: false,
+                property: 'property',
+                value: {
+                    type: 'Value',
+                    loc: null,
+                    children: new List().appendData({
+                        type: 'Identifier',
+                        loc: null,
+                        name: 'value'
+                    })
+                }
+            });
+        });
+
         it('wrong context', function() {
             assert.throws(function() {
                 parse('a{}', { context: 'unknown' });
-            }, 'Unknown context `unknown`');
+            }, /Unknown context `unknown`/);
+        });
+    });
+
+    describe.only('tolerant', function() {
+        it('should not fail on parse', function() {
+            assert.throws(function() {
+                parse('{ foo }', {
+                    context: 'block'
+                });
+            }, /Colon is expected/);
+
+            assert.deepEqual(parse('{ foo }', {
+                context: 'block',
+                tolerant: true
+            }), {
+                type: 'Block',
+                loc: null,
+                children: new List().appendData({
+                    type: 'Raw',
+                    loc: null,
+                    value: 'foo'
+                })
+            });
+        });
+
+        it('should call onParseError when handler is passed', function() {
+            var errors = [];
+            var ast = parse('{ a: 1!; foo; b: 2 }', {
+                context: 'block',
+                tolerant: true,
+                onParseError: function(error) {
+                    errors.push(error);
+                }
+            });
+
+            assert.equal(ast.children.getSize(), 3);
+            assert.equal(errors.length, 2);
+            assert.equal(errors[0].message, 'Identifier is expected');
+            assert.equal(errors[1].message, 'Colon is expected');
         });
     });
 
