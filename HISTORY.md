@@ -1,3 +1,46 @@
+## 1.0.0-alpha20 (August 28, 2017)
+
+- Tokenizer
+    - Added `Atrule` token type (`<at-rule-token>` per spec)
+    - Added `Function` token type (`<function-token>` per spec)
+    - Added `Url` token type
+    - Replaced `Tokenizer#getTypes()` method with `Tokenizer#dump()` to get all tokens as an array
+    - Renamed `Tokenizer.TYPE.Whitespace` to `Tokenizer.TYPE.WhiteSpace`
+    - Renamed `Tokenizer.findWhitespaceEnd()` to `Tokenizer.findWhiteSpaceEnd()`
+- Parser
+    - Added initial implementation of tollerant mode (turn on by passing `tolerant: true` option). In this mode parse errors are never occour and any invalid part of CSS turns into a `Raw` node. Current safe points: `Atrule`, `AtruleExpression`, `Rule`, `Selector` and `Declaration`. Feature is experimental and further improvements are planned.
+    - Changed `Atrule.expression` to contain a `AtruleExpression` node or `null` only (other node types is wrapping into a `AtruleExpression` node)
+    - Renamed `AttributeSelector.operator` to `AttributeSelector.matcher`
+- Generator
+    - `translate()` method is now can take a function as second argument, that recieves every generated chunk. When no function is passed, default handler is used, it concats all the chunks and method returns a string.
+- Lexer
+    - Used [mdn/data](https://github.com/mdn/data) package as source of lexer's grammar instead of local dictionaries
+    - Added `x` unit to `<resolution>` generic type
+    - Improved match tree:
+        - Omited Group (sequences) match nodes
+        - Omited empty match nodes (for terms with `zero or more` multipliers)
+        - Added `ASTNode` node type to contain a reference to AST node
+        - Fixed node duplication (uncompleted match were added to tree)
+        - Added AST node reference in match nodes
+        - Added comma match node by `#` multiplier
+    - Grammar
+        - Changed `translate()` function to get a handler as third argument (optional). That handler recieves result of node traslation and can be used for decoration purposes. See [example](https://github.com/csstree/docs/blob/04c65af44477b5ea05feb373482898122b2a4528/docs/syntax.html#L619-L627)
+        - Added `SyntaxParseError` to grammar export
+        - Reworked group and multipliers representation in syntax tree:
+            - Replaced `Sequence` for `Group` node type (`Sequence` node type removed)
+            - Added `explicit` boolean property for `Group`
+            - Only groups can have a multiplier now (other node types is wrapping into a single term implicit group when multiplier is applied)
+            - Renamed `nonEmpty` Group's property to `disallowEmpty`
+            - Added optimisation for syntax tree by dropping redundant root `Group` when it contains a single `Group` term (return this `Group` as a result)
+    - Changed lexer's match functionality
+        - Changed `Lexer#matchProperty()` and `Lexer#matchType()` to return an object instead of match tree. A match tree stores in `matched` field when AST is matched to grammar successfully, otherwise an error in `error` field. The result object also has some methods to test AST node against a match tree: `getTrace()`, `isType()`, `isProperty()` and `isKeyword()`
+        - Added `Lexer#matchDeclaration()` method
+        - Removed `Lexer#lastMatchError` (error stores in match result object in `error` field)
+    - Added initial implementation of search for AST segments (new lexer methods: `Lexer#findValueSegments()`, `Lexer#findDeclarationValueSegments()` and `Lexer#findAllSegments`)
+    - Implemented `SyntaxReferenceError` for unknown property and type references
+- Renamed field in resulting object of `property()` function: `variable` → `custom`
+- Fixed issue with readonly properties (e.g. `line` and `column`) of `Error` and exception on attempt to write in iOS Safari
+
 ## 1.0.0-alpha19 (April 24, 2017)
 
 - Extended `List` class with new methods:

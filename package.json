@@ -1,6 +1,6 @@
 {
   "name": "css-tree",
-  "version": "1.0.0-alpha19",
+  "version": "1.0.0-alpha20",
   "description": "Fast detailed CSS parser",
   "keywords": [
     "css",
@@ -44,12 +44,12 @@
     }
   },
   "scripts": {
-    "lint": "jscs data lib scripts test && eslint data lib scripts test",
-    "update:docs": "node scripts/update-docs.js",
+    "lint": "jscs data lib scripts test && eslint data lib scripts test && node scripts/update-docs --lint",
+    "update:docs": "node scripts/update-docs",
     "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
     "lint-and-test": "npm run lint && npm test",
     "test": "mocha --reporter progress",
-    "gen:syntax": "node scripts/gen-syntax-data.js && npm run update:docs",
+    "gen:syntax": "node scripts/gen-syntax-data && npm run update:docs",
     "coverage": "istanbul cover _mocha -- -R min",
     "prepublish": "npm run build",
     "travis": "npm run lint-and-test && npm run coveralls",

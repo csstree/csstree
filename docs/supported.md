@@ -14,7 +14,7 @@
 
 ## Atrules
 
-> The list contains at-rules with custom parsing rules. In fact any at-rule is supported but expression and block are parse with default rules. No validation support for at-rule at the moment.
+At-rules with a custom parsing rules. In fact, any at-rule is supported but expression and block are parsing with default rules. Validation support isn't supported for at-rules at the moment.
 
 <!-- gen:atrule -->
 
@@ -28,7 +28,7 @@
 
 ## Functional pseudos
 
-> The list contains functional pseudos with custom parsing rule. Other functional pseudos doesn't parse its content and represent it as Raw node if any. There is no difference between pseudo class and element on parsing, like no validation support for functional pseudos at the moment.
+Functional pseudos with a custom parsing rule. Non-listed functional pseudos don't parse a content inside parentheses and represent it as a `Raw` node if any. There is no difference between pseudo class and pseudo element on parsing, like no validation for functional pseudos is supported at the moment.
 
 <!-- gen:pseudo -->
 
@@ -47,9 +47,7 @@
 
 ## Properties
 
-> Full list of supported properties. Supported means that CSSTree has a grammar for those properties, so value of them can be checked (validated) for complience to spec or browser inplementation (for non-standart properties). Validation can be done as separate step and doesn't perform on parsing stage. In other words any property can be parsed with default parsing rules for all properties, but validation is possible only for properties from the list.
-
-> 
+Support for a property means CSSTree has a grammar for such property, so its value can be checked (validated) for complience to spec or browser inplementations (for non-standart properties). The validation doesn't perform on parsing stage and should be done as a separate step using Lexer API. In other words any property value can be parsed with default parsing rules, but validation is possible for listed properties only.
 
 <!-- gen:properties -->
 

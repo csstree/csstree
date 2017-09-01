@@ -25,6 +25,8 @@ Options (optional):
 - [atrule](#atrule)
 - [property](#property)
 - [positions](#positions)
+- [tolerant](#tolerant)
+- [onParseError](#onparseerror)
 - [filename](#filename)
 - [offset](#offset)
 - [line](#line)
@@ -63,14 +65,14 @@ Contexts:
 Type: `string` or `null`  
 Default: `null`
 
-Using for `atruleExpression` context to apply some atrule specific parse rules
+Using for `atruleExpression` context to apply atrule specific parse rules.
 
 ### property
 
 Type: `string` or `null`  
 Default: `null`
 
-Using for `value` context to apply some property specific parse rules.
+Using for `value` context to apply property specific parse rules.
 
 ### positions
 
@@ -93,6 +95,31 @@ loc: {
         column: <number>
     }
 }
+```
+
+### tolerant
+
+Type: `boolean`  
+Default: `false`
+
+Enables tolerant mode, when parser does fail on invalid parts of input, but turns those parts into `Raw` nodes. `onParseError` option can be used to set a function to process errors.
+
+### onParseError
+
+Type: `function` or `null`  
+Default: `null`
+
+Function to process errors that occur on parsing. Make sense in tolerant mode only.
+
+```js
+csstree.parse('example { foo; bar: 1! }', {
+    tolerant: true,
+    onParseError: function(error) {
+        console.log(error.message);
+    }
+});
+// Colon is expected
+// Identifier is expected
 ```
 
 ### filename
@@ -131,7 +158,7 @@ Default: `true`
 Defines to parse a at-rule expression in details (represents as `AtruleExpresion`, `MediaQueryList` or `SelectorList` if any). Otherwise represents expression as `Raw` node.
 
 ```js
-cstree.parse('@example 1 2;');
+csstree.parse('@example 1 2;');
 // {
 //     "type": "Atrule",
 //     "expression": {
@@ -145,7 +172,7 @@ cstree.parse('@example 1 2;');
 //     "block": null
 // }
 
-cstree.parse('@example 1 2;', { parseAtruleExpression: false });
+csstree.parse('@example 1 2;', { parseAtruleExpression: false });
 // {
 //     "type": "Atrule",
 //     "expression": {
@@ -164,7 +191,7 @@ Default: `true`
 Defines to parse a rule selector in details (represents as `SelectorList`). Otherwise represents selector as `Raw` node.
 
 ```js
-cstree.parse('.foo {}');
+csstree.parse('.foo {}');
 // {
 //     "type": "Rule",
 //     "selector": {
@@ -184,7 +211,7 @@ cstree.parse('.foo {}');
 //     }
 // }
 
-cstree.parse('.foo {}', { parseSelector: false });
+csstree.parse('.foo {}', { parseSelector: false });
 // {
 //     "type": "Rule",
 //     "selector": {
@@ -206,7 +233,7 @@ Default: `true`
 Defines to parse a declaration value in details (represents as `Value`). Otherwise represents value as `Raw` node.
 
 ```js
-cstree.parse('color: #aabbcc', { context: 'declaration' });
+csstree.parse('color: #aabbcc', { context: 'declaration' });
 // {
 //     "type": "Declaration",
 //     "important": false,
@@ -222,7 +249,7 @@ cstree.parse('color: #aabbcc', { context: 'declaration' });
 //     }
 // }
 
-cstree.parse('color: #aabbcc', { context: 'declaration', parseValue: false });
+csstree.parse('color: #aabbcc', { context: 'declaration', parseValue: false });
 // {
 //     "type": "Declaration",
 //     "important": false,
@@ -242,7 +269,7 @@ Default: `false`
 Defines to parse a custom property value and a `var()` fallback in details (represents as `Value`). Otherwise represents value as `Raw` node.
 
 ```js
-cstree.parse('--custom: #aabbcc', { context: 'declaration' });
+csstree.parse('--custom: #aabbcc', { context: 'declaration' });
 // {
 //     "type": "Declaration",
 //     "important": false,
@@ -253,7 +280,7 @@ cstree.parse('--custom: #aabbcc', { context: 'declaration' });
 //     }
 // }
 
-cstree.parse('--custom: #aabbcc', { context: 'declaration', parseCustomProperty: true });
+csstree.parse('--custom: #aabbcc', { context: 'declaration', parseCustomProperty: true });
 // {
 //     "type": "Declaration",
 //     "important": false,

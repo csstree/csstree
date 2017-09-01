@@ -80,5 +80,21 @@
             },
             "block": null
         }
+    },
+    "at-rule (known) with custom expression parser": {
+        "source": "@page {}",
+        "translate": "@page{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "page",
+            "expression": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
     }
 }
