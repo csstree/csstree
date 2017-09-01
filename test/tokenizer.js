@@ -2,7 +2,7 @@ var assert = require('assert');
 var Tokenizer = require('../lib').Tokenizer;
 
 describe('parser/tokenizer', function() {
-    var css = '.test\n{\n  prop: url(foo/bar.jpg) calc(1 + 1);\n}';
+    var css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
     var tokens = [
         { type: 'FullStop', chunk: '.' },
         { type: 'Identifier', chunk: 'test' },
@@ -13,11 +13,13 @@ describe('parser/tokenizer', function() {
         { type: 'Colon', chunk: ':' },
         { type: 'WhiteSpace', chunk: ' ' },
         { type: 'Url', chunk: 'url(' },
-        { type: 'Identifier', chunk: 'foo' },
-        { type: 'Solidus', chunk: '/' },
-        { type: 'Identifier', chunk: 'bar' },
-        { type: 'FullStop', chunk: '.' },
-        { type: 'Identifier', chunk: 'jpg' },
+        { type: 'Raw', chunk: 'foo/bar.jpg' },
+        { type: 'RightParenthesis', chunk: ')' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Url', chunk: 'url(' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Raw', chunk: 'a\\(\\33 \\).\\ \\"\\\'test' },
+        { type: 'WhiteSpace', chunk: ' ' },
         { type: 'RightParenthesis', chunk: ')' },
         { type: 'WhiteSpace', chunk: ' ' },
         { type: 'Function', chunk: 'calc(' },
@@ -27,6 +29,10 @@ describe('parser/tokenizer', function() {
         { type: 'WhiteSpace', chunk: ' ' },
         { type: 'Number', chunk: '1' },
         { type: 'RightParenthesis', chunk: ')' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Identifier', chunk: '\\x' },
+        { type: 'WhiteSpace', chunk: ' ' },
+        { type: 'Identifier', chunk: '\\aa ' },
         { type: 'Semicolon', chunk: ';' },
         { type: 'WhiteSpace', chunk: '\n' },
         { type: 'RightCurlyBracket', chunk: '}' }
@@ -136,7 +142,7 @@ describe('parser/tokenizer', function() {
                 return Tokenizer.NAME[tokenizer.tokenType];
             });
 
-        assert.equal(actual.length, 7); // 5 x Indentifier + 2 x FullStop
+        assert.equal(actual.length, 5); // 3 x Indentifier + 2 x FullStop
         assert.deepEqual(actual, targetTokens.map(function(token) {
             return token.type;
         }));

@@ -19,25 +19,13 @@
             }
         }
     },
-    "uri.c.0": {
-        "source": "url(/*test*/'http://test.com'/*test*/)",
-        "translate": "url('http://test.com')",
-        "ast": {
-            "type": "Url",
-            "value": {
-                "type": "String",
-                "value": "'http://test.com'"
-            }
-        }
-    },
     "uri.c.1": {
         "source": "url(/*test*/http://test.com/*test*/)",
-        "translate": "url(http://test.com/*test*/)",
         "ast": {
             "type": "Url",
             "value": {
                 "type": "Raw",
-                "value": "http://test.com/*test*/"
+                "value": "/*test*/http://test.com/*test*/"
             }
         }
     },
@@ -107,14 +95,21 @@
             }
         }
     },
-    "error #1": {
-        "source": "url(a(1).png)",
-        "offset": "    ^",
-        "error": "RightParenthesis is expected"
-    },
-    "error #2": {
-        "source": "url(a - b.png)",
-        "offset": "      ^",
-        "error": "RightParenthesis is expected"
-    }
+    "error": [
+        {
+            "source": "url(/*test*/'http://test.com'/*test*/)",
+            "offset": "            ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "url(a(1).png)",
+            "offset": "     ^",
+            "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "url(a - b.png)",
+            "offset": "      ^",
+            "error": "RightParenthesis is expected"
+        }
+    ]
 }

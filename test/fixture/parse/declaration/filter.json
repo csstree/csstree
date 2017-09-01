@@ -187,11 +187,16 @@
             }
         }
     },
-    "error": [
-        {
-            "source": "filter: alpha(opacity",
-            "offset": "                     ^",
-            "error": "RightParenthesis is expected"
+    "unclosed functions should not be invalid per spec, not sure it's true for IE (need to be check and fail may be)": {
+        "source": "filter:alpha(opacity",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "filter",
+            "value": {
+                "type": "Raw",
+                "value": "alpha(opacity"
+            }
         }
-    ]
+    }
 }

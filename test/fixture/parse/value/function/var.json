@@ -198,6 +198,29 @@
             ]
         }
     },
+    "should be a error here (since unmatched tokens are disallowed), but ok for now": {
+        "source": "var(--name, ()])",
+        "offset": "              ^",
+        "_error": "RightParenthesis is expected",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": " ()]"
+                }
+            ]
+        }
+    },
     "error": [
         {
             "source": "var(name)",
@@ -216,12 +239,7 @@
         },
         {
             "source": "var(--name,([)])",
-            "offset": "             ^",
-            "error": "Unexpected input"
-        },
-        {
-            "source": "var(--name, ()])",
-            "offset": "              ^",
+            "offset": "                ^",
             "error": "RightParenthesis is expected"
         },
         {
