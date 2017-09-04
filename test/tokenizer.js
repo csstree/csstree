@@ -2,37 +2,48 @@ var assert = require('assert');
 var Tokenizer = require('../lib').Tokenizer;
 
 describe('parser/tokenizer', function() {
-    var css = '.test\n{\n  prop: url(foo/bar.jpg) calc(1 + 1);\n}';
+    var css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
     var tokens = [
-        { type: 'FullStop', chunk: '.' },
-        { type: 'Identifier', chunk: 'test' },
-        { type: 'WhiteSpace', chunk: '\n' },
-        { type: 'LeftCurlyBracket', chunk: '{' },
-        { type: 'WhiteSpace', chunk: '\n  ' },
-        { type: 'Identifier', chunk: 'prop' },
-        { type: 'Colon', chunk: ':' },
-        { type: 'WhiteSpace', chunk: ' ' },
-        { type: 'Url', chunk: 'url(' },
-        { type: 'Identifier', chunk: 'foo' },
-        { type: 'Solidus', chunk: '/' },
-        { type: 'Identifier', chunk: 'bar' },
-        { type: 'FullStop', chunk: '.' },
-        { type: 'Identifier', chunk: 'jpg' },
-        { type: 'RightParenthesis', chunk: ')' },
-        { type: 'WhiteSpace', chunk: ' ' },
-        { type: 'Function', chunk: 'calc(' },
-        { type: 'Number', chunk: '1' },
-        { type: 'WhiteSpace', chunk: ' ' },
-        { type: 'PlusSign', chunk: '+' },
-        { type: 'WhiteSpace', chunk: ' ' },
-        { type: 'Number', chunk: '1' },
-        { type: 'RightParenthesis', chunk: ')' },
-        { type: 'Semicolon', chunk: ';' },
-        { type: 'WhiteSpace', chunk: '\n' },
-        { type: 'RightCurlyBracket', chunk: '}' }
+        { type: 'FullStop', chunk: '.', balance: 83 },
+        { type: 'Identifier', chunk: 'test', balance: 83 },
+        { type: 'WhiteSpace', chunk: '\n', balance: 83 },
+        { type: 'LeftCurlyBracket', chunk: '{', balance: 31 },
+        { type: 'WhiteSpace', chunk: '\n  ', balance: 31 },
+        { type: 'Identifier', chunk: 'prop', balance: 31 },
+        { type: 'Colon', chunk: ':', balance: 31 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
+        { type: 'Url', chunk: 'url(', balance: 10 },
+        { type: 'Raw', chunk: 'foo/bar.jpg', balance: 10 },
+        { type: 'RightParenthesis', chunk: ')', balance: 8 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
+        { type: 'Url', chunk: 'url(', balance: 16 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 16 },
+        { type: 'Raw', chunk: 'a\\(\\33 \\).\\ \\"\\\'test', balance: 16 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 16 },
+        { type: 'RightParenthesis', chunk: ')', balance: 12 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
+        { type: 'Function', chunk: 'calc(', balance: 24 },
+        { type: 'Number', chunk: '1', balance: 24 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 24 },
+        { type: 'PlusSign', chunk: '+', balance: 24 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 24 },
+        { type: 'Number', chunk: '1', balance: 24 },
+        { type: 'RightParenthesis', chunk: ')', balance: 18 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
+        { type: 'Identifier', chunk: '\\x', balance: 31 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
+        { type: 'Identifier', chunk: '\\aa ', balance: 31 },
+        { type: 'Semicolon', chunk: ';', balance: 31 },
+        { type: 'WhiteSpace', chunk: '\n', balance: 31 },
+        { type: 'RightCurlyBracket', chunk: '}', balance: 3 }
     ];
-    var dump = tokens.map(function(token) {
-        return { type: token.type, chunk: token.chunk };
+    var dump = tokens.map(function(token, idx) {
+        return {
+            idx: idx,
+            type: token.type,
+            chunk: token.chunk,
+            balance: token.balance
+        };
     });
     var types = tokens.map(function(token) {
         return token.type;
@@ -136,7 +147,7 @@ describe('parser/tokenizer', function() {
                 return Tokenizer.NAME[tokenizer.tokenType];
             });
 
-        assert.equal(actual.length, 7); // 5 x Indentifier + 2 x FullStop
+        assert.equal(actual.length, 5); // 3 x Indentifier + 2 x FullStop
         assert.deepEqual(actual, targetTokens.map(function(token) {
             return token.type;
         }));
@@ -148,6 +159,105 @@ describe('parser/tokenizer', function() {
         tokenizer.skip(tokens.length);
 
         assert.equal(tokenizer.eof, true);
+    });
+
+    describe('getRawLength()', function() {
+        var tests = [
+            {
+                source: '? { }',
+                start:  '^',
+                skip:   '^',
+                args: ['{'.charCodeAt(0), 0, false],
+                expected: '? '
+            },
+            {
+                source: 'foo(bar(1)(2)(3[{}])(4{}){}(5))',
+                start:  '             ^',
+                skip:   '             ^',
+                args: ['{'.charCodeAt(0), 0, false],
+                expected: '(3[{}])(4{})'
+            },
+            {
+                source: 'foo(bar(1) (2) (3[{}]) (4{}) {} (5))',
+                start:  '               ^',
+                skip:   '                ^',
+                args: ['{'.charCodeAt(0), 0, false],
+                expected: '(3[{}]) (4{}) '
+            },
+            {
+                source: 'func(a func(;))',
+                start:  '     ^',
+                skip:   '       ^',
+                args: [';'.charCodeAt(0), 0, false],
+                expected: 'a func(;)'
+            },
+            {
+                source: 'func(a func(;))',
+                start:  '     ^',
+                skip:   '            ^',
+                args: [';'.charCodeAt(0), 0, false],
+                expected: 'a func(;)'
+            },
+            {
+                source: 'func(a func(;); b)',
+                start:  '     ^',
+                skip:   '       ^',
+                args: [';'.charCodeAt(0), 0, false],
+                expected: 'a func(;)'
+            },
+            {
+                source: 'func()',
+                start:  '     ^',
+                skip:   '     ^',
+                args: [0, 0, false],
+                expected: ''
+            },
+            {
+                source: 'func([{}])',
+                start:  '      ^',
+                skip:   '       ^',
+                args: [0, 0, false],
+                expected: '{}'
+            },
+            {
+                source: 'func([{})',
+                start:  '     ^',
+                skip:   '      ^',
+                args: [0, 0, false],
+                expected: '[{})'
+            },
+            {
+                source: 'func(1, 2, 3) {}',
+                start:  '^',
+                skip:   '      ^',
+                args: [0, 0, false],
+                expected: 'func(1, 2, 3) {}'
+            }
+        ];
+
+        tests.forEach(function(test, idx) {
+            it('testcase#' + idx, function() {
+                var tokenizer = new Tokenizer(test.source);
+                var startOffset = test.start.indexOf('^');
+                var skipToOffset = test.skip.indexOf('^');
+                var startToken = tokenizer.currentToken;
+
+                while (tokenizer.tokenStart < startOffset) {
+                    tokenizer.next();
+                    startToken = tokenizer.currentToken;
+                }
+
+                while (tokenizer.tokenStart < skipToOffset) {
+                    tokenizer.next();
+                }
+
+                tokenizer.skip(tokenizer.getRawLength.apply(tokenizer, [startToken].concat(test.args)));
+                assert.equal(
+                    tokenizer.source.substring(startOffset, tokenizer.tokenStart),
+                    test.expected
+                );
+            });
+        });
     });
 
     it('dynamic buffer', function() {
