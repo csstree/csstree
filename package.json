@@ -49,7 +49,7 @@
     "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
     "lint-and-test": "npm run lint && npm test",
     "test": "mocha --reporter progress",
-    "gen:syntax": "node scripts/gen-syntax-data && npm run update:docs",
+    "gen:syntax": "node scripts/gen-syntax-data",
     "coverage": "istanbul cover _mocha -- -R min",
     "prepublish": "npm run build",
     "travis": "npm run lint-and-test && npm run coveralls",
