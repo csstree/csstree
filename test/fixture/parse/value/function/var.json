@@ -246,6 +246,11 @@
             "source": "var(--name, !important ())",
             "offset": "            ^",
             "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "var(--name, foo; bar)",
+            "offset": "               ^",
+            "error": "RightParenthesis is expected"
         }
     ]
 }

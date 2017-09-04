@@ -37,8 +37,13 @@ describe('parser/tokenizer', function() {
         { type: 'WhiteSpace', chunk: '\n', balance: 31 },
         { type: 'RightCurlyBracket', chunk: '}', balance: 3 }
     ];
-    var dump = tokens.map(function(token) {
-        return { type: token.type, chunk: token.chunk, balance: token.balance };
+    var dump = tokens.map(function(token, idx) {
+        return {
+            idx: idx,
+            type: token.type,
+            chunk: token.chunk,
+            balance: token.balance
+        };
     });
     var types = tokens.map(function(token) {
         return token.type;
