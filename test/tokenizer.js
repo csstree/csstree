@@ -161,6 +161,105 @@ describe('parser/tokenizer', function() {
         assert.equal(tokenizer.eof, true);
     });
 
+    describe('getRawLength()', function() {
+        var tests = [
+            {
+                source: '? { }',
+                start:  '^',
+                skip:   '^',
+                args: ['{'.charCodeAt(0), 0, false],
+                expected: '? '
+            },
+            {
+                source: 'foo(bar(1)(2)(3[{}])(4{}){}(5))',
+                start:  '             ^',
+                skip:   '             ^',
+                args: ['{'.charCodeAt(0), 0, false],
+                expected: '(3[{}])(4{})'
+            },
+            {
+                source: 'foo(bar(1) (2) (3[{}]) (4{}) {} (5))',
+                start:  '               ^',
+                skip:   '                ^',
+                args: ['{'.charCodeAt(0), 0, false],
+                expected: '(3[{}]) (4{}) '
+            },
+            {
+                source: 'func(a func(;))',
+                start:  '     ^',
+                skip:   '       ^',
+                args: [';'.charCodeAt(0), 0, false],
+                expected: 'a func(;)'
+            },
+            {
+                source: 'func(a func(;))',
+                start:  '     ^',
+                skip:   '            ^',
+                args: [';'.charCodeAt(0), 0, false],
+                expected: 'a func(;)'
+            },
+            {
+                source: 'func(a func(;); b)',
+                start:  '     ^',
+                skip:   '       ^',
+                args: [';'.charCodeAt(0), 0, false],
+                expected: 'a func(;)'
+            },
+            {
+                source: 'func()',
+                start:  '     ^',
+                skip:   '     ^',
+                args: [0, 0, false],
+                expected: ''
+            },
+            {
+                source: 'func([{}])',
+                start:  '      ^',
+                skip:   '       ^',
+                args: [0, 0, false],
+                expected: '{}'
+            },
+            {
+                source: 'func([{})',
+                start:  '     ^',
+                skip:   '      ^',
+                args: [0, 0, false],
+                expected: '[{})'
+            },
+            {
+                source: 'func(1, 2, 3) {}',
+                start:  '^',
+                skip:   '      ^',
+                args: [0, 0, false],
+                expected: 'func(1, 2, 3) {}'
+            }
+        ];
+
+        tests.forEach(function(test, idx) {
+            it('testcase#' + idx, function() {
+                var tokenizer = new Tokenizer(test.source);
+                var startOffset = test.start.indexOf('^');
+                var skipToOffset = test.skip.indexOf('^');
+                var startToken = tokenizer.currentToken;
+
+                while (tokenizer.tokenStart < startOffset) {
+                    tokenizer.next();
+                    startToken = tokenizer.currentToken;
+                }
+
+                while (tokenizer.tokenStart < skipToOffset) {
+                    tokenizer.next();
+                }
+
+                tokenizer.skip(tokenizer.getRawLength.apply(tokenizer, [startToken].concat(test.args)));
+                assert.equal(
+                    tokenizer.source.substring(startOffset, tokenizer.tokenStart),
+                    test.expected
+                );
+            });
+        });
+    });
+
     it('dynamic buffer', function() {
         var bufferSize = new Tokenizer(css).offsetAndType.length + 10;
         var tokenizer = new Tokenizer(new Array(bufferSize + 1).join('.'));
