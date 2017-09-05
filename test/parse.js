@@ -1,8 +1,8 @@
 var assert = require('assert');
+var syntax = require('../lib');
 var parse = require('../lib').parse;
-// var Parser = require('../lib').Parser;
-// var TYPE = require('../lib').Tokenizer.TYPE;
-// var toPlainObject = require('../lib').toPlainObject;
+var TYPE = require('../lib').Tokenizer.TYPE;
+var toPlainObject = require('../lib').toPlainObject;
 var walk = require('../lib').walk;
 var lexer = require('../lib').lexer;
 var translate = require('../lib').translate;
@@ -288,28 +288,30 @@ describe('parse', function() {
         });
     });
 
-    describe.skip('extension', function() {
+    describe('extension', function() {
         describe('value', function() {
-            // var extended = new Parser();
-            // var defaultGetNode = extended.scopeValue.getNode;
-            // extended.scopeValue = merge(extended.scopeValue, {
-            //     getNode: function(context) {
-            //         if (this.scanner.tokenType === TYPE.DollarSign) {
-            //             var start = this.scanner.tokenStart;
-            //             this.scanner.next();
+            var extended = syntax.fork(function(syntaxConfig) {
+                var defaultGetNode = syntaxConfig.scope.Value.getNode;
 
-            //             return {
-            //                 type: 'Variable',
-            //                 loc: this.getLocation(start, this.scanner.tokenEnd),
-            //                 name: this.scanner.consume(TYPE.Identifier)
-            //             };
-            //         }
+                syntaxConfig.scope.Value.getNode = function(context) {
+                    if (this.scanner.tokenType === TYPE.DollarSign) {
+                        var start = this.scanner.tokenStart;
+                        this.scanner.next();
 
-            //         return defaultGetNode.call(this, context);
-            //     }
-            // });
+                        return {
+                            type: 'Variable',
+                            loc: this.getLocation(start, this.scanner.tokenEnd),
+                            name: this.scanner.consume(TYPE.Identifier)
+                        };
+                    }
 
-            it('should fail by default', function() {
+                    return defaultGetNode.call(this, context);
+                };
+
+                return syntaxConfig;
+            });
+
+            it('should not affect base syntax', function() {
                 assert.throws(function() {
                     parse('$a', {
                         context: 'value'
@@ -317,53 +319,55 @@ describe('parse', function() {
                 }, /Unexpected input/);
             });
 
-            // it('should parse when extended', function() {
-            //     var ast = extended.parse('$a', {
-            //         context: 'value'
-            //     });
+            it('should parse according new rules', function() {
+                var ast = extended.parse('$a', {
+                    context: 'value'
+                });
 
-            //     assert.deepEqual(toPlainObject(ast), {
-            //         type: 'Value',
-            //         loc: null,
-            //         children: [
-            //             {
-            //                 type: 'Variable',
-            //                 loc: null,
-            //                 name: 'a'
-            //             }
-            //         ]
-            //     });
-            // });
+                assert.deepEqual(toPlainObject(ast), {
+                    type: 'Value',
+                    loc: null,
+                    children: [
+                        {
+                            type: 'Variable',
+                            loc: null,
+                            name: 'a'
+                        }
+                    ]
+                });
+            });
 
-            // it('should fail on unknown', function() {
-            //     assert.throws(function() {
-            //         extended.parse('@a', {
-            //             context: 'value'
-            //         });
-            //     }, /Unexpected input/);
-            // });
+            it('should fail on unknown', function() {
+                assert.throws(function() {
+                    extended.parse('@a', {
+                        context: 'value'
+                    });
+                }, /Unexpected input/);
+            });
         });
 
         describe('selector', function() {
-            // var extended = new Parser();
-            // var defaultGetNode = extended.scopeSelector.getNode;
-            // extended.scopeSelector = {
-            //     getNode: function(context) {
-            //         if (this.scanner.tokenType === TYPE.Ampersand) {
-            //             var start = this.scanner.tokenStart;
-            //             this.scanner.next();
+            var extended = syntax.fork(function(syntaxConfig) {
+                var defaultGetNode = syntaxConfig.scope.Selector.getNode;
 
-            //             return {
-            //                 type: 'Nested',
-            //                 loc: this.getLocation(start, this.scanner.tokenEnd)
-            //             };
-            //         }
+                syntaxConfig.scope.Selector.getNode = function(context) {
+                    if (this.scanner.tokenType === TYPE.Ampersand) {
+                        var start = this.scanner.tokenStart;
+                        this.scanner.next();
 
-            //         return defaultGetNode.call(this, context);
-            //     }
-            // };
+                        return {
+                            type: 'Nested',
+                            loc: this.getLocation(start, this.scanner.tokenEnd)
+                        };
+                    }
 
-            it('should fail by default', function() {
+                    return defaultGetNode.call(this, context);
+                };
+
+                return syntaxConfig;
+            });
+
+            it('should not affect base syntax', function() {
                 assert.throws(function() {
                     parse('a &', {
                         context: 'selector'
@@ -371,40 +375,40 @@ describe('parse', function() {
                 }, /Unexpected input/);
             });
 
-            // it('should parse when extended', function() {
-            //     var ast = extended.parse('a &', {
-            //         context: 'selector'
-            //     });
+            it('should parse according new rules', function() {
+                var ast = extended.parse('a &', {
+                    context: 'selector'
+                });
 
-            //     assert.deepEqual(toPlainObject(ast), {
-            //         type: 'Selector',
-            //         loc: null,
-            //         children: [
-            //             {
-            //                 type: 'TypeSelector',
-            //                 loc: null,
-            //                 name: 'a'
-            //             },
-            //             {
-            //                 type: 'WhiteSpace',
-            //                 loc: null,
-            //                 value: ' '
-            //             },
-            //             {
-            //                 type: 'Nested',
-            //                 loc: null
-            //             }
-            //         ]
-            //     });
-            // });
+                assert.deepEqual(toPlainObject(ast), {
+                    type: 'Selector',
+                    loc: null,
+                    children: [
+                        {
+                            type: 'TypeSelector',
+                            loc: null,
+                            name: 'a'
+                        },
+                        {
+                            type: 'WhiteSpace',
+                            loc: null,
+                            value: ' '
+                        },
+                        {
+                            type: 'Nested',
+                            loc: null
+                        }
+                    ]
+                });
+            });
 
-            // it('should fail on unknown', function() {
-            //     assert.throws(function() {
-            //         extended.parse('@a', {
-            //             context: 'selector'
-            //         });
-            //     }, /Selector is expected/);
-            // });
+            it('should fail on unknown', function() {
+                assert.throws(function() {
+                    extended.parse('@a', {
+                        context: 'selector'
+                    });
+                }, /Selector is expected/);
+            });
         });
     });
 });
