@@ -1,4 +1,15 @@
 {
+    "unclosed block": {
+        "source": "{ ",
+        "translate": "{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Block",
+            "children": []
+        }
+    },
     "no colon after a property name": {
         "source": "{foo}",
         "options": {

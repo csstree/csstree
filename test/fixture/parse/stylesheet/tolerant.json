@@ -22,6 +22,39 @@
             ]
         }
     },
+    "unclosed block": {
+        "source": "foo {",
+        "translate": "foo{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Rule",
+                    "selector": {
+                        "type": "SelectorList",
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "TypeSelector",
+                                        "name": "foo"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": []
+                    }
+                }
+            ]
+        }
+    },
     "uncomplete pseudo in selector": {
         "source": " foo: {}",
         "translate": "foo:{}",
@@ -45,10 +78,24 @@
             ]
         }
     },
-    "uncomplete unknown functional-pseudo in selector": {
-        "skip": true,
+    "rule with unclosed pseudo selector": {
+        "source": "div:not(a,",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "div:not(a,"
+                }
+            ]
+        }
+    },
+    "unclosed unknown functional-pseudo in selector": {
         "source": " foo:bar(x {}",
-        "translate": "foo:{}",
+        "translate": "foo:bar(x{}",
         "options": {
             "tolerant": true
         },
@@ -84,5 +131,52 @@
                 }
             ]
         }
-    }
+    },
+    "rule with unclosed attribute selector": [
+        {
+            "source": "div[attr",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "StyleSheet",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "div[attr"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "div[attr=",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "StyleSheet",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "div[attr="
+                    }
+                ]
+            }
+        },
+        {
+            "source": "div[attr=123",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "StyleSheet",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "div[attr=123"
+                    }
+                ]
+            }
+        }
+    ]
 }
