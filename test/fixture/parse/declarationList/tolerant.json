@@ -1,0 +1,31 @@
+{
+    "no colon after a property name": {
+        "source": "foo;color:red",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "DeclarationList",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "foo;"
+                },
+                {
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "color",
+                    "value": {
+                        "type": "Value",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "red"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
