@@ -1,3 +1,26 @@
+## 1.0.0-alpha21 (September 5, 2017)
+
+- Tokenizer
+    - Added `Raw` token type
+    - Improved tokenization of `url()` with raw as url to be more spec complient
+    - Added `Tokenizer#balance` array computation on token layout
+    - Added `Tokenizer#getRawLength()` to compute a raw length with respect of block balance
+    - Added `Tokenizer#getTokenStart(offset)` method to get token start offset by token index
+    - Added `idx` and `balance` fields to each token of `Tokenizer#dump()` method result
+- Parser
+    - Added `onParseError` option
+    - Reworked node parsers that consume a `Raw` node to use a new approach. Since now a `Raw` node builds in `parser#Raw()` function only
+    - Changed semantic of `parser#Raw()`, it takes 5 parameters now (it might to be changed in future)
+    - Changed `parser#tolerantParse()` to pass a start token index to fallback function instead of source offset
+    - Fixed `AtruleExpression` consuming in tolerant mode
+    - Atrule handler to convert an empty `AtruleExpression` node into `null`
+    - Changed `AtruleExpression` handler to always return a node (before it could return a `null` in some cases)
+- Lexer
+    - Fixed comma match node for `#` multiplier
+    - Added reference name to `SyntaxReferenceError`
+- Additional fixes on custom errors
+- Reduced possible corruption of base config by `syntax.fork()`
+
 ## 1.0.0-alpha20 (August 28, 2017)
 
 - Tokenizer
