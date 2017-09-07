@@ -42,10 +42,7 @@ describe('parse', function() {
                 // AST should be equal
                 assert.equal(stringify(ast), stringify(test.ast));
 
-                // translated AST should be equal to original source
-                assert.equal(translate(ast), 'translate' in test ? test.translate : test.source);
-
-                // structure should be ok
+                // structure should be correct
                 assert.equal(lexer.checkStructure(ast), false);
             });
         });
