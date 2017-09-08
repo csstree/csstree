@@ -5,7 +5,6 @@ var TYPE = require('../lib').Tokenizer.TYPE;
 var toPlainObject = require('../lib').toPlainObject;
 var walk = require('../lib').walk;
 var lexer = require('../lib').lexer;
-var translate = require('../lib').translate;
 var List = require('../lib').List;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var stringify = require('./helpers/stringify');
