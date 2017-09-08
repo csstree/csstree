@@ -51,7 +51,7 @@ describe('logical parts as standalone modules', function() {
     it('walker', function() {
         var types = [];
 
-        walker.all(ast, function(node) {
+        walker.walk(ast, function(node) {
             types.push(node.type);
         });
 
