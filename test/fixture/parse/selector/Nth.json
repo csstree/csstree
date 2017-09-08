@@ -398,7 +398,7 @@
     },
     "+n": {
         "source": ":nth-last-child(+n - 2)",
-        "translate": ":nth-last-child(n-2)",
+        "translate": ":nth-last-child(+n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",
