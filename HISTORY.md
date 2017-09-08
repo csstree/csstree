@@ -1,3 +1,18 @@
+## 1.0.0-alpha22 (September 8, 2017)
+
+- Parser
+    - Fixed exception on parsing of unclosed `{}-block` in tolerant mode
+    - Added tolerant mode support for `DeclarationList`
+    - Added standalone entry point, i.e. default parser can be used via `require('css-tree/lib/parser')` (#47)
+- Generator
+    - Changed generator to produce `+n` when `AnPlusB.a` is `+1` to be "round-trip" with parser
+    - Added standalone entry point, i.e. default generators can be used via `require('css-tree/lib/generator')`
+- Walker
+    - Added standalone entry point, i.e. default walkers can be used via `require('css-tree/lib/walker')` (#47)
+- Lexer
+    - Added `default` keyword to the list of invalid values for `<custom-ident>` (since it reversed per [spec](https://www.w3.org/TR/css-values/#custom-idents))
+- Convertors (`toPlainObject()` and `fromPlainObject()`) moved to `lib/convertor` (entry point is `require('css-tree/lib/convertor')`)
+
 ## 1.0.0-alpha21 (September 5, 2017)
 
 - Tokenizer
