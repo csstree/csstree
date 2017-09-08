@@ -14,7 +14,7 @@ Node types:
 
 - [AnPlusB](#anplusb)
 - [Atrule](#atrule)
-- [AtruleExpression](#atruleexpression)
+- [AtrulePrelude](#atruleprelude)
 - [AttributeSelector](#attributeselector)
 - [Block](#block)
 - [Brackets](#brackets)
@@ -75,16 +75,16 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 {
     "type": "Atrule",
     "name": String,
-    "expression": <AtruleExpression> | null,
+    "prelude": <AtrulePrelude> | null,
     "block": <Block> | null
 }
 ```
 
-## AtruleExpression
+## AtrulePrelude
 
 ```
 {
-    "type": "AtruleExpression",
+    "type": "AtrulePrelude",
     "children": List
 }
 ```

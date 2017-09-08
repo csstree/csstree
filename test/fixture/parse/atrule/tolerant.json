@@ -1,5 +1,5 @@
 {
-    "at-rule (unknown) may have any content in expression": {
+    "at-rule (unknown) may have any content in prelude": {
         "source": "@bada boom!;",
         "options": {
             "tolerant": true
@@ -7,8 +7,8 @@
         "ast": {
             "type": "Atrule",
             "name": "bada",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Raw",
@@ -28,8 +28,8 @@
         "ast": {
             "type": "Atrule",
             "name": "bada",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Raw",
@@ -40,7 +40,7 @@
             "block": null
         }
     },
-    "at-rule (known) may have any content in expression": {
+    "at-rule (known) may have any content in prelude": {
         "source": "@import boom!;",
         "options": {
             "tolerant": true
@@ -48,8 +48,8 @@
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Raw",
@@ -69,8 +69,8 @@
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Raw",
@@ -81,7 +81,29 @@
             "block": null
         }
     },
-    "at-rule (known) with custom expression parser": {
+    "at-rule (known) with no block may be followed by block": {
+        "skip": true,
+        "source": "@import {}",
+        "translate": "@import ?",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": "boom!"
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "at-rule (known) with custom prelude parser": {
         "source": "@page {}",
         "translate": "@page{}",
         "options": {
@@ -90,7 +112,7 @@
         "ast": {
             "type": "Atrule",
             "name": "page",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": []

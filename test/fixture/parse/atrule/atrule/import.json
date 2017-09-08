@@ -4,8 +4,8 @@
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "String",
@@ -21,8 +21,8 @@
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Url",
@@ -42,8 +42,8 @@
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "String",
@@ -107,8 +107,8 @@
         "ast": {
             "type": "Atrule",
             "name": "ImpOrt",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "String",

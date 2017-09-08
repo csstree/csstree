@@ -4,7 +4,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": []
@@ -16,7 +16,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -44,8 +44,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -88,8 +88,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -150,7 +150,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -178,8 +178,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -222,8 +222,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -288,7 +288,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -316,8 +316,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -360,8 +360,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -434,8 +434,8 @@
         "ast": {
             "type": "Atrule",
             "name": "page",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "SelectorList",

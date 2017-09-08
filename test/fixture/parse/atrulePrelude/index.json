@@ -2,7 +2,7 @@
     "base test": {
         "source": "foo bar",
         "ast": {
-            "type": "AtruleExpression",
+            "type": "AtrulePrelude",
             "children": [
                 {
                     "type": "Identifier",
@@ -25,7 +25,7 @@
         },
         "source": "screen",
         "ast": {
-            "type": "AtruleExpression",
+            "type": "AtrulePrelude",
             "children": [
                 {
                     "type": "MediaQueryList",

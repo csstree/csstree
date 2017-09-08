@@ -4,7 +4,7 @@
         "ast": {
             "type": "Atrule",
             "name": "font-face",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -31,7 +31,7 @@
         "ast": {
             "type": "Atrule",
             "name": "font-face",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [

@@ -47,7 +47,7 @@
                 {
                     "type": "Atrule",
                     "name": "a",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 }
             ]
@@ -70,7 +70,7 @@
                 {
                     "type": "Atrule",
                     "name": "a",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 }
             ]
@@ -141,8 +141,8 @@
                 {
                     "type": "Atrule",
                     "name": "media",
-                    "expression": {
-                        "type": "AtruleExpression",
+                    "prelude": {
+                        "type": "AtrulePrelude",
                         "children": [
                             {
                                 "type": "MediaQueryList",
@@ -166,7 +166,7 @@
                             {
                                 "type": "Atrule",
                                 "name": "page",
-                                "expression": null,
+                                "prelude": null,
                                 "block": {
                                     "type": "Block",
                                     "children": [
@@ -238,8 +238,8 @@
                 {
                     "type": "Atrule",
                     "name": "media",
-                    "expression": {
-                        "type": "AtruleExpression",
+                    "prelude": {
+                        "type": "AtrulePrelude",
                         "children": [
                             {
                                 "type": "MediaQueryList",
@@ -299,7 +299,7 @@
                             {
                                 "type": "Atrule",
                                 "name": "page",
-                                "expression": null,
+                                "prelude": null,
                                 "block": {
                                     "type": "Block",
                                     "children": [
@@ -530,7 +530,7 @@
                 {
                     "type": "Atrule",
                     "name": "test",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 }
             ]
@@ -544,13 +544,13 @@
                 {
                     "type": "Atrule",
                     "name": "test0",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 },
                 {
                     "type": "Atrule",
                     "name": "test1",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 }
             ]
@@ -600,7 +600,7 @@
                 {
                     "type": "Atrule",
                     "name": "test",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 }
             ]
@@ -786,13 +786,13 @@
                 {
                     "type": "Atrule",
                     "name": "test0",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 },
                 {
                     "type": "Atrule",
                     "name": "test1",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 }
             ]
@@ -843,7 +843,7 @@
                 {
                     "type": "Atrule",
                     "name": "test",
-                    "expression": null,
+                    "prelude": null,
                     "block": null
                 }
             ]
@@ -858,7 +858,7 @@
                 {
                     "type": "Atrule",
                     "name": "x",
-                    "expression": null,
+                    "prelude": null,
                     "block": {
                         "type": "Block",
                         "children": [
@@ -914,7 +914,7 @@
                 {
                     "type": "Atrule",
                     "name": "x",
-                    "expression": null,
+                    "prelude": null,
                     "block": {
                         "type": "Block",
                         "children": [

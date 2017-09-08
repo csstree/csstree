@@ -4,7 +4,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": null,
+            "prelude": null,
             "block": null
         }
     },
@@ -13,8 +13,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -38,8 +38,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "String",
@@ -55,8 +55,8 @@
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Url",
@@ -76,7 +76,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": null,
+            "prelude": null,
             "block": null
         }
     },
@@ -86,8 +86,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -112,7 +112,7 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": null,
+            "prelude": null,
             "block": null
         }
     },
@@ -122,8 +122,8 @@
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -147,20 +147,20 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": null,
+            "prelude": null,
             "block": null
         }
     },
-    "shouldn't parse a atrule expression when parseAtruleExpression is false": {
+    "shouldn't parse a atrule prelude when parseAtrulePrelude is false": {
         "options": {
-            "parseAtruleExpression": false
+            "parseAtrulePrelude": false
         },
         "source": "@test a b;",
         "ast": {
             "type": "Atrule",
             "name": "test",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Raw",

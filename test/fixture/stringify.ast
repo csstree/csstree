@@ -47,8 +47,8 @@
                 }
             },
             "name": "charset",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "loc": {
                     "source": "stringify.css",
                     "start": {
@@ -100,8 +100,8 @@
                 }
             },
             "name": "page",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "loc": {
                     "source": "stringify.css",
                     "start": {
@@ -261,8 +261,8 @@
                 }
             },
             "name": "media",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "loc": {
                     "source": "stringify.css",
                     "start": {
@@ -2579,8 +2579,8 @@
                 }
             },
             "name": "media",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "loc": {
                     "source": "stringify.css",
                     "start": {
@@ -2950,8 +2950,8 @@
                 }
             },
             "name": "supports",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "loc": {
                     "source": "stringify.css",
                     "start": {

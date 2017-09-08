@@ -14,7 +14,7 @@
 
 ## Atrules
 
-At-rules with a custom parsing rules. In fact, any at-rule is supported but expression and block are parsing with default rules. Validation support isn't supported for at-rules at the moment.
+At-rules with a custom parsing rules. In fact, any at-rule is supported but prelude and block are parsing with default rules. Validation support isn't supported for at-rules at the moment.
 
 <!-- gen:atrule -->
 

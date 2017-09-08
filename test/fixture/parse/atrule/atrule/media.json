@@ -4,8 +4,8 @@
         "ast": {
             "type": "Atrule",
             "name": "media",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "MediaQueryList",
@@ -34,8 +34,8 @@
         "ast": {
             "type": "Atrule",
             "name": "media",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "MediaQueryList",
@@ -72,8 +72,8 @@
         "ast": {
             "type": "Atrule",
             "name": "media",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "MediaQueryList",
@@ -110,8 +110,8 @@
         "ast": {
             "type": "Atrule",
             "name": "mEdiA",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "MediaQueryList",
@@ -135,16 +135,16 @@
             }
         }
     },
-    "shouldn't parse an at-rule expression when parseAtruleExpression is false": {
+    "shouldn't parse an at-rule prelude when parseAtrulePrelude is false": {
         "options": {
-            "parseAtruleExpression": false
+            "parseAtrulePrelude": false
         },
         "source": "@media screen and (feature: 1){}",
         "ast": {
             "type": "Atrule",
             "name": "media",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Raw",

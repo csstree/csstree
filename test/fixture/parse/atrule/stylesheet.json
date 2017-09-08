@@ -5,7 +5,7 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -55,8 +55,8 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -121,8 +121,8 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -205,7 +205,7 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -291,7 +291,7 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -341,8 +341,8 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -407,8 +407,8 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -495,7 +495,7 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": null,
+            "prelude": null,
             "block": {
                 "type": "Block",
                 "children": [
@@ -545,8 +545,8 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -611,8 +611,8 @@
         "ast": {
             "type": "Atrule",
             "name": "atrule",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",
@@ -699,8 +699,8 @@
         "ast": {
             "type": "Atrule",
             "name": "-webkit-keyframes",
-            "expression": {
-                "type": "AtruleExpression",
+            "prelude": {
+                "type": "AtrulePrelude",
                 "children": [
                     {
                         "type": "Identifier",

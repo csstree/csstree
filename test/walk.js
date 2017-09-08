@@ -98,7 +98,7 @@ function createWalkDeclarationsTest(test, context, walker) {
             actual.sort(),
             expectedWalk(test.ast, false, function(stack) {
                 return stack.every(function(node) {
-                    return node.type !== 'AtruleExpression';
+                    return node.type !== 'AtrulePrelude';
                 });
             }).filter(function(type) {
                 return type === 'Declaration';
@@ -122,7 +122,7 @@ describe('AST traversal', function() {
         var shouldVisitTypes = [
             'AnPlusB',
             'Atrule',
-            'AtruleExpression',
+            'AtrulePrelude',
             'Block',
             'ClassSelector',
             'Declaration',

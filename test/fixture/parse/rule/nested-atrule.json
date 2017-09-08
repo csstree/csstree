@@ -23,14 +23,14 @@
                     {
                         "type": "Atrule",
                         "name": "test",
-                        "expression": null,
+                        "prelude": null,
                         "block": null
                     }
                 ]
             }
         }
     },
-    "with expression": {
+    "with prelude": {
         "source": ".test{@test not(something);}",
         "ast": {
             "type": "Rule",
@@ -54,8 +54,8 @@
                     {
                         "type": "Atrule",
                         "name": "test",
-                        "expression": {
-                            "type": "AtruleExpression",
+                        "prelude": {
+                            "type": "AtrulePrelude",
                             "children": [
                                 {
                                     "type": "Function",
@@ -99,8 +99,8 @@
                     {
                         "type": "Atrule",
                         "name": "test",
-                        "expression": {
-                            "type": "AtruleExpression",
+                        "prelude": {
+                            "type": "AtrulePrelude",
                             "children": [
                                 {
                                     "type": "Identifier",
@@ -156,8 +156,8 @@
                     {
                         "type": "Atrule",
                         "name": "test",
-                        "expression": {
-                            "type": "AtruleExpression",
+                        "prelude": {
+                            "type": "AtrulePrelude",
                             "children": [
                                 {
                                     "type": "Identifier",
@@ -171,8 +171,8 @@
                                 {
                                     "type": "Atrule",
                                     "name": "test",
-                                    "expression": {
-                                        "type": "AtruleExpression",
+                                    "prelude": {
+                                        "type": "AtrulePrelude",
                                         "children": [
                                             {
                                                 "type": "Identifier",

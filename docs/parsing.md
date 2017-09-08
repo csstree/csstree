@@ -31,7 +31,7 @@ Options (optional):
 - [offset](#offset)
 - [line](#line)
 - [column](#column)
-- [parseAtruleExpression](#parseatruleexpression)
+- [parseAtrulePrelude](#parseatruleprelude)
 - [parseSelector](#parseselector)
 - [parseValue](#parsevalue)
 - [parseCustomProperty](#parsecustomproperty)
@@ -49,7 +49,7 @@ Contexts:
 
 - `stylesheet` (default) – regular stylesheet, should be suitable in most cases
 - `atrule` – at-rule (e.g. `@media screen, print { ... }`)
-- `atruleExpression` – at-rule expression (`screen, print` for example above)
+- `atrulePrelude` – at-rule prelude (`screen, print` for example above)
 - `mediaQueryList` – used to parse comma separated media query list
 - `mediaQuery` – used to parse media query
 - `rule` – rule (e.g. `.foo, .bar:hover { color: red; border: 1px solid black; }`)
@@ -65,7 +65,7 @@ Contexts:
 Type: `string` or `null`  
 Default: `null`
 
-Using for `atruleExpression` context to apply atrule specific parse rules.
+Using for `atrulePrelude` context to apply atrule specific parse rules.
 
 ### property
 
@@ -150,19 +150,19 @@ Default: `1`
 
 Start column number. Useful when parsing fragment of CSS to store correct positions in node's `loc` property.
 
-### parseAtruleExpression
+### parseAtrulePrelude
 
 Type: `boolean`  
 Default: `true`
 
-Defines to parse a at-rule expression in details (represents as `AtruleExpresion`, `MediaQueryList` or `SelectorList` if any). Otherwise represents expression as `Raw` node.
+Defines to parse a at-rule prelude in details (represents as `AtruleExpresion`, `MediaQueryList` or `SelectorList` if any). Otherwise represents prelude as `Raw` node.
 
 ```js
 csstree.parse('@example 1 2;');
 // {
 //     "type": "Atrule",
-//     "expression": {
-//         "type": "AtruleExpression",
+//     "prelude": {
+//         "type": "AtrulePrelude",
 //         "children": [
 //             { "type": "Number", "value": "1" },
 //             { "type": "WhiteSpace", "value": " " },
@@ -172,10 +172,10 @@ csstree.parse('@example 1 2;');
 //     "block": null
 // }
 
-csstree.parse('@example 1 2;', { parseAtruleExpression: false });
+csstree.parse('@example 1 2;', { parseAtrulePrelude: false });
 // {
 //     "type": "Atrule",
-//     "expression": {
+//     "prelude": {
 //         "type": "Raw",
 //         "value": "1 2"
 //     },

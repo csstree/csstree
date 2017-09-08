@@ -42,7 +42,7 @@ Context for handler an object, that contains references to some parent nodes:
 
 - `root` – refers to `ast` root node (actually it's a node passed to walker function)
 - `stylesheet` – refers to `StyleSheet` node, usually it's a root node
-- `atruleExpression` – refers to `AtruleExpression` node if any
+- `atrulePrelude` – refers to `AtrulePrelude` node if any
 - `rule` – refers to closest `Rule` node if any
 - `selector` – refers to `SelectorList` node if any
 - `block` - refers to closest `Block` node if any

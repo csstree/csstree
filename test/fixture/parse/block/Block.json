@@ -301,8 +301,8 @@
                 {
                     "type": "Atrule",
                     "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
+                    "prelude": {
+                        "type": "AtrulePrelude",
                         "children": [
                             {
                                 "type": "Identifier",
@@ -345,7 +345,7 @@
                 {
                     "type": "Atrule",
                     "name": "foo",
-                    "expression": null,
+                    "prelude": null,
                     "block": {
                         "type": "Block",
                         "children": []
@@ -390,8 +390,8 @@
                 {
                     "type": "Atrule",
                     "name": "foo",
-                    "expression": {
-                        "type": "AtruleExpression",
+                    "prelude": {
+                        "type": "AtrulePrelude",
                         "children": [
                             {
                                 "type": "Identifier",
@@ -434,7 +434,7 @@
                 {
                     "type": "Atrule",
                     "name": "foo",
-                    "expression": null,
+                    "prelude": null,
                     "block": {
                         "type": "Block",
                         "children": []
