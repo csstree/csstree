@@ -504,6 +504,7 @@
             "0 inherit",
             "0 initial",
             "0 unset",
+            "0 default",
             "0 0"
         ]
     },
