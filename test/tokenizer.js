@@ -171,6 +171,14 @@ describe('parser/tokenizer', function() {
                 expected: '? '
             },
             {
+                // issues #56
+                source: 'div { }',
+                start:  '^',
+                skip:   '^',
+                args: ['{'.charCodeAt(0), 0, false],
+                expected: 'div '
+            },
+            {
                 source: 'foo(bar(1)(2)(3[{}])(4{}){}(5))',
                 start:  '             ^',
                 skip:   '             ^',
