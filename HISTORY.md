@@ -1,3 +1,14 @@
+## 1.0.0-alpha23 (September 10, 2017)
+
+- Fixed `Tokenizer#getRawLength()`'s false positive balance match to the end of input in some cases (#56)
+- Rename walker's entry point methods to be the as CSSTree methods (i.e. `walk()`, `walkUp` etc)
+- Rename at-rule `expression` to `prelude`:
+    - `AtruleExpression` node type → `AtrulePrelude`
+    - `Atrule.expression` field → `Atrule.prelude`
+    - `parseAtruleExpression` parser's option → `parseAtrulePrelude`
+    - `atruleExpression` parse context → `atrulePrelude`
+    - `atruleExpression` walk context reference → `atrulePrelude`
+
 ## 1.0.0-alpha22 (September 8, 2017)
 
 - Parser
