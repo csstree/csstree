@@ -424,7 +424,7 @@
                                 "column": 6
                             }
                         },
-                        "selector": {
+                        "prelude": {
                             "type": "SelectorList",
                             "loc": {
                                 "source": "stringify.css",
@@ -567,7 +567,7 @@
                     "column": 2
                 }
             },
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "loc": {
                     "source": "stringify.css",
@@ -2699,7 +2699,7 @@
                                 "column": 6
                             }
                         },
-                        "selector": {
+                        "prelude": {
                             "type": "SelectorList",
                             "loc": {
                                 "source": "stringify.css",
@@ -3116,7 +3116,7 @@
                                 "column": 6
                             }
                         },
-                        "selector": {
+                        "prelude": {
                             "type": "SelectorList",
                             "loc": {
                                 "source": "stringify.css",
@@ -3312,7 +3312,7 @@
                     "column": 2
                 }
             },
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "loc": {
                     "source": "stringify.css",

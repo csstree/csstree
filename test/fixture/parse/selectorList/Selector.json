@@ -50,9 +50,9 @@
             ]
         }
     },
-    "shouldn't parse a selector when parseSelector is false": {
+    "shouldn't parse a selector when parseRulePrelude is false": {
         "options": {
-            "parseSelector": false
+            "parseRulePrelude": false
         },
         "source": ".foo, a:not(a = b) ",
         "ast": {

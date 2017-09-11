@@ -32,7 +32,7 @@ Options (optional):
 - [line](#line)
 - [column](#column)
 - [parseAtrulePrelude](#parseatruleprelude)
-- [parseSelector](#parseselector)
+- [parseRulePrelude](#parseruleprelude)
 - [parseValue](#parsevalue)
 - [parseCustomProperty](#parsecustomproperty)
 
@@ -183,7 +183,7 @@ csstree.parse('@example 1 2;', { parseAtrulePrelude: false });
 // }
 ```
 
-### parseSelector
+### parseRulePrelude
 
 Type: `boolean`  
 Default: `true`
@@ -211,7 +211,7 @@ csstree.parse('.foo {}');
 //     }
 // }
 
-csstree.parse('.foo {}', { parseSelector: false });
+csstree.parse('.foo {}', { parseRulePrelude: false });
 // {
 //     "type": "Rule",
 //     "selector": {
