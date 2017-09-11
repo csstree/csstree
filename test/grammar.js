@@ -97,9 +97,9 @@ describe('grammar', function() {
 
     describe('parse/translate', function() {
         ['properties', 'types'].forEach(function(section) {
-            for (var name in data[section]) {
+            Object.keys(data[section]).forEach(function(name) {
                 createParseTest(section + '/' + name, data[section][name]);
-            }
+            });
         });
     });
 

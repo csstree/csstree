@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
+var csstree = require('../lib');
 var parse = require('../lib').parse;
 var walk = require('../lib').walk;
 var stringify = require('./helpers/stringify.js');
@@ -50,5 +51,31 @@ describe('Common', function() {
             Object.keys(foundTypes).sort(),
             types.sort()
         );
+    });
+
+    describe('extension in base classes should not cause to exception', function() {
+        beforeEach(function() {
+            Object.prototype.objectExtraField = function() {};
+            Array.prototype.arrayExtraField = function() {};
+        });
+        afterEach(function() {
+            delete Object.prototype.objectExtraField;
+            delete Array.prototype.arrayExtraField;
+        });
+
+        it('fork()', function() {
+            assert.doesNotThrow(function() {
+                csstree.fork({
+                    node: {
+                        Test: {
+                            structure: {
+                                foo: 'Rule',
+                                bar: [['Rule']]
+                            }
+                        }
+                    }
+                });
+            });
+        });
     });
 });

@@ -36,9 +36,9 @@ var testFiles = fs.readdirSync(__dirname).reduce(function(result, fn) {
         var tests = require(filename);
         var locator = new JsonLocator(filename);
 
-        for (var key in tests) {
+        Object.keys(tests).forEach(function(key) {
             tests[key].name = locator.get(key);
-        }
+        });
 
         result[filename] = tests;
     }

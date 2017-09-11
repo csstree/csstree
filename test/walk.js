@@ -22,13 +22,13 @@ function expectedWalk(ast, right, checker) {
         }
 
         stack.push(node);
-        for (var key in node) {
+        Object.keys(node).forEach(function(key) {
             if (Array.isArray(node[key])) {
                 node[key].forEach(walk);
             } else if (node[key] && typeof node[key] === 'object') {
                 walk(node[key]);
             }
-        }
+        });
         stack.pop();
 
         if (!right && checker(stack, node)) {
@@ -162,25 +162,25 @@ describe('AST traversal', function() {
 
     describe('walk ruleset', function() {
         testWithRules.forEach(function(file) {
-            for (var name in file.tests) {
+            Object.keys(file.tests).forEach(function(name) {
                 createWalkRulesTest(file.tests[name], file.scope, walkRules);
-            }
+            });
         });
     });
 
     describe('walk rulesetRight', function() {
         testWithRules.forEach(function(file) {
-            for (var name in file.tests) {
+            Object.keys(file.tests).forEach(function(name) {
                 createWalkRulesTest(file.tests[name], file.scope, walkRulesRight);
-            }
+            });
         });
     });
 
     describe('walk declarations', function() {
         testWithRules.forEach(function(file) {
-            for (var name in file.tests) {
+            Object.keys(file.tests).forEach(function(name) {
                 createWalkDeclarationsTest(file.tests[name], file.scope, walkDeclarations);
-            }
+            });
         });
     });
 });

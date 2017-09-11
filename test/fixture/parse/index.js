@@ -44,9 +44,9 @@ function forEachTest(factory, errors) {
     for (var filename in tests) {
         var file = tests[filename];
 
-        for (var key in file[testType]) {
+        Object.keys(file[testType]).forEach(function(key) {
             factory(file[testType][key].name, file[testType][key], file.scope);
-        }
+        });
     };
 }
 
@@ -92,7 +92,7 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
                 var tests = {};
                 var errors = {};
 
-                for (var key in origTests) {
+                Object.keys(origTests).forEach(function(key) {
                     if (Array.isArray(origTests[key])) {
                         origTests[key].forEach(function(test, idx) {
                             test.name = locator.get(key, idx);
@@ -108,7 +108,7 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
                         });
                         processTest(origTests[key], key, key);
                     }
-                }
+                });
 
                 result[filename] = {
                     scope: scope,
