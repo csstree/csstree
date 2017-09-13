@@ -28,7 +28,7 @@ function createMatchTest(name, syntax, property, value, error) {
 }
 
 describe('lexer', function() {
-    it('validate', function() {
+    it('validate()', function() {
         var customSyntax = syntax.fork(function(prev, assign) {
             return assign(prev, {
                 generic: true,
@@ -165,6 +165,20 @@ describe('lexer', function() {
 
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'Lexer matching doesn\'t applicable for custom properties');
+        });
+
+        it('should not be matched to empty value', function() {
+            var match = syntax.lexer.matchProperty('color', parseCss('', { context: 'value', positions: true }));
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.rawMessage, 'Mismatch');
+            assert.deepEqual({
+                line: match.error.line,
+                column: match.error.column
+            }, {
+                line: 1,
+                column: 1
+            });
         });
 
         tests.forEachTest(createMatchTest);
