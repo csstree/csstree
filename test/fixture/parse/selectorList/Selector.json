@@ -50,25 +50,6 @@
             ]
         }
     },
-    "shouldn't parse a selector when parseRulePrelude is false": {
-        "options": {
-            "parseRulePrelude": false
-        },
-        "source": ".foo, a:not(a = b) ",
-        "ast": {
-            "type": "SelectorList",
-            "children": [
-                {
-                    "type": "Raw",
-                    "value": ".foo"
-                },
-                {
-                    "type": "Raw",
-                    "value": " a:not(a = b) "
-                }
-            ]
-        }
-    },
     "error": [
         {
             "source": "a, ",
