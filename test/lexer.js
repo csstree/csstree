@@ -97,12 +97,51 @@ describe('lexer', function() {
         });
     });
 
+    describe('structure', function() {
+        it('should fail when no structure field in node definition', function() {
+            assert.throws(function() {
+                syntax.fork(function(prev) {
+                    prev.node.Test = {};
+                    return prev;
+                });
+            }, /Missed `structure` field in `Test` node type definition/);
+        });
+
+        it('should fail on bad value in structure', function() {
+            assert.throws(function() {
+                syntax.fork(function(prev) {
+                    prev.node.Test = {
+                        structure: {
+                            foo: [123]
+                        }
+                    };
+                    return prev;
+                });
+            }, /Wrong value `123` in `Test\.foo` structure definition/);
+        });
+    });
+
     describe('checkStructure()', function() {
         it('should pass correct structure', function() {
             var ast = parseCss('.foo { color: red }', { positions: true });
             var warns = syntax.lexer.checkStructure(ast);
 
             assert.equal(warns, false);
+        });
+
+        it('should ignore properties from prototype', function() {
+            var node = {
+                type: 'Number',
+                loc: null,
+                value: '123'
+            };
+
+            Object.prototype.foo = 123;
+            try {
+                assert.equal(syntax.lexer.checkStructure(node), false);
+            } finally {
+                delete Object.prototype.foo;
+            }
         });
 
         describe('errors', function() {
@@ -188,6 +227,22 @@ describe('lexer', function() {
 
                     assert.deepEqual(syntax.lexer.checkStructure(node), [
                         { node: node, message: 'Bad value for `Number.loc.start`' }
+                    ]);
+                });
+
+                it('bad loc #3', function() {
+                    var node = {
+                        type: 'Number',
+                        loc: {
+                            source: '-',
+                            start: { line: 1, column: 1, offset: 0 },
+                            end: { line: 1, column: 1 }
+                        },
+                        value: '123'
+                    };
+
+                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                        { node: node, message: 'Bad value for `Number.loc.end`' }
                     ]);
                 });
             });
