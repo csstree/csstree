@@ -1,3 +1,17 @@
+## 1.0.0-alpha24 (September 14, 2017)
+
+- Improved CSSTree to be stable for standart build-in objects extension (#58)
+- Parser
+    - Renamed rule's `selector` to `prelude`. The reasons: [spec names this part so](https://www.w3.org/TR/css-syntax-3/#qualified-rule), and this branch can contain not only a selector (`SelectorList`) but also a raw payload (`Raw`). What's changed:
+        - Renamed `Rule.selector` to `Rule.prelude`
+        - Renamed `parseSelector` parser option to `parseRulePrelude`
+        - Removed option for selector parse in `SelectorList`
+- Lexer
+    - Fixed undefined positions in a error when match a syntax to empty or white space only value
+    - Improved `Lexer#checkStructure()`
+        - Return a warning as an object with node reference and message
+        - No exception on unknown node type, return a warning instead
+
 ## 1.0.0-alpha23 (September 10, 2017)
 
 - Fixed `Tokenizer#getRawLength()`'s false positive balance match to the end of input in some cases (#56)
