@@ -1,27 +1,82 @@
 {
-    "bad selector": {
-        "source": " ? {}",
-        "translate": "?{}",
-        "options": {
-            "tolerant": true
-        },
-        "ast": {
-            "type": "StyleSheet",
-            "children": [
-                {
-                    "type": "Rule",
-                    "prelude": {
-                        "type": "Raw",
-                        "value": "?"
-                    },
-                    "block": {
-                        "type": "Block",
-                        "children": []
+    "bad selector": [
+        {
+            "source": " ? {}",
+            "translate": "?{}",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "StyleSheet",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "Raw",
+                            "value": "?"
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": []
+                        }
                     }
-                }
-            ]
+                ]
+            }
+        },
+        {
+            "source": ".a! { } .a {}",
+            "translate": ".a!{}.a{}",
+            "options": {
+                "tolerant": true
+            },
+            "ast": {
+                "type": "StyleSheet",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "Rule",
+                        "loc": null,
+                        "prelude": {
+                            "type": "Raw",
+                            "loc": null,
+                            "value": ".a!"
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": null,
+                            "children": []
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "loc": null,
+                        "prelude": {
+                            "type": "SelectorList",
+                            "loc": null,
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "loc": null,
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "loc": null,
+                                            "name": "a"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": null,
+                            "children": []
+                        }
+                    }
+                ]
+            }
         }
-    },
+    ],
     "unclosed block": {
         "source": "foo {",
         "translate": "foo{}",
