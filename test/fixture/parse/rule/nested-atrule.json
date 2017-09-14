@@ -3,7 +3,7 @@
         "source": ".test{@test;}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -34,7 +34,7 @@
         "source": ".test{@test not(something);}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -79,7 +79,7 @@
         "source": ".test{@test foo{a:1}}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -136,7 +136,7 @@
         "source": ".test{@test foo{@test foo{}}}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {

@@ -347,7 +347,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 ```
 {
     "type": "Rule",
-    "selector": <SelectorList> | <Raw>,
+    "prelude": <SelectorList> | <Raw>,
     "block": <Block>
 }
 ```

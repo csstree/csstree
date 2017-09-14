@@ -3,7 +3,7 @@
         "source": "s{p:v}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -42,7 +42,7 @@
         "source": "s{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -95,7 +95,7 @@
         "source": "s0,s1{p:v}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -143,7 +143,7 @@
         "source": "s0,s1{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -205,7 +205,7 @@
         "source": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -253,7 +253,7 @@
         "source": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -302,7 +302,7 @@
         "translate": ".test{color:red}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -341,7 +341,7 @@
         "source": ".test{//color:red}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -381,7 +381,7 @@
         "translate": "s{p:v}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -421,7 +421,7 @@
         "translate": "s{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -475,7 +475,7 @@
         "translate": "s0,s1{p:v}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -524,7 +524,7 @@
         "translate": "s0,s1{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -587,7 +587,7 @@
         "translate": "s{p:v}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -627,7 +627,7 @@
         "translate": "s{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -681,7 +681,7 @@
         "translate": "s0,s1{p:v}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -730,7 +730,7 @@
         "translate": "s0,s1{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -793,7 +793,7 @@
         "translate": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -842,7 +842,7 @@
         "translate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')\n}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -890,7 +890,7 @@
         "source": "s{p:yellow}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -929,7 +929,7 @@
         "source": "yellow{p:yellow}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "SelectorList",
                 "children": [
                     {
@@ -964,15 +964,15 @@
             }
         }
     },
-    "shouldn't parse a selector when parseSelector is false": {
+    "shouldn't parse a selector when parseRulePrelude is false": {
         "options": {
-            "parseSelector": false
+            "parseRulePrelude": false
         },
         "source": ".foo, a:not(a = b) { foo: 1; }",
         "translate": ".foo, a:not(a = b){foo:1}",
         "ast": {
             "type": "Rule",
-            "selector": {
+            "prelude": {
                 "type": "Raw",
                 "value": ".foo, a:not(a = b)"
             },

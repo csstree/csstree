@@ -18,7 +18,7 @@ var wrapper = {
     rule: function(ast) {
         return {
             type: 'Rule',
-            selector: {
+            prelude: {
                 type: 'SelectorList',
                 children: []
             },

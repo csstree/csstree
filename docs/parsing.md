@@ -32,7 +32,7 @@ Options (optional):
 - [line](#line)
 - [column](#column)
 - [parseAtrulePrelude](#parseatruleprelude)
-- [parseSelector](#parseselector)
+- [parseRulePrelude](#parseruleprelude)
 - [parseValue](#parsevalue)
 - [parseCustomProperty](#parsecustomproperty)
 
@@ -183,12 +183,12 @@ csstree.parse('@example 1 2;', { parseAtrulePrelude: false });
 // }
 ```
 
-### parseSelector
+### parseRulePrelude
 
 Type: `boolean`  
 Default: `true`
 
-Defines to parse a rule selector in details (represents as `SelectorList`). Otherwise represents selector as `Raw` node.
+Defines to parse a rule prelude in details or left unparsed (represents as `Raw` node).
 
 ```js
 csstree.parse('.foo {}');
@@ -211,12 +211,12 @@ csstree.parse('.foo {}');
 //     }
 // }
 
-csstree.parse('.foo {}', { parseSelector: false });
+csstree.parse('.foo {}', { parseRulePrelude: false });
 // {
 //     "type": "Rule",
 //     "selector": {
 //         "type": "Raw",
-//         "value": ".foo "
+//         "value": ".foo"
 //     },
 //     "block": {
 //         "type": "Block",

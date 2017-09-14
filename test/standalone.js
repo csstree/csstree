@@ -12,7 +12,7 @@ var expectedAst = {
     children: [
         {
             type: 'Rule',
-            selector: {
+            prelude: {
                 type: 'SelectorList',
                 children: [
                     {
@@ -67,16 +67,16 @@ describe('logical parts as standalone modules', function() {
 
     it('convertor', function() {
         assert.equal(ast.children instanceof List, true);
-        assert.equal(ast.children.first().selector.children instanceof List, true);
+        assert.equal(ast.children.first().prelude.children instanceof List, true);
 
         convertor.toPlainObject(ast);
 
         assert.equal(Array.isArray(ast.children), true);
-        assert.equal(Array.isArray(ast.children[0].selector.children), true);
+        assert.equal(Array.isArray(ast.children[0].prelude.children), true);
 
         convertor.fromPlainObject(ast);
 
         assert.equal(ast.children instanceof List, true);
-        assert.equal(ast.children.first().selector.children instanceof List, true);
+        assert.equal(ast.children.first().prelude.children instanceof List, true);
     });
 });

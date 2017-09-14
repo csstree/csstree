@@ -10,7 +10,7 @@
             "children": [
                 {
                     "type": "Rule",
-                    "selector": {
+                    "prelude": {
                         "type": "Raw",
                         "value": "?"
                     },
@@ -33,7 +33,7 @@
             "children": [
                 {
                     "type": "Rule",
-                    "selector": {
+                    "prelude": {
                         "type": "SelectorList",
                         "children": [
                             {
@@ -66,7 +66,7 @@
             "children": [
                 {
                     "type": "Rule",
-                    "selector": {
+                    "prelude": {
                         "type": "Raw",
                         "value": "foo:"
                     },
@@ -104,7 +104,7 @@
             "children": [
                 {
                     "type": "Rule",
-                    "selector": {
+                    "prelude": {
                         "type": "Raw",
                         "value": "foo:bar(x"
                     },
