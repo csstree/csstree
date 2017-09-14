@@ -106,15 +106,20 @@ describe('parse', function() {
             var ast = parse('{ a: 1!; foo; b: 2 }', {
                 context: 'block',
                 tolerant: true,
-                onParseError: function(error) {
-                    errors.push(error);
+                onParseError: function(error, fallbackNode) {
+                    errors.push({
+                        error: error,
+                        fallback: fallbackNode
+                    });
                 }
             });
 
             assert.equal(ast.children.getSize(), 3);
             assert.equal(errors.length, 2);
-            assert.equal(errors[0].message, 'Identifier is expected');
-            assert.equal(errors[1].message, 'Colon is expected');
+            assert.equal(errors[0].error.message, 'Identifier is expected');
+            assert.equal(errors[0].fallback.value, 'a: 1!;');
+            assert.equal(errors[1].error.message, 'Colon is expected');
+            assert.equal(errors[1].fallback.value, 'foo;');
         });
     });
 
