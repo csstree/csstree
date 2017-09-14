@@ -97,7 +97,104 @@ describe('lexer', function() {
         });
     });
 
-    describe('matchProperty', function() {
+    describe('checkStructure()', function() {
+        it('should pass correct structure', function() {
+            var ast = parseCss('.foo { color: red }', { positions: true });
+            var warns = syntax.lexer.checkStructure(ast);
+
+            assert.equal(warns, false);
+        });
+
+        describe('errors', function() {
+            it('node should be an object', function() {
+                var node = [];
+                node.type = 'Number';
+
+                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    { node: node, message: 'Type of node should be an Object' }
+                ]);
+            });
+
+            it('missed fields', function() {
+                var node = {
+                    type: 'Foo'
+                };
+
+                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    { node: node, message: 'Unknown node type `Foo`' }
+                ]);
+            });
+
+            it('missed field', function() {
+                var node = {
+                    type: 'Dimension',
+                    value: '123'
+                };
+
+                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    { node: node, message: 'Field `Dimension.loc` is missed' },
+                    { node: node, message: 'Field `Dimension.unit` is missed' }
+                ]);
+            });
+
+            it('unknown field', function() {
+                var node = {
+                    type: 'Number',
+                    loc: null,
+                    value: '123',
+                    foo: 1
+                };
+
+                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    { node: node, message: 'Unknown field `foo` for Number node type' }
+                ]);
+            });
+
+            describe('bad value', function() {
+                it('bad data type', function() {
+                    var node = {
+                        type: 'Number',
+                        loc: null,
+                        value: 123
+                    };
+
+                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                        { node: node, message: 'Bad value for `Number.value`' }
+                    ]);
+                });
+
+                it('bad loc', function() {
+                    var node = {
+                        type: 'Number',
+                        loc: {},
+                        value: '123'
+                    };
+
+                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                        { node: node, message: 'Bad value for `Number.loc.source`' }
+                    ]);
+                });
+
+                it('bad loc #2', function() {
+                    var node = {
+                        type: 'Number',
+                        loc: {
+                            source: '-',
+                            start: { line: 1, column: 1 },
+                            end: { line: 1, column: 1, offset: 0 }
+                        },
+                        value: '123'
+                    };
+
+                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                        { node: node, message: 'Bad value for `Number.loc.start`' }
+                    ]);
+                });
+            });
+        });
+    });
+
+    describe('matchProperty()', function() {
         var bar = parseCss('bar', { context: 'value' });
         var qux = parseCss('qux', { context: 'value' });
         var customSyntax = syntax.fork(function(prev, assign) {
@@ -184,7 +281,7 @@ describe('lexer', function() {
         tests.forEachTest(createMatchTest);
     });
 
-    describe('matchDeclaration', function() {
+    describe('matchDeclaration()', function() {
         it('should match', function() {
             var declaration = parseCss('color: red', { context: 'declaration' });
             var match = syntax.lexer.matchDeclaration(declaration);
@@ -194,7 +291,7 @@ describe('lexer', function() {
         });
     });
 
-    describe('matchType', function() {
+    describe('matchType()', function() {
         var singleNumber = parseCss('1', { context: 'value' });
         var severalNumbers = parseCss('1, 2, 3', { context: 'value' });
         var customSyntax = syntax.fork(function(prev, assign) {
@@ -281,7 +378,7 @@ describe('lexer', function() {
         var match = syntax.lexer.matchProperty('background', ast);
         var mismatch = syntax.lexer.matchProperty('margin', ast);
 
-        it('getTrace', function() {
+        it('getTrace()', function() {
             assert.deepEqual(match.getTrace(testNode), [
                 { type: 'Property', name: 'background' },
                 { type: 'Type', name: 'final-bg-layer' },
@@ -293,7 +390,7 @@ describe('lexer', function() {
             assert.equal(mismatch.getTrace(testNode), null);
         });
 
-        it('isType', function() {
+        it('isType()', function() {
             assert.equal(match.isType(testNode, 'color'), true);
             assert.equal(match.isType(testNode, 'final-bg-layer'), true);
             assert.equal(match.isType(testNode, 'background-color'), false);
@@ -302,7 +399,7 @@ describe('lexer', function() {
             assert.equal(mismatch.isType(testNode, 'color'), false);
         });
 
-        it('isProperty', function() {
+        it('isProperty()', function() {
             assert.equal(match.isProperty(testNode, 'color'), false);
             assert.equal(match.isProperty(testNode, 'final-bg-layer'), false);
             assert.equal(match.isProperty(testNode, 'background-color'), true);
@@ -311,7 +408,7 @@ describe('lexer', function() {
             assert.equal(mismatch.isProperty(testNode, 'color'), false);
         });
 
-        it('isKeyword', function() {
+        it('isKeyword()', function() {
             var ast = parseCss('repeat 0', { context: 'value' });
             var keywordNode = ast.children.first();
             var numberNode = ast.children.last();
@@ -336,7 +433,7 @@ describe('lexer', function() {
             });
         }
 
-        describe('findValueFragments', function() {
+        describe('findValueFragments()', function() {
             it('should find single entry', function() {
                 var declaration = parseCss('border: 1px solid red', { context: 'declaration' });
                 var result = syntax.lexer.findValueFragments(declaration.property, declaration.value, 'Type', 'color');
@@ -352,7 +449,7 @@ describe('lexer', function() {
             });
         });
 
-        describe('findDeclarationValueFragments', function() {
+        describe('findDeclarationValueFragments()', function() {
             it('should find single entry', function() {
                 var declaration = parseCss('border: 1px solid red', { context: 'declaration' });
                 var result = syntax.lexer.findDeclarationValueFragments(declaration, 'Type', 'color');
@@ -368,7 +465,7 @@ describe('lexer', function() {
             });
         });
 
-        describe('findAllFragments', function() {
+        describe('findAllFragments()', function() {
             it('should find all entries in ast', function() {
                 var ast = parseCss('foo { border: 1px solid red; } bar { color: rgba(1,2,3,4); border-color: #123 rgb(1,2,3) }');
                 var result = syntax.lexer.findAllFragments(ast, 'Type', 'color');
