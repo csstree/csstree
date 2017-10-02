@@ -146,7 +146,43 @@ describe('parse', function() {
                 );
                 assert.equal(e.sourceFragment(),
                     '    2 |.\n' +
-                    '--------^\n'
+                    '--------^'
+                );
+                assert.equal(e.sourceFragment(3),
+                    '    1 |/**/\n' +
+                    '    2 |.\n' +
+                    '--------^\n' +
+                    '    3 |foo'
+                );
+            }
+        });
+
+        it('formattedMessage at eof', function() {
+            try {
+                parse('.');
+            } catch (e) {
+                assert.equal(e.formattedMessage,
+                    'Parse error: Identifier is expected\n' +
+                    '    1 |.\n' +
+                    '--------^'
+                );
+            }
+        });
+
+        it('formattedMessage (windows new lines)', function() {
+            try {
+                parse('/**/\r\n.\r\nfoo');
+            } catch (e) {
+                assert.equal(e.formattedMessage,
+                    'Parse error: Identifier is expected\n' +
+                    '    1 |/**/\n' +
+                    '    2 |.\n' +
+                    '--------^\n' +
+                    '    3 |foo'
+                );
+                assert.equal(e.sourceFragment(),
+                    '    2 |.\n' +
+                    '--------^'
                 );
                 assert.equal(e.sourceFragment(3),
                     '    1 |/**/\n' +
