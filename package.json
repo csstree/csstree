@@ -77,7 +77,7 @@
     "bin",
     "data",
     "dist/csstree.js",
-    "dist/csssyntax.js",
+    "dist/default-syntax.json",
     "docs",
     "lib",
     "HISTORY.md",
