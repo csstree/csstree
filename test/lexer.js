@@ -122,9 +122,21 @@ describe('lexer', function() {
     });
 
     describe('checkStructure()', function() {
+        function checkStructure(ast) {
+            var warns = syntax.lexer.checkStructure(ast);
+
+            if (warns) {
+                warns = warns.map(function(warn) {
+                    return { node: warn.node, message: String(warn.error) };
+                });
+            }
+
+            return warns;
+        }
+
         it('should pass correct structure', function() {
             var ast = parseCss('.foo { color: red }', { positions: true });
-            var warns = syntax.lexer.checkStructure(ast);
+            var warns = checkStructure(ast);
 
             assert.equal(warns, false);
         });
@@ -138,7 +150,7 @@ describe('lexer', function() {
 
             Object.prototype.foo = 123;
             try {
-                assert.equal(syntax.lexer.checkStructure(node), false);
+                assert.equal(checkStructure(node), false);
             } finally {
                 delete Object.prototype.foo;
             }
@@ -149,7 +161,7 @@ describe('lexer', function() {
                 var node = [];
                 node.type = 'Number';
 
-                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                assert.deepEqual(checkStructure(node), [
                     { node: node, message: 'Type of node should be an Object' }
                 ]);
             });
@@ -159,7 +171,7 @@ describe('lexer', function() {
                     type: 'Foo'
                 };
 
-                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                assert.deepEqual(checkStructure(node), [
                     { node: node, message: 'Unknown node type `Foo`' }
                 ]);
             });
@@ -170,7 +182,7 @@ describe('lexer', function() {
                     value: '123'
                 };
 
-                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                assert.deepEqual(checkStructure(node), [
                     { node: node, message: 'Field `Dimension.loc` is missed' },
                     { node: node, message: 'Field `Dimension.unit` is missed' }
                 ]);
@@ -184,7 +196,7 @@ describe('lexer', function() {
                     foo: 1
                 };
 
-                assert.deepEqual(syntax.lexer.checkStructure(node), [
+                assert.deepEqual(checkStructure(node), [
                     { node: node, message: 'Unknown field `foo` for Number node type' }
                 ]);
             });
@@ -197,7 +209,7 @@ describe('lexer', function() {
                         value: 123
                     };
 
-                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    assert.deepEqual(checkStructure(node), [
                         { node: node, message: 'Bad value for `Number.value`' }
                     ]);
                 });
@@ -209,7 +221,7 @@ describe('lexer', function() {
                         value: '123'
                     };
 
-                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    assert.deepEqual(checkStructure(node), [
                         { node: node, message: 'Bad value for `Number.loc.source`' }
                     ]);
                 });
@@ -225,7 +237,7 @@ describe('lexer', function() {
                         value: '123'
                     };
 
-                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    assert.deepEqual(checkStructure(node), [
                         { node: node, message: 'Bad value for `Number.loc.start`' }
                     ]);
                 });
@@ -241,7 +253,7 @@ describe('lexer', function() {
                         value: '123'
                     };
 
-                    assert.deepEqual(syntax.lexer.checkStructure(node), [
+                    assert.deepEqual(checkStructure(node), [
                         { node: node, message: 'Bad value for `Number.loc.end`' }
                     ]);
                 });
