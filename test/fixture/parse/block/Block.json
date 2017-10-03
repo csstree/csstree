@@ -8,10 +8,17 @@
     },
     "block.1": {
         "source": "{;}",
-        "translate": "{}",
+        "options": {
+            "tolerant": true
+        },
         "ast": {
             "type": "Block",
-            "children": []
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": ";"
+                }
+            ]
         }
     },
     "block.2": {
@@ -105,10 +112,18 @@
     },
     "block.c.1": {
         "source": "{/*test*/;/*test*/}",
-        "translate": "{}",
+        "translate": "{;}",
+        "options": {
+            "tolerant": true
+        },
         "ast": {
             "type": "Block",
-            "children": []
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": ";"
+                }
+            ]
         }
     },
     "block.c.2": {
@@ -204,10 +219,18 @@
     },
     "block.s.1": {
         "source": "{  ;  }",
-        "translate": "{}",
+        "translate": "{;}",
+        "options": {
+            "tolerant": true
+        },
         "ast": {
             "type": "Block",
-            "children": []
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": ";"
+                }
+            ]
         }
     },
     "block.s.2": {
@@ -442,5 +465,22 @@
                 }
             ]
         }
-    }
+    },
+    "errors": [
+        {
+            "source": "{;}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "{/*test*/;/*test*/}",
+            "offset": "         ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "{  ;  }",
+            "offset": "   ^",
+            "error": "Identifier is expected"
+        }
+    ]
 }
