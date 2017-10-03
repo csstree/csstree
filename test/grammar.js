@@ -103,6 +103,32 @@ describe('grammar', function() {
         });
     });
 
+    describe('translate', function() {
+        it('should throw an exception on bad node type', function() {
+            assert.throws(function() {
+                translate({ type: 'Unknown' });
+            }, /Error: Unknown node type `Unknown`/);
+        });
+
+        it('with decorate', function() {
+            var ast = parse('<foo> && <bar>');
+            var actual = translate(ast, false, function(str, node) {
+                switch (node.type) {
+                    case 'Type':
+                        return '{' + str + '}';
+
+                    case 'Group':
+                        return '*' + str + '*';
+
+                    default:
+                        return str;
+                }
+            });
+
+            assert.equal(actual, '*{<foo>} && {<bar>}*');
+        });
+    });
+
     it('walker', function() {
         var ast = parse('a b | c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*');
         var visited = [];
