@@ -93,5 +93,53 @@
                 "children": []
             }
         }
+    },
+    "unclosed block - unknown at-rule": {
+        "source": "@atrule {",
+        "translate": "@atrule{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "atrule",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "unclosed block - known declaration at-rule": {
+        "source": "@font-face {",
+        "translate": "@font-face{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "font-face",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "unclosed block - known rule at-rule": {
+        "source": "@media {",
+        "translate": "@media{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
     }
 }
