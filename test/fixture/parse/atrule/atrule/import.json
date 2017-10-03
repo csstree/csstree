@@ -139,11 +139,13 @@
     },
     "error": [
         {
+            "skip": true,
             "source": "@import;",
             "offset": "       ^",
             "error": "String or url() is expected"
         },
         {
+            "skip": true,
             "source": "@import  ;",
             "offset": "         ^",
             "error": "String or url() is expected"

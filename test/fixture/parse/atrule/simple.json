@@ -160,14 +160,22 @@
             "type": "Atrule",
             "name": "test",
             "prelude": {
-                "type": "AtrulePrelude",
-                "children": [
-                    {
-                        "type": "Raw",
-                        "value": "a b"
-                    }
-                ]
+                "type": "Raw",
+                "value": "a b"
             },
+            "block": null
+        }
+    },
+    "shouldn't create a raw node when no prelude and parseAtrulePrelude is false": {
+        "options": {
+            "parseAtrulePrelude": false
+        },
+        "source": "@test ;",
+        "translate": "@test;",
+        "ast": {
+            "type": "Atrule",
+            "name": "test",
+            "prelude": null,
             "block": null
         }
     },
