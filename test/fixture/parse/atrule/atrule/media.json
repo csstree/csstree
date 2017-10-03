@@ -144,13 +144,8 @@
             "type": "Atrule",
             "name": "media",
             "prelude": {
-                "type": "AtrulePrelude",
-                "children": [
-                    {
-                        "type": "Raw",
-                        "value": "screen and (feature: 1)"
-                    }
-                ]
+                "type": "Raw",
+                "value": "screen and (feature: 1)"
             },
             "block": {
                 "type": "Block",
@@ -160,11 +155,13 @@
     },
     "error": [
         {
+            "skip": true,
             "source": "@media;",
             "offset": "      ^",
             "error": "Identifier or parenthesis is expected"
         },
         {
+            "skip": true,
             "source": "@media {}",
             "offset": "       ^",
             "error": "Identifier or parenthesis is expected"

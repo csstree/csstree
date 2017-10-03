@@ -10,11 +10,11 @@ function checkForDuplicateKeys(ast, filename) {
     if (ast.type === 'object') {
         var map = Object.create(null);
 
-        for (var i = 0; i < ast.properties.length; i++) {
-            var property = ast.properties[i];
+        for (var i = 0; i < ast.children.length; i++) {
+            var property = ast.children[i];
 
             if (hasOwnProperty.call(map, property.key.value)) {
-                throw new Error('Duplicate key `' + property.key.value + '` at ' + getLocation(filename, property.key.position.start));
+                throw new Error('Duplicate key `' + property.key.value + '` at ' + getLocation(filename, property.key.loc.start));
             }
 
             map[property.key.value] = true;
@@ -23,7 +23,7 @@ function checkForDuplicateKeys(ast, filename) {
     }
 
     if (ast.type === 'array') {
-        ast.items.forEach(function(item) {
+        ast.children.forEach(function(item) {
             checkForDuplicateKeys(item, filename);
         });
     }
@@ -41,17 +41,25 @@ function JsonLocator(filename) {
     this.filename = path.relative(__dirname + '/../..', filename);
     this.map = Object.create(null);
 
-    var ast = parseJSON(fs.readFileSync(filename, 'utf-8'));
+    try {
+        var ast = parseJSON(fs.readFileSync(filename, 'utf-8'), {
+            source: this.filename
+        });
+    } catch (e) {
+        console.error('Parse error:', this.filename);
+        console.error(String(e));
+        process.exit(1);
+    }
 
     if (ast && ast.type === 'object') {
         checkForDuplicateKeys(ast, filename);
 
-        for (var i = 0; i < ast.properties.length; i++) {
-            var property = ast.properties[i];
+        for (var i = 0; i < ast.children.length; i++) {
+            var property = ast.children[i];
 
             // use JSON.parse to unescape chars
             this.map[JSON.parse('"' + property.key.value + '"')] = {
-                loc: this.getLocation(property.key.position.start),
+                loc: this.getLocation(property.key.loc.start),
                 value: property.value
             };
         }
@@ -70,10 +78,10 @@ JsonLocator.prototype.get = function(name, index) {
     }
 
     if (typeof index === 'number' && this.map[name].value.type === 'array') {
-        if (index in this.map[name].value.items === false) {
+        if (index in this.map[name].value.children === false) {
             throw new Error('Wrong index `' + index + '` for `' + name + '` in ' + this.filename);
         }
-        loc = this.getLocation(this.map[name].value.items[index].position.start);
+        loc = this.getLocation(this.map[name].value.children[index].loc.start);
         name += ' #' + index;
     } else {
         loc = this.map[name].loc;

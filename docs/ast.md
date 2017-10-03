@@ -75,7 +75,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 {
     "type": "Atrule",
     "name": String,
-    "prelude": <AtrulePrelude> | null,
+    "prelude": <AtrulePrelude> | <Raw> | null,
     "block": <Block> | null
 }
 ```

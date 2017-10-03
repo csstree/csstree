@@ -416,11 +416,13 @@
     },
     "error": [
         {
+            "skip": true,
             "source": "@supports;",
             "offset": "         ^",
             "error": "Condition is expected"
         },
         {
+            "skip": true,
             "source": "@supports {}",
             "offset": "          ^",
             "error": "Condition is expected"

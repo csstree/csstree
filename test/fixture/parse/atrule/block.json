@@ -476,6 +476,41 @@
             }
         }
     },
+    "shouldn't parse a atrule prelude when parseAtrulePrelude is false": {
+        "options": {
+            "parseAtrulePrelude": false
+        },
+        "source": "@test a b {}",
+        "translate": "@test a b{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "test",
+            "prelude": {
+                "type": "Raw",
+                "value": "a b"
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "shouldn't create a raw node when no prelude and parseAtrulePrelude is false": {
+        "options": {
+            "parseAtrulePrelude": false
+        },
+        "source": "@test {}",
+        "translate": "@test{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "test",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
         {
             "source": "@atrule { a: 1",
