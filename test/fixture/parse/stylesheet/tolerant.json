@@ -31,36 +31,28 @@
             },
             "ast": {
                 "type": "StyleSheet",
-                "loc": null,
                 "children": [
                     {
                         "type": "Rule",
-                        "loc": null,
                         "prelude": {
                             "type": "Raw",
-                            "loc": null,
                             "value": ".a!"
                         },
                         "block": {
                             "type": "Block",
-                            "loc": null,
                             "children": []
                         }
                     },
                     {
                         "type": "Rule",
-                        "loc": null,
                         "prelude": {
                             "type": "SelectorList",
-                            "loc": null,
                             "children": [
                                 {
                                     "type": "Selector",
-                                    "loc": null,
                                     "children": [
                                         {
                                             "type": "ClassSelector",
-                                            "loc": null,
                                             "name": "a"
                                         }
                                     ]
@@ -69,7 +61,6 @@
                         },
                         "block": {
                             "type": "Block",
-                            "loc": null,
                             "children": []
                         }
                     }
