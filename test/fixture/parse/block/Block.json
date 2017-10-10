@@ -466,21 +466,74 @@
             ]
         }
     },
-    "errors": [
+    "hanging semicolons": [
         {
             "source": "{;}",
-            "offset": " ^",
-            "error": "Identifier is expected"
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": ";"
+                    }
+                ]
+            }
         },
         {
             "source": "{/*test*/;/*test*/}",
-            "offset": "         ^",
-            "error": "Identifier is expected"
+            "translate": "{;}",
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": ";"
+                    }
+                ]
+            }
         },
         {
             "source": "{  ;  }",
-            "offset": "   ^",
-            "error": "Identifier is expected"
+            "translate": "{;}",
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": ";"
+                    }
+                ]
+            }
+        },
+        {
+            "source": "{;prop:value;;}",
+            "ast": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Raw",
+                        "value": ";"
+                    },
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "prop",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "value"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Raw",
+                        "value": ";"
+                    }
+                ]
+            }
         }
     ]
 }

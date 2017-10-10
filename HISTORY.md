@@ -5,7 +5,7 @@
     - Fixed raw consuming in tolerant mode when selector is invalid (greedy consuming and redundant warnings)
     - Fixed exception in tolerant mode caused by unknown at-rule with unclosed block
     - Changed handling of semicolons:
-        - Hanging semicolon inside declaration blocks turns into a `Raw` node instead of being ignored
+        - Hanging semicolon inside declaration blocks raise an error or turns into a `Raw` node in tolerant mode instead of being ignored
         - Semicolon outside of declaration blocks opens a `Rule` node as part of selector instead of being ignored
     - Aligned `parseAtrulePrelude` behaviour to `parseRulePrelude`
         - Removed `Raw` node wraping into `AtrulePrelude` when `parseAtrulePrelude` is disabled
