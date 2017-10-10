@@ -158,6 +158,30 @@
             }
         }
     },
+    "white spaces and comment should not affect prelude consuming in tolerant mode": {
+        "source": "@import 'test' /* comment */ {}",
+        "translate": "@import 'test'{}",
+        "options": {
+            "tolerant": true
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "String",
+                        "value": "'test'"
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "@import with no prelude is not an error": [
         {
             "source": "@import;",
