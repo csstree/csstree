@@ -6,14 +6,9 @@ var parse = require('../lib').parse;
 var walk = require('../lib').walk;
 var stringify = require('./helpers/stringify.js');
 var css = '/fixture/stringify.css';
-var types = [
-    'AnPlusB', 'Atrule', 'AtrulePrelude', 'AttributeSelector', 'Block', 'Brackets',
-    'ClassSelector', 'Combinator', 'Comment', 'Declaration', 'Dimension', 'Function',
-    'HexColor', 'IdSelector', 'Identifier', 'Nth', 'MediaFeature', 'MediaQuery', 'MediaQueryList',
-    'Number', 'Operator', 'Parentheses', 'Percentage', 'PseudoClassSelector',
-    'PseudoElementSelector', 'Ratio', 'Raw', 'Rule', 'Selector', 'SelectorList', 'WhiteSpace',
-    'String', 'StyleSheet', 'TypeSelector', 'UnicodeRange', 'Url', 'Value'
-];
+var types = Object.keys(require('../lib/syntax/node')).sort().filter(function(type) {
+    return type !== 'DeclarationList'; // doesn't appear in StyleSheet
+});
 
 function normalize(str) {
     return str.replace(/\n|\r\n?|\f/g, '\n');
