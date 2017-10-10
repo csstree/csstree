@@ -1,3 +1,20 @@
+## 1.0.0-alpha25 (October 9, 2017)
+
+- Parser
+    - Added fallback node as argument to `onParseError()` handler
+    - Fixed raw consuming in tolerant mode when selector is invalid (greedy consuming and redundant warnings)
+    - Fixed exception in tolerant mode caused by unknown at-rule with unclosed block
+    - Changed handling of semicolons:
+        - Hanging semicolon inside declaration blocks raise an error or turns into a `Raw` node in tolerant mode instead of being ignored
+        - Semicolon outside of declaration blocks opens a `Rule` node as part of selector instead of being ignored
+    - Aligned `parseAtrulePrelude` behaviour to `parseRulePrelude`
+        - Removed `Raw` node wraping into `AtrulePrelude` when `parseAtrulePrelude` is disabled
+        - Removed error emitting when at-rule has a custom prelude customer but no prelude is found (it should be validated by a lexer later)
+- Generator
+    - Fixed performance issue with `translateWithSourceMap()`, flattening the string (because of mixing building string and indexing into it) turned it into a quadratic algorithm (approximate numbers can be found in [the quiz created by this case](https://gist.github.com/lahmatiy/ea25d0e623d88ca9848384b5707d52d9))
+- Added support for a single solidus hack for `property()`
+- Minor fixes for custom errors
+
 ## 1.0.0-alpha24 (September 14, 2017)
 
 - Improved CSSTree to be stable for standart build-in objects extension (#58)

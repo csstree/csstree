@@ -39,3 +39,11 @@ svg|*:matches(a)::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a])
 .-a#-b:-c::-d[-e][*|-f] {
     -foo: 123;
 }
+
+<!-- /* CDO/CDC */ -->
+@import 'foo' screen;
+@keyframes 'anim' {
+    from  { //color: red }
+    50.1% { color: green; background: green }
+    100%  { ;color: blue;; }
+}

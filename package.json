@@ -1,11 +1,18 @@
 {
   "name": "css-tree",
-  "version": "1.0.0-alpha24",
-  "description": "Fast detailed CSS parser",
+  "version": "1.0.0-alpha25",
+  "description": "Fast detailed CSS parser and related tools",
   "keywords": [
     "css",
+    "ast",
+    "tokenizer",
     "parser",
-    "ast"
+    "walker",
+    "lexer",
+    "generator",
+    "utils",
+    "syntax",
+    "validation"
   ],
   "homepage": "https://github.com/csstree/csstree",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",

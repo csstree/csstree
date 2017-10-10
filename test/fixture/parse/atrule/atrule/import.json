@@ -137,6 +137,27 @@
             "block": null
         }
     },
+    "@import with block is not an error": {
+        "source": "@import 'test' {}",
+        "translate": "@import 'test'{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "String",
+                        "value": "'test'"
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
         {
             "skip": true,
@@ -153,12 +174,7 @@
         {
             "source": "@import 'test' 'asd' ;",
             "offset": "               ^",
-            "error": "Semicolon is expected"
-        },
-        {
-            "source": "@import 'test' {}",
-            "offset": "               ^",
-            "error": "Semicolon is expected"
+            "error": "Semicolon or block is expected"
         }
     ]
 }

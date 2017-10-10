@@ -414,6 +414,39 @@
             }
         }
     },
+    "@supports with no block": {
+        "source": "@supports (flex: 1)",
+        "translate": "@supports (flex:1);",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Parentheses",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "flex",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
     "error": [
         {
             "skip": true,
@@ -440,7 +473,7 @@
         {
             "source": "@supports flex: 1 {}",
             "offset": "              ^",
-            "error": "Curly bracket is expected"
+            "error": "Semicolon or block is expected"
         }
     ]
 }

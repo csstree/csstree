@@ -70,17 +70,37 @@
             }
         }
     },
+    "@font-face with no block is not an error": {
+        "source": "@font-face;",
+        "ast": {
+            "type": "Atrule",
+            "name": "font-face",
+            "prelude": null,
+            "block": null
+        }
+    },
+    "@font-face with prelude is not an error": {
+        "source": "@font-face foo {}",
+        "translate": "@font-face foo{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "font-face",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "foo"
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
-        {
-            "source": "@font-face;",
-            "offset": "          ^",
-            "error": "Curly bracket is expected"
-        },
-        {
-            "source": "@font-face foo {}",
-            "offset": "           ^",
-            "error": "Curly bracket is expected"
-        },
         {
             "source": "@font-face { a {} }",
             "offset": "               ^",
