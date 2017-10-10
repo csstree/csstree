@@ -158,19 +158,28 @@
             }
         }
     },
-    "error": [
+    "@import with no prelude is not an error": [
         {
-            "skip": true,
             "source": "@import;",
-            "offset": "       ^",
-            "error": "String or url() is expected"
+            "ast": {
+                "type": "Atrule",
+                "name": "import",
+                "prelude": null,
+                "block": null
+            }
         },
         {
-            "skip": true,
             "source": "@import  ;",
-            "offset": "         ^",
-            "error": "String or url() is expected"
-        },
+            "translate": "@import;",
+            "ast": {
+                "type": "Atrule",
+                "name": "import",
+                "prelude": null,
+                "block": null
+            }
+        }
+    ],
+    "error": [
         {
             "source": "@import 'test' 'asd' ;",
             "offset": "               ^",

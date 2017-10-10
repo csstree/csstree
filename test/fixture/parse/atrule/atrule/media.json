@@ -136,10 +136,10 @@
         }
     },
     "shouldn't parse an at-rule prelude when parseAtrulePrelude is false": {
+        "source": "@media screen and (feature: 1){}",
         "options": {
             "parseAtrulePrelude": false
         },
-        "source": "@media screen and (feature: 1){}",
         "ast": {
             "type": "Atrule",
             "name": "media",
@@ -153,19 +153,29 @@
             }
         }
     },
+    "@media with no block is not an error": {
+        "source": "@media;",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": null,
+            "block": null
+        }
+    },
+    "@media with no prelude is not an error": {
+        "source": "@media {}",
+        "translate": "@media{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
-        {
-            "skip": true,
-            "source": "@media;",
-            "offset": "      ^",
-            "error": "Identifier or parenthesis is expected"
-        },
-        {
-            "skip": true,
-            "source": "@media {}",
-            "offset": "       ^",
-            "error": "Identifier or parenthesis is expected"
-        },
         {
             "source": "@media (foo:1",
             "offset": "             ^",

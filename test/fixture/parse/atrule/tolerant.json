@@ -62,20 +62,16 @@
         }
     },
     "at-rule (known) with no block may be followed by block": {
-        "skip": true,
         "source": "@import {}",
-        "translate": "@import ?",
-        "options": {
-            "tolerant": true
-        },
+        "translate": "@import{}",
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "prelude": {
-                "type": "Raw",
-                "value": "boom!"
-            },
-            "block": null
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
         }
     },
     "at-rule (known) with custom prelude parser": {
@@ -141,5 +137,8 @@
                 "children": []
             }
         }
-    }
+    },
+    "no block for known atrule with custom block customer": [
+
+    ]
 }
