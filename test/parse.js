@@ -61,9 +61,15 @@ describe('parse', function() {
 
     describe('context', function() {
         it('should take parse context', function() {
-            assert.throws(function() {
-                parse('property: value');
-            }, /Identifier is expected/);
+            assert.deepEqual(parse('property: value'), {
+                type: 'StyleSheet',
+                loc: null,
+                children: new List().appendData({
+                    type: 'Raw',
+                    loc: null,
+                    value: 'property: value'
+                })
+            });
 
             assert.deepEqual(parse('property: value', {
                 context: 'declaration'
@@ -91,48 +97,24 @@ describe('parse', function() {
         });
     });
 
-    describe('tolerant', function() {
-        it('should not fail on parse', function() {
-            assert.throws(function() {
-                parse('{ foo }', {
-                    context: 'block'
+    it('should call onParseError when handler is passed', function() {
+        var errors = [];
+        var ast = parse('{ a: 1!; foo; b: 2 }', {
+            context: 'block',
+            onParseError: function(error, fallbackNode) {
+                errors.push({
+                    error: error,
+                    fallback: fallbackNode
                 });
-            }, /Colon is expected/);
-
-            assert.deepEqual(parse('{ foo }', {
-                context: 'block',
-                tolerant: true
-            }), {
-                type: 'Block',
-                loc: null,
-                children: new List().appendData({
-                    type: 'Raw',
-                    loc: null,
-                    value: 'foo'
-                })
-            });
+            }
         });
 
-        it('should call onParseError when handler is passed', function() {
-            var errors = [];
-            var ast = parse('{ a: 1!; foo; b: 2 }', {
-                context: 'block',
-                tolerant: true,
-                onParseError: function(error, fallbackNode) {
-                    errors.push({
-                        error: error,
-                        fallback: fallbackNode
-                    });
-                }
-            });
-
-            assert.equal(ast.children.getSize(), 3);
-            assert.equal(errors.length, 2);
-            assert.equal(errors[0].error.message, 'Identifier is expected');
-            assert.equal(errors[0].fallback.value, 'a: 1!;');
-            assert.equal(errors[1].error.message, 'Colon is expected');
-            assert.equal(errors[1].fallback.value, 'foo;');
-        });
+        assert.equal(ast.children.getSize(), 3);
+        assert.equal(errors.length, 2);
+        assert.equal(errors[0].error.message, 'Identifier is expected');
+        assert.equal(errors[0].fallback.value, 'a: 1!;');
+        assert.equal(errors[1].error.message, 'Colon is expected');
+        assert.equal(errors[1].fallback.value, 'foo;');
     });
 
     describe('errors', function() {

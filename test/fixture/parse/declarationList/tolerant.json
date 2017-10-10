@@ -1,9 +1,6 @@
 {
     "no colon after a property name": {
         "source": "foo;color:red",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "DeclarationList",
             "children": [

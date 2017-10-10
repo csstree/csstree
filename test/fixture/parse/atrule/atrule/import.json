@@ -158,12 +158,9 @@
             }
         }
     },
-    "white spaces and comment should not affect prelude consuming in tolerant mode": {
+    "white spaces and comment should not affect prelude consuming": {
         "source": "@import 'test' /* comment */ {}",
         "translate": "@import 'test'{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "import",

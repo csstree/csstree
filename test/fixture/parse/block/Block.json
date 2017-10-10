@@ -8,9 +8,6 @@
     },
     "block.1": {
         "source": "{;}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Block",
             "children": [
@@ -113,9 +110,6 @@
     "block.c.1": {
         "source": "{/*test*/;/*test*/}",
         "translate": "{;}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Block",
             "children": [
@@ -220,9 +214,6 @@
     "block.s.1": {
         "source": "{  ;  }",
         "translate": "{;}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Block",
             "children": [

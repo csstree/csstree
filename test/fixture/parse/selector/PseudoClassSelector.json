@@ -41,11 +41,8 @@
             ]
         }
     },
-    "unknown function pseudo class with nested blocks (unbalanced parenthesis in tolerant mode)": {
+    "unknown function pseudo class with nested blocks (unbalanced parenthesis)": {
         "source": ":unknown([{}()[{[)]}]])",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "PseudoClassSelector",
             "name": "unknown",

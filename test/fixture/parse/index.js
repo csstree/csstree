@@ -67,6 +67,11 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
 
                             test.position = position;
                         }
+                        test.options = merge(test.options, {
+                            onParseError: function(error) {
+                                throw error;
+                            }
+                        });
                         errors[storeKey] = test;
                     } else {
                         if (test.source === test.translate) {

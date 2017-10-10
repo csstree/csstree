@@ -514,8 +514,8 @@
     "error": [
         {
             "source": "@atrule { a: 1",
-            "offset": "              ^",
-            "error": "RightCurlyBracket is expected"
+            "offset": "            ^",
+            "error": "Identifier is expected"
         }
     ]
 }
