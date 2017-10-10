@@ -179,15 +179,31 @@
             "block": null
         }
     },
+    "no at-rule ending on eof is not an error": {
+        "source": "@atrule url('..')",
+        "translate": "@atrule url('..');",
+        "ast": {
+            "type": "Atrule",
+            "name": "atrule",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": {
+                            "type": "String",
+                            "value": "'..'"
+                        }
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
     "error": [
         {
             "source": "@atrule!;",
             "offset": "       ^",
-            "error": "Semicolon or block is expected"
-        },
-        {
-            "source": "@atrule url('..')",
-            "offset": "                 ^",
             "error": "Semicolon or block is expected"
         }
     ]
