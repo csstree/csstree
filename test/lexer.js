@@ -275,6 +275,19 @@ describe('lexer', function() {
             assert.equal(errors[0].node, ast.children.last());
             assert.equal(errors[0].error.message, 'Unknown unit `toString`');
         });
+
+        it('Declaration', function() {
+            // using toString as bad name we check 2 things: bad name matching and
+            // false positive matching b/c of wrong search for name existance in dict
+            var ast = parseCss('color: red; Color: red; //color: red; //-vendor-color: red; toString: red', { context: 'declarationList' });
+            var errors = syntax.lexer.checkValidity(ast);
+
+            assert.equal(errors.length, 2);
+            assert.equal(errors[0].node, ast.children.tail.prev.data);
+            assert.equal(errors[0].error.message, 'Unknown property `-vendor-color`');
+            assert.equal(errors[1].node, ast.children.last());
+            assert.equal(errors[1].error.message, 'Unknown property `toString`');
+        });
     });
 
     describe('matchProperty()', function() {
