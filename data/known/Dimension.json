@@ -1,0 +1,40 @@
+{
+    "sources": [
+        { "url": "https://raw.githubusercontent.com/mdn/data/master/css/units.json", "comment": "mdn/data units" }
+    ],
+    "comments": [
+        "dp & st from https://www.w3.org/TR/css3-speech"
+    ],
+    "items": [
+        "ch",
+        "cm",
+        "deg",
+        "dp",
+        "dpcm",
+        "dpi",
+        "dppx",
+        "em",
+        "ex",
+        "fr",
+        "grad",
+        "hz",
+        "in",
+        "khz",
+        "mm",
+        "ms",
+        "pc",
+        "pt",
+        "px",
+        "q",
+        "rad",
+        "rem",
+        "s",
+        "turn",
+        "vh",
+        "vm",
+        "vmax",
+        "vmin",
+        "vw",
+        "x"
+    ]
+}
