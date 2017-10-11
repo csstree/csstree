@@ -264,6 +264,19 @@ describe('lexer', function() {
         });
     });
 
+    describe('checkValidity', function() {
+        it('Dimension', function() {
+            // using toString as bad name we check 2 things: bad name matching and
+            // false positive matching b/c of wrong search for name existance in dict
+            var ast = parseCss('1px 1PX 1toString', { context: 'value' });
+            var errors = syntax.lexer.checkValidity(ast);
+
+            assert.equal(errors.length, 1);
+            assert.equal(errors[0].node, ast.children.last());
+            assert.equal(errors[0].error.message, 'Unknown unit `toString`');
+        });
+    });
+
     describe('matchProperty()', function() {
         var bar = parseCss('bar', { context: 'value' });
         var qux = parseCss('qux', { context: 'value' });
