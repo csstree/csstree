@@ -221,6 +221,28 @@
             ]
         }
     },
+    "unclosed var() is not an error": {
+        "source": "var(--name,([)])",
+        "translate": "var(--name,([)]))",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "([)])"
+                }
+            ]
+        }
+    },
     "error": [
         {
             "source": "var(name)",
@@ -236,11 +258,6 @@
             "source": "var(-!)",
             "offset": "     ^",
             "error": "HyphenMinus is expected"
-        },
-        {
-            "source": "var(--name,([)])",
-            "offset": "                ^",
-            "error": "RightParenthesis is expected"
         },
         {
             "source": "var(--name, !important ())",

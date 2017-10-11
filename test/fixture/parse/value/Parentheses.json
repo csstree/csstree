@@ -183,5 +183,18 @@
                 }
             ]
         }
+    },
+    "unclosed parentheses is not an error": {
+        "source": "( 123",
+        "translate": "(123)",
+        "ast": {
+            "type": "Parentheses",
+            "children": [
+                {
+                    "type": "Number",
+                    "value": "123"
+                }
+            ]
+        }
     }
 }

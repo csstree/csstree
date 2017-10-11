@@ -37,5 +37,18 @@
                 }
             ]
         }
+    },
+    "unclosed brakets is not an error": {
+        "source": "[ abc",
+        "translate": "[abc]",
+        "ast": {
+            "type": "Brackets",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "abc"
+                }
+            ]
+        }
     }
 }
