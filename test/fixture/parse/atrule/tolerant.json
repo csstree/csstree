@@ -1,9 +1,6 @@
 {
     "at-rule (unknown) may have any content in prelude": {
         "source": "@bada boom!;",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "bada",
@@ -17,9 +14,6 @@
     "at-rule (unknown) may have no a semicolon": {
         "source": "@bada boom!",
         "translate": "@bada boom!;",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "bada",
@@ -32,9 +26,6 @@
     },
     "at-rule (known) may have any content in prelude": {
         "source": "@import boom!;",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -48,9 +39,6 @@
     "at-rule (known) may have no a semicolon": {
         "source": "@import boom!",
         "translate": "@import boom!;",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -62,28 +50,21 @@
         }
     },
     "at-rule (known) with no block may be followed by block": {
-        "skip": true,
         "source": "@import {}",
-        "translate": "@import ?",
-        "options": {
-            "tolerant": true
-        },
+        "translate": "@import{}",
         "ast": {
             "type": "Atrule",
             "name": "import",
-            "prelude": {
-                "type": "Raw",
-                "value": "boom!"
-            },
-            "block": null
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
         }
     },
     "at-rule (known) with custom prelude parser": {
         "source": "@page {}",
         "translate": "@page{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "page",
@@ -97,9 +78,6 @@
     "unclosed block - unknown at-rule": {
         "source": "@atrule {",
         "translate": "@atrule{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -113,9 +91,6 @@
     "unclosed block - known declaration at-rule": {
         "source": "@font-face {",
         "translate": "@font-face{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "font-face",
@@ -129,9 +104,6 @@
     "unclosed block - known rule at-rule": {
         "source": "@media {",
         "translate": "@media{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Atrule",
             "name": "media",
@@ -141,5 +113,8 @@
                 "children": []
             }
         }
-    }
+    },
+    "no block for known atrule with custom block customer": [
+
+    ]
 }

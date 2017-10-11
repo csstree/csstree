@@ -2,9 +2,6 @@
     "unclosed block": {
         "source": "{ ",
         "translate": "{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Block",
             "children": []
@@ -12,9 +9,6 @@
     },
     "no colon after a property name": {
         "source": "{foo}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Block",
             "children": [
@@ -27,9 +21,6 @@
     },
     "bad symbol in a property name": {
         "source": "{!foo: value}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Block",
             "children": [
@@ -42,9 +33,6 @@
     },
     "uncomplete !important": {
         "source": "{bada: boom!}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "Block",
             "children": [
@@ -56,16 +44,19 @@
         }
     },
     "bad value": {
-        "source": "{bada: boom?}",
-        "options": {
-            "tolerant": true
-        },
+        "source": "{bada: boom? }",
+        "translate": "{bada:boom?}",
         "ast": {
             "type": "Block",
             "children": [
                 {
-                    "type": "Raw",
-                    "value": "bada: boom?"
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "bada",
+                    "value": {
+                        "type": "Raw",
+                        "value": "boom?"
+                    }
                 }
             ]
         }
@@ -73,9 +64,6 @@
     "bad declaration should include semicolon": [
         {
             "source": "{foo: boom!;}",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "Block",
                 "children": [
@@ -89,9 +77,6 @@
         {
             "source": "{foo: boom! ; }",
             "translate": "{foo: boom! ;}",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "Block",
                 "children": [
@@ -106,16 +91,18 @@
     "bad declaration should not include whitespaces": [
         {
             "source": "{ foo: ? }",
-            "translate": "{foo: ?}",
-            "options": {
-                "tolerant": true
-            },
+            "translate": "{foo:?}",
             "ast": {
                 "type": "Block",
                 "children": [
                     {
-                        "type": "Raw",
-                        "value": "foo: ?"
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "foo",
+                        "value": {
+                            "type": "Raw",
+                            "value": "?"
+                        }
                     }
                 ]
             }
@@ -123,9 +110,6 @@
         {
             "source": "{ foo }",
             "translate": "{foo}",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "Block",
                 "children": [
@@ -139,9 +123,6 @@
         {
             "source": "{ foo: boom! }",
             "translate": "{foo: boom!}",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "Block",
                 "children": [

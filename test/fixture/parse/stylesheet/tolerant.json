@@ -3,9 +3,6 @@
         {
             "source": " ? {}",
             "translate": "?{}",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "StyleSheet",
                 "children": [
@@ -26,9 +23,6 @@
         {
             "source": ".a! { } .a {}",
             "translate": ".a!{}.a{}",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "StyleSheet",
                 "children": [
@@ -71,9 +65,6 @@
     "unclosed block": {
         "source": "foo {",
         "translate": "foo{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -104,9 +95,6 @@
     "uncomplete pseudo in selector": {
         "source": " foo: {}",
         "translate": "foo:{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -126,9 +114,6 @@
     },
     "rule with unclosed pseudo selector": {
         "source": "div:not(a,",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -142,9 +127,6 @@
     "unclosed unknown functional-pseudo in selector": {
         "source": " foo:bar(x {}",
         "translate": "foo:bar(x{}",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -165,9 +147,6 @@
     "no block": {
         "source": " ? ",
         "translate": "? ",
-        "options": {
-            "tolerant": true
-        },
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -182,7 +161,6 @@
         {
             "source": "@media (max-width:1000px){top:0;left:0;width:100%;}*{color:red}",
             "options": {
-                "tolerant": true,
                 "parseAtrulePrelude": false
             },
             "ast": {
@@ -247,7 +225,6 @@
         {
             "source": "@media (max-width:1000px){a{};b{}}",
             "options": {
-                "tolerant": true,
                 "parseAtrulePrelude": false
             },
             "ast": {
@@ -304,7 +281,6 @@
         {
             "source": "@media (max-width:1000px){a{};@b{}}",
             "options": {
-                "tolerant": true,
                 "parseAtrulePrelude": false
             },
             "ast": {
@@ -362,9 +338,6 @@
     "rule with unclosed attribute selector": [
         {
             "source": "div[attr",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "StyleSheet",
                 "children": [
@@ -377,9 +350,6 @@
         },
         {
             "source": "div[attr=",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "StyleSheet",
                 "children": [
@@ -392,9 +362,6 @@
         },
         {
             "source": "div[attr=123",
-            "options": {
-                "tolerant": true
-            },
             "ast": {
                 "type": "StyleSheet",
                 "children": [

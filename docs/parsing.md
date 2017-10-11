@@ -23,9 +23,7 @@ Options (optional):
 
 - [context](#context)
 - [atrule](#atrule)
-- [property](#property)
 - [positions](#positions)
-- [tolerant](#tolerant)
 - [onParseError](#onparseerror)
 - [filename](#filename)
 - [offset](#offset)
@@ -67,13 +65,6 @@ Default: `null`
 
 Using for `atrulePrelude` context to apply atrule specific parse rules.
 
-### property
-
-Type: `string` or `null`  
-Default: `null`
-
-Using for `value` context to apply property specific parse rules.
-
 ### positions
 
 Type: `boolean`  
@@ -97,29 +88,25 @@ loc: {
 }
 ```
 
-### tolerant
-
-Type: `boolean`  
-Default: `false`
-
-Enables tolerant mode, when parser does fail on invalid parts of input, but turns those parts into `Raw` nodes. `onParseError` option can be used to set a function to process errors.
-
 ### onParseError
 
-Type: `function` or `null`  
+Type: `function(error, fallbackNode)` or `null`  
 Default: `null`
 
-Function to process errors that occur on parsing. Make sense in tolerant mode only.
+Parsing is tolerant by default, i.e. any text may to be parsed with no an raised exception. However, mistakes in CSS may make it imposible to parse some part, e.g. a selector or declaration. In that case bad content is wrapping into a `Raw` node and `onParseError` is invoking.
 
 ```js
 csstree.parse('example { foo; bar: 1! }', {
-    tolerant: true,
     onParseError: function(error) {
-        console.log(error.message);
+        console.log(error.formattedMessage);
     }
 });
-// Colon is expected
-// Identifier is expected
+// Parse error: Colon is expected
+//     1 |example { foo; bar: 1! }
+// --------------------^
+// Parse error: Identifier is expected
+//     1 |example { foo; bar: 1! }
+// ------------------------------^
 ```
 
 ### filename

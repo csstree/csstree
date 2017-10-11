@@ -6,23 +6,26 @@ var tests = require('./fixture/syntax');
 function createMatchTest(name, syntax, property, value, error) {
     if (error) {
         it(name, function() {
-            var css = parseCss(value, {
-                context: 'value',
-                property: property
+            var declaration = parseCss(property + ':' + value, {
+                context: 'declaration'
             });
-            var match = syntax.matchProperty(property, css);
+            var match = syntax.matchDeclaration(declaration);
 
             assert.equal(match.matched, null);
             assert(new RegExp('^SyntaxMatchError: ' + error).test(match.error));
         });
     } else {
         it(name, function() {
-            var css = parseCss(value, {
-                context: 'value',
-                property: property
+            var declaration = parseCss(property + ':' + value, {
+                context: 'declaration'
             });
+            var match = syntax.matchDeclaration(declaration);
 
-            assert(Boolean(syntax.matchProperty(property, css)));
+            if (match.error) {
+                assert(error.name !== 'SyntaxMatchError' && error.name !== 'SyntaxReferenceError');
+            } else {
+                assert(Boolean(match.matched));
+            }
         });
     }
 }

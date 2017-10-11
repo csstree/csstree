@@ -447,19 +447,29 @@
             "block": null
         }
     },
+    "@supports with no block is not an error": {
+        "source": "@supports;",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": null,
+            "block": null
+        }
+    },
+    "@supports with no prelude is not an error": {
+        "source": "@supports {}",
+        "translate": "@supports{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
-        {
-            "skip": true,
-            "source": "@supports;",
-            "offset": "         ^",
-            "error": "Condition is expected"
-        },
-        {
-            "skip": true,
-            "source": "@supports {}",
-            "offset": "          ^",
-            "error": "Condition is expected"
-        },
         {
             "source": "@supports '' {}",
             "offset": "          ^",
