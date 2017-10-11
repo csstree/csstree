@@ -100,16 +100,34 @@
             }
         }
     },
+    "@font-face with declaration looks like a rule in block": {
+        "source": "@font-face { a:b {} }",
+        "translate": "@font-face{a:b {}}",
+        "ast": {
+            "type": "Atrule",
+            "name": "font-face",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "a",
+                        "value": {
+                            "type": "Raw",
+                            "value": "b {}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
     "error": [
         {
             "source": "@font-face { a {} }",
             "offset": "               ^",
             "error": "Colon is expected"
-        },
-        {
-            "source": "@font-face { a:b {} }",
-            "offset": "                 ^",
-            "error": "Unexpected input"
         }
     ]
 }

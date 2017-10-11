@@ -23,7 +23,6 @@ Options (optional):
 
 - [context](#context)
 - [atrule](#atrule)
-- [property](#property)
 - [positions](#positions)
 - [onParseError](#onparseerror)
 - [filename](#filename)
@@ -65,13 +64,6 @@ Type: `string` or `null`
 Default: `null`
 
 Using for `atrulePrelude` context to apply atrule specific parse rules.
-
-### property
-
-Type: `string` or `null`  
-Default: `null`
-
-Using for `value` context to apply property specific parse rules.
 
 ### positions
 

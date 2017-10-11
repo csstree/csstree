@@ -121,11 +121,6 @@
             "error": "Identifier `deep` is expected"
         },
         {
-            "source": ".a { v: . }",
-            "offset": "        ^",
-            "error": "Unexpected input"
-        },
-        {
             "source": ".a",
             "offset": "  ^",
             "error": "LeftCurlyBracket is expected"

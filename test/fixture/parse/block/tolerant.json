@@ -44,13 +44,19 @@
         }
     },
     "bad value": {
-        "source": "{bada: boom?}",
+        "source": "{bada: boom? }",
+        "translate": "{bada:boom?}",
         "ast": {
             "type": "Block",
             "children": [
                 {
-                    "type": "Raw",
-                    "value": "bada: boom?"
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "bada",
+                    "value": {
+                        "type": "Raw",
+                        "value": "boom?"
+                    }
                 }
             ]
         }
@@ -85,13 +91,18 @@
     "bad declaration should not include whitespaces": [
         {
             "source": "{ foo: ? }",
-            "translate": "{foo: ?}",
+            "translate": "{foo:?}",
             "ast": {
                 "type": "Block",
                 "children": [
                     {
-                        "type": "Raw",
-                        "value": "foo: ?"
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "foo",
+                        "value": {
+                            "type": "Raw",
+                            "value": "?"
+                        }
                     }
                 ]
             }
