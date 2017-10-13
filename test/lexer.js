@@ -266,27 +266,161 @@ describe('lexer', function() {
 
     describe('checkValidity', function() {
         it('Dimension', function() {
-            // using toString as bad name we check 2 things: bad name matching and
+            // using constructor as bad name we check 2 things: bad name matching and
             // false positive matching b/c of wrong search for name existance in dict
-            var ast = parseCss('1px 1PX 1toString', { context: 'value' });
+            var ast = parseCss('1px 1PX 1constructor', { context: 'value' });
             var errors = syntax.lexer.checkValidity(ast);
 
             assert.equal(errors.length, 1);
             assert.equal(errors[0].node, ast.children.last());
-            assert.equal(errors[0].error.message, 'Unknown unit `toString`');
+            assert.equal(errors[0].error.message, 'Unknown unit `constructor`');
         });
 
-        it('Declaration', function() {
-            // using toString as bad name we check 2 things: bad name matching and
-            // false positive matching b/c of wrong search for name existance in dict
-            var ast = parseCss('color: red; Color: red; //color: red; //-vendor-color: red; toString: red', { context: 'declarationList' });
-            var errors = syntax.lexer.checkValidity(ast);
+        describe('Declaration', function() {
+            it('unknown property', function() {
+                // using constructor as bad name we check 2 things: bad name matching and
+                // false positive matching b/c of wrong search for name existance in dict
+                var ast = parseCss('color: red; Color: red; //color: red; //-vendor-color: red; constructor: red', { context: 'declarationList' });
+                var errors = syntax.lexer.checkValidity(ast);
 
-            assert.equal(errors.length, 2);
-            assert.equal(errors[0].node, ast.children.tail.prev.data);
-            assert.equal(errors[0].error.message, 'Unknown property `-vendor-color`');
-            assert.equal(errors[1].node, ast.children.last());
-            assert.equal(errors[1].error.message, 'Unknown property `toString`');
+                assert.equal(errors.length, 2);
+                assert.equal(errors[0].node, ast.children.tail.prev.data);
+                assert.equal(errors[0].error.message, 'Unknown property `-vendor-color`');
+                assert.equal(errors[1].node, ast.children.last());
+                assert.equal(errors[1].error.message, 'Unknown property `constructor`');
+            });
+        });
+
+        describe('PseudoClassSelector', function() {
+            [
+                {
+                    name: 'known pseudo class',
+                    css: ':last-child',
+                    error: null
+                },
+                {
+                    // using constructor as bad name we check 2 things: bad name matching and
+                    // false positive matching b/c of wrong search for name existance in dict
+                    name: 'unknown pseudo class',
+                    css: ':constructor',
+                    error: 'Unknown pseudo class `:constructor`'
+                },
+                {
+                    name: 'known pseudo class with vendor prefix',
+                    css: ':-moz-last-child',
+                    error: 'Unknown pseudo class `:-moz-last-child`'
+                },
+                // functional vs non-functional
+                {
+                    name: 'non-functional pseudo class',
+                    css: ':last-child',
+                    error: null
+                },
+                {
+                    name: 'functional pseudo class',
+                    css: ':not(a)',
+                    error: null
+                },
+                {
+                    name: 'non-functional pseudo class which allow both',
+                    css: ':host',
+                    error: null
+                },
+                {
+                    name: 'functional pseudo class which allow both',
+                    css: ':host()',
+                    error: null
+                },
+                {
+                    name: 'non-functional pseudo class with parameters',
+                    css: ':last-child()',
+                    error: 'Pseudo class `:last-child` should not has a parameters'
+                },
+                {
+                    name: 'functional pseudo class with no parameters',
+                    css: ':not',
+                    error: 'Pseudo class `:not()` should has a parameters'
+                }
+            ].forEach(function(test) {
+                it((test.error ? 'should warn on ' : 'should not warn on ') + test.name, function() {
+                    var ast = parseCss(test.css, { context: 'selector' });
+                    var errors = syntax.lexer.checkValidity(ast);
+
+                    if (test.error === null) {
+                        assert.equal(errors, false);
+                    } else {
+                        assert.equal(errors.length, 1);
+                        assert.equal(errors[0].node, ast.children.first());
+                        assert.equal(errors[0].error.message, test.error);
+                    }
+                });
+            });
+        });
+
+        describe('PseudoElementSelector', function() {
+            [
+                {
+                    name: 'known pseudo element',
+                    css: '::before',
+                    error: null
+                },
+                {
+                    // using constructor as bad name we check 2 things: bad name matching and
+                    // false positive matching b/c of wrong search for name existance in dict
+                    name: 'unknown pseudo element',
+                    css: '::constructor',
+                    error: 'Unknown pseudo element `::constructor`'
+                },
+                {
+                    name: 'known pseudo element with vendor prefix',
+                    css: '::-moz-before',
+                    error: 'Unknown pseudo element `::-moz-before`'
+                },
+                // functional vs non-functional
+                {
+                    name: 'non-functional pseudo element',
+                    css: '::before',
+                    error: null
+                },
+                {
+                    name: 'functional pseudo element',
+                    css: '::cue()',
+                    error: null
+                },
+                {
+                    name: 'non-functional pseudo element which allow both',
+                    css: '::cue',
+                    error: null
+                },
+                {
+                    name: 'functional pseudo element which allow both',
+                    css: '::cue()',
+                    error: null
+                },
+                {
+                    name: 'non-functional pseudo element with parameters',
+                    css: '::before()',
+                    error: 'Pseudo element `::before` should not has a parameters'
+                }
+                // {
+                //     name: 'functional pseudo element with no parameters',
+                //     css: ':?',
+                //     error: 'Pseudo element `::?()` should has a parameters'
+                // }
+            ].forEach(function(test) {
+                it((test.error ? 'should warn on ' : 'should not warn on ') + test.name, function() {
+                    var ast = parseCss(test.css, { context: 'selector' });
+                    var errors = syntax.lexer.checkValidity(ast);
+
+                    if (test.error === null) {
+                        assert.equal(errors, false);
+                    } else {
+                        assert.equal(errors.length, 1);
+                        assert.equal(errors[0].node, ast.children.first());
+                        assert.equal(errors[0].error.message, test.error);
+                    }
+                });
+            });
         });
     });
 

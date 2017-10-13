@@ -72,7 +72,7 @@ Object.keys(data.defs).forEach(function(type) {
 
             res[item] = value;
             return res;
-        }, Object.create(null));
+        }, {});
     }
 });
 
