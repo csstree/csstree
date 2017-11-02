@@ -349,6 +349,7 @@ describe('lexer', function() {
     describe('matchType()', function() {
         var singleNumber = parseCss('1', { context: 'value' });
         var severalNumbers = parseCss('1, 2, 3', { context: 'value' });
+        var cssWideKeyword = parseCss('inherit', { context: 'value' });
         var customSyntax = syntax.fork(function(prev, assign) {
             return assign(prev, {
                 types: {
@@ -384,6 +385,13 @@ describe('lexer', function() {
 
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'Unknown type `baz`');
+        });
+
+        it('should not match to CSS wide names', function() {
+            var match = customSyntax.lexer.matchType('foo', cssWideKeyword);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'Mismatch\n  syntax: <bar>#\n   value: inherit\n  --------^');
         });
     });
 
