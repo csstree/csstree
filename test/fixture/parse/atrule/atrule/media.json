@@ -180,6 +180,11 @@
             "source": "@media (foo:1",
             "offset": "             ^",
             "error": "RightParenthesis is expected"
+        },
+        {
+            "source": "@media (foo:1) ~",
+            "offset": "               ^",
+            "error": "Semicolon or block is expected"
         }
     ]
 }
