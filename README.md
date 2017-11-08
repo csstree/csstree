@@ -16,19 +16,19 @@ CSSTree – set of tools to work with CSS, including [fast](https://github.com/p
 
 ## Features
 
-- Detailed parsing with customisation
+- **Detailed parsing with customisation**
 
   By default CSSTree parses CSS as detailed as possible, i.e. each single logical part is representing with its own AST node (see [AST format](docs/ast.md) for all possible node types). The parsing detail level can be changed through [parser options](docs/parsing.md#parsesource-options), for example, you can disable parsing of selectors or declarations for component parts.
 
-- Tolerant by design
+- **Tolerant by design**
 
   Parser behaves as [spec says](https://www.w3.org/TR/css-syntax-3/#error-handling): "When errors occur in CSS, the parser attempts to recover gracefully, throwing away only the minimum amount of content before returning to parsing as normal". The parser departs from the specification and does not throw away bad content, but wraps it in special nodes, which allows processing it later.
 
-- Fast and efficient
+- **Fast and efficient**
 
   CSSTree is designed with focus on performance and effective memory consumption. Therefore it's [one of the fastest CSS parsers](https://github.com/postcss/benchmark) at the moment.
 
-- Syntax validation
+- **Syntax validation**
 
   The build-in lexer can validate CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as basis for lexer's dictionaries and extends them with vendor specific and legacy syntaxes. Lexer can only check the values of declarations currently, but this feature will be extended to other parts of the CSS in the future.
 
