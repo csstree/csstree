@@ -1,3 +1,32 @@
+## 1.0.0-alpha26 (November 9, 2017)
+
+- Tokenizer
+    - Added `Tokenizer#isBalanceEdge()` method
+    - Removed `Tokenizer.endsWith()` method
+- Parser
+    - Made the parser tolerant to errors by default
+    - Removed `tolerant` parser option (no parsing modes anymore)
+    - Removed `property` parser option (a value parsing does not depend on property name anymore)
+    - Canceled error for a handing semicolon in a block
+    - Canceled error for unclosed `Brackets`, `Function` and `Parentheses` when EOF is reached
+    - Fixed error when prelude ends with a comment for at-rules with custom prelude consumer
+    - Relaxed at-rule parsing:
+        - Canceled error when EOF is reached after a prelude
+        - Canceled error for an at-rule with custom block consumer when at-rule has no block (just don't apply consumer in that case)
+        - Canceled error on at-rule parsing when it occurs outside prelude or block (at-rule is converting to `Raw` node)
+        - Allowed for any at-rule to have a prelude and a block, even if it's invalid per at-rule syntax (the responsibility for this check is moved to lexer, since it's possible to construct a AST with such errors)
+    - Made a declaration value a safe parsing point (i.e. error on value parsing lead to a value is turning into `Raw` node, not a declaration as before)
+    - Excluded surrounding white spaces and comments from a `Raw` node that represents a declaration value
+    - Changed `Value` parse handler to return a node only with type `Value` (previously it returned a `Raw` node in some cases)
+    - Fixed issue with `onParseError()` is not invoked for errors occured on selector or declaration value parsing in some cases
+    - Changed using of `onParseError()` to stop parsing if handler throws an exception
+- Lexer
+    - Changed `grammar.walk()` to invoke passed handler on entering to node rather than on leaving the node
+    - Improved `grammar.walk()` to take a walk handler pair as an object, i.e. `walk(node, { enter: fn, leave: fn })`
+    - Changed `Lexer#match*()` methods to take a node of any type, but with a `children` field
+    - Added `Lexer#match(syntax, node)` method
+    - Fixed `Lexer#matchType()` method to stop return a positive result for the CSS wide keywords
+
 ## 1.0.0-alpha25 (October 9, 2017)
 
 - Parser
