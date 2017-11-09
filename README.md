@@ -10,27 +10,27 @@
 [![Join the CSSTree chat at https://gitter.im/csstree/csstree](https://badges.gitter.im/csstree/csstree.svg)](https://gitter.im/csstree/csstree)
 [![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)
 
-CSSTree – set of tools to work with CSS, including [fast](https://github.com/postcss/benchmark) detailed parser (string->AST), walker (AST traversal), generator (AST->string) and even lexer (validation and matching) based on knowledge of spec and browser implementations (see [API schema](#top-level-api) for details). The main goal is to be efficient and W3C spec compliant, with focus on analyzing and source-to-source processing.
+CSSTree is a tool set to work with CSS, including [fast](https://github.com/postcss/benchmark) detailed parser (string->AST), walker (AST traversal), generator (AST->string) and lexer (validation and matching) based on knowledge of spec and browser implementations. The main goal is to be efficient and W3C spec compliant, with focus on CSS analyzing and source-to-source transforming tasks.
 
-> Work in progress. The project in alpha stage since some parts need further experiments, AST format and API are subjects to change. However it's stable enough and used by packages like [CSSO](https://github.com/css/csso) (CSS minifier) in production.
+> NOTE: The project is in alpha stage since some parts need further improvements, AST format and API are subjects to change. However it's stable enough and used by packages like [CSSO](https://github.com/css/csso) (CSS minifier) and [SVGO](https://github.com/svg/svgo) (SVG optimizer) in production.
 
 ## Features
 
-- **Detailed parsing with customisation**
+- **Detailed parsing with an adjustable level of detail**
 
   By default CSSTree parses CSS as detailed as possible, i.e. each single logical part is representing with its own AST node (see [AST format](docs/ast.md) for all possible node types). The parsing detail level can be changed through [parser options](docs/parsing.md#parsesource-options), for example, you can disable parsing of selectors or declarations for component parts.
 
-- **Tolerant by design**
+- **Tolerant to errors by design**
 
-  Parser behaves as [spec says](https://www.w3.org/TR/css-syntax-3/#error-handling): "When errors occur in CSS, the parser attempts to recover gracefully, throwing away only the minimum amount of content before returning to parsing as normal". The parser departs from the specification and does not throw away bad content, but wraps it in special nodes, which allows processing it later.
+  Parser behaves as [spec says](https://www.w3.org/TR/css-syntax-3/#error-handling): "When errors occur in CSS, the parser attempts to recover gracefully, throwing away only the minimum amount of content before returning to parsing as normal". The only thing the parser departs from the specification is that it doesn't throw away bad content, but wraps it in the special nodes, which allows processing it later.
 
 - **Fast and efficient**
 
-  CSSTree is designed with focus on performance and effective memory consumption. Therefore it's [one of the fastest CSS parsers](https://github.com/postcss/benchmark) at the moment.
+  CSSTree is created with focus on performance and effective memory consumption. Therefore it's [one of the fastest CSS parsers](https://github.com/postcss/benchmark) at the moment.
 
 - **Syntax validation**
 
-  The build-in lexer can validate CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as basis for lexer's dictionaries and extends them with vendor specific and legacy syntaxes. Lexer can only check the values of declarations currently, but this feature will be extended to other parts of the CSS in the future.
+  The build-in lexer can test CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as a basis for lexer's dictionaries and extends them with vendor specific and legacy syntaxes. Lexer can only check the declaration values currently, but this feature will be extended to other parts of the CSS in the future.
 
 ## Docs
 
@@ -88,5 +88,3 @@ console.log(csstree.translate(ast));
 ## License
 
 MIT
-
-Syntax matching uses [mdn/data](https://github.com/mdn/data) by Mozilla Contributors
