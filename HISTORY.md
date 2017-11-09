@@ -1,4 +1,4 @@
-## 1.0.0-alpha26 (November 9, 2017)
+## 1.0.0-alpha.26 (November 9, 2017)
 
 - Tokenizer
     - Added `Tokenizer#isBalanceEdge()` method
