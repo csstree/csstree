@@ -1,3 +1,4 @@
+var {SourceMapConsumer} = require('source-map');
 var assert = require('assert');
 var parse = require('../lib').parse;
 var translateWithSourceMap = require('../lib').translateWithSourceMap;
@@ -15,6 +16,15 @@ function createTranslateWidthSourceMapTest(name, test) {
     });
 }
 
+function validateMap(map) {
+    (new SourceMapConsumer(map)).eachMapping(function (mapping) {
+        assert.ok(mapping.generatedColumn != null);
+        assert.ok(mapping.generatedLine != null);
+        assert.ok(mapping.originalColumn != null);
+        assert.ok(mapping.originalLine != null);
+    })
+}
+
 describe('translateWithSourceMap', function() {
     forEachParseTest(createTranslateWidthSourceMapTest);
 
@@ -27,24 +37,28 @@ describe('translateWithSourceMap', function() {
     });
 
     it('should generate a map', function() {
-        var ast = parse('.a {\n  color: red;\n}\n', {
+        var source = '.a {\n  color: red;\n}\n';
+        var ast = parse(source, {
             filename: 'test.css',
             positions: true
         });
         var result = translateWithSourceMap(ast);
 
+        validateMap(result.map.toJSON());
         assert.equal(result.css, '.a{color:red}');
-        assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CACE,S"}');
+        assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,GACE"}');
     });
 
     it('complex CSS', function() {
-        var ast = parse('.a { color: #ff0000; } .b { display: block; float: left; } @media foo { .c { color: red } }', {
+        var source = '.a { color: #ff0000; } .b { display: block; float: left; } @media foo { .c { color: red } }';
+        var ast = parse(source, {
             filename: 'test.css',
             positions: true
         });
         var result = translateWithSourceMap(ast);
 
+        validateMap(result.map.toJSON());
         assert.equal(result.css, '.a{color:#ff0000}.b{display:block;float:left}@media foo{.c{color:red}}');
-        assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CAAK,a,CAAkB,E,CAAK,a,CAAgB,U,CAAe,WAAa,E,CAAK,W"}');
+        assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,GAAK,cAAkB,GAAK,cAAgB,WAAe,WAAa,GAAK"}');
     });
 });
