@@ -353,6 +353,23 @@ describe('List', function() {
         createIteratorTests(iterateList, 'map', [iterateList.head, iterateList.tail]);
     });
 
+    describe('#filter()', function() {
+        it('basic', function() {
+            assert.deepEqual(empty.filter(getFirstArg).toArray(), []);
+            assert.deepEqual(list2.filter(Boolean).toArray(), [foo, bar]);
+
+            var filtered = list2.filter(function(node) {
+                return node === bar;
+            });
+            assert.notEqual(filtered, list2);
+            assert.deepEqual(filtered.toArray(), [bar]);
+            assert.deepEqual(list2.toArray(), [foo, bar]);
+        });
+
+        var iterateList = new List().fromArray([foo, bar]);
+        createIteratorTests(iterateList, 'filter', [iterateList.head, iterateList.tail]);
+    });
+
     describe('#clear()', function() {
         it('empty list', function() {
             assert.equal(empty.head, null);
