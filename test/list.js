@@ -169,7 +169,7 @@ function createIteratorWithModificationTests(list, method, items, until, retValu
             return res.concat(item.data, 'ins' + idx);
         }, []));
 
-        assert.deepEqual(iterateList.map(getFirstArg), list.toArray().reduce(function(res, data, idx) {
+        assert.deepEqual(iterateList.map(getFirstArg).toArray(), list.toArray().reduce(function(res, data, idx) {
             var idx = order.indexOf(data);
             return res.concat('ins' + idx, data, 'ins' + idx);
         }, []));
@@ -344,9 +344,16 @@ describe('List', function() {
 
     describe('#map()', function() {
         it('basic', function() {
-            assert.deepEqual(empty.map(getFirstArg), []);
-            assert.deepEqual(list1.map(getFirstArg), [foo]);
-            assert.deepEqual(list2.map(getFirstArg), [foo, bar]);
+            assert.deepEqual(empty.map(getFirstArg).toArray(), []);
+            assert.deepEqual(list1.map(getFirstArg).toArray(), [foo]);
+
+            var foo2 = {};
+            var bar2 = {};
+            var mapped = list2.map(function(node) {
+                return node === foo ? foo2 : bar2;
+            });
+            assert.deepEqual(mapped.toArray(), [foo2, bar2]);
+            assert.deepEqual(list2.toArray(), [foo, bar]);
         });
 
         var iterateList = new List().fromArray([foo, bar]);
@@ -361,7 +368,6 @@ describe('List', function() {
             var filtered = list2.filter(function(node) {
                 return node === bar;
             });
-            assert.notEqual(filtered, list2);
             assert.deepEqual(filtered.toArray(), [bar]);
             assert.deepEqual(list2.toArray(), [foo, bar]);
         });
