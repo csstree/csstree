@@ -254,6 +254,12 @@ describe('List', function() {
         createIteratorWithModificationTests(iterateList, 'each', [iterateList.head, iterateList.tail]);
     });
 
+    describe('#forEach()', function() {
+        var iterateList = new List().fromArray([foo, bar]);
+        createIteratorTests(iterateList, 'forEach', [iterateList.head, iterateList.tail]);
+        createIteratorWithModificationTests(iterateList, 'forEach', [iterateList.head, iterateList.tail]);
+    });
+
     describe('#eachRight()', function() {
         var iterateList = new List().fromArray([foo, bar]);
         createIteratorTests(iterateList, 'eachRight', [iterateList.tail, iterateList.head]);
