@@ -422,6 +422,21 @@ describe('List', function() {
         assert.equal(list2.prependData(qux), list2);
     });
 
+    it('#unshift()', function() {
+        var qux = {};
+
+        empty.unshift(qux);
+        assert.deepEqual(empty.toArray(), [qux]);
+
+        list1.unshift(qux);
+        assert.deepEqual(list1.toArray(), [qux, foo]);
+
+        list2.unshift(qux);
+        assert.deepEqual(list2.toArray(), [qux, foo, bar]);
+
+        assert.equal(list2.unshift(qux), undefined);
+    });
+
     it('#append()', function() {
         var qux = {};
 
@@ -438,6 +453,21 @@ describe('List', function() {
         assert.deepEqual(toArray(list1.appendData(qux)), [foo, qux]);
         assert.deepEqual(toArray(list2.appendData(qux)), [foo, bar, qux]);
         assert.equal(list2.appendData(qux), list2);
+    });
+
+    it('#push()', function() {
+        var qux = {};
+
+        empty.push(qux);
+        assert.deepEqual(empty.toArray(), [qux]);
+
+        list1.push(qux);
+        assert.deepEqual(list1.toArray(), [foo, qux]);
+
+        list2.push(qux);
+        assert.deepEqual(list2.toArray(), [foo, bar, qux]);
+
+        assert.equal(list2.push(qux), undefined);
     });
 
     describe('#insert()', function() {
