@@ -1,8 +1,7 @@
 var assert = require('assert');
 var path = require('path');
 var parse = require('../lib').parse;
-var walkAll = require('../lib').walk;
-var walkAllUp = require('../lib').walkUp;
+var walk = require('../lib').walk;
 var walkRules = require('../lib').walkRules;
 var walkRulesRight = require('../lib').walkRulesRight;
 var walkDeclarations = require('../lib').walkDeclarations;
@@ -15,9 +14,9 @@ var testWithRules = Object.keys(testFiles).map(function(filename) {
     };
 }).filter(Boolean);
 
-function expectedWalk(ast, right, checker) {
+function expectedWalk(ast, enter, leave, checker) {
     function walk(node) {
-        if (right && checker(stack, node)) {
+        if (enter && checker(stack, node)) {
             result.push(node.type);
         }
 
@@ -31,7 +30,7 @@ function expectedWalk(ast, right, checker) {
         });
         stack.pop();
 
-        if (!right && checker(stack, node)) {
+        if (leave && checker(stack, node)) {
             result.push(node.type);
         }
     }
@@ -48,7 +47,7 @@ function expectedWalk(ast, right, checker) {
     return result;
 }
 
-function createWalkTest(name, test, context, walker, right) {
+function createWalkTest(name, test, context, walker, enter, leave) {
     (test.skip ? it.skip : it)(name, function() {
         var actual = [];
         var ast = parse(test.source, test.options);
@@ -59,8 +58,8 @@ function createWalkTest(name, test, context, walker, right) {
 
         // type arrays should be equal
         assert.deepEqual(
-            actual.sort(),
-            expectedWalk(test.ast, right).sort()
+            actual,
+            expectedWalk(test.ast, enter, leave)
         );
     });
 }
@@ -77,7 +76,7 @@ function createWalkRulesTest(test, context, walker) {
         // type arrays should be equal
         assert.deepEqual(
             actual.sort(),
-            expectedWalk(test.ast, true).filter(function(type) {
+            expectedWalk(test.ast, true, false).filter(function(type) {
                 return type === 'Rule' || type === 'Atrule';
             }).sort()
         );
@@ -96,7 +95,7 @@ function createWalkDeclarationsTest(test, context, walker) {
         // type arrays should be equal
         assert.deepEqual(
             actual.sort(),
-            expectedWalk(test.ast, false, function(stack) {
+            expectedWalk(test.ast, false, true, function(stack) {
                 return stack.every(function(node) {
                     return node.type !== 'AtrulePrelude';
                 });
@@ -112,7 +111,7 @@ describe('AST traversal', function() {
         function visit() {
             var visitedTypes = {};
 
-            walkAll(parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }'), function(node) {
+            walk(parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }'), function(node) {
                 visitedTypes[node.type] = true;
             });
 
@@ -148,15 +147,66 @@ describe('AST traversal', function() {
         assert.deepEqual(visit(), shouldVisitTypes);
     });
 
-    describe('walk all', function() {
-        forEachParseTest(function(name, test, context) {
-            createWalkTest(name, test, context, walkAll, false);
+    it('base test #2', function() {
+        var ast = parse('.a { color: red }');
+        var log = [];
+
+        walk(ast, {
+            enter: function(node) {
+                log.push('enter ' + node.type);
+            },
+            leave: function(node) {
+                log.push('leave ' + node.type);
+            }
+        });
+
+        assert.deepEqual(log, [
+            'enter StyleSheet',
+            'enter Rule',
+            'enter SelectorList',
+            'enter Selector',
+            'enter ClassSelector',
+            'leave ClassSelector',
+            'leave Selector',
+            'leave SelectorList',
+            'enter Block',
+            'enter Declaration',
+            'enter Value',
+            'enter Identifier',
+            'leave Identifier',
+            'leave Value',
+            'leave Declaration',
+            'leave Block',
+            'leave Rule',
+            'leave StyleSheet'
+        ]);
+    });
+
+    describe('bad options', function() {
+        var ast = parse('.foo { color: red }');
+
+        it('should throws when no enter/leave handlers is set', function() {
+            assert.throws(function() {
+                walk(ast);
+            }, /Neither `enter` nor `leave` walker handler is set or both aren't a function/);
+
+            assert.throws(function() {
+                walk(ast, {});
+            }, /Neither `enter` nor `leave` walker handler is set or both aren't a function/);
         });
     });
 
-    describe('walk allUp', function() {
+    describe('walk all', function() {
         forEachParseTest(function(name, test, context) {
-            createWalkTest(name, test, context, walkAllUp, true);
+            createWalkTest(name, test, context, walk, true, false);
+        });
+    });
+
+    describe('walk all (leave)', function() {
+        forEachParseTest(function(name, test, context) {
+            createWalkTest(name, test, context, function(ast, fn) {
+                walk(ast, { leave: fn });
+            }, false, true);
         });
     });
 
