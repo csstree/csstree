@@ -191,6 +191,12 @@ describe('AST traversal', function() {
                 walk(ast, {});
             }, /Neither `enter` nor `leave` walker handler is set or both aren't a function/);
         });
+
+        it('should throws when visit has wrong value', function() {
+            assert.throws(function() {
+                walk(ast, { visit: 'Foo' });
+            }, /Bad value `Foo` for `visit` option \(should be: Atrule, Rule, Declaration\)/);
+        });
     });
 
     describe('walk(ast, fn)', function() {
