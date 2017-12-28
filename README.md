@@ -77,7 +77,7 @@ csstree.walk(ast, function(node) {
     }
 });
 
-console.log(csstree.translate(ast));
+console.log(csstree.generate(ast));
 // .hello{world:"!"}
 ```
 
