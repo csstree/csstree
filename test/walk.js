@@ -179,6 +179,64 @@ describe('AST traversal', function() {
         ]);
     });
 
+    describe('traverse order', function() {
+        var ast = parse('.a.b { foo: bar; baz: qux } .c {} @media all { .d:not(.e) { aa: bb; cc: dd } f { ee: ff } }');
+        var expectedPassedNames = 'a b foo bar baz qux c media all d not e aa bb cc dd f ee ff'.split(' ');
+
+        it('natural', function() {
+            var passedNames = [];
+
+            walk(ast, {
+                enter: function(node) {
+                    if (node.name || node.property) {
+                        passedNames.push(node.name || node.property);
+                    }
+                }
+            });
+
+            assert.deepEqual(
+                passedNames,
+                expectedPassedNames
+            );
+        });
+
+        it('reverse', function() {
+            var passedNames = [];
+
+            walk(ast, {
+                reverse: true,
+                enter: function(node) {
+                    if (node.name || node.property) {
+                        passedNames.push(node.name || node.property);
+                    }
+                }
+            });
+
+            assert.deepEqual(
+                passedNames,
+                'media ee ff f cc dd aa bb not e d all c baz qux foo bar b a'.split(' ')
+            );
+        });
+
+        it('reverse of natural ("true" reverse = reverse + leave)', function() {
+            var passedNames = [];
+
+            walk(ast, {
+                reverse: true,
+                leave: function(node) {
+                    if (node.name || node.property) {
+                        passedNames.push(node.name || node.property);
+                    }
+                }
+            });
+
+            assert.deepEqual(
+                passedNames,
+                expectedPassedNames.slice().reverse()
+            );
+        });
+    });
+
     describe('bad options', function() {
         var ast = parse('.foo { color: red }');
 
