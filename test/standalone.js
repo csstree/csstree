@@ -2,7 +2,7 @@ var assert = require('assert');
 var stringify = require('./helpers/stringify');
 var List = require('../lib/utils/list');
 var parse = require('../lib/parser');
-var walker = require('../lib/walker');
+var walk = require('../lib/walker');
 var generate = require('../lib/generator');
 var convertor = require('../lib/convertor');
 
@@ -51,7 +51,7 @@ describe('logical parts as standalone modules', function() {
     it('walker', function() {
         var types = [];
 
-        walker.walk(ast, function(node) {
+        walk(ast, function(node) {
             types.push(node.type);
         });
 

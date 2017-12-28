@@ -2,9 +2,6 @@ var assert = require('assert');
 var path = require('path');
 var parse = require('../lib').parse;
 var walk = require('../lib').walk;
-var walkRules = require('../lib').walkRules;
-var walkRulesRight = require('../lib').walkRulesRight;
-var walkDeclarations = require('../lib').walkDeclarations;
 var testFiles = require('./fixture/parse').tests;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var testWithRules = Object.keys(testFiles).map(function(filename) {
@@ -64,7 +61,7 @@ function createWalkTest(name, test, context, walker, enter, leave) {
     });
 }
 
-function createWalkRulesTest(test, context, walker) {
+function createWalkVisitTest(test, visitType, walker) {
     (test.skip ? it.skip : it)(test.name, function() {
         var actual = [];
         var ast = parse(test.source, test.options);
@@ -77,7 +74,7 @@ function createWalkRulesTest(test, context, walker) {
         assert.deepEqual(
             actual.sort(),
             expectedWalk(test.ast, true, false).filter(function(type) {
-                return type === 'Rule' || type === 'Atrule';
+                return type === visitType;
             }).sort()
         );
     });
@@ -196,13 +193,13 @@ describe('AST traversal', function() {
         });
     });
 
-    describe('walk all', function() {
+    describe('walk(ast, fn)', function() {
         forEachParseTest(function(name, test, context) {
             createWalkTest(name, test, context, walk, true, false);
         });
     });
 
-    describe('walk all (leave)', function() {
+    describe('walk(ast, { leave: fn })', function() {
         forEachParseTest(function(name, test, context) {
             createWalkTest(name, test, context, function(ast, fn) {
                 walk(ast, { leave: fn });
@@ -210,26 +207,55 @@ describe('AST traversal', function() {
         });
     });
 
-    describe('walk ruleset', function() {
+    describe('walk(ast, { visit: \'Rule\' })', function() {
         testWithRules.forEach(function(file) {
             Object.keys(file.tests).forEach(function(name) {
-                createWalkRulesTest(file.tests[name], file.scope, walkRules);
+                createWalkVisitTest(file.tests[name], 'Rule', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Rule',
+                        enter: fn
+                    });
+                });
             });
         });
     });
 
-    describe('walk rulesetRight', function() {
+    describe('walk(ast, { visit: \'Atrule\' })', function() {
         testWithRules.forEach(function(file) {
             Object.keys(file.tests).forEach(function(name) {
-                createWalkRulesTest(file.tests[name], file.scope, walkRulesRight);
+                createWalkVisitTest(file.tests[name], 'Atrule', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Atrule',
+                        enter: fn
+                    });
+                });
             });
         });
     });
 
-    describe('walk declarations', function() {
+    describe('walk(ast, { visit: \'Rule\', reverse: true })', function() {
         testWithRules.forEach(function(file) {
             Object.keys(file.tests).forEach(function(name) {
-                createWalkDeclarationsTest(file.tests[name], file.scope, walkDeclarations);
+                createWalkVisitTest(file.tests[name], 'Rule', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Rule',
+                        reverse: true,
+                        enter: fn
+                    });
+                });
+            });
+        });
+    });
+
+    describe('walk(ast, { visit: \'Declaration\' })', function() {
+        testWithRules.forEach(function(file) {
+            Object.keys(file.tests).forEach(function(name) {
+                createWalkDeclarationsTest(file.tests[name], 'Declaration', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Declaration',
+                        enter: fn
+                    });
+                });
             });
         });
     });

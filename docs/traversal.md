@@ -1,22 +1,12 @@
 # AST traversal
 
-<!-- MarkdownTOC -->
-
-- [Basic example](#basic-example)
-- [walk\(ast, handler\)](#walkast-handler)
-- [walkUp\(ast, handler\)](#walkupast-handler)
-- [walkRules\(ast, handler\)](#walkrulesast-handler)
-- [walkRulesRight\(ast, handler\)](#walkrulesrightast-handler)
-- [walkDeclarations\(ast, handler\)](#walkdeclarationsast-handler)
-
-<!-- /MarkdownTOC -->
-
 ## Basic example
 
 ```js
 var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; }');
 
-csstree.walk(csstree.parse('.a { color: red; }'), function(node) {
+csstree.walk(ast, function(node) {
   console.log(node.type);
 });
 // StyleSheet
@@ -32,22 +22,7 @@ csstree.walk(csstree.parse('.a { color: red; }'), function(node) {
 
 ## walk(ast, handler)
 
-Visits each node of AST in natural way and calls handler for each one. `handler` receives three arguments:
-
-- `node` – current AST node
-- `item` – node wrapper when node is a list member; this wrapper contains references to `prev` and `next` nodes in list
-- `list` – reference to list when node is a list member; it's useful for operations on list like `remove()` or `insert()`
-
-Context for handler an object, that contains references to some parent nodes:
-
-- `root` – refers to `ast` root node (actually it's a node passed to walker function)
-- `stylesheet` – refers to `StyleSheet` node, usually it's a root node
-- `atrulePrelude` – refers to `AtrulePrelude` node if any
-- `rule` – refers to closest `Rule` node if any
-- `selector` – refers to `SelectorList` node if any
-- `block` - refers to closest `Block` node if any
-- `declaration` – refers to `Declaration` node if any
-- `function` – refers to closest `Function`, `PseudoClassSelector` or `PseudoElementSelector` node if current node inside one of them
+Visits each node of AST in natural way and calls one or two handlers for each one. 
 
 ```js
 // collect all urls in declarations
@@ -75,16 +50,74 @@ console.log(urls);
 // [ 'foo.jpg', 'bar.png' ]
 ```
 
-## walkUp(ast, handler)
+Options (optional):
 
-Same as `walk()` but visits nodes in down-to-top order. Useful to process deepest nodes and then their parents.
+<!-- MarkdownTOC -->
+
+- [enter](#enter)
+- [leave](#leave)
+- [visit](#visit)
+- [reverse](#reverse)
+
+<!-- /MarkdownTOC -->
+
+## enter
+
+Type: `function` or `undefined`  
+Default: `undefined`
+
+Handler on node entrance, i.e. before nested nodes are processed. Handler receives three arguments:
+
+- `node` – current AST node
+- `item` – node wrapper when node is a list member; this wrapper contains references to `prev` and `next` nodes in list
+- `list` – reference to list when node is a list member; it's useful for operations on list like `remove()` or `insert()`
+
+Context for handler an object, that contains references to some parent nodes:
+
+- `root` – refers to `ast` root node (actually it's a node passed to walker function)
+- `stylesheet` – refers to `StyleSheet` node, usually it's a root node
+- `atrulePrelude` – refers to `AtrulePrelude` node if any
+- `rule` – refers to closest `Rule` node if any
+- `selector` – refers to `SelectorList` node if any
+- `block` - refers to closest `Block` node if any
+- `declaration` – refers to `Declaration` node if any
+- `function` – refers to closest `Function`, `PseudoClassSelector` or `PseudoElementSelector` node if current node inside one of them
 
 ```js
 var csstree = require('css-tree');
 var ast = csstree.parse('.a { color: red; }');
 
-csstree.walk(ast, function(node) {
-  console.log(node.type);
+csstree.walk(ast, {
+    enter: function(node) {
+        console.log(node.type);
+    }
+});
+// StyleSheet
+// Rule
+// SelectorList
+// Selector
+// ClassSelector
+// Block
+// Declaration
+// Value
+// Identifier
+```
+
+## leave
+
+Type: `function` or `undefined`  
+Default: `undefined`
+
+The same as `enter` handler but on node exit, i.e. after nested nodes are processed.
+
+```js
+var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; }');
+
+csstree.walk(ast, {
+    enter: function(node) {
+        console.log(node.type);
+    }
 });
 // StyleSheet
 // Rule
@@ -96,8 +129,10 @@ csstree.walk(ast, function(node) {
 // Value
 // Identifier
 
-csstree.walkUp(ast, function(node) {
-  console.log(node.type);
+csstree.walk(ast, {
+    leave: function(node) {
+        console.log(node.type);
+    }
 });
 // ClassSelector
 // Selector
@@ -110,14 +145,16 @@ csstree.walkUp(ast, function(node) {
 // StyleSheet
 ```
 
-## walkRules(ast, handler)
+## visit
 
-Same as `walk()` but visits `Rule` and `Atrule` nodes only.
+Type: `'Rule'`, `'Atrule'`, `'Declaration'` or `null`  
+Default: `null`
 
-## walkRulesRight(ast, handler)
+Invokes nodes of specified type. It helps avoid extra checks and performs faster, because some subtrees may to be skipped since can't contain a node of specified type.
 
-Same as `walkRules()` but visits nodes in reverse order (from last to first).
+## reverse
 
-## walkDeclarations(ast, handler)
+Type: `boolean`  
+Default: `false`
 
-Visit all declarations.
+Iterate children node in reverse order (from last to first).
