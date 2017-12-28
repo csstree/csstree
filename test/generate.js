@@ -12,14 +12,14 @@ function createGenerateTests(name, test) {
         var restoredCss = generate(ast);
 
         // strings should be equal
-        assert.equal(restoredCss, 'translate' in test ? test.translate : test.source);
+        assert.equal(restoredCss, 'generate' in test ? test.generate : test.source);
     });
 
     (test.skip ? it.skip : it)(name + ' (plain object)', function() {
         var ast = parse(test.source, test.options);
 
         // strings should be equal
-        assert.equal(generate(toPlainObject(ast)), 'translate' in test ? test.translate : test.source);
+        assert.equal(generate(toPlainObject(ast)), 'generate' in test ? test.generate : test.source);
     });
 
     // FIXME: Skip some test cases for round-trip check until generator's improvements
@@ -47,7 +47,7 @@ function createGenerateWithSourceMapTest(name, test) {
         }));
 
         // strings should be equal
-        assert.equal(generate(ast, { sourceMap: true }).css, 'translate' in test ? test.translate : test.source);
+        assert.equal(generate(ast, { sourceMap: true }).css, 'generate' in test ? test.generate : test.source);
     });
 }
 
