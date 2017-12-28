@@ -68,7 +68,7 @@
     },
     "parentheses.c.0": {
         "source": "(/*test*/)",
-        "translate": "()",
+        "generate": "()",
         "ast": {
             "type": "Parentheses",
             "children": []
@@ -76,7 +76,7 @@
     },
     "parentheses.c.1": {
         "source": "(/*test*/1/*test*/)",
-        "translate": "(1)",
+        "generate": "(1)",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -89,7 +89,7 @@
     },
     "parentheses.c.2": {
         "source": "(/*test*/x/*test*/)",
-        "translate": "(x)",
+        "generate": "(x)",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -102,7 +102,7 @@
     },
     "parentheses.c.3": {
         "source": "(/*test*/x/*test*/+/*test*/1/*test*/)",
-        "translate": "(x+1)",
+        "generate": "(x+1)",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -123,7 +123,7 @@
     },
     "parentheses.s.0": {
         "source": "(  )",
-        "translate": "()",
+        "generate": "()",
         "ast": {
             "type": "Parentheses",
             "children": []
@@ -131,7 +131,7 @@
     },
     "parentheses.s.1": {
         "source": "(  1  )",
-        "translate": "(1)",
+        "generate": "(1)",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -144,7 +144,7 @@
     },
     "parentheses.s.2": {
         "source": "(  x  )",
-        "translate": "(x)",
+        "generate": "(x)",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -157,7 +157,7 @@
     },
     "parentheses.s.3": {
         "source": "(  x  +  1  )",
-        "translate": "(x + 1)",
+        "generate": "(x + 1)",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -186,7 +186,7 @@
     },
     "unclosed parentheses is not an error": {
         "source": "( 123",
-        "translate": "(123)",
+        "generate": "(123)",
         "ast": {
             "type": "Parentheses",
             "children": [

@@ -147,7 +147,7 @@
     },
     "function.6": {
         "source": "rgb(-10, -20%, +89%)",
-        "translate": "rgb(-10,-20%,+89%)",
+        "generate": "rgb(-10,-20%,+89%)",
         "ast": {
             "type": "Function",
             "name": "rgb",
@@ -177,7 +177,7 @@
     },
     "function.c.0": {
         "source": "test(/*test*/)",
-        "translate": "test()",
+        "generate": "test()",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -186,7 +186,7 @@
     },
     "function.c.1": {
         "source": "test(/*test*/n/*test*/)",
-        "translate": "test(n)",
+        "generate": "test(n)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -200,7 +200,7 @@
     },
     "function.c.2": {
         "source": "test-test(/*test*/n/*test*/)",
-        "translate": "test-test(n)",
+        "generate": "test-test(n)",
         "ast": {
             "type": "Function",
             "name": "test-test",
@@ -214,7 +214,7 @@
     },
     "function.c.3": {
         "source": "test(/*test*/x/*test*/+/*test*/y/*test*/)",
-        "translate": "test(x+y)",
+        "generate": "test(x+y)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -236,7 +236,7 @@
     },
     "function.c.4": {
         "source": "test(/*test*/x/*test*/,/*test*/y/*test*/)",
-        "translate": "test(x,y)",
+        "generate": "test(x,y)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -258,7 +258,7 @@
     },
     "function.c.5": {
         "source": "test(/*test*/10px/*test*/,/*test*/'test'/*test*/test(/*test*/x/*test*/)/*test*/,/*test*/89%/*test*/)",
-        "translate": "test(10px,'test'test(x),89%)",
+        "generate": "test(10px,'test'test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -299,7 +299,7 @@
     },
     "function.s.0": {
         "source": "test(  )",
-        "translate": "test()",
+        "generate": "test()",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -308,7 +308,7 @@
     },
     "function.s.1": {
         "source": "test(  n  )",
-        "translate": "test(n)",
+        "generate": "test(n)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -322,7 +322,7 @@
     },
     "function.s.2": {
         "source": "test-test(  n  )",
-        "translate": "test-test(n)",
+        "generate": "test-test(n)",
         "ast": {
             "type": "Function",
             "name": "test-test",
@@ -336,7 +336,7 @@
     },
     "function.s.3": {
         "source": "test(  x  +  y  )",
-        "translate": "test(x + y)",
+        "generate": "test(x + y)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -366,7 +366,7 @@
     },
     "function.s.4": {
         "source": "test(  x  ,  y  )",
-        "translate": "test(x,y)",
+        "generate": "test(x,y)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -388,7 +388,7 @@
     },
     "function.s.5": {
         "source": "test(  10px  ,  'test'  test(  x  )  ,  89%  )",
-        "translate": "test(10px,'test' test(x),89%)",
+        "generate": "test(10px,'test' test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -433,7 +433,7 @@
     },
     "unclosed parentheses is not an error": {
         "source": "foo( 123",
-        "translate": "foo(123)",
+        "generate": "foo(123)",
         "ast": {
             "type": "Function",
             "name": "foo",

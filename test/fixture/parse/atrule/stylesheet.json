@@ -1,7 +1,7 @@
 {
     "atruler.0": {
         "source": "@atrule {s{p:v}}",
-        "translate": "@atrule{s{p:v}}",
+        "generate": "@atrule{s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -51,7 +51,7 @@
     },
     "atruler.1": {
         "source": "@atrule x y {s{p:v}}",
-        "translate": "@atrule x y{s{p:v}}",
+        "generate": "@atrule x y{s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -117,7 +117,7 @@
     },
     "atruler.3": {
         "source": "@atrule x, y f(1+2) {s{p:v}}",
-        "translate": "@atrule x,y f(1+2){s{p:v}}",
+        "generate": "@atrule x,y f(1+2){s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -201,7 +201,7 @@
     },
     "atruler.4": {
         "source": "@atrule { .a { p: v; } .b { p: v } }",
-        "translate": "@atrule{.a{p:v}.b{p:v}}",
+        "generate": "@atrule{.a{p:v}.b{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -287,7 +287,7 @@
     },
     "atruler.c.0": {
         "source": "@atrule/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
-        "translate": "@atrule{s{p:v}}",
+        "generate": "@atrule{s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -337,7 +337,7 @@
     },
     "atruler.c.1": {
         "source": "@atrule/*test*/x/*test*/ y/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
-        "translate": "@atrule x y{s{p:v}}",
+        "generate": "@atrule x y{s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -403,7 +403,7 @@
     },
     "atruler.c.2": {
         "source": "@atrule/*test*/x/*test*/,/*test*/y/*test*/ f(/*test*/1/*test*/+/*test*/2/*test*/)/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
-        "translate": "@atrule x,y f(1+2){s{p:v}}",
+        "generate": "@atrule x,y f(1+2){s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -491,7 +491,7 @@
     },
     "atruler.s.0": {
         "source": "@atrule  {  s  {  p  :  v  }  }",
-        "translate": "@atrule{s{p:v}}",
+        "generate": "@atrule{s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -541,7 +541,7 @@
     },
     "atruler.s.1": {
         "source": "@atrule  x  y  {  s  {  p  :  v  }  }",
-        "translate": "@atrule x y{s{p:v}}",
+        "generate": "@atrule x y{s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -607,7 +607,7 @@
     },
     "atruler.s.2": {
         "source": "@atrule  x  ,  y  f(  1    2  )  {  s  {  p  :  v  }  }",
-        "translate": "@atrule x,y f(1 2){s{p:v}}",
+        "generate": "@atrule x,y f(1 2){s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -695,7 +695,7 @@
     },
     "webkit.keyfraymes.0": {
         "source": "@-webkit-keyframes pulsate {0% {opacity: .5}50% {opacity: 1}100% {opacity: .5}}",
-        "translate": "@-webkit-keyframes pulsate{0%{opacity:.5}50%{opacity:1}100%{opacity:.5}}",
+        "generate": "@-webkit-keyframes pulsate{0%{opacity:.5}50%{opacity:1}100%{opacity:.5}}",
         "ast": {
             "type": "Atrule",
             "name": "-webkit-keyframes",

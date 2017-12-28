@@ -60,7 +60,7 @@
     },
     "selector group and spaces": {
         "source": ":not(  .a  ,  .b  )",
-        "translate": ":not(.a,.b)",
+        "generate": ":not(.a,.b)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "not",

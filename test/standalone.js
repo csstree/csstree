@@ -3,7 +3,7 @@ var stringify = require('./helpers/stringify');
 var List = require('../lib/utils/list');
 var parse = require('../lib/parser');
 var walker = require('../lib/walker');
-var generator = require('../lib/generator');
+var generate = require('../lib/generator');
 var convertor = require('../lib/convertor');
 
 var css = '.a{}';
@@ -45,7 +45,7 @@ describe('logical parts as standalone modules', function() {
     });
 
     it('generator', function() {
-        assert.equal(generator.translate(ast), css);
+        assert.equal(generate(ast), css);
     });
 
     it('walker', function() {

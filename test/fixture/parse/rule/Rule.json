@@ -299,7 +299,7 @@
     },
     "ruleset.s.6": {
         "source": ".test\n{\rcolor:red;\r\n}",
-        "translate": ".test{color:red}",
+        "generate": ".test{color:red}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -378,7 +378,7 @@
     },
     "ruleset.c.0": {
         "source": "s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
-        "translate": "s{p:v}",
+        "generate": "s{p:v}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -418,7 +418,7 @@
     },
     "ruleset.c.1": {
         "source": "s/*test*/{/*test*/p0/*test*/:/*test*/v0/*test*/;/*test*/p1/*test*/:/*test*/v1/*test*/}",
-        "translate": "s{p0:v0;p1:v1}",
+        "generate": "s{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -472,7 +472,7 @@
     },
     "ruleset.c.2": {
         "source": "s0/*test*/,/*test*/s1/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
-        "translate": "s0,s1{p:v}",
+        "generate": "s0,s1{p:v}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -521,7 +521,7 @@
     },
     "ruleset.c.3": {
         "source": "s0/*test*/,/*test*/s1/*test*/{/*test*/p0/*test*/:/*test*/v0/*test*/;/*test*/p1/*test*/:/*test*/v1/*test*/}",
-        "translate": "s0,s1{p0:v0;p1:v1}",
+        "generate": "s0,s1{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -584,7 +584,7 @@
     },
     "ruleset.s.0": {
         "source": "s  {  p  :  v  }",
-        "translate": "s{p:v}",
+        "generate": "s{p:v}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -624,7 +624,7 @@
     },
     "ruleset.s.1": {
         "source": "s  {  p0  :  v0  ;  p1  :  v1  }",
-        "translate": "s{p0:v0;p1:v1}",
+        "generate": "s{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -678,7 +678,7 @@
     },
     "ruleset.s.2": {
         "source": "s0  ,  s1  {  p  :  v  }",
-        "translate": "s0,s1{p:v}",
+        "generate": "s0,s1{p:v}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -727,7 +727,7 @@
     },
     "ruleset.s.3": {
         "source": "s0  ,  s1  {  p0  :  v0  ;  p1  :  v1  }",
-        "translate": "s0,s1{p0:v0;p1:v1}",
+        "generate": "s0,s1{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -790,7 +790,7 @@
     },
     "ruleset.s.4": {
         "source": ".test {\n    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');\n    color:red\n}",
-        "translate": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
+        "generate": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -839,7 +839,7 @@
     },
     "ruleset.s.5": {
         "source": ".test {\n    color:red;\n    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')\n}",
-        "translate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
+        "generate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -969,7 +969,7 @@
             "parseRulePrelude": false
         },
         "source": ".foo, a:not(a = b) { foo: 1; }",
-        "translate": ".foo, a:not(a = b){foo:1}",
+        "generate": ".foo, a:not(a = b){foo:1}",
         "ast": {
             "type": "Rule",
             "prelude": {

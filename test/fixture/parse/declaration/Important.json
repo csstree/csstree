@@ -77,7 +77,7 @@
     },
     "divided by comment": {
         "source": "property:!/*test*/important",
-        "translate": "property:!important",
+        "generate": "property:!important",
         "ast": {
             "type": "Declaration",
             "important": true,
@@ -90,7 +90,7 @@
     },
     "divided by spaces": {
         "source": "property:!  important",
-        "translate": "property:!important",
+        "generate": "property:!important",
         "ast": {
             "type": "Declaration",
             "important": true,
@@ -103,7 +103,7 @@
     },
     "divided by spaces and comments": {
         "source": "property:! /**/ important",
-        "translate": "property:!important",
+        "generate": "property:!important",
         "ast": {
             "type": "Declaration",
             "important": true,

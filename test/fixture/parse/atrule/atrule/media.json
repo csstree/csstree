@@ -164,7 +164,7 @@
     },
     "@media with no prelude is not an error": {
         "source": "@media {}",
-        "translate": "@media{}",
+        "generate": "@media{}",
         "ast": {
             "type": "Atrule",
             "name": "media",

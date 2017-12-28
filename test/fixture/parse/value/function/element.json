@@ -27,7 +27,7 @@
     },
     "spaces and comment": {
         "source": "element(  /*1*/  #foo  /*2*/  )",
-        "translate": "element(#foo)",
+        "generate": "element(#foo)",
         "ast": {
             "type": "Function",
             "name": "element",

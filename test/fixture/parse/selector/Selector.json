@@ -200,7 +200,7 @@
     },
     "spaces": {
         "source": "a  +  b  c  ~  d  e",
-        "translate": "a+b c~d e",
+        "generate": "a+b c~d e",
         "ast": {
             "type": "Selector",
             "children": [

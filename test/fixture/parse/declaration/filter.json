@@ -73,7 +73,7 @@
     },
     "filter.c.0": {
         "source": "filter/*test*/:/*test*/progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
-        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
+        "generate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -86,7 +86,7 @@
     },
     "filter.c.1": {
         "source": "filter/*test*/:/*test*/progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')",
-        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')",
+        "generate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(/*)*/src='images/transparent-border.png'/*)*/,/*)*/sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -99,7 +99,7 @@
     },
     "filter.s.0": {
         "source": "filter  :  progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
-        "translate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
+        "generate": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -124,7 +124,7 @@
     },
     "filter.s.2": {
         "source": "filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)",
-        "translate": "filter:progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)",
+        "generate": "filter:progid: DXImageTransform.Microsoft.gradient(startColorstr='$start', endColorstr='$stop', GradientType=0)",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -137,7 +137,7 @@
     },
     "alpha()": {
         "source": "filter: alpha(opacity=60)",
-        "translate": "filter:alpha(opacity=60)",
+        "generate": "filter:alpha(opacity=60)",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -150,7 +150,7 @@
     },
     "alpha() case insensetive": {
         "source": "filter: ALPHA(opacity=60)",
-        "translate": "filter:ALPHA(opacity=60)",
+        "generate": "filter:ALPHA(opacity=60)",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -163,7 +163,7 @@
     },
     "dropshadow()": {
         "source": "filter: dropshadow(color=#000,offx=0,offy=-1)",
-        "translate": "filter:dropshadow(color=#000,offx=0,offy=-1)",
+        "generate": "filter:dropshadow(color=#000,offx=0,offy=-1)",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -176,7 +176,7 @@
     },
     "chroma()": {
         "source": "filter: chroma(color=red)",
-        "translate": "filter:chroma(color=red)",
+        "generate": "filter:chroma(color=red)",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -189,7 +189,7 @@
     },
     "unclosed functions should not be invalid per spec, not sure it's true for IE (need to be check and fail may be)": {
         "source": "filter:alpha(opacity",
-        "translate": "filter:alpha(opacity)",
+        "generate": "filter:alpha(opacity)",
         "ast": {
             "type": "Declaration",
             "important": false,

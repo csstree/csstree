@@ -36,7 +36,7 @@
     },
     "base test with spaces": {
         "source": "@supports  (  flex  :  1  )  {}",
-        "translate": "@supports (flex:1){}",
+        "generate": "@supports (flex:1){}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -72,7 +72,7 @@
     },
     "base test with comments": {
         "source": "@supports not /*0*/(/*1*/flex :/*3*/1/*4*/)/*5*/{}",
-        "translate": "@supports not (flex:1){}",
+        "generate": "@supports not (flex:1){}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -216,7 +216,7 @@
     },
     "simple supports with negation": {
         "source": "@supports not (flex: 1) {}",
-        "translate": "@supports not (flex:1){}",
+        "generate": "@supports not (flex:1){}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -260,7 +260,7 @@
     },
     "complex prelude": {
         "source": "@supports (not (flex: 1)) or (grid: support) {}",
-        "translate": "@supports (not (flex:1)) or (grid:support){}",
+        "generate": "@supports (not (flex:1)) or (grid:support){}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -366,7 +366,7 @@
     },
     "using !important": {
         "source": "@supports (box-shadow: something var(--complex) !important) {}",
-        "translate": "@supports (box-shadow:something var(--complex)!important){}",
+        "generate": "@supports (box-shadow:something var(--complex)!important){}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -416,7 +416,7 @@
     },
     "@supports with no block": {
         "source": "@supports (flex: 1)",
-        "translate": "@supports (flex:1);",
+        "generate": "@supports (flex:1);",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -458,7 +458,7 @@
     },
     "@supports with no prelude is not an error": {
         "source": "@supports {}",
-        "translate": "@supports{}",
+        "generate": "@supports{}",
         "ast": {
             "type": "Atrule",
             "name": "supports",

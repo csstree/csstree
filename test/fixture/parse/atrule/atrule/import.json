@@ -38,7 +38,7 @@
     },
     "with media": {
         "source": "@import 'test' all, screen and (min-width: 600px);",
-        "translate": "@import 'test' all,screen and (min-width:600px);",
+        "generate": "@import 'test' all,screen and (min-width:600px);",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -139,7 +139,7 @@
     },
     "@import with block is not an error": {
         "source": "@import 'test' {}",
-        "translate": "@import 'test'{}",
+        "generate": "@import 'test'{}",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -160,7 +160,7 @@
     },
     "white spaces and comment should not affect prelude consuming": {
         "source": "@import 'test' /* comment */ {}",
-        "translate": "@import 'test'{}",
+        "generate": "@import 'test'{}",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -191,7 +191,7 @@
         },
         {
             "source": "@import  ;",
-            "translate": "@import;",
+            "generate": "@import;",
             "ast": {
                 "type": "Atrule",
                 "name": "import",

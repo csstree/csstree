@@ -145,7 +145,7 @@
     },
     "nthselector.0 case insensitive": {
         "source": ":nth-child(2N+1)",
-        "translate": ":nth-child(2n+1)",
+        "generate": ":nth-child(2n+1)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-child",
@@ -322,7 +322,7 @@
     },
     "nthselector.c.0": {
         "source": ":nth-child(/*test*/2n/*test*/+/*test*/1/*test*/)",
-        "translate": ":nth-child(2n+1)",
+        "generate": ":nth-child(2n+1)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-child",
@@ -341,7 +341,7 @@
     },
     "nthselector.c.1": {
         "source": ":nth-last-child(/*test*/+3n/*test*/-/*test*/2/*test*/)",
-        "translate": ":nth-last-child(+3n-2)",
+        "generate": ":nth-last-child(+3n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",
@@ -360,7 +360,7 @@
     },
     "nthselector.s.0": {
         "source": ":nth-child(  2n  +  1  )",
-        "translate": ":nth-child(2n+1)",
+        "generate": ":nth-child(2n+1)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-child",
@@ -379,7 +379,7 @@
     },
     "nthselector.s.1": {
         "source": ":nth-last-child(  +3n  -  2  )",
-        "translate": ":nth-last-child(+3n-2)",
+        "generate": ":nth-last-child(+3n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",
@@ -398,7 +398,7 @@
     },
     "+n": {
         "source": ":nth-last-child(+n - 2)",
-        "translate": ":nth-last-child(+n-2)",
+        "generate": ":nth-last-child(+n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",

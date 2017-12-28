@@ -40,7 +40,7 @@
     },
     "unclosed brakets is not an error": {
         "source": "[ abc",
-        "translate": "[abc]",
+        "generate": "[abc]",
         "ast": {
             "type": "Brackets",
             "children": [

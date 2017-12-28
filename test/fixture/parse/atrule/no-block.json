@@ -72,7 +72,7 @@
     },
     "atrules.c.0": {
         "source": "@test/*test*/;",
-        "translate": "@test;",
+        "generate": "@test;",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -82,7 +82,7 @@
     },
     "atrules.c.1": {
         "source": "@test/*test*/x/*test*/ y;",
-        "translate": "@test x y;",
+        "generate": "@test x y;",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -108,7 +108,7 @@
     },
     "atrules.s.0": {
         "source": "@test  ;",
-        "translate": "@test;",
+        "generate": "@test;",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -118,7 +118,7 @@
     },
     "atrules.s.1": {
         "source": "@test  x  y;",
-        "translate": "@test x y;",
+        "generate": "@test x y;",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -171,7 +171,7 @@
             "parseAtrulePrelude": false
         },
         "source": "@test ;",
-        "translate": "@test;",
+        "generate": "@test;",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -181,7 +181,7 @@
     },
     "no at-rule ending on eof is not an error": {
         "source": "@atrule url('..')",
-        "translate": "@atrule url('..');",
+        "generate": "@atrule url('..');",
         "ast": {
             "type": "Atrule",
             "name": "atrule",

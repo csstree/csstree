@@ -140,7 +140,7 @@
     },
     "spaces and comments": {
         "source": "var( /* 1 */ --name /* 2 */ , /* 3 */ )",
-        "translate": "var(--name, /* 3 */ )",
+        "generate": "var(--name, /* 3 */ )",
         "ast": {
             "type": "Function",
             "name": "var",
@@ -165,7 +165,7 @@
             "parseCustomProperty": true
         },
         "source": "var(--foo, 1 foo)",
-        "translate": "var(--foo,1 foo)",
+        "generate": "var(--foo,1 foo)",
         "ast": {
             "type": "Function",
             "name": "var",
@@ -223,7 +223,7 @@
     },
     "unclosed var() is not an error": {
         "source": "var(--name,([)])",
-        "translate": "var(--name,([)]))",
+        "generate": "var(--name,([)]))",
         "ast": {
             "type": "Function",
             "name": "var",

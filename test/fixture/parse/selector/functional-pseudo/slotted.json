@@ -19,7 +19,7 @@
     },
     "spaces around selector": {
         "source": "::slotted(  .a.b  )",
-        "translate": "::slotted(.a.b)",
+        "generate": "::slotted(.a.b)",
         "ast": {
             "type": "PseudoElementSelector",
             "name": "slotted",

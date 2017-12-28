@@ -13,7 +13,7 @@
     },
     "at-rule (unknown) may have no a semicolon": {
         "source": "@bada boom!",
-        "translate": "@bada boom!;",
+        "generate": "@bada boom!;",
         "ast": {
             "type": "Atrule",
             "name": "bada",
@@ -38,7 +38,7 @@
     },
     "at-rule (known) may have no a semicolon": {
         "source": "@import boom!",
-        "translate": "@import boom!;",
+        "generate": "@import boom!;",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -51,7 +51,7 @@
     },
     "at-rule (known) with no block may be followed by block": {
         "source": "@import {}",
-        "translate": "@import{}",
+        "generate": "@import{}",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -64,7 +64,7 @@
     },
     "at-rule (known) with custom prelude parser": {
         "source": "@page {}",
-        "translate": "@page{}",
+        "generate": "@page{}",
         "ast": {
             "type": "Atrule",
             "name": "page",
@@ -77,7 +77,7 @@
     },
     "unclosed block - unknown at-rule": {
         "source": "@atrule {",
-        "translate": "@atrule{}",
+        "generate": "@atrule{}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -90,7 +90,7 @@
     },
     "unclosed block - known declaration at-rule": {
         "source": "@font-face {",
-        "translate": "@font-face{}",
+        "generate": "@font-face{}",
         "ast": {
             "type": "Atrule",
             "name": "font-face",
@@ -103,7 +103,7 @@
     },
     "unclosed block - known rule at-rule": {
         "source": "@media {",
-        "translate": "@media{}",
+        "generate": "@media{}",
         "ast": {
             "type": "Atrule",
             "name": "media",

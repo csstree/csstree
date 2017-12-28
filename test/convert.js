@@ -1,7 +1,7 @@
 var assert = require('assert');
 var csstree = require('../lib');
 var parse = csstree.parse;
-var translate = csstree.translate;
+var generate = csstree.generate;
 var fromPlainObject = csstree.fromPlainObject;
 var toPlainObject = csstree.toPlainObject;
 var css = '.test{a:123}';
@@ -12,7 +12,7 @@ describe('convert', function() {
         var plainObject = JSON.parse(JSON.stringify(ast));
 
         assert.equal(
-            translate(fromPlainObject(plainObject)),
+            generate(fromPlainObject(plainObject)),
             css
         );
     });

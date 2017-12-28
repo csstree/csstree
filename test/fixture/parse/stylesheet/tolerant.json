@@ -2,7 +2,7 @@
     "bad selector": [
         {
             "source": " ? {}",
-            "translate": "?{}",
+            "generate": "?{}",
             "ast": {
                 "type": "StyleSheet",
                 "children": [
@@ -22,7 +22,7 @@
         },
         {
             "source": ".a! { } .a {}",
-            "translate": ".a!{}.a{}",
+            "generate": ".a!{}.a{}",
             "ast": {
                 "type": "StyleSheet",
                 "children": [
@@ -69,7 +69,7 @@
     ],
     "unclosed block": {
         "source": "foo {",
-        "translate": "foo{}",
+        "generate": "foo{}",
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -99,7 +99,7 @@
     },
     "uncomplete pseudo in selector": {
         "source": " foo: {}",
-        "translate": "foo:{}",
+        "generate": "foo:{}",
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -131,7 +131,7 @@
     },
     "unclosed unknown functional-pseudo in selector": {
         "source": " foo:bar(x {}",
-        "translate": "foo:bar(x{}",
+        "generate": "foo:bar(x{}",
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -151,7 +151,7 @@
     },
     "no block": {
         "source": " ? ",
-        "translate": "? ",
+        "generate": "? ",
         "ast": {
             "type": "StyleSheet",
             "children": [

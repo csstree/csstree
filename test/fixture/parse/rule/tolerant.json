@@ -1,7 +1,7 @@
 {
     "bad selector": {
         "source": "boom! {color:red}",
-        "translate": "boom!{color:red}",
+        "generate": "boom!{color:red}",
         "ast": {
             "type": "Rule",
             "prelude": {
