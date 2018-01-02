@@ -7,8 +7,10 @@ describe('names utils', function() {
         it('base test', function() {
             assert.deepEqual(keyword('test'), {
                 name: 'test',
+                basename: 'test',
                 prefix: '',
-                vendor: ''
+                vendor: '',
+                custom: false
             });
         });
 
@@ -17,16 +19,20 @@ describe('names utils', function() {
             data.name = 'xxx';
             assert.deepEqual(data, {
                 name: 'test',
+                basename: 'test',
                 prefix: '',
-                vendor: ''
+                vendor: '',
+                custom: false
             });
         });
 
         it('should normalize name to lower case', function() {
             assert.deepEqual(keyword('TesT'), {
                 name: 'test',
+                basename: 'test',
                 prefix: '',
-                vendor: ''
+                vendor: '',
+                custom: false
             });
         });
 
@@ -34,9 +40,11 @@ describe('names utils', function() {
             ['-moz-', '-o-', '-webkit-', '-ms-', '-any-'].forEach(function(vendor) {
                 it(vendor, function() {
                     assert.deepEqual(keyword(vendor + 'test'), {
-                        name: 'test',
+                        name: vendor + 'test',
+                        basename: 'test',
                         prefix: vendor,
-                        vendor: vendor
+                        vendor: vendor,
+                        custom: false
                     });
                 });
             });
@@ -58,8 +66,10 @@ describe('names utils', function() {
         it('shouldn\'t detect a verdor prefix for name that doesn\'t starts with dash', function() {
             assert.deepEqual(keyword('test-vendor-test'), {
                 name: 'test-vendor-test',
+                basename: 'test-vendor-test',
                 prefix: '',
-                vendor: ''
+                vendor: '',
+                custom: false
             });
         });
 
@@ -68,8 +78,10 @@ describe('names utils', function() {
                 it(test, function() {
                     assert.deepEqual(keyword(test), {
                         name: test,
+                        basename: test.substr(2),
                         prefix: '',
-                        vendor: ''
+                        vendor: '',
+                        custom: true
                     });
                 });
             });
@@ -80,6 +92,7 @@ describe('names utils', function() {
         it('base test', function() {
             assert.deepEqual(property('test'), {
                 name: 'test',
+                basename: 'test',
                 custom: false,
                 prefix: '',
                 hack: '',
@@ -92,6 +105,7 @@ describe('names utils', function() {
             data.name = 'xxx';
             assert.deepEqual(data, {
                 name: 'test',
+                basename: 'test',
                 custom: false,
                 prefix: '',
                 hack: '',
@@ -102,6 +116,7 @@ describe('names utils', function() {
         it('should normalize name to lower case', function() {
             assert.deepEqual(property('TesT'), {
                 name: 'test',
+                basename: 'test',
                 custom: false,
                 prefix: '',
                 hack: '',
@@ -113,7 +128,8 @@ describe('names utils', function() {
             ['-moz-', '-o-', '-webkit-', '-ms-', '-any-'].forEach(function(vendor) {
                 it(vendor, function() {
                     assert.deepEqual(property(vendor + 'test'), {
-                        name: 'test',
+                        name: vendor + 'test',
+                        basename: 'test',
                         custom: false,
                         prefix: vendor,
                         hack: '',
@@ -124,7 +140,8 @@ describe('names utils', function() {
 
             it('name with dashes', function() {
                 assert.deepEqual(property('-a-test-test'), {
-                    name: 'test-test',
+                    name: '-a-test-test',
+                    basename: 'test-test',
                     custom: false,
                     prefix: '-a-',
                     hack: '',
@@ -135,7 +152,8 @@ describe('names utils', function() {
 
         it('should normalize vendor to lower case', function() {
             assert.deepEqual(property('-VenDor-TesT'), {
-                name: 'test',
+                name: '-vendor-test',
+                basename: 'test',
                 custom: false,
                 prefix: '-vendor-',
                 hack: '',
@@ -148,6 +166,7 @@ describe('names utils', function() {
                 it(hack, function() {
                     assert.deepEqual(property(hack + 'test'), {
                         name: 'test',
+                        basename: 'test',
                         custom: false,
                         prefix: hack,
                         hack: hack,
@@ -160,6 +179,7 @@ describe('names utils', function() {
         it('should detect custom property', function() {
             assert.deepEqual(property('--test'), {
                 name: '--test',
+                basename: 'test',
                 custom: true,
                 prefix: '',
                 hack: '',
@@ -169,7 +189,8 @@ describe('names utils', function() {
 
         it('should detect vendor prefix and hack', function() {
             assert.deepEqual(property('//-moz-test'), {
-                name: 'test',
+                name: '-moz-test',
+                basename: 'test',
                 custom: false,
                 prefix: '//-moz-',
                 hack: '//',
@@ -180,6 +201,7 @@ describe('names utils', function() {
         it('should detect custom property and hack', function() {
             assert.deepEqual(property('//--test'), {
                 name: '--test',
+                basename: 'test',
                 custom: true,
                 prefix: '//',
                 hack: '//',
@@ -195,7 +217,7 @@ describe('names utils', function() {
             ['Test', '-MOZ-Test', '//Test', '//-MOZ-Test'].forEach(function(test) {
                 it(test, function() {
                     assert(test !== test.toLowerCase(), 'should difer from lower case'); // guard
-                    assert(property(test) === property(test.toLowerCase()), 'object should be the same');
+                    assert(property(test) === property(test.toLowerCase()), 'objects should be the same');
                 });
             });
         });
@@ -203,6 +225,7 @@ describe('names utils', function() {
         it('shouldn\'t detect a verdor prefix for name that doesn\'t starts with dash', function() {
             assert.deepEqual(property('test-vendor-test'), {
                 name: 'test-vendor-test',
+                basename: 'test-vendor-test',
                 custom: false,
                 prefix: '',
                 hack: '',
@@ -213,6 +236,7 @@ describe('names utils', function() {
         it('shouldn\'t normalize custom property names', function() {
             assert.deepEqual(property('--Test-Custom'), {
                 name: '--Test-Custom',
+                basename: 'Test-Custom',
                 custom: true,
                 prefix: '',
                 hack: '',
@@ -221,6 +245,7 @@ describe('names utils', function() {
 
             assert.deepEqual(property('--TEST-custom'), {
                 name: '--TEST-custom',
+                basename: 'TEST-custom',
                 custom: true,
                 prefix: '',
                 hack: '',
@@ -235,6 +260,7 @@ describe('names utils', function() {
                 it(test, function() {
                     assert.deepEqual(property(test), {
                         name: test,
+                        basename: test.substr(2),
                         custom: true,
                         prefix: '',
                         hack: '',
