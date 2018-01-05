@@ -1,6 +1,8 @@
 var assert = require('assert');
 var keyword = require('../lib').keyword;
 var property = require('../lib').property;
+var isCustomProperty = require('../lib').isCustomProperty;
+var vendorPrefix = require('../lib').vendorPrefix;
 
 describe('names utils', function() {
     describe('keyword', function() {
@@ -267,6 +269,48 @@ describe('names utils', function() {
                         vendor: ''
                     });
                 });
+            });
+        });
+    });
+
+    describe('isCustomProperty', function() {
+        var data = {
+            '': false,
+            '-': false,
+            '--': true,
+            '---': true,
+            '--a': true
+        };
+
+        Object.keys(data).forEach(function(test) {
+            it('\'' + test + '\'', function() {
+                assert.equal(isCustomProperty(test), data[test]);
+            });
+
+            it('\'$' + test + '\' with offset 1', function() {
+                assert.equal(isCustomProperty('$' + test, 1), data[test]);
+            });
+        });
+    });
+
+    describe('vendorPrefix', function() {
+        var data = {
+            '': '',
+            '-': '',
+            '--': '',
+            '-a-': '-a-',
+            '-a-b': '-a-',
+            '--a': '',
+            '--a-': ''
+        };
+
+        Object.keys(data).forEach(function(test) {
+            it('\'' + test + '\'', function() {
+                assert.equal(vendorPrefix(test), data[test]);
+            });
+
+            it('\'$' + test + '\' with offset 1', function() {
+                assert.equal(vendorPrefix('$' + test, 1), data[test]);
             });
         });
     });
