@@ -43,7 +43,7 @@
     },
     "value.rgb.0": {
         "source": "rgb(10, 10, 10)",
-        "translate": "rgb(10,10,10)",
+        "generate": "rgb(10,10,10)",
         "ast": {
             "type": "Value",
             "children": [

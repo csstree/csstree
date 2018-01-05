@@ -40,7 +40,7 @@
     },
     "block at-rule #1": {
         "source": "@test x y {p:v}",
-        "translate": "@test x y{p:v}",
+        "generate": "@test x y{p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -84,7 +84,7 @@
     },
     "block at-rule #2": {
         "source": "@test x, y x(1+2) {p:v}",
-        "translate": "@test x,y x(1+2){p:v}",
+        "generate": "@test x,y x(1+2){p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -146,7 +146,7 @@
     },
     "block at-rule #c.0": {
         "source": "@test/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
-        "translate": "@test{p:v}",
+        "generate": "@test{p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -174,7 +174,7 @@
     },
     "block at-rule #c.1": {
         "source": "@test/*test*/x/*test*/ y/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
-        "translate": "@test x y{p:v}",
+        "generate": "@test x y{p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -218,7 +218,7 @@
     },
     "block at-rule #c.2": {
         "source": "@test/*test*/x/*test*/,/*test*/y/*test*/ x(/*test*/1/*test*/+/*test*/2/*test*/)/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
-        "translate": "@test x,y x(1+2){p:v}",
+        "generate": "@test x,y x(1+2){p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -284,7 +284,7 @@
     },
     "block at-rule #s.0": {
         "source": "@test  {  p  :  v  }",
-        "translate": "@test{p:v}",
+        "generate": "@test{p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -312,7 +312,7 @@
     },
     "block at-rule #s.1": {
         "source": "@test  x  y  {  p  :  v  }",
-        "translate": "@test x y{p:v}",
+        "generate": "@test x y{p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -356,7 +356,7 @@
     },
     "block at-rule #s.2": {
         "source": "@test  x  ,  y  x(  1  +  2  )  {  p  :  v  }",
-        "translate": "@test x,y x(1 + 2){p:v}",
+        "generate": "@test x,y x(1 + 2){p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -430,7 +430,7 @@
     },
     "@page": {
         "source": "@page :left { margin: 5cm; }",
-        "translate": "@page :left{margin:5cm}",
+        "generate": "@page :left{margin:5cm}",
         "ast": {
             "type": "Atrule",
             "name": "page",
@@ -481,7 +481,7 @@
             "parseAtrulePrelude": false
         },
         "source": "@test a b {}",
-        "translate": "@test a b{}",
+        "generate": "@test a b{}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -500,7 +500,7 @@
             "parseAtrulePrelude": false
         },
         "source": "@test {}",
-        "translate": "@test{}",
+        "generate": "@test{}",
         "ast": {
             "type": "Atrule",
             "name": "test",

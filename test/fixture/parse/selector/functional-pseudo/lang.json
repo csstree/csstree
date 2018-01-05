@@ -14,7 +14,7 @@
     },
     "with spaces and comments": {
         "source": ":lang(  en /* test */ )",
-        "translate": ":lang(en)",
+        "generate": ":lang(en)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "lang",

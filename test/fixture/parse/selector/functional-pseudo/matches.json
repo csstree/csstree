@@ -60,7 +60,7 @@
     },
     "selector group and spaces": {
         "source": ":matches(  .a  ,  .b  )",
-        "translate": ":matches(.a,.b)",
+        "generate": ":matches(.a,.b)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "matches",

@@ -84,9 +84,9 @@ csstree.walk(copy, function(node) {
     }
 });
 
-console.log(csstree.translate(orig));
+console.log(csstree.generate(orig));
 // .test{color:red}
-console.log(csstree.translate(copy));
+console.log(csstree.generate(copy));
 // .replaced{color:red}
 ```
 

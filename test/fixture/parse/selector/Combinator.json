@@ -145,7 +145,7 @@
     },
     "combinator with comments around #0": {
         "source": "a/*test*/ /*test*/b",
-        "translate": "a b",
+        "generate": "a b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -166,7 +166,7 @@
     },
     "combinator with comments around #1": {
         "source": "a/*test*/+/*test*/b",
-        "translate": "a+b",
+        "generate": "a+b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -187,7 +187,7 @@
     },
     "combinator with comments around #2": {
         "source": "a/*test*/>/*test*/b",
-        "translate": "a>b",
+        "generate": "a>b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -208,7 +208,7 @@
     },
     "combinator with comments around #3": {
         "source": "a/*test*/~/*test*/b",
-        "translate": "a~b",
+        "generate": "a~b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -229,7 +229,7 @@
     },
     "combinator with comments around #4": {
         "source": "a/*test*/ /deep/ /*test*/b",
-        "translate": "a /deep/ b",
+        "generate": "a /deep/ b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -258,7 +258,7 @@
     },
     "combinator with spaces around #0": {
         "source": "a    b",
-        "translate": "a b",
+        "generate": "a b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -279,7 +279,7 @@
     },
     "combinator with spaces around #1": {
         "source": "a  +  b",
-        "translate": "a+b",
+        "generate": "a+b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -300,7 +300,7 @@
     },
     "combinator with spaces around #2": {
         "source": "a  >  b",
-        "translate": "a>b",
+        "generate": "a>b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -321,7 +321,7 @@
     },
     "combinator with spaces around #3": {
         "source": "a  ~  b",
-        "translate": "a~b",
+        "generate": "a~b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -342,7 +342,7 @@
     },
     "combinator with spaces around #4": {
         "source": "a  /deep/  b",
-        "translate": "a /deep/ b",
+        "generate": "a /deep/ b",
         "ast": {
             "type": "Selector",
             "children": [

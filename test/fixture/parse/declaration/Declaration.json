@@ -137,7 +137,7 @@
     },
     "declaration.c.0": {
         "source": "property/*test*/:value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -155,7 +155,7 @@
     },
     "declaration.c.1": {
         "source": "property:/*test*/value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -173,7 +173,7 @@
     },
     "declaration.c.2": {
         "source": "property/*test*/:/*test*/value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -191,7 +191,7 @@
     },
     "declaration.c.3": {
         "source": "property  /*test*/  :  /*test*/  value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -209,7 +209,7 @@
     },
     "declaration.s.0": {
         "source": "property :value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -227,7 +227,7 @@
     },
     "declaration.s.1": {
         "source": "property: value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -245,7 +245,7 @@
     },
     "declaration.s.2": {
         "source": "property : value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -263,7 +263,7 @@
     },
     "declaration.s.3": {
         "source": "property   :   value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -284,7 +284,7 @@
             "parseValue": false
         },
         "source": "property: value",
-        "translate": "property:value",
+        "generate": "property:value",
         "ast": {
             "type": "Declaration",
             "important": false,
@@ -305,6 +305,11 @@
             "source": "$: 1",
             "offset": " ^",
             "error": "Identifier is expected"
+        },
+        {
+            "source": "foo: ~",
+            "offset": "     ^",
+            "error": "Unexpected input"
         }
     ]
 }

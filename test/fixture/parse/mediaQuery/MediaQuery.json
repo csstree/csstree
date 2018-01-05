@@ -80,7 +80,7 @@
     },
     "media feature with spaces": {
         "source": "(  foo  :  1  )",
-        "translate": "(foo:1)",
+        "generate": "(foo:1)",
         "ast": {
             "type": "MediaQuery",
             "children": [
@@ -97,7 +97,7 @@
     },
     "media feature with comments": {
         "source": "all /*0*/ (/*1*/foo/*2*/:/*3*/1/*4*/)",
-        "translate": "all (foo:1)",
+        "generate": "all (foo:1)",
         "ast": {
             "type": "MediaQuery",
             "children": [
@@ -122,7 +122,7 @@
     },
     "media feature with ratio and spaces": {
         "source": "(  foo  :  3  /  4  )",
-        "translate": "(foo:3/4)",
+        "generate": "(foo:3/4)",
         "ast": {
             "type": "MediaQuery",
             "children": [

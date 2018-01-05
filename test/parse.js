@@ -118,6 +118,12 @@ describe('parse', function() {
     });
 
     describe('errors', function() {
+        var throwOnParseErrorOptions = {
+            onParseError: function(e) {
+                throw e;
+            }
+        };
+
         forEachParseTest(function(name, test) {
             createParseErrorTest(name, test, merge(test.options, {
                 positions: false
@@ -128,9 +134,9 @@ describe('parse', function() {
         }, true);
 
         it('formattedMessage', function() {
-            try {
-                parse('/**/\n.\nfoo');
-            } catch (e) {
+            assert.throws(function() {
+                parse('/**/\n.\nfoo', throwOnParseErrorOptions);
+            }, function(e) {
                 assert.equal(e.formattedMessage,
                     'Parse error: Identifier is expected\n' +
                     '    1 |/**/\n' +
@@ -148,25 +154,29 @@ describe('parse', function() {
                     '--------^\n' +
                     '    3 |foo'
                 );
-            }
+
+                return true;
+            });
         });
 
         it('formattedMessage at eof', function() {
-            try {
-                parse('.');
-            } catch (e) {
+            assert.throws(function() {
+                parse('.', throwOnParseErrorOptions);
+            }, function(e) {
                 assert.equal(e.formattedMessage,
                     'Parse error: Identifier is expected\n' +
                     '    1 |.\n' +
                     '--------^'
                 );
-            }
+
+                return true;
+            });
         });
 
         it('formattedMessage (windows new lines)', function() {
-            try {
-                parse('/**/\r\n.\r\nfoo');
-            } catch (e) {
+            assert.throws(function() {
+                parse('/**/\r\n.\r\nfoo', throwOnParseErrorOptions);
+            }, function(e) {
                 assert.equal(e.formattedMessage,
                     'Parse error: Identifier is expected\n' +
                     '    1 |/**/\n' +
@@ -184,13 +194,15 @@ describe('parse', function() {
                     '--------^\n' +
                     '    3 |foo'
                 );
-            }
+
+                return true;
+            });
         });
 
         it('formattedMessage with tabs', function() {
-            try {
-                parse('a {\n\tb:\tc#\t\n}');
-            } catch (e) {
+            assert.throws(function() {
+                parse('a {\n\tb:\tc#\t\n}', throwOnParseErrorOptions);
+            }, function(e) {
                 assert.equal(e.formattedMessage,
                     'Parse error: Number or identifier is expected\n' +
                     '    1 |a {\n' +
@@ -198,18 +210,21 @@ describe('parse', function() {
                     '-------------------^\n' +
                     '    3 |}'
                 );
-            }
+
+                return true;
+            });
         });
 
         it('formattedMessage for source with long lines', function() {
-            try {
+            assert.throws(function() {
                 parse(
                     '/*' + repeat('1234567890', 20) + '*/\n' +
                     repeat(' ', 117) + '.\n' +
                     'foo\n' +
-                    repeat(' ', 120) + 'bar'
+                    repeat(' ', 120) + 'bar',
+                    throwOnParseErrorOptions
                 );
-            } catch (e) {
+            }, function(e) {
                 assert.equal(e.formattedMessage,
                     'Parse error: Identifier is expected\n' +
                     '    1 |…12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678…\n' +
@@ -218,7 +233,9 @@ describe('parse', function() {
                     '    3 |\n' +
                     '    4 |…                                                          bar'
                 );
-            }
+
+                return true;
+            });
         });
     });
 

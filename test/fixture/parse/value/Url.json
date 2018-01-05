@@ -31,7 +31,7 @@
     },
     "uri.s.0": {
         "source": "url(  'http://test.com'  )",
-        "translate": "url('http://test.com')",
+        "generate": "url('http://test.com')",
         "ast": {
             "type": "Url",
             "value": {
@@ -42,7 +42,7 @@
     },
     "uri.s.1": {
         "source": "url(  http://test.com  )",
-        "translate": "url(http://test.com)",
+        "generate": "url(http://test.com)",
         "ast": {
             "type": "Url",
             "value": {
@@ -53,7 +53,7 @@
     },
     "uri with parentheses": {
         "source": "url(  p\\(1\\).png  )",
-        "translate": "url(p\\(1\\).png)",
+        "generate": "url(p\\(1\\).png)",
         "ast": {
             "type": "Url",
             "value": {
@@ -64,7 +64,7 @@
     },
     "uri escaping": {
         "source": "url(  \\31 \\ \\(2\\)\\.png  )",
-        "translate": "url(\\31 \\ \\(2\\)\\.png)",
+        "generate": "url(\\31 \\ \\(2\\)\\.png)",
         "ast": {
             "type": "Url",
             "value": {
@@ -75,7 +75,7 @@
     },
     "uri with special symbols": {
         "source": "url(  p{1};.png  )",
-        "translate": "url(p{1};.png)",
+        "generate": "url(p{1};.png)",
         "ast": {
             "type": "Url",
             "value": {
@@ -86,7 +86,7 @@
     },
     "uri with parentheses in string": {
         "source": "url(  'p (1).png'  )",
-        "translate": "url('p (1).png')",
+        "generate": "url('p (1).png')",
         "ast": {
             "type": "Url",
             "value": {

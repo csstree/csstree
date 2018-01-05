@@ -60,7 +60,7 @@
     },
     "selector group and spaces": {
         "source": ":has(  .a  ,  .b  )",
-        "translate": ":has(.a,.b)",
+        "generate": ":has(.a,.b)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "has",

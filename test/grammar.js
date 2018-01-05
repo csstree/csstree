@@ -129,30 +129,90 @@ describe('grammar', function() {
         });
     });
 
-    it('walker', function() {
-        var ast = parse('a b | c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*');
-        var visited = [];
+    describe('walk', function() {
+        it('pass a single walk function', function() {
+            var ast = parse('a b | c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*');
+            var visited = [];
 
-        walk(ast, function(node) {
-            visited.push(node.type);
+            walk(ast, function(node) {
+                visited.push({
+                    type: node.type,
+                    value: translate(node)
+                });
+            });
+
+            assert.deepEqual(visited, [
+                { type: 'Group',       value: 'a b | c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*' },
+                { type: 'Group',       value: 'a b' },        // implicit group: a b -> [ a b ]
+                { type: 'Keyword',     value: 'a' },
+                { type: 'Keyword',     value: 'b' },
+                { type: 'Group',       value: 'c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*' },
+                { type: 'Group',       value: 'c()?' },       // implicit group: c()? -> [ c() ]?
+                { type: 'Function',    value: 'c()' },
+                { type: 'Group',       value: '' },           // empty children group: c() -> c( [] )
+                { type: 'Group',       value: '[ <d> || <\'e\'> || ( f{2,4} ) ]*' },
+                { type: 'Type',        value: '<d>' },
+                { type: 'Property',    value: '<\'e\'>' },
+                { type: 'Parentheses', value: '( f{2,4} )' },
+                { type: 'Group',       value: 'f{2,4}' },     // implicit group: [ f{2,4} ]
+                { type: 'Group',       value: 'f{2,4}' },     // implicit group: f{2,4} -> [ f ]{2,4}
+                { type: 'Keyword',     value: 'f' }
+            ]);
         });
 
-        assert.deepEqual(visited, [
-            'Keyword',     // a
-            'Keyword',     // b
-            'Group',       // [ a b ]
-            'Group',       // empty sequence in c()
-            'Function',    // c()
-            'Group',       // c()?  // implicit group -> [ c() ]?
-            'Type',        // <d>
-            'Property',    // <'e'>
-            'Keyword',     // f
-            'Group',       // f{2,4}  // implicit group -> [ f ]{2,4}
-            'Group',       // [ f{2,4} ]
-            'Parentheses', // ( [ f{2,4} ] )
-            'Group',       // [ <d> || <'e'> || ( [ f{2,4} ] ) ]*
-            'Group',       // [ c()? && [<d> || <'e'> || ( [ f{2,4} ] ) ]* ]
-            'Group'        // [ [ a b ] | [ c()? && [<d> || <'e'> || ( [ f{2,4} ] ) ]* ] ]
-        ]);
+        it('pass a pair of walk functions', function() {
+            var ast = parse('a b | c()? && [ <d> ]+');
+            var visited = [];
+
+            walk(ast, {
+                enter: function(node) {
+                    visited.push({
+                        action: 'enter',
+                        value: translate(node)
+                    });
+                },
+                leave: function(node) {
+                    visited.push({
+                        action: 'leave',
+                        value: translate(node)
+                    });
+                }
+            });
+
+            assert.deepEqual(visited, [
+                { action: 'enter', value: 'a b | c()? && [ <d> ]+' },
+                { action: 'enter', value: 'a b' },
+                { action: 'enter', value: 'a' },
+                { action: 'leave', value: 'a' },
+                { action: 'enter', value: 'b' },
+                { action: 'leave', value: 'b' },
+                { action: 'leave', value: 'a b' },
+                { action: 'enter', value: 'c()? && [ <d> ]+' },
+                { action: 'enter', value: 'c()?' },
+                { action: 'enter', value: 'c()' },
+                { action: 'enter', value: '' },
+                { action: 'leave', value: '' },
+                { action: 'leave', value: 'c()' },
+                { action: 'leave', value: 'c()?' },
+                { action: 'enter', value: '[ <d> ]+' },
+                { action: 'enter', value: '<d>' },
+                { action: 'leave', value: '<d>' },
+                { action: 'leave', value: '[ <d> ]+' },
+                { action: 'leave', value: 'c()? && [ <d> ]+' },
+                { action: 'leave', value: 'a b | c()? && [ <d> ]+' }
+            ]);
+        });
+
+        it('should throw an exception when nothing passed as walker handler', function() {
+            assert.throws(function() {
+                walk(parse('a | b'));
+            }, /Neither `enter` nor `leave` walker handler is set or both aren\'t a function/);
+        });
+
+        it('should throw an exception when passed object has no enter or leave methods', function() {
+            assert.throws(function() {
+                walk(parse('a | b'), {});
+            }, /Neither `enter` nor `leave` walker handler is set or both aren\'t a function/);
+        });
     });
 });

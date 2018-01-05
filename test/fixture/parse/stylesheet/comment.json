@@ -36,7 +36,7 @@
     },
     "bad comment #1": {
         "source": "/*! bad comment *",
-        "translate": "/*! bad comment **/",
+        "generate": "/*! bad comment **/",
         "ast": {
             "type": "Comment",
             "value": "! bad comment *"
@@ -44,7 +44,7 @@
     },
     "bad comment #2": {
         "source": "/*! bad comment ",
-        "translate": "/*! bad comment */",
+        "generate": "/*! bad comment */",
         "ast": {
             "type": "Comment",
             "value": "! bad comment "

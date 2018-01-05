@@ -1,7 +1,7 @@
 {
     "unclosed block": {
         "source": "{ ",
-        "translate": "{}",
+        "generate": "{}",
         "ast": {
             "type": "Block",
             "children": []
@@ -45,7 +45,7 @@
     },
     "bad value": {
         "source": "{bada: boom? }",
-        "translate": "{bada:boom?}",
+        "generate": "{bada:boom?}",
         "ast": {
             "type": "Block",
             "children": [
@@ -76,7 +76,7 @@
         },
         {
             "source": "{foo: boom! ; }",
-            "translate": "{foo: boom! ;}",
+            "generate": "{foo: boom! ;}",
             "ast": {
                 "type": "Block",
                 "children": [
@@ -91,7 +91,7 @@
     "bad declaration should not include whitespaces": [
         {
             "source": "{ foo: ? }",
-            "translate": "{foo:?}",
+            "generate": "{foo:?}",
             "ast": {
                 "type": "Block",
                 "children": [
@@ -109,7 +109,7 @@
         },
         {
             "source": "{ foo }",
-            "translate": "{foo}",
+            "generate": "{foo}",
             "ast": {
                 "type": "Block",
                 "children": [
@@ -122,7 +122,7 @@
         },
         {
             "source": "{ foo: boom! }",
-            "translate": "{foo: boom!}",
+            "generate": "{foo: boom!}",
             "ast": {
                 "type": "Block",
                 "children": [

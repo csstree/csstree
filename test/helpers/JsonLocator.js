@@ -7,7 +7,7 @@ function checkForDuplicateKeys(ast, filename) {
         return;
     }
 
-    if (ast.type === 'object') {
+    if (ast.type === 'Object') {
         var map = Object.create(null);
 
         for (var i = 0; i < ast.children.length; i++) {
@@ -22,7 +22,7 @@ function checkForDuplicateKeys(ast, filename) {
         }
     }
 
-    if (ast.type === 'array') {
+    if (ast.type === 'Array') {
         ast.children.forEach(function(item) {
             checkForDuplicateKeys(item, filename);
         });
@@ -46,19 +46,17 @@ function JsonLocator(filename) {
             source: this.filename
         });
     } catch (e) {
-        console.error('Parse error:', this.filename);
         console.error(String(e));
         process.exit(1);
     }
 
-    if (ast && ast.type === 'object') {
+    if (ast && ast.type === 'Object') {
         checkForDuplicateKeys(ast, filename);
 
         for (var i = 0; i < ast.children.length; i++) {
             var property = ast.children[i];
 
-            // use JSON.parse to unescape chars
-            this.map[JSON.parse('"' + property.key.value + '"')] = {
+            this.map[property.key.value] = {
                 loc: this.getLocation(property.key.loc.start),
                 value: property.value
             };
@@ -77,7 +75,7 @@ JsonLocator.prototype.get = function(name, index) {
         throw new Error('Key `' + name + '` not found in ' + this.filename);
     }
 
-    if (typeof index === 'number' && this.map[name].value.type === 'array') {
+    if (typeof index === 'number' && this.map[name].value.type === 'Array') {
         if (index in this.map[name].value.children === false) {
             throw new Error('Wrong index `' + index + '` for `' + name + '` in ' + this.filename);
         }

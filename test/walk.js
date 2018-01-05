@@ -1,11 +1,7 @@
 var assert = require('assert');
 var path = require('path');
 var parse = require('../lib').parse;
-var walkAll = require('../lib').walk;
-var walkAllUp = require('../lib').walkUp;
-var walkRules = require('../lib').walkRules;
-var walkRulesRight = require('../lib').walkRulesRight;
-var walkDeclarations = require('../lib').walkDeclarations;
+var walk = require('../lib').walk;
 var testFiles = require('./fixture/parse').tests;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var testWithRules = Object.keys(testFiles).map(function(filename) {
@@ -15,9 +11,9 @@ var testWithRules = Object.keys(testFiles).map(function(filename) {
     };
 }).filter(Boolean);
 
-function expectedWalk(ast, right, checker) {
+function expectedWalk(ast, enter, leave, checker) {
     function walk(node) {
-        if (right && checker(stack, node)) {
+        if (enter && checker(stack, node)) {
             result.push(node.type);
         }
 
@@ -31,7 +27,7 @@ function expectedWalk(ast, right, checker) {
         });
         stack.pop();
 
-        if (!right && checker(stack, node)) {
+        if (leave && checker(stack, node)) {
             result.push(node.type);
         }
     }
@@ -48,7 +44,7 @@ function expectedWalk(ast, right, checker) {
     return result;
 }
 
-function createWalkTest(name, test, context, walker, right) {
+function createWalkTest(name, test, context, walker, enter, leave) {
     (test.skip ? it.skip : it)(name, function() {
         var actual = [];
         var ast = parse(test.source, test.options);
@@ -59,13 +55,13 @@ function createWalkTest(name, test, context, walker, right) {
 
         // type arrays should be equal
         assert.deepEqual(
-            actual.sort(),
-            expectedWalk(test.ast, right).sort()
+            actual,
+            expectedWalk(test.ast, enter, leave)
         );
     });
 }
 
-function createWalkRulesTest(test, context, walker) {
+function createWalkVisitTest(test, visitType, walker) {
     (test.skip ? it.skip : it)(test.name, function() {
         var actual = [];
         var ast = parse(test.source, test.options);
@@ -77,8 +73,8 @@ function createWalkRulesTest(test, context, walker) {
         // type arrays should be equal
         assert.deepEqual(
             actual.sort(),
-            expectedWalk(test.ast, true).filter(function(type) {
-                return type === 'Rule' || type === 'Atrule';
+            expectedWalk(test.ast, true, false).filter(function(type) {
+                return type === visitType;
             }).sort()
         );
     });
@@ -96,7 +92,7 @@ function createWalkDeclarationsTest(test, context, walker) {
         // type arrays should be equal
         assert.deepEqual(
             actual.sort(),
-            expectedWalk(test.ast, false, function(stack) {
+            expectedWalk(test.ast, false, true, function(stack) {
                 return stack.every(function(node) {
                     return node.type !== 'AtrulePrelude';
                 });
@@ -112,7 +108,7 @@ describe('AST traversal', function() {
         function visit() {
             var visitedTypes = {};
 
-            walkAll(parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }'), function(node) {
+            walk(parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }'), function(node) {
                 visitedTypes[node.type] = true;
             });
 
@@ -148,38 +144,182 @@ describe('AST traversal', function() {
         assert.deepEqual(visit(), shouldVisitTypes);
     });
 
-    describe('walk all', function() {
-        forEachParseTest(function(name, test, context) {
-            createWalkTest(name, test, context, walkAll, false);
+    it('base test #2', function() {
+        var ast = parse('.a { color: red }');
+        var log = [];
+
+        walk(ast, {
+            enter: function(node) {
+                log.push('enter ' + node.type);
+            },
+            leave: function(node) {
+                log.push('leave ' + node.type);
+            }
+        });
+
+        assert.deepEqual(log, [
+            'enter StyleSheet',
+            'enter Rule',
+            'enter SelectorList',
+            'enter Selector',
+            'enter ClassSelector',
+            'leave ClassSelector',
+            'leave Selector',
+            'leave SelectorList',
+            'enter Block',
+            'enter Declaration',
+            'enter Value',
+            'enter Identifier',
+            'leave Identifier',
+            'leave Value',
+            'leave Declaration',
+            'leave Block',
+            'leave Rule',
+            'leave StyleSheet'
+        ]);
+    });
+
+    describe('traverse order', function() {
+        var ast = parse('.a.b { foo: bar; baz: qux } .c {} @media all { .d:not(.e) { aa: bb; cc: dd } f { ee: ff } }');
+        var expectedPassedNames = 'a b foo bar baz qux c media all d not e aa bb cc dd f ee ff'.split(' ');
+
+        it('natural', function() {
+            var passedNames = [];
+
+            walk(ast, {
+                enter: function(node) {
+                    if (node.name || node.property) {
+                        passedNames.push(node.name || node.property);
+                    }
+                }
+            });
+
+            assert.deepEqual(
+                passedNames,
+                expectedPassedNames
+            );
+        });
+
+        it('reverse', function() {
+            var passedNames = [];
+
+            walk(ast, {
+                reverse: true,
+                enter: function(node) {
+                    if (node.name || node.property) {
+                        passedNames.push(node.name || node.property);
+                    }
+                }
+            });
+
+            assert.deepEqual(
+                passedNames,
+                'media ee ff f cc dd aa bb not e d all c baz qux foo bar b a'.split(' ')
+            );
+        });
+
+        it('reverse of natural ("true" reverse = reverse + leave)', function() {
+            var passedNames = [];
+
+            walk(ast, {
+                reverse: true,
+                leave: function(node) {
+                    if (node.name || node.property) {
+                        passedNames.push(node.name || node.property);
+                    }
+                }
+            });
+
+            assert.deepEqual(
+                passedNames,
+                expectedPassedNames.slice().reverse()
+            );
         });
     });
 
-    describe('walk allUp', function() {
-        forEachParseTest(function(name, test, context) {
-            createWalkTest(name, test, context, walkAllUp, true);
+    describe('bad options', function() {
+        var ast = parse('.foo { color: red }');
+
+        it('should throws when no enter/leave handlers is set', function() {
+            assert.throws(function() {
+                walk(ast);
+            }, /Neither `enter` nor `leave` walker handler is set or both aren't a function/);
+
+            assert.throws(function() {
+                walk(ast, {});
+            }, /Neither `enter` nor `leave` walker handler is set or both aren't a function/);
+        });
+
+        it('should throws when visit has wrong value', function() {
+            assert.throws(function() {
+                walk(ast, { visit: 'Foo' });
+            }, /Bad value `Foo` for `visit` option \(should be: Atrule, Rule, Declaration\)/);
         });
     });
 
-    describe('walk ruleset', function() {
+    describe('walk(ast, fn)', function() {
+        forEachParseTest(function(name, test, context) {
+            createWalkTest(name, test, context, walk, true, false);
+        });
+    });
+
+    describe('walk(ast, { leave: fn })', function() {
+        forEachParseTest(function(name, test, context) {
+            createWalkTest(name, test, context, function(ast, fn) {
+                walk(ast, { leave: fn });
+            }, false, true);
+        });
+    });
+
+    describe('walk(ast, { visit: \'Rule\' })', function() {
         testWithRules.forEach(function(file) {
             Object.keys(file.tests).forEach(function(name) {
-                createWalkRulesTest(file.tests[name], file.scope, walkRules);
+                createWalkVisitTest(file.tests[name], 'Rule', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Rule',
+                        enter: fn
+                    });
+                });
             });
         });
     });
 
-    describe('walk rulesetRight', function() {
+    describe('walk(ast, { visit: \'Atrule\' })', function() {
         testWithRules.forEach(function(file) {
             Object.keys(file.tests).forEach(function(name) {
-                createWalkRulesTest(file.tests[name], file.scope, walkRulesRight);
+                createWalkVisitTest(file.tests[name], 'Atrule', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Atrule',
+                        enter: fn
+                    });
+                });
             });
         });
     });
 
-    describe('walk declarations', function() {
+    describe('walk(ast, { visit: \'Rule\', reverse: true })', function() {
         testWithRules.forEach(function(file) {
             Object.keys(file.tests).forEach(function(name) {
-                createWalkDeclarationsTest(file.tests[name], file.scope, walkDeclarations);
+                createWalkVisitTest(file.tests[name], 'Rule', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Rule',
+                        reverse: true,
+                        enter: fn
+                    });
+                });
+            });
+        });
+    });
+
+    describe('walk(ast, { visit: \'Declaration\' })', function() {
+        testWithRules.forEach(function(file) {
+            Object.keys(file.tests).forEach(function(name) {
+                createWalkDeclarationsTest(file.tests[name], 'Declaration', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Declaration',
+                        enter: fn
+                    });
+                });
             });
         });
     });

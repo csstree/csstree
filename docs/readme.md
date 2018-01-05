@@ -4,10 +4,9 @@
 
 - [Parsing CSS into AST](parsing.md)
 - [AST format](ast.md)
-- [Translate AST to string](translate.md)
+- [Generate CSS from AST](generate.md)
 - [AST traversal](traversal.md)
 - [Utils to work with AST](utils.md)
-- [Working with syntax](syntax.md)
 
 ## Classes
 

@@ -14,7 +14,7 @@
     },
     "with spaces and comments": {
         "source": ":dir(  ltr /* test */ )",
-        "translate": ":dir(ltr)",
+        "generate": ":dir(ltr)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "dir",

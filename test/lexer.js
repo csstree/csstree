@@ -524,6 +524,7 @@ describe('lexer', function() {
     describe('matchType()', function() {
         var singleNumber = parseCss('1', { context: 'value' });
         var severalNumbers = parseCss('1, 2, 3', { context: 'value' });
+        var cssWideKeyword = parseCss('inherit', { context: 'value' });
         var customSyntax = syntax.fork(function(prev, assign) {
             return assign(prev, {
                 types: {
@@ -559,6 +560,58 @@ describe('lexer', function() {
 
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'Unknown type `baz`');
+        });
+
+        it('should not match to CSS wide names', function() {
+            var match = customSyntax.lexer.matchType('foo', cssWideKeyword);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'Mismatch\n  syntax: <bar>#\n   value: inherit\n  --------^');
+        });
+    });
+
+    describe('match()', function() {
+        var value = parseCss('fn(1, 2, 3)', { context: 'value' });
+        var fn = value.children.first();
+        var customSyntax = syntax.fork(function(prev, assign) {
+            return assign(prev, {
+                types: {
+                    foo: '<bar>#',
+                    bar: '[ 1 | 2 | 3 ]',
+                    fn: 'fn(<foo>)'
+                }
+            });
+        });
+
+        it('should match by type', function() {
+            var syntax = customSyntax.lexer.getType('foo');
+            var match = customSyntax.lexer.match(syntax, fn);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
+        it('should match by arbitrary node of syntax (function)', function() {
+            var syntax = customSyntax.lexer.getType('fn').syntax.terms[0];
+            var match = customSyntax.lexer.match(syntax, value);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
+        it('should match by arbitrary node of syntax (parameters of function)', function() {
+            var syntax = customSyntax.lexer.getType('fn').syntax.terms[0].children;
+            var match = customSyntax.lexer.match(syntax, fn);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
+        it('should fails on bad syntax', function() {
+            var match = customSyntax.lexer.match({}, fn);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'Bad syntax');
         });
     });
 
@@ -655,7 +708,7 @@ describe('lexer', function() {
     describe('search', function() {
         function translateFragments(fragments) {
             return fragments.map(function(fragment) {
-                return syntax.translate({
+                return syntax.generate({
                     type: 'Value',
                     loc: null,
                     children: fragment.nodes

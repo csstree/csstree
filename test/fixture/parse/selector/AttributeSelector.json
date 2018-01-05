@@ -130,7 +130,7 @@
     },
     "attrib.s.0": {
         "source": "[  a  =  b  ]",
-        "translate": "[a=b]",
+        "generate": "[a=b]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -147,7 +147,7 @@
     },
     "attrib.s.1": {
         "source": "[  a  =  'b'  ]",
-        "translate": "[a='b']",
+        "generate": "[a='b']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -164,7 +164,7 @@
     },
     "attrib.1 with flags and spaces": {
         "source": "[  a  =  'b'  i  ]",
-        "translate": "[a='b'i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -181,7 +181,7 @@
     },
     "attrib.c.0": {
         "source": "[/*test*/a/*test*/=/*test*/b/*test*/]",
-        "translate": "[a=b]",
+        "generate": "[a=b]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -198,7 +198,7 @@
     },
     "attrib.c.1": {
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/]",
-        "translate": "[a='b']",
+        "generate": "[a='b']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -215,7 +215,7 @@
     },
     "attrib.c.1 with flags and comments": {
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/i/*test*/]",
-        "translate": "[a='b'i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -351,7 +351,7 @@
     },
     "attrib with dashmatch and spaces": {
         "source": "[  a  |=  'b'  ]",
-        "translate": "[a|='b']",
+        "generate": "[a|='b']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -368,7 +368,7 @@
     },
     "attrib with namespace, dashmatch and spaces": {
         "source": "[  a|b  |=  'c'  ]",
-        "translate": "[a|b|='c']",
+        "generate": "[a|b|='c']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -497,7 +497,7 @@
     },
     "attrib with flags and spaces": {
         "source": "[  a  =  'b'  i  ]",
-        "translate": "[a='b'i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -514,7 +514,7 @@
     },
     "attrib with flags and comments": {
         "source": "[/*1*/a/*2*/=/*3*/'b'/*4*/i/*5*/]",
-        "translate": "[a='b'i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
