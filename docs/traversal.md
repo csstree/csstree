@@ -7,7 +7,7 @@ var csstree = require('css-tree');
 var ast = csstree.parse('.a { color: red; }');
 
 csstree.walk(ast, function(node) {
-  console.log(node.type);
+    console.log(node.type);
 });
 // StyleSheet
 // Rule
@@ -22,16 +22,16 @@ csstree.walk(ast, function(node) {
 
 ## walk(ast, handler)
 
-Visits each node of AST in a natural way and calls a handler for each one. 
+Visits each node of AST in a natural way and calls a handler for each one.
 
 ```js
 // collect all urls in declarations
 var csstree = require('css-tree');
 var urls = [];
 var ast = csstree.parse(`
-  @import url(import.css);
-  .foo { background: url('foo.jpg'); }
-  .bar { background-image: url(bar.png); }
+    @import url(import.css);
+    .foo { background: url('foo.jpg'); }
+    .bar { background-image: url(bar.png); }
 `);
 
 csstree.walk(ast, function(node) {
@@ -66,22 +66,7 @@ Options (optional):
 Type: `function` or `undefined`  
 Default: `undefined`
 
-Handler on node entrance, i.e. before nested nodes are processed. Handler receives three arguments:
-
-- `node` – current AST node
-- `item` – node wrapper when node is a list member; this wrapper contains references to `prev` and `next` nodes in list
-- `list` – reference to list when node is a list member; it's useful for operations on list like `remove()` or `insert()`
-
-Context for handler an object, that contains references to some parent nodes:
-
-- `root` – refers to `ast` root node (actually it's a node passed to walker function)
-- `stylesheet` – refers to `StyleSheet` node, usually it's a root node
-- `atrulePrelude` – refers to `AtrulePrelude` node if any
-- `rule` – refers to closest `Rule` node if any
-- `selector` – refers to `SelectorList` node if any
-- `block` - refers to closest `Block` node if any
-- `declaration` – refers to `Declaration` node if any
-- `function` – refers to closest `Function`, `PseudoClassSelector` or `PseudoElementSelector` node if current node inside one of them
+Handler on node entrance, i.e. before any nested node is processed.
 
 ```js
 var csstree = require('css-tree');
@@ -103,12 +88,28 @@ csstree.walk(ast, {
 // Identifier
 ```
 
+Handler receives a three arguments. The first one is `node` – the AST node a walker entering to. The second two arguments are depend on type of `children`, i.e. is it an array or a list. When `children` is an array, those arguments are `index` and `array`, like for `Array#forEach()` or `Array#map()` methods. When `children` is a list those arguments are:
+- `item` – node wrapper, that contains references to `prev` and `next` nodes in a list, and `data` reference for the node
+- `list` – is a reference to the list; it's useful for list operations like `remove()` or `insert()`
+
+Context (`this`) for handler is an object with a references to the closest ancestor nodes:
+
+- `root` – refers to AST root node (actually it's a node passed to `walk()` method)
+- `stylesheet` – refers to `StyleSheet` node, usually it's a root node
+- `atrule` – refers to closest `Atrule` node if any
+- `atrulePrelude` – refers to `AtrulePrelude` node if any
+- `rule` – refers to closest `Rule` node if any
+- `selector` – refers to `SelectorList` node if any
+- `block` - refers to closest `Block` node if any
+- `declaration` – refers to `Declaration` node if any
+- `function` – refers to closest `Function`, `PseudoClassSelector` or `PseudoElementSelector` node if current node inside one of them
+
 ## leave
 
 Type: `function` or `undefined`  
 Default: `undefined`
 
-The same as `enter` handler but on node exit, i.e. after nested nodes are processed.
+The same as `enter` handler but invokes on node exit, i.e. after all nested nodes are processed.
 
 ```js
 var csstree = require('css-tree');
