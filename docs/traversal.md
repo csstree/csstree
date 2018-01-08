@@ -25,9 +25,9 @@ The facts you should know about `walk()` internals:
 - Method uses `structure` field value of every node type to define the way how to iterate the nodes:
     - A function-iterator is generating for every node type.
     - Node's properties iterates in the order it defined in `structure` ([reverse](#reverse) option can invert an order).
-    - Properties that are not defined in `structure` are ignoring (don't interates).
-    - An exception is possible when a tree is not following to `structure` (it may happen if tree was built outside parser or transformed in a wrong way). In case you are not sure about correctness of tree structure, use `try/catch` clause or check the tree by `csstree.lexer.validateStructure(ast)` before iterate it.
-- Only `children` can contain a list of nodes. A list of nodes can be presented as a `List` or an `Array` instance. The single tree can contain both types of `children` with no concerns.
+    - Properties that are not defined in `structure` are ignoring (doesn't interate).
+    - An exception is possible when a tree is not following to expected structure (it may happen if a tree was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of a tree structure, you can use `try/catch` or check the tree with `csstree.lexer.validateStructure(ast)` before iterate it.
+- Only `children` fields can contain a list of nodes. A list of nodes can be represented as a `List` or an `Array` instances. Any tree can contain both types of `children` with no concerns.
 
 ## walk(ast, options)
 
@@ -100,7 +100,6 @@ console.log(csstree.generate(ast));
 > - `item` and `list` are not defined for nodes that are not in a list. Even `Declaration` can be outside of any list in case it is a root of tree or a part of `@supports` prelude, e.g. `@supports (bar: 123) { ... }`. Therefore, it's recomended to check `item` or `list` are defined before using of it (those values both are defined or both are undefined, so it's enough to test one of them)
 > - Only `List` instances are safe for tree transformations such as node removal. In case you perform such operations, you can ensure that all `children` in a tree is a `List` instances by calling `csstree.fromPlainObject(ast)` before traversal.
 > - It's better to use `visit` option when possible to reach better performance
-> - (??) `walk()` have no protection from ancestor node removal from its list
 
 Context (`this`) for a handler is an object with a references to the closest ancestor nodes:
 
@@ -174,9 +173,9 @@ Default: `null`
 
 Invokes a handler for a specified node type only. It helps avoid extra checks and performs faster, because some subtrees may to be skipped since they can't contain a node of specified type.
 
-> NOTE:
-> - Option is limited to a few supported types at the moment. The list is expected to be expanded in future releases.
-> - Nodes may not be reached in case of an incorrect location in the tree.
+Caveats:
+- Option is limited to a few supported types at the moment. The list is expected to be expanded in future releases.
+- Nodes may not be reached in case of an incorrect location in the tree.
 
 ### reverse
 
@@ -185,4 +184,5 @@ Default: `false`
 
 Reverses the visit order of children nodes and properties (from last to first).
 
-> NOTE: The `reverse` option is not an inversion of natural visit order, it's just reverse an order of iterations through properties and list items. For a complete inversion `enter` and `leave` handlers must be swapped either, e.g. for `walk(ast, { enter: fn })` the inverted visit order can be reached by `walk(ast, { reverse: true, leave: fn })`.
+Caveats:
+- The `reverse` option is not an inversion of natural visit order, it's just reverse an order of iterations through properties and list items. For a complete inversion `enter` and `leave` handlers must be swapped either, e.g. for `walk(ast, { enter: fn })` the inverted visit order can be reached by `walk(ast, { reverse: true, leave: fn })`.
