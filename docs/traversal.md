@@ -22,11 +22,11 @@ csstree.walk(ast, function(node) {
 
 ## walk(ast, handler)
 
-Visits each node of AST in natural way and calls one or two handlers for each one. 
+Visits each node of AST in a natural way and calls a handler for each one. 
 
 ```js
 // collect all urls in declarations
-var csstree = require('./lib/index.js');
+var csstree = require('css-tree');
 var urls = [];
 var ast = csstree.parse(`
   @import url(import.css);
@@ -150,11 +150,11 @@ csstree.walk(ast, {
 Type: `'Rule'`, `'Atrule'`, `'Declaration'` or `null`  
 Default: `null`
 
-Invokes nodes of specified type. It helps avoid extra checks and performs faster, because some subtrees may to be skipped since can't contain a node of specified type.
+Invokes nodes of specified type. It helps avoid extra checks and performs faster, because some subtrees may to be skipped since they can't contain a node of specified type.
 
 ## reverse
 
 Type: `boolean`  
 Default: `false`
 
-Iterate children node in reverse order (from last to first).
+Iterate children nodes in reverse order (from last to first).
