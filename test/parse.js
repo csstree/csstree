@@ -1,4 +1,5 @@
 var assert = require('assert');
+var fs = require('fs');
 var syntax = require('../lib');
 var parse = require('../lib').parse;
 var TYPE = require('../lib').Tokenizer.TYPE;
@@ -94,6 +95,32 @@ describe('parse', function() {
             assert.throws(function() {
                 parse('a{}', { context: 'unknown' });
             }, /Unknown context `unknown`/);
+        });
+    });
+
+    describe('list option', function() {
+        var css = fs.readFileSync(__dirname + '/fixture/stringify.css');
+
+        it('should use array for a list of nodes', function() {
+            var astWithList = parse(css);
+            var astWithArray = parse(css, { list: false });
+
+            assert(astWithList.children instanceof List);
+            assert(Array.isArray(astWithArray.children));
+
+            assert.deepEqual(astWithArray, toPlainObject(astWithList));
+        });
+
+        it('should use array for a list of nodes (with positions)', function() {
+            var astWithList = parse(css, { positions: true });
+            var astWithArray = parse(css, { list: false, positions: true });
+
+            assert(astWithList.children instanceof List);
+            assert(astWithList.loc);
+            assert(Array.isArray(astWithArray.children));
+            assert(astWithArray.loc);
+
+            assert.deepEqual(astWithArray, toPlainObject(astWithList));
         });
     });
 

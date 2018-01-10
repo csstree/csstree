@@ -5,7 +5,7 @@ var csstree = require('../lib');
 var parse = require('../lib').parse;
 var walk = require('../lib').walk;
 var stringify = require('./helpers/stringify.js');
-var css = '/fixture/stringify.css';
+var fixtureFilename = '/fixture/stringify.css';
 var types = Object.keys(require('../lib/syntax/node')).sort().filter(function(type) {
     return type !== 'DeclarationList'; // doesn't appear in StyleSheet
 });
@@ -15,13 +15,13 @@ function normalize(str) {
 }
 
 describe('Common', function() {
-    var cssStr;
+    var css;
     var ast;
 
     before(function() {
-        cssStr = normalize(fs.readFileSync(__dirname + css, 'utf-8'));
-        ast = parse(cssStr, {
-            filename: path.basename(css),
+        css = normalize(fs.readFileSync(__dirname + fixtureFilename, 'utf-8'));
+        ast = parse(css, {
+            filename: path.basename(fixtureFilename),
             positions: true
         });
 
