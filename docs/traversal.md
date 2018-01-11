@@ -31,7 +31,7 @@ The facts you should know about `walk()` internals:
 
 ## walk(ast, options)
 
-Method visits each node of passed tree in a natural way and calls a handler for each one. It takes a root node (`ast`) and an object (`options`). In simple case, it can take a function (handler) instead of `options` (`walk(ast, fn)` is equivalent to `walk(ast, { enter: fn })`).
+Method visits each node of passed tree in a natural way and calls a handler for each one. It takes two arguments: a root node (`ast`) and an object (`options`). In simple case, it can take a function (handler) instead of `options` (`walk(ast, fn)` is equivalent to `walk(ast, { enter: fn })`).
 
 Options:
 
@@ -154,7 +154,7 @@ csstree.walk(ast, {
     leave: function(node) {
         console.log(node.type);
     }
-});,
+});
 // ClassSelector
 // Selector
 // SelectorList
@@ -182,7 +182,40 @@ Caveats:
 Type: `boolean`  
 Default: `false`
 
-Reverses the visit order of children nodes and properties (from last to first).
+Inverts a natural order of traversal of nodes. To achieve this, the following actions are performed:
+- children nodes are iterated in reverse order (from last to first)
+- properties are iterated in reverse order (according to `structure` definition of node)
+- `enter` and `leave` handlers are swapped
 
-Caveats:
-- The `reverse` option is not an inversion of natural visit order, it's just reverse an order of iterations through properties and list items. For a complete inversion `enter` and `leave` handlers must be swapped either, e.g. for `walk(ast, { enter: fn })` the inverted visit order can be reached by `walk(ast, { reverse: true, leave: fn })`.
+```js
+var assert = require('assert');
+var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; }');
+
+var natural = [];
+csstree.walk(ast, {
+    enter: function(node) {
+        natural.push('enter ' + node.type);
+    },
+    leave: function(node) {
+        natural.push('leave ' + node.type);
+    }
+});
+
+var reverse = [];
+csstree.walk(ast, {
+    reverse: true,
+    enter: function(node) {
+        reverse.push('enter ' + node.type);
+    },
+    leave: function(node) {
+        reverse.push('leave ' + node.type);
+    }
+});
+
+// will be truthy
+assert.deepEqual(
+    reverse,
+    natural.reverse()
+);
+```

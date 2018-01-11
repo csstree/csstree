@@ -181,7 +181,7 @@ describe('AST traversal', function() {
 
     describe('traverse order', function() {
         var ast = parse('.a.b { foo: bar; baz: qux } .c {} @media all { .d:not(.e) { aa: bb; cc: dd } f { ee: ff } }');
-        var expectedVisitedNamesOrder = 'a b foo bar baz qux c media all d not e aa bb cc dd f ee ff'.split(' ');
+        var expectedOrder = 'a b foo bar baz qux c media all d not e aa bb cc dd f ee ff'.split(' ');
 
         it('natural', function() {
             var visitedNames = [];
@@ -196,7 +196,7 @@ describe('AST traversal', function() {
 
             assert.deepEqual(
                 visitedNames,
-                expectedVisitedNamesOrder
+                expectedOrder
             );
         });
 
@@ -214,25 +214,7 @@ describe('AST traversal', function() {
 
             assert.deepEqual(
                 visitedNames,
-                'media ee ff f cc dd aa bb not e d all c baz qux foo bar b a'.split(' ')
-            );
-        });
-
-        it('reverse of natural ("true" reverse = reverse + leave)', function() {
-            var visitedNames = [];
-
-            walk(ast, {
-                reverse: true,
-                leave: function(node) {
-                    if (node.name || node.property) {
-                        visitedNames.push(node.name || node.property);
-                    }
-                }
-            });
-
-            assert.deepEqual(
-                visitedNames,
-                expectedVisitedNamesOrder.slice().reverse()
+                expectedOrder.slice().reverse()
             );
         });
     });
