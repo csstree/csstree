@@ -629,9 +629,9 @@ describe('List', function() {
         it('add non-empty list to non-empty list', function() {
             var list1head = list1.head;
             var list2tail = list2.tail;
+            var res = list2.appendList(list1);
 
-            list2.appendList(list1);
-
+            assert.equal(res, list2);
             assert.equal(list1.head, null);
             assert.equal(list2.tail, list1head);
             assert.deepEqual(list1head, {
@@ -649,9 +649,9 @@ describe('List', function() {
         it('add non-empty list to empty list', function() {
             var list2Head = list2.head;
             var list2Tail = list2.tail;
+            var res = empty.appendList(list2);
 
-            empty.appendList(list2);
-
+            assert.equal(res, empty);
             assert.equal(empty.head, list2Head);
             assert.equal(empty.tail, list2Tail);
             assert.equal(list2.head, null);
@@ -660,9 +660,9 @@ describe('List', function() {
 
         it('add empty list to non-empty', function() {
             var list2tail = list2.tail;
+            var res = list2.appendList(empty);
 
-            list2.appendList(empty);
-
+            assert.equal(res, list2);
             assert.equal(empty.head, null);
             assert.equal(list2.tail, list2tail);
         });
