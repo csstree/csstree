@@ -473,17 +473,17 @@ describe('List', function() {
     describe('#insert()', function() {
         it('should append when no ref item', function() {
             var afterTail = {};
+            var res = list2.insert(List.createItem(afterTail));
 
-            list2.insert(List.createItem(afterTail));
-
+            assert.equal(res, list2);
             assert.equal(list2.tail.data, afterTail);
         });
 
         it('should insert before ref item', function() {
             var beforeHead = {};
+            var res = list2.insert(List.createItem(beforeHead), list2.head);
 
-            list2.insert(List.createItem(beforeHead), list2.head);
-
+            assert.equal(res, list2);
             assert.equal(list2.head.data, beforeHead);
         });
 
@@ -492,9 +492,9 @@ describe('List', function() {
             var inserted = List.createItem(qux);
             var list2head = list2.head;
             var list2tail = list2.tail;
+            var res = list2.insert(inserted, list2.tail);
 
-            list2.insert(inserted, list2.tail);
-
+            assert.equal(res, list2);
             assert.deepEqual(list2head, {
                 prev: null,
                 next: inserted,
@@ -524,17 +524,17 @@ describe('List', function() {
     describe('#insertData()', function() {
         it('should append when no ref item', function() {
             var afterTail = {};
+            var res = list2.insertData(afterTail);
 
-            list2.insertData(afterTail);
-
+            assert.equal(res, list2);
             assert.equal(list2.tail.data, afterTail);
         });
 
         it('should insert before ref item', function() {
             var beforeHead = {};
+            var res = list2.insertData(beforeHead, list2.head);
 
-            list2.insertData(beforeHead, list2.head);
-
+            assert.equal(res, list2);
             assert.equal(list2.head.data, beforeHead);
         });
 
@@ -542,9 +542,9 @@ describe('List', function() {
             var qux = {};
             var list2head = list2.head;
             var list2tail = list2.tail;
+            var res = list2.insertData(qux, list2.tail);
 
-            list2.insertData(qux, list2.tail);
-
+            assert.equal(res, list2);
             assert.deepEqual(list2head, {
                 prev: null,
                 next: list2tail.prev,
@@ -671,9 +671,9 @@ describe('List', function() {
     describe('#insertList()', function() {
         it('add non-empty list to non-empty list', function() {
             var list1head = list1.head;
+            var res = list2.insertList(list1, list2.tail);
 
-            list2.insertList(list1, list2.tail);
-
+            assert.equal(res, list2);
             assert.equal(list1.head, null);
             assert.equal(list1.tail, null);
             assert.deepEqual(list1head, {
@@ -696,9 +696,9 @@ describe('List', function() {
         it('add non-empty list to empty list', function() {
             var list2Head = list2.head;
             var list2Tail = list2.tail;
+            var res = empty.insertList(list2);
 
-            empty.insertList(list2);
-
+            assert.equal(res, empty);
             assert.equal(empty.head, list2Head);
             assert.equal(empty.tail, list2Tail);
             assert.equal(list2.head, null);
@@ -707,9 +707,9 @@ describe('List', function() {
 
         it('add empty list to non-empty', function() {
             var list2tail = list2.tail;
+            var res = list2.insertList(empty);
 
-            list2.insertList(empty);
-
+            assert.equal(res, list2);
             assert.equal(empty.head, null);
             assert.equal(list2.tail, list2tail);
         });
