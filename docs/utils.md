@@ -12,30 +12,33 @@
 
 ## property(name)
 
-Returns a details about property name, i.e. vendor prefix, used hack etc. Can be used for safe test of declaration property name.
+Returns details for a property name, such as vendor prefix, used hack etc. Using for safe test of declaration property names, i.e. `Declaration.property`.
 
 ```js
 var csstree = require('css-tree');
 
 csstree.property('*-vendor-property');
 // {
-//     name: 'property',
-//     variable: false,
-//     prefix: '*-vendor-',
+//     basename: 'property',
+//     name: '-vendor-property',
+//     hack: '*',
 //     vendor: '-vendor-',
-//     hack: '*'
-// };
+//     prefix: '*-vendor-',
+//     custom: false
+// }
+
 csstree.property('--test-var');
 // {
+//     basename: '--test-var',
 //     name: '--test-var',
-//     variable: true,
-//     prefix: '',
+//     hack: '',
 //     vendor: '',
-//     hack: ''
+//     prefix: '',
+//     custom: true
 // };
 ```
 
-`property()` function normalize name to lower case, but not custom property names (since custom property names are case sensitive). It returns the same immutable (freezed) object for the same input name when normalized.
+`property()` function normalizes a name to lower case, except custom property names since they are case sensitive. It returns the same immutable (freezed) object for the same input (input after normalization).
 
 ```js
 csstree.property('name') === csstree.property('NAME')         // true
@@ -51,28 +54,33 @@ info.name === 'name'; // true
 Supported hacks:
 
 - `_` in the beginning
+- `+` in the beginning
+- `#` in the beginning
 - `*` in the beginning
 - `$` in the beginning
+- `/` in the beginning
 - `//` in the beginning
 
 ## keyword(name)
 
-The same as `property()` function, but without hack and custom property name detection.
+Mostly the same as `property()` function, but without hack detection. Using for any identifier except declaration property name.
 
 ```js
 var csstree = require('css-tree');
 
 csstree.keyword('-vendor-keyword');
 // {
-//     name: 'keyword',
+//     basename: 'keyword',
+//     name: '-vendor-keyword',
+//     vendor: '-vendor-',
 //     prefix: '-vendor-',
-//     vendor: '-vendor-'
+//     custom: false
 // };
 ```
 
 ## clone(ast)
 
-Make an AST node deep copy.
+Make AST deep copy.
 
 ```js
 var orig = csstree.parse('.test { color: red }');
@@ -92,13 +100,13 @@ console.log(csstree.generate(copy));
 
 ## fromPlainObject(object)
 
-`fromPlainObject()` recursively walks through tree and coverts each `children` value into a List instance if value is an array.
+`fromPlainObject()` walks through AST and coverts each `children` value into a `List` instance when value is an array.
 
 ```js
 var csstree = require('css-tree');
 var ast = {
-    "type": "SelectorList",
-    "children": []
+    type: 'SelectorList',
+    children: []
 };
 
 console.log(Array.isArray(ast.children));          // true
@@ -110,23 +118,21 @@ console.log(Array.isArray(ast.children));          // false
 console.log(ast.children instanceof csstree.List); // true
 ```
 
-It recursively walk through tree and converts `children` value to List instance if it's an array. Implementation have no protection from cycles in tree, therefore object tree should be acyclic.
-
-Function mutates the passed object tree. If you want to avoid it use `clone()` function before passing object to `fromPlainObject()`.
+Function mutates the passed AST. Use `clone()` function before passing AST to `fromPlainObject()` in case you want to avoid original tree mutation.
 
 ```js
-ast = csstree.fromPlainObject(csstree.clone(ast));
+astClone = csstree.fromPlainObject(csstree.clone(ast));
 ```
 
 ## toPlainObject(ast)
 
-`fromPlainObject()` recursively walks through tree and coverts each `children` value to regular array if value is a List instance.
+`fromPlainObject()` walks through AST and coverts each `children` value to regular array when value is a `List` instance.
 
 ```js
 var csstree = require('css-tree');
 var ast = {
-    "type": "SelectorList",
-    "children": new List()
+    type: 'SelectorList',
+    children: new List()
 };
 
 console.log(Array.isArray(ast.children));          // false
@@ -138,9 +144,7 @@ console.log(Array.isArray(ast.children));          // true
 console.log(ast.children instanceof csstree.List); // false
 ```
 
-Implementation have no protection from cycles in tree, therefore object tree should be acyclic.
-
-Function mutates the passed object tree. If you want to avoid it use `clone()` function before passing object to `toPlainObject()`.
+Function mutates the passed AST. Use `clone()` function before passing AST to `toPlainObject()` in case you want to avoid original tree mutation.
 
 ```js
 ast = csstree.toPlainObject(csstree.clone(ast));

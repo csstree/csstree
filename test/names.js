@@ -80,7 +80,7 @@ describe('names utils', function() {
                 it(test, function() {
                     assert.deepEqual(keyword(test), {
                         name: test,
-                        basename: test.substr(2),
+                        basename: test,
                         prefix: '',
                         vendor: '',
                         custom: true
@@ -181,7 +181,7 @@ describe('names utils', function() {
         it('should detect custom property', function() {
             assert.deepEqual(property('--test'), {
                 name: '--test',
-                basename: 'test',
+                basename: '--test',
                 custom: true,
                 prefix: '',
                 hack: '',
@@ -203,7 +203,7 @@ describe('names utils', function() {
         it('should detect custom property and hack', function() {
             assert.deepEqual(property('//--test'), {
                 name: '--test',
-                basename: 'test',
+                basename: '--test',
                 custom: true,
                 prefix: '//',
                 hack: '//',
@@ -238,7 +238,7 @@ describe('names utils', function() {
         it('shouldn\'t normalize custom property names', function() {
             assert.deepEqual(property('--Test-Custom'), {
                 name: '--Test-Custom',
-                basename: 'Test-Custom',
+                basename: '--Test-Custom',
                 custom: true,
                 prefix: '',
                 hack: '',
@@ -247,7 +247,7 @@ describe('names utils', function() {
 
             assert.deepEqual(property('--TEST-custom'), {
                 name: '--TEST-custom',
-                basename: 'TEST-custom',
+                basename: '--TEST-custom',
                 custom: true,
                 prefix: '',
                 hack: '',
@@ -262,7 +262,7 @@ describe('names utils', function() {
                 it(test, function() {
                     assert.deepEqual(property(test), {
                         name: test,
-                        basename: test.substr(2),
+                        basename: test,
                         custom: true,
                         prefix: '',
                         hack: '',
