@@ -26,7 +26,7 @@ The facts you should know about `walk()` internals:
     - A function-iterator is generating for every node type.
     - Node's properties iterates in the order it defined in `structure` ([reverse](#reverse) option can invert an order).
     - Properties that are not defined in `structure` are ignoring (doesn't interate).
-    - An exception is possible when a tree is not following to expected structure (it may happen if a tree was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of a tree structure, you can use `try/catch` or check the tree with `csstree.lexer.validateStructure(ast)` before iterate it.
+    - An exception is possible when a tree is not following to expected structure (it may happen if AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of a tree structure, you can use `try/catch` or check the tree with `csstree.lexer.validateStructure(ast)` before iterate it.
 - Only `children` fields can contain a list of nodes. A list of nodes can be represented as a `List` or an `Array` instances. Any tree can contain both types of `children` with no concerns.
 
 ## walk(ast, options)
@@ -168,14 +168,39 @@ csstree.walk(ast, {
 
 ### visit
 
-Type: `'Rule'`, `'Atrule'`, `'Declaration'` or `null`  
+Type: `string` or `null`  
 Default: `null`
 
-Invokes a handler for a specified node type only. It helps avoid extra checks and performs faster, because some subtrees may to be skipped since they can't contain a node of specified type.
+Invokes a handler for a specified node type only.
 
-Caveats:
-- Option is limited to a few supported types at the moment. The list is expected to be expanded in future releases.
-- Nodes may not be reached in case of an incorrect location in the tree.
+```js
+var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+
+csstree.walk(ast, {
+    visit: 'ClassSelector',
+    enter: function(node) {
+        console.log(node.name);
+    }
+});
+
+// example above is equal to
+csstree.walk(ast, {
+    enter: function(node) {
+        if (node.type === 'ClassSelector') {
+            console.log(node.name);
+        }
+    }
+});
+```
+
+The traveral for some node types can performs faster (10-15 times depending on the CSS structure), because some subtrees may to be skipped since they can't contain a node of specified type (e.g. `Rule` can't be used inside of `Declaration`, so declaration's subtree can be exclude from traversal path). Fast traversal is supported for node types:
+
+- `Atrule`
+- `Rule`
+- `Declaration`
+
+> NOTE: When fast traversal is applied, some nodes may not be reached in case of an incorrect location in the tree. That's may happen if AST was built outside the CSSTree parser or transformed in a wrong way. If you need to be 100% sure that every node of type will be visited (even in wrong position), don't use `visit` option and test node type by your own.
 
 ### reverse
 

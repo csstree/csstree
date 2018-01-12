@@ -235,7 +235,7 @@ describe('AST traversal', function() {
         it('should throws when visit has wrong value', function() {
             assert.throws(function() {
                 walk(ast, { visit: 'Foo' });
-            }, /Bad value `Foo` for `visit` option \(should be: Atrule, Rule, Declaration\)/);
+            }, /Bad value `Foo` for `visit` option \(should be: AnPlusB, Atrule, AtrulePrelude, AttributeSelector, Block, Brackets, CDC, CDO, ClassSelector, Combinator, Comment, Declaration, DeclarationList, Dimension, Function, HexColor, Identifier, IdSelector, MediaFeature, MediaQuery, MediaQueryList, Nth, Number, Operator, Parentheses, Percentage, PseudoClassSelector, PseudoElementSelector, Ratio, Raw, Rule, Selector, SelectorList, String, StyleSheet, TypeSelector, UnicodeRange, Url, Value, WhiteSpace\)/);
         });
     });
 
@@ -286,6 +286,19 @@ describe('AST traversal', function() {
                     return walk(ast, {
                         visit: 'Rule',
                         reverse: true,
+                        enter: fn
+                    });
+                });
+            });
+        });
+    });
+
+    describe('walk(ast, { visit: \'Number\' })', function() {
+        testWithRules.forEach(function(file) {
+            Object.keys(file.tests).forEach(function(name) {
+                createWalkVisitTest(file.tests[name], 'Number', function(ast, fn) {
+                    return walk(ast, {
+                        visit: 'Number',
                         enter: fn
                     });
                 });
