@@ -437,7 +437,7 @@ describe('List', function() {
         assert.equal(list2.unshift(qux), undefined);
     });
 
-    it('#shift()', function() {
+    describe('#shift()', function() {
         it('should remove first item', function() {
             var head = list2.head;
             var tail = list2.tail;
@@ -485,7 +485,7 @@ describe('List', function() {
         assert.equal(list2.push(qux), undefined);
     });
 
-    it('#pop()', function() {
+    describe('#pop()', function() {
         it('should remove last item', function() {
             var head = list2.head;
             var tail = list2.tail;
