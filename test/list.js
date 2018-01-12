@@ -448,7 +448,7 @@ describe('List', function() {
         });
 
         it('should return an undefined for an empty list', function() {
-            assert.equal(empty.head(), undefined);
+            assert.equal(empty.shift(), undefined);
         });
     });
 
