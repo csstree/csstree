@@ -437,6 +437,21 @@ describe('List', function() {
         assert.equal(list2.unshift(qux), undefined);
     });
 
+    it('#shift()', function() {
+        it('should remove first item', function() {
+            var head = list2.head;
+            var tail = list2.tail;
+
+            assert.equal(list2.shift(), head);
+            assert.equal(list2.shift(), tail);
+            assert.equal(list2.head, null);
+        });
+
+        it('should return an undefined for an empty list', function() {
+            assert.equal(empty.head(), undefined);
+        });
+    });
+
     it('#append()', function() {
         var qux = {};
 
@@ -468,6 +483,21 @@ describe('List', function() {
         assert.deepEqual(list2.toArray(), [foo, bar, qux]);
 
         assert.equal(list2.push(qux), undefined);
+    });
+
+    it('#pop()', function() {
+        it('should remove last item', function() {
+            var head = list2.head;
+            var tail = list2.tail;
+
+            assert.equal(list2.pop(), tail);
+            assert.equal(list2.pop(), head);
+            assert.equal(list2.head, null);
+        });
+
+        it('should return an undefined for an empty list', function() {
+            assert.equal(empty.pop(), undefined);
+        });
     });
 
     describe('#insert()', function() {
