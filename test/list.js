@@ -655,8 +655,51 @@ describe('List', function() {
         });
     });
 
+    describe('#prependList()', function() {
+        it('prepend non-empty list to non-empty list', function() {
+            var list1head = list1.head;
+            var list2head = list2.head;
+            var res = list2.prependList(list1);
+
+            assert.equal(res, list2);
+            assert.equal(list1.head, null);
+            assert.equal(list2.head, list1head);
+            assert.deepEqual(list1head, {
+                prev: null,
+                next: list2head,
+                data: foo
+            });
+            assert.deepEqual(list2head, {
+                prev: list1head,
+                next: list2.tail,
+                data: bar
+            });
+        });
+
+        it('prepend non-empty list to empty list', function() {
+            var list2head = list2.head;
+            var list2tail = list2.tail;
+            var res = empty.prependList(list2);
+
+            assert.equal(res, empty);
+            assert.equal(empty.head, list2head);
+            assert.equal(empty.tail, list2tail);
+            assert.equal(list2.head, null);
+            assert.equal(list2.tail, null);
+        });
+
+        it('prepend empty list to non-empty', function() {
+            var list2head = list2.head;
+            var res = list2.prependList(empty);
+
+            assert.equal(res, list2);
+            assert.equal(empty.head, null);
+            assert.equal(list2.head, list2head);
+        });
+    });
+
     describe('#appendList()', function() {
-        it('add non-empty list to non-empty list', function() {
+        it('append non-empty list to non-empty list', function() {
             var list1head = list1.head;
             var list2tail = list2.tail;
             var res = list2.appendList(list1);
@@ -676,19 +719,19 @@ describe('List', function() {
             });
         });
 
-        it('add non-empty list to empty list', function() {
-            var list2Head = list2.head;
-            var list2Tail = list2.tail;
+        it('append non-empty list to empty list', function() {
+            var list2head = list2.head;
+            var list2tail = list2.tail;
             var res = empty.appendList(list2);
 
             assert.equal(res, empty);
-            assert.equal(empty.head, list2Head);
-            assert.equal(empty.tail, list2Tail);
+            assert.equal(empty.head, list2head);
+            assert.equal(empty.tail, list2tail);
             assert.equal(list2.head, null);
             assert.equal(list2.tail, null);
         });
 
-        it('add empty list to non-empty', function() {
+        it('append empty list to non-empty', function() {
             var list2tail = list2.tail;
             var res = list2.appendList(empty);
 
@@ -724,13 +767,13 @@ describe('List', function() {
         });
 
         it('add non-empty list to empty list', function() {
-            var list2Head = list2.head;
-            var list2Tail = list2.tail;
+            var list2head = list2.head;
+            var list2tail = list2.tail;
             var res = empty.insertList(list2);
 
             assert.equal(res, empty);
-            assert.equal(empty.head, list2Head);
-            assert.equal(empty.tail, list2Tail);
+            assert.equal(empty.head, list2head);
+            assert.equal(empty.tail, list2tail);
             assert.equal(list2.head, null);
             assert.equal(list2.tail, null);
         });
