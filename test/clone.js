@@ -1,32 +1,41 @@
 var assert = require('assert');
 var parse = require('../lib').parse;
 var clone = require('../lib').clone;
-var walkAll = require('../lib').walk;
+var walk = require('../lib').walk;
+var toPlainObject = require('../lib').toPlainObject;
 
-function sumMarker(ast) {
-    var result = 0;
+function createCloneTest(name, getAst) {
+    it(name, function() {
+        var ast = getAst();
+        var astCopy = clone(ast);
+        var astNodes = [];
+        var clonedNodeCount = 0;
+        var nonClonedNodeCount = 0;
 
-    walkAll(ast, function(node) {
-        result += node.marker;
+        walk(ast, function(node) {
+            astNodes.push(node);
+        });
+
+        walk(astCopy, function(node) {
+            clonedNodeCount++;
+            if (astNodes.indexOf(node) !== -1) {
+                nonClonedNodeCount++;
+            }
+        });
+
+        assert.equal(clonedNodeCount, astNodes.length);
+        assert.equal(nonClonedNodeCount, 0);
     });
-
-    return result;
 }
 
-describe('AST clone', function() {
-    it('clone()', function() {
-        var ast = parse('.test{color:red;}@media foo{div{color:green}}');
-        var astCopy = clone(ast);
+describe('clone()', function() {
+    createCloneTest('a regular AST', function() {
+        return parse('.test{color:red;}@media foo{div{color:green}}');
+    });
 
-        walkAll(ast, function(node) {
-            node.marker = 1;
-        });
-
-        walkAll(astCopy, function(node) {
-            node.marker = 2;
-        });
-
-        assert(sumMarker(ast) > 1);
-        assert.equal(sumMarker(ast) * 2, sumMarker(astCopy));
+    createCloneTest('an AST as JSON', function() {
+        return toPlainObject(
+            parse('.test{color:red;}@media foo{div{color:green}}')
+        );
     });
 });
