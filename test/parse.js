@@ -1,5 +1,4 @@
 var assert = require('assert');
-var fs = require('fs');
 var syntax = require('../lib');
 var parse = require('../lib').parse;
 var TYPE = require('../lib').Tokenizer.TYPE;
