@@ -1,12 +1,10 @@
 # AST format
 
-CSSTree's AST is an object tree. Each node is object with `type` property that indicates its type. Other property set depends on node type.
+CSSTree's AST is a tree of objects. Each node (leaf) is an object with `type` property that indicates its type. The rest properties are depend on node's type.
 
-Each node have a `loc` property, but not included in descriptions to avoid noise. Its value contains an object with node content positions in source string or null depending on parsing settings.
+Each node have a `loc` property, but not included in descriptions to avoid noise. The `loc` value contains an object with a node content positions in source string or null depending on parsing settings.
 
 > Details on each node to be done
-
-Other node types are stable enough.
 
 Node types:
 
@@ -57,7 +55,7 @@ Node types:
 
 ## AnPlusB
 
-Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsyntax).
+Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsyntax).
 
 ```
 {
@@ -67,7 +65,7 @@ Used to represent [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#an
 }
 ```
 
-`a` and `b` may have no value (to be equals to `null`) but not both at the same time. Parser normalizes `a` value to store a valid interger, i.e. for `-n` it will contains `-1` and for `n` it will contains `1`.
+`a` or `b` fields may have no value (equals to `null`) but not both at the same time. Parser normalizes `a` value to store a valid integer, i.e. parser will store `-1` for `-n` and `1` for `n`.
 
 ## Atrule
 
