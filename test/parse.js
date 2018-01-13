@@ -98,32 +98,6 @@ describe('parse', function() {
         });
     });
 
-    describe('list option', function() {
-        var css = fs.readFileSync(__dirname + '/fixture/stringify.css');
-
-        it('should use array for a list of nodes', function() {
-            var astWithList = parse(css);
-            var astWithArray = parse(css, { list: false });
-
-            assert(astWithList.children instanceof List);
-            assert(Array.isArray(astWithArray.children));
-
-            assert.deepEqual(astWithArray, toPlainObject(astWithList));
-        });
-
-        it('should use array for a list of nodes (with positions)', function() {
-            var astWithList = parse(css, { positions: true });
-            var astWithArray = parse(css, { list: false, positions: true });
-
-            assert(astWithList.children instanceof List);
-            assert(astWithList.loc);
-            assert(Array.isArray(astWithArray.children));
-            assert(astWithArray.loc);
-
-            assert.deepEqual(astWithArray, toPlainObject(astWithList));
-        });
-    });
-
     it('should call onParseError when handler is passed', function() {
         var errors = [];
         var ast = parse('{ a: 1!; foo; b: 2 }', {

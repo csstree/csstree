@@ -33,7 +33,6 @@ Options (optional):
 - [parseRulePrelude](#parseruleprelude)
 - [parseValue](#parsevalue)
 - [parseCustomProperty](#parsecustomproperty)
-- [list](#list)
 
 <!-- /MarkdownTOC -->
 
@@ -284,10 +283,3 @@ csstree.parse('--custom: #aabbcc', { context: 'declaration', parseCustomProperty
 //     }
 // }
 ```
-
-### list
-
-Type: `boolean`  
-Default: `true`
-
-By default parser uses `List` instances for building a list of nodes. When option is set to `false` it uses a regular arrays.
