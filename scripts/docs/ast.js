@@ -16,7 +16,7 @@ module.exports = function(md) {
         .split(/\n*## +/g).slice(1)
         .reduce(function(dict, section) {
             var name = section.match(/^\w+/)[0];
-            var texts = section.replace(/^\w+\n+/, '').split(/\n*```([^`]+)```\n*/);
+            var texts = section.replace(/^\w+\n+/, '').split(/\n*```[a-z]*([^`]+)```\n*/);
 
             dict[name] = {
                 before: texts[0] || '',
@@ -34,7 +34,7 @@ module.exports = function(md) {
         sections.push(
             '## ' + type + '\n\n' +
             (info.before ? info.before + '\n\n' : '') +
-            '```\n' +
+            '```js\n' +
             genNodeStructure(lexer.structure[type].docs) +
             '\n```' +
             (info.after ?  '\n\n' + info.after : '') +
