@@ -10,13 +10,13 @@ All nodes have the following properties.
 
 Type: `String`
 
-Indicates the type of a node. The possible values are the ones listed in the [Node types](#nodetypes) below.
+Indicates the type of a node. The possible values are the ones listed in the [Node types](#node-types) below.
 
 ### loc
 
 Type: `Object` or `null`
 
-Information about the position in the source string that corresponds to the node. It has the follow structure:
+Information about the position in the source string that corresponds to the node. It has the following structure:
 
 ```
 {
@@ -36,11 +36,11 @@ Information about the position in the source string that corresponds to the node
 
 The `source` property contains value of `options.filename` if passed to `csstree.parse()`, otherwise `"<unknown>"`.
 
-The `offset` number is zero-based, indicates index in source string passed to `csstree.parse()`.
+The `offset` number is zero-based, indicates the index in a source string passed to the parser.
 
 The `line` and `column` numbers are 1-based: the first line is `1` and the first column of a line is `1`.
 
-The `loc` property lets you know from which source file the node comes from (if available) and what part of that file was parsed into the node. By default parser doesn't include `loc` data into the AST (set `null` for this property), you should pass `options.positions` equal to `true` to make `loc` filled.
+The `loc` property lets you know from which source file the node comes from (if available) and what part of that file was parsed into the node. By default parser doesn't include `loc` data into the AST (sets `null` for this property), you should pass `options.positions` equal to `true` to make `loc` filled.
 
 ## Node types
 
