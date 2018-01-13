@@ -27,7 +27,7 @@ The facts you should know about `walk()` internals:
     - Node's properties iterates in the order it defined in `structure` ([reverse](#reverse) option can invert an order).
     - Properties that are not defined in `structure` are ignoring (doesn't interate).
     - An exception is possible when a tree is not following to expected structure (it may happen if AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of a tree structure, you can use `try/catch` or check the tree with `csstree.lexer.validateStructure(ast)` before iterate it.
-- Only `children` fields can contain a list of nodes. A list of nodes can be represented as a `List` or an `Array` instances. Any tree can contain both types of `children` with no concerns.
+- Only `children` fields can contain a list of nodes. A list of nodes should be represented as a `List` instances. But for certain cases, `children` can be an array. Since `List` provides a similar to `Array` API, traversal can work in most cases, but without any guarantee. Therefore usings arrays in AST is not recomended, use them on your own risk.
 
 ## walk(ast, options)
 
@@ -71,11 +71,14 @@ csstree.walk(ast, {
 // Identifier
 ```
 
-> NOTE: In case `options` has a single `enter` field, it can replaced for the handler passed as a value for `enter`, i.e. `walk(ast, { enter: fn })` → `walk(ast, fn)`.
+In case `options` has a single `enter` field, it can replaced for the handler passed as a value for `enter`, i.e. `walk(ast, { enter: fn })` → `walk(ast, fn)`.
 
-Handler receives a three arguments. The first one is `node` – the AST node a walker entering to. The second two arguments are depend on type of `children` (an array or a list). When `children` is an array, those arguments are `index` and `array`, like for `Array#forEach()` or `Array#map()` methods. When `children` is a list those arguments are:
+Handler receives a three arguments:
+- `node` – the AST node a walker entering to
 - `item` – node wrapper, that contains references to `prev` and `next` nodes in a list, and `data` reference for the node
 - `list` – is a reference for the list; it's useful for list operations like `remove()` or `insert()`
+
+> NOTE: If `children` is an array, the last two arguments are `index` and `array`, like for `Array#forEach()` or `Array#map()` methods.
 
 ```js
 const csstree = require('css-tree');
