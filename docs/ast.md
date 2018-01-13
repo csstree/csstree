@@ -20,16 +20,16 @@ Information about the position in the source string that corresponds to the node
 
 ```
 {
-    "source": String,
-    "start": {
-        "offset": Number,
-        "line": Number,
-        "column": Number
+    source: String,
+    start: {
+        offset: Number,
+        line: Number,
+        column: Number
     },
     end: {
-        "offset": Number,
-        "line": Number,
-        "column": Number
+        offset: Number,
+        line: Number,
+        column: Number
     }
 }
 ```
@@ -97,9 +97,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "AnPlusB",
-    "a": String | null,
-    "b": String | null
+    type: "AnPlusB",
+    a: String | null,
+    b: String | null
 }
 ```
 
@@ -109,10 +109,10 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Atrule",
-    "name": String,
-    "prelude": <AtrulePrelude> | <Raw> | null,
-    "block": <Block> | null
+    type: "Atrule",
+    name: String,
+    prelude: <AtrulePrelude> | <Raw> | null,
+    block: <Block> | null
 }
 ```
 
@@ -120,8 +120,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "AtrulePrelude",
-    "children": List
+    type: "AtrulePrelude",
+    children: List
 }
 ```
 
@@ -129,11 +129,11 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "AttributeSelector",
-    "name": <Identifier>,
-    "matcher": String | null,
-    "value": <String> | <Identifier> | null,
-    "flags": String | null
+    type: "AttributeSelector",
+    name: <Identifier>,
+    matcher: String | null,
+    value: <String> | <Identifier> | null,
+    flags: String | null
 }
 ```
 
@@ -141,8 +141,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Block",
-    "children": List
+    type: "Block",
+    children: List
 }
 ```
 
@@ -150,8 +150,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Brackets",
-    "children": List
+    type: "Brackets",
+    children: List
 }
 ```
 
@@ -159,7 +159,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "CDC"
+    type: "CDC"
 }
 ```
 
@@ -167,7 +167,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "CDO"
+    type: "CDO"
 }
 ```
 
@@ -175,8 +175,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "ClassSelector",
-    "name": String
+    type: "ClassSelector",
+    name: String
 }
 ```
 
@@ -184,8 +184,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Combinator",
-    "name": String
+    type: "Combinator",
+    name: String
 }
 ```
 
@@ -193,8 +193,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Comment",
-    "value": String
+    type: "Comment",
+    value: String
 }
 ```
 
@@ -202,10 +202,10 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Declaration",
-    "important": Boolean | String,
-    "property": String,
-    "value": <Value> | <Raw>
+    type: "Declaration",
+    important: Boolean | String,
+    property: String,
+    value: <Value> | <Raw>
 }
 ```
 
@@ -213,8 +213,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "DeclarationList",
-    "children": List
+    type: "DeclarationList",
+    children: List
 }
 ```
 
@@ -222,9 +222,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Dimension",
-    "value": String,
-    "unit": String
+    type: "Dimension",
+    value: String,
+    unit: String
 }
 ```
 
@@ -232,9 +232,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Function",
-    "name": String,
-    "children": List
+    type: "Function",
+    name: String,
+    children: List
 }
 ```
 
@@ -242,8 +242,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "HexColor",
-    "value": String
+    type: "HexColor",
+    value: String
 }
 ```
 
@@ -251,8 +251,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "IdSelector",
-    "name": String
+    type: "IdSelector",
+    name: String
 }
 ```
 
@@ -260,8 +260,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Identifier",
-    "name": String
+    type: "Identifier",
+    name: String
 }
 ```
 
@@ -269,9 +269,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "MediaFeature",
-    "name": String,
-    "value": <Identifier> | <Number> | <Dimension> | <Ratio> | null
+    type: "MediaFeature",
+    name: String,
+    value: <Identifier> | <Number> | <Dimension> | <Ratio> | null
 }
 ```
 
@@ -279,8 +279,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "MediaQuery",
-    "children": List
+    type: "MediaQuery",
+    children: List
 }
 ```
 
@@ -288,8 +288,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "MediaQueryList",
-    "children": List
+    type: "MediaQueryList",
+    children: List
 }
 ```
 
@@ -297,9 +297,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Nth",
-    "nth": <AnPlusB> | <Identifier>,
-    "selector": <SelectorList> | null
+    type: "Nth",
+    nth: <AnPlusB> | <Identifier>,
+    selector: <SelectorList> | null
 }
 ```
 
@@ -307,8 +307,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Number",
-    "value": String
+    type: "Number",
+    value: String
 }
 ```
 
@@ -316,8 +316,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Operator",
-    "value": String
+    type: "Operator",
+    value: String
 }
 ```
 
@@ -325,8 +325,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Parentheses",
-    "children": List
+    type: "Parentheses",
+    children: List
 }
 ```
 
@@ -334,8 +334,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Percentage",
-    "value": String
+    type: "Percentage",
+    value: String
 }
 ```
 
@@ -343,9 +343,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "PseudoClassSelector",
-    "name": String,
-    "children": List | null
+    type: "PseudoClassSelector",
+    name: String,
+    children: List | null
 }
 ```
 
@@ -353,9 +353,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "PseudoElementSelector",
-    "name": String,
-    "children": List | null
+    type: "PseudoElementSelector",
+    name: String,
+    children: List | null
 }
 ```
 
@@ -363,9 +363,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Ratio",
-    "left": String,
-    "right": String
+    type: "Ratio",
+    left: String,
+    right: String
 }
 ```
 
@@ -373,8 +373,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Raw",
-    "value": String
+    type: "Raw",
+    value: String
 }
 ```
 
@@ -382,9 +382,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Rule",
-    "prelude": <SelectorList> | <Raw>,
-    "block": <Block>
+    type: "Rule",
+    prelude: <SelectorList> | <Raw>,
+    block: <Block>
 }
 ```
 
@@ -392,8 +392,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Selector",
-    "children": List
+    type: "Selector",
+    children: List
 }
 ```
 
@@ -401,8 +401,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "SelectorList",
-    "children": List
+    type: "SelectorList",
+    children: List
 }
 ```
 
@@ -410,8 +410,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "String",
-    "value": String
+    type: "String",
+    value: String
 }
 ```
 
@@ -419,8 +419,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "StyleSheet",
-    "children": List
+    type: "StyleSheet",
+    children: List
 }
 ```
 
@@ -428,8 +428,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "TypeSelector",
-    "name": String
+    type: "TypeSelector",
+    name: String
 }
 ```
 
@@ -437,8 +437,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "UnicodeRange",
-    "value": String
+    type: "UnicodeRange",
+    value: String
 }
 ```
 
@@ -446,8 +446,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Url",
-    "value": <String> | <Raw>
+    type: "Url",
+    value: <String> | <Raw>
 }
 ```
 
@@ -455,8 +455,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "Value",
-    "children": List
+    type: "Value",
+    children: List
 }
 ```
 
@@ -464,7 +464,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ```
 {
-    "type": "WhiteSpace",
-    "value": String
+    type: "WhiteSpace",
+    value: String
 }
 ```

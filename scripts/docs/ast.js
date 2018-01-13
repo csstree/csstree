@@ -3,7 +3,7 @@ var lexer = require('../../lib').lexer;
 function genNodeStructure(docs) {
     return '{\n' +
         Object.keys(docs).map(function(field) {
-            return '    "' + field + '": ' + docs[field];
+            return '    ' + field + ': ' + docs[field];
         }).join(',\n') +
     '\n}';
 }
