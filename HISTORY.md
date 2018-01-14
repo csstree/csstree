@@ -1,3 +1,40 @@
+## 1.0.0-alpha.27 (January 14, 2018)
+
+- Generator
+    - Changed node's `generate()` methods invocation, methods now take a node as a single argument and context (i.e. `this`) that have methods: `chunk()`, `node()` and `children()`
+    - Renamed `translate()` to `generate()` and changed to take `options` argument
+    - Removed `translateMarkup(ast, enter, leave)` method, use `generate(ast, { decorator: (handlers) => { ... }})` instead
+    - Removed `translateWithSourceMap(ast)`, use `generate(ast, { sourceMap: true })` instead
+    - Changed to support for children as an array
+- Walker
+    - Changed `walk()` to take an `options` argument instead of handler, with `enter`, `leave`, `visit` and `reverse` options (`walk(ast, fn)` is still works and equivalent to `walk(ast, { enter: fn })`)
+    - Removed `walkUp(ast, fn)`, use `walk(ast, { leave: fn })`
+    - Removed `walkRules(ast, fn)`, use `walk(ast, { visit: 'Rule', enter: fn })` instead
+    - Removed `walkRulesRight(ast, fn)`, use `walk(ast, { visit: 'Rule', reverse: true, enter: fn })` instead
+    - Removed `walkDeclarations(ast, fn)`, use `walk(ast, { visit: 'Declaration', enter: fn })` instead
+    - Changed to support for children as array in most cases (`reverse: true` will fail on arrays since they have no `forEachRight()` method)
+- Misc
+    - List
+        - Added `List#forEach()` method
+        - Added `List#forEachRight()` method
+        - Added `List#filter()` method
+        - Changed `List#map()` method to return a `List` instance instead of `Array`
+        - Added `List#push()` method, similar to `List#appendData()` but returns nothing
+        - Added `List#pop()` method
+        - Added `List#unshift()` method, similar to `List#prependData()` but returns nothing
+        - Added `List#shift()` method
+        - Added `List#prependList()` method
+        - Changed `List#insert()`, `List#insertData()`, `List#appendList()` and `List#insertList()` methods to return a list that performed an operation
+    - Changed `keyword()` method
+        - Changed `name` field to include a vendor prefix
+        - Added `basename` field to contain a name without a vendor prefix
+        - Added `custom` field that contain a `true` when keyword is a custom property reference
+    - Changed `property()` method
+        - Changed `name` field to include a vendor prefix
+        - Added `basename` field to contain a name without any prefixes, i.e. a hack and a vendor prefix
+    - Added `vendorPrefix()` method
+    - Added `isCustomProperty()` method
+
 ## 1.0.0-alpha.26 (November 9, 2017)
 
 - Tokenizer
