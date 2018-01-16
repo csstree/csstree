@@ -1,6 +1,6 @@
 var assert = require('assert');
 var parse = require('../lib').grammar.parse;
-var translate = require('../lib').grammar.translate;
+var generate = require('../lib').grammar.generate;
 var walk = require('../lib').grammar.walk;
 var data = require('../data');
 
@@ -18,14 +18,14 @@ function createParseTest(name, syntax) {
         var ast = parse(syntax);
 
         assert.equal(ast.type, 'Group');
-        assert.equal(normalize(translate(ast)), normalize(syntax));
+        assert.equal(normalize(generate(ast)), normalize(syntax));
     });
 }
 
 describe('grammar', function() {
     it('combinator precedence', function() {
         var ast = parse('a b   |   c ||   d &&   e f');
-        assert.equal(translate(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
+        assert.equal(generate(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
     });
 
     describe('bad syntax', function() {
@@ -95,7 +95,7 @@ describe('grammar', function() {
         });
     });
 
-    describe('parse/translate', function() {
+    describe('parse/generate', function() {
         ['properties', 'types'].forEach(function(section) {
             Object.keys(data[section]).forEach(function(name) {
                 createParseTest(section + '/' + name, data[section][name]);
@@ -103,16 +103,16 @@ describe('grammar', function() {
         });
     });
 
-    describe('translate', function() {
+    describe('generate', function() {
         it('should throw an exception on bad node type', function() {
             assert.throws(function() {
-                translate({ type: 'Unknown' });
+                generate({ type: 'Unknown' });
             }, /Error: Unknown node type `Unknown`/);
         });
 
         it('with decorate', function() {
             var ast = parse('<foo> && <bar>');
-            var actual = translate(ast, false, function(str, node) {
+            var actual = generate(ast, false, function(str, node) {
                 switch (node.type) {
                     case 'Type':
                         return '{' + str + '}';
@@ -137,7 +137,7 @@ describe('grammar', function() {
             walk(ast, function(node) {
                 visited.push({
                     type: node.type,
-                    value: translate(node)
+                    value: generate(node)
                 });
             });
 
@@ -168,13 +168,13 @@ describe('grammar', function() {
                 enter: function(node) {
                     visited.push({
                         action: 'enter',
-                        value: translate(node)
+                        value: generate(node)
                     });
                 },
                 leave: function(node) {
                     visited.push({
                         action: 'leave',
-                        value: translate(node)
+                        value: generate(node)
                     });
                 }
             });
