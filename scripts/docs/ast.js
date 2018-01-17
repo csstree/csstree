@@ -1,4 +1,6 @@
 var lexer = require('../../lib').lexer;
+var TOC_RX = /(<!-- MarkdownTOC .*?-->\n+)((?:\s|.)*?)(\n+<!-- \/MarkdownTOC -->)/;
+var ARTICLES_RX = /(<!-- node types -->\n+)((?:\s|.)*?)(\n+<!-- \/node types -->)/;
 
 function genNodeStructure(docs) {
     return '{\n' +
@@ -8,42 +10,62 @@ function genNodeStructure(docs) {
     '\n}';
 }
 
+function updateTOC(md, toc) {
+    return md.replace(TOC_RX, function(m, start, content, end) {
+        var parts = content.split(/(- \[Node types\]\(#node-types\)\n+)/);
+        parts[2] = toc;
+        return start + parts.join('') + end;
+    });
+}
+
+function updateArticles(md, definitions) {
+    return md.replace(ARTICLES_RX, function(m, start, content, end) {
+        var existing = content
+            .split(/\n*### +/g).slice(1)
+            .reduce(function(dict, section) {
+                var name = section.match(/^\w+/)[0];
+                var texts = section.replace(/^\w+\n+/, '').split(/\n*```[a-z]*([^`]+)```\n*/);
+
+                dict[name] = {
+                    before: texts[0] || '',
+                    after: texts[2] || ''
+                };
+
+                return dict;
+            }, {});
+
+        var articles = definitions.map(function(section) {
+            var type = section.type;
+            var article = existing[type] || {};
+
+            return (
+                '### ' + type + '\n\n' +
+                (article.before ? article.before + '\n\n' : '') +
+                '```js\n' +
+                genNodeStructure(lexer.structure[type].docs) +
+                '\n```' +
+                (article.after ?  '\n\n' + article.after : '')
+            );
+        });
+
+        return start + articles.join('\n\n') + end;
+    });
+}
+
 module.exports = function(md) {
-    var mdParts = md.split(/(\n<!-- \/?MarkdownTOC .*?-->\n)/);
     var toc = [];
-    var sections = [];
-    var types = mdParts[4]
-        .split(/\n*## +/g).slice(1)
-        .reduce(function(dict, section) {
-            var name = section.match(/^\w+/)[0];
-            var texts = section.replace(/^\w+\n+/, '').split(/\n*```[a-z]*([^`]+)```\n*/);
-
-            dict[name] = {
-                before: texts[0] || '',
-                structure: texts[1],
-                after: texts[2] || ''
-            };
-
-            return dict;
-        }, {});
+    var types = [];
 
     Object.keys(lexer.structure).sort().forEach(function(type) {
-        var info = types[type] || {};
-
-        toc.push('- [' + type + '](#' + type.toLowerCase() + ')');
-        sections.push(
-            '## ' + type + '\n\n' +
-            (info.before ? info.before + '\n\n' : '') +
-            '```js\n' +
-            genNodeStructure(lexer.structure[type].docs) +
-            '\n```' +
-            (info.after ?  '\n\n' + info.after : '') +
-            '\n'
-        );
+        toc.push('    - [' + type + '](#' + type.toLowerCase() + ')');
+        types.push({
+            type: type,
+            structure: lexer.structure[type].docs
+        });
     });
 
-    mdParts[2] = '\n' + toc.join('\n') + '\n';
-    mdParts[4] = '\n' + sections.join('\n');
+    md = updateTOC(md, toc.join('\n'));
+    md = updateArticles(md, types);
 
-    return mdParts.join('');
+    return md;
 };

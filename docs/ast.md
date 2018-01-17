@@ -1,8 +1,130 @@
 # AST format
 
+CSSTree's AST consists of nodes (leafs). Each node is an object with a set of properties that depends on node's type. Nodes can refers to other nodes and contain a list of nested nodes.
+
 Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist/244e2fb4da940df52bf0f4b94277db44/e79aff44611020b22cfd9708f3a99ce09b7d67a8).
 
-## Common properties
+<!-- MarkdownTOC -->
+
+- [Example](#example)
+- [Common node's properties](#common-nodes-properties)
+    - [type](#type)
+    - [loc](#loc)
+    - [children](#children)
+- [Node types](#node-types)
+    - [AnPlusB](#anplusb)
+    - [Atrule](#atrule)
+    - [AtrulePrelude](#atruleprelude)
+    - [AttributeSelector](#attributeselector)
+    - [Block](#block)
+    - [Brackets](#brackets)
+    - [CDC](#cdc)
+    - [CDO](#cdo)
+    - [ClassSelector](#classselector)
+    - [Combinator](#combinator)
+    - [Comment](#comment)
+    - [Declaration](#declaration)
+    - [DeclarationList](#declarationlist)
+    - [Dimension](#dimension)
+    - [Function](#function)
+    - [HexColor](#hexcolor)
+    - [IdSelector](#idselector)
+    - [Identifier](#identifier)
+    - [MediaFeature](#mediafeature)
+    - [MediaQuery](#mediaquery)
+    - [MediaQueryList](#mediaquerylist)
+    - [Nth](#nth)
+    - [Number](#number)
+    - [Operator](#operator)
+    - [Parentheses](#parentheses)
+    - [Percentage](#percentage)
+    - [PseudoClassSelector](#pseudoclassselector)
+    - [PseudoElementSelector](#pseudoelementselector)
+    - [Ratio](#ratio)
+    - [Raw](#raw)
+    - [Rule](#rule)
+    - [Selector](#selector)
+    - [SelectorList](#selectorlist)
+    - [String](#string)
+    - [StyleSheet](#stylesheet)
+    - [TypeSelector](#typeselector)
+    - [UnicodeRange](#unicoderange)
+    - [Url](#url)
+    - [Value](#value)
+    - [WhiteSpace](#whitespace)
+
+<!-- /MarkdownTOC -->
+
+## Example
+
+Assume we have a CSS:
+
+```css
+body {
+    color: red;
+}
+```
+
+An AST for this CSS might look like:
+
+```js
+{
+    type: 'StyleSheet',
+    loc: null,
+    children: [
+        {
+            type: 'Rule',
+            loc: null,
+            prelude: {
+                type: 'SelectorList',
+                loc: null,
+                children: [
+                    {
+                        type: 'Selector',
+                        loc: null,
+                        children: [
+                            {
+                                type: 'TypeSelector',
+                                loc: null,
+                                name: 'body'
+                            }
+                        ]
+                    }
+                ]
+            },
+            block: {
+                type: 'Block',
+                loc: null,
+                children: [
+                    {
+                        type: 'Declaration',
+                        loc: null,
+                        important: false,
+                        property: 'color',
+                        value: {
+                            type: 'Value',
+                            loc: null,
+                            children: [
+                                {
+                                    type: 'Identifier',
+                                    loc: null,
+                                    name: 'red'
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+> NOTE: The example uses arrays for the values of the property `children`. In fact, the values of this property are instances of the [`List`](List.md) class.
+
+An AST structure (i.e. details level, include positions or not) is depend on options passed to parser. See [Parsing CSS into AST](parsing.md) for details.
+
+## Common node's properties
 
 All nodes have the following properties.
 
@@ -42,56 +164,21 @@ The `line` and `column` numbers are 1-based: the first line is `1` and the first
 
 The `loc` property lets you know from which source file the node comes from (if available) and what part of that file was parsed into the node. By default parser doesn't include `loc` data into the AST (sets `null` for this property), you should pass `options.positions` equal to `true` to make `loc` filled.
 
+### children
+
+Type: `List` or `null`  
+
+Only certain types of nodes can contain this property, such as [`StyleSheet`](#stylesheet) or [`Block`](#block). However, this is the only property that can store a list of nested nodes.
+
+Most node types always store an instance of the `List` in this property, even if there is no nested nodes (the list is empty). Only some node types, such as `PseudoClassSelector` and `PseudoElementSelector`, can store a `null` instead of a list. This is due to the fact that in the absence of a list such node types is represent a pseudo-selector, and in the presence of a list, a functional pseudo-selector. See definition of each node type for details.
+
 ## Node types
 
 > NOTE: Despite every node has a `loc` property, this property is excluded from definitions to reduce a noise.
 
-<!-- MarkdownTOC -->
+<!-- node types -->
 
-- [AnPlusB](#anplusb)
-- [Atrule](#atrule)
-- [AtrulePrelude](#atruleprelude)
-- [AttributeSelector](#attributeselector)
-- [Block](#block)
-- [Brackets](#brackets)
-- [CDC](#cdc)
-- [CDO](#cdo)
-- [ClassSelector](#classselector)
-- [Combinator](#combinator)
-- [Comment](#comment)
-- [Declaration](#declaration)
-- [DeclarationList](#declarationlist)
-- [Dimension](#dimension)
-- [Function](#function)
-- [HexColor](#hexcolor)
-- [IdSelector](#idselector)
-- [Identifier](#identifier)
-- [MediaFeature](#mediafeature)
-- [MediaQuery](#mediaquery)
-- [MediaQueryList](#mediaquerylist)
-- [Nth](#nth)
-- [Number](#number)
-- [Operator](#operator)
-- [Parentheses](#parentheses)
-- [Percentage](#percentage)
-- [PseudoClassSelector](#pseudoclassselector)
-- [PseudoElementSelector](#pseudoelementselector)
-- [Ratio](#ratio)
-- [Raw](#raw)
-- [Rule](#rule)
-- [Selector](#selector)
-- [SelectorList](#selectorlist)
-- [String](#string)
-- [StyleSheet](#stylesheet)
-- [TypeSelector](#typeselector)
-- [UnicodeRange](#unicoderange)
-- [Url](#url)
-- [Value](#value)
-- [WhiteSpace](#whitespace)
-
-<!-- /MarkdownTOC -->
-
-## AnPlusB
+### AnPlusB
 
 Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsyntax).
 
@@ -105,7 +192,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 `a` or `b` fields may have no value (equals to `null`) but not both at the same time. Parser normalizes `a` value to store a valid integer, i.e. parser will store `-1` for `-n` and `1` for `n`.
 
-## Atrule
+### Atrule
 
 ```js
 {
@@ -116,7 +203,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## AtrulePrelude
+### AtrulePrelude
 
 ```js
 {
@@ -125,7 +212,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## AttributeSelector
+### AttributeSelector
 
 ```js
 {
@@ -137,7 +224,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Block
+### Block
 
 ```js
 {
@@ -146,7 +233,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Brackets
+### Brackets
 
 ```js
 {
@@ -155,7 +242,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## CDC
+### CDC
 
 ```js
 {
@@ -163,7 +250,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## CDO
+### CDO
 
 ```js
 {
@@ -171,7 +258,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## ClassSelector
+### ClassSelector
 
 ```js
 {
@@ -180,7 +267,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Combinator
+### Combinator
 
 ```js
 {
@@ -189,7 +276,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Comment
+### Comment
 
 ```js
 {
@@ -198,7 +285,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Declaration
+### Declaration
 
 ```js
 {
@@ -209,7 +296,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## DeclarationList
+### DeclarationList
 
 ```js
 {
@@ -218,7 +305,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Dimension
+### Dimension
 
 ```js
 {
@@ -228,7 +315,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Function
+### Function
 
 ```js
 {
@@ -238,7 +325,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## HexColor
+### HexColor
 
 ```js
 {
@@ -247,7 +334,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## IdSelector
+### IdSelector
 
 ```js
 {
@@ -256,7 +343,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Identifier
+### Identifier
 
 ```js
 {
@@ -265,7 +352,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## MediaFeature
+### MediaFeature
 
 ```js
 {
@@ -275,7 +362,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## MediaQuery
+### MediaQuery
 
 ```js
 {
@@ -284,7 +371,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## MediaQueryList
+### MediaQueryList
 
 ```js
 {
@@ -293,7 +380,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Nth
+### Nth
 
 ```js
 {
@@ -303,7 +390,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Number
+### Number
 
 ```js
 {
@@ -312,7 +399,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Operator
+### Operator
 
 ```js
 {
@@ -321,7 +408,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Parentheses
+### Parentheses
 
 ```js
 {
@@ -330,7 +417,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Percentage
+### Percentage
 
 ```js
 {
@@ -339,7 +426,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## PseudoClassSelector
+### PseudoClassSelector
 
 ```js
 {
@@ -349,7 +436,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## PseudoElementSelector
+### PseudoElementSelector
 
 ```js
 {
@@ -359,7 +446,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Ratio
+### Ratio
 
 ```js
 {
@@ -369,7 +456,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Raw
+### Raw
+
+A sequence of any characters. This node type is used for unparsed fragments of CSS, e.g. due to parse error or parser settings, and for quirk parts like content of some functions, such as `url()` or `expression()`.
 
 ```js
 {
@@ -378,7 +467,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Rule
+### Rule
 
 ```js
 {
@@ -388,7 +477,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Selector
+### Selector
 
 ```js
 {
@@ -397,7 +486,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## SelectorList
+### SelectorList
 
 ```js
 {
@@ -406,7 +495,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## String
+### String
+
+A sequence of characters enclosed in double quotes or single quotes.
 
 ```js
 {
@@ -415,7 +506,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## StyleSheet
+### StyleSheet
 
 ```js
 {
@@ -424,7 +515,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## TypeSelector
+### TypeSelector
 
 ```js
 {
@@ -433,7 +524,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## UnicodeRange
+### UnicodeRange
+
+Used for [the Unicode-Range microsyntax](https://drafts.csswg.org/css-syntax/#urange).
 
 ```js
 {
@@ -442,7 +535,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Url
+### Url
 
 ```js
 {
@@ -451,7 +544,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## Value
+### Value
 
 ```js
 {
@@ -460,7 +553,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-## WhiteSpace
+### WhiteSpace
+
+A sequence of one or more white spaces, i.e. ` ` (space), `\t`, `\r`, `\n` and `\f`.
 
 ```js
 {
@@ -468,3 +563,5 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
     value: String
 }
 ```
+
+<!-- /node types -->
