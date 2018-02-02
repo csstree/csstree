@@ -181,7 +181,7 @@ Defines to parse a rule prelude in details or left unparsed (represents as `Raw`
 csstree.parse('.foo {}');
 // {
 //     "type": "Rule",
-//     "selector": {
+//     "prelude": {
 //         "type": "SelectorList",
 //         "children": [
 //             {
@@ -201,7 +201,7 @@ csstree.parse('.foo {}');
 csstree.parse('.foo {}', { parseRulePrelude: false });
 // {
 //     "type": "Rule",
-//     "selector": {
+//     "prelude": {
 //         "type": "Raw",
 //         "value": ".foo"
 //     },
