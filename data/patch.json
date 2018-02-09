@@ -26,7 +26,7 @@
     },
     "-moz-osx-font-smoothing": {
       "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
-      "syntax": "auto | unset | grayscale"
+      "syntax": "auto | grayscale"
     },
     "-moz-user-select": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/user-select",
@@ -113,7 +113,7 @@
     },
     "-webkit-font-smoothing": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
-      "syntax": "none | antialiased | subpixel-antialiased"
+      "syntax": "auto | none | antialiased | subpixel-antialiased"
     },
     "-webkit-line-clamp": {
       "comment": "non-standard and deprecated but may still using by some sites",
