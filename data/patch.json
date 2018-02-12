@@ -208,12 +208,12 @@
       "syntax": "auto | use-script | no-change | reset-size | ideographic | alphabetic | hanging | mathematical | central | middle | text-after-edge | text-before-edge"
     },
     "image-rendering": {
-      "comment": "extended with <-non-standart-image-rendering>, added SVG keywords optimizeSpeed and optimizeQuality",
+      "comment": "extended with <-non-standard-image-rendering>, added SVG keywords optimizeSpeed and optimizeQuality",
       "references": [
         "https://developer.mozilla.org/en/docs/Web/CSS/image-rendering",
         "https://www.w3.org/TR/SVG/painting.html#ImageRenderingProperty"
       ],
-      "syntax": "auto | crisp-edges | pixelated | optimizeSpeed | optimizeQuality | <-non-standart-image-rendering>"
+      "syntax": "auto | crisp-edges | pixelated | optimizeSpeed | optimizeQuality | <-non-standard-image-rendering>"
     },
     "fill": {
       "comment": "added SVG property",
@@ -241,8 +241,8 @@
       "syntax": "none | <filter-function-list> | <-ms-filter>"
     },
     "font": {
-      "comment": "extend with non-standart fonts",
-      "syntax": "[ [ <'font-style'> || <font-variant-css21> || <'font-weight'> || <'font-stretch'> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'> ] | caption | icon | menu | message-box | small-caption | status-bar | <-non-standart-font>"
+      "comment": "extend with non-standard fonts",
+      "syntax": "[ [ <'font-style'> || <font-variant-css21> || <'font-weight'> || <'font-stretch'> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'> ] | caption | icon | menu | message-box | small-caption | status-bar | <-non-standard-font>"
     },
     "glyph-orientation-horizontal": {
       "comment": "added SVG property",
@@ -301,12 +301,12 @@
       "syntax": "none | <url>"
     },
     "max-width": {
-      "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
-      "syntax": "<length> | <percentage> | none | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
+      "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
+      "syntax": "<length> | <percentage> | none | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
     },
     "min-width": {
-      "comment": "extend by non-standart width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-      "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standart-width>"
+      "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
+      "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
     },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
@@ -463,8 +463,8 @@
       "syntax": "silent | [ [ x-soft | soft | medium | loud | x-loud ] || <decibel> ]"
     },
     "word-break": {
-      "comment": "extend with non-standart keywords",
-      "syntax": "normal | break-all | keep-all | <-non-standart-word-break>"
+      "comment": "extend with non-standard keywords",
+      "syntax": "normal | break-all | keep-all | <-non-standard-word-break>"
     },
     "writing-mode": {
       "comment": "extend with SVG keywords",
@@ -481,15 +481,15 @@
       "syntax": "<-webkit-gradient()> | <-legacy-linear-gradient()> | <-legacy-repeating-linear-gradient()> | <-legacy-radial-gradient()> | <-legacy-repeating-radial-gradient()>"
     },
     "-legacy-linear-gradient()": {
-      "comment": "like standart syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
+      "comment": "like standard syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
       "syntax": "-moz-linear-gradient( <-legacy-linear-gradient-arguments> ) | -ms-linear-gradient( <-legacy-linear-gradient-arguments> ) | -webkit-linear-gradient( <-legacy-linear-gradient-arguments> ) | -o-linear-gradient( <-legacy-linear-gradient-arguments> )"
     },
     "-legacy-repeating-linear-gradient()": {
-      "comment": "like standart syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
+      "comment": "like standard syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
       "syntax": "-moz-repeating-linear-gradient( <-legacy-linear-gradient-arguments> ) | -ms-repeating-linear-gradient( <-legacy-linear-gradient-arguments> ) | -webkit-repeating-linear-gradient( <-legacy-linear-gradient-arguments> ) | -o-repeating-linear-gradient( <-legacy-linear-gradient-arguments> )"
     },
     "-legacy-linear-gradient-arguments": {
-      "comment": "like standart syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
+      "comment": "like standard syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
       "syntax": "[ <angle> | <side-or-corner> ]? , <color-stop-list>"
     },
     "-legacy-radial-gradient()": {
@@ -505,38 +505,38 @@
       "syntax": "[ <position> , ]? [ [ [ <-legacy-radial-gradient-shape> || <-legacy-radial-gradient-size> ] | [ <length> | <percentage> ]{2} ] , ]? <color-stop-list>"
     },
     "-legacy-radial-gradient-size": {
-      "comment": "before standart it contains 2 extra keywords (`contain` and `cover`) https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltsize",
+      "comment": "before a standard it contains 2 extra keywords (`contain` and `cover`) https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltsize",
       "syntax": "closest-side | closest-corner | farthest-side | farthest-corner | contain | cover"
     },
     "-legacy-radial-gradient-shape": {
       "comment": "define to duoble sure it doesn't extends in future https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltshape",
       "syntax": "circle | ellipse"
     },
-    "-non-standart-font": {
-      "comment": "non standart fonts",
+    "-non-standard-font": {
+      "comment": "non standard fonts",
       "preferences": [
         "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
       ],
       "syntax": "-apple-system-body | -apple-system-headline | -apple-system-subheadline | -apple-system-caption1 | -apple-system-caption2 | -apple-system-footnote | -apple-system-short-body | -apple-system-short-headline | -apple-system-short-subheadline | -apple-system-short-caption1 | -apple-system-short-footnote | -apple-system-tall-body"
     },
-    "-non-standart-color": {
-      "comment": "non standart colors",
+    "-non-standard-color": {
+      "comment": "non standard colors",
       "references": [
         "http://cssdot.ru/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA_CSS/color-i305.html",
         "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Mozilla_Color_Preference_Extensions"
       ],
       "syntax": "-moz-ButtonDefault | -moz-ButtonHoverFace | -moz-ButtonHoverText | -moz-CellHighlight | -moz-CellHighlightText | -moz-Combobox | -moz-ComboboxText | -moz-Dialog | -moz-DialogText | -moz-dragtargetzone | -moz-EvenTreeRow | -moz-Field | -moz-FieldText | -moz-html-CellHighlight | -moz-html-CellHighlightText | -moz-mac-accentdarkestshadow | -moz-mac-accentdarkshadow | -moz-mac-accentface | -moz-mac-accentlightesthighlight | -moz-mac-accentlightshadow | -moz-mac-accentregularhighlight | -moz-mac-accentregularshadow | -moz-mac-chrome-active | -moz-mac-chrome-inactive | -moz-mac-focusring | -moz-mac-menuselect | -moz-mac-menushadow | -moz-mac-menutextselect | -moz-MenuHover | -moz-MenuHoverText | -moz-MenuBarText | -moz-MenuBarHoverText | -moz-nativehyperlinktext | -moz-OddTreeRow | -moz-win-communicationstext | -moz-win-mediatext | -moz-activehyperlinktext | -moz-default-background-color | -moz-default-color | -moz-hyperlinktext | -moz-visitedhyperlinktext | -webkit-activelink | -webkit-focus-ring-color | -webkit-link | -webkit-text"
     },
-    "-non-standart-image-rendering": {
-      "comment": "non-standart keywords http://phrogz.net/tmp/canvas_image_zoom.html",
+    "-non-standard-image-rendering": {
+      "comment": "non-standard keywords http://phrogz.net/tmp/canvas_image_zoom.html",
       "syntax": "optimize-contrast | -moz-crisp-edges | -o-crisp-edges | -webkit-optimize-contrast"
     },
-    "-non-standart-width": {
-      "comment": "non-standart keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
+    "-non-standard-width": {
+      "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "min-intrinsic | intrinsic | -moz-min-content | -moz-max-content | -webkit-min-content | -webkit-max-content"
     },
-    "-non-standart-word-break": {
-      "comment": "non-standart keywords https://css-tricks.com/almanac/properties/w/word-break/",
+    "-non-standard-word-break": {
+      "comment": "non-standard keywords https://css-tricks.com/almanac/properties/w/word-break/",
       "syntax": "break-word"
     },
     "-webkit-image-set()": {
@@ -639,7 +639,7 @@
     },
     "named-color": {
       "comment": "replaced <ident> to list of colors according to https://www.w3.org/TR/css-color-4/#named-colors",
-      "syntax": "transparent | aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | <-non-standart-color>"
+      "syntax": "transparent | aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | <-non-standard-color>"
     },
     "outline-radius": {
       "comment": "missed, looks like it's a similar to <border-radius> https://developer.mozilla.org/en/docs/Web/CSS/-moz-outline-radius",
