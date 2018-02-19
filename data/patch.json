@@ -272,6 +272,10 @@
       ],
       "syntax": "normal | <length-percentage>"
     },
+    "line-height-step": {
+      "comment": "fix extra spaces around",
+      "syntax": "none | <length>"
+    },
     "marker": {
       "comment": "added SVG property",
       "references": [
