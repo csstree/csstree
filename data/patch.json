@@ -312,6 +312,10 @@
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
       "syntax": "<number-zero-one>"
     },
+    "overflow": {
+      "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
+      "syntax": "visible | hidden | scroll | auto | <-non-standard-overflow>"
+    },
     "pause": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "<'pause-before'> <'pause-after'>?"
@@ -530,6 +534,10 @@
     "-non-standard-image-rendering": {
       "comment": "non-standard keywords http://phrogz.net/tmp/canvas_image_zoom.html",
       "syntax": "optimize-contrast | -moz-crisp-edges | -o-crisp-edges | -webkit-optimize-contrast"
+    },
+    "-non-standard-overflow": {
+      "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
+      "syntax": "-moz-scrollbars-none | -moz-scrollbars-horizontal | -moz-scrollbars-vertical | -moz-hidden-unscrollable"
     },
     "-non-standard-width": {
       "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
