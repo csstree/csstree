@@ -79,6 +79,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `-moz-user-input`
 - `-moz-user-modify`
 - `-moz-user-select`
+- `-moz-window-dragging`
 - `-moz-window-shadow`
 - `-ms-filter`
 - `-ms-flex-align`
@@ -311,6 +312,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `grid-template-areas`
 - `grid-template-columns`
 - `grid-template-rows`
+- `hanging-punctuation`
 - `height`
 - `hyphens`
 - `image-orientation`
@@ -327,6 +329,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `letter-spacing`
 - `line-break`
 - `line-height`
+- `line-height-step`
 - `list-style`
 - `list-style-image`
 - `list-style-position`
@@ -343,9 +346,15 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `marker`
 - `marker-end`
 - `marker-mid`
-- `marker-offset`
 - `marker-start`
 - `mask`
+- `mask-border`
+- `mask-border-mode`
+- `mask-border-outset`
+- `mask-border-repeat`
+- `mask-border-slice`
+- `mask-border-source`
+- `mask-border-width`
 - `mask-clip`
 - `mask-composite`
 - `mask-image`
@@ -450,6 +459,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `text-decoration-color`
 - `text-decoration-line`
 - `text-decoration-skip`
+- `text-decoration-skip-ink`
 - `text-decoration-style`
 - `text-emphasis`
 - `text-emphasis-color`
