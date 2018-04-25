@@ -181,88 +181,91 @@ function buildGroupMatchTree(node, atLeastOneTermMatched) {
     }
 }
 
+function buildMultiplierMatchTree(node) {
+    var matchTerm = buildMatchTree(node.term);
+    var result = MATCH;
+
+    if (node.max === 0) {
+        // an occurrence count is not limited, make a cycle
+        // to collect more terms on each following matching mismatch
+        result = createCondition(
+            matchTerm,
+            null, // will be a loop
+            MISMATCH
+        );
+
+        result.then = createCondition(
+            MATCH,
+            MATCH,
+            result // make a loop
+        );
+
+        if (node.comma) {
+            result.then.else = createCondition(
+                { type: 'Comma' },
+                result,
+                MISMATCH
+            );
+        }
+    } else {
+        // create a match node chain for [min .. max] interval with optional matches
+        for (var i = node.min || 1; i <= node.max; i++) {
+            if (node.comma && result !== MATCH) {
+                result = createCondition(
+                    { type: 'Comma' },
+                    result,
+                    MISMATCH
+                );
+            }
+
+            result = createCondition(
+                matchTerm,
+                createCondition(
+                    MATCH,
+                    MATCH,
+                    result
+                ),
+                MISMATCH
+            );
+        }
+    }
+
+    if (node.min === 0) {
+        // allow zero match
+        result = createCondition(
+            MATCH,
+            MATCH,
+            result
+        );
+    } else {
+        // create a match node chain to collect [0 ... min - 1] required matches
+        for (var i = 0; i < node.min - 1; i++) {
+            if (node.comma && result !== MATCH) {
+                result = createCondition(
+                    { type: 'Comma' },
+                    result,
+                    MISMATCH
+                );
+            }
+
+            result = createCondition(
+                matchTerm,
+                result,
+                MISMATCH
+            );
+        }
+    }
+
+    return result;
+}
+
 function buildMatchTree(node) {
     switch (node.type) {
         case 'Group':
             return buildGroupMatchTree(node);
 
         case 'Multiplier':
-            var matchTerm = buildMatchTree(node.term);
-            var result = MATCH;
-            // console.log(node);
-
-            if (node.max === 0) {
-                // an occurrence count is not limited, make a cycle
-                // to collect more terms on each following matching mismatch
-                result = createCondition(
-                    matchTerm,
-                    null, // will be a loop
-                    MISMATCH
-                );
-
-                result.then = createCondition(
-                    MATCH,
-                    MATCH,
-                    result // make a loop
-                );
-
-                if (node.comma) {
-                    result.then.else = createCondition(
-                        { type: 'Comma' },
-                        result,
-                        MISMATCH
-                    );
-                }
-            } else {
-                // create a match node chain for [min .. max] interval with optional matches
-                for (var i = node.min || 1; i <= node.max; i++) {
-                    if (node.comma && result !== MATCH) {
-                        result = createCondition(
-                            { type: 'Comma' },
-                            result,
-                            MISMATCH
-                        );
-                    }
-
-                    result = createCondition(
-                        matchTerm,
-                        createCondition(
-                            MATCH,
-                            MATCH,
-                            result
-                        ),
-                        MISMATCH
-                    );
-                }
-            }
-
-            if (node.min === 0) {
-                // allow zero match
-                result = createCondition(
-                    MATCH,
-                    MATCH,
-                    result
-                );
-            } else {
-                // create a match node chain to collect [0 ... min - 1] required matches
-                for (var i = 0; i < node.min - 1; i++) {
-                    if (node.comma && result !== MATCH) {
-                        result = createCondition(
-                            { type: 'Comma' },
-                            result,
-                            MISMATCH
-                        );
-                    }
-
-                    result = createCondition(
-                        matchTerm,
-                        result,
-                        MISMATCH
-                    );
-                }
-            }
-
-            return result;
+            return buildMultiplierMatchTree(node);
 
         case 'Function':
             return {
@@ -339,8 +342,7 @@ function internalMatch(ast, syntax) {
 
         if (syntaxNode === MATCH || syntaxNode === MISMATCH) {
             if (ifStack === null) {
-                // console.log('matchStack', ifStack);
-                // console.log('token', token);
+                // console.log({ token, ifStack });
 
                 // turn to MISMATCH when some tokens left unmatched
                 if (token !== null) {
@@ -451,8 +453,6 @@ function internalMatch(ast, syntax) {
                 console.log('Unknown node type', syntaxNode.type);
                 syntaxNode = MISMATCH;
         }
-
-        // console.log('next:', syntaxNode);
     }
 
     console.log(iterationCount);
