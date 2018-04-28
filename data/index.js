@@ -15,6 +15,13 @@ function normalizeSyntax(syntax) {
 }
 
 function patchDict(dict, patchDict) {
+    var patchedDict = {};
+
+    // prevent original dict mutation
+    for (var key in dict) {
+        patchedDict[key] = dict;
+    }
+
     for (var key in patchDict) {
         if (key in dict) {
             if (patchDict[key].syntax) {
