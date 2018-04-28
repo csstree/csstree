@@ -284,14 +284,7 @@ function buildMatchTree(node) {
         case 'Function':
             return {
                 type: 'Function',
-                name: node.name,
-                children: node.children.map(buildMatchTree)
-            };
-
-        case 'Parentheses':
-            return {
-                type: 'Parentheses',
-                children: node.children.map(buildMatchTree)
+                name: node.name
             };
 
         default:
@@ -553,7 +546,21 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
 
                 break;
 
-            // case 'Function':
+            case 'Function':
+                if (token !== null && token.value.toLowerCase() === syntaxNode.name) {
+                    if (tokenCursor + 1 < tokens.length && tokens[tokenCursor + 1].value === '(') {
+                        addTokenToStack();
+                        addTokenToStack();
+                        syntaxNode = MATCH;
+                    } else {
+                        syntaxNode = MISMATCH;
+                    }
+                } else {
+                    syntaxNode = MISMATCH;
+                }
+
+                break;
+
             // case 'Parentheses':
             // case 'String':
             default:
@@ -580,7 +587,7 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                 token: item.token && item.token.value,
                 node: item.token && item.token.node
             };
-        }).slice(1) //.filter(x => !x.type)
+        }).slice(1)
     };
 }
 
@@ -623,7 +630,7 @@ function match(input, matchTree, syntaxes) {
     syntaxes = {
         type: Object.assign({
             'custom-ident': function(token, addTokenToStack) {
-                if (token !== null) {
+                if (token !== null && /^[a-z-][a-z0-9-$]*$/i.test(token.value)) {
                     addTokenToStack();
                     return true;
                 }

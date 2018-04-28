@@ -437,19 +437,22 @@ var tests = {
     },
 
     // complex cases
-    '[ [ left | center | right | top | bottom | lp ] | [ left | center | right | lp ] [ top | center | bottom | lp ] | [ center | [ left | right ] lp? ] && [ center | [ top | bottom ] lp? ] ]': {
+    '[ [ left | center | right | top | bottom | <length> ] | [ left | center | right | <length> ] [ top | center | bottom | <length> ] | [ center | [ left | right ] <length>? ] && [ center | [ top | bottom ] <length>? ] ]': {
+        syntaxes: {
+            'length': 'length'
+        },
         match: [
             'center',
             'left top',
-            'lp lp',
-            'left lp',
-            'left lp bottom lp',
-            'left lp top'
+            'length length',
+            'left length',
+            'left length bottom length',
+            'left length top'
         ],
         mismatch: [
             'left left',
-            'left lp right',
-            'center lp left'
+            'left length right',
+            'center length left'
         ]
     },
     '<custom-ident>+ from': {
@@ -498,6 +501,48 @@ var tests = {
             '',
             'a',
             'a a a'
+        ]
+    },
+
+    // function
+    'a( b* )': {
+        match: [
+            'a()',
+            'A()',
+            'a(b)',
+            'a( b b b )'
+        ],
+        mismatch: [
+            '',
+            'a',
+            'A',
+            // 'a(', // FIXME: csstree parser normalizes it to `a()`
+            'a ()',
+            'a (b)',
+            'a(x)',
+            'a(())'
+        ]
+    },
+    '[ a( | b( ] c )': {
+        match: [
+            'a(c)',
+            'b(c)'
+        ],
+        mismatch: [
+            '',
+            'a(b(c))'
+        ]
+    },
+
+    // parentheses
+    'a ( b* ) c': {
+        match: [
+            'a () c',
+            'a (b) c',
+            'a (b b b)c'
+        ],
+        mismatch: [
+            // 'a()c' // FIXME: should differ from a function
         ]
     }
 };
