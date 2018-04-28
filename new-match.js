@@ -2,6 +2,8 @@ const csstree = require('./lib');
 
 const MATCH = 'match';
 const MISMATCH = 'mismatch';
+const NON_EMPTY = { type: 'DisallowEmpty' };
+const COMMA = { type: 'Comma' };
 let id = 1; // TODO: remove
 let totalIterationCount = 0;
 
@@ -41,8 +43,10 @@ function buildGroupMatchTree(node, atLeastOneTermMatched) {
             var result = MATCH;
 
             for (var i = node.terms.length - 1; i >= 0; i--) {
+                var term = node.terms[i];
+
                 result = createCondition(
-                    buildMatchTree(node.terms[i]),
+                    buildMatchTree(term),
                     result,
                     MISMATCH
                 );
@@ -202,7 +206,7 @@ function buildMultiplierMatchTree(node) {
 
         if (node.comma) {
             result.then.else = createCondition(
-                { type: 'Comma' },
+                COMMA,
                 result,
                 MISMATCH
             );
@@ -212,7 +216,7 @@ function buildMultiplierMatchTree(node) {
         for (var i = node.min || 1; i <= node.max; i++) {
             if (node.comma && result !== MATCH) {
                 result = createCondition(
-                    { type: 'Comma' },
+                    COMMA,
                     result,
                     MISMATCH
                 );
@@ -242,7 +246,7 @@ function buildMultiplierMatchTree(node) {
         for (var i = 0; i < node.min - 1; i++) {
             if (node.comma && result !== MATCH) {
                 result = createCondition(
-                    { type: 'Comma' },
+                    COMMA,
                     result,
                     MISMATCH
                 );
@@ -262,7 +266,17 @@ function buildMultiplierMatchTree(node) {
 function buildMatchTree(node) {
     switch (node.type) {
         case 'Group':
-            return buildGroupMatchTree(node);
+            var result = buildGroupMatchTree(node);
+
+            if (node.disallowEmpty) {
+                result = createCondition(
+                    result,
+                    NON_EMPTY,
+                    MISMATCH
+                );
+            }
+
+            return result;
 
         case 'Multiplier':
             return buildMultiplierMatchTree(node);
@@ -296,31 +310,77 @@ function mapList(list, ref, fn) {
     return result;
 }
 
-function internalMatch(ast, syntax) {
-    function nextNode() {
+function internalMatch(tokens, syntax, syntaxes = {}) {
+    function nextToken() {
         do {
             tokenCursor++;
-            token = tokenCursor < ast.length ? ast[tokenCursor] : null;
+            token = tokenCursor < tokens.length ? tokens[tokenCursor] : null;
         } while (token !== null && !/\S/.test(token.value));
 
         return token;
     }
 
-    function matchNode() {
+    function addTokenToStack() {
+        var matchToken = token;
+        var matchTokenCursor = tokenCursor;
+
+        nextToken();
+
         matchStack = {
+            type: 'Token',
             size: matchStack.size + 1,
             syntax: syntaxNode,
-            token: token,
-            tokenCursor: tokenCursor,
-            prev: matchStack
+            token: matchToken,
+            tokenCursor: matchTokenCursor,
+            prev: matchStack,
+            start: matchToken === '(' || matchToken === '[',
+            end: token === null || token === ')' || token === ']'
         };
-
-        nextNode();
     }
 
-    let matchStack = { size: 0, syntax: null, token: null, prev: null };
+    function openSyntax() {
+        // console.log('Open syntax', syntaxNode);
+        syntaxStack = {
+            syntax: syntaxNode,
+            prev: syntaxStack
+        };
+
+        matchStack = {
+            type: 'Open',
+            size: matchStack.size,
+            syntax: syntaxNode,
+            token: matchStack.token,
+            tokenCursor: matchStack.tokenCursor,
+            prev: matchStack,
+            start: true,
+            end: matchStack.end
+        };
+    }
+
+    function closeSyntax() {
+        // console.log('Close syntax', syntaxStack.syntax);
+        if (matchStack.type === 'Open') {
+            matchStack = matchStack.prev;
+        } else {
+            matchStack = {
+                type: 'Close',
+                size: matchStack.size,
+                syntax: syntaxStack.syntax,
+                token: matchStack.token,
+                tokenCursor: matchStack.tokenCursor,
+                prev: matchStack,
+                start: true,
+                end: matchStack.end
+            };
+        }
+
+        syntaxStack = syntaxStack.prev;
+    }
+
+    var matchStack = { size: 0, syntax: null, token: null, prev: null, start: true, end: false };
+    var syntaxStack = null;
     var tokenCursor = -1;
-    var token = nextNode();
+    var token = nextToken();
 
     var ifStack = null;
     var alternative = null;
@@ -331,8 +391,15 @@ function internalMatch(ast, syntax) {
     var iterationCount = 0;
 
     while (syntaxNode) {
-        // console.log('--\n', '#' + iterationCount, mapList(matchStack, 'prev', x => x.token), JSON.stringify(token), tokenCursor);
-        // console.log(syntaxNode);
+        // console.log('--\n',
+        //     '#' + iterationCount,
+        //     require('util').inspect({
+        //         match: mapList(matchStack, 'prev', x => x.type === 'Token' ? x.token && x.token.value : x.syntax ? x.type + '!' + x.syntax.name : null),
+        //         token: token,
+        //         tokenCursor
+        //     }, { depth: null })
+        // );
+        // console.log(token, syntaxNode);
 
         // prevent infinite loop
         if (++iterationCount === LIMIT) {
@@ -345,7 +412,7 @@ function internalMatch(ast, syntax) {
                 // console.log({ token, ifStack });
 
                 // turn to MISMATCH when some tokens left unmatched
-                if (token !== null) {
+                if (token !== null && syntaxStack === null) {
                     syntaxNode = MISMATCH;
                 }
 
@@ -380,18 +447,29 @@ function internalMatch(ast, syntax) {
                     ifStack.alt = alternative;
                     alternative = ifStack;
                 }
+
+                if (syntaxStack !== null && ifStack.syntaxStack !== syntaxStack) {
+                    closeSyntax();
+                }
             } else {
                 syntaxNode = ifStack.else;
 
                 // restore match stack state
+                syntaxStack = ifStack.syntaxStack;
                 matchStack = ifStack.matchStack;
                 tokenCursor = matchStack.size === 0 ? -1 : matchStack.tokenCursor;
-                token = nextNode();
+                token = nextToken();
             }
 
-            // console.log('trans:', ifStack.id, '=>', ifStack.next && ifStack.next.id);
+            // console.log('trans:', ifStack.id, '=>', ifStack.prev && ifStack.prev.id);
+            // console.log('pop if point to', token, matchStack, syntaxNode);
             // pop stack
-            ifStack = ifStack.next;
+            ifStack = ifStack.prev;
+            continue;
+        }
+
+        if (typeof syntaxNode === 'function') {
+            syntaxNode = syntaxNode(token, addTokenToStack) ? MATCH : MISMATCH;
             continue;
         }
 
@@ -403,7 +481,8 @@ function internalMatch(ast, syntax) {
                     then: syntaxNode.then,
                     else: syntaxNode.else,
                     matchStack: matchStack,
-                    next: ifStack,
+                    syntaxStack: syntaxStack,
+                    prev: ifStack,
                     fastForwardMatch: syntaxNode.then === MATCH && (ifStack === null || ifStack.fastForwardMatch),
                     alt: null
                 };
@@ -412,19 +491,35 @@ function internalMatch(ast, syntax) {
 
                 break;
 
-            case 'Keyword':
-                if (token !== null && token.value === syntaxNode.name) {
-                    matchNode();
-                    syntaxNode = MATCH;
-                } else {
-                    syntaxNode = MISMATCH;
-                }
+            case 'DisallowEmpty':
+                syntaxNode = ifStack === null || matchStack === ifStack.matchStack ? MISMATCH : MATCH;
+                break;
 
+            case 'CloseSyntax':
+                closeSyntax();
                 break;
 
             case 'Type':
-                if (token !== null && syntaxNode.name === 'custom-ident') {
-                    matchNode();
+            case 'Property':
+                ifStack = {
+                    // id: syntaxNode.id,
+                    then: MATCH,
+                    else: MISMATCH,
+                    matchStack: matchStack,
+                    syntaxStack: syntaxStack,
+                    prev: ifStack,
+                    fastForwardMatch: false,
+                    alt: null
+                };
+
+                openSyntax();
+                syntaxNode = syntaxes[syntaxNode.type === 'Type' ? 'type' : 'property'][syntaxNode.name];
+
+                break;
+
+            case 'Keyword':
+                if (token !== null && token.value === syntaxNode.name) {
+                    addTokenToStack();
                     syntaxNode = MATCH;
                 } else {
                     syntaxNode = MISMATCH;
@@ -433,8 +528,24 @@ function internalMatch(ast, syntax) {
                 break;
 
             case 'Comma':
+                var isCommaOnStackTop = matchStack.token && matchStack.token.value === ',';
+
                 if (token !== null && token.value === ',') {
-                    matchNode();
+                    if (isCommaOnStackTop || matchStack.start) {
+                        syntaxNode = MISMATCH;
+                    } else {
+                        addTokenToStack();
+                        syntaxNode = matchStack.end ? MISMATCH : MATCH;
+                    }
+                } else {
+                    syntaxNode = isCommaOnStackTop || matchStack.start || matchStack.end ? MATCH : MISMATCH;
+                }
+
+                break;
+
+            case 'Token':
+                if (token !== null && token.value === syntaxNode.value) {
+                    addTokenToStack();
                     syntaxNode = MATCH;
                 } else {
                     syntaxNode = MISMATCH;
@@ -444,15 +555,15 @@ function internalMatch(ast, syntax) {
 
             // case 'Function':
             // case 'Parentheses':
-            // case 'Type':
-            // case 'Property':
-            // case 'Slash':
-            // case 'Comma':
             // case 'String':
             default:
                 console.log('Unknown node type', syntaxNode.type);
                 syntaxNode = MISMATCH;
         }
+    }
+
+    while (syntaxStack) {
+        closeSyntax();
     }
 
     console.log(iterationCount);
@@ -461,16 +572,19 @@ function internalMatch(ast, syntax) {
     return {
         result,
         match: mapList(matchStack, 'prev', function(item) {
+            if (item.type === 'Open' || item.type === 'Close') {
+                return { type: item.type, syntax: item.syntax };
+            }
             return {
                 syntax: item.syntax,
                 token: item.token && item.token.value,
                 node: item.token && item.token.node
             };
-        }).slice(1)
+        }).slice(1) //.filter(x => !x.type)
     };
 }
 
-function match(input, matchTree) {
+function match(input, matchTree, syntaxes) {
     const ast = csstree.parse(input, { context: 'value' });
     const tokens = csstree.generate(ast, {
         decorator: function(handlers) {
@@ -502,7 +616,24 @@ function match(input, matchTree) {
     // console.log(tokens);
     // process.exit();
 
-    const result = internalMatch(tokens, matchTree);
+    if (!syntaxes) {
+        syntaxes = {};
+    }
+
+    syntaxes = {
+        type: Object.assign({
+            'custom-ident': function(token, addTokenToStack) {
+                if (token !== null) {
+                    addTokenToStack();
+                    return true;
+                }
+
+                return false;
+            }
+        }, syntaxes.type)
+    };
+
+    const result = internalMatch(tokens, matchTree, syntaxes);
 
     return Object.assign({ tokens }, result);
 }

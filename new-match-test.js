@@ -345,82 +345,96 @@ var tests = {
     },
 
     // comma
-    // 'a, b': {
-    //     match: [
-    //         'a, b'
-    //     ],
-    //     mismatch: [
-    //         '',
-    //         'a b'
-    //     ]
-    // },
-    // 'a?, b': {
-    //     match: [
-    //         'b',
-    //         'a, b'
-    //     ],
-    //     mismatch: [
-    //         '',
-    //         'a',
-    //         ', b'
-    //     ]
-    // },
-    // 'a, b?': {
-    //     match: [
-    //         'a',
-    //         'a, b'
-    //     ],
-    //     mismatch: [
-    //         '',
-    //         'a,',
-    //         'b'
-    //     ]
-    // },
-    // 'a?, b?': {
-    //     match: [
-    //         '',
-    //         'a',
-    //         'b',
-    //         'a, b'
-    //     ],
-    //     mismatch: [
-    //         'a,',
-    //         ',b',
-    //         ','
-    //     ]
-    // },
-    // '[a ,]* b': equiv = {
-    //     match: [
-    //         'b',
-    //         'a, b',
-    //         'a, a, b'
-    //     ],
-    //     mismatch: [
-    //         '',
-    //         'a b',
-    //         'a, a b',
-    //         ', b'
-    //     ]
-    // },
-    // 'a#{0,}, b': equiv, // equavalent to [a ,]* b,
-    // 'a#, b?': {
-    //     match: [
-    //         '',
-    //         'a',
-    //         'a, a',
-    //         'a, b',
-    //         'a, a, b'
-    //     ],
-    //     mismatch: [
-    //         'a',
-    //         'a,',
-    //         'a, a,',
-    //         ', b',
-    //         'a a',
-    //         'a b',
-    //         'a a, b'
-    //     ]
-    // },
+    'a, b': {
+        match: [
+            'a, b'
+        ],
+        mismatch: [
+            '',
+            'a b'
+        ]
+    },
+    'a?, b': {
+        match: [
+            'b',
+            'a, b'
+        ],
+        mismatch: [
+            '',
+            'a',
+            ', b'
+        ]
+    },
+    'a, b?': {
+        match: [
+            'a',
+            'a, b'
+        ],
+        mismatch: [
+            '',
+            'a,',
+            'b'
+        ]
+    },
+    'a?, b?': {
+        match: [
+            '',
+            'a',
+            'b',
+            'a, b'
+        ],
+        mismatch: [
+            'a,',
+            ',b',
+            ','
+        ]
+    },
+    '[a ,]* b': equiv = {
+        match: [
+            'b',
+            'a, b',
+            'a, a, b'
+        ],
+        mismatch: [
+            '',
+            'a b',
+            'a, a b',
+            ', b'
+        ]
+    },
+    'a#{0,}, b': equiv, // equavalent to [a ,]* b,
+    'a#, b?': {
+        match: [
+            'a',
+            'a, a',
+            'a, b',
+            'a, a, b'
+        ],
+        mismatch: [
+            '',
+            'a,',
+            'a, a,',
+            ', b',
+            'a a',
+            'a b',
+            'a a, b'
+        ]
+    },
+    'a, b?, c': {
+        match: [
+            'a, c',
+            'a, b, c'
+        ],
+        mismatch: [
+            '',
+            'a',
+            'a,,c',
+            'a,',
+            ',c',
+            'a c',
+            'c'
+        ]
+    },
 
     // complex cases
     '[ [ left | center | right | top | bottom | lp ] | [ left | center | right | lp ] [ top | center | bottom | lp ] | [ center | [ left | right ] lp? ] && [ center | [ top | bottom ] lp? ] ]': {
@@ -452,16 +466,57 @@ var tests = {
             'a b',
             'from'
         ]
+    },
+    'a <foo> b': {
+        syntaxes: {
+            foo: '<custom-ident>*'
+        },
+        match: [
+            'a b',
+            'a x b',
+            'a b b b'
+        ],
+        mismatch: [
+            '',
+            'a b c'
+        ]
+    },
+    'a? <bar> / c': {
+        syntaxes: {
+            bar: '<foo>?',
+            foo: '<custom-ident>+'
+        },
+        match: [
+            '/ c',
+            'b b / c',
+            'a a / c',
+            'a / c',
+            'a b / c',
+            'a b b b / c'
+        ],
+        mismatch: [
+            '',
+            'a',
+            'a a a'
+        ]
     }
 };
 
-function createSyntaxTest(syntax, tests) {
+function createSyntaxTest(syntax, test) {
     var matchTree = buildMatchTree(syntax);
+    var syntaxes = { type: {} };
+
+    if (test.syntaxes) {
+        for (var name in test.syntaxes) {
+            syntaxes.type[name] = buildMatchTree(test.syntaxes[name]);
+        }
+    }
+
     describe(syntax, function() {
-        if (tests.match) {
-            tests.match.forEach(function(input) {
+        if (test.match) {
+            test.match.forEach(function(input) {
                 it('should MATCH to "' + input + '"', function() {
-                    var m = match(input, matchTree);
+                    var m = match(input, matchTree, syntaxes);
 
                     assert.equal(
                         m.result,
@@ -469,18 +524,22 @@ function createSyntaxTest(syntax, tests) {
                     );
 
                     assert.deepEqual(
-                        m.match.map(x => x.token),
-                        m.tokens.map(x => x.value).filter(s => /\S/.test(s))
+                        m.match
+                            .map(x => x.token)
+                            .filter(x => x !== undefined),
+                        m.tokens
+                            .map(x => x.value)
+                            .filter(s => /\S/.test(s))
                     );
                 });
             });
         }
 
-        if (tests.mismatch) {
-            tests.mismatch.forEach(function(input) {
+        if (test.mismatch) {
+            test.mismatch.forEach(function(input) {
                 it('should NOT MATCH to "' + input + '"', function() {
                     assert.equal(
-                        match(input, matchTree).result,
+                        match(input, matchTree, syntaxes).result,
                         'mismatch'
                     );
                 });
