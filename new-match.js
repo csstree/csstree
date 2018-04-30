@@ -379,7 +379,7 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
     var alternative = null;
     var syntaxNode = syntax;
 
-    var result;
+    var result = MISMATCH;
     var LIMIT = 5000;
     var iterationCount = 0;
 
@@ -576,19 +576,7 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
     console.log(iterationCount);
     totalIterationCount += iterationCount;
 
-    return {
-        result,
-        match: mapList(matchStack, 'prev', function(item) {
-            if (item.type === 'Open' || item.type === 'Close') {
-                return { type: item.type, syntax: item.syntax };
-            }
-            return {
-                syntax: item.syntax,
-                token: item.token && item.token.value,
-                node: item.token && item.token.node
-            };
-        }).slice(1)
-    };
+    return result === MATCH ? matchStack : null;
 }
 
 function match(input, matchTree, syntaxes) {
@@ -640,9 +628,63 @@ function match(input, matchTree, syntaxes) {
         }, syntaxes.type)
     };
 
-    const result = internalMatch(tokens, matchTree, syntaxes);
+    return {
+        tokens,
+        match: internalMatch(tokens, matchTree, syntaxes)
+    };
+}
 
-    return Object.assign({ tokens }, result);
+function matchAsTree() {
+    let cursor = match.apply(this, arguments).match;
+    let host = {
+        syntax: null,
+        match: []
+    };
+    const stack = [host];
+
+    // revert a list
+    let prev = null;
+    let next = null;
+    while (cursor !== null) {
+        next = cursor.prev;
+        cursor.prev = prev;
+        prev = cursor;
+        cursor = next;
+    }
+
+    // init the cursor to start with 2nd item since 1st is a stub item
+    cursor = prev.prev;
+
+    // build a tree
+    while (cursor !== null && cursor.syntax !== null) {
+        const entry = cursor;
+
+        switch (entry.type) {
+            case 'Open':
+                host.match.push(host = {
+                    syntax: entry.syntax,
+                    match: []
+                });
+                stack.push(host);
+                break;
+
+            case 'Close':
+                stack.pop();
+                host = stack[stack.length - 1];
+                break;
+
+            default:
+                host.match.push({
+                    syntax: entry.syntax,
+                    token: entry.token && entry.token.value,
+                    node: entry.token && entry.token.node
+                });
+        }
+
+        cursor = cursor.prev;
+    }
+
+    return host;
 }
 
 // TODO: remove
@@ -656,5 +698,23 @@ module.exports = {
         id = 1; // TODO: remove
         return buildMatchTree(ast);
     },
-    match: match
+    match: function() {
+        const res = match.apply(this, arguments);
+
+        return {
+            tokens: res.tokens,
+            result: res.match !== null ? MATCH : MISMATCH,
+            match: mapList(res.match, 'prev', function(item) {
+                if (item.type === 'Open' || item.type === 'Close') {
+                    return { type: item.type, syntax: item.syntax };
+                }
+                return {
+                    syntax: item.syntax,
+                    token: item.token && item.token.value,
+                    node: item.token && item.token.node
+                };
+            }).slice(1)
+        };
+    },
+    matchAsTree
 };
