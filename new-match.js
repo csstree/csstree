@@ -1,5 +1,4 @@
 const csstree = require('./lib');
-const generic = require('./new-match-generic');
 
 const MATCH = 'match';
 const MISMATCH = 'mismatch';
@@ -28,8 +27,8 @@ function createCondition(match, thenBranch, elseBranch) {
     };
 }
 
-function buildGroupMatchTree(node, atLeastOneTermMatched) {
-    switch (node.combinator) {
+function buildGroupMatchTree(combinator, terms, atLeastOneTermMatched) {
+    switch (combinator) {
         case ' ':
             // Juxtaposing components means that all of them must occur, in the given order.
             //
@@ -44,11 +43,11 @@ function buildGroupMatchTree(node, atLeastOneTermMatched) {
             //   else MISMATCH
             var result = MATCH;
 
-            for (var i = node.terms.length - 1; i >= 0; i--) {
-                var term = node.terms[i];
+            for (var i = terms.length - 1; i >= 0; i--) {
+                var term = terms[i];
 
                 result = createCondition(
-                    buildMatchTree(term),
+                    term,
                     result,
                     MISMATCH
                 );
@@ -70,10 +69,45 @@ function buildGroupMatchTree(node, atLeastOneTermMatched) {
             //       else MISMATCH
 
             var result = MISMATCH;
+            var prevKeyword = null;
+            var map = null;
 
-            for (var i = node.terms.length - 1; i >= 0; i--) {
+            for (var i = terms.length - 1; i >= 0; i--) {
+                var term = terms[i];
+
+                // reduce sequence of keywords into a Enum
+                if (term.type === 'Keyword') {
+                    if (prevKeyword !== null) {
+                        if (map === null) {
+                            map = Object.create(null);
+                            if (result.type === 'If') {
+                                map[result.match.name.toLowerCase()] = result.match;
+                                result.match = {
+                                    type: 'Enum',
+                                    map: map
+                                };
+                            } else {
+                                map[result.name.toLowerCase()] = result;
+                                result = {
+                                    type: 'Enum',
+                                    map: map
+                                };
+                            }
+                        }
+
+                        map[term.name.toLowerCase()] = term;
+                        continue;
+                    }
+
+                    prevKeyword = term;
+                } else {
+                    prevKeyword = null;
+                    map = null;
+                }
+
+                // create a new conditonal node
                 result = createCondition(
-                    buildMatchTree(node.terms[i]),
+                    term,
                     MATCH,
                     result
                 );
@@ -107,25 +141,28 @@ function buildGroupMatchTree(node, atLeastOneTermMatched) {
             //     else MISMATCH
             var result = MISMATCH;
 
-            for (var i = node.terms.length - 1; i >= 0; i--) {
-                var term = node.terms[i];
+            if (terms.length > 5) {
+                return result;
+            }
+
+            for (var i = terms.length - 1; i >= 0; i--) {
+                var term = terms[i];
                 var thenClause;
 
-                if (node.terms.length > 1) {
-                    thenClause = buildGroupMatchTree({
-                        type: 'Group',
-                        terms: node.terms.filter(function(newGroupTerm) {
+                if (terms.length > 1) {
+                    thenClause = buildGroupMatchTree(
+                        combinator,
+                        terms.filter(function(newGroupTerm) {
                             return newGroupTerm !== term;
                         }),
-                        combinator: node.combinator,
-                        disallowEmpty: false
-                    });
+                        false
+                    );
                 } else {
                     thenClause = MATCH;
                 }
 
                 result = createCondition(
-                    buildMatchTree(term),
+                    term,
                     thenClause,
                     result
                 );
@@ -159,25 +196,28 @@ function buildGroupMatchTree(node, atLeastOneTermMatched) {
             //     else MISMATCH
             var result = atLeastOneTermMatched ? MATCH : MISMATCH;
 
-            for (var i = node.terms.length - 1; i >= 0; i--) {
-                var term = node.terms[i];
+            if (terms.length > 5) {
+                return result;
+            }
+
+            for (var i = terms.length - 1; i >= 0; i--) {
+                var term = terms[i];
                 var thenClause;
 
-                if (node.terms.length > 1) {
-                    thenClause = buildGroupMatchTree({
-                        type: 'Group',
-                        terms: node.terms.filter(function(newGroupTerm) {
+                if (terms.length > 1) {
+                    thenClause = buildGroupMatchTree(
+                        combinator,
+                        terms.filter(function(newGroupTerm) {
                             return newGroupTerm !== term;
                         }),
-                        combinator: node.combinator,
-                        disallowEmpty: false
-                    }, true);
+                        true
+                    );
                 } else {
                     thenClause = MATCH;
                 }
 
                 result = createCondition(
-                    buildMatchTree(term),
+                    term,
                     thenClause,
                     result
                 );
@@ -268,7 +308,11 @@ function buildMultiplierMatchTree(node) {
 function buildMatchTree(node) {
     switch (node.type) {
         case 'Group':
-            var result = buildGroupMatchTree(node);
+            var result = buildGroupMatchTree(
+                node.combinator,
+                node.terms.map(buildMatchTree),
+                false
+            );
 
             if (node.disallowEmpty) {
                 result = createCondition(
@@ -534,6 +578,22 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                 if (token !== null && token.value.toLowerCase() === syntaxNode.name) {
                     addTokenToStack();
                     syntaxNode = MATCH;
+                } else {
+                    syntaxNode = MISMATCH;
+                }
+
+                break;
+
+            case 'Enum':
+                if (token !== null) {
+                    var name = token.value.toLowerCase();
+                    if (hasOwnProperty.call(syntaxNode.map, name)) {
+                        syntaxNode = syntaxNode.map[name];
+                        addTokenToStack();
+                        syntaxNode = MATCH;
+                    } else {
+                        syntaxNode = MISMATCH;
+                    }
                 } else {
                     syntaxNode = MISMATCH;
                 }
