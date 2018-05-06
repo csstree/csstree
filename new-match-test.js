@@ -437,6 +437,83 @@ var tests = {
             'c'
         ]
     },
+    'a? [, b]*': {
+        match: [
+            '',
+            'a',
+            'a, b, b'
+        ],
+        mismatch: [
+            ', b',
+            ', b, b'
+        ]
+    },
+    '(a? [, b]*)': {
+        match: [
+            '()',
+            '(a)',
+            '(b)',
+            '(b, b)',
+            '(a, b, b)'
+        ],
+        mismatch: [
+            '(, b)',
+            '(, b, b)'
+        ]
+    },
+    '([a ,]* b?)': {
+        match: [
+            '()',
+            '(a)',
+            '(b)',
+            '(a, a)',
+            '(a, a, b)'
+        ],
+        mismatch: [
+            '(a, )',
+            '(a, a, )',
+            '(, b)'
+        ]
+    },
+    'a / [b?, c?]': {
+        match: [
+            'a /',
+            'a / b',
+            'a / c',
+            'a / b, c'
+        ],
+        mismatch: [
+            '',
+            'a / , c',
+            'a / b ,'
+        ]
+    },
+    '[a?, b?] / c': {
+        match: [
+            '/ c',
+            'a / c',
+            'b / c',
+            'a , b / c'
+        ],
+        mismatch: [
+            '',
+            'a , / c',
+            ', b / c'
+        ]
+    },
+    'func( [a?, b?] )': {
+        match: [
+            'func()',
+            'func(a)',
+            'func(b)',
+            'func(a, b)'
+        ],
+        mismatch: [
+            '',
+            'func(a,)',
+            'func(,b)'
+        ]
+    },
 
     // complex cases
     '[ [ left | center | right | top | bottom | <length> ] | [ left | center | right | <length> ] [ top | center | bottom | <length> ] | [ center | [ left | right ] <length>? ] && [ center | [ top | bottom ] <length>? ] ]': {
@@ -551,7 +628,14 @@ var tests = {
 
 function createSyntaxTest(syntax, test) {
     var matchTree = buildMatchTree(syntax);
-    var syntaxes = { types: Object.assign({}, genericSyntaxes) };
+    var syntaxes = { types: {} };
+
+    for (var name in genericSyntaxes) {
+        syntaxes.types[name] = {
+            type: 'Generic',
+            fn: genericSyntaxes[name]
+        };
+    }
 
     if (test.syntaxes) {
         for (var name in test.syntaxes) {

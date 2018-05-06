@@ -1,7 +1,7 @@
 const csstree = require('./lib');
 
-const MATCH = 'match';
-const MISMATCH = 'mismatch';
+const MATCH = { type: 'Match' };
+const MISMATCH = { type: 'Mismatch' };
 const NON_EMPTY = { type: 'DisallowEmpty' };
 const COMMA = { type: 'Comma' };
 const hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -350,7 +350,7 @@ function mapList(list, ref, fn) {
 }
 
 function internalMatch(tokens, syntax, syntaxes = {}) {
-    function nextToken() {
+    function moveToNextToken() {
         do {
             tokenCursor++;
             token = tokenCursor < tokens.length ? tokens[tokenCursor] : null;
@@ -365,11 +365,32 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
         return nextIndex < tokens.length ? tokens[nextIndex] : null;
     }
 
+    function isCommaContextStart() {
+        var lastMatchToken = matchStack.token;
+
+        return (
+            lastMatchToken === null ||
+            lastMatchToken.value === ',' ||
+            lastMatchToken.value === '(' ||
+            lastMatchToken.value === '[' ||
+            lastMatchToken.value === '/'
+        );
+    }
+
+    function isCommaContextEnd() {
+        return (
+            token === null ||
+            token.value === ')' ||
+            token.value === ']' ||
+            token.value === '/'
+        );
+    }
+
     function addTokenToStack() {
         var matchToken = token;
         var matchTokenCursor = tokenCursor;
 
-        nextToken();
+        moveToNextToken();
 
         matchStack = {
             type: 'Token',
@@ -377,10 +398,12 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
             syntax: syntaxNode,
             token: matchToken,
             tokenCursor: matchTokenCursor,
-            prev: matchStack,
-            start: matchToken === '(' || matchToken === '[',
-            end: token === null || token === ')' || token === ']'
+            prev: matchStack
         };
+
+        if (matchStack.size > bestMatch.size) {
+            bestMatch = matchStack;
+        }
     }
 
     function openSyntax() {
@@ -396,9 +419,7 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
             syntax: syntaxNode,
             token: matchStack.token,
             tokenCursor: matchStack.tokenCursor,
-            prev: matchStack,
-            start: true,
-            end: matchStack.end
+            prev: matchStack
         };
     }
 
@@ -413,29 +434,27 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                 syntax: syntaxStack.syntax,
                 token: matchStack.token,
                 tokenCursor: matchStack.tokenCursor,
-                prev: matchStack,
-                start: true,
-                end: matchStack.end
+                prev: matchStack
             };
         }
 
         syntaxStack = syntaxStack.prev;
     }
 
-    var matchStack = { size: 0, syntax: null, token: null, prev: null, start: true, end: false };
-    var syntaxStack = null;
+    var matchStack = { type: 'Stub', size: 0, syntax: null, token: null, tokenCursor: -1, prev: null };
+    var bestMatch = matchStack;
     var tokenCursor = -1;
-    var token = nextToken();
+    var token = moveToNextToken();
 
+    var syntaxStack = null;
     var ifStack = null;
     var alternative = null;
     var syntaxNode = syntax;
 
-    var result = MISMATCH;
     var LIMIT = 5000;
     var iterationCount = 0;
 
-    while (syntaxNode) {
+    while (true) {
         // console.log('--\n',
         //     '#' + iterationCount,
         //     require('util').inspect({
@@ -452,69 +471,61 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
             break;
         }
 
-        if (syntaxNode === MATCH || syntaxNode === MISMATCH) {
+        if (syntaxNode === MATCH) {
             if (ifStack === null) {
-                // console.log({ token, ifStack });
-
                 // turn to MISMATCH when some tokens left unmatched
                 if (token !== null && syntaxStack === null) {
                     syntaxNode = MISMATCH;
-                }
-
-                // try alternative match if any
-                if (syntaxNode === MISMATCH && alternative !== null) {
-                    ifStack = alternative;
-                    alternative = alternative.alt;
                     continue;
                 }
 
-                // match or mismatch with no any alternative, return a result
-                result = syntaxNode;
+                // break the main loop, return a result - MATCH
                 break;
             }
 
-            // fast forward match when possible
-            if (syntaxNode === MATCH && ifStack.fastForwardMatch) {
-                if (token !== null) {
-                    syntaxNode = MISMATCH;
-                } else {
-                    result = MATCH;
-                    break;
-                }
+            // go to `then` branch
+            syntaxNode = ifStack.then;
+
+            // save if stack top as an alternative for future
+            if (alternative === null || alternative.matchStack.size <= ifStack.matchStack.size) {
+                ifStack.alt = alternative;
+                alternative = ifStack;
             }
 
-            // split
-            if (syntaxNode === MATCH) {
-                syntaxNode = ifStack.then;
-
-                // save if stack top as alternative for future
-                if (alternative === null || alternative.matchStack.size <= ifStack.matchStack.size) {
-                    ifStack.alt = alternative;
-                    alternative = ifStack;
-                }
-
-                if (syntaxStack !== null && ifStack.syntaxStack !== syntaxStack) {
-                    closeSyntax();
-                }
-            } else {
-                syntaxNode = ifStack.else;
-
-                // restore match stack state
-                syntaxStack = ifStack.syntaxStack;
-                matchStack = ifStack.matchStack;
-                tokenCursor = matchStack.size === 0 ? -1 : matchStack.tokenCursor;
-                token = nextToken();
+            // close syntax if needed
+            if (syntaxStack !== null && ifStack.syntaxStack !== syntaxStack) {
+                closeSyntax();
             }
 
-            // console.log('trans:', ifStack.id, '=>', ifStack.prev && ifStack.prev.id);
-            // console.log('pop if point to', token, matchStack, syntaxNode);
             // pop stack
             ifStack = ifStack.prev;
             continue;
         }
 
-        if (typeof syntaxNode === 'function') {
-            syntaxNode = syntaxNode(token, addTokenToStack, getNextToken) ? MATCH : MISMATCH;
+        if (syntaxNode === MISMATCH) {
+            if (ifStack === null) {
+                // try alternative match if any
+                if (alternative !== null) {
+                    ifStack = alternative;
+                    alternative = alternative.alt;
+                    continue;
+                }
+
+                // break the main loop, return a result - MISMATCH
+                break;
+            }
+
+            // go to `else` branch
+            syntaxNode = ifStack.else;
+
+            // restore match stack state
+            syntaxStack = ifStack.syntaxStack;
+            matchStack = ifStack.matchStack;
+            tokenCursor = matchStack.size === 0 ? -1 : matchStack.tokenCursor;
+            token = moveToNextToken();
+
+            // pop stack
+            ifStack = ifStack.prev;
             continue;
         }
 
@@ -528,7 +539,6 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                     matchStack: matchStack,
                     syntaxStack: syntaxStack,
                     prev: ifStack,
-                    fastForwardMatch: syntaxNode.then === MATCH && (ifStack === null || ifStack.fastForwardMatch),
                     alt: null
                 };
 
@@ -540,10 +550,6 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                 syntaxNode = ifStack === null || matchStack === ifStack.matchStack ? MISMATCH : MATCH;
                 break;
 
-            case 'CloseSyntax':
-                closeSyntax();
-                break;
-
             case 'Type':
             case 'Property':
                 ifStack = {
@@ -553,7 +559,6 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                     matchStack: matchStack,
                     syntaxStack: syntaxStack,
                     prev: ifStack,
-                    fastForwardMatch: false,
                     alt: null
                 };
 
@@ -601,17 +606,15 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                 break;
 
             case 'Comma':
-                var isCommaOnStackTop = matchStack.token && matchStack.token.value === ',';
-
                 if (token !== null && token.value === ',') {
-                    if (isCommaOnStackTop || matchStack.start) {
+                    if (isCommaContextStart()) {
                         syntaxNode = MISMATCH;
                     } else {
                         addTokenToStack();
-                        syntaxNode = matchStack.end ? MISMATCH : MATCH;
+                        syntaxNode = isCommaContextEnd() ? MISMATCH : MATCH;
                     }
                 } else {
-                    syntaxNode = isCommaOnStackTop || matchStack.start || matchStack.end ? MATCH : MISMATCH;
+                    syntaxNode = isCommaContextStart() || isCommaContextEnd() ? MATCH : MISMATCH;
                 }
 
                 break;
@@ -628,7 +631,8 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
 
             case 'Function':
                 if (token !== null && token.value.toLowerCase() === syntaxNode.name) {
-                    if (tokenCursor + 1 < tokens.length && tokens[tokenCursor + 1].value === '(') {
+                    var nextToken = getNextToken(1);
+                    if (nextToken !== null && nextToken.value === '(') {
                         addTokenToStack();
                         addTokenToStack();
                         syntaxNode = MATCH;
@@ -641,22 +645,55 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
 
                 break;
 
-            // case 'Parentheses':
+            case 'Generic':
+                syntaxNode = syntaxNode.fn(token, addTokenToStack, getNextToken) ? MATCH : MISMATCH;
+                break;
+
             // case 'String':
+            // TODO
+
             default:
                 console.log('Unknown node type', syntaxNode.type);
                 syntaxNode = MISMATCH;
         }
     }
 
-    while (syntaxStack) {
-        closeSyntax();
-    }
-
     // console.log(iterationCount);
     totalIterationCount += iterationCount;
 
-    return result === MATCH ? matchStack : null;
+    if (syntaxNode === MATCH) {
+        while (syntaxStack) {
+            closeSyntax();
+        }
+
+        return {
+            tokens: tokens,
+            match: matchStack,
+            error: null
+        };
+    } else {
+        tokenCursor = bestMatch.tokenCursor;
+        moveToNextToken();
+
+        for (var value = '', offset = 0, i = 0; i < tokens.length; i++) {
+            var testToken = tokens[i];
+            if (testToken === token) {
+                offset = value.length;
+            }
+            value += testToken.value;
+        }
+
+        return {
+            tokens: tokens,
+            match: null,
+            error: {
+                token: token,
+                value: value,
+                offset: offset
+            }
+        };
+
+    }
 }
 
 const astToTokenStream = {
@@ -691,27 +728,22 @@ function match(ast, matchTree, syntaxes) {
     // console.log(tokens);
     // process.exit();
 
-    if (!syntaxes) {
-        syntaxes = {};
-    }
-
-    return {
-        tokens,
-        match: internalMatch(tokens, matchTree, syntaxes)
-    };
+    return internalMatch(tokens, matchTree, syntaxes || {});
 }
 
 function matchAsTree() {
-    let cursor = match.apply(this, arguments).match;
-    let host = {
+    const matchResult = match.apply(this, arguments);
+
+    if (matchResult.match === null) {
+        return matchResult;
+    }
+
+    let cursor = matchResult.match;
+    let host = matchResult.match = {
         syntax: null,
         match: []
     };
     const stack = [host];
-
-    if (!cursor) {
-        return null;
-    }
 
     // revert a list
     let prev = null;
@@ -755,7 +787,7 @@ function matchAsTree() {
         cursor = cursor.prev;
     }
 
-    return host;
+    return matchResult;
 }
 
 // TODO: remove
@@ -765,17 +797,19 @@ process.on('exit', function() {
 
 module.exports = {
     buildMatchTree: function(str) {
-        const ast = csstree.grammar.parse(str);
         id = 1; // TODO: remove
-        return buildMatchTree(ast);
+        const ast = csstree.grammar.parse(str);
+        const matchTree = buildMatchTree(ast);
+        matchTree.syntax = ast;
+        return matchTree;
     },
     match: function() {
-        const res = match.apply(this, arguments);
+        const matchResult = match.apply(this, arguments);
 
         return {
-            tokens: res.tokens,
-            result: res.match !== null ? MATCH : MISMATCH,
-            match: mapList(res.match, 'prev', function(item) {
+            tokens: matchResult.tokens,
+            result: matchResult.match !== null ? 'match' : 'mismatch',
+            match: mapList(matchResult.match, 'prev', function(item) {
                 if (item.type === 'Open' || item.type === 'Close') {
                     return { type: item.type, syntax: item.syntax };
                 }
