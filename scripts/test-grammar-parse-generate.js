@@ -1,10 +1,9 @@
-const data = require('mdn-data/css');
-const csstreeData = require('../data');
+const iterateSyntaxes = require('./utils/iterate-syntaxes');
 const parse = require('../lib').grammar.parse;
 const generate = require('../lib').grammar.generate;
-let problems = {};
+const problems = {};
 
-function test(section, name, syntax) {
+iterateSyntaxes(function(section, name, syntax) {
     let reason = 'parse error';
     const normSyntax = syntax
         .replace(/\n\s*/g, ' ');
@@ -44,31 +43,6 @@ function test(section, name, syntax) {
         console.log('#####', e.message);
         console.log();
     }
-}
-
-for (var name in data.atRules) {
-    test('atRules', name, data.atRules[name].syntax);
-    for (var descriptor in data.atRules[name].descriptors) {
-        test('atRules/' + name, descriptor, data.atRules[name].descriptors[descriptor].syntax);
-    }
-}
-
-for (var name in data.properties) {
-    test('properties', name, data.properties[name].syntax);
-}
-
-for (var name in data.syntaxes) {
-    test('syntaxes', name, data.syntaxes[name].syntax);
-}
-
-['properties', 'types'].forEach(function(section) {
-    Object.keys(csstreeData[section]).forEach(function(name) {
-        const csstreeSyntax = csstreeData[section][name];
-        const mdnData = data[section === 'properties' ? 'properties' : 'syntaxes'][name];
-        if (!mdnData || csstreeSyntax !== mdnData.syntax) {
-            test('CSSTree ' + section, name, csstreeSyntax);
-        }
-    });
 });
 
 console.log(problems);
