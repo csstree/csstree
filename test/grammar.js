@@ -32,7 +32,7 @@ describe('grammar', function() {
         it('expected a quote', function() {
             assert.throws(function() {
                 parse('\'x');
-            }, /^SyntaxParseError: Expect a quote\n/);
+            }, /^SyntaxParseError: Expect an apostrophe\n/);
         });
 
         it('expected a number', function() {
@@ -75,16 +75,26 @@ describe('grammar', function() {
         });
 
         it('unexpected input', function() {
-            assert.throws(function() {
-                parse('!');
-            }, /^SyntaxParseError: Unexpected input\n/);
+            var tests = [
+                '#',
+                '?',
+                '+',
+                '*',
+                '!',
+                '[]]',
+                '{1}'
+            ];
+            tests.forEach(function(test) {
+                assert.throws(function() {
+                    parse(test);
+                }, /^SyntaxParseError: Unexpected input\n/);
+            });
         });
 
         it('bad syntax', function() {
             var tests = [
                 'a&b',
                 '<a',
-                'b(',
                 '[a'
             ];
             tests.forEach(function(test) {
@@ -131,7 +141,7 @@ describe('grammar', function() {
 
     describe('walk', function() {
         it('pass a single walk function', function() {
-            var ast = parse('a b | c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*');
+            var ast = parse('a b | c() && [ <d>? || <\'e\'> || ( f{2,4} ) ]*');
             var visited = [];
 
             walk(ast, function(node) {
@@ -142,26 +152,29 @@ describe('grammar', function() {
             });
 
             assert.deepEqual(visited, [
-                { type: 'Group',       value: 'a b | c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*' },
+                { type: 'Group',       value: 'a b | c( ) && [ <d>? || <\'e\'> || ( f{2,4} ) ]*' },
                 { type: 'Group',       value: 'a b' },        // implicit group: a b -> [ a b ]
                 { type: 'Keyword',     value: 'a' },
                 { type: 'Keyword',     value: 'b' },
-                { type: 'Group',       value: 'c()? && [ <d> || <\'e\'> || ( f{2,4} ) ]*' },
-                { type: 'Group',       value: 'c()?' },       // implicit group: c()? -> [ c() ]?
-                { type: 'Function',    value: 'c()' },
-                { type: 'Group',       value: '' },           // empty children group: c() -> c( [] )
-                { type: 'Group',       value: '[ <d> || <\'e\'> || ( f{2,4} ) ]*' },
+                { type: 'Group',       value: 'c( ) && [ <d>? || <\'e\'> || ( f{2,4} ) ]*' },
+                { type: 'Group',       value: 'c( )' },
+                { type: 'Function',    value: 'c(' },
+                { type: 'Token',       value: ')' },
+                { type: 'Multiplier',  value: '[ <d>? || <\'e\'> || ( f{2,4} ) ]*' },
+                { type: 'Group',       value: '[ <d>? || <\'e\'> || ( f{2,4} ) ]' },
+                { type: 'Multiplier',  value: '<d>?' },
                 { type: 'Type',        value: '<d>' },
                 { type: 'Property',    value: '<\'e\'>' },
-                { type: 'Parentheses', value: '( f{2,4} )' },
-                { type: 'Group',       value: 'f{2,4}' },     // implicit group: [ f{2,4} ]
-                { type: 'Group',       value: 'f{2,4}' },     // implicit group: f{2,4} -> [ f ]{2,4}
-                { type: 'Keyword',     value: 'f' }
+                { type: 'Group',       value: '( f{2,4} )' },
+                { type: 'Token',       value: '(' },
+                { type: 'Multiplier',  value: 'f{2,4}' },
+                { type: 'Keyword',     value: 'f' },
+                { type: 'Token',       value: ')' }
             ]);
         });
 
         it('pass a pair of walk functions', function() {
-            var ast = parse('a b | c()? && [ <d> ]+');
+            var ast = parse('a b? | c() && [ <d> ]+');
             var visited = [];
 
             walk(ast, {
@@ -180,26 +193,30 @@ describe('grammar', function() {
             });
 
             assert.deepEqual(visited, [
-                { action: 'enter', value: 'a b | c()? && [ <d> ]+' },
-                { action: 'enter', value: 'a b' },
+                { action: 'enter', value: 'a b? | c( ) && [ <d> ]+' },
+                { action: 'enter', value: 'a b?' },
                 { action: 'enter', value: 'a' },
                 { action: 'leave', value: 'a' },
+                { action: 'enter', value: 'b?' },
                 { action: 'enter', value: 'b' },
                 { action: 'leave', value: 'b' },
-                { action: 'leave', value: 'a b' },
-                { action: 'enter', value: 'c()? && [ <d> ]+' },
-                { action: 'enter', value: 'c()?' },
-                { action: 'enter', value: 'c()' },
-                { action: 'enter', value: '' },
-                { action: 'leave', value: '' },
-                { action: 'leave', value: 'c()' },
-                { action: 'leave', value: 'c()?' },
+                { action: 'leave', value: 'b?' },
+                { action: 'leave', value: 'a b?' },
+                { action: 'enter', value: 'c( ) && [ <d> ]+' },
+                { action: 'enter', value: 'c( )' },
+                { action: 'enter', value: 'c(' },
+                { action: 'leave', value: 'c(' },
+                { action: 'enter', value: ')' },
+                { action: 'leave', value: ')' },
+                { action: 'leave', value: 'c( )' },
                 { action: 'enter', value: '[ <d> ]+' },
+                { action: 'enter', value: '[ <d> ]' },
                 { action: 'enter', value: '<d>' },
                 { action: 'leave', value: '<d>' },
+                { action: 'leave', value: '[ <d> ]' },
                 { action: 'leave', value: '[ <d> ]+' },
-                { action: 'leave', value: 'c()? && [ <d> ]+' },
-                { action: 'leave', value: 'a b | c()? && [ <d> ]+' }
+                { action: 'leave', value: 'c( ) && [ <d> ]+' },
+                { action: 'leave', value: 'a b? | c( ) && [ <d> ]+' }
             ]);
         });
 
