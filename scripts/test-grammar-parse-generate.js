@@ -1,7 +1,7 @@
 const data = require('mdn-data/css');
-const csstreeData = require('./data');
-const parse = require('./lib').grammar.parse;
-const generate = require('./lib').grammar.generate;
+const csstreeData = require('../data');
+const parse = require('../lib').grammar.parse;
+const generate = require('../lib').grammar.generate;
 let problems = {};
 
 function test(section, name, syntax) {

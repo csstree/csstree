@@ -353,7 +353,7 @@
     },
     "src": {
       "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
-      "syntax": "[ <url> format( <string># )? | local( <family-name> ) ]#"
+      "syntax": "[ <url> [ format( <string># ) ]? | local( <family-name> ) ]#"
     },
     "speak": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
@@ -565,7 +565,7 @@
     },
     "-webkit-gradient-point": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
-      "syntax": " [ left | center | right | <length-percentage> ] [ top | center | bottom | <length-percentage> ]"
+      "syntax": "[ left | center | right | <length-percentage> ] [ top | center | bottom | <length-percentage> ]"
     },
     "-webkit-gradient-radius": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
