@@ -1,4 +1,6 @@
 var assert = require('assert');
+var csstree = require('./lib');
+var genericSyntaxes = require('./new-match-generic');
 var { buildMatchTree, match } = require('./new-match');
 
 var equiv;
@@ -549,11 +551,11 @@ var tests = {
 
 function createSyntaxTest(syntax, test) {
     var matchTree = buildMatchTree(syntax);
-    var syntaxes = { type: {} };
+    var syntaxes = { types: Object.assign({}, genericSyntaxes) };
 
     if (test.syntaxes) {
         for (var name in test.syntaxes) {
-            syntaxes.type[name] = buildMatchTree(test.syntaxes[name]);
+            syntaxes.types[name] = buildMatchTree(test.syntaxes[name]);
         }
     }
 
@@ -561,7 +563,8 @@ function createSyntaxTest(syntax, test) {
         if (test.match) {
             test.match.forEach(function(input) {
                 it('should MATCH to "' + input + '"', function() {
-                    var m = match(input, matchTree, syntaxes);
+                    var ast = csstree.parse(input, { context: 'value' });
+                    var m = match(ast, matchTree, syntaxes);
 
                     assert.equal(
                         m.result,
@@ -583,8 +586,11 @@ function createSyntaxTest(syntax, test) {
         if (test.mismatch) {
             test.mismatch.forEach(function(input) {
                 it('should NOT MATCH to "' + input + '"', function() {
+                    var ast = csstree.parse(input, { context: 'value' });
+                    var m = match(ast, matchTree, syntaxes);
+
                     assert.equal(
-                        match(input, matchTree, syntaxes).result,
+                        m.result,
                         'mismatch'
                     );
                 });

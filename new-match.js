@@ -1,9 +1,11 @@
 const csstree = require('./lib');
+const generic = require('./new-match-generic');
 
 const MATCH = 'match';
 const MISMATCH = 'mismatch';
 const NON_EMPTY = { type: 'DisallowEmpty' };
 const COMMA = { type: 'Comma' };
+const hasOwnProperty = Object.prototype.hasOwnProperty;
 let id = 1; // TODO: remove
 let totalIterationCount = 0;
 
@@ -313,6 +315,12 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
         return token;
     }
 
+    function getNextToken(offset) {
+        var nextIndex = tokenCursor + offset;
+
+        return nextIndex < tokens.length ? tokens[nextIndex] : null;
+    }
+
     function addTokenToStack() {
         var matchToken = token;
         var matchTokenCursor = tokenCursor;
@@ -462,7 +470,7 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
         }
 
         if (typeof syntaxNode === 'function') {
-            syntaxNode = syntaxNode(token, addTokenToStack) ? MATCH : MISMATCH;
+            syntaxNode = syntaxNode(token, addTokenToStack, getNextToken) ? MATCH : MISMATCH;
             continue;
         }
 
@@ -506,12 +514,24 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
                 };
 
                 openSyntax();
-                syntaxNode = syntaxes[syntaxNode.type === 'Type' ? 'type' : 'property'][syntaxNode.name];
+
+                var syntaxDict = syntaxNode.type === 'Type' ? 'types' : 'properties';
+                if (hasOwnProperty.call(syntaxes, syntaxDict) && syntaxes[syntaxDict][syntaxNode.name]) {
+                    syntaxNode = syntaxes[syntaxDict][syntaxNode.name];
+                } else {
+                    console.log('Unknown <type> reference:', syntaxNode.name);
+                    syntaxNode = undefined;
+                }
+
+                if (!syntaxNode) {
+                    // TODO: should raise an error?
+                    syntaxNode = MISMATCH;
+                }
 
                 break;
 
             case 'Keyword':
-                if (token !== null && token.value === syntaxNode.name) {
+                if (token !== null && token.value.toLowerCase() === syntaxNode.name) {
                     addTokenToStack();
                     syntaxNode = MATCH;
                 } else {
@@ -573,60 +593,47 @@ function internalMatch(tokens, syntax, syntaxes = {}) {
         closeSyntax();
     }
 
-    console.log(iterationCount);
+    // console.log(iterationCount);
     totalIterationCount += iterationCount;
 
     return result === MATCH ? matchStack : null;
 }
 
-function match(input, matchTree, syntaxes) {
-    const ast = csstree.parse(input, { context: 'value' });
-    const tokens = csstree.generate(ast, {
-        decorator: function(handlers) {
-            var curNode = null;
-            var tokens = [];
+const astToTokenStream = {
+    decorator: function(handlers) {
+        var curNode = null;
+        var tokens = [];
 
-            var handlersNode = handlers.node;
-            handlers.node = function(node) {
+        return {
+            children: handlers.children,
+            node: function(node) {
                 var tmp = curNode;
                 curNode = node;
-                handlersNode.call(this, node);
+                handlers.node.call(this, node);
                 curNode = tmp;
-            };
-
-            handlers.chunk = function(chunk) {
+            },
+            chunk: function(chunk) {
                 tokens.push({
                     value: chunk,
                     node: curNode
                 });
-            };
-
-            handlers.result = function() {
+            },
+            result: function() {
                 return tokens;
-            };
+            }
+        };
+    }
+};
 
-            return handlers;
-        }
-    });
+function match(ast, matchTree, syntaxes) {
+    const tokens = csstree.generate(ast, astToTokenStream);
+
     // console.log(tokens);
     // process.exit();
 
     if (!syntaxes) {
         syntaxes = {};
     }
-
-    syntaxes = {
-        type: Object.assign({
-            'custom-ident': function(token, addTokenToStack) {
-                if (token !== null && /^[a-z-][a-z0-9-$]*$/i.test(token.value)) {
-                    addTokenToStack();
-                    return true;
-                }
-
-                return false;
-            }
-        }, syntaxes.type)
-    };
 
     return {
         tokens,
@@ -641,6 +648,10 @@ function matchAsTree() {
         match: []
     };
     const stack = [host];
+
+    if (!cursor) {
+        return null;
+    }
 
     // revert a list
     let prev = null;
