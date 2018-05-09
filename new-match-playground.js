@@ -1,5 +1,5 @@
 const csstree = require('./lib');
-const generic = require('./new-match-generic');
+const generic = require('./lib/lexer/generic');
 const data = require('./data');
 const { buildMatchTree, match, matchAsTree } = require('./new-match');
 
@@ -26,23 +26,29 @@ for (var key in data.properties) {
     console.log('  ' + data.properties[key]);
     if (/*key === 'font-variant' || */key === 'src') { console.log('skipped'); continue; }
     global.syntaxRef = 'property/' + key;
-    syntaxes.properties[key] = buildMatchTree(data.properties[key]);
+    syntaxes.properties[key] = {
+        match: buildMatchTree(data.properties[key])
+    };
 }
 
 for (var key in generic) {
     if (!syntaxes.types[key]) {
         syntaxes.types[key] = {
-            type: 'Generic',
-            fn: generic[key]
+            match: {
+                type: 'Generic',
+                fn: generic[key]
+            }
         };
     }
 }
 
 for (var key in data.types) {
     console.log('type', key);
-    // if (key === 'transform-function') { console.log('skipped'); continue; }
+    // if (key === 'rgb()') { console.log(data.types[key]);process.exit() }
     global.syntaxRef = 'type/' + key;
-    syntaxes.types[key] = buildMatchTree(data.types[key]);
+    syntaxes.types[key] = {
+        match: buildMatchTree(data.types[key])
+    };
 }
 
 console.log('Build time', Date.now() - buildStartTime);
@@ -61,22 +67,25 @@ function parse(input) {
 
 // console.log(require('util').inspect(syntaxes.type.foo, { depth: null }));
 // console.log(JSON.stringify(matchAsTree('1%', matchTree, syntaxes), null, 4));
-const value = 'solid REd 1px';
-const syntax = syntaxes.properties.border;
-const matchResult = match(parse(value), syntax, syntaxes);
-const matchResultTree = matchAsTree(parse(value), syntax, syntaxes);
-console.log(JSON.stringify(matchResult, null, 4));
-console.log(JSON.stringify(matchResultTree, null, 4));
+const value = 'rgb(1 2 3)';
+const syntax = syntaxes.properties.background;
+// const matchResult = match(parse(value), syntax, syntaxes);
+const matchResultTree = matchAsTree(parse(value), syntax.match, syntaxes);
+// console.log(JSON.stringify(matchResult, null, 4));
+// console.log(JSON.stringify(matchResultTree, null, 4));
+console.log(require('util').inspect(matchResultTree));
 
 if (matchResultTree.error) {
     console.log('Error');
-    console.log(csstree.grammar.generate(syntax.syntax));
+    console.log(csstree.grammar.generate(syntax.match.syntax));
     console.log(matchResultTree.error.value);
     console.log(' '.repeat(matchResultTree.error.offset) + '^');
 }
 
+console.log(require('./lib').lexer.matchProperty('background', parse('rgb(1,2,3)')).error.message);
+
 // console.log(JSON.stringify(internalMatch(['a', 'b'], matchTree), null, 4));
-// process.exit();
+process.exit();
 console.log('-----');
 // dump(matchTree())
 

@@ -1,7 +1,8 @@
 var assert = require('assert');
-var csstree = require('./lib');
-var genericSyntaxes = require('./new-match-generic');
-var { buildMatchTree, match } = require('./new-match');
+var csstree = require('../lib');
+var genericSyntaxes = require('../lib/lexer/generic');
+var buildMatchTree = require('../lib/lexer/match-tree').buildMatchTree;
+var matchAsList = require('../lib/lexer/match').matchAsList;
 
 var equiv;
 var tests = {
@@ -346,6 +347,23 @@ var tests = {
         ]
     },
 
+    // not empty
+    '[a? b? c?]!': {
+        match: [
+            'a',
+            'b',
+            'c',
+            'a b',
+            'a c',
+            'b c',
+            'a b c'
+        ],
+        mismatch: [
+            '',
+            'b a'
+        ]
+    },
+
     // comma
     'a, b': {
         match: [
@@ -534,6 +552,28 @@ var tests = {
             'center length left'
         ]
     },
+
+    'rgb( <percentage>{3} [ / <alpha-value> ]? ) | rgb( <number>{3} [ / <alpha-value> ]? ) | rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? )': {
+        syntaxes: {
+            'alpha-value': '<number-zero-one>'
+        },
+        match: [
+            'rgb(1, 2, 3)',
+            'rgb(1, 2, 3, 1)',
+            'rgb(1%, 2%, 3%)',
+            'rgb(1%, 2%, 3%, 1)',
+            'rgb(1 2 3)',
+            'rgb(1 2 3 / 1)',
+            'rgb(1% 2% 3%)',
+            'rgb(1% 2% 3% / 1)'
+        ],
+        mismatch: [
+            'rgb(1, 2 3)',
+            'rgb(1, 2, 3%)',
+            'rgb(1, 2, 3, 4)'
+        ]
+    },
+
     '<custom-ident>+ from': {
         match: [
             'a from',
@@ -632,14 +672,18 @@ function createSyntaxTest(syntax, test) {
 
     for (var name in genericSyntaxes) {
         syntaxes.types[name] = {
-            type: 'Generic',
-            fn: genericSyntaxes[name]
+            match: {
+                type: 'Generic',
+                fn: genericSyntaxes[name]
+            }
         };
     }
 
     if (test.syntaxes) {
         for (var name in test.syntaxes) {
-            syntaxes.types[name] = buildMatchTree(test.syntaxes[name]);
+            syntaxes.types[name] = {
+                match: buildMatchTree(test.syntaxes[name])
+            };
         }
     }
 
@@ -648,12 +692,10 @@ function createSyntaxTest(syntax, test) {
             test.match.forEach(function(input) {
                 it('should MATCH to "' + input + '"', function() {
                     var ast = csstree.parse(input, { context: 'value' });
-                    var m = match(ast, matchTree, syntaxes);
+                    var m = matchAsList(ast, matchTree, syntaxes);
 
-                    assert.equal(
-                        m.result,
-                        'match'
-                    );
+                    assert.notEqual(m.match, null);
+                    assert.equal(m.error, null);
 
                     assert.deepEqual(
                         m.match
@@ -671,19 +713,17 @@ function createSyntaxTest(syntax, test) {
             test.mismatch.forEach(function(input) {
                 it('should NOT MATCH to "' + input + '"', function() {
                     var ast = csstree.parse(input, { context: 'value' });
-                    var m = match(ast, matchTree, syntaxes);
+                    var m = matchAsList(ast, matchTree, syntaxes);
 
-                    assert.equal(
-                        m.result,
-                        'mismatch'
-                    );
+                    assert.equal(m.match, null);
+                    assert.notEqual(m.error, null);
                 });
             });
         }
     });
 }
 
-describe('basic', function() {
+describe('syntax matching', function() {
     for (var syntax in tests) {
         createSyntaxTest(syntax, tests[syntax]);
     }
