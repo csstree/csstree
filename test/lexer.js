@@ -11,7 +11,7 @@ function createMatchTest(name, syntax, property, value, error) {
             });
             var match = syntax.matchDeclaration(declaration);
 
-            assert.equal(match.matched, null);
+            assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
             assert(new RegExp('^SyntaxMatchError: Mismatch').test(match.error));
         });
     } else {
@@ -21,11 +21,17 @@ function createMatchTest(name, syntax, property, value, error) {
             });
             var match = syntax.matchDeclaration(declaration);
 
+            // temporary solution to avoid var() using errors
             if (match.error) {
-                assert(error.name !== 'SyntaxMatchError' && error.name !== 'SyntaxReferenceError');
-            } else {
-                assert(Boolean(match.matched));
+                if (
+                    /Matching for a tree with var\(\) is not supported/.test(match.error.message) ||
+                    /Lexer matching doesn't applicable for custom properties/.test(match.error.message)) {
+                    assert(true);
+                    return;
+                }
             }
+
+            assert(match.matched !== null, match.error && match.error.message);
         });
     }
 }
