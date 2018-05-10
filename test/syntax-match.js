@@ -663,6 +663,18 @@ var tests = {
         mismatch: [
             // 'a()c' // FIXME: should differ from a function
         ]
+    },
+
+    // string
+    '\'[\' <custom-ident> \']\'': {
+        match: [
+            '[foo]',
+            '[ foo ]'
+        ],
+        mismatch: [
+            'foo',
+            '[]'
+        ]
     }
 };
 
