@@ -699,11 +699,19 @@ function createSyntaxTest(syntax, test) {
 
                     assert.deepEqual(
                         m.match
-                            .map(x => x.token)
-                            .filter(x => x !== undefined),
+                            .map(function(x) {
+                                return x.token;
+                            })
+                            .filter(function(x) {
+                                return x !== undefined;
+                            }),
                         m.tokens
-                            .map(x => x.value)
-                            .filter(s => /\S/.test(s))
+                            .map(function(x) {
+                                return x.value;
+                            })
+                            .filter(function(s) {
+                                return /\S/.test(s);
+                            })
                     );
                 });
             });
