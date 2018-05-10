@@ -15,7 +15,7 @@ iterateSyntaxes(function(section, name, syntax) {
                     if (node.terms.length === 1) {
                         const haveNoMultiplier = (!stack.length || stack[stack.length - 1].type !== 'Multiplier');
                         const termType = node.terms[0].type;
-                        const termCanHaveMultiplier = termType === 'Keyword' || termType === 'Group' || termType === 'Type' || termType === 'Property'
+                        const termCanHaveMultiplier = termType === 'Keyword' || termType === 'Group' || termType === 'Type' || termType === 'Property';
                         const termHaveNoMultiplier = !haveNoMultiplier && termCanHaveMultiplier;
 
                         if (haveNoMultiplier || termHaveNoMultiplier) {

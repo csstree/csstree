@@ -3,7 +3,7 @@
 - Renamed `lexer.grammar.translate()` method into `generate()`
 - Fixed `<'-webkit-font-smoothing'>` and `<'-moz-osx-font-smoothing'>` syntaxes (#75)
 - Added vendor keywords for `<'overflow'>` property syntax (#76)
-- Pined `mdn-data` to `~1.1.0` and fixed issues with some updated property syntaxes
+- Pinned `mdn-data` to `~1.1.0` and fixed issues with some updated property syntaxes
 
 ## 1.0.0-alpha.27 (January 14, 2018)
 

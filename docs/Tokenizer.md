@@ -6,7 +6,7 @@
     - [CssSyntaxError](#csssyntaxerror)
     - [TYPE](#type)
     - [NAME](#name)
-    - [SYMBOL_TYPE](#symboltype)
+    - [SYMBOL_TYPE](#symbol_type)
     - [PUNCTUATION](#punctuation)
 - [Static methods](#static-methods)
     - [firstCharOffset\(source\)](#firstcharoffsetsource)
