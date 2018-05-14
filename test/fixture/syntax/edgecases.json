@@ -13,7 +13,7 @@
             "300"
         ]
     },
-    "\\9 hack": {
+    "\\0 and \\9 hack": {
         "syntax": {
             "generic": true,
             "properties": {
@@ -26,23 +26,35 @@
             "0\\9",
             "0 \\9",
             "1px\\9",
-            "1px \\9"
-        ]
-    },
-    "\\0 hack": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "foo | <number> | <length>"
-            }
-        },
-        "valid": [
+            "1px \\9",
             "foo\\0",
             "foo \\0",
             "0\\0",
             "0 \\0",
             "1px\\0",
             "1px \\0"
+        ]
+    },
+    "\\0 and \\9 hack #2": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "foo | bar | baz"
+            }
+        },
+        "valid": [
+            "foo\\9",
+            "foo \\9",
+            "bar\\9",
+            "bar \\9",
+            "baz\\9",
+            "baz \\9",
+            "foo\\0",
+            "foo \\0",
+            "bar\\0",
+            "bar \\0",
+            "baz\\0",
+            "baz \\0"
         ]
     }
 }

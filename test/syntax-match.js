@@ -532,6 +532,20 @@ var tests = {
             'func(,b)'
         ]
     },
+    '[ foo? ]#': {
+        match: [
+            'foo',
+            'foo, foo',
+            'foo, foo, foo, foo'
+        ],
+        mismatch: [
+            '',
+            ',',
+            ', foo',
+            'foo, ',
+            'foo foo'
+        ]
+    },
 
     // complex cases
     '[ [ left | center | right | top | bottom | <length> ] | [ left | center | right | <length> ] [ top | center | bottom | <length> ] | [ center | [ left | right ] <length>? ] && [ center | [ top | bottom ] <length>? ] ]': {
