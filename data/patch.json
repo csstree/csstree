@@ -484,15 +484,15 @@
     }
   },
   "syntaxes": {
-    "-legacy-gradient()": {
+    "-legacy-gradient": {
       "comment": "added collection of legacy gradient syntaxes",
-      "syntax": "<-webkit-gradient()> | <-legacy-linear-gradient()> | <-legacy-repeating-linear-gradient()> | <-legacy-radial-gradient()> | <-legacy-repeating-radial-gradient()>"
+      "syntax": "<-webkit-gradient()> | <-legacy-linear-gradient> | <-legacy-repeating-linear-gradient> | <-legacy-radial-gradient> | <-legacy-repeating-radial-gradient>"
     },
-    "-legacy-linear-gradient()": {
+    "-legacy-linear-gradient": {
       "comment": "like standard syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
       "syntax": "-moz-linear-gradient( <-legacy-linear-gradient-arguments> ) | -webkit-linear-gradient( <-legacy-linear-gradient-arguments> ) | -o-linear-gradient( <-legacy-linear-gradient-arguments> )"
     },
-    "-legacy-repeating-linear-gradient()": {
+    "-legacy-repeating-linear-gradient": {
       "comment": "like standard syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
       "syntax": "-moz-repeating-linear-gradient( <-legacy-linear-gradient-arguments> ) | -webkit-repeating-linear-gradient( <-legacy-linear-gradient-arguments> ) | -o-repeating-linear-gradient( <-legacy-linear-gradient-arguments> )"
     },
@@ -500,11 +500,11 @@
       "comment": "like standard syntax but w/o `to` keyword https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient",
       "syntax": "[ <angle> | <side-or-corner> ]? , <color-stop-list>"
     },
-    "-legacy-radial-gradient()": {
+    "-legacy-radial-gradient": {
       "comment": "deprecated syntax that implemented by some browsers https://www.w3.org/TR/2011/WD-css3-images-20110908/#radial-gradients",
       "syntax": "-moz-radial-gradient( <-legacy-radial-gradient-arguments> ) | -webkit-radial-gradient( <-legacy-radial-gradient-arguments> ) | -o-radial-gradient( <-legacy-radial-gradient-arguments> )"
     },
-    "-legacy-repeating-radial-gradient()": {
+    "-legacy-repeating-radial-gradient": {
       "comment": "deprecated syntax that implemented by some browsers https://www.w3.org/TR/2011/WD-css3-images-20110908/#radial-gradients",
       "syntax": "-moz-repeating-radial-gradient( <-legacy-radial-gradient-arguments> ) | -webkit-repeating-radial-gradient( <-legacy-radial-gradient-arguments> ) | -o-repeating-radial-gradient( <-legacy-radial-gradient-arguments> )"
     },
@@ -551,15 +551,11 @@
       "comment": "non-standard keywords https://css-tricks.com/almanac/properties/w/word-break/",
       "syntax": "break-word"
     },
-    "-webkit-image-set()": {
-      "comment": "added alias",
-      "syntax": "<image-set()>"
-    },
     "-webkit-gradient()": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
-      "syntax": "-webkit-gradient( <-webkit-gradient-type>, <-webkit-gradient-point> [, <-webkit-gradient-point> | , <-webkit-gradient-radius>, <-webkit-gradient-point> ] [, <-webkit-gradient-radius>]? [, <-webkit-gradient-color-stop()>]* )"
+      "syntax": "-webkit-gradient( <-webkit-gradient-type>, <-webkit-gradient-point> [, <-webkit-gradient-point> | , <-webkit-gradient-radius>, <-webkit-gradient-point> ] [, <-webkit-gradient-radius>]? [, <-webkit-gradient-color-stop>]* )"
     },
-    "-webkit-gradient-color-stop()": {
+    "-webkit-gradient-color-stop": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/",
       "syntax": "from( <color> ) | color-stop( [ <number-zero-one> | <percentage> ] , <color> ) | to( <color> )"
     },
@@ -627,7 +623,7 @@
     },
     "gradient": {
       "comment": "added -webkit-gradient() since may to be used for legacy support",
-      "syntax": "<-legacy-gradient()> | <linear-gradient()> | <repeating-linear-gradient()> | <radial-gradient()> | <repeating-radial-gradient()>"
+      "syntax": "<-legacy-gradient> | <linear-gradient()> | <repeating-linear-gradient()> | <radial-gradient()> | <repeating-radial-gradient()>"
     },
     "left": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -837,6 +833,9 @@
     "hsla()": {
       "comment": "syntax is broken, remove after https://github.com/mdn/data/pull/226 is merged",
       "syntax": "hsla( <hue> <percentage> <percentage> [ / <alpha-value> ]? ) | hsla( <hue>, <percentage>, <percentage>, <alpha-value>? )"
+    },
+    "color": {
+      "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hex-color> | <named-color> | currentcolor | <deprecated-system-color>"
     }
   }
 }
