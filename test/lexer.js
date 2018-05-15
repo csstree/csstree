@@ -12,7 +12,7 @@ function createMatchTest(name, syntax, property, value, error) {
             var match = syntax.matchDeclaration(declaration);
 
             assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
-            assert(new RegExp('^SyntaxMatchError: Mismatch').test(match.error));
+            assert.equal(match.error.name, 'SyntaxMatchError');
         });
     } else {
         it(name, function() {

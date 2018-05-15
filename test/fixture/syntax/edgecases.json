@@ -9,7 +9,7 @@
             "100",
             "200"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "300"
         ]
     },

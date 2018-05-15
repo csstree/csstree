@@ -11,7 +11,7 @@
         "valid": [
             "foo(bar)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "foo",
             "foo()",
@@ -45,7 +45,7 @@
         "valid": [
             "foo(bar, baz)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo()",
             "foo(bar)",
             "foo(baz)",
@@ -65,7 +65,7 @@
             "foo(bar, baz)",
             "foo(bar)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo()",
             "foo(baz)",
             "foo(bar, qux)"
@@ -90,7 +90,7 @@
             "foo(bar, baz, qux)",
             "foo()"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo(baz, bar)",
             "foo(something)"
         ]

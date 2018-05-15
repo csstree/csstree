@@ -9,7 +9,7 @@
             "",
             "foo"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo foo",
             "foo bar",
             "bar"
@@ -25,11 +25,9 @@
             "foo",
             "foo bar"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo foo bar",
-            "foo bar bar"
-        ],
-        "invalid:Mismatch": [
+            "foo bar bar",
             "",
             "bar"
         ]
@@ -50,7 +48,7 @@
             "bar baz",
             "foo bar baz"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo foo bar",
             "foo bar bar",
             "foo bar qux",
@@ -74,7 +72,7 @@
             "bar baz",
             "foo bar baz"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo foo bar"
         ]
     },
@@ -93,11 +91,9 @@
             "bar baz",
             "foo bar baz"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
-            "qux"
-        ],
-        "invalid:Uncomplete match": [
+            "qux",
             "foo foo bar",
             "foo bar bar",
             "foo bar qux",
@@ -116,7 +112,7 @@
             "foo foo",
             "foo foo foo foo"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo bar",
             "bar"
         ]
@@ -133,10 +129,8 @@
             "foo bar bar",
             "foo bar bar bar"
         ],
-        "invalid:Uncomplete match": [
-            "foo foo bar"
-        ],
-        "invalid:Mismatch": [
+        "invalid": [
+            "foo foo bar",
             "bar bar",
             "",
             "bar"
@@ -153,11 +147,9 @@
             "foo foo",
             "foo foo foo foo foo"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo foo bar",
-            "foo bar foo"
-        ],
-        "invalid:Mismatch": [
+            "foo bar foo",
             "",
             "bar"
         ]
@@ -171,12 +163,10 @@
         "valid": [
             "foo foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo",
             "",
-            "bar"
-        ],
-        "invalid:Uncomplete match": [
+            "bar",
             "foo foo foo",
             "foo foo bar"
         ]
@@ -192,12 +182,10 @@
             "foo foo foo",
             "foo foo foo foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo",
             "",
-            "bar"
-        ],
-        "invalid:Uncomplete match": [
+            "bar",
             "foo foo bar"
         ]
     },
@@ -212,12 +200,10 @@
             "foo foo foo",
             "foo foo foo foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo",
             "",
-            "bar"
-        ],
-        "invalid:Uncomplete match": [
+            "bar",
             "foo foo bar",
             "foo foo foo foo bar"
         ]
@@ -235,12 +221,10 @@
             "foo , foo",
             "foo, foo, foo, foo, foo"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo foo",
             "foo, foo,",
-            "foo, foo, bar"
-        ],
-        "invalid:Mismatch": [
+            "foo, foo, bar",
             ",foo, foo",
             "",
             "bar"
@@ -257,11 +241,9 @@
             "foo, foo",
             "foo, foo bar"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo, foo, bar",
-            "foo, foo,"
-        ],
-        "invalid:Mismatch": [
+            "foo, foo,",
             "bar"
         ]
     },
@@ -276,12 +258,10 @@
             "foo,foo,foo",
             "foo , foo , foo , foo"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo, foo, foo, foo, foo",
             "foo, foo,",
-            "foo, foo, bar"
-        ],
-        "invalid:Mismatch": [
+            "foo, foo, bar",
             "foo foo",
             "foo",
             "",

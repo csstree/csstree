@@ -9,7 +9,7 @@
             "foo",
             "FOO"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "bar",
             "-prefix-Foo"
@@ -25,7 +25,7 @@
             "-vendor-foo",
             "-VENDOR-FOO"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo",
             "Foo",
             "-vendor-vendor-Foo",
@@ -43,7 +43,7 @@
             "someExample",
             "someexample"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo",
             "-vendor-someExample",
             ""
@@ -60,11 +60,8 @@
             "foo foo",
             "foo foo foo foo"
         ],
-        "invalid:Uncomplete match": [
-            "foo foo bar"
-        ],
-        "invalid:Mismatch": [
-            "",
+        "invalid": [
+            "foo foo bar",
             ""
         ]
     }

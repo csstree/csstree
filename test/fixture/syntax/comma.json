@@ -8,7 +8,7 @@
         "valid": [
             "foo, bar"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "foo",
             "foo bar",
@@ -25,7 +25,7 @@
             "foo, bar",
             "bar"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "foo",
             "foo bar",
@@ -42,7 +42,7 @@
             "foo, bar",
             "foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "bar",
             "foo bar",
@@ -61,7 +61,7 @@
             "foo",
             "bar"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo ,",
             "foo bar",
             ", bar"
@@ -83,7 +83,7 @@
             "bar, baz",
             "foo, bar, baz"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo ,",
             "foo ,,",
             "foo ,, bar",
@@ -106,7 +106,7 @@
             "foo, bar, qux",
             "foo, qux"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo ,",
             "foo ,,",
             "foo ,, qux",
@@ -124,7 +124,7 @@
             "foo, foo",
             "foo, foo, foo, foo"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo ,",
             "foo foo"
         ]
@@ -140,7 +140,7 @@
             "foo, foo",
             "foo, foo, foo, foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             ", foo",
             "foo ,"
         ]

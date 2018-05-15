@@ -18,7 +18,7 @@
             "calc(2 * 1deg)",
             "0"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1px",
             "1px 2deg"
@@ -38,7 +38,7 @@
             "1MS",
             "calc(2 * 1s)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1px",
             "1px 2s"
@@ -87,7 +87,7 @@
             "0.0",
             "calc(2 * 1px)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1s",
             "1s 2px"
@@ -107,7 +107,7 @@
             "1kHz",
             "calc(2 * 1hz)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1px",
             "1px 2hz"
@@ -129,7 +129,7 @@
             "1DPPX",
             "calc(2 * 1dpi)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1px",
             "1px 2dpi"
@@ -147,7 +147,7 @@
             "1FR",
             "calc(2 * 1fr)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1px",
             "1px 2fr"
@@ -165,7 +165,7 @@
             "1dB",
             "calc(2 * 1db)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1px",
             "1px 2db"
@@ -183,7 +183,7 @@
             "1ST",
             "calc(2 * 1st)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1px",
             "1px 2st"
@@ -200,7 +200,7 @@
             "1px",
             "1something"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1 2px"
         ]
@@ -217,9 +217,10 @@
             "12.34%",
             "calc(2 * 1%)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
-            "1 2%"
+            "1 2%",
+            "1px"
         ]
     },
     "<number>": {
@@ -235,7 +236,7 @@
             ".456",
             "calc(2 * 1.5)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "foo 123"
         ]
@@ -255,7 +256,7 @@
             "1.0",
             "1"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "-1",
             "1.01",
             "123"
@@ -273,7 +274,7 @@
             "1.0",
             "123.456"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "-1",
             "0.01",
             ".999",
@@ -292,7 +293,7 @@
             "-123",
             "calc(2 * 2)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "123.456",
             "-123.456",
@@ -311,7 +312,7 @@
             "123",
             "calc(2 * 2)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "-123",
             "123.456",
@@ -335,7 +336,7 @@
             "#aBcDeF",
             "#abcdef12"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "#a",
             "#ab",
@@ -357,7 +358,7 @@
             "element(#a123)",
             "element(#foo-123)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             ""
         ]
     },
@@ -371,7 +372,7 @@
         "valid": [
             "foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "123 foo"
         ]
@@ -387,7 +388,7 @@
             "\"string\"",
             "'string'"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1 'string'"
         ]
@@ -407,7 +408,7 @@
             "url(raw)",
             "URL(raw)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1 url('string')"
         ]
@@ -423,7 +424,7 @@
             "attr(foo)",
             "ATTR(foo)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "1 attr(foo)"
         ]
@@ -442,7 +443,7 @@
             "U+0025-00FF",
             "U+4??"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "U",
             "u",
@@ -461,7 +462,7 @@
             "expression(...)",
             "EXPRESSION(...)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "expression",
             "foo()"
         ]
@@ -480,7 +481,7 @@
             "ALPHA(OPACITY=80)",
             "alpha(opacity=80)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "progid",
             "alpha",
             "foo()"
@@ -498,7 +499,7 @@
             "0 foo",
             "0 bar123"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "0",
             "0 inherit",
@@ -523,7 +524,7 @@
             "-webkit-calc(1px + 1%)",
             "-WEBKIT-CALC(1px + 1%)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "-ms-calc(1px + 1%)",
             "-o-calc(1px + 1%)"
         ]

@@ -8,12 +8,10 @@
         "valid": [
             "foo bar"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo",
             "bar",
-            "baz"
-        ],
-        "invalid:Uncomplete match": [
+            "baz",
             "foo bar foo"
         ]
     },
@@ -27,10 +25,8 @@
             "foo",
             "bar"
         ],
-        "invalid:Mismatch": [
-            "baz"
-        ],
-        "invalid:Uncomplete match": [
+        "invalid": [
+            "baz",
             "foo bar"
         ]
     },
@@ -44,13 +40,11 @@
             "foo bar",
             "bar foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo",
             "bar",
             "foo foo",
-            "foo foo bar"
-        ],
-        "invalid:Uncomplete match": [
+            "foo foo bar",
             "foo bar foo"
         ]
     },
@@ -65,10 +59,8 @@
             "bar foo",
             "foo"
         ],
-        "invalid:Mismatch": [
-            "bar"
-        ],
-        "invalid:Uncomplete match": [
+        "invalid": [
+            "bar",
             "foo foo",
             "foo foo bar",
             "foo bar foo"
@@ -86,7 +78,7 @@
             "foo",
             "bar"
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "foo foo",
             "foo foo bar",
             "foo bar foo"
@@ -104,11 +96,9 @@
             "foo bar",
             "bar foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
-            "baz"
-        ],
-        "invalid:Uncomplete match": [
+            "baz",
             "foo foo",
             "foo foo bar",
             "foo bar foo"
@@ -127,7 +117,7 @@
             "bar foo",
             ""
         ],
-        "invalid:Uncomplete match": [
+        "invalid": [
             "baz",
             "foo foo",
             "foo foo bar",

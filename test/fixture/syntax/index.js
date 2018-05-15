@@ -12,7 +12,7 @@ function forEachTest(factory) {
             var lexer = file[test].syntax ? createLexer(file[test].syntax) : defaultLexer;
 
             for (var property in file[test]) {
-                if (property !== 'valid' && !/^invalid:/.test(property)) {
+                if (property !== 'valid' && property !== 'invalid') {
                     continue;
                 }
 
@@ -22,7 +22,7 @@ function forEachTest(factory) {
                         lexer,
                         file[test].property || 'test',
                         value,
-                        property !== 'valid' ? property.substr(8) : false
+                        property === 'invalid'
                     );
                 });
             }

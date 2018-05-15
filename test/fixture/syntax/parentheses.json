@@ -12,7 +12,7 @@
             "(foo)",
             "( foo )"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "()",
             "(foo foo)",
@@ -32,7 +32,7 @@
             "((foo))",
             "( ( foo ) )"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "()",
             "(())",
             "((foo foo))",
@@ -52,7 +52,7 @@
             "(foo)",
             "( foo ) (foo)"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "()",
             "(foo foo)",
@@ -79,7 +79,7 @@
             "foo(abc, (abc / (abc / abc)))",
             "foo(((((abc, abc)))))"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "foo()",
             "foo(abc / abc / abc)",
             "foo(((abc abc)))"

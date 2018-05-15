@@ -9,7 +9,7 @@
         "valid": [
             "foo"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "bar"
         ]
@@ -26,11 +26,8 @@
             "foo foo",
             "foo foo foo foo"
         ],
-        "invalid:Uncomplete match": [
-            "foo foo bar"
-        ],
-        "invalid:Mismatch": [
-            "",
+        "invalid": [
+            "foo foo bar",
             ""
         ]
     }

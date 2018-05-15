@@ -9,7 +9,7 @@
             "foo / bar",
             "foo/bar"
         ],
-        "invalid:Mismatch": [
+        "invalid": [
             "",
             "/",
             "foo",
