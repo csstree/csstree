@@ -440,7 +440,9 @@ describe('lexer', function() {
                 properties: {
                     'test1': '<foo()>',
                     'test2': '<bar>',
-                    'test3': '<baz()>'
+                    'test3': '<baz()>',
+                    'test4': '<number>{4}',
+                    'test5': '<number>#{4}'
                 },
                 types: {
                     'foo()': 'foo( <number>#{3} )',
@@ -457,11 +459,15 @@ describe('lexer', function() {
             { property: 'test1', value: 'foo(1, 2)', column: 9, skip: true },
             { property: 'test2', value: 'bar( foo )', column: 6 },
             { property: 'test3', value: 'baz( foo )', column: 6 },
-            { property: 'test3', value: 'baz( 1px )', column: 6 }
+            { property: 'test3', value: 'baz( 1px )', column: 6 },
+            { property: 'test4', value: '1 2 3', column: 6 },
+            { property: 'test5', value: '1, 2, 3', column: 8 },
+            { property: 'test5', value: '1, 2, 3,', column: 9 },
+            { property: 'test5', value: '1, 2, 3, 4,', column: 11 }
         ];
 
         tests.forEach(function(test) {
-            (test.skip ? it.skip : it)(test.value, function() {
+            (test.skip ? it.skip : it)('<\'' + test.property + '\'> -> ' + test.value, function() {
                 var ast = parseCss(test.value, { context: 'value', positions: true });
                 var result = customSyntax.lexer.matchProperty(test.property, ast);
                 var error = result.error;
