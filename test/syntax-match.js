@@ -6,34 +6,6 @@ var matchAsList = require('../lib/lexer/match').matchAsList;
 
 var equiv;
 var tests = {
-    'a || b': {
-        match: [
-            'a',
-            'b',
-            'a b',
-            'b a'
-        ],
-        mismatch: [
-            '',
-            'a x',
-            'b x',
-            'a b a'
-        ]
-    },
-    'a && b': {
-        match: [
-            'a b',
-            'b a'
-        ],
-        mismatch: [
-            '',
-            'a',
-            'b',
-            'a x',
-            'b x',
-            'a b a'
-        ]
-    },
     'a b': {
         match: [
             'a b'
@@ -56,6 +28,70 @@ var tests = {
             'x',
             'a b',
             'b a'
+        ]
+    },
+    'a || b': {
+        match: [
+            'a',
+            'b',
+            'a b',
+            'b a'
+        ],
+        mismatch: [
+            '',
+            'a x',
+            'b x',
+            'a b a'
+        ]
+    },
+    'a || b || c || d || e || f': {
+        match: [
+            'a',
+            'b',
+            'a b',
+            'b a',
+            'a b c d e f',
+            'f e d c b a',
+            'f d b a e c'
+        ],
+        mismatch: [
+            '',
+            'a x',
+            'a a a',
+            'a b a',
+            'a f f b',
+            'f a f a',
+            'f d b a e c x'
+        ]
+    },
+    'a && b': {
+        match: [
+            'a b',
+            'b a'
+        ],
+        mismatch: [
+            '',
+            'a',
+            'b',
+            'a x',
+            'b x',
+            'a b a'
+        ]
+    },
+    'a && b && c && d && e && f': {
+        match: [
+            'a b c d e f',
+            'f e d c b a',
+            'f d b a e c'
+        ],
+        mismatch: [
+            '',
+            'a',
+            'b',
+            'a b d e f',
+            'f e d c b a x',
+            'a b c d e f a',
+            'a b c d a f'
         ]
     },
     '[a || b] || c': {
