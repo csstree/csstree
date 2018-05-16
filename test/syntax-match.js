@@ -735,10 +735,7 @@ function createSyntaxTest(syntax, test) {
 
     for (var name in genericSyntaxes) {
         syntaxes.types[name] = {
-            match: {
-                type: 'Generic',
-                fn: genericSyntaxes[name]
-            }
+            match: buildMatchTree(genericSyntaxes[name])
         };
     }
 
