@@ -32,10 +32,6 @@
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/user-select",
       "syntax": "none | text | all | -moz-none"
     },
-    "-ms-filter": {
-      "comment": "added missed syntax https://blogs.msdn.microsoft.com/ie/2009/02/19/the-css-corner-using-filters-in-ie8/",
-      "syntax": "<string>"
-    },
     "-ms-flex-align": {
       "comment": "misssed old syntax implemented in IE, https://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align",
       "syntax": "start | end | center | baseline | stretch"
@@ -80,14 +76,6 @@
       "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466348.aspx",
       "syntax": "start | end | center | stretch"
     },
-    "-ms-high-contrast-adjust": {
-      "comment": "https://msdn.microsoft.com/en-us/library/hh771863(v=vs.85).aspx",
-      "syntax": "auto | none"
-    },
-    "-ms-user-select": {
-      "comment": "https://msdn.microsoft.com/en-us/library/hh781492(v=vs.85).aspx",
-      "syntax": "none | element | text"
-    },
     "-webkit-appearance": {
       "comment": "webkit specific keywords",
       "references": [
@@ -126,10 +114,6 @@
     "-webkit-mask-clip": {
       "comment": "change type to <-webkit-mask-clip-style> since it differ from <mask-clip>, extra space between [ and ,",
       "syntax": "<-webkit-mask-clip-style> [, <-webkit-mask-clip-style> ]*"
-    },
-    "-webkit-overflow-scrolling": {
-      "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling",
-      "syntax": "auto | touch"
     },
     "-webkit-print-color-adjust": {
       "comment": "missed",
@@ -189,7 +173,9 @@
     },
     "cursor": {
       "comment": "added legacy keywords: hand, -webkit-grab. -webkit-grabbing, -webkit-zoom-in, -webkit-zoom-out, -moz-grab, -moz-grabbing, -moz-zoom-in, -moz-zoom-out",
-      "refenrences": ["https://www.sitepoint.com/css3-cursor-styles/"],
+      "refenrences": [
+        "https://www.sitepoint.com/css3-cursor-styles/"
+      ],
       "syntax": "[ [ <url> [ <x> <y> ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing | hand | -webkit-grab | -webkit-grabbing | -webkit-zoom-in | -webkit-zoom-out | -moz-grab | -moz-grabbing | -moz-zoom-in | -moz-zoom-out ] ]"
     },
     "display": {
@@ -477,10 +463,6 @@
     "writing-mode": {
       "comment": "extend with SVG keywords",
       "syntax": "horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr | <svg-writing-mode>"
-    },
-    "zoom": {
-      "comment": "missed, not in DB, https://developer.mozilla.org/en-US/docs/Web/CSS/zoom",
-      "syntax": "normal | reset | <number> | <percentage>"
     }
   },
   "syntaxes": {
@@ -704,7 +686,6 @@
       "comment": "drop it since it's a generic (also syntax is incorrect and can't be parsed)",
       "syntax": null
     },
-
     "an-plus-b": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
@@ -816,23 +797,6 @@
     "pseudo-page": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
-    },
-
-    "rgb()": {
-      "comment": "syntax is broken, remove after https://github.com/mdn/data/pull/226 is merged",
-      "syntax": "rgb( <percentage>{3} [ / <alpha-value> ]? ) | rgb( <number>{3} [ / <alpha-value> ]? ) | rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? )"
-    },
-    "rgba()": {
-      "comment": "syntax is broken, remove after https://github.com/mdn/data/pull/226 is merged",
-      "syntax": "rgba( <percentage>{3} [ / <alpha-value> ]? ) | rgba( <number>{3} [ / <alpha-value> ]? ) | rgba( <percentage>#{3} , <alpha-value>? ) | rgba( <number>#{3} , <alpha-value>? )"
-    },
-    "hsl()": {
-      "comment": "syntax is broken, remove after https://github.com/mdn/data/pull/226 is merged",
-      "syntax": "hsl( <hue> <percentage> <percentage> [ / <alpha-value> ]? ) | hsl( <hue>, <percentage>, <percentage>, <alpha-value>? )"
-    },
-    "hsla()": {
-      "comment": "syntax is broken, remove after https://github.com/mdn/data/pull/226 is merged",
-      "syntax": "hsla( <hue> <percentage> <percentage> [ / <alpha-value> ]? ) | hsla( <hue>, <percentage>, <percentage>, <alpha-value>? )"
     }
   }
 }

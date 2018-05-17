@@ -51,8 +51,9 @@
     }
   },
   "scripts": {
-    "lint": "jscs data lib scripts test && eslint data lib scripts test && node scripts/update-docs --lint",
+    "lint": "jscs data lib scripts test && eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "update:docs": "node scripts/update-docs",
+    "review:syntax-patch": "node scripts/review-syntax-patch",
     "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
     "lint-and-test": "npm run lint && npm test",
     "test": "mocha --reporter progress",
