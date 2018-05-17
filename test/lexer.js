@@ -479,7 +479,7 @@ describe('lexer', function() {
         });
     });
 
-    describe.skip('trace', function() {
+    describe('trace', function() {
         var ast = parseCss('rgb(1, 2, 3)', { context: 'value' });
         var testNode = ast.children.first().children.first();
         var match = syntax.lexer.matchProperty('background', ast);
