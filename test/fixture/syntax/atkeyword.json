@@ -1,0 +1,56 @@
+{
+    "simple": {
+        "context": "raw",
+        "syntax": {
+            "properties": {
+                "test": "@foo"
+            }
+        },
+        "valid": [
+            "@foo",
+            "@FOO"
+        ],
+        "invalid": [
+            "",
+            "bar",
+            "@-prefix-Foo",
+            "@"
+        ]
+    },
+    "with vendor prefix": {
+        "context": "raw",
+        "syntax": {
+            "properties": {
+                "test": "@-vendor-foo"
+            }
+        },
+        "valid": [
+            "@-vendor-foo",
+            "@-VENDOR-FOO"
+        ],
+        "invalid": [
+            "@foo",
+            "@Foo",
+            "@-vendor-vendor-Foo",
+            "",
+            "bar"
+        ]
+    },
+    "with vendor prefix ignore": {
+        "context": "raw",
+        "syntax": {
+            "properties": {
+                "test": "@someExample"
+            }
+        },
+        "valid": [
+            "@someExample",
+            "@someexample"
+        ],
+        "invalid": [
+            "@foo",
+            "@-vendor-someExample",
+            ""
+        ]
+    }
+}

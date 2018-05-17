@@ -10,6 +10,7 @@ function forEachTest(factory) {
 
         for (var test in file) {
             var lexer = file[test].syntax ? createLexer(file[test].syntax) : defaultLexer;
+            var context = file[test].context || 'declaration';
 
             for (var property in file[test]) {
                 if (property !== 'valid' && property !== 'invalid') {
@@ -22,7 +23,8 @@ function forEachTest(factory) {
                         lexer,
                         file[test].property || 'test',
                         value,
-                        property === 'invalid'
+                        property === 'invalid',
+                        context
                     );
                 });
             }

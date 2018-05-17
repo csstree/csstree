@@ -3,23 +3,45 @@ var parseCss = require('../lib').parse;
 var syntax = require('../lib');
 var tests = require('./fixture/syntax');
 
-function createMatchTest(name, syntax, property, value, error) {
-    if (error) {
-        it(name, function() {
-            var declaration = parseCss(property + ':' + value, {
+function getMatch(syntax, context, ref, value) {
+    var ast;
+
+    switch (context) {
+        case 'declaration':
+            ast = parseCss(ref + ':' + value, {
                 context: 'declaration'
             });
-            var match = syntax.matchDeclaration(declaration);
+            break;
+
+        case 'raw':
+            ast = {
+                type: 'Raw',
+                value: value
+            };
+            break;
+
+        default:
+            ast = parseCss(value, {
+                context: context
+            });
+    }
+
+    return context === 'declaration'
+        ? syntax.matchDeclaration(ast)
+        : syntax.matchProperty(ref, ast);
+}
+
+function createMatchTest(name, syntax, property, value, error, context) {
+    if (error) {
+        it(name, function() {
+            var match = getMatch(syntax, context, property, value);
 
             assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
             assert.equal(match.error.name, 'SyntaxMatchError');
         });
     } else {
         it(name, function() {
-            var declaration = parseCss(property + ':' + value, {
-                context: 'declaration'
-            });
-            var match = syntax.matchDeclaration(declaration);
+            var match = getMatch(syntax, context, property, value);
 
             // temporary solution to avoid var() using errors
             if (match.error) {
