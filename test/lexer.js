@@ -529,7 +529,7 @@ describe('lexer', function() {
         });
     });
 
-    describe.skip('search', function() {
+    describe('search', function() {
         function translateFragments(fragments) {
             return fragments.map(function(fragment) {
                 return syntax.generate({
