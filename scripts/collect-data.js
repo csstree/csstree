@@ -1,7 +1,6 @@
 const iterateSyntaxes = require('./utils/iterate-syntaxes');
 const parse = require('../lib').grammar.parse;
 const walk = require('../lib').grammar.walk;
-const generate = require('../lib').grammar.generate;
 const collected = {
     Function: new Set(),
     String: new Set()
