@@ -125,5 +125,11 @@
         "invalid": [
             "small-caps swash(test) small-caps"
         ]
+    },
+    "grid-template-columns (issues #81, #83)": {
+        "property": "grid-template-columns",
+        "valid": [
+            "[first] max-content 1fr max-content [last]"
+        ]
     }
 }
