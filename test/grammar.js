@@ -25,7 +25,7 @@ function createParseTest(name, syntax) {
 describe('grammar', function() {
     it('combinator precedence', function() {
         var ast = parse('a b   |   c ||   d &&   e f');
-        assert.equal(generate(ast, true), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
+        assert.equal(generate(ast, { forceBraces: true }), '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]');
     });
 
     describe('bad syntax', function() {
@@ -120,22 +120,35 @@ describe('grammar', function() {
             }, /Error: Unknown node type `Unknown`/);
         });
 
-        it('with decorate', function() {
-            var ast = parse('<foo> && <bar>');
-            var actual = generate(ast, false, function(str, node) {
-                switch (node.type) {
-                    case 'Type':
-                        return '{' + str + '}';
+        describe('with decorate', function() {
+            it('basic', function() {
+                var ast = parse('<foo> && <bar>');
+                var expected = '*{<foo>} && {<bar>}*';
+                var actual = generate(ast, function(str, node) {
+                    switch (node.type) {
+                        case 'Type':
+                            return '{' + str + '}';
 
-                    case 'Group':
-                        return '*' + str + '*';
+                        case 'Group':
+                            return '*' + str + '*';
 
-                    default:
-                        return str;
-                }
+                        default:
+                            return str;
+                    }
+                });
+
+                assert.equal(actual, expected);
             });
 
-            assert.equal(actual, '*{<foo>} && {<bar>}*');
+            it('all the node types', function() {
+                var ast = parse('<foo> && <\'bar\'> | [ ( a+, b( \'c\' / <d>#{1,2} ) ) ]!');
+                var expected = '{Group}{Group}{Type}<foo>{/Type} && {Property}<\'bar\'>{/Property}{/Group} | {Group}[ {Token}({/Token} {Keyword}a{/Keyword}{Multiplier}+{/Multiplier} {Comma},{/Comma} {Function}b({/Function} {String}\'c\'{/String} {Token}/{/Token} {Type}<d>{/Type}{Multiplier}#{1,2}{/Multiplier} {Token}){/Token} {Token}){/Token} ]!{/Group}{/Group}';
+                var actual = generate(ast, function(str, node) {
+                    return '{' + node.type + '}' + str + '{/' + node.type + '}';
+                });
+
+                assert.equal(actual, expected);
+            });
         });
     });
 
