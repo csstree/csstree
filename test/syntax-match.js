@@ -2,7 +2,7 @@ var assert = require('assert');
 var csstree = require('../lib');
 var astToTokens = require('../lib/lexer/ast-to-tokens');
 var genericSyntaxes = require('../lib/lexer/generic');
-var buildMatchTree = require('../lib/lexer/match-tree').buildMatchTree;
+var buildMatchGraph = require('../lib/lexer/match-graph').buildMatchGraph;
 var matchAsList = require('../lib/lexer/match').matchAsList;
 
 var equiv;
@@ -730,19 +730,19 @@ var tests = {
 };
 
 function createSyntaxTest(syntax, test) {
-    var matchTree = buildMatchTree(syntax);
+    var matchTree = buildMatchGraph(syntax);
     var syntaxes = { types: {} };
 
     for (var name in genericSyntaxes) {
         syntaxes.types[name] = {
-            match: buildMatchTree(genericSyntaxes[name])
+            match: buildMatchGraph(genericSyntaxes[name])
         };
     }
 
     if (test.syntaxes) {
         for (var name in test.syntaxes) {
             syntaxes.types[name] = {
-                match: buildMatchTree(test.syntaxes[name])
+                match: buildMatchGraph(test.syntaxes[name])
             };
         }
     }
