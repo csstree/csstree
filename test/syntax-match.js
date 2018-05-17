@@ -755,7 +755,6 @@ function createSyntaxTest(syntax, test) {
                     var m = matchAsList(csstree.generate(ast, astToTokens), matchTree, syntaxes);
 
                     assert.notEqual(m.match, null);
-                    assert.equal(m.error, null);
 
                     assert.deepEqual(
                         m.match
@@ -784,7 +783,6 @@ function createSyntaxTest(syntax, test) {
                     var m = matchAsList(csstree.generate(ast, astToTokens), matchTree, syntaxes);
 
                     assert.equal(m.match, null);
-                    assert.notEqual(m.error, null);
                 });
             });
         }

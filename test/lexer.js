@@ -456,7 +456,7 @@ describe('lexer', function() {
             { property: 'test1', value: 'foo(1, 2, 3, 4)', column: 12 },
             { property: 'test1', value: 'foo(1, 211px)', column: 8 },
             { property: 'test1', value: 'foo(1, 2 3)', column: 10 },
-            { property: 'test1', value: 'foo(1, 2)', column: 9, skip: true },
+            { property: 'test1', value: 'foo(1, 2)', column: 10 },
             { property: 'test2', value: 'bar( foo )', column: 6 },
             { property: 'test3', value: 'baz( foo )', column: 6 },
             { property: 'test3', value: 'baz( 1px )', column: 6 },
@@ -467,7 +467,7 @@ describe('lexer', function() {
         ];
 
         tests.forEach(function(test) {
-            (test.skip ? it.skip : it)('<\'' + test.property + '\'> -> ' + test.value, function() {
+            it('<\'' + test.property + '\'> -> ' + test.value, function() {
                 var ast = parseCss(test.value, { context: 'value', positions: true });
                 var result = customSyntax.lexer.matchProperty(test.property, ast);
                 var error = result.error;
@@ -523,9 +523,6 @@ describe('lexer', function() {
 
             assert.equal(match.isKeyword(keywordNode), true);
             assert.equal(match.isKeyword(numberNode), false);
-
-            assert.equal(mismatch.isProperty(keywordNode), false);
-            assert.equal(mismatch.isProperty(numberNode), false);
         });
     });
 
