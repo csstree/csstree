@@ -163,6 +163,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `-webkit-mask-repeat`
 - `-webkit-mask-repeat-x`
 - `-webkit-mask-repeat-y`
+- `-webkit-mask-size`
 - `-webkit-overflow-scrolling`
 - `-webkit-print-color-adjust`
 - `-webkit-tap-highlight-color`
@@ -320,6 +321,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `font-feature-settings`
 - `font-kerning`
 - `font-language-override`
+- `font-optical-sizing`
 - `font-size`
 - `font-size-adjust`
 - `font-stretch`
