@@ -1,6 +1,6 @@
 {
   "name": "css-tree",
-  "version": "1.0.0-alpha.28",
+  "version": "1.0.0-alpha.29",
   "description": "CSSTree is a tool set to work with CSS, including fast detailed parser (string->AST), walker (AST traversal), generator (AST->string) and lexer (validation and matching) based on knowledge of spec and browser implementations",
   "keywords": [
     "css",
@@ -88,7 +88,7 @@
     "dist/default-syntax.json",
     "docs",
     "lib",
-    "HISTORY.md",
+    "CHANGELOG.md",
     "LICENSE",
     "README.md"
   ]

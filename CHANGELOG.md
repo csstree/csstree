@@ -1,3 +1,22 @@
+## 1.0.0-alpha.29 (May 30, 2018)
+
+- Lexer
+    - Syntax matching was completely reworked. Now it's token-based and uses state machine. Public API has not changed. However, some internal data structures have changed. Most significal change in syntax match result tree structure, it's became token-based instead of node-based.
+    - Grammar
+        - Changed grammar tree format:
+            - Added `Token` node type to represent a single code point (`<delim-token>`)
+            - Added `Multiplier` that wraps a single node (`term` property)
+            - Added `AtKeyword` to represent `<at-keyword-token>`
+            - Removed `Slash` and `Percent` node types, they are replaced for a node with `Token` type
+            - Changed `Function` to represent `<function-token>` with no children
+            - Removed `multiplier` property from `Group`
+        - Changed `generate()` method:
+            - Method takes an `options` as second argument now (`generate(node, forceBraces, decorator)` -> `generate(node, options)`). Two options are supported: `forceBraces` and `decorator`
+            - When a second parameter is a function it treats as `decorate` option value, i.e. `generate(node, fn)` -> `generate(node, { decorate: fn })`
+            - Decorate function invokes with additional parameter – a reference to a node
+- Tokenizer
+    - Renamed `Atrule` const to `AtKeyword`
+
 ## 1.0.0-alpha.28 (February 19, 2018)
 
 - Renamed `lexer.grammar.translate()` method into `generate()`
