@@ -1,7 +1,7 @@
 var assert = require('assert');
-var Tokenizer = require('../lib').Tokenizer;
+var tokenize = require('../lib').tokenize;
 
-describe('parser/tokenizer', function() {
+describe('parser/stream', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
     var tokens = [
         { type: 'FullStop', chunk: '.', balance: 83 },
@@ -59,81 +59,81 @@ describe('parser/tokenizer', function() {
     }, { offset: 0 });
 
     it('edge case: no arguments', function() {
-        var tokenizer = new Tokenizer();
+        var stream = tokenize();
 
-        assert.equal(tokenizer.eof, true);
-        assert.equal(tokenizer.tokenType, 0);
-        assert.equal(tokenizer.source, '');
+        assert.equal(stream.eof, true);
+        assert.equal(stream.tokenType, 0);
+        assert.equal(stream.source, '');
     });
 
     it('edge case: empty input', function() {
-        var tokenizer = new Tokenizer('');
+        var stream = tokenize('');
 
-        assert.equal(tokenizer.eof, true);
-        assert.equal(tokenizer.tokenType, 0);
-        assert.equal(tokenizer.source, '');
+        assert.equal(stream.eof, true);
+        assert.equal(stream.tokenType, 0);
+        assert.equal(stream.source, '');
     });
 
     it('should convert input to string', function() {
-        var tokenizer = new Tokenizer({
+        var stream = tokenize({
             toString: function() {
                 return css;
             }
         });
 
-        assert.equal(tokenizer.source, css);
+        assert.equal(stream.source, css);
     });
 
     it('should accept a Buffer', function() {
-        var tokenizer = new Tokenizer(new Buffer(css));
+        var stream = tokenize(new Buffer(css));
 
-        assert.equal(tokenizer.source, css);
+        assert.equal(stream.source, css);
     });
 
     it('dump()', function() {
-        var tokenizer = new Tokenizer(css);
+        var stream = tokenize(css);
 
-        assert.deepEqual(tokenizer.dump(), dump);
+        assert.deepEqual(stream.dump(), dump);
     });
 
     it('next() types', function() {
-        var tokenizer = new Tokenizer(css);
+        var stream = tokenize(css);
         var actual = [];
 
-        while (!tokenizer.eof) {
-            actual.push(Tokenizer.NAME[tokenizer.tokenType]);
-            tokenizer.next();
+        while (!stream.eof) {
+            actual.push(tokenize.NAME[stream.tokenType]);
+            stream.next();
         }
 
         assert.deepEqual(actual, types);
     });
 
     it('next() start', function() {
-        var tokenizer = new Tokenizer(css);
+        var stream = tokenize(css);
         var actual = [];
 
-        while (!tokenizer.eof) {
-            actual.push(tokenizer.tokenStart);
-            tokenizer.next();
+        while (!stream.eof) {
+            actual.push(stream.tokenStart);
+            stream.next();
         }
 
         assert.deepEqual(actual, start);
     });
 
     it('next() end', function() {
-        var tokenizer = new Tokenizer(css);
+        var stream = tokenize(css);
         var actual = [];
 
-        while (!tokenizer.eof) {
-            actual.push(tokenizer.tokenEnd);
-            tokenizer.next();
+        while (!stream.eof) {
+            actual.push(stream.tokenEnd);
+            stream.next();
         }
 
         assert.deepEqual(actual, end);
     });
 
     it('skip()', function() {
-        var tokenizer = new Tokenizer(css);
+        var stream = tokenize(css);
         var targetTokens = tokens
             .filter(function(token) {
                 return token.type === 'Identifier' || token.type === 'FullStop';
@@ -143,8 +143,8 @@ describe('parser/tokenizer', function() {
                 return idx ? tokens.indexOf(token) - tokens.indexOf(idents[idx - 1]) : tokens.indexOf(token);
             })
             .map(function(skip) {
-                tokenizer.skip(skip);
-                return Tokenizer.NAME[tokenizer.tokenType];
+                stream.skip(skip);
+                return tokenize.NAME[stream.tokenType];
             });
 
         assert.equal(actual.length, 5); // 3 x Indentifier + 2 x FullStop
@@ -154,11 +154,11 @@ describe('parser/tokenizer', function() {
     });
 
     it('skip() to end', function() {
-        var tokenizer = new Tokenizer(css);
+        var stream = tokenize(css);
 
-        tokenizer.skip(tokens.length);
+        stream.skip(tokens.length);
 
-        assert.equal(tokenizer.eof, true);
+        assert.equal(stream.eof, true);
     });
 
     describe('getRawLength()', function() {
@@ -245,23 +245,23 @@ describe('parser/tokenizer', function() {
 
         tests.forEach(function(test, idx) {
             it('testcase#' + idx, function() {
-                var tokenizer = new Tokenizer(test.source);
+                var stream = tokenize(test.source);
                 var startOffset = test.start.indexOf('^');
                 var skipToOffset = test.skip.indexOf('^');
-                var startToken = tokenizer.currentToken;
+                var startToken = stream.currentToken;
 
-                while (tokenizer.tokenStart < startOffset) {
-                    tokenizer.next();
-                    startToken = tokenizer.currentToken;
+                while (stream.tokenStart < startOffset) {
+                    stream.next();
+                    startToken = stream.currentToken;
                 }
 
-                while (tokenizer.tokenStart < skipToOffset) {
-                    tokenizer.next();
+                while (stream.tokenStart < skipToOffset) {
+                    stream.next();
                 }
 
-                tokenizer.skip(tokenizer.getRawLength.apply(tokenizer, [startToken].concat(test.args)));
+                stream.skip(stream.getRawLength.apply(stream, [startToken].concat(test.args)));
                 assert.equal(
-                    tokenizer.source.substring(startOffset, tokenizer.tokenStart),
+                    stream.source.substring(startOffset, stream.tokenStart),
                     test.expected
                 );
             });
@@ -269,16 +269,16 @@ describe('parser/tokenizer', function() {
     });
 
     it('dynamic buffer', function() {
-        var bufferSize = new Tokenizer(css).offsetAndType.length + 10;
-        var tokenizer = new Tokenizer(new Array(bufferSize + 1).join('.'));
+        var bufferSize = tokenize(css).offsetAndType.length + 10;
+        var stream = tokenize(new Array(bufferSize + 1).join('.'));
         var count = 0;
 
-        while (!tokenizer.eof) {
+        while (!stream.eof) {
             count++;
-            tokenizer.next();
+            stream.next();
         }
 
         assert.equal(count, bufferSize);
-        assert(tokenizer.offsetAndType.length >= bufferSize);
+        assert(stream.offsetAndType.length >= bufferSize);
     });
 });
