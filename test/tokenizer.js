@@ -248,11 +248,11 @@ describe('parser/stream', function() {
                 var stream = tokenize(test.source);
                 var startOffset = test.start.indexOf('^');
                 var skipToOffset = test.skip.indexOf('^');
-                var startToken = stream.currentToken;
+                var startToken = stream.tokenIndex;
 
                 while (stream.tokenStart < startOffset) {
                     stream.next();
-                    startToken = stream.currentToken;
+                    startToken = stream.tokenIndex;
                 }
 
                 while (stream.tokenStart < skipToOffset) {
