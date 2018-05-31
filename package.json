@@ -82,11 +82,8 @@
     "node": ">=0.10.0"
   },
   "files": [
-    "bin",
     "data",
     "dist/csstree.js",
-    "dist/default-syntax.json",
-    "docs",
     "lib",
     "CHANGELOG.md",
     "LICENSE",
