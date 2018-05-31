@@ -1,6 +1,6 @@
 var assert = require('assert');
 var stringify = require('./helpers/stringify');
-var List = require('../lib/utils/list');
+var List = require('../lib/common/List');
 var parse = require('../lib/parser');
 var walk = require('../lib/walker');
 var generate = require('../lib/generator');
