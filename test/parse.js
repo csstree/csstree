@@ -204,7 +204,7 @@ describe('parse', function() {
                 parse('a {\n\tb:\tc#\t\n}', throwOnParseErrorOptions);
             }, function(e) {
                 assert.equal(e.formattedMessage,
-                    'Parse error: Number or identifier is expected\n' +
+                    'Parse error: Name is expected\n' +
                     '    1 |a {\n' +
                     '    2 |    b:    c#    \n' +
                     '-------------------^\n' +

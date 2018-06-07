@@ -78,12 +78,7 @@
                 "children": [
                     {
                         "type": "HexColor",
-                        "value": "1e"
-                    },
-                    {
-                        "type": "Dimension",
-                        "value": "-2",
-                        "unit": "Aa"
+                        "value": "1e-2Aa"
                     }
                 ]
             }
@@ -95,11 +90,7 @@
                 "children": [
                     {
                         "type": "HexColor",
-                        "value": "a1e"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "-2Aa"
+                        "value": "a1e-2Aa"
                     }
                 ]
             }
@@ -111,11 +102,7 @@
                 "children": [
                     {
                         "type": "HexColor",
-                        "value": "123"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "xxx"
+                        "value": "123xxx"
                     }
                 ]
             }
@@ -127,11 +114,7 @@
                 "children": [
                     {
                         "type": "HexColor",
-                        "value": "123a"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "zz"
+                        "value": "123azz"
                     }
                 ]
             }
@@ -143,11 +126,7 @@
                 "children": [
                     {
                         "type": "HexColor",
-                        "value": "123"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "\\9"
+                        "value": "123\\9"
                     }
                 ]
             }
@@ -159,11 +138,7 @@
                 "children": [
                     {
                         "type": "HexColor",
-                        "value": "123a"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "\\9"
+                        "value": "123a\\9"
                     }
                 ]
             }
@@ -175,11 +150,7 @@
                 "children": [
                     {
                         "type": "HexColor",
-                        "value": "abc"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "\\0"
+                        "value": "abc\\0"
                     }
                 ]
             }
@@ -190,33 +161,37 @@
                 "type": "HexColor",
                 "value": "1e57e9"
             }
+        },
+        {
+            "source": "#id",
+            "ast": {
+                "type": "HexColor",
+                "value": "id"
+            }
+        },
+        {
+            "source": "#-123",
+            "ast": {
+                "type": "HexColor",
+                "value": "-123"
+            }
         }
     ],
     "error": [
         {
             "source": "#+123",
             "offset": " ^",
-            "error": "Unexpected input"
-        },
-        {
-            "source": "#-123",
-            "offset": " ^",
-            "error": "Unexpected input"
+            "error": "Name is expected"
         },
         {
             "source": "#.123",
             "offset": " ^",
-            "error": "Unexpected input"
+            "error": "Name is expected"
         },
         {
             "source": "#~123",
             "offset": " ^",
-            "error": "Number or identifier is expected"
-        },
-        {
-            "source": "#id",
-            "offset": " ^",
-            "error": "Unexpected input"
+            "error": "Name is expected"
         }
     ]
 }

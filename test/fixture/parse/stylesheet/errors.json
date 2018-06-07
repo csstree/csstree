@@ -28,17 +28,17 @@
         {
             "source": "# {}",
             "offset": " ^",
-            "error": "Identifier is expected"
+            "error": "Name is expected"
         },
         {
             "source": "#{}",
             "offset": " ^",
-            "error": "Identifier is expected"
+            "error": "Name is expected"
         },
         {
             "source": "#",
             "offset": " ^",
-            "error": "Identifier is expected"
+            "error": "Name is expected"
         },
         {
             "source": "a { color }",
@@ -48,12 +48,12 @@
         {
             "source": "a { color: #}",
             "offset": "            ^",
-            "error": "Number or identifier is expected"
+            "error": "Name is expected"
         },
         {
             "source": "a { color: # }",
             "offset": "            ^",
-            "error": "Number or identifier is expected"
+            "error": "Name is expected"
         },
         {
             "source": ": {}",

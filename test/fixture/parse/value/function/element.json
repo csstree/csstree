@@ -56,17 +56,17 @@
         {
             "source": "element()",
             "offset": "        ^",
-            "error": "NumberSign is expected"
+            "error": "Hash is expected"
         },
         {
             "source": "element(#)",
             "offset": "         ^",
-            "error": "Identifier is expected"
+            "error": "Name is expected"
         },
         {
             "source": "element(123)",
             "offset": "        ^",
-            "error": "NumberSign is expected"
+            "error": "Hash is expected"
         },
         {
             "source": "element(#foo #bar)",

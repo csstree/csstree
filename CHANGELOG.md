@@ -1,3 +1,10 @@
+## next
+
+- Tokenizer
+    - Added `Hash` token
+- Parser
+    - Changed `HexColor` consumption in way to relax checking a value, i.e. now `value` is a sequence of one or more name chars
+
 ## 1.0.0-alpha.29 (May 30, 2018)
 
 - Lexer
