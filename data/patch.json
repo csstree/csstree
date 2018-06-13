@@ -797,6 +797,50 @@
     "pseudo-page": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
       "syntax": null
+    },
+    "id-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "attribute-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "wq-name": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "ns-prefix": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "class-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "compound-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "type-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "subclass-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "pseudo-class-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "pseudo-element-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "compound-selector-list": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
     }
   }
 }
