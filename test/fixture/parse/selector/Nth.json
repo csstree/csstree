@@ -164,6 +164,7 @@
     },
     "nthselector.1": {
         "source": ":nth-last-child(+3n-2)",
+        "generate": ":nth-last-child(3n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",
@@ -172,7 +173,7 @@
                     "type": "Nth",
                     "nth": {
                         "type": "AnPlusB",
-                        "a": "+3",
+                        "a": "3",
                         "b": "-2"
                     },
                     "selector": null
@@ -341,7 +342,7 @@
     },
     "nthselector.c.1": {
         "source": ":nth-last-child(/*test*/+3n/*test*/-/*test*/2/*test*/)",
-        "generate": ":nth-last-child(+3n-2)",
+        "generate": ":nth-last-child(3n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",
@@ -350,7 +351,7 @@
                     "type": "Nth",
                     "nth": {
                         "type": "AnPlusB",
-                        "a": "+3",
+                        "a": "3",
                         "b": "-2"
                     },
                     "selector": null
@@ -379,7 +380,7 @@
     },
     "nthselector.s.1": {
         "source": ":nth-last-child(  +3n  -  2  )",
-        "generate": ":nth-last-child(+3n-2)",
+        "generate": ":nth-last-child(3n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",
@@ -388,7 +389,7 @@
                     "type": "Nth",
                     "nth": {
                         "type": "AnPlusB",
-                        "a": "+3",
+                        "a": "3",
                         "b": "-2"
                     },
                     "selector": null
@@ -398,7 +399,7 @@
     },
     "+n": {
         "source": ":nth-last-child(+n - 2)",
-        "generate": ":nth-last-child(+n-2)",
+        "generate": ":nth-last-child(n-2)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "nth-last-child",
@@ -407,7 +408,7 @@
                     "type": "Nth",
                     "nth": {
                         "type": "AnPlusB",
-                        "a": "+1",
+                        "a": "1",
                         "b": "-2"
                     },
                     "selector": null
@@ -477,17 +478,17 @@
         {
             "source": ":nth-child(xxx)",
             "offset": "           ^",
-            "error": "Unexpected input"
+            "error": "N is expected"
         },
         {
             "source": ":nth-child(--test) {}",
-            "offset": "            ^",
-            "error": "Number or identifier is expected"
+            "offset": "           ^",
+            "error": "Unexpected input"
         },
         {
             "source": ":nth-child(var(--test)) {}",
             "offset": "           ^",
-            "error": "Number or identifier is expected"
+            "error": "Unexpected input"
         },
         {
             "source": ":nth-child(3 n)",
@@ -496,178 +497,178 @@
         },
         {
             "source": ":nth-child(+ 2n)",
-            "offset": "            ^",
-            "error": "Number or identifier is expected"
+            "offset": "           ^",
+            "error": "Unexpected input"
         },
         {
             "source": ":nth-child(+ 2)",
-            "offset": "            ^",
-            "error": "Number or identifier is expected"
+            "offset": "           ^",
+            "error": "Unexpected input"
         },
         {
             "source": ":nth-child(3n - +1)",
             "offset": "                ^",
-            "error": "Unexpected input"
+            "error": "Number sign is not allowed"
         },
         {
             "source": ":nth-child(3n - -1)",
             "offset": "                ^",
-            "error": "Unexpected input"
+            "error": "Number sign is not allowed"
         },
         {
             "source": ":nth-child(3n- +1)",
             "offset": "               ^",
-            "error": "Unexpected input"
+            "error": "Number sign is not allowed"
         },
         {
             "source": ":nth-child(3n- -1)",
             "offset": "               ^",
-            "error": "Unexpected input"
+            "error": "Number sign is not allowed"
         },
         {
             "source": ":nth-child(3n-2n)",
             "offset": "               ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n + -6)",
             "offset": "                ^",
-            "error": "Unexpected input"
+            "error": "Number sign is not allowed"
         },
         {
             "source": ":nth-child(3n - 2n)",
             "offset": "                 ^",
-            "error": "RightParenthesis is expected"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n- 2n)",
             "offset": "                ^",
-            "error": "RightParenthesis is expected"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n-x)",
             "offset": "              ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n- 3.5)",
             "offset": "                ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n 1)",
             "offset": "              ^",
-            "error": "Unexpected input"
+            "error": "Number sign is expected"
         },
         {
             "source": ":nth-child(3nn)",
             "offset": "             ^",
-            "error": "Unexpected input"
+            "error": "HyphenMinus is expected"
         },
         {
             "source": ":nth-child(3n- n)",
             "offset": "               ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n + -2)",
             "offset": "                ^",
-            "error": "Unexpected input"
+            "error": "Number sign is not allowed"
         },
         {
             "source": ":nth-child(3n+-2)",
             "offset": "              ^",
-            "error": "Unexpected input"
+            "error": "Number sign is not allowed"
         },
         {
             "source": ":nth-child(1.3n+2)",
             "offset": "            ^",
-            "error": "Unexpected input"
+            "error": "N is expected"
         },
         {
             "source": ":nth-child(1e3n+2)",
             "offset": "            ^",
-            "error": "Unexpected input"
+            "error": "N is expected"
         },
         {
             "source": ":nth-child(.3n+2)",
             "offset": "           ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n+2.1)",
             "offset": "               ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n+2e1)",
             "offset": "               ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(3n+.1)",
             "offset": "              ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(2.1)",
             "offset": "            ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(2e1)",
             "offset": "            ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(.1)",
             "offset": "           ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(+-n)",
             "offset": "            ^",
-            "error": "Unexpected hyphen minus"
+            "error": "N is expected"
         },
         {
             "source": ":nth-child(n -)",
             "offset": "              ^",
-            "error": "Number is expected"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(n +)",
             "offset": "              ^",
-            "error": "Number is expected"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(n+)",
             "offset": "             ^",
-            "error": "Number is expected"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(n-)",
             "offset": "             ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(-n+)",
             "offset": "              ^",
-            "error": "Number is expected"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(-n-)",
             "offset": "              ^",
-            "error": "Unexpected input"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(-n +)",
             "offset": "               ^",
-            "error": "Number is expected"
+            "error": "Integer is expected"
         },
         {
             "source": ":nth-child(-n -)",
             "offset": "               ^",
-            "error": "Number is expected"
+            "error": "Integer is expected"
         }
     ]
 }

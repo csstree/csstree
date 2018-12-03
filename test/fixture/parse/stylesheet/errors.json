@@ -22,8 +22,8 @@
         },
         {
             "source": ".1px {}",
-            "offset": "  ^",
-            "error": "PercentSign is expected"
+            "offset": " ^",
+            "error": "Identifier is expected"
         },
         {
             "source": "# {}",

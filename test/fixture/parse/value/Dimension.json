@@ -34,18 +34,9 @@
     "IE hack": {
         "source": "1px\\9",
         "ast": {
-            "type": "Value",
-            "children": [
-                {
-                    "type": "Dimension",
-                    "value": "1",
-                    "unit": "px"
-                },
-                {
-                    "type": "Identifier",
-                    "name": "\\9"
-                }
-            ]
+            "type": "Dimension",
+            "value": "1",
+            "unit": "px\\9"
         }
     }
 }

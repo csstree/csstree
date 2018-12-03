@@ -144,19 +144,16 @@
             ]
         }
     },
-    "should parse number with following \\0 or \\9 hack as Number": [
+    "should parse number with following \\0 or \\9 hack as Dimension": [
         {
             "source": "1\\0",
             "ast": {
                 "type": "Value",
                 "children": [
                     {
-                        "type": "Number",
-                        "value": "1"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "\\0"
+                        "type": "Dimension",
+                        "value": "1",
+                        "unit": "\\0"
                     }
                 ]
             }
@@ -167,12 +164,9 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "Number",
-                        "value": "1"
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "\\9"
+                        "type": "Dimension",
+                        "value": "1",
+                        "unit": "\\9"
                     }
                 ]
             }
