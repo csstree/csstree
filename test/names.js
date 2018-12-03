@@ -164,7 +164,7 @@ describe('names utils', function() {
         });
 
         describe('should detect hacks', function() {
-            ['*', '_', '$', '#', '+', '//', '/'].forEach(function(hack) {
+            ['*', '_', '$', '#', '+', '&', '//', '/'].forEach(function(hack) {
                 it(hack, function() {
                     assert.deepEqual(property(hack + 'test'), {
                         name: 'test',

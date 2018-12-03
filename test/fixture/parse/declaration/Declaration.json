@@ -135,6 +135,23 @@
             }
         }
     },
+    "declaration property with & hack": {
+        "source": "&property:value",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "&property",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "value"
+                    }
+                ]
+            }
+        }
+    },
     "declaration.c.0": {
         "source": "property/*test*/:value",
         "generate": "property:value",
