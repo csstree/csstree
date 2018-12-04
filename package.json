@@ -74,7 +74,7 @@
     "eslint": "^2.13.1",
     "istanbul": "^0.4.2",
     "jscs": "~3.0.7",
-    "json-to-ast": "~2.0.1",
+    "json-to-ast": "2.0.4",
     "mocha": "^3.0.2",
     "uglify-js": "^2.6.1"
   },
