@@ -3,7 +3,7 @@
         {
             "source": "100 {}",
             "offset": "   ^",
-            "error": "PercentSign is expected"
+            "error": "Percent sign is expected"
         },
         {
             "source": ". {}",
