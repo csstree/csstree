@@ -2,6 +2,7 @@ var assert = require('assert');
 var syntax = require('../lib');
 var parse = require('../lib').parse;
 var TYPE = require('../lib').tokenize.TYPE;
+var CHARCODE = require('../lib').tokenize.CHARCODE;
 var toPlainObject = require('../lib').toPlainObject;
 var walk = require('../lib').walk;
 var lexer = require('../lib').lexer;
@@ -9,6 +10,9 @@ var List = require('../lib').List;
 var forEachParseTest = require('./fixture/parse').forEachTest;
 var stringify = require('./helpers/stringify');
 var merge = require('./helpers').merge;
+
+var DollarSign = CHARCODE.DollarSign;
+var Ampersand = CHARCODE.Ampersand;
 
 function repeat(str, count) {
     return new Array(count + 1).join(str);
@@ -342,7 +346,7 @@ describe('parse', function() {
                 var defaultGetNode = syntaxConfig.scope.Value.getNode;
 
                 syntaxConfig.scope.Value.getNode = function(context) {
-                    if (this.scanner.tokenType === TYPE.DollarSign) {
+                    if (this.scanner.tokenType === DollarSign) {
                         var start = this.scanner.tokenStart;
                         this.scanner.next();
 
@@ -399,7 +403,7 @@ describe('parse', function() {
                 var defaultGetNode = syntaxConfig.scope.Selector.getNode;
 
                 syntaxConfig.scope.Selector.getNode = function(context) {
-                    if (this.scanner.tokenType === TYPE.Ampersand) {
+                    if (this.scanner.tokenType === Ampersand) {
                         var start = this.scanner.tokenStart;
                         this.scanner.next();
 

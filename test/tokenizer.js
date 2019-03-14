@@ -85,7 +85,7 @@ describe('parser/stream', function() {
     });
 
     it('should accept a Buffer', function() {
-        var stream = tokenize(new Buffer(css));
+        var stream = tokenize(Buffer.from(css));
 
         assert.equal(stream.source, css);
     });
