@@ -1,5 +1,7 @@
 var assert = require('assert');
 var tokenize = require('../lib').tokenize;
+var SemicolonToken = tokenize.TYPE.Semicolon;
+var LeftCurlyBracketToken = tokenize.TYPE.LeftCurlyBracket;
 
 describe('parser/stream', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
@@ -167,7 +169,7 @@ describe('parser/stream', function() {
                 source: '? { }',
                 start:  '^',
                 skip:   '^',
-                args: ['{'.charCodeAt(0), 0, false],
+                args: [LeftCurlyBracketToken, 0, false],
                 expected: '? '
             },
             {
@@ -175,42 +177,42 @@ describe('parser/stream', function() {
                 source: 'div { }',
                 start:  '^',
                 skip:   '^',
-                args: ['{'.charCodeAt(0), 0, false],
+                args: [LeftCurlyBracketToken, 0, false],
                 expected: 'div '
             },
             {
                 source: 'foo(bar(1)(2)(3[{}])(4{}){}(5))',
                 start:  '             ^',
                 skip:   '             ^',
-                args: ['{'.charCodeAt(0), 0, false],
+                args: [LeftCurlyBracketToken, 0, false],
                 expected: '(3[{}])(4{})'
             },
             {
                 source: 'foo(bar(1) (2) (3[{}]) (4{}) {} (5))',
                 start:  '               ^',
                 skip:   '                ^',
-                args: ['{'.charCodeAt(0), 0, false],
+                args: [LeftCurlyBracketToken, 0, false],
                 expected: '(3[{}]) (4{}) '
             },
             {
                 source: 'func(a func(;))',
                 start:  '     ^',
                 skip:   '       ^',
-                args: [';'.charCodeAt(0), 0, false],
+                args: [SemicolonToken, 0, false],
                 expected: 'a func(;)'
             },
             {
                 source: 'func(a func(;))',
                 start:  '     ^',
                 skip:   '            ^',
-                args: [';'.charCodeAt(0), 0, false],
+                args: [SemicolonToken, 0, false],
                 expected: 'a func(;)'
             },
             {
                 source: 'func(a func(;); b)',
                 start:  '     ^',
                 skip:   '       ^',
-                args: [';'.charCodeAt(0), 0, false],
+                args: [SemicolonToken, 0, false],
                 expected: 'a func(;)'
             },
             {
