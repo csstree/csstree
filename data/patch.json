@@ -298,6 +298,18 @@
       "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
     },
+    "motion": { 
+      "syntax": null 
+    },
+    "motion-offset": { 
+      "syntax": null 
+    },
+    "motion-path": { 
+      "syntax": null 
+    },
+    "motion-rotation": { 
+      "syntax": null 
+    },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
       "syntax": "<number-zero-one>"
