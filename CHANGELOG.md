@@ -1,3 +1,9 @@
+## 1.1.0 (March 18, 2019)
+
+- Upgrade `mdn-data` to use a better open-source license
+- Data
+    - Add in `motion-*` exceptions to fix issues with bad `mdn-data` as a result of the upgrade
+
 ## 1.0.0-alpha.29 (May 30, 2018)
 
 - Lexer
