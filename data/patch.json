@@ -298,17 +298,21 @@
       "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
     },
-    "motion": { 
-      "syntax": null 
+    "motion": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
     },
-    "motion-offset": { 
-      "syntax": null 
+    "motion-offset": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
     },
-    "motion-path": { 
-      "syntax": null 
+    "motion-path": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
     },
-    "motion-rotation": { 
-      "syntax": null 
+    "motion-rotation": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
     },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
