@@ -1,6 +1,6 @@
 ## next
 
-- Upgrade `mdn-data` to use a better open-source license
+- Bumped `mdn/data` to `~2.0.1`
 
 ## 1.0.0-alpha.29 (May 30, 2018)
 
