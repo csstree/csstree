@@ -482,8 +482,8 @@
         },
         {
             "source": ":nth-child(--test) {}",
-            "offset": "           ^",
-            "error": "Unexpected input"
+            "offset": "            ^",
+            "error": "N is expected"
         },
         {
             "source": ":nth-child(var(--test)) {}",

@@ -427,15 +427,20 @@ describe('lexer', function() {
     });
 
     describe('match()', function() {
-        var value = parseCss('fn(1, 2, 3)', { context: 'value' });
-        var fn = value.children.first();
-        var customSyntax = syntax.fork(function(prev, assign) {
-            return assign(prev, {
-                types: {
-                    foo: '<bar>#',
-                    bar: '[ 1 | 2 | 3 ]',
-                    fn: 'fn(<foo>)'
-                }
+        var fn;
+        var customSyntax;
+
+        beforeEach(function() {
+            var value = parseCss('fn(1, 2, 3)', { context: 'value' });
+            fn = value.children.first();
+            customSyntax = syntax.fork(function(prev, assign) {
+                return assign(prev, {
+                    types: {
+                        foo: '<bar>#',
+                        bar: '[ 1 | 2 | 3 ]',
+                        fn: 'fn(<foo>)'
+                    }
+                });
             });
         });
 
@@ -502,10 +507,16 @@ describe('lexer', function() {
     });
 
     describe('trace', function() {
-        var ast = parseCss('rgb(1, 2, 3)', { context: 'value' });
-        var testNode = ast.children.first().children.first();
-        var match = syntax.lexer.matchProperty('background', ast);
-        var mismatch = syntax.lexer.matchProperty('margin', ast);
+        var testNode;
+        var match;
+        var mismatch;
+
+        beforeEach(function() {
+            var ast = parseCss('rgb(1, 2, 3)', { context: 'value' });
+            testNode = ast.children.first().children.first();
+            match = syntax.lexer.matchProperty('background', ast);
+            mismatch = syntax.lexer.matchProperty('margin', ast);
+        });
 
         it('getTrace()', function() {
             assert.deepEqual(match.getTrace(testNode), [

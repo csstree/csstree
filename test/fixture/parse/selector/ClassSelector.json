@@ -13,35 +13,35 @@
             "name": "-abc"
         }
     },
-    "excaped class selector #1": {
+    "escaped class selector #1": {
         "source": ".\\31 0\\+",
         "ast": {
             "type": "ClassSelector",
             "name": "\\31 0\\+"
         }
     },
-    "excaped class selector #2": {
+    "escaped class selector #2": {
         "source": ".\\31 b",
         "ast": {
             "type": "ClassSelector",
             "name": "\\31 b"
         }
     },
-    "excaped class selector #3": {
+    "escaped class selector #3": {
         "source": ".\\31 \\ b",
         "ast": {
             "type": "ClassSelector",
             "name": "\\31 \\ b"
         }
     },
-    "excaped class selector #4": {
+    "escaped class selector #4": {
         "source": ".\\30 \\30\r\\30\r\n\\30\n\\30\f",
         "ast": {
             "type": "ClassSelector",
             "name": "\\30 \\30\r\\30\r\n\\30\n\\30\f"
         }
     },
-    "excaped class selector #5": {
+    "escaped class selector #5": {
         "source": ".test\\(1\\)",
         "ast": {
             "type": "ClassSelector",

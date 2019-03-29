@@ -571,33 +571,23 @@
             "error": "Identifier is expected"
         },
         {
-            "source": "[a+=1]{}",
+            "source": "[a+=foo]{}",
             "offset": "  ^",
             "error": "Attribute selector (=, ~=, ^=, $=, *=, |=) is expected"
         },
         {
-            "source": "[var(--test)=1]{}",
+            "source": "[var(--test)=foo]{}",
             "offset": "    ^",
             "error": "Identifier is expected but function found"
         },
         {
-            "source": "[--test=1]{}",
-            "offset": " ^",
+            "source": "[--test:=foo]{}",
+            "offset": "        ^",
             "error": "Identifier is expected"
         },
         {
-            "source": "[--test:=1]{}",
+            "source": "[:--test=foo]{}",
             "offset": " ^",
-            "error": "Identifier is expected"
-        },
-        {
-            "source": "[:--test=1]{}",
-            "offset": " ^",
-            "error": "Identifier is expected"
-        },
-        {
-            "source": "[foo:--test=1]{}",
-            "offset": "     ^",
             "error": "Identifier is expected"
         }
     ]

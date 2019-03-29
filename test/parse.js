@@ -208,7 +208,7 @@ describe('parse', function() {
                 parse('a {\n\tb:\tc#\t\n}', throwOnParseErrorOptions);
             }, function(e) {
                 assert.equal(e.formattedMessage,
-                    'Parse error: Name is expected\n' +
+                    'Parse error: Hex or identifier is expected\n' +
                     '    1 |a {\n' +
                     '    2 |    b:    c#    \n' +
                     '-------------------^\n' +
@@ -346,7 +346,7 @@ describe('parse', function() {
                 var defaultGetNode = syntaxConfig.scope.Value.getNode;
 
                 syntaxConfig.scope.Value.getNode = function(context) {
-                    if (this.scanner.tokenType === DollarSign) {
+                    if (this.scanner.isDelim(DollarSign)) {
                         var start = this.scanner.tokenStart;
                         this.scanner.next();
 
@@ -403,7 +403,7 @@ describe('parse', function() {
                 var defaultGetNode = syntaxConfig.scope.Selector.getNode;
 
                 syntaxConfig.scope.Selector.getNode = function(context) {
-                    if (this.scanner.tokenType === Ampersand) {
+                    if (this.scanner.isDelim(Ampersand)) {
                         var start = this.scanner.tokenStart;
                         this.scanner.next();
 

@@ -181,17 +181,17 @@
         {
             "source": "#+123",
             "offset": " ^",
-            "error": "Name is expected"
+            "error": "Hex or identifier is expected"
         },
         {
             "source": "#.123",
             "offset": " ^",
-            "error": "Name is expected"
+            "error": "Hex or identifier is expected"
         },
         {
             "source": "#~123",
             "offset": " ^",
-            "error": "Name is expected"
+            "error": "Hex or identifier is expected"
         }
     ]
 }

@@ -98,18 +98,18 @@
     "error": [
         {
             "source": "url(/*test*/'http://test.com'/*test*/)",
-            "offset": "            ^",
-            "error": "RightParenthesis is expected"
+            "offset": "^",
+            "error": "Unexpected input"
         },
         {
             "source": "url(a(1).png)",
-            "offset": "     ^",
-            "error": "RightParenthesis is expected"
+            "offset": "^",
+            "error": "Unexpected input"
         },
         {
             "source": "url(a - b.png)",
-            "offset": "      ^",
-            "error": "RightParenthesis is expected"
+            "offset": "^",
+            "error": "Unexpected input"
         }
     ]
 }

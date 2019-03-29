@@ -190,11 +190,6 @@
             "error": "RightParenthesis is expected"
         },
         {
-            "source": ":has(--test)",
-            "offset": "     ^",
-            "error": "Selector is expected"
-        },
-        {
             "source": ":has(var(--test))",
             "offset": "     ^",
             "error": "Selector is expected"

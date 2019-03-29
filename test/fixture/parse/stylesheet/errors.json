@@ -48,12 +48,12 @@
         {
             "source": "a { color: #}",
             "offset": "            ^",
-            "error": "Name is expected"
+            "error": "Hex or identifier is expected"
         },
         {
             "source": "a { color: # }",
             "offset": "            ^",
-            "error": "Name is expected"
+            "error": "Hex or identifier is expected"
         },
         {
             "source": ": {}",
@@ -84,11 +84,6 @@
             "source": ":pseudo({}",
             "offset": "          ^",
             "error": "RightParenthesis is expected"
-        },
-        {
-            "source": ":lang(--test) {}",
-            "offset": "      ^",
-            "error": "Identifier is expected"
         },
         {
             "source": ":lang(var(--test)) {}",
@@ -139,11 +134,6 @@
             "source": ".foo { var(--side): 20px }",
             "offset": "          ^",
             "error": "Identifier is expected but function found"
-        },
-        {
-            "source": "--test { padding: 20px }",
-            "offset": "^",
-            "error": "Selector is expected"
         }
     ]
 }

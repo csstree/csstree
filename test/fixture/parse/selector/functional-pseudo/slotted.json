@@ -75,11 +75,6 @@
             "error": "RightParenthesis is expected"
         },
         {
-            "source": "::slotted(--test)",
-            "offset": "          ^",
-            "error": "Selector is expected"
-        },
-        {
             "source": "::slotted(var(--test))",
             "offset": "          ^",
             "error": "Selector is expected"

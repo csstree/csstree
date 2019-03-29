@@ -150,11 +150,6 @@
             "error": "RightParenthesis is expected"
         },
         {
-            "source": ":matches(--test)",
-            "offset": "         ^",
-            "error": "Selector is expected"
-        },
-        {
             "source": ":matches(var(--test))",
             "offset": "         ^",
             "error": "Selector is expected"

@@ -1,0 +1,24 @@
+{
+    "valid": [
+        "foo(",
+        {
+            "value": "url('foo')",
+            "tokens": [
+                { "type": "Function", "chunk": "url(" },
+                { "type": "String", "chunk": "'foo'" },
+                { "type": "RightParenthesis", "chunk": ")" }
+            ]
+        },
+        {
+            "value": "url(\"foo\")",
+            "tokens": [
+                { "type": "Function", "chunk": "url(" },
+                { "type": "String", "chunk": "\"foo\"" },
+                { "type": "RightParenthesis", "chunk": ")" }
+            ]
+        }
+    ],
+    "invalid": [
+        "url(abc)"
+    ]
+}

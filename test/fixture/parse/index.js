@@ -54,7 +54,7 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
     function scanDir(dir) {
         if (fs.statSync(dir).isDirectory()) {
             fs.readdirSync(dir).forEach(function(fn) {
-                function processTest(test, key, storeKey) {
+                function processTest(test, storeKey) {
                     if (test.error) {
                         if (typeof test.offset === 'string') {
                             var offset = test.offset.indexOf('^');
@@ -104,14 +104,14 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
                             test.options = merge(test.options, {
                                 context: scope
                             });
-                            processTest(test, key, key + '#' + (idx + 1));
+                            processTest(test, key + '#' + (idx + 1));
                         });
                     } else {
                         origTests[key].name = locator.get(key);
                         origTests[key].options = merge(origTests[key].options, {
                             context: scope
                         });
-                        processTest(origTests[key], key, key);
+                        processTest(origTests[key], key);
                     }
                 });
 

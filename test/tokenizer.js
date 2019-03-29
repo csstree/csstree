@@ -1,42 +1,35 @@
 var assert = require('assert');
 var tokenize = require('../lib').tokenize;
-var SemicolonToken = tokenize.TYPE.Semicolon;
-var LeftCurlyBracketToken = tokenize.TYPE.LeftCurlyBracket;
+var Raw = require('../lib/syntax/node/Raw');
 
 describe('parser/stream', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
     var tokens = [
-        { type: 'FullStop', chunk: '.', balance: 83 },
+        { type: 'Delim', chunk: '.', balance: 83 },
         { type: 'Identifier', chunk: 'test', balance: 83 },
         { type: 'WhiteSpace', chunk: '\n', balance: 83 },
-        { type: 'LeftCurlyBracket', chunk: '{', balance: 31 },
-        { type: 'WhiteSpace', chunk: '\n  ', balance: 31 },
-        { type: 'Identifier', chunk: 'prop', balance: 31 },
-        { type: 'Colon', chunk: ':', balance: 31 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
-        { type: 'Url', chunk: 'url(', balance: 10 },
-        { type: 'Raw', chunk: 'foo/bar.jpg', balance: 10 },
-        { type: 'RightParenthesis', chunk: ')', balance: 8 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
-        { type: 'Url', chunk: 'url(', balance: 16 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 16 },
-        { type: 'Raw', chunk: 'a\\(\\33 \\).\\ \\"\\\'test', balance: 16 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 16 },
+        { type: 'LeftCurlyBracket', chunk: '{', balance: 25 },
+        { type: 'WhiteSpace', chunk: '\n  ', balance: 25 },
+        { type: 'Identifier', chunk: 'prop', balance: 25 },
+        { type: 'Colon', chunk: ':', balance: 25 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
+        { type: 'Url', chunk: 'url(foo/bar.jpg)', balance: 25 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
+        { type: 'Url', chunk: 'url( a\\(\\33 \\).\\ \\"\\\'test )', balance: 25 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
+        { type: 'Function', chunk: 'calc(', balance: 18 },
+        { type: 'Number', chunk: '1', balance: 18 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 18 },
+        { type: 'Delim', chunk: '+', balance: 18 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 18 },
+        { type: 'Number', chunk: '1', balance: 18 },
         { type: 'RightParenthesis', chunk: ')', balance: 12 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
-        { type: 'Function', chunk: 'calc(', balance: 24 },
-        { type: 'Number', chunk: '1', balance: 24 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 24 },
-        { type: 'PlusSign', chunk: '+', balance: 24 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 24 },
-        { type: 'Number', chunk: '1', balance: 24 },
-        { type: 'RightParenthesis', chunk: ')', balance: 18 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
-        { type: 'Identifier', chunk: '\\x', balance: 31 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 31 },
-        { type: 'Identifier', chunk: '\\aa ', balance: 31 },
-        { type: 'Semicolon', chunk: ';', balance: 31 },
-        { type: 'WhiteSpace', chunk: '\n', balance: 31 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
+        { type: 'Identifier', chunk: '\\x', balance: 25 },
+        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
+        { type: 'Identifier', chunk: '\\aa ', balance: 25 },
+        { type: 'Semicolon', chunk: ';', balance: 25 },
+        { type: 'WhiteSpace', chunk: '\n', balance: 25 },
         { type: 'RightCurlyBracket', chunk: '}', balance: 3 }
     ];
     var dump = tokens.map(function(token, idx) {
@@ -138,7 +131,7 @@ describe('parser/stream', function() {
         var stream = tokenize(css);
         var targetTokens = tokens
             .filter(function(token) {
-                return token.type === 'Identifier' || token.type === 'FullStop';
+                return token.type === 'Identifier' || token.type === 'Delim';
             });
         var actual = targetTokens
             .map(function(token, idx, idents) {
@@ -149,7 +142,7 @@ describe('parser/stream', function() {
                 return tokenize.NAME[stream.tokenType];
             });
 
-        assert.equal(actual.length, 5); // 3 x Indentifier + 2 x FullStop
+        assert.equal(actual.length, 6); // 4 x Indentifier + 2 x Delim
         assert.deepEqual(actual, targetTokens.map(function(token) {
             return token.type;
         }));
@@ -163,13 +156,13 @@ describe('parser/stream', function() {
         assert.equal(stream.eof, true);
     });
 
-    describe('getRawLength()', function() {
+    describe('Raw', function() {
         var tests = [
             {
                 source: '? { }',
                 start:  '^',
                 skip:   '^',
-                args: [LeftCurlyBracketToken, 0, false],
+                mode: Raw.mode.leftCurlyBracket,
                 expected: '? '
             },
             {
@@ -177,70 +170,70 @@ describe('parser/stream', function() {
                 source: 'div { }',
                 start:  '^',
                 skip:   '^',
-                args: [LeftCurlyBracketToken, 0, false],
+                mode: Raw.mode.leftCurlyBracket,
                 expected: 'div '
             },
             {
                 source: 'foo(bar(1)(2)(3[{}])(4{}){}(5))',
                 start:  '             ^',
                 skip:   '             ^',
-                args: [LeftCurlyBracketToken, 0, false],
+                mode: Raw.mode.leftCurlyBracket,
                 expected: '(3[{}])(4{})'
             },
             {
                 source: 'foo(bar(1) (2) (3[{}]) (4{}) {} (5))',
                 start:  '               ^',
                 skip:   '                ^',
-                args: [LeftCurlyBracketToken, 0, false],
+                mode: Raw.mode.leftCurlyBracket,
                 expected: '(3[{}]) (4{}) '
             },
             {
                 source: 'func(a func(;))',
                 start:  '     ^',
                 skip:   '       ^',
-                args: [SemicolonToken, 0, false],
+                mode: Raw.mode.semicolonIncluded,
                 expected: 'a func(;)'
             },
             {
                 source: 'func(a func(;))',
                 start:  '     ^',
                 skip:   '            ^',
-                args: [SemicolonToken, 0, false],
+                mode: Raw.mode.semicolonIncluded,
                 expected: 'a func(;)'
             },
             {
                 source: 'func(a func(;); b)',
                 start:  '     ^',
                 skip:   '       ^',
-                args: [SemicolonToken, 0, false],
-                expected: 'a func(;)'
+                mode: Raw.mode.semicolonIncluded,
+                expected: 'a func(;);'
             },
             {
                 source: 'func()',
                 start:  '     ^',
                 skip:   '     ^',
-                args: [0, 0, false],
+                mode: null,
                 expected: ''
             },
             {
                 source: 'func([{}])',
                 start:  '      ^',
                 skip:   '       ^',
-                args: [0, 0, false],
+                mode: null,
                 expected: '{}'
             },
             {
                 source: 'func([{})',
                 start:  '     ^',
                 skip:   '      ^',
-                args: [0, 0, false],
+                mode: null,
                 expected: '[{})'
             },
             {
                 source: 'func(1, 2, 3) {}',
                 start:  '^',
                 skip:   '      ^',
-                args: [0, 0, false],
+                mode: null,
                 expected: 'func(1, 2, 3) {}'
             }
         ];
@@ -261,7 +254,7 @@ describe('parser/stream', function() {
                     stream.next();
                 }
 
-                stream.skip(stream.getRawLength.apply(stream, [startToken].concat(test.args)));
+                stream.skip(stream.getRawLength(startToken, test.mode || Raw.mode.default));
                 assert.equal(
                     stream.source.substring(startOffset, stream.tokenStart),
                     test.expected
@@ -282,5 +275,20 @@ describe('parser/stream', function() {
 
         assert.equal(count, bufferSize);
         assert(stream.offsetAndType.length >= bufferSize);
+    });
+
+    describe('values', function() {
+        var tests = require('./fixture/tokenize');
+
+        ['valid', 'invalid'].forEach(testType => {
+            tests.forEachTest(testType, function(name, value, tokens) {
+                it(name, function() {
+                    assert[testType === 'valid' ? 'deepEqual' : 'notDeepEqual'](
+                        tokenize(value).dump().map(({ type, chunk }) => ({ type, chunk })),
+                        tokens
+                    );
+                })
+            });
+        });
     });
 });
