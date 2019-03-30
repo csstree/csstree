@@ -600,10 +600,6 @@
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
       "syntax": "[ <string> | contents | <url> | <quote> | <attr()> | counter( <ident>, <'list-style-type'>? ) ]+"
     },
-    "inset()": {
-      "comment": "changed <border-radius> to <'border-radius'>",
-      "syntax": "inset( <length-percentage>{1,4} [ round <'border-radius'> ]? )"
-    },
     "generic-voice": {
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
       "syntax": "[ <age>? <gender> <integer>? ]"
