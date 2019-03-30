@@ -292,7 +292,7 @@ describe('parser/stream', function() {
                         }),
                         tokens
                     );
-                })
+                });
             });
         });
     });
