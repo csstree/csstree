@@ -284,7 +284,12 @@ describe('parser/stream', function() {
             tests.forEachTest(testType, function(name, value, tokens) {
                 it(name, function() {
                     assert[testType === 'valid' ? 'deepEqual' : 'notDeepEqual'](
-                        tokenize(value).dump().map(({ type, chunk }) => ({ type, chunk })),
+                        tokenize(value).dump().map(function(token) {
+                            return {
+                                type: token.type,
+                                chunk: token.chunk
+                            };
+                        }),
                         tokens
                     );
                 })
