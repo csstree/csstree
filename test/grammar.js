@@ -6,7 +6,7 @@ var data = require('../data');
 
 function normalize(str) {
     // Looks like there is no common rules for spaces (some syntaxes
-    // may have a extra space or miss some)
+    // may have extra spaces or miss some)
     // e.g. rgba( <rgb-component>#{3} , <alpha-value> )
     // but  hsl( <hue>, <percentage>, <percentage> )
 

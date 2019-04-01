@@ -346,6 +346,18 @@
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
     },
+    "scroll-margin-inline": {
+      "comment": "temporary, since test fails",
+      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
+    },
+    "scroll-padding-block": {
+      "comment": "temporary, since test fails",
+      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
+    },
+    "scroll-padding-inline": {
+      "comment": "temporary, since test fails",
+      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
+    },
     "shape-rendering": {
       "comment": "added SVG property",
       "references": [
@@ -851,6 +863,26 @@
       "syntax": null
     },
     "compound-selector-list": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "complex-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "complex-selector-list": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "env()": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "relative-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "relative-selector-list": {
       "comment": "temporary omit due lack of nested syntax definition(s)",
       "syntax": null
     }
