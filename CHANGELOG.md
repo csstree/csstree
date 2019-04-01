@@ -1,5 +1,6 @@
 ## next
 
+- Bumped `mdn/data` to `~2.0.1`
 - Tokenizer
     - Added `Hash` token
 - Parser

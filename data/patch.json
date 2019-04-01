@@ -298,6 +298,22 @@
       "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
     },
+    "motion": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
+    },
+    "motion-offset": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
+    },
+    "motion-path": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
+    },
+    "motion-rotation": {
+      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
+      "syntax": null
+    },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
       "syntax": "<number-zero-one>"
@@ -329,6 +345,18 @@
     "rest-before": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
+    },
+    "scroll-margin-inline": {
+      "comment": "temporary, since test fails",
+      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
+    },
+    "scroll-padding-block": {
+      "comment": "temporary, since test fails",
+      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
+    },
+    "scroll-padding-inline": {
+      "comment": "temporary, since test fails",
+      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
     },
     "shape-rendering": {
       "comment": "added SVG property",
@@ -584,10 +612,6 @@
       "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
       "syntax": "[ <string> | contents | <url> | <quote> | <attr()> | counter( <ident>, <'list-style-type'>? ) ]+"
     },
-    "inset()": {
-      "comment": "changed <border-radius> to <'border-radius'>",
-      "syntax": "inset( <length-percentage>{1,4} [ round <'border-radius'> ]? )"
-    },
     "generic-voice": {
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
       "syntax": "[ <age>? <gender> <integer>? ]"
@@ -796,6 +820,70 @@
     },
     "pseudo-page": {
       "comment": "syntax is incorrect and can't be parsed, drop for now",
+      "syntax": null
+    },
+    "id-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "attribute-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "wq-name": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "ns-prefix": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "class-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "compound-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "type-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "subclass-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "pseudo-class-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "pseudo-element-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "compound-selector-list": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "complex-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "complex-selector-list": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "env()": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "relative-selector": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "relative-selector-list": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
       "syntax": null
     }
   }
