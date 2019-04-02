@@ -6,11 +6,11 @@ describe('parser/stream', function() {
     var css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
     var tokens = [
         { type: 'Delim', chunk: '.', balance: 83 },
-        { type: 'Identifier', chunk: 'test', balance: 83 },
+        { type: 'Ident', chunk: 'test', balance: 83 },
         { type: 'WhiteSpace', chunk: '\n', balance: 83 },
         { type: 'LeftCurlyBracket', chunk: '{', balance: 25 },
         { type: 'WhiteSpace', chunk: '\n  ', balance: 25 },
-        { type: 'Identifier', chunk: 'prop', balance: 25 },
+        { type: 'Ident', chunk: 'prop', balance: 25 },
         { type: 'Colon', chunk: ':', balance: 25 },
         { type: 'WhiteSpace', chunk: ' ', balance: 25 },
         { type: 'Url', chunk: 'url(foo/bar.jpg)', balance: 25 },
@@ -25,9 +25,9 @@ describe('parser/stream', function() {
         { type: 'Number', chunk: '1', balance: 18 },
         { type: 'RightParenthesis', chunk: ')', balance: 12 },
         { type: 'WhiteSpace', chunk: ' ', balance: 25 },
-        { type: 'Identifier', chunk: '\\x', balance: 25 },
+        { type: 'Ident', chunk: '\\x', balance: 25 },
         { type: 'WhiteSpace', chunk: ' ', balance: 25 },
-        { type: 'Identifier', chunk: '\\aa ', balance: 25 },
+        { type: 'Ident', chunk: '\\aa ', balance: 25 },
         { type: 'Semicolon', chunk: ';', balance: 25 },
         { type: 'WhiteSpace', chunk: '\n', balance: 25 },
         { type: 'RightCurlyBracket', chunk: '}', balance: 3 }
@@ -131,7 +131,7 @@ describe('parser/stream', function() {
         var stream = tokenize(css);
         var targetTokens = tokens
             .filter(function(token) {
-                return token.type === 'Identifier' || token.type === 'Delim';
+                return token.type === 'Ident' || token.type === 'Delim';
             });
         var actual = targetTokens
             .map(function(token, idx, idents) {

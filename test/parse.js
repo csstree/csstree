@@ -353,7 +353,7 @@ describe('parse', function() {
                         return {
                             type: 'Variable',
                             loc: this.getLocation(start, this.scanner.tokenEnd),
-                            name: this.consume(TYPE.Identifier)
+                            name: this.consume(TYPE.Ident)
                         };
                     }
 
