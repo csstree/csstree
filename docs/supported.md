@@ -211,6 +211,8 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `block-overflow`
 - `block-size`
 - `border`
+- `border-block`
+- `border-block-color`
 - `border-block-end`
 - `border-block-end-color`
 - `border-block-end-style`
@@ -219,6 +221,8 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `border-block-start-color`
 - `border-block-start-style`
 - `border-block-start-width`
+- `border-block-style`
+- `border-block-width`
 - `border-bottom`
 - `border-bottom-color`
 - `border-bottom-left-radius`
@@ -235,6 +239,8 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `border-image-slice`
 - `border-image-source`
 - `border-image-width`
+- `border-inline`
+- `border-inline-color`
 - `border-inline-end`
 - `border-inline-end-color`
 - `border-inline-end-style`
@@ -243,6 +249,8 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `border-inline-start-color`
 - `border-inline-start-style`
 - `border-inline-start-width`
+- `border-inline-style`
+- `border-inline-width`
 - `border-left`
 - `border-left-color`
 - `border-left-style`
@@ -394,9 +402,11 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `list-style-position`
 - `list-style-type`
 - `margin`
+- `margin-block`
 - `margin-block-end`
 - `margin-block-start`
 - `margin-bottom`
+- `margin-inline`
 - `margin-inline-end`
 - `margin-inline-start`
 - `margin-left`
@@ -435,7 +445,12 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `mix-blend-mode`
 - `object-fit`
 - `object-position`
+- `offset`
+- `offset-anchor`
+- `offset-distance`
+- `offset-path`
 - `offset-position`
+- `offset-rotate`
 - `opacity`
 - `order`
 - `orphans`
@@ -456,9 +471,11 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `overscroll-behavior-x`
 - `overscroll-behavior-y`
 - `padding`
+- `padding-block`
 - `padding-block-end`
 - `padding-block-start`
 - `padding-bottom`
+- `padding-inline`
 - `padding-inline-end`
 - `padding-inline-start`
 - `padding-left`
@@ -475,6 +492,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `perspective-origin`
 - `place-content`
 - `place-items`
+- `place-self`
 - `pointer-events`
 - `position`
 - `quotes`
