@@ -340,8 +340,11 @@
             "",
             "#a",
             "#ab",
+            "#abz",
             "#abcde",
+            "#abcdez",
             "#abcdef1",
+            "#abcdef1z",
             "#abcdef123",
             "123 #abc123"
         ]
@@ -356,10 +359,12 @@
         "valid": [
             "element(#foo)",
             "element(#a123)",
-            "element(#foo-123)"
+            "element(#foo-123)",
+            "element(#--foo)"
         ],
         "invalid": [
-            ""
+            "element(#123)",
+            "element(#)"
         ]
     },
     "<ident>": {
@@ -370,7 +375,14 @@
             }
         },
         "valid": [
-            "foo"
+            "foo",
+            "-foo",
+            "--foo",
+            "--",
+            "---",
+            "foo-bar",
+            "-foo-bar",
+            "--foo-bar"
         ],
         "invalid": [
             "",
