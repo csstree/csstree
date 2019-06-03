@@ -11,6 +11,18 @@
             }
         }
     },
+    "double dash is a valid property name": {
+        "source": "--:value",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--",
+            "value": {
+                "type": "Raw",
+                "value": "value"
+            }
+        }
+    },
     "with important": {
         "source": "--var:value!important",
         "ast": {
@@ -174,11 +186,6 @@
         }
     ],
     "error": [
-        {
-            "source": "--: 1",
-            "offset": "^",
-            "error": "Identifier is expected"
-        },
         {
             "source": "--var: !important ()",
             "offset": "                  ^",
