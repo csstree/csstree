@@ -463,11 +463,97 @@
             "foo"
         ]
     },
-    "<expression>": {
+    "<custom-ident>": {
+        "comment": "use additional <length> term since on mismatch it will try to match on CSS common pattern and will be success",
         "syntax": {
             "generic": true,
             "properties": {
-                "test": "<expression>"
+                "test": "test( <custom-ident> )"
+            }
+        },
+        "valid": [
+            "test( foo )",
+            "test( bar123 )"
+        ],
+        "invalid": [
+            "test( )",
+            "test( inherit )",
+            "test( initial )",
+            "test( unset )",
+            "test( default )",
+            "test( 0 )"
+        ]
+    },
+    "<declaration-value>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "test( <declaration-value> )"
+            }
+        },
+        "skipped": {
+            "comment": "such values can't be parsed currently",
+            "valid": [
+                "test( foo(!) )",
+                "test( foo(;) )",
+                "test( ([{}]) )"
+            ]
+        },
+        "valid": [
+            "test( foo )",
+            "test( 123px )"
+        ],
+        "invalid": [
+            "test(  )",
+            "test( foo 'asd\n )",
+            "test( foo url(( )",
+            "test( foo!important )",
+            "test( foo;123 )",
+            "test( ) )",
+            "test( ] )",
+            "test( } )",
+            "test( (]) )",
+            "test( (}) )",
+            "test( [)] )"
+        ]
+    },
+    "<any-value>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "test( <any-value> )"
+            }
+        },
+        "skipped": {
+            "valid": [
+                "test( foo(!) )",
+                "test( foo(;) )",
+                "test( ([{}]) )"
+            ]
+        },
+        "valid": [
+            "test( foo )",
+            "test( 123px )",
+            "test( foo!important )",
+            "test( foo;123 )"
+        ],
+        "invalid": [
+            "test( )",
+            "test( foo 'asd\n )",
+            "test( foo url(( )",
+            "test( ) )",
+            "test( ] )",
+            "test( } )",
+            "test( (]) )",
+            "test( (}) )",
+            "test( [)] )"
+        ]
+    },
+    "<-ms-legacy-expression>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<-ms-legacy-expression>"
             }
         },
         "valid": [
@@ -497,28 +583,6 @@
             "progid",
             "alpha",
             "foo()"
-        ]
-    },
-    "<custom-ident>": {
-        "comment": "use additional <length> term since on mismatch it will try to match on CSS common pattern and will be success",
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<length> <custom-ident>"
-            }
-        },
-        "valid": [
-            "0 foo",
-            "0 bar123"
-        ],
-        "invalid": [
-            "",
-            "0",
-            "0 inherit",
-            "0 initial",
-            "0 unset",
-            "0 default",
-            "0 0"
         ]
     },
     "calc": {
