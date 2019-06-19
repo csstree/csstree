@@ -298,22 +298,6 @@
       "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
     },
-    "motion": {
-      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
-      "syntax": null
-    },
-    "motion-offset": {
-      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
-      "syntax": null
-    },
-    "motion-path": {
-      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
-      "syntax": null
-    },
-    "motion-rotation": {
-      "comment": "remove when mdn/data releases a version after 2.0.1 to fix this",
-      "syntax": null
-    },
     "opacity": {
       "comment": "strict to 0..1 <number> -> <number-zero-one>",
       "syntax": "<number-zero-one>"
@@ -597,7 +581,7 @@
       "syntax": "child | young | old"
     },
     "attr()": {
-      "comment": "drop it since it's a generic",
+      "comment": "FIXME: add <attr-name> and <attr-fallback>?",
       "syntax": null
     },
     "border-radius": {
@@ -677,7 +661,7 @@
     },
     "single-transition": {
       "comment": "moved <single-transition-timing-function> in the beginning to avoid wrong match to <single-transition-property>",
-      "syntax": "<single-transition-timing-function> || [ none | <single-transition-property> ] || <time> || <time>"
+      "syntax": "<timing-function> || [ none | <single-transition-property> ] || <time> || <time>"
     },
     "svg-length": {
       "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
@@ -874,15 +858,31 @@
       "comment": "temporary omit due lack of nested syntax definition(s)",
       "syntax": null
     },
-    "env()": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
     "relative-selector": {
       "comment": "temporary omit due lack of nested syntax definition(s)",
       "syntax": null
     },
     "relative-selector-list": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "supports-selector-fn": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "supports-condition": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "supports-in-parens": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "supports-decl": {
+      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "syntax": null
+    },
+    "supports-feature": {
       "comment": "temporary omit due lack of nested syntax definition(s)",
       "syntax": null
     }
