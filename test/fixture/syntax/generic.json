@@ -539,6 +539,7 @@
         ],
         "invalid": [
             "test( )",
+            "test( 'asd\n )",
             "test( foo 'asd\n )",
             "test( foo url(( )",
             "test( ) )",
