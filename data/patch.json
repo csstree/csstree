@@ -434,7 +434,7 @@
     },
     "unicode-range": {
       "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
-      "syntax": "<unicode-range>#"
+      "syntax": "<urange>#"
     },
     "voice-balance": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
