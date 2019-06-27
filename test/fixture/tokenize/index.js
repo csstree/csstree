@@ -7,7 +7,9 @@ function ensureArray(value) {
 }
 
 function camelize(str) {
-    return str.replace(/(^|-)(.)/g, (_, prefix, ch) => prefix + ch.toUpperCase());
+    return str.replace(/(^|-)(.)/g, function(_, prefix, ch) {
+        return prefix + ch.toUpperCase();
+    });
 }
 
 function processTests(tests, key, type, locator) {
@@ -15,7 +17,7 @@ function processTests(tests, key, type, locator) {
         return Object.assign(
             { name: locator.get(key, idx) },
             typeof value === 'string'
-                ? { value, tokens: [{ type, chunk: value }] }
+                ? { value: value, tokens: [{ type: type, chunk: value }] }
                 : value
         );
     });
@@ -40,7 +42,9 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, filename) {
 
     var locator = new JsonLocator(absFilename);
     var tests = require(absFilename);
-    var type = path.basename(filename, '.json').replace(/^(.+)-token$/, (_, type) => camelize(type));
+    var type = path.basename(filename, '.json').replace(/^(.+)-token$/, function(_, type) {
+        return camelize(type);
+    });
 
     result[filename] = {
         type: type,

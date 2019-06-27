@@ -2,6 +2,20 @@ var fs = require('fs');
 var path = require('path');
 var parseJSON = require('json-to-ast');
 
+// TODO: remove when nodejs < 4.0 support dropped
+if (typeof Object.assign !== 'function') {
+    Object.assign = function(res) {
+        for (var i = 1; i < arguments.length; i++) {
+            var source = arguments[i];
+            for (var key in source) {
+                res[key] = source[key];
+            }
+        }
+
+        return res;
+    };
+}
+
 function checkForDuplicateKeys(ast, filename) {
     if (!ast) {
         return;

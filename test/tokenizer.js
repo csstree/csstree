@@ -80,7 +80,7 @@ describe('parser/stream', function() {
     });
 
     it('should accept a Buffer', function() {
-        var stream = tokenize(Buffer.from(css));
+        var stream = tokenize(Buffer.from ? Buffer.from(css) : new Buffer(css)); // TODO: remove new Buffer() when nodejs < 6.0 support dropped
 
         assert.equal(stream.source, css);
     });
@@ -280,7 +280,7 @@ describe('parser/stream', function() {
     describe('values', function() {
         var tests = require('./fixture/tokenize');
 
-        ['valid', 'invalid'].forEach(testType => {
+        ['valid', 'invalid'].forEach(function(testType) {
             tests.forEachTest(testType, function(name, value, tokens) {
                 it(name, function() {
                     assert[testType === 'valid' ? 'deepEqual' : 'notDeepEqual'](
