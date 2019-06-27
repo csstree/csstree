@@ -223,6 +223,26 @@
             "1px"
         ]
     },
+    "<zero>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<zero>"
+            }
+        },
+        "valid": [
+            "0",
+            ".0",
+            "0.0",
+            "0.000"
+        ],
+        "invalid": [
+            "",
+            "123",
+            "0.123",
+            "123.123"
+        ]
+    },
     "<number>": {
         "syntax": {
             "generic": true,
