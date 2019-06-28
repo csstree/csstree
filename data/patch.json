@@ -224,11 +224,7 @@
     },
     "filter": {
       "comment": "extend with IE legacy syntaxes",
-      "syntax": "none | <filter-function-list> | <-ms-filter>"
-    },
-    "font": {
-      "comment": "extend with non-standard fonts",
-      "syntax": "[ [ <'font-style'> || <font-variant-css21> || <'font-weight'> || <'font-stretch'> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'> ] | caption | icon | menu | message-box | small-caption | status-bar | <-non-standard-font>"
+      "syntax": "none | <filter-function-list> | <-ms-filter-function-list>"
     },
     "glyph-orientation-horizontal": {
       "comment": "added SVG property",
@@ -573,8 +569,24 @@
       "comment": "missed; there is no enough information about `-webkit-mask-clip` property, but looks like all those keywords are working",
       "syntax": "border | border-box | padding | padding-box | content | content-box | text"
     },
+    "-ms-filter-function-list": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
+      "syntax": "<-ms-filter-function>+"
+    },
+    "-ms-filter-function": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
+      "syntax": "<-ms-filter-function-progid> | <-ms-filter-function-legacy>"
+    },
+    "-ms-filter-function-progid": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
+      "syntax": "'progid:' [ <ident-token> '.' ]* [ <ident-token> | <function-token> <any-value> ')' ]"
+    },
+    "-ms-filter-function-legacy": {
+      "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
+      "syntax": "<ident-token> | <function-token> <any-value> ')'"
+    },
     "-ms-filter": {
-      "syntax": "[ <progid> | FlipH | FlipV ]+"
+      "syntax": "<string>"
     },
     "age": {
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",

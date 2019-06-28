@@ -611,26 +611,6 @@
             "foo()"
         ]
     },
-    "<progid>": {
-        "property": "filter",
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "filter": "<progid>"
-            }
-        },
-        "valid": [
-            "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='scale')",
-            "PROGID:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='scale')",
-            "ALPHA(OPACITY=80)",
-            "alpha(opacity=80)"
-        ],
-        "invalid": [
-            "progid",
-            "alpha",
-            "foo()"
-        ]
-    },
     "calc": {
         "syntax": {
             "generic": true,
