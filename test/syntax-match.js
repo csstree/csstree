@@ -1,6 +1,5 @@
 var assert = require('assert');
-var csstree = require('../lib');
-var astToTokens = require('../lib/lexer/ast-to-tokens');
+var prepareTokens = require('../lib/lexer/prepare-tokens');
 var genericSyntaxes = require('../lib/lexer/generic');
 var buildMatchGraph = require('../lib/lexer/match-graph').buildMatchGraph;
 var matchAsList = require('../lib/lexer/match').matchAsList;
@@ -751,8 +750,7 @@ function createSyntaxTest(syntax, test) {
         if (test.match) {
             test.match.forEach(function(input) {
                 it('should MATCH to "' + input + '"', function() {
-                    var ast = csstree.parse(input, { context: 'value' });
-                    var m = matchAsList(csstree.generate(ast, astToTokens), matchTree, syntaxes);
+                    var m = matchAsList(prepareTokens(input), matchTree, syntaxes);
 
                     assert.notEqual(m.match, null);
 
@@ -779,8 +777,7 @@ function createSyntaxTest(syntax, test) {
         if (test.mismatch) {
             test.mismatch.forEach(function(input) {
                 it('should NOT MATCH to "' + input + '"', function() {
-                    var ast = csstree.parse(input, { context: 'value' });
-                    var m = matchAsList(csstree.generate(ast, astToTokens), matchTree, syntaxes);
+                    var m = matchAsList(prepareTokens(input), matchTree, syntaxes);
 
                     assert.equal(m.match, null);
                 });

@@ -427,24 +427,19 @@ describe('lexer', function() {
     });
 
     describe('match()', function() {
-        var fn;
-        var customSyntax;
-
-        beforeEach(function() {
-            var value = parseCss('fn(1, 2, 3)', { context: 'value' });
-            fn = value.children.first();
-            customSyntax = syntax.fork(function(prev, assign) {
-                return assign(prev, {
-                    types: {
-                        foo: '<bar>#',
-                        bar: '[ 1 | 2 | 3 ]',
-                        fn: 'fn(<foo>)'
-                    }
-                });
+        var customSyntax = syntax.fork(function(prev, assign) {
+            return assign(prev, {
+                types: {
+                    foo: '<bar>#',
+                    bar: '[ 1 | 2 | 3 ]',
+                    fn: 'fn(<foo>)'
+                }
             });
         });
 
         it('should match by type', function() {
+            var value = parseCss('fn(1, 2, 3)', { context: 'value' });
+            var fn = value.children.first();
             var syntax = customSyntax.lexer.getType('fn');
             var match = customSyntax.lexer.match(syntax, fn);
 
@@ -452,7 +447,24 @@ describe('lexer', function() {
             assert.equal(match.error, null);
         });
 
+        it('should take a string as a value', function() {
+            var syntax = customSyntax.lexer.getType('fn');
+            var match = customSyntax.lexer.match(syntax, 'fn(1, 2, 3)');
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
+        it('should take a string as a syntax', function() {
+            var match = customSyntax.lexer.match('fn( <number># )', 'fn(1, 2, 3)');
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
         it('should fails on bad syntax', function() {
+            var value = parseCss('fn(1, 2, 3)', { context: 'value' });
+            var fn = value.children.first();
             var match = customSyntax.lexer.match({}, fn);
 
             assert.equal(match.matched, null);
