@@ -30,5 +30,5 @@ function buildDictionary(dict, patchDict) {
 
 module.exports = {
     properties: buildDictionary(mdnProperties, patch.properties),
-    types: buildDictionary(mdnSyntaxes, patch.syntaxes)
+    types: buildDictionary(mdnSyntaxes, patch.types)
 };

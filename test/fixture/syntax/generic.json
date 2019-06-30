@@ -445,22 +445,6 @@
             "1 url('string')"
         ]
     },
-    "<attr()>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<attr()>"
-            }
-        },
-        "valid": [
-            "attr(foo)",
-            "ATTR(foo)"
-        ],
-        "invalid": [
-            "",
-            "1 attr(foo)"
-        ]
-    },
     "<unicode-range>": {
         "syntax": {
             "generic": true,
@@ -509,7 +493,6 @@
         ]
     },
     "<custom-ident>": {
-        "comment": "use additional <length> term since on mismatch it will try to match on CSS common pattern and will be success",
         "syntax": {
             "generic": true,
             "properties": {
@@ -527,6 +510,24 @@
             "test( unset )",
             "test( default )",
             "test( 0 )"
+        ]
+    },
+    "<custom-property-name>": {
+        "syntax": {
+            "generic": true,
+            "properties": {
+                "test": "<custom-property-name>"
+            }
+        },
+        "valid": [
+            "--",
+            "--foo"
+        ],
+        "invalid": [
+            "",
+            "foo",
+            "-foo",
+            "-foo--bar"
         ]
     },
     "<declaration-value>": {

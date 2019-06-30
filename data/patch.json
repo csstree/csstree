@@ -1,9 +1,5 @@
 {
   "properties": {
-    "--*": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
     "-moz-background-clip": {
       "comment": "deprecated syntax in old Firefox, https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
       "syntax": "padding | border"
@@ -103,17 +99,9 @@
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "auto | none | antialiased | subpixel-antialiased"
     },
-    "-webkit-line-clamp": {
-      "comment": "non-standard and deprecated but may still using by some sites",
-      "syntax": "<positive-integer>"
-    },
     "-webkit-mask-box-image": {
       "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
       "syntax": "[ <url> | <gradient> | none ] [ <length-percentage>{4} <-webkit-mask-box-repeat>{2} ]?"
-    },
-    "-webkit-mask-clip": {
-      "comment": "change type to <-webkit-mask-clip-style> since it differ from <mask-clip>, extra space between [ and ,",
-      "syntax": "<-webkit-mask-clip-style> [, <-webkit-mask-clip-style> ]*"
     },
     "-webkit-print-color-adjust": {
       "comment": "missed",
@@ -173,7 +161,7 @@
     },
     "cursor": {
       "comment": "added legacy keywords: hand, -webkit-grab. -webkit-grabbing, -webkit-zoom-in, -webkit-zoom-out, -moz-grab, -moz-grabbing, -moz-zoom-in, -moz-zoom-out",
-      "refenrences": [
+      "references": [
         "https://www.sitepoint.com/css3-cursor-styles/"
       ],
       "syntax": "[ [ <url> [ <x> <y> ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing | hand | -webkit-grab | -webkit-grabbing | -webkit-zoom-in | -webkit-zoom-out | -moz-grab | -moz-grabbing | -moz-zoom-in | -moz-zoom-out ] ]"
@@ -473,7 +461,7 @@
       "syntax": "horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr | <svg-writing-mode>"
     }
   },
-  "syntaxes": {
+  "types": {
     "-legacy-gradient": {
       "comment": "added collection of legacy gradient syntaxes",
       "syntax": "<-webkit-gradient()> | <-legacy-linear-gradient> | <-legacy-repeating-linear-gradient> | <-legacy-radial-gradient> | <-legacy-repeating-radial-gradient>"
@@ -512,7 +500,7 @@
     },
     "-non-standard-font": {
       "comment": "non standard fonts",
-      "preferences": [
+      "references": [
         "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
       ],
       "syntax": "-apple-system-body | -apple-system-headline | -apple-system-subheadline | -apple-system-caption1 | -apple-system-caption2 | -apple-system-footnote | -apple-system-short-body | -apple-system-short-headline | -apple-system-short-subheadline | -apple-system-short-caption1 | -apple-system-short-footnote | -apple-system-tall-body"
@@ -592,9 +580,11 @@
       "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
       "syntax": "child | young | old"
     },
-    "attr()": {
-      "comment": "FIXME: add <attr-name> and <attr-fallback>?",
-      "syntax": null
+    "attr-name": {
+      "syntax": "<wq-name>"
+    },
+    "attr-fallback": {
+      "syntax": "<any-value>"
     },
     "border-radius": {
       "comment": "missed, https://drafts.csswg.org/css-backgrounds-3/#the-border-radius",
@@ -637,11 +627,11 @@
     },
     "matrix()": {
       "comment": "redundant max",
-      "syntax": "matrix( <number> [, <number> ]{5} )"
+      "syntax": "matrix( <number>#{6} )"
     },
     "matrix3d()": {
       "comment": "redundant max",
-      "syntax": "matrix3d( <number> [, <number> ]{15} )"
+      "syntax": "matrix3d( <number>#{16} )"
     },
     "name-repeat": {
       "comment": "missed, and looks like obsolete, keep it as is since other property syntaxes should be changed too; https://www.w3.org/TR/2015/WD-css-grid-1-20150917/#typedef-name-repeat",
@@ -651,17 +641,17 @@
       "comment": "added non standard color names",
       "syntax": "transparent | aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | <-non-standard-color>"
     },
-    "outline-radius": {
-      "comment": "missed, looks like it's a similar to <border-radius> https://developer.mozilla.org/en/docs/Web/CSS/-moz-outline-radius",
-      "syntax": "<border-radius>"
-    },
     "paint": {
-      "comment": "simplified SVG syntax (omit <icccolor>, replace <funciri> for <url>) https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
-      "syntax": "none | currentColor | <color> | <url> [ none | currentColor | <color> ]?"
+      "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
+      "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
     },
     "path()": {
       "comment": "missed, `motion` property was renamed, but left it as is for now; path() syntax was get from last draft https://drafts.fxtf.org/motion-1/#funcdef-offset-path-path",
       "syntax": "path( <string> )"
+    },
+    "ratio": {
+      "comment": "missed, https://drafts.csswg.org/mediaqueries-4/#typedef-ratio",
+      "syntax": "<integer> / <integer>"
     },
     "right": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -702,200 +692,16 @@
       "comment": "missed; not sure we should add it, but no others except `cursor` is using so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
       "syntax": "<number>"
     },
-    "var()": {
-      "comment": "drop it since it's a generic (also syntax is incorrect and can't be parsed)",
-      "syntax": null
+    "declaration": {
+      "comment": "missed, restored by https://drafts.csswg.org/css-syntax",
+      "syntax": "<ident-token> : <declaration-value>? [ '!' important ]?"
     },
-    "an-plus-b": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "feature-type": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "feature-value-block": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "feature-value-declaration": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "feature-value-block-list": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "feature-value-declaration-list": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "general-enclosed": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "keyframe-block": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "keyframe-block-list": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "mf-plain": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "mf-range": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "mf-value": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-and": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-condition": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-not": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-or": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-in-parens": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-feature": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-condition-without-or": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-query": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "media-query-list": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
+    "declaration-list": {
+      "comment": "missed, restored by https://drafts.csswg.org/css-syntax",
+      "syntax": "[ <declaration>? ';' ]* <declaration>?"
     },
     "nth": {
-      "comment": "syntax has <an-plus-b> that doesn't support currently, drop for now",
-      "syntax": null
-    },
-    "page-selector": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "page-selector-list": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "page-body": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "page-margin-box": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "page-margin-box-type": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "pseudo-page": {
-      "comment": "syntax is incorrect and can't be parsed, drop for now",
-      "syntax": null
-    },
-    "id-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "attribute-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "wq-name": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "ns-prefix": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "class-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "compound-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "type-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "subclass-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "pseudo-class-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "pseudo-element-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "compound-selector-list": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "complex-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "complex-selector-list": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "relative-selector": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "relative-selector-list": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "supports-selector-fn": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "supports-condition": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "supports-in-parens": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "supports-decl": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
-      "syntax": null
-    },
-    "supports-feature": {
-      "comment": "temporary omit due lack of nested syntax definition(s)",
+      "comment": "syntax has <an-plus-b> microsyntax that doesn't implement yet",
       "syntax": null
     }
   }
