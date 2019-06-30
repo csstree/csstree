@@ -15,11 +15,11 @@
             "1RAD",
             "1turn",
             "1TURN",
-            "calc(2 * 1deg)",
-            "0"
+            "calc(2 * 1deg)"
         ],
         "invalid": [
             "",
+            "0",
             "1px",
             "1px 2deg"
         ]
@@ -445,11 +445,11 @@
             "1 url('string')"
         ]
     },
-    "<unicode-range>": {
+    "<urange>": {
         "syntax": {
             "generic": true,
             "properties": {
-                "test": "<unicode-range>"
+                "test": "<urange>"
             }
         },
         "valid": [

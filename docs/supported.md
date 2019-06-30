@@ -51,6 +51,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 
 <!-- gen:properties -->
 
+- `--*`
 - `-moz-appearance`
 - `-moz-background-clip`
 - `-moz-binding`

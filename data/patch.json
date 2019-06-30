@@ -461,7 +461,7 @@
       "syntax": "horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr | <svg-writing-mode>"
     }
   },
-  "types": {
+  "syntaxes": {
     "-legacy-gradient": {
       "comment": "added collection of legacy gradient syntaxes",
       "syntax": "<-webkit-gradient()> | <-legacy-linear-gradient> | <-legacy-repeating-linear-gradient> | <-legacy-radial-gradient> | <-legacy-repeating-radial-gradient>"
