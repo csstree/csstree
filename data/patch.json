@@ -699,10 +699,6 @@
     "declaration-list": {
       "comment": "missed, restored by https://drafts.csswg.org/css-syntax",
       "syntax": "[ <declaration>? ';' ]* <declaration>?"
-    },
-    "nth": {
-      "comment": "syntax has <an-plus-b> microsyntax that doesn't implement yet",
-      "syntax": null
     }
   }
 }
