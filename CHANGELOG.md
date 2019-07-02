@@ -1,10 +1,29 @@
 ## next
 
-- Bumped `mdn/data` to `~2.0.1`
+- Bumped `mdn/data` to `~2.0.3`
+    - Removed type removals from `mdn/data` due to lack of some generic types and specific lexer restictions (since lexer was reworked, see below)
+    - Reduced and updated patches
 - Tokenizer
-    - Added `Hash` token
+    - Reworked tokenizer itself to compliment [CSS Syntax Module Level 3](https://drafts.csswg.org/css-syntax/#tokenization)
+    - Removed `Raw` token types
+    - Renamed `Identifier` token type to `Ident`
+    - Added token types: `Hash`, `BadString`, `BadUrl`, `Delim`, `Percentage`, `Dimension`, `Colon`, `Semicolon`, `Comma`, `LeftSquareBracket`, `RightSquareBracket`, `LeftParenthesis`, `RightParenthesis`, `LeftCurlyBracket`, `RightCurlyBracket`
+    - Replaced `Punctuator` with `Delim` token type, that excludes specific characters with its own token type like `Colon`, `Semicolon` etc
 - Parser
+    - Changed parsing algorithms to work with new token type set
     - Changed `HexColor` consumption in way to relax checking a value, i.e. now `value` is a sequence of one or more name chars
+    - Added `&` as a property hack
+- Lexer
+    - Reworked syntax matching to relay on token set only (having AST is optional now)
+    - Extended `Lexer#match()`, `Lexer#matchType()` and `Lexer#matchProperty()` methods to take a string as value, beside AST as a value
+    - Extended `Lexer#match()` method to take a string as a syntax, beside of syntax descriptor
+    - Reworked generic types:
+        - Removed `<attr()>` and `<progid>` types
+        - Added types:
+            - Related to token types: `<ident-token>`, `<function-token>`, `<at-keyword-token>`, `<hash-token>`, `<string-token>`, `<bad-string-token>`, `<url-token>`, `<bad-url-token>`, `<delim-token>`, `<number-token>`, `<percentage-token>`, `<dimension-token>`, `<whitespace-token>`, `<CDO-token>`, `<CDC-token>`, `<colon-token>`, `<semicolon-token>`, `<comma-token>`, `<[-token>`, `<]-token>`, `<(-token>`, `<)-token>`, `<{-token>` and `<}-token>`
+            - Complex types: `<an-plus-b>`, `<urange>`, `<custom-property-name>`, `<declaration-value>`, `<any-value>` and `<zero>`
+        - Renamed `<unicode-range>` to `<urange>` as per spec
+        - Renamed `<expression>` (IE legacy extension) to `<-ms-legacy-expression>` and may to be removed in next releases
 
 ## 1.0.0-alpha.29 (May 30, 2018)
 
