@@ -129,7 +129,7 @@ describe('parse', function() {
                         assert.equal(stringify(actual), stringify(expected));
                     });
                 });
-            })
+            });
         });
     });
 
