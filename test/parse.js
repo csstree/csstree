@@ -8,6 +8,7 @@ var walk = require('../lib').walk;
 var lexer = require('../lib').lexer;
 var List = require('../lib').List;
 var forEachParseTest = require('./fixture/parse').forEachTest;
+var genericTypesFixture = require('./fixture/syntax/generic.json');
 var stringify = require('./helpers/stringify');
 var merge = require('./helpers').merge;
 
@@ -60,6 +61,75 @@ describe('parse', function() {
                 // structure should be correct
                 assert.equal(checkStructure(ast), false);
             });
+        });
+
+        describe('AnPlusB', function() {
+            var fixture = genericTypesFixture['<an-plus-b>'];
+
+            fixture.valid.forEach(function(value) {
+                it(value, function() {
+                    var actual = parse(':nth-child(' + value + ')', { context: 'selector' }).children.first().children.first().nth;
+                    var a = value.match(/^([+-]?)(\d+)?n/i);
+                    var b = value.match(/([+-]?)\s*(\d+)$/);
+                    var expected = {
+                        type: 'AnPlusB',
+                        a: a ? (a[1] === '-' ? '-' : '') + (a[2] || '1') : null,
+                        b: b ? (b[1] === '-' ? '-' : '') + b[2] : null
+                    };
+
+                    // AST should be equal
+                    assert.equal(stringify(actual), stringify(expected));
+
+                    // structure should be correct
+                    assert.equal(checkStructure(actual), false);
+                });
+            });
+
+            fixture.invalid.forEach(function(value) {
+                it(value, function() {
+                    assert.throws(function() {
+                        parse(':nth-child(' + value + ')', { context: 'selector' });
+                    });
+                });
+            });
+        });
+
+        describe('UnicodeRange', function() {
+            var fixture = genericTypesFixture['<urange>'];
+
+            fixture.valid.forEach(function(value) {
+                it(value, function() {
+                    var actual = parse(value, { context: 'value' }).children.first();
+                    var expected = {
+                        type: 'UnicodeRange',
+                        value: value
+                    };
+
+                    // AST should be equal
+                    assert.equal(stringify(actual), stringify(expected));
+
+                    // structure should be correct
+                    assert.equal(checkStructure(actual), false);
+                });
+            });
+
+            fixture.invalid.forEach(function(value) {
+                it(value, function() {
+                    assert.throws(function() {
+                        var actual = parse(value, { context: 'value' });
+                        var expected = {
+                            type: 'Value',
+                            children: [{
+                                type: 'Raw',
+                                value: value
+                            }]
+                        };
+
+                        // AST should not be equal
+                        assert.equal(stringify(actual), stringify(expected));
+                    });
+                });
+            })
         });
     });
 
