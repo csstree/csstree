@@ -10,10 +10,13 @@
         - Added `OffsetToLocation` class
         - Added `tokenize()` function that creates `TokenStream` instance for given string or updates a `TokenStream` instance passed as second parameter
         - Removed `Tokenizer` class
-    - Removed `Raw` token types
+    - Removed `Raw` token type
     - Renamed `Identifier` token type to `Ident`
     - Added token types: `Hash`, `BadString`, `BadUrl`, `Delim`, `Percentage`, `Dimension`, `Colon`, `Semicolon`, `Comma`, `LeftSquareBracket`, `RightSquareBracket`, `LeftParenthesis`, `RightParenthesis`, `LeftCurlyBracket`, `RightCurlyBracket`
     - Replaced `Punctuator` with `Delim` token type, that excludes specific characters with its own token type like `Colon`, `Semicolon` etc
+    - Removed `findCommentEnd`, `findStringEnd`, `findDecimalNumberEnd`, `findNumberEnd`, `findEscapeEnd`, `findIdentifierEnd` and `findUrlRawEnd` helper function
+    - Removed `SYMBOL_TYPE`, `PUNCTUATION` and `STOP_URL_RAW` dictionaries
+    - Added `isDigit`, `isHexDigit`, `isUppercaseLetter`, `isLowercaseLetter`, `isLetter`, `isNonAscii`, `isNameStart`, `isName`, `isNonPrintable`, `isNewline`, `isWhiteSpace`, `isValidEscape`, `isIdentifierStart`, `isNumberStart`, `consumeEscaped`, `consumeName`, `consumeNumber` and `consumeBadUrlRemnants` helper functions
 - Parser
     - Changed parsing algorithms to work with new token type set
     - Changed `HexColor` consumption in way to relax checking a value, i.e. now `value` is a sequence of one or more name chars
