@@ -425,26 +425,6 @@
             "1 'string'"
         ]
     },
-    "<url>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<url>"
-            }
-        },
-        "valid": [
-            "url(\"string\")",
-            "URL(\"string\")",
-            "url('string')",
-            "URL('string')",
-            "url(raw)",
-            "URL(raw)"
-        ],
-        "invalid": [
-            "",
-            "1 url('string')"
-        ]
-    },
     "<urange>": {
         "syntax": {
             "generic": true,
