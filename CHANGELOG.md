@@ -5,6 +5,11 @@
     - Reduced and updated patches
 - Tokenizer
     - Reworked tokenizer itself to compliment [CSS Syntax Module Level 3](https://drafts.csswg.org/css-syntax/#tokenization)
+    - `Tokenizer` class splitted into several abstractions:
+        - Added `TokenStream` class
+        - Added `OffsetToLocation` class
+        - Added `tokenize()` function that creates `TokenStream` instance for given string or updates a `TokenStream` instance passed as second parameter
+        - Removed `Tokenizer` class
     - Removed `Raw` token types
     - Renamed `Identifier` token type to `Ident`
     - Added token types: `Hash`, `BadString`, `BadUrl`, `Delim`, `Percentage`, `Dimension`, `Colon`, `Semicolon`, `Comma`, `LeftSquareBracket`, `RightSquareBracket`, `LeftParenthesis`, `RightParenthesis`, `LeftCurlyBracket`, `RightCurlyBracket`
@@ -19,7 +24,7 @@
     - Extended `Lexer#match()`, `Lexer#matchType()` and `Lexer#matchProperty()` methods to take a string as value, beside AST as a value
     - Extended `Lexer#match()` method to take a string as a syntax, beside of syntax descriptor
     - Reworked generic types:
-        - Removed `<attr()>` and `<progid>` types
+        - Removed `<attr()>`, `<url>` (moved to patch) and `<progid>` types
         - Added types:
             - Related to token types: `<ident-token>`, `<function-token>`, `<at-keyword-token>`, `<hash-token>`, `<string-token>`, `<bad-string-token>`, `<url-token>`, `<bad-url-token>`, `<delim-token>`, `<number-token>`, `<percentage-token>`, `<dimension-token>`, `<whitespace-token>`, `<CDO-token>`, `<CDC-token>`, `<colon-token>`, `<semicolon-token>`, `<comma-token>`, `<[-token>`, `<]-token>`, `<(-token>`, `<)-token>`, `<{-token>` and `<}-token>`
             - Complex types: `<an-plus-b>`, `<urange>`, `<custom-property-name>`, `<declaration-value>`, `<any-value>` and `<zero>`
