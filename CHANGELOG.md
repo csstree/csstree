@@ -1,4 +1,4 @@
-## next
+## 1.0.0-alpha.30 (July 3, 2019)
 
 - Bumped `mdn/data` to `~2.0.3`
     - Removed type removals from `mdn/data` due to lack of some generic types and specific lexer restictions (since lexer was reworked, see below)
