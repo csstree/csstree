@@ -18,11 +18,11 @@ CSSTree is a tool set to work with CSS, including [fast](https://github.com/post
 
 - **Detailed parsing with an adjustable level of detail**
 
-  By default CSSTree parses CSS as detailed as possible, i.e. each single logical part is representing with its own AST node (see [AST format](docs/ast.md) for all possible node types). The parsing detail level can be changed through [parser options](docs/parsing.md#parsesource-options), for example, you can disable parsing of selectors or declarations for component parts.
+  By default CSSTree parses CSS as detailed as possible, i.e. each single logical part is representing with its own AST node (see [AST format](docs/ast.md) for all possible node types). The parsing detail level can be changed through [parser options](docs/parsing.md#parsesource-options), for example, you can disable parsing of selectors or declaration values for component parts.
 
 - **Tolerant to errors by design**
 
-  Parser behaves as [spec says](https://www.w3.org/TR/css-syntax-3/#error-handling): "When errors occur in CSS, the parser attempts to recover gracefully, throwing away only the minimum amount of content before returning to parsing as normal". The only thing the parser departs from the specification is that it doesn't throw away bad content, but wraps it in the special nodes, which allows processing it later.
+  Parser behaves as [spec says](https://www.w3.org/TR/css-syntax-3/#error-handling): "When errors occur in CSS, the parser attempts to recover gracefully, throwing away only the minimum amount of content before returning to parsing as normal". The only thing the parser departs from the specification is that it doesn't throw away bad content, but wraps it in a special node type (`Raw`) that allows processing it later.
 
 - **Fast and efficient**
 
@@ -30,7 +30,7 @@ CSSTree is a tool set to work with CSS, including [fast](https://github.com/post
 
 - **Syntax validation**
 
-  The build-in lexer can test CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as a basis for lexer's dictionaries and extends them with vendor specific and legacy syntaxes. Lexer can only check the declaration values currently, but this feature will be extended to other parts of the CSS in the future.
+  The build-in lexer can test CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as a basis for lexer's dictionaries and extends it with vendor specific and legacy syntaxes. Lexer can only check the declaration values currently, but this feature will be extended to other parts of the CSS in the future.
 
 ## Docs
 
@@ -65,20 +65,45 @@ Install with npm:
 > npm install css-tree
 ```
 
-Use in your code:
+Basic usage:
 
 ```js
 var csstree = require('css-tree');
+
+// parse CSS to AST
 var ast = csstree.parse('.example { world: "!" }');
 
+// traverse AST and modify it
 csstree.walk(ast, function(node) {
     if (node.type === 'ClassSelector' && node.name === 'example') {
         node.name = 'hello';
     }
 });
 
+// generate CSS from AST
 console.log(csstree.generate(ast));
 // .hello{world:"!"}
+```
+
+Syntax matching:
+
+```js
+// parse CSS to AST as a declaration value
+var ast = csstree.parse('red 1px solid', { context: 'value' });
+
+// march to syntax of `border` property
+var matchResult = csstree.lexer.matchProperty('border', ast);
+
+// check first value node is a <color>
+console.log(matchResult.isType(ast.children.first(), 'color'));
+// true
+
+// get a type list matched to a node
+console.log(matchResult.getTrace(ast.children.first()));
+// [ { type: 'Property', name: 'border' },
+//   { type: 'Type', name: 'color' },
+//   { type: 'Type', name: 'named-color' },
+//   { type: 'Keyword', name: 'red' } ]
 ```
 
 ## Top level API
