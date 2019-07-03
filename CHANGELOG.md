@@ -13,6 +13,7 @@
     - Changed parsing algorithms to work with new token type set
     - Changed `HexColor` consumption in way to relax checking a value, i.e. now `value` is a sequence of one or more name chars
     - Added `&` as a property hack
+    - Relaxed `var()` parsing to only check that a first arguments is an identifier (not a custom property name as before)
 - Lexer
     - Reworked syntax matching to relay on token set only (having AST is optional now)
     - Extended `Lexer#match()`, `Lexer#matchType()` and `Lexer#matchProperty()` methods to take a string as value, beside AST as a value
