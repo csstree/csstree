@@ -495,7 +495,7 @@
       "syntax": "closest-side | closest-corner | farthest-side | farthest-corner | contain | cover"
     },
     "-legacy-radial-gradient-shape": {
-      "comment": "define to duoble sure it doesn't extends in future https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltshape",
+      "comment": "define to double sure it doesn't extends in future https://www.w3.org/TR/2011/WD-css3-images-20110908/#ltshape",
       "syntax": "circle | ellipse"
     },
     "-non-standard-font": {
@@ -567,11 +567,11 @@
     },
     "-ms-filter-function-progid": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-      "syntax": "'progid:' [ <ident-token> '.' ]* [ <ident-token> | <function-token> <any-value> ')' ]"
+      "syntax": "'progid:' [ <ident-token> '.' ]* [ <ident-token> | <function-token> <any-value>? ')' ]"
     },
     "-ms-filter-function-legacy": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-      "syntax": "<ident-token> | <function-token> <any-value> ')'"
+      "syntax": "<ident-token> | <function-token> <any-value>? ')'"
     },
     "-ms-filter": {
       "syntax": "<string>"
@@ -699,6 +699,14 @@
     "declaration-list": {
       "comment": "missed, restored by https://drafts.csswg.org/css-syntax",
       "syntax": "[ <declaration>? ';' ]* <declaration>?"
+    },
+    "url": {
+      "comment": "https://drafts.csswg.org/css-values-4/#urls",
+      "syntax": "url( <string> <url-modifier>* ) | <url-token>"
+    },
+    "url-modifier": {
+      "comment": "https://drafts.csswg.org/css-values-4/#typedef-url-modifier",
+      "syntax": "<ident> | <function-token> <any-value> )"
     }
   }
 }
