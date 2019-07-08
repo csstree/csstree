@@ -725,6 +725,19 @@ var tests = {
             'foo',
             '[]'
         ]
+    },
+    '\'progid:\' <ident>': {
+        match: [
+            'progid:foo',
+            'progid: foo'
+        ],
+        mismatch: [
+            'progid:',
+            'progid :foo',
+            'progid : foo',
+            'prog id:foo',
+            'foo'
+        ]
     }
 };
 
