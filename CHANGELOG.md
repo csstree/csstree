@@ -1,3 +1,9 @@
+## next
+
+- Lexer
+    - Added support for multiple token string matching
+    - Fixed large `||`- and `&&`-group matching, matching continues from the beginning on term match (#85)
+
 ## 1.0.0-alpha.30 (July 3, 2019)
 
 - Bumped `mdn/data` to `~2.0.3`

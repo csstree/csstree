@@ -3,6 +3,7 @@ var prepareTokens = require('../lib/lexer/prepare-tokens');
 var genericSyntaxes = require('../lib/lexer/generic');
 var buildMatchGraph = require('../lib/lexer/match-graph').buildMatchGraph;
 var matchAsList = require('../lib/lexer/match').matchAsList;
+var matchAsTree = require('../lib/lexer/match').matchAsTree;
 
 var equiv;
 var tests = {
@@ -602,7 +603,6 @@ var tests = {
             'center length left'
         ]
     },
-
     'rgb( <percentage>{3} [ / <alpha-value> ]? ) | rgb( <number>{3} [ / <alpha-value> ]? ) | rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? )': {
         syntaxes: {
             'alpha-value': '<number-zero-one>'
@@ -623,7 +623,6 @@ var tests = {
             'rgb(1, 2, 3, 4)'
         ]
     },
-
     '<custom-ident>+ from': {
         match: [
             'a from',
@@ -738,8 +737,184 @@ var tests = {
             'prog id:foo',
             'foo'
         ]
+    },
+
+    // ||- and &&-group matching should start from the beginning on match
+    '<a> || <b> || <c>': {
+        syntaxes: {
+            a: '<number>',
+            b: '<ident>',
+            c: '<number>'
+        },
+        matchResult: {
+            'foo 1 2': [
+                {
+                    'syntax': '<b>',
+                    'match': {
+                        'syntax': '<ident>',
+                        'match': 'foo'
+                    }
+                },
+                {
+                    'syntax': '<a>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '1'
+                    }
+                },
+                {
+                    'syntax': '<c>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '2'
+                    }
+                }
+            ]
+        }
+    },
+    '<a> || <b> || <c> || x || x || x': { // >5 terms is special case
+        syntaxes: {
+            a: '<number>',
+            b: '<ident>',
+            c: '<number>'
+        },
+        matchResult: {
+            'foo 1 2': [
+                {
+                    'syntax': '<b>',
+                    'match': {
+                        'syntax': '<ident>',
+                        'match': 'foo'
+                    }
+                },
+                {
+                    'syntax': '<a>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '1'
+                    }
+                },
+                {
+                    'syntax': '<c>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '2'
+                    }
+                }
+            ]
+        }
+    },
+    '<a> && <b> && <c>': { // >5 terms is special implementation
+        syntaxes: {
+            a: '<number>',
+            b: '<ident>',
+            c: '<number>'
+        },
+        matchResult: {
+            'foo 1 2': [
+                {
+                    'syntax': '<b>',
+                    'match': {
+                        'syntax': '<ident>',
+                        'match': 'foo'
+                    }
+                },
+                {
+                    'syntax': '<a>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '1'
+                    }
+                },
+                {
+                    'syntax': '<c>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '2'
+                    }
+                }
+            ]
+        }
+    },
+    '<a> && <b> && <c> && x && x && x': { // >5 terms is special implementation
+        syntaxes: {
+            a: '<number>',
+            b: '<ident>',
+            c: '<number>'
+        },
+        matchResult: {
+            'foo 1 2 x x x': [
+                {
+                    'syntax': '<b>',
+                    'match': {
+                        'syntax': '<ident>',
+                        'match': 'foo'
+                    }
+                },
+                {
+                    'syntax': '<a>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '1'
+                    }
+                },
+                {
+                    'syntax': '<c>',
+                    'match': {
+                        'syntax': '<number>',
+                        'match': '2'
+                    }
+                },
+                'x',
+                'x',
+                'x'
+            ]
+        }
+    },
+    '<time> || <timing-function> || <time> || <single-animation-iteration-count> || <single-animation-direction> || <single-animation-fill-mode> || <single-animation-play-state> || [ none | <keyframes-name> ]': {
+        syntaxes: {
+            'timing-function': 'linear | <cubic-bezier-timing-function> | <step-timing-function>',
+            'single-animation-iteration-count': 'infinite | <number>',
+            'single-animation-direction': 'normal | reverse | alternate | alternate-reverse',
+            'single-animation-fill-mode': 'none | forwards | backwards | both',
+            'single-animation-play-state': 'running | paused',
+            'keyframes-name': '<custom-ident> | <string>',
+            'cubic-bezier-timing-function': 'ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number> , <number> , <number> , <number> )',
+            'step-timing-function': 'step-start | step-end | steps( <integer> [, <step-position> ]? )',
+            'step-position': 'jump-start | jump-end | jump-none | jump-both | start | end'
+        },
+        matchResult: {
+            'paused forwards': [
+                {
+                    'syntax': '<single-animation-play-state>',
+                    'match': 'paused'
+                },
+                {
+                    'syntax': '<single-animation-fill-mode>',
+                    'match': 'forwards'
+                }
+            ]
+        }
     }
 };
+
+function processMatchResult(mr) {
+    if (Array.isArray(mr)) {
+        var array = mr.map(processMatchResult);
+        return array.length === 1 ? array[0] : array;
+    }
+
+    if (mr.token) {
+        return mr.token;
+    }
+
+    if (mr.syntax && mr.match) {
+        return {
+            syntax: mr.syntax.type === 'Type' ? '<' + mr.syntax.name + '>' : mr.syntax.name,
+            match: processMatchResult(mr.match)
+        };
+    }
+}
 
 function createSyntaxTest(syntax, test) {
     var matchTree = buildMatchGraph(syntax);
@@ -793,6 +968,19 @@ function createSyntaxTest(syntax, test) {
                     var m = matchAsList(prepareTokens(input), matchTree, syntaxes);
 
                     assert.equal(m.match, null);
+                });
+            });
+        }
+
+        if (test.matchResult) {
+            Object.keys(test.matchResult).forEach(function(input) {
+                var matchResult = test.matchResult[input];
+
+                it('match result for "' + input + '"', function() {
+                    var m = matchAsTree(prepareTokens(input), matchTree, syntaxes);
+                    // console.log(JSON.stringify(processMatchResult(m.match.match), null, 4));
+
+                    assert.deepEqual(processMatchResult(m.match.match), matchResult);
                 });
             });
         }
