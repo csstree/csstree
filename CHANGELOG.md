@@ -6,6 +6,7 @@
     - Added [bracketed range notation](https://drafts.csswg.org/css-values-4/#numeric-ranges) support and related refactoring
     - Removed `<number-zero-one>`, `<number-one-or-greater>` and `<positive-integer>` from generic types. In fact, types moved to patch, because those types can be expressed in a regular grammar due to bracketed range notation implemented
     - Fixed checking value has `var()` occuries when value is a string (such values can't be matched on syntax currently and fail with specific error that can be used for ignorance in validation tools)
+    - Fixed `<declaration-value>` and `<any-value>` matching when a value contains a function, parentheses or braces
 
 ## 1.0.0-alpha.30 (July 3, 2019)
 
