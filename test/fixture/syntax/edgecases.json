@@ -1,10 +1,6 @@
 {
     "number as keyword": {
-        "syntax": {
-            "properties": {
-                "test": "100 | 200"
-            }
-        },
+        "syntax": "100 | 200",
         "valid": [
             "100",
             "200"
@@ -14,12 +10,7 @@
         ]
     },
     "\\0 and \\9 hack": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "foo | <number> | <length>"
-            }
-        },
+        "syntax": "foo | <number> | <length>",
         "valid": [
             "foo\\9",
             "foo \\9",
@@ -36,12 +27,7 @@
         ]
     },
     "\\0 and \\9 hack #2": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "foo | bar | baz"
-            }
-        },
+        "syntax": "foo | bar | baz",
         "valid": [
             "foo\\9",
             "foo \\9",

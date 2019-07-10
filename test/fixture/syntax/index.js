@@ -11,21 +11,21 @@ function forEachTest(factory) {
         for (var key in file) {
             var test = file[key];
             var syntax = test.syntax || (!test.property && !test.type ? key : undefined);
-            var lexer = syntax && typeof syntax !== 'string' ? createLexer(syntax) : defaultLexer;
+            var lexer = test.lexer ? createLexer(test.lexer) : defaultLexer;
 
-            for (var property in test) {
-                if (property !== 'valid' && property !== 'invalid') {
+            for (var field in test) {
+                if (field !== 'valid' && field !== 'invalid') {
                     continue;
                 }
 
-                test[property].forEach(function(value, idx) {
+                test[field].forEach(function(value, idx) {
                     factory(
+                        field,
                         test.test,
-                        test.name + ' ' + property + '#' + idx,
+                        test.name + ' ' + field + '#' + idx,
                         lexer,
-                        test.property || 'test',
+                        test.property,
                         value,
-                        property === 'invalid',
                         typeof syntax === 'string' ? syntax : undefined
                     );
                 });

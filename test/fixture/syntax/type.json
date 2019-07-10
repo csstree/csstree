@@ -1,11 +1,9 @@
 {
     "simple": {
-        "syntax": {
+        "syntax": "<bar>",
+        "lexer": {
             "types": {
                 "bar": "foo"
-            },
-            "properties": {
-                "test": "<bar>"
             }
         },
         "valid": [
@@ -17,12 +15,10 @@
         ]
     },
     "with multiplier": {
-        "syntax": {
+        "syntax": "<bar>+",
+        "lexer": {
             "types": {
                 "bar": "foo"
-            },
-            "properties": {
-                "test": "<bar>+"
             }
         },
         "valid": [

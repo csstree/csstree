@@ -1,11 +1,9 @@
 {
     "should pass through (values with `var()` is always valid for now)": {
-        "syntax": {
+        "syntax": "<bar>",
+        "lexer": {
             "types": {
                 "bar": "foo"
-            },
-            "properties": {
-                "test": "<bar>"
             }
         },
         "valid": [

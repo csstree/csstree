@@ -9,30 +9,34 @@ function getMatch(lexer, property, value, syntax) {
         : lexer.matchProperty(property, value);
 }
 
-function createMatchTest(state, name, lexer, property, value, error, syntax) {
-    if (error) {
-        (it[state] || it)(name, function() {
-            var match = getMatch(lexer, property, value, syntax);
+function createMatchTest(testType, testState, name, lexer, property, value, syntax) {
+    switch (testType) {
+        case 'valid':
+            (it[testState] || it)(name, function() {
+                var match = getMatch(lexer, property, value, syntax);
 
-            assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
-            assert.equal(match.error.name, 'SyntaxMatchError');
-        });
-    } else {
-        (it[state] || it)(name, function() {
-            var match = getMatch(lexer, property, value, syntax);
-
-            // temporary solution to avoid var() using errors
-            if (match.error) {
-                if (
-                    /Matching for a tree with var\(\) is not supported/.test(match.error.message) ||
-                    /Lexer matching doesn't applicable for custom properties/.test(match.error.message)) {
-                    assert(true);
-                    return;
+                // temporary solution to avoid var() using errors
+                if (match.error) {
+                    if (
+                        /Matching for a tree with var\(\) is not supported/.test(match.error.message) ||
+                        /Lexer matching doesn't applicable for custom properties/.test(match.error.message)) {
+                        assert(true);
+                        return;
+                    }
                 }
-            }
 
-            assert(match.matched !== null, match.error && match.error.message);
-        });
+                assert(match.matched !== null, match.error && match.error.message);
+            });
+            break;
+
+        case 'invalid':
+            (it[testState] || it)(name, function() {
+                var match = getMatch(lexer, property, value, syntax);
+
+                assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
+                assert.equal(match.error.name, 'SyntaxMatchError');
+            });
+            break;
     }
 }
 

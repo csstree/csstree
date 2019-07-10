@@ -1,8 +1,8 @@
 {
     "simple": {
-        "syntax": {
+        "syntax": "<'property'>",
+        "lexer": {
             "properties": {
-                "test": "<'property'>",
                 "property": "foo"
             }
         },
@@ -15,9 +15,9 @@
         ]
     },
     "with multiplier": {
-        "syntax": {
+        "syntax": "<'property'>+",
+        "lexer": {
             "properties": {
-                "test": "<'property'>+",
                 "property": "foo"
             }
         },
