@@ -1,10 +1,6 @@
 {
     "simple": {
-        "syntax": {
-            "properties": {
-                "test": "foo / bar"
-            }
-        },
+        "syntax": "foo / bar",
         "valid": [
             "foo / bar",
             "foo/bar"

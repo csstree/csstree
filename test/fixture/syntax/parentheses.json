@@ -1,13 +1,6 @@
 {
     "simple": {
-        "syntax": {
-            "types": {
-                "foo": "foo"
-            },
-            "properties": {
-                "test": "( <foo> )"
-            }
-        },
+        "syntax": "( foo )",
         "valid": [
             "(foo)",
             "( foo )"
@@ -20,14 +13,7 @@
         ]
     },
     "nested": {
-        "syntax": {
-            "types": {
-                "foo": "foo"
-            },
-            "properties": {
-                "test": "( ( <foo> ) )"
-            }
-        },
+        "syntax": "( ( foo ) )",
         "valid": [
             "((foo))",
             "( ( foo ) )"
@@ -40,14 +26,7 @@
         ]
     },
     "with multiplier": {
-        "syntax": {
-            "types": {
-                "foo": "foo"
-            },
-            "properties": {
-                "test": "[ ( <foo> ) ]+"
-            }
-        },
+        "syntax": "[ ( foo ) ]+",
         "valid": [
             "(foo)",
             "( foo ) (foo)"

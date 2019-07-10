@@ -9,16 +9,16 @@ function getMatch(lexer, property, value, syntax) {
         : lexer.matchProperty(property, value);
 }
 
-function createMatchTest(name, lexer, property, value, error, syntax) {
+function createMatchTest(state, name, lexer, property, value, error, syntax) {
     if (error) {
-        it(name, function() {
+        (it[state] || it)(name, function() {
             var match = getMatch(lexer, property, value, syntax);
 
             assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
             assert.equal(match.error.name, 'SyntaxMatchError');
         });
     } else {
-        it(name, function() {
+        (it[state] || it)(name, function() {
             var match = getMatch(lexer, property, value, syntax);
 
             // temporary solution to avoid var() using errors

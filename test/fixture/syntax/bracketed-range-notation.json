@@ -81,8 +81,7 @@
             "2 100 5"
         ]
     },
-    "<number>": {
-        "syntax": "<number [0,∞]>",
+    "<number [0,∞]>": {
         "valid": [
             "42"
         ],
@@ -90,8 +89,7 @@
             "-42"
         ]
     },
-    "<integer>": {
-        "syntax": "<integer [0,∞]>",
+    "<integer [0,∞]>": {
         "valid": [
             "42"
         ],
@@ -99,8 +97,7 @@
             "-42"
         ]
     },
-    "<percentage>": {
-        "syntax": "<percentage [0,∞]>",
+    "<percentage [0,∞]>": {
         "valid": [
             "42%"
         ],
@@ -108,8 +105,7 @@
             "-42%"
         ]
     },
-    "<dimension>": {
-        "syntax": "<dimension [0,∞]>",
+    "<dimension [0,∞]>": {
         "valid": [
             "42foo"
         ],
@@ -117,8 +113,7 @@
             "-42foo"
         ]
     },
-    "<angle>": {
-        "syntax": "<angle [0,∞]>",
+    "<angle [0,∞]>": {
         "valid": [
             "42deg"
         ],
@@ -126,8 +121,7 @@
             "-42deg"
         ]
     },
-    "<angle-percentage>": {
-        "syntax": "<angle-percentage [0,∞]>",
+    "<angle-percentage [0,∞]>": {
         "valid": [
             "42deg",
             "42%"
@@ -137,8 +131,7 @@
             "-42%"
         ]
     },
-    "<decibel>": {
-        "syntax": "<decibel [0,∞]>",
+    "<decibel [0,∞]>": {
         "valid": [
             "42db"
         ],
@@ -146,8 +139,7 @@
             "-42db"
         ]
     },
-    "<frequency>": {
-        "syntax": "<frequency [0,∞]>",
+    "<frequency [0,∞]>": {
         "valid": [
             "42hz"
         ],
@@ -155,8 +147,7 @@
             "-42hz"
         ]
     },
-    "<frequency-percentage>": {
-        "syntax": "<frequency-percentage [0,∞]>",
+    "<frequency-percentage [0,∞]>": {
         "valid": [
             "42hz",
             "42%"
@@ -166,8 +157,7 @@
             "-42%"
         ]
     },
-    "<flex>": {
-        "syntax": "<flex [0,∞]>",
+    "<flex [0,∞]>": {
         "valid": [
             "42fr"
         ],
@@ -175,8 +165,7 @@
             "-42fr"
         ]
     },
-    "<length>": {
-        "syntax": "<length [0,∞]>",
+    "<length [0,∞]>": {
         "valid": [
             "42px"
         ],
@@ -184,8 +173,7 @@
             "-42px"
         ]
     },
-    "<length-percentage>": {
-        "syntax": "<length-percentage [0,∞]>",
+    "<length-percentage [0,∞]>": {
         "valid": [
             "42px",
             "42%"
@@ -195,8 +183,7 @@
             "-42%"
         ]
     },
-    "<resolution>": {
-        "syntax": "<resolution [0,∞]>",
+    "<resolution [0,∞]>": {
         "valid": [
             "42dppx"
         ],
@@ -204,8 +191,7 @@
             "-42dppx"
         ]
     },
-    "<semitones>": {
-        "syntax": "<semitones [0,∞]>",
+    "<semitones [0,∞]>": {
         "valid": [
             "42st"
         ],
@@ -213,8 +199,7 @@
             "-42st"
         ]
     },
-    "<time>": {
-        "syntax": "<time [0,∞]>",
+    "<time [0,∞]>": {
         "valid": [
             "42ms"
         ],
@@ -222,8 +207,7 @@
             "-42ms"
         ]
     },
-    "<time-percentage>": {
-        "syntax": "<time-percentage [0,∞]>",
+    "<time-percentage [0,∞]>": {
         "valid": [
             "42ms",
             "42%"

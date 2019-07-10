@@ -1,11 +1,5 @@
 {
     "<angle>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<angle>"
-            }
-        },
         "valid": [
             "1deg",
             "1DEG",
@@ -25,12 +19,6 @@
         ]
     },
     "<time>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<time>"
-            }
-        },
         "valid": [
             "1s",
             "1S",
@@ -45,12 +33,6 @@
         ]
     },
     "<length>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<length>"
-            }
-        },
         "valid": [
             "1px",
             "1PX",
@@ -94,12 +76,6 @@
         ]
     },
     "<frequency>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<frequency>"
-            }
-        },
         "valid": [
             "1hz",
             "1Hz",
@@ -114,12 +90,6 @@
         ]
     },
     "<resolution>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<resolution>"
-            }
-        },
         "valid": [
             "1dpi",
             "1DPI",
@@ -136,12 +106,6 @@
         ]
     },
     "<flex>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<flex>"
-            }
-        },
         "valid": [
             "1fr",
             "1FR",
@@ -154,12 +118,6 @@
         ]
     },
     "<decibel>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<decibel>"
-            }
-        },
         "valid": [
             "1db",
             "1dB",
@@ -172,12 +130,6 @@
         ]
     },
     "<semitones>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<semitones>"
-            }
-        },
         "valid": [
             "1st",
             "1ST",
@@ -190,12 +142,6 @@
         ]
     },
     "<dimension>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<dimension>"
-            }
-        },
         "valid": [
             "1px",
             "1something"
@@ -206,12 +152,6 @@
         ]
     },
     "<percentage>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<percentage>"
-            }
-        },
         "valid": [
             "1%",
             "12.34%",
@@ -224,12 +164,6 @@
         ]
     },
     "<zero>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<zero>"
-            }
-        },
         "valid": [
             "0",
             ".0",
@@ -244,12 +178,6 @@
         ]
     },
     "<number>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<number>"
-            }
-        },
         "valid": [
             "123",
             "123.456",
@@ -269,12 +197,6 @@
         ]
     },
     "<integer>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<integer>"
-            }
-        },
         "valid": [
             "123",
             "-123",
@@ -290,12 +212,6 @@
         ]
     },
     "<hex-color>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<hex-color>"
-            }
-        },
         "valid": [
             "#abc",
             "#abcd",
@@ -318,30 +234,18 @@
         ]
     },
     "<id-selector>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "element( <id-selector> )"
-            }
-        },
         "valid": [
-            "element(#foo)",
-            "element(#a123)",
-            "element(#foo-123)",
-            "element(#--foo)"
+            "#foo",
+            "#a123",
+            "#foo-123",
+            "#--foo"
         ],
         "invalid": [
-            "element(#123)",
-            "element(#)"
+            "#123",
+            "#"
         ]
     },
     "<ident>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<ident>"
-            }
-        },
         "valid": [
             "foo",
             "-foo",
@@ -358,12 +262,6 @@
         ]
     },
     "<string>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<string>"
-            }
-        },
         "valid": [
             "\"string\"",
             "'string'"
@@ -374,12 +272,6 @@
         ]
     },
     "<urange>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<urange>"
-            }
-        },
         "valid": [
             "U+26",
             "U+0-7F",
@@ -423,12 +315,6 @@
         ]
     },
     "<an-plus-b>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<an-plus-b>"
-            }
-        },
         "valid": [
             "2n+1",
             "2n +1",
@@ -516,32 +402,20 @@
         ]
     },
     "<custom-ident>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "test( <custom-ident> )"
-            }
-        },
         "valid": [
-            "test( foo )",
-            "test( bar123 )"
+            "foo",
+            "bar12"
         ],
         "invalid": [
-            "test( )",
-            "test( inherit )",
-            "test( initial )",
-            "test( unset )",
-            "test( default )",
-            "test( 0 )"
+            "",
+            "inherit",
+            "initial",
+            "unset",
+            "default",
+            "0"
         ]
     },
     "<custom-property-name>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<custom-property-name>"
-            }
-        },
         "valid": [
             "--",
             "--foo"
@@ -554,78 +428,59 @@
         ]
     },
     "<declaration-value>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "test( <declaration-value> )"
-            }
-        },
-        "skipped": {
-            "comment": "such values can't be parsed currently",
-            "valid": [
-                "test( foo(!) )",
-                "test( foo(;) )",
-                "test( ([{}]) )"
-            ]
-        },
         "valid": [
-            "test( foo )",
-            "test( 123px )"
+            "foo",
+            "123px",
+            "foo()",
+            "foo(123)",
+            "foo(!)",
+            "foo(;)",
+            "([{}])"
         ],
         "invalid": [
-            "test(  )",
-            "test( foo 'asd\n )",
-            "test( foo url(( )",
-            "test( foo!important )",
-            "test( foo;123 )",
-            "test( ) )",
-            "test( ] )",
-            "test( } )",
-            "test( (]) )",
-            "test( (}) )",
-            "test( [)] )"
+            "",
+            "foo 'asd\n",
+            "foo url((",
+            "foo!important",
+            "foo;123",
+            ")",
+            "]",
+            "}",
+            "(])",
+            "(})",
+            "[)]"
         ]
     },
     "<any-value>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "test( <any-value> )"
-            }
-        },
         "skipped": {
             "valid": [
-                "test( foo(!) )",
-                "test( foo(;) )",
-                "test( ([{}]) )"
             ]
         },
         "valid": [
-            "test( foo )",
-            "test( 123px )",
-            "test( foo!important )",
-            "test( foo;123 )"
+            "foo",
+            "123px",
+            "foo!important",
+            "foo;123",
+            "foo()",
+            "foo(123)",
+            "foo(!)",
+            "foo(;)",
+            "([{}])"
         ],
         "invalid": [
-            "test( )",
-            "test( 'asd\n )",
-            "test( foo 'asd\n )",
-            "test( foo url(( )",
-            "test( ) )",
-            "test( ] )",
-            "test( } )",
-            "test( (]) )",
-            "test( (}) )",
-            "test( [)] )"
+            "",
+            "'asd\n",
+            "foo 'asd\n",
+            "foo url((",
+            ")",
+            "]",
+            "}",
+            "(])",
+            "(})",
+            "[)]"
         ]
     },
     "<-ms-legacy-expression>": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<-ms-legacy-expression>"
-            }
-        },
         "valid": [
             "expression(...)",
             "EXPRESSION(...)"
@@ -636,12 +491,7 @@
         ]
     },
     "calc": {
-        "syntax": {
-            "generic": true,
-            "properties": {
-                "test": "<length>"
-            }
-        },
+        "syntax": "<length>",
         "valid": [
             "calc(1px + 1%)",
             "CALC(1px + 1%)",

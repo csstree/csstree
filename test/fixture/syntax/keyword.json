@@ -1,10 +1,6 @@
 {
     "simple": {
-        "syntax": {
-            "properties": {
-                "test": "foo"
-            }
-        },
+        "syntax": "foo",
         "valid": [
             "foo",
             "FOO"
@@ -16,11 +12,7 @@
         ]
     },
     "with vendor prefix": {
-        "syntax": {
-            "properties": {
-                "test": "-vendor-foo"
-            }
-        },
+        "syntax": "-vendor-foo",
         "valid": [
             "-vendor-foo",
             "-VENDOR-FOO"
@@ -34,11 +26,7 @@
         ]
     },
     "with vendor prefix ignore": {
-        "syntax": {
-            "properties": {
-                "test": "someExample"
-            }
-        },
+        "syntax": "someExample",
         "valid": [
             "someExample",
             "someexample"
@@ -50,11 +38,7 @@
         ]
     },
     "with multiplier": {
-        "syntax": {
-            "properties": {
-                "test": "foo+"
-            }
-        },
+        "syntax": "foo+",
         "valid": [
             "foo",
             "foo foo",

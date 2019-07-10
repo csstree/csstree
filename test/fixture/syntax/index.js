@@ -8,20 +8,22 @@ function forEachTest(factory) {
     for (var filename in testFiles) {
         var file = testFiles[filename];
 
-        for (var test in file) {
-            var syntax = file[test].syntax;
+        for (var key in file) {
+            var test = file[key];
+            var syntax = test.syntax || (!test.property && !test.type ? key : undefined);
             var lexer = syntax && typeof syntax !== 'string' ? createLexer(syntax) : defaultLexer;
 
-            for (var property in file[test]) {
+            for (var property in test) {
                 if (property !== 'valid' && property !== 'invalid') {
                     continue;
                 }
 
-                file[test][property].forEach(function(value, idx) {
+                test[property].forEach(function(value, idx) {
                     factory(
-                        file[test].name + ' ' + property + '#' + idx,
+                        test.test,
+                        test.name + ' ' + property + '#' + idx,
                         lexer,
-                        file[test].property || 'test',
+                        test.property || 'test',
                         value,
                         property === 'invalid',
                         typeof syntax === 'string' ? syntax : undefined

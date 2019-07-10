@@ -1,13 +1,6 @@
 {
     "simple": {
-        "syntax": {
-            "types": {
-                "foo()": "foo( bar )"
-            },
-            "properties": {
-                "test": "<foo()>"
-            }
-        },
+        "syntax": "foo( bar )",
         "valid": [
             "foo(bar)"
         ],
@@ -19,14 +12,7 @@
         ]
     },
     "should be case insensetive": {
-        "syntax": {
-            "types": {
-                "foo()": "fooBar( baz )"
-            },
-            "properties": {
-                "test": "<foo()>"
-            }
-        },
+        "syntax": "fooBar( baz )",
         "valid": [
             "fooBar(baz)",
             "foobar(baz)",
@@ -34,14 +20,7 @@
         ]
     },
     "two arguments": {
-        "syntax": {
-            "types": {
-                "foo()": "foo( bar, baz )"
-            },
-            "properties": {
-                "test": "<foo()>"
-            }
-        },
+        "syntax": "foo( bar, baz )",
         "valid": [
             "foo(bar, baz)"
         ],
@@ -53,14 +32,7 @@
         ]
     },
     "two arguments with optional": {
-        "syntax": {
-            "types": {
-                "foo()": "foo( bar, baz? )"
-            },
-            "properties": {
-                "test": "<foo()>"
-            }
-        },
+        "syntax": "foo( bar, baz? )",
         "valid": [
             "foo(bar, baz)",
             "foo(bar)"
@@ -72,14 +44,7 @@
         ]
     },
     "three optional arguments": {
-        "syntax": {
-            "types": {
-                "foo()": "foo( bar?, baz?, qux? )"
-            },
-            "properties": {
-                "test": "<foo()>"
-            }
-        },
+        "syntax": "foo( bar?, baz?, qux? )",
         "valid": [
             "foo(bar)",
             "foo(baz)",

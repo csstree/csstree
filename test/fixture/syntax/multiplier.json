@@ -1,10 +1,6 @@
 {
     "zero or one": {
-        "syntax": {
-            "properties": {
-                "test": "foo?"
-            }
-        },
+        "syntax": "foo?",
         "valid": [
             "",
             "foo"
@@ -16,11 +12,7 @@
         ]
     },
     "zero or one at the end": {
-        "syntax": {
-            "properties": {
-                "test": "foo bar?"
-            }
-        },
+        "syntax": "foo bar?",
         "valid": [
             "foo",
             "foo bar"
@@ -33,11 +25,7 @@
         ]
     },
     "zero or one – all optional": {
-        "syntax": {
-            "properties": {
-                "test": "foo? bar? baz?"
-            }
-        },
+        "syntax": "foo? bar? baz?",
         "valid": [
             "",
             "foo",
@@ -57,11 +45,7 @@
         ]
     },
     "zero or one – all optional in group": {
-        "syntax": {
-            "properties": {
-                "test": "[foo? bar? baz?]"
-            }
-        },
+        "syntax": "[foo? bar? baz?]",
         "valid": [
             "",
             "foo",
@@ -77,11 +61,7 @@
         ]
     },
     "zero or one – all optional but not empty group": {
-        "syntax": {
-            "properties": {
-                "test": "[foo? bar? baz?]!"
-            }
-        },
+        "syntax": "[foo? bar? baz?]!",
         "valid": [
             "foo",
             "bar",
@@ -101,11 +81,7 @@
         ]
     },
     "zero or more": {
-        "syntax": {
-            "properties": {
-                "test": "foo*"
-            }
-        },
+        "syntax": "foo*",
         "valid": [
             "",
             "foo",
@@ -118,11 +94,7 @@
         ]
     },
     "zero or more at the end": {
-        "syntax": {
-            "properties": {
-                "test": "foo bar*"
-            }
-        },
+        "syntax": "foo bar*",
         "valid": [
             "foo",
             "foo bar",
@@ -137,11 +109,7 @@
         ]
     },
     "one or more": {
-        "syntax": {
-            "properties": {
-                "test": "foo+"
-            }
-        },
+        "syntax": "foo+",
         "valid": [
             "foo",
             "foo foo",
@@ -155,11 +123,7 @@
         ]
     },
     "exact": {
-        "syntax": {
-            "properties": {
-                "test": "foo{2}"
-            }
-        },
+        "syntax": "foo{2}",
         "valid": [
             "foo foo"
         ],
@@ -172,11 +136,7 @@
         ]
     },
     "min": {
-        "syntax": {
-            "properties": {
-                "test": "foo{2,}"
-            }
-        },
+        "syntax": "foo{2,}",
         "valid": [
             "foo foo",
             "foo foo foo",
@@ -190,11 +150,7 @@
         ]
     },
     "min max": {
-        "syntax": {
-            "properties": {
-                "test": "foo{2,4}"
-            }
-        },
+        "syntax": "foo{2,4}",
         "valid": [
             "foo foo",
             "foo foo foo",
@@ -209,11 +165,7 @@
         ]
     },
     "one or more comma separated": {
-        "syntax": {
-            "properties": {
-                "test": "foo#"
-            }
-        },
+        "syntax": "foo#",
         "valid": [
             "foo",
             "foo, foo",
@@ -231,11 +183,7 @@
         ]
     },
     "one or more comma separated with following": {
-        "syntax": {
-            "properties": {
-                "test": "foo# bar?"
-            }
-        },
+        "syntax": "foo# bar?",
         "valid": [
             "foo",
             "foo, foo",
@@ -248,11 +196,7 @@
         ]
     },
     "one or more comma separated with min max": {
-        "syntax": {
-            "properties": {
-                "test": "foo#{2,4}"
-            }
-        },
+        "syntax": "foo#{2,4}",
         "valid": [
             "foo, foo",
             "foo,foo,foo",

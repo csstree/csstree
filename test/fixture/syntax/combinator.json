@@ -1,10 +1,6 @@
 {
     "juxtaposing": {
-        "syntax": {
-            "properties": {
-                "test": "foo bar"
-            }
-        },
+        "syntax": "foo bar",
         "valid": [
             "foo bar"
         ],
@@ -16,11 +12,7 @@
         ]
     },
     "a bar": {
-        "syntax": {
-            "properties": {
-                "test": "foo | bar"
-            }
-        },
+        "syntax": "foo | bar",
         "valid": [
             "foo",
             "bar"
@@ -31,11 +23,7 @@
         ]
     },
     "a double ampersand": {
-        "syntax": {
-            "properties": {
-                "test": "foo && bar"
-            }
-        },
+        "syntax": "foo && bar",
         "valid": [
             "foo bar",
             "bar foo"
@@ -49,11 +37,7 @@
         ]
     },
     "a double ampersand with optional": {
-        "syntax": {
-            "properties": {
-                "test": "foo && bar?"
-            }
-        },
+        "syntax": "foo && bar?",
         "valid": [
             "foo bar",
             "bar foo",
@@ -67,11 +51,7 @@
         ]
     },
     "a double ampersand with all optional": {
-        "syntax": {
-            "properties": {
-                "test": "foo? && bar?"
-            }
-        },
+        "syntax": "foo? && bar?",
         "valid": [
             "foo bar",
             "bar foo",
@@ -85,11 +65,7 @@
         ]
     },
     "a double bar": {
-        "syntax": {
-            "properties": {
-                "test": "foo || bar"
-            }
-        },
+        "syntax": "foo || bar",
         "valid": [
             "foo",
             "bar",
@@ -105,11 +81,7 @@
         ]
     },
     "a double bar with all optional": {
-        "syntax": {
-            "properties": {
-                "test": "foo? || bar?"
-            }
-        },
+        "syntax": "foo? || bar?",
         "valid": [
             "foo",
             "bar",

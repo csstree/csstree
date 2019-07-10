@@ -1,10 +1,6 @@
 {
     "simple": {
-        "syntax": {
-            "properties": {
-                "test": "foo, bar"
-            }
-        },
+        "syntax": "foo, bar",
         "valid": [
             "foo, bar"
         ],
@@ -16,11 +12,7 @@
         ]
     },
     "first is omissible": {
-        "syntax": {
-            "properties": {
-                "test": "foo?, bar"
-            }
-        },
+        "syntax": "foo?, bar",
         "valid": [
             "foo, bar",
             "bar"
@@ -33,11 +25,7 @@
         ]
     },
     "last is omissible": {
-        "syntax": {
-            "properties": {
-                "test": "foo, bar?"
-            }
-        },
+        "syntax": "foo, bar?",
         "valid": [
             "foo, bar",
             "foo"
@@ -50,11 +38,7 @@
         ]
     },
     "both is omissible": {
-        "syntax": {
-            "properties": {
-                "test": "foo?, bar?"
-            }
-        },
+        "syntax": "foo?, bar?",
         "valid": [
             "",
             "foo, bar",
@@ -68,11 +52,7 @@
         ]
     },
     "three omissible": {
-        "syntax": {
-            "properties": {
-                "test": "foo?, bar?, baz?"
-            }
-        },
+        "syntax": "foo?, bar?, baz?",
         "valid": [
             "",
             "foo",
@@ -93,11 +73,7 @@
         ]
     },
     "four omissible": {
-        "syntax": {
-            "properties": {
-                "test": "foo?, bar?, baz?, qux?"
-            }
-        },
+        "syntax": "foo?, bar?, baz?, qux?",
         "valid": [
             "",
             "foo",
@@ -114,11 +90,7 @@
         ]
     },
     "leading comma in group": {
-        "syntax": {
-            "properties": {
-                "test": "foo [ , foo ]*"
-            }
-        },
+        "syntax": "foo [ , foo ]*",
         "valid": [
             "foo",
             "foo, foo",
@@ -130,11 +102,7 @@
         ]
     },
     "trailig comma in group": {
-        "syntax": {
-            "properties": {
-                "test": "[ foo , ]* foo"
-            }
-        },
+        "syntax": "[ foo , ]* foo",
         "valid": [
             "foo",
             "foo, foo",

@@ -1,6 +1,5 @@
 {
     "<number-zero-one>": {
-        "syntax": "<number-zero-one>",
         "valid": [
             "0",
             ".0",
@@ -16,7 +15,6 @@
         ]
     },
     "<number-one-or-greater>": {
-        "syntax": "<number-one-or-greater>",
         "valid": [
             "1",
             "1.0",
@@ -30,7 +28,6 @@
         ]
     },
     "<positive-integer>": {
-        "syntax": "<positive-integer>",
         "valid": [
             "123",
             "calc(2 * 2)"
