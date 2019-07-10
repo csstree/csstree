@@ -707,6 +707,15 @@
     "url-modifier": {
       "comment": "https://drafts.csswg.org/css-values-4/#typedef-url-modifier",
       "syntax": "<ident> | <function-token> <any-value> )"
+    },
+    "number-zero-one": {
+      "syntax": "<number [0,1]>"
+    },
+    "number-one-or-greater": {
+      "syntax": "<number [1,∞]>"
+    },
+    "positive-integer": {
+      "syntax": "<integer [0,∞]>"
     }
   }
 }

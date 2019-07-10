@@ -1,47 +1,25 @@
 var assert = require('assert');
 var parseCss = require('../lib').parse;
 var syntax = require('../lib');
-var tests = require('./fixture/syntax');
+var fixture = require('./fixture/syntax');
 
-function getMatch(syntax, context, ref, value) {
-    var ast;
-
-    switch (context) {
-        case 'declaration':
-            ast = parseCss(ref + ':' + value, {
-                context: 'declaration'
-            });
-            break;
-
-        case 'raw':
-            ast = {
-                type: 'Raw',
-                value: value
-            };
-            break;
-
-        default:
-            ast = parseCss(value, {
-                context: context
-            });
-    }
-
-    return context === 'declaration'
-        ? syntax.matchDeclaration(ast)
-        : syntax.matchProperty(ref, ast);
+function getMatch(lexer, property, value, syntax) {
+    return syntax
+        ? lexer.match(syntax, value)
+        : lexer.matchProperty(property, value);
 }
 
-function createMatchTest(name, syntax, property, value, error, context) {
+function createMatchTest(name, lexer, property, value, error, syntax) {
     if (error) {
         it(name, function() {
-            var match = getMatch(syntax, context, property, value);
+            var match = getMatch(lexer, property, value, syntax);
 
             assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
             assert.equal(match.error.name, 'SyntaxMatchError');
         });
     } else {
         it(name, function() {
-            var match = getMatch(syntax, context, property, value);
+            var match = getMatch(lexer, property, value, syntax);
 
             // temporary solution to avoid var() using errors
             if (match.error) {
@@ -299,18 +277,21 @@ describe('lexer', function() {
                 assert(match.matched);
                 assert.equal(match.error, null);
             });
+
             it('hacks', function() {
                 var match = customSyntax.lexer.matchProperty('_foo', bar);
 
                 assert(match.matched);
                 assert.equal(customSyntax.lexer.lastMatchError, null);
             });
+
             it('vendor prefix and hack', function() {
                 var match = customSyntax.lexer.matchProperty('_-vendor-foo', bar);
 
                 assert(match.matched);
                 assert.equal(customSyntax.lexer.lastMatchError, null);
             });
+
             it('case insensetive with vendor prefix and hack', function() {
                 var match;
 
@@ -330,6 +311,7 @@ describe('lexer', function() {
                 assert(match.matched);
                 assert.equal(match.error, null);
             });
+
             it('should use verdor version first', function() {
                 var match;
 
@@ -364,7 +346,7 @@ describe('lexer', function() {
             });
         });
 
-        tests.forEachTest(createMatchTest);
+        fixture.forEachTest(createMatchTest);
     });
 
     describe('matchDeclaration()', function() {
@@ -533,11 +515,11 @@ describe('lexer', function() {
         it('getTrace()', function() {
             assert.deepEqual(match.getTrace(testNode), [
                 { type: 'Property', name: 'background' },
-                { type: 'Type', name: 'final-bg-layer' },
+                { type: 'Type', opts: null, name: 'final-bg-layer' },
                 { type: 'Property', name: 'background-color' },
-                { type: 'Type', name: 'color' },
-                { type: 'Type', name: 'rgb()' },
-                { type: 'Type', name: 'number' }
+                { type: 'Type', opts: null, name: 'color' },
+                { type: 'Type', opts: null, name: 'rgb()' },
+                { type: 'Type', opts: null, name: 'number' }
             ]);
             assert.equal(mismatch.getTrace(testNode), null);
         });

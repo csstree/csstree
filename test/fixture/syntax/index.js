@@ -9,8 +9,8 @@ function forEachTest(factory) {
         var file = testFiles[filename];
 
         for (var test in file) {
-            var lexer = file[test].syntax ? createLexer(file[test].syntax) : defaultLexer;
-            var context = file[test].context || 'declaration';
+            var syntax = file[test].syntax;
+            var lexer = syntax && typeof syntax !== 'string' ? createLexer(syntax) : defaultLexer;
 
             for (var property in file[test]) {
                 if (property !== 'valid' && property !== 'invalid') {
@@ -24,7 +24,7 @@ function forEachTest(factory) {
                         file[test].property || 'test',
                         value,
                         property === 'invalid',
-                        context
+                        typeof syntax === 'string' ? syntax : undefined
                     );
                 });
             }

@@ -1,6 +1,5 @@
 {
     "simple": {
-        "context": "raw",
         "syntax": {
             "properties": {
                 "test": "@foo"
@@ -18,7 +17,6 @@
         ]
     },
     "with vendor prefix": {
-        "context": "raw",
         "syntax": {
             "properties": {
                 "test": "@-vendor-foo"
@@ -37,7 +35,6 @@
         ]
     },
     "with vendor prefix ignore": {
-        "context": "raw",
         "syntax": {
             "properties": {
                 "test": "@someExample"

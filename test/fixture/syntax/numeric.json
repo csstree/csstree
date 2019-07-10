@@ -1,0 +1,47 @@
+{
+    "<number-zero-one>": {
+        "syntax": "<number-zero-one>",
+        "valid": [
+            "0",
+            ".0",
+            "0.0",
+            ".456",
+            "1.0",
+            "1"
+        ],
+        "invalid": [
+            "-1",
+            "1.01",
+            "123"
+        ]
+    },
+    "<number-one-or-greater>": {
+        "syntax": "<number-one-or-greater>",
+        "valid": [
+            "1",
+            "1.0",
+            "123.456"
+        ],
+        "invalid": [
+            "-1",
+            "0.01",
+            ".999",
+            "abc"
+        ]
+    },
+    "<positive-integer>": {
+        "syntax": "<positive-integer>",
+        "valid": [
+            "123",
+            "calc(2 * 2)"
+        ],
+        "invalid": [
+            "",
+            "-123",
+            "123.456",
+            "-123.456",
+            ".456",
+            "foo 123"
+        ]
+    }
+}

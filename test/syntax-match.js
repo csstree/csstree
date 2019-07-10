@@ -605,7 +605,7 @@ var tests = {
     },
     'rgb( <percentage>{3} [ / <alpha-value> ]? ) | rgb( <number>{3} [ / <alpha-value> ]? ) | rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? )': {
         syntaxes: {
-            'alpha-value': '<number-zero-one>'
+            'alpha-value': '<number [0,1]>'
         },
         match: [
             'rgb(1, 2, 3)',

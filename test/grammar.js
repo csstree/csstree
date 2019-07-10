@@ -10,7 +10,7 @@ function normalize(str) {
     // e.g. rgba( <rgb-component>#{3} , <alpha-value> )
     // but  hsl( <hue>, <percentage>, <percentage> )
 
-    return str.replace(/\B\s\B/g, '');
+    return str.replace(/\s*(\n\s*)+/g, ' ').replace(/\B\s\B/g, '');
 }
 
 function createParseTest(name, syntax) {
@@ -19,6 +19,14 @@ function createParseTest(name, syntax) {
 
         assert.equal(ast.type, 'Group');
         assert.equal(normalize(generate(ast)), normalize(syntax));
+    });
+}
+
+function createParseGenerateTest(test) {
+    it(test.source + (test.generate ? ' → ' + test.generate : ''), function() {
+        var actual = generate(parse(test.source));
+
+        assert.equal(actual, test.generate || test.source);
     });
 }
 
@@ -110,6 +118,44 @@ describe('grammar', function() {
             Object.keys(data[section]).forEach(function(name) {
                 createParseTest(section + '/' + name, data[section][name]);
             });
+        });
+
+        describe('multiplers', function() {
+            [
+                { source: '<number>' },
+                { source: '<number>*' },
+                { source: '<number>?' },
+                { source: '<number>+' },
+                { source: '<number>#' },
+                { source: '<number>#{2,3}' },
+                { source: '<number>{2}' },
+                { source: '<number>{2,}' },
+                { source: '<number>{2,3}' },
+                { source: '<number>{0,}', generate: '<number>*' },
+                { source: '<number>{1,}', generate: '<number>+' },
+                { source: '<number>{2,2}', generate: '<number>{2}' },
+                { source: '[ <number> ]' },
+                { source: '[ <number> ]?' },
+                { source: '[ <number> ]*' },
+                { source: '[ <number> ]+' },
+                { source: '[ <number> ]#' },
+                { source: '[ <number> ]#{1,2}' },
+                { source: '[ <number> ]!' },
+                { source: '[ <number> ]!{1,2}' },
+                { source: '[ <number> ]!#{1,2}' }
+            ].forEach(createParseGenerateTest);
+        });
+
+        describe('bracketed range notation', function() {
+            [
+                { source: '<number>' },
+                { source: '<number [1,2]>' },
+                { source: '<number [-∞,2]>' },
+                { source: '<number [1,∞]>' },
+                { source: '<number [-∞,∞]>', generate: '<number>' },
+                { source: '<number[1,2]>', generate: '<number [1,2]>' },
+                { source: '<number [1 , 2]>', generate: '<number [1,2]>' }
+            ].forEach(createParseGenerateTest);
         });
     });
 
