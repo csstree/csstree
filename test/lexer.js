@@ -37,24 +37,45 @@ function createMatchTest(name, lexer, property, value, error, syntax) {
 }
 
 describe('lexer', function() {
-    it('validate()', function() {
-        var customSyntax = syntax.fork(function(prev, assign) {
-            return assign(prev, {
-                generic: true,
-                types: {
-                    ref: '<string>',
-                    valid: '<number> <ref>',
-                    invalid: '<foo>'
-                },
-                properties: {
-                    ref: '<valid>',
-                    valid: '<ident> <\'ref\'>',
-                    invalid: '<invalid>'
-                }
-            });
+    it('should not override generic types when used', function() {
+        var customLexer = syntax.createLexer({
+            generic: true,
+            types: {
+                length: 'foo'
+            }
         });
 
-        assert.deepEqual(customSyntax.lexer.validate(), {
+        assert.equal(customLexer.matchType('length', 'foo').matched, null);
+        assert.notEqual(customLexer.matchType('length', '1px').matched, null);
+    });
+
+    it('should not use generic type names when generics are not used', function() {
+        var customLexer = syntax.createLexer({
+            types: {
+                length: 'foo'
+            }
+        });
+
+        assert.notEqual(customLexer.matchType('length', 'foo').matched, null);
+        assert.equal(customLexer.matchType('length', '1px').matched, null);
+    });
+
+    it('validate()', function() {
+        var customLexer = syntax.createLexer({
+            generic: true,
+            types: {
+                ref: '<string>',
+                valid: '<number> <ref>',
+                invalid: '<foo>'
+            },
+            properties: {
+                ref: '<valid>',
+                valid: '<ident> <\'ref\'>',
+                invalid: '<invalid>'
+            }
+        });
+
+        assert.deepEqual(customLexer.validate(), {
             types: [
                 'invalid'
             ],
@@ -69,16 +90,14 @@ describe('lexer', function() {
     });
 
     describe('dump & recovery', function() {
-        var customSyntax = syntax.fork(function(prev, assign) {
-            return assign(prev, {
-                generic: true,
-                types: {
-                    foo: '<number>'
-                },
-                properties: {
-                    test: '<foo>+'
-                }
-            });
+        var customLexer = syntax.createLexer({
+            generic: true,
+            types: {
+                foo: '<number>'
+            },
+            properties: {
+                test: '<foo>+'
+            }
         });
 
         it('custom syntax should not affect base syntax', function() {
@@ -88,17 +107,17 @@ describe('lexer', function() {
         });
 
         it('custom syntax should be valid and correct', function() {
-            assert.equal(customSyntax.lexer.validate(), null);
+            assert.equal(customLexer.validate(), null);
         });
 
         it('custom syntax should match own grammar only', function() {
-            assert(customSyntax.lexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })).matched !== null);
-            assert(customSyntax.lexer.matchProperty('color', parseCss('red', { context: 'value' })).matched === null);
+            assert(customLexer.matchProperty('test', parseCss('1 2 3', { context: 'value' })).matched !== null);
+            assert(customLexer.matchProperty('color', parseCss('red', { context: 'value' })).matched === null);
         });
 
         it('recovery syntax from dump', function() {
             var recoverySyntax = syntax.fork(function(prev, assign) {
-                return assign(prev, customSyntax.lexer.dump());
+                return assign(prev, customLexer.dump());
             });
 
             assert.equal(recoverySyntax.lexer.validate(), null);
