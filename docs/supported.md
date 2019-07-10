@@ -309,6 +309,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `content`
 - `counter-increment`
 - `counter-reset`
+- `counter-set`
 - `cue`
 - `cue-after`
 - `cue-before`

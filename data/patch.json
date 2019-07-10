@@ -242,10 +242,6 @@
       ],
       "syntax": "normal | <length-percentage>"
     },
-    "line-height-step": {
-      "comment": "fix extra spaces around",
-      "syntax": "none | <length>"
-    },
     "marker": {
       "comment": "added SVG property",
       "references": [
@@ -313,18 +309,6 @@
     "rest-before": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
-    },
-    "scroll-margin-inline": {
-      "comment": "temporary, since test fails",
-      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
-    },
-    "scroll-padding-block": {
-      "comment": "temporary, since test fails",
-      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
-    },
-    "scroll-padding-inline": {
-      "comment": "temporary, since test fails",
-      "syntax": "[ auto | <length> | <percentage> ]{1,2}"
     },
     "shape-rendering": {
       "comment": "added SVG property",
@@ -452,10 +436,6 @@
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "silent | [ [ x-soft | soft | medium | loud | x-loud ] || <decibel> ]"
     },
-    "word-break": {
-      "comment": "extend with non-standard keywords",
-      "syntax": "normal | break-all | keep-all | <-non-standard-word-break>"
-    },
     "writing-mode": {
       "comment": "extend with SVG keywords",
       "syntax": "horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr | <svg-writing-mode>"
@@ -524,10 +504,6 @@
     "-non-standard-width": {
       "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
       "syntax": "min-intrinsic | intrinsic | -moz-min-content | -moz-max-content | -webkit-min-content | -webkit-max-content"
-    },
-    "-non-standard-word-break": {
-      "comment": "non-standard keywords https://css-tricks.com/almanac/properties/w/word-break/",
-      "syntax": "break-word"
     },
     "-webkit-gradient()": {
       "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
@@ -614,8 +590,8 @@
       "syntax": "serif | sans-serif | cursive | fantasy | monospace | -apple-system"
     },
     "gradient": {
-      "comment": "added -webkit-gradient() since may to be used for legacy support",
-      "syntax": "<-legacy-gradient> | <linear-gradient()> | <repeating-linear-gradient()> | <radial-gradient()> | <repeating-radial-gradient()>"
+      "comment": "added legacy syntaxes support",
+      "syntax": "<linear-gradient()> | <repeating-linear-gradient()> | <radial-gradient()> | <repeating-radial-gradient()> | <conic-gradient()> | <-legacy-gradient>"
     },
     "left": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -624,14 +600,6 @@
     "mask-image": {
       "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
       "syntax": "<mask-reference>#"
-    },
-    "matrix()": {
-      "comment": "redundant max",
-      "syntax": "matrix( <number>#{6} )"
-    },
-    "matrix3d()": {
-      "comment": "redundant max",
-      "syntax": "matrix3d( <number>#{16} )"
     },
     "name-repeat": {
       "comment": "missed, and looks like obsolete, keep it as is since other property syntaxes should be changed too; https://www.w3.org/TR/2015/WD-css-grid-1-20150917/#typedef-name-repeat",
