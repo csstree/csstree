@@ -284,7 +284,10 @@
     },
     "overflow": {
       "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
-      "syntax": "visible | hidden | scroll | auto | <-non-standard-overflow>"
+      "syntax": "[ visible | hidden | clip | scroll | auto ]{1,2} | <-non-standard-overflow>"
+    },
+    "line-height": {
+      "syntax": "normal | <length> | <number> | <percentage>"
     },
     "pause": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
@@ -391,10 +394,6 @@
         "https://www.w3.org/TR/SVG/text.html#TextAlignmentProperties"
       ],
       "syntax": "start | middle | end"
-    },
-    "transform-origin": {
-      "comment": "move first group to the end since less collecting",
-      "syntax": "[ [ <length-percentage> | left | center | right ] && [ <length-percentage> | top | center | bottom ] ] <length>? | [ <length-percentage> | left | center | right | top | bottom ]"
     },
     "unicode-bidi": {
       "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
@@ -628,10 +627,6 @@
     "shape": {
       "comment": "missed spaces in function body and add backwards compatible syntax",
       "syntax": "rect( <top>, <right>, <bottom>, <left> ) | rect( <top> <right> <bottom> <left> )"
-    },
-    "single-transition": {
-      "comment": "moved <timing-function> in the beginning to avoid wrong match to <single-transition-property>",
-      "syntax": "<timing-function> || [ none | <single-transition-property> ] || <time> || <time>"
     },
     "svg-length": {
       "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",

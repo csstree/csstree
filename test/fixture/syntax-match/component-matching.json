@@ -1,0 +1,200 @@
+{
+    "<a> || <b> || <c>": {
+        "types": {
+            "a": "<number>",
+            "b": "<ident>",
+            "c": "<number>"
+        },
+        "matchResult": {
+            "foo 1 2": [
+                {
+                    "syntax": "<b>",
+                    "match": {
+                        "syntax": "<ident>",
+                        "match": "foo"
+                    }
+                },
+                {
+                    "syntax": "<a>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "1"
+                    }
+                },
+                {
+                    "syntax": "<c>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "2"
+                    }
+                }
+            ]
+        }
+    },
+    "<a> || <b> || <c> || x || x || x": {
+        "comment": ">5 terms is special case",
+        "types": {
+            "a": "<number>",
+            "b": "<ident>",
+            "c": "<number>"
+        },
+        "matchResult": {
+            "foo 1 2": [
+                {
+                    "syntax": "<b>",
+                    "match": {
+                        "syntax": "<ident>",
+                        "match": "foo"
+                    }
+                },
+                {
+                    "syntax": "<a>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "1"
+                    }
+                },
+                {
+                    "syntax": "<c>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "2"
+                    }
+                }
+            ]
+        }
+    },
+    "<a> && <b> && <c>": {
+        "types": {
+            "a": "<number>",
+            "b": "<ident>",
+            "c": "<number>"
+        },
+        "matchResult": {
+            "foo 1 2": [
+                {
+                    "syntax": "<b>",
+                    "match": {
+                        "syntax": "<ident>",
+                        "match": "foo"
+                    }
+                },
+                {
+                    "syntax": "<a>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "1"
+                    }
+                },
+                {
+                    "syntax": "<c>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "2"
+                    }
+                }
+            ]
+        }
+    },
+    "<a> && <b> && <c> && x && x && x": {
+        "comment": ">5 terms is special case",
+        "types": {
+            "a": "<number>",
+            "b": "<ident>",
+            "c": "<number>"
+        },
+        "matchResult": {
+            "foo 1 2 x x x": [
+                {
+                    "syntax": "<b>",
+                    "match": {
+                        "syntax": "<ident>",
+                        "match": "foo"
+                    }
+                },
+                {
+                    "syntax": "<a>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "1"
+                    }
+                },
+                {
+                    "syntax": "<c>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "2"
+                    }
+                },
+                "x",
+                "x",
+                "x"
+            ]
+        }
+    },
+    "<'animation'>": {
+        "syntax": "<time> || <timing-function> || <time> || <single-animation-iteration-count> || <single-animation-direction> || <single-animation-fill-mode> || <single-animation-play-state> || [ none | <keyframes-name> ]",
+        "types": {
+            "timing-function": "linear | <cubic-bezier-timing-function> | <step-timing-function>",
+            "single-animation-iteration-count": "infinite | <number>",
+            "single-animation-direction": "normal | reverse | alternate | alternate-reverse",
+            "single-animation-fill-mode": "none | forwards | backwards | both",
+            "single-animation-play-state": "running | paused",
+            "keyframes-name": "<custom-ident> | <string>",
+            "cubic-bezier-timing-function": "ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number> , <number> , <number> , <number> )",
+            "step-timing-function": "step-start | step-end | steps( <integer> [, <step-position> ]? )",
+            "step-position": "jump-start | jump-end | jump-none | jump-both | start | end"
+        },
+        "matchResult": {
+            "paused forwards": [
+                {
+                    "syntax": "<single-animation-play-state>",
+                    "match": "paused"
+                },
+                {
+                    "syntax": "<single-animation-fill-mode>",
+                    "match": "forwards"
+                }
+            ]
+        }
+    },
+    "<single-transition>": {
+        "syntax": "[ none | <single-transition-property> ] || <time> || <timing-function> || <time>",
+        "types": {
+            "single-transition-property": "all | <custom-ident>",
+            "timing-function": "linear | <cubic-bezier-timing-function> | <step-timing-function>",
+            "cubic-bezier-timing-function": "ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number> , <number> , <number> , <number> )",
+            "step-timing-function": "step-start | step-end | steps( <integer> [, <step-position> ]? )",
+            "step-position": "jump-start | jump-end | jump-none | jump-both | start | end"
+        },
+        "matchResult": {
+            "liear": {
+                "syntax": "<single-transition-property>",
+                "match": {
+                    "syntax": "<custom-ident>",
+                    "match": "liear"
+                }
+            }
+        }
+    },
+    "<'list-style'>": {
+        "syntax": "<'list-style-type'> || <'list-style-position'> || <'list-style-image'>",
+        "properties": {
+            "list-style-type": "<counter-style> | <string> | none",
+            "list-style-position": "inside | outside",
+            "list-style-image": "<url> | none"
+        },
+        "types": {
+            "counter-style": "<counter-style-name> | symbols( )",
+            "url": "url( <string> <url-modifier>* ) | <url-token>",
+            "counter-style-name": "<custom-ident>",
+            "url-modifier": "<ident> | <function-token> <any-value> )"
+        },
+        "matchResult": {
+            "inside": {
+                "syntax": "list-style-position",
+                "match": "inside"
+            }
+        }
+    }
+}

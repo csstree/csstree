@@ -1,5 +1,6 @@
 ## next
 
+- Bumped `mdn/data` to `2.0.4` (#99)
 - Lexer
     - Added support for multiple token string matching
     - Fixed large `||`- and `&&`-group matching, matching continues from the beginning on term match (#85)
@@ -8,6 +9,7 @@
     - Fixed checking value has `var()` occuries when value is a string (such values can't be matched on syntax currently and fail with specific error that can be used for ignorance in validation tools)
     - Fixed `<declaration-value>` and `<any-value>` matching when a value contains a function, parentheses or braces
     - Changed lexer constructor to prevent generic types override when used
+    - Fixed `<custom-ident>` production to claim the keyword only if no other unfulfilled production can claim it (#101)
 
 ## 1.0.0-alpha.30 (July 3, 2019)
 

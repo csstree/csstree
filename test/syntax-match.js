@@ -4,14 +4,15 @@ var genericSyntaxes = require('../lib/lexer/generic');
 var buildMatchGraph = require('../lib/lexer/match-graph').buildMatchGraph;
 var matchAsList = require('../lib/lexer/match').matchAsList;
 var matchAsTree = require('../lib/lexer/match').matchAsTree;
+var fixture = require('./fixture/syntax-match');
 
 var equiv;
 var tests = {
     'a b': {
-        match: [
+        valid: [
             'a b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'b',
@@ -20,11 +21,11 @@ var tests = {
         ]
     },
     'a | b': {
-        match: [
+        valid: [
             'a',
             'b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'x',
             'a b',
@@ -32,13 +33,13 @@ var tests = {
         ]
     },
     'a || b': {
-        match: [
+        valid: [
             'a',
             'b',
             'a b',
             'b a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a x',
             'b x',
@@ -46,7 +47,7 @@ var tests = {
         ]
     },
     'a || b || c || d || e || f': {
-        match: [
+        valid: [
             'a',
             'b',
             'a b',
@@ -55,7 +56,7 @@ var tests = {
             'f e d c b a',
             'f d b a e c'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a x',
             'a a a',
@@ -66,11 +67,11 @@ var tests = {
         ]
     },
     'a && b': {
-        match: [
+        valid: [
             'a b',
             'b a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'b',
@@ -80,12 +81,12 @@ var tests = {
         ]
     },
     'a && b && c && d && e && f': {
-        match: [
+        valid: [
             'a b c d e f',
             'f e d c b a',
             'f d b a e c'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'b',
@@ -96,7 +97,7 @@ var tests = {
         ]
     },
     '[a || b] || c': {
-        match: [
+        valid: [
             'a',
             'b',
             'c',
@@ -111,14 +112,14 @@ var tests = {
             'c a b',
             'c b a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'c a c',
             'a c a'
         ]
     },
     '[a && b] || c': {
-        match: [
+        valid: [
             'a b c',
             'b a c',
             'a b',
@@ -127,7 +128,7 @@ var tests = {
             'c a b',
             'c b a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a c',
             'b c',
@@ -138,11 +139,11 @@ var tests = {
         ]
     },
     '[a b] | [b a]': {
-        match: [
+        valid: [
             'a b',
             'b a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'b',
@@ -150,25 +151,25 @@ var tests = {
         ]
     },
     '[a] | [a && b]': {
-        match: [
+        valid: [
             'a',
             'a b',
             'b a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a b c',
             'a b a'
         ]
     },
     '[a && b] | [a && b && c && d]': {
-        match: [
+        valid: [
             'a b',
             'b a',
             'a b c d',
             'd c b a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a b c',
             'b c d',
@@ -181,11 +182,11 @@ var tests = {
 
     // multipliers
     'a?': equiv = {
-        match: [
+        valid: [
             '',
             'a'
         ],
-        mismatch: [
+        invalid: [
             'b',
             'a a',
             'a b'
@@ -193,14 +194,14 @@ var tests = {
     },
     'a{0,1}': equiv, // equavalent to a?
     'a*': equiv = {
-        match: [
+        valid: [
             '',
             'a',
             'a a',
             'a a a',
             'a a a a a a'
         ],
-        mismatch: [
+        invalid: [
             'b',
             'a b',
             'a a a b'
@@ -208,13 +209,13 @@ var tests = {
     },
     'a{0,}': equiv, // equavalent to a*
     'a+': equiv = {
-        match: [
+        valid: [
             'a',
             'a a',
             'a a a',
             'a a a a a a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'b',
             'a b',
@@ -223,13 +224,13 @@ var tests = {
     },
     'a{1,}': equiv, // equavalent to a+
     'a{0,3}': {
-        match: [
+        valid: [
             '',
             'a',
             'a a',
             'a a a'
         ],
-        mismatch: [
+        invalid: [
             'b',
             'a b',
             'a a a b',
@@ -237,12 +238,12 @@ var tests = {
         ]
     },
     'a{1,3}': {
-        match: [
+        valid: [
             'a',
             'a a',
             'a a a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'b',
             'a b',
@@ -251,12 +252,12 @@ var tests = {
         ]
     },
     'a{2,4}': {
-        match: [
+        valid: [
             'a a',
             'a a a',
             'a a a a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'b',
@@ -266,10 +267,10 @@ var tests = {
         ]
     },
     'a{2}': equiv = {
-        match: [
+        valid: [
             'a a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'b',
@@ -281,13 +282,13 @@ var tests = {
     },
     'a{2,2}': equiv, // equavalent to a{2}
     'a{2,}': {
-        match: [
+        valid: [
             'a a',
             'a a a',
             'a a a a',
             'a a a a a a a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'b',
@@ -296,13 +297,13 @@ var tests = {
         ]
     },
     'a#': {
-        match: [
+        valid: [
             'a',
             'a, a',
             'a,a',
             'a, a, a, a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a a',
             'a, , a',
@@ -315,11 +316,11 @@ var tests = {
         ]
     },
     'a#{2}': equiv = {
-        match: [
+        valid: [
             'a, a',
             'a,a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'a,',
@@ -333,12 +334,12 @@ var tests = {
     },
     'a#{2,2}': equiv, // equavalent to a#{2}
     'a#{2,4}': {
-        match: [
+        valid: [
             'a, a',
             'a, a, a',
             'a, a, a, a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'a,',
@@ -350,34 +351,34 @@ var tests = {
         ]
     },
     'a#{2,}': {
-        match: [
+        valid: [
             'a, a',
             'a, a, a',
             'a, a, a, a, a, a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'a a'
         ]
     },
     'a#{1,4}, a': {
-        match: [
+        valid: [
             'a, a',
             'a, a, a, a, a'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'a, a, a, a, a, a'
         ]
     },
     'a#{1,2}, b': {
-        match: [
+        valid: [
             'a, b',
             'a, a, b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a a, b',
             'b'
@@ -386,7 +387,7 @@ var tests = {
 
     // not empty
     '[a? b? c?]!': {
-        match: [
+        valid: [
             'a',
             'b',
             'c',
@@ -395,7 +396,7 @@ var tests = {
             'b c',
             'a b c'
         ],
-        mismatch: [
+        invalid: [
             '',
             'b a'
         ]
@@ -403,56 +404,56 @@ var tests = {
 
     // comma
     'a, b': {
-        match: [
+        valid: [
             'a, b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a b'
         ]
     },
     'a?, b': {
-        match: [
+        valid: [
             'b',
             'a, b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             ', b'
         ]
     },
     'a, b?': {
-        match: [
+        valid: [
             'a',
             'a, b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a,',
             'b'
         ]
     },
     'a?, b?': {
-        match: [
+        valid: [
             '',
             'a',
             'b',
             'a, b'
         ],
-        mismatch: [
+        invalid: [
             'a,',
             ',b',
             ','
         ]
     },
     '[a ,]* b': equiv = {
-        match: [
+        valid: [
             'b',
             'a, b',
             'a, a, b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a b',
             'a, a b',
@@ -461,13 +462,13 @@ var tests = {
     },
     'a#{0,}, b': equiv, // equavalent to [a ,]* b,
     'a#, b?': {
-        match: [
+        valid: [
             'a',
             'a, a',
             'a, b',
             'a, a, b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a,',
             'a, a,',
@@ -478,11 +479,11 @@ var tests = {
         ]
     },
     'a, b?, c': {
-        match: [
+        valid: [
             'a, c',
             'a, b, c'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'a,,c',
@@ -493,89 +494,89 @@ var tests = {
         ]
     },
     'a? [, b]*': {
-        match: [
+        valid: [
             '',
             'a',
             'a, b, b'
         ],
-        mismatch: [
+        invalid: [
             ', b',
             ', b, b'
         ]
     },
     '(a? [, b]*)': {
-        match: [
+        valid: [
             '()',
             '(a)',
             '(b)',
             '(b, b)',
             '(a, b, b)'
         ],
-        mismatch: [
+        invalid: [
             '(, b)',
             '(, b, b)'
         ]
     },
     '([a ,]* b?)': {
-        match: [
+        valid: [
             '()',
             '(a)',
             '(b)',
             '(a, a)',
             '(a, a, b)'
         ],
-        mismatch: [
+        invalid: [
             '(a, )',
             '(a, a, )',
             '(, b)'
         ]
     },
     'a / [b?, c?]': {
-        match: [
+        valid: [
             'a /',
             'a / b',
             'a / c',
             'a / b, c'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a / , c',
             'a / b ,'
         ]
     },
     '[a?, b?] / c': {
-        match: [
+        valid: [
             '/ c',
             'a / c',
             'b / c',
             'a , b / c'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a , / c',
             ', b / c'
         ]
     },
     'func( [a?, b?] )': {
-        match: [
+        valid: [
             'func()',
             'func(a)',
             'func(b)',
             'func(a, b)'
         ],
-        mismatch: [
+        invalid: [
             '',
             'func(a,)',
             'func(,b)'
         ]
     },
     '[ foo? ]#': {
-        match: [
+        valid: [
             'foo',
             'foo, foo',
             'foo, foo, foo, foo'
         ],
-        mismatch: [
+        invalid: [
             '',
             ',',
             ', foo',
@@ -586,10 +587,10 @@ var tests = {
 
     // complex cases
     '[ [ left | center | right | top | bottom | <length> ] | [ left | center | right | <length> ] [ top | center | bottom | <length> ] | [ center | [ left | right ] <length>? ] && [ center | [ top | bottom ] <length>? ] ]': {
-        syntaxes: {
+        types: {
             'length': 'length'
         },
-        match: [
+        valid: [
             'center',
             'left top',
             'length length',
@@ -597,17 +598,17 @@ var tests = {
             'left length bottom length',
             'left length top'
         ],
-        mismatch: [
+        invalid: [
             'left left',
             'left length right',
             'center length left'
         ]
     },
     'rgb( <percentage>{3} [ / <alpha-value> ]? ) | rgb( <number>{3} [ / <alpha-value> ]? ) | rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? )': {
-        syntaxes: {
+        types: {
             'alpha-value': '<number [0,1]>'
         },
-        match: [
+        valid: [
             'rgb(1, 2, 3)',
             'rgb(1, 2, 3, 1)',
             'rgb(1%, 2%, 3%)',
@@ -617,21 +618,21 @@ var tests = {
             'rgb(1% 2% 3%)',
             'rgb(1% 2% 3% / 1)'
         ],
-        mismatch: [
+        invalid: [
             'rgb(1, 2 3)',
             'rgb(1, 2, 3%)',
             'rgb(1, 2, 3, 4)'
         ]
     },
     '<custom-ident>+ from': {
-        match: [
+        valid: [
             'a from',
             'a b from',
             'a b c d from',
             'from from',
             'from from from'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'a b',
@@ -639,25 +640,25 @@ var tests = {
         ]
     },
     'a <foo> b': {
-        syntaxes: {
+        types: {
             foo: '<custom-ident>*'
         },
-        match: [
+        valid: [
             'a b',
             'a x b',
             'a b b b'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a b c'
         ]
     },
     'a? <bar> / c': {
-        syntaxes: {
+        types: {
             bar: '<foo>?',
             foo: '<custom-ident>+'
         },
-        match: [
+        valid: [
             '/ c',
             'b b / c',
             'a a / c',
@@ -665,7 +666,7 @@ var tests = {
             'a b / c',
             'a b b b / c'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'a a a'
@@ -674,13 +675,13 @@ var tests = {
 
     // function
     'a( b* )': {
-        match: [
+        valid: [
             'a()',
             'A()',
             'a(b)',
             'a( b b b )'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a',
             'A',
@@ -692,11 +693,11 @@ var tests = {
         ]
     },
     '[ a( | b( ] c )': {
-        match: [
+        valid: [
             'a(c)',
             'b(c)'
         ],
-        mismatch: [
+        invalid: [
             '',
             'a(b(c))'
         ]
@@ -704,197 +705,39 @@ var tests = {
 
     // parentheses
     'a ( b* ) c': {
-        match: [
+        valid: [
             'a () c',
             'a (b) c',
             'a (b b b)c'
         ],
-        mismatch: [
+        invalid: [
             // 'a()c' // FIXME: should differ from a function
         ]
     },
 
     // string
     '\'[\' <custom-ident> \']\'': {
-        match: [
+        valid: [
             '[foo]',
             '[ foo ]'
         ],
-        mismatch: [
+        invalid: [
             'foo',
             '[]'
         ]
     },
     '\'progid:\' <ident>': {
-        match: [
+        valid: [
             'progid:foo',
             'progid: foo'
         ],
-        mismatch: [
+        invalid: [
             'progid:',
             'progid :foo',
             'progid : foo',
             'prog id:foo',
             'foo'
         ]
-    },
-
-    // ||- and &&-group matching should start from the beginning on match
-    '<a> || <b> || <c>': {
-        syntaxes: {
-            a: '<number>',
-            b: '<ident>',
-            c: '<number>'
-        },
-        matchResult: {
-            'foo 1 2': [
-                {
-                    'syntax': '<b>',
-                    'match': {
-                        'syntax': '<ident>',
-                        'match': 'foo'
-                    }
-                },
-                {
-                    'syntax': '<a>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '1'
-                    }
-                },
-                {
-                    'syntax': '<c>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '2'
-                    }
-                }
-            ]
-        }
-    },
-    '<a> || <b> || <c> || x || x || x': { // >5 terms is special case
-        syntaxes: {
-            a: '<number>',
-            b: '<ident>',
-            c: '<number>'
-        },
-        matchResult: {
-            'foo 1 2': [
-                {
-                    'syntax': '<b>',
-                    'match': {
-                        'syntax': '<ident>',
-                        'match': 'foo'
-                    }
-                },
-                {
-                    'syntax': '<a>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '1'
-                    }
-                },
-                {
-                    'syntax': '<c>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '2'
-                    }
-                }
-            ]
-        }
-    },
-    '<a> && <b> && <c>': { // >5 terms is special implementation
-        syntaxes: {
-            a: '<number>',
-            b: '<ident>',
-            c: '<number>'
-        },
-        matchResult: {
-            'foo 1 2': [
-                {
-                    'syntax': '<b>',
-                    'match': {
-                        'syntax': '<ident>',
-                        'match': 'foo'
-                    }
-                },
-                {
-                    'syntax': '<a>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '1'
-                    }
-                },
-                {
-                    'syntax': '<c>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '2'
-                    }
-                }
-            ]
-        }
-    },
-    '<a> && <b> && <c> && x && x && x': { // >5 terms is special implementation
-        syntaxes: {
-            a: '<number>',
-            b: '<ident>',
-            c: '<number>'
-        },
-        matchResult: {
-            'foo 1 2 x x x': [
-                {
-                    'syntax': '<b>',
-                    'match': {
-                        'syntax': '<ident>',
-                        'match': 'foo'
-                    }
-                },
-                {
-                    'syntax': '<a>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '1'
-                    }
-                },
-                {
-                    'syntax': '<c>',
-                    'match': {
-                        'syntax': '<number>',
-                        'match': '2'
-                    }
-                },
-                'x',
-                'x',
-                'x'
-            ]
-        }
-    },
-    '<time> || <timing-function> || <time> || <single-animation-iteration-count> || <single-animation-direction> || <single-animation-fill-mode> || <single-animation-play-state> || [ none | <keyframes-name> ]': {
-        syntaxes: {
-            'timing-function': 'linear | <cubic-bezier-timing-function> | <step-timing-function>',
-            'single-animation-iteration-count': 'infinite | <number>',
-            'single-animation-direction': 'normal | reverse | alternate | alternate-reverse',
-            'single-animation-fill-mode': 'none | forwards | backwards | both',
-            'single-animation-play-state': 'running | paused',
-            'keyframes-name': '<custom-ident> | <string>',
-            'cubic-bezier-timing-function': 'ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number> , <number> , <number> , <number> )',
-            'step-timing-function': 'step-start | step-end | steps( <integer> [, <step-position> ]? )',
-            'step-position': 'jump-start | jump-end | jump-none | jump-both | start | end'
-        },
-        matchResult: {
-            'paused forwards': [
-                {
-                    'syntax': '<single-animation-play-state>',
-                    'match': 'paused'
-                },
-                {
-                    'syntax': '<single-animation-fill-mode>',
-                    'match': 'forwards'
-                }
-            ]
-        }
     }
 };
 
@@ -916,9 +759,10 @@ function processMatchResult(mr) {
     }
 }
 
-function createSyntaxTest(syntax, test) {
+function createSyntaxTest(testName, test) {
+    var syntax = test.syntax || testName;
     var matchTree = buildMatchGraph(syntax);
-    var syntaxes = { types: {} };
+    var syntaxes = { types: {}, properties: {} };
 
     for (var name in genericSyntaxes) {
         syntaxes.types[name] = {
@@ -926,17 +770,25 @@ function createSyntaxTest(syntax, test) {
         };
     }
 
-    if (test.syntaxes) {
-        for (var name in test.syntaxes) {
+    if (test.types) {
+        for (var name in test.types) {
             syntaxes.types[name] = {
-                match: buildMatchGraph(test.syntaxes[name])
+                match: buildMatchGraph(test.types[name])
             };
         }
     }
 
-    describe(syntax, function() {
-        if (test.match) {
-            test.match.forEach(function(input) {
+    if (test.properties) {
+        for (var name in test.properties) {
+            syntaxes.properties[name] = {
+                match: buildMatchGraph(test.properties[name])
+            };
+        }
+    }
+
+    (describe[test.test] || describe)(test.name || testName, function() {
+        if (test.valid) {
+            test.valid.forEach(function(input) {
                 it('should MATCH to "' + input + '"', function() {
                     var m = matchAsList(prepareTokens(input), matchTree, syntaxes);
 
@@ -962,8 +814,8 @@ function createSyntaxTest(syntax, test) {
             });
         }
 
-        if (test.mismatch) {
-            test.mismatch.forEach(function(input) {
+        if (test.invalid) {
+            test.invalid.forEach(function(input) {
                 it('should NOT MATCH to "' + input + '"', function() {
                     var m = matchAsList(prepareTokens(input), matchTree, syntaxes);
 
@@ -991,4 +843,22 @@ describe('syntax matching', function() {
     for (var syntax in tests) {
         createSyntaxTest(syntax, tests[syntax]);
     }
+
+    fixture.forEachTest(createSyntaxTest);
+
+    it('should raise an error on broken type reference', function() {
+        var matchTree = buildMatchGraph('<foo>');
+
+        assert.throws(function() {
+            matchAsList(prepareTokens('foo'), matchTree, {});
+        }, /Bad syntax reference: <foo>/);
+    });
+
+    it('should raise an error on broken property reference', function() {
+        var matchTree = buildMatchGraph('<\'foo\'>');
+
+        assert.throws(function() {
+            matchAsList(prepareTokens('foo'), matchTree, {});
+        }, /Bad syntax reference: <\'foo\'>/);
+    });
 });

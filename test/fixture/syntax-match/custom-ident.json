@@ -1,0 +1,173 @@
+{
+    "<custom-ident> | foo": {
+        "matchResult": {
+            "foo": "foo"
+        }
+    },
+    "<x> <custom-ident> <x>": {
+        "types": {
+            "x": "foo"
+        },
+        "valid": [
+            "foo foo foo",
+            "foo bar foo"
+        ],
+        "invalid": [
+            "foo",
+            "foo foo",
+            "bar foo foo"
+        ]
+    },
+    "( <custom-ident> )": {
+        "valid": [
+            "( foo )",
+            "(bar)"
+        ],
+        "invalid": [
+            "",
+            "()",
+            "foo"
+        ]
+    },
+    "'?' <custom-ident> '?'": {
+        "valid": [
+            "?foo?",
+            "? foo ?"
+        ],
+        "invalid": [
+            "",
+            "?",
+            "??",
+            "foo"
+        ]
+    },
+    "<foo> || <bar> || <baz>": {
+        "types": {
+            "foo": "<custom-ident>",
+            "bar": "a | b",
+            "baz": "c | d"
+        },
+        "matchResult": {
+            "a c": [
+                {
+                    "syntax": "<bar>",
+                    "match": "a"
+                },
+                {
+                    "syntax": "<baz>",
+                    "match": "c"
+                }
+            ],
+            "c a": [
+                {
+                    "syntax": "<baz>",
+                    "match": "c"
+                },
+                {
+                    "syntax": "<bar>",
+                    "match": "a"
+                }
+            ],
+            "a c a": [
+                {
+                    "syntax": "<bar>",
+                    "match": "a"
+                },
+                {
+                    "syntax": "<baz>",
+                    "match": "c"
+                },
+                {
+                    "syntax": "<foo>",
+                    "match": {
+                        "syntax": "<custom-ident>",
+                        "match": "a"
+                    }
+                }
+            ]
+        }
+    },
+    "<foo2> || <bar2> || <baz2>": {
+        "types": {
+            "foo2": "<custom-ident>",
+            "bar2": "<custom-ident>",
+            "baz2": "a | b"
+        },
+        "matchResult": {
+            "a a a": [
+                {
+                    "syntax": "<baz2>",
+                    "match": "a"
+                },
+                {
+                    "syntax": "<foo2>",
+                    "match": {
+                        "syntax": "<custom-ident>",
+                        "match": "a"
+                    }
+                },
+                {
+                    "syntax": "<bar2>",
+                    "match": {
+                        "syntax": "<custom-ident>",
+                        "match": "a"
+                    }
+                }
+            ]
+        }
+    },
+    "<ci> || <wci>": {
+        "types": {
+            "ci": "<custom-ident>",
+            "wci": "<foo> || <bar>",
+            "foo": "a | b",
+            "bar": "c | d"
+        },
+        "matchResult": {
+            "a c d": [
+                {
+                    "syntax": "<wci>",
+                    "match": [
+                        {
+                            "syntax": "<foo>",
+                            "match": "a"
+                        },
+                        {
+                            "syntax": "<bar>",
+                            "match": "c"
+                        }
+                    ]
+                },
+                {
+                    "syntax": "<ci>",
+                    "match": {
+                        "syntax": "<custom-ident>",
+                        "match": "d"
+                    }
+                }
+            ],
+            "c a d": [
+                {
+                    "syntax": "<wci>",
+                    "match": [
+                        {
+                            "syntax": "<bar>",
+                            "match": "c"
+                        },
+                        {
+                            "syntax": "<foo>",
+                            "match": "a"
+                        }
+                    ]
+                },
+                {
+                    "syntax": "<ci>",
+                    "match": {
+                        "syntax": "<custom-ident>",
+                        "match": "d"
+                    }
+                }
+            ]
+        }
+    }
+}
