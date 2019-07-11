@@ -1,4 +1,4 @@
-## next
+## 1.0.0-alpha.32 (July 12, 2019)
 
 - Lexer
     - Fixed low priority productions matching in long `||-` and `&&-` groups (#103)
