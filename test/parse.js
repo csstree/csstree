@@ -8,7 +8,7 @@ var walk = require('../lib').walk;
 var lexer = require('../lib').lexer;
 var List = require('../lib').List;
 var forEachParseTest = require('./fixture/parse').forEachTest;
-var genericTypesFixture = require('./fixture/syntax/generic.json');
+var genericTypesFixture = require('./fixture/syntax-match/generic.json');
 var stringify = require('./helpers/stringify');
 var merge = require('./helpers').merge;
 

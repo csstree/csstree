@@ -41,6 +41,47 @@
             "foo"
         ]
     },
+    "edge cases with unbound multiplier": {
+        "syntax": "[ <component> , ]* <component>",
+        "types": {
+            "component": "<custom-ident> || red"
+        },
+        "valid": [
+            "red",
+            "foo",
+            "red foo",
+            "foo red",
+            "red red",
+            "red foo, foo",
+            "foo red, red foo",
+            "red, red",
+            "foo, foo",
+            "foo, red, red, foo"
+        ],
+        "invalid": [
+            "foo foo"
+        ]
+    },
+    "edge cases with bound multiplier": {
+        "syntax": "[ <component> , ]? <component>",
+        "types": {
+            "component": "<custom-ident> || red"
+        },
+        "valid": [
+            "red",
+            "foo",
+            "red foo",
+            "foo red",
+            "red red",
+            "red foo, foo",
+            "foo red, red foo",
+            "red, red",
+            "foo, foo"
+        ],
+        "invalid": [
+            "foo foo"
+        ]
+    },
     "<foo> || <bar> || <baz>": {
         "types": {
             "foo": "<custom-ident>",
