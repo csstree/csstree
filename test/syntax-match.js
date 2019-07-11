@@ -753,7 +753,11 @@ function processMatchResult(mr) {
 
     if (mr.syntax && mr.match) {
         return {
-            syntax: mr.syntax.type === 'Type' ? '<' + mr.syntax.name + '>' : mr.syntax.name,
+            syntax: mr.syntax.type === 'Type'
+                ? '<' + mr.syntax.name + '>'
+                : mr.syntax.type === 'Property'
+                    ? '<\'' + mr.syntax.name + '\'>'
+                    : mr.syntax.name,
             match: processMatchResult(mr.match)
         };
     }

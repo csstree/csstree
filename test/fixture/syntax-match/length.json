@@ -1,0 +1,61 @@
+{
+    "line-height": {
+        "syntax": "normal | <length> | <number> | <percentage>",
+        "matchResult": {
+            "0": {
+                "syntax": "<number>",
+                "match": "0"
+            },
+            "0px": {
+                "syntax": "<length>",
+                "match": "0px"
+            }
+        }
+    },
+    "flex": {
+        "syntax": "none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]",
+        "properties": {
+            "flex-grow": "<number>",
+            "flex-shrink": "<number>",
+            "flex-basis": "content | <'width'>",
+            "width": "[ <length> | <percentage> ] && [ border-box | content-box ]? | available | min-content | max-content | fit-content | auto"
+        },
+        "matchResult": {
+            "0 0": [
+                {
+                    "syntax": "<'flex-grow'>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "0"
+                    }
+                },
+                {
+                    "syntax": "<'flex-shrink'>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "0"
+                    }
+                }
+            ],
+            "0 0px": [
+                {
+                    "syntax": "<'flex-grow'>",
+                    "match": {
+                        "syntax": "<number>",
+                        "match": "0"
+                    }
+                },
+                {
+                    "syntax": "<'flex-basis'>",
+                    "match": {
+                        "syntax": "<'width'>",
+                        "match": {
+                            "syntax": "<length>",
+                            "match": "0px"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

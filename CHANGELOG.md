@@ -10,6 +10,7 @@
     - Fixed `<declaration-value>` and `<any-value>` matching when a value contains a function, parentheses or braces
     - Changed lexer constructor to prevent generic types override when used
     - Fixed `<custom-ident>` production to claim the keyword only if no other unfulfilled production can claim it (#101)
+    - Fixed `<length>` production to claim "unitless zero" only if no other unfulfilled production can claim it
 
 ## 1.0.0-alpha.30 (July 3, 2019)
 
