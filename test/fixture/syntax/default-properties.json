@@ -5,6 +5,7 @@
             "red",
             "#1e5799",
             "scroll 0",
+            "url('image.png') 0 30px no-repeat",
             "-webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8))",
             "-moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%)",
             "-webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)",

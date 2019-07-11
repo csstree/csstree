@@ -1,3 +1,8 @@
+## next
+
+- Lexer
+    - Fixed low priority productions matching in long `||-` and `&&-` groups (#103)
+
 ## 1.0.0-alpha.31 (July 11, 2019)
 
 - Bumped `mdn/data` to `2.0.4` (#99)
