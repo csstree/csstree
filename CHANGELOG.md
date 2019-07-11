@@ -1,3 +1,8 @@
+## next
+
+- Lexer
+    - Fixed low priority productions matching by changing an approach for robust one (#103)
+
 ## 1.0.0-alpha.32 (July 12, 2019)
 
 - Lexer

@@ -105,7 +105,11 @@
     "box-shadow": {
         "property": "box-shadow",
         "valid": [
-            "1px 2px rgba(1, 2, 3, .2) inset"
+            "1px 2px rgba(1, 2, 3, .2) inset",
+            "inset 0 1px rgba(0, 0, 0, .1)",
+            "inset 0 1px 2px rgba(0, 0, 0, .1)",
+            "inset 0 1px 2px 3px rgba(0, 0, 0, .1)",
+            "inset 1px 0 2px rgba(0, 0, 0, .1)"
         ]
     },
     "animation": {
