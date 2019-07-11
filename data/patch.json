@@ -286,9 +286,6 @@
       "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
       "syntax": "[ visible | hidden | clip | scroll | auto ]{1,2} | <-non-standard-overflow>"
     },
-    "line-height": {
-      "syntax": "normal | <length> | <number> | <percentage>"
-    },
     "pause": {
       "comment": "https://www.w3.org/TR/css3-speech/#property-index",
       "syntax": "<'pause-before'> <'pause-after'>?"
