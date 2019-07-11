@@ -1,16 +1,16 @@
-## next
+## 1.0.0-alpha.31 (July 11, 2019)
 
 - Bumped `mdn/data` to `2.0.4` (#99)
 - Lexer
-    - Added support for multiple token string matching
-    - Fixed large `||`- and `&&`-group matching, matching continues from the beginning on term match (#85)
     - Added [bracketed range notation](https://drafts.csswg.org/css-values-4/#numeric-ranges) support and related refactoring
     - Removed `<number-zero-one>`, `<number-one-or-greater>` and `<positive-integer>` from generic types. In fact, types moved to patch, because those types can be expressed in a regular grammar due to bracketed range notation implemented
-    - Fixed checking value has `var()` occuries when value is a string (such values can't be matched on syntax currently and fail with specific error that can be used for ignorance in validation tools)
+    - Added support for multiple token string matching
+    - Improved `<custom-ident>` production matching to claim the keyword only if no other unfulfilled production can claim it (#101)
+    - Improved `<length>` production matching to claim "unitless zero" only if no other unfulfilled production can claim it
+    - Changed lexer's constructor to prevent generic types override when used
+    - Fixed large `||`- and `&&`-group matching, matching continues from the beginning on term match (#85)
+    - Fixed checking that value has `var()` occurrences when value is a string (such values can't be matched on syntax currently and fail with specific error that can be used for ignorance in validation tools)
     - Fixed `<declaration-value>` and `<any-value>` matching when a value contains a function, parentheses or braces
-    - Changed lexer constructor to prevent generic types override when used
-    - Fixed `<custom-ident>` production to claim the keyword only if no other unfulfilled production can claim it (#101)
-    - Fixed `<length>` production to claim "unitless zero" only if no other unfulfilled production can claim it
 
 ## 1.0.0-alpha.30 (July 3, 2019)
 
