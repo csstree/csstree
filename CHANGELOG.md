@@ -1,9 +1,14 @@
-## 1.0.0-alpha.33 (July 12, 2019)
+## next
+
+- Tokenizer
+    - Removed `CHARCODE` dictionary
+
+## 1.0.0-alpha.33 (July 11, 2019)
 
 - Lexer
     - Fixed low priority productions matching by changing an approach for robust one (#103)
 
-## 1.0.0-alpha.32 (July 12, 2019)
+## 1.0.0-alpha.32 (July 11, 2019)
 
 - Lexer
     - Fixed low priority productions matching in long `||-` and `&&-` groups (#103)

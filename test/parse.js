@@ -2,7 +2,6 @@ var assert = require('assert');
 var syntax = require('../lib');
 var parse = require('../lib').parse;
 var TYPE = require('../lib').tokenize.TYPE;
-var CHARCODE = require('../lib').tokenize.CHARCODE;
 var toPlainObject = require('../lib').toPlainObject;
 var walk = require('../lib').walk;
 var lexer = require('../lib').lexer;
@@ -12,8 +11,8 @@ var genericTypesFixture = require('./fixture/syntax-match/generic.json');
 var stringify = require('./helpers/stringify');
 var merge = require('./helpers').merge;
 
-var DollarSign = CHARCODE.DollarSign;
-var Ampersand = CHARCODE.Ampersand;
+var DollarSign = 0x0024; // U+0024 DOLLAR SIGN ($)
+var Ampersand = 0x0026;  // U+0026 ANPERSAND (&)
 
 function repeat(str, count) {
     return new Array(count + 1).join(str);
