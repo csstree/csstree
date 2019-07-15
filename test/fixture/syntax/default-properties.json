@@ -15,7 +15,8 @@
             "-webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8))",
             "-webkit-radial-gradient(center, ellipse cover, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)",
             "-o-radial-gradient(center, ellipse cover, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)",
-            "radial-gradient(ellipse at center, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)"
+            "radial-gradient(ellipse at center, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)",
+            "linear-gradient(to bottom,#bababa 0,#cacaca 1%,#ccc 2%,#d2d2d2 3%,#d3d3d3 4%,#d9d9d9 4%,#d9d9d9 5%,#e1e1e1 7%,#e1e1e1 8%,#dcdcdc 9%,#e2e2e2 12%,#ddd 13%,#dcdcdc 14%,#e3e3e3 15%,#dadada 16%,#dedede 17%,#dcdcdc 18%,#e0e0e0 18%,#e3e3e3 20%,#dedede 21%,#dcdcdc 22%,#dcdcdc 23%,#e0e0e0 23%,#dcdcdc 25%,#e1e1e1 26%,#e1e1e1 27%,#dcdcdc 27%,#e2e2e2 29%,#dedede 30%,#dadada 32%,#dbdbdb 33%,#e0e0e0 34%,#dcdcdc 35%,#dedede 37%,#e3e3e3 38%,#dcdcdc 39%,#e0e0e0 39%,#e0e0e0 41%,#dcdcdc 42%,#dcdcdc 43%,#e0e0e0 44%,#dedede 46%,#e1e1e1 46%,#dedede 47%,#e0e0e0 49%,#dcdcdc 49%,#e1e1e1 50%,#e1e1e1 51%,#dfdfdf 51%,#e0e0e0 52%,#dadada 54%,#dedede 55%,#dedede 56%,#dadada 57%,#dedede 58%,#dedede 61%,#e0e0e0 61%,#dcdcdc 63%,#dedede 65%,#dadada 66%,#dbdbdb 67%,#e1e1e1 68%,#dcdcdc 70%,#e0e0e0 70%,#e1e1e1 71%,#dbdbdb 72%,#dedede 73%,#dcdcdc 77%,#ddd 77%,#e1e1e1 78%,#dcdcdc 79%,#dfdfdf 80%,#dcdcdc 82%,#e0e0e0 83%,#dadada 84%,#dfdfdf 85%,#dcdcdc 86%,#dedede 87%,#dadada 87%,#dbdbdb 88%,#e0e0e0 89%,#dcdcdc 91%,#e1e1e1 92%,#dedede 93%,#dfdfdf 94%,#dadada 95%,#dcdcdc 96%,#cdcdcd 97%,#cececd 98%,#cacaca 99%,#bababa 100%)"
         ],
         "invalid": [
             "linear-gradient(bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)",
