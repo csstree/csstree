@@ -1,7 +1,14 @@
 ## next
 
 - Tokenizer
+    - Added `isBOM()` function
+    - Added `charCodeCategory()` function
+    - Removed `firstCharOffset()` function (use `isBOM()` instead)
     - Removed `CHARCODE` dictionary
+    - Removed `INPUT_STREAM_CODE*` dictionaries
+- Lexer
+    - Allowed comments in matching value (just ignore them like whitespaces)
+    - Increased iteration count in value matching from 10k up to 15k
 
 ## 1.0.0-alpha.33 (July 11, 2019)
 
