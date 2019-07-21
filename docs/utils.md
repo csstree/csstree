@@ -87,7 +87,7 @@ var orig = csstree.parse('.test { color: red }');
 var copy = csstree.clone(orig);
 
 csstree.walk(copy, function(node) {
-    if (node.type === 'Class') {
+    if (node.type === 'ClassSelector') {
         node.name = 'replaced';
     }
 });
