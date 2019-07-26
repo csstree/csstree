@@ -1,4 +1,4 @@
-## next
+## 1.0.0-alpha.34 (July 27, 2019)
 
 - Tokenizer
     - Added `isBOM()` function
@@ -9,6 +9,7 @@
 - Lexer
     - Allowed comments in matching value (just ignore them like whitespaces)
     - Increased iteration count in value matching from 10k up to 15k
+    - Fixed missed `debugger` (#104)
 
 ## 1.0.0-alpha.33 (July 11, 2019)
 
