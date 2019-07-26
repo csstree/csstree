@@ -539,11 +539,11 @@
     },
     "-ms-filter-function-progid": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-      "syntax": "'progid:' [ <ident-token> '.' ]* [ <ident-token> | <function-token> <any-value>? ')' ]"
+      "syntax": "'progid:' [ <ident-token> '.' ]* [ <ident-token> | <function-token> <any-value>? ) ]"
     },
     "-ms-filter-function-legacy": {
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-      "syntax": "<ident-token> | <function-token> <any-value>? ')'"
+      "syntax": "<ident-token> | <function-token> <any-value>? )"
     },
     "-ms-filter": {
       "syntax": "<string>"
