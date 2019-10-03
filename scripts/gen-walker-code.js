@@ -86,7 +86,7 @@ function getTypesFromConfig(config) {
 }
 
 function indent(line) {
-    return `    ` + line;
+    return '    ' + line;
 }
 
 function createTypeIterator(name, config, reverse) {
@@ -126,7 +126,7 @@ function createTypeIterator(name, config, reverse) {
 
     var kind = reverse ? 'Reverse' : '';
     var func = [].concat(
-        `function ${name}${kind}Iterator(node, context, walk) {`,
+        'function ' + name + kind + 'Iterator(node, context, walk) {',
         body.map(function(line) {
             return indent(indent(line));
         }),
@@ -137,26 +137,26 @@ function createTypeIterator(name, config, reverse) {
 }
 
 function createFastTraveralMap(iterators) {
-    return `
-    Atrule: {
-        StyleSheet: ${iterators}.StyleSheet,
-        Atrule: ${iterators}.Atrule,
-        Rule: ${iterators}.Rule,
-        Block: ${iterators}.Block
-    },
-    Rule: {
-        StyleSheet: ${iterators}.StyleSheet,
-        Atrule: ${iterators}.Atrule,
-        Rule: ${iterators}.Rule,
-        Block: ${iterators}.Block
-    },
-    Declaration: {
-        StyleSheet: ${iterators}.StyleSheet,
-        Atrule: ${iterators}.Atrule,
-        Rule: ${iterators}.Rule,
-        Block: ${iterators}.Block
-    }
-`;
+    return [
+        '    Atrule: {',
+        '        StyleSheet: ' + iterators + '.StyleSheet,',
+        '        Atrule: ' + iterators + '.Atrule,',
+        '        Rule: ' + iterators + '.Rule,',
+        '        Block: ' + iterators + '.Block',
+        '    },',
+        '    Rule: {',
+        '        StyleSheet: ' + iterators + '.StyleSheet,',
+        '        Atrule: ' + iterators + '.Atrule,',
+        '        Rule: ' + iterators + '.Rule,',
+        '        Block: ' + iterators + '.Block',
+        '    },',
+        '    Declaration: {',
+        '        StyleSheet: ' + iterators + '.StyleSheet,',
+        '        Atrule: ' + iterators + '.Atrule,',
+        '        Rule: ' + iterators + '.Rule,',
+        '        Block: ' + iterators + '.Block',
+        '    }'
+    ].join('\n');
 }
 
 function generate() {
@@ -167,10 +167,10 @@ function generate() {
     for (var name in types) {
         if (hasOwnProperty.call(types, name) && types[name] !== null) {
             iteratorsNaturalSrc.push(
-              `    "${name}": ${createTypeIterator(name, types[name], false)},`
+              '    "' + name + '": ' + createTypeIterator(name, types[name], false) + ','
             );
             iteratorsReverseSrc.push(
-              `    "${name}": ${createTypeIterator(name, types[name], true)},`
+              '    "' + name + '": ' + createTypeIterator(name, types[name], true) + ','
             );
         }
     }
@@ -178,32 +178,33 @@ function generate() {
     var fastTraversalIteratorsNaturalSrc = createFastTraveralMap('iteratorsNatural');
     var fastTraversalIteratorsReverseSrc = createFastTraveralMap('iteratorsReverse');
 
-    var output = `
-var types = ${JSON.stringify(types, null, 4)};
-
-var iteratorsNatural = {
-${iteratorsNaturalSrc.join('\n')}
-};
-
-var iteratorsReverse = {
-${iteratorsReverseSrc.join('\n')}
-};
-
-var fastTraversalIteratorsNatural = {
-${fastTraversalIteratorsNaturalSrc}
-};
-
-var fastTraversalIteratorsReverse = {
-${fastTraversalIteratorsReverseSrc}
-};
-
-module.exports = {
-    types: types,
-    iteratorsNatural: iteratorsNatural,
-    iteratorsReverse: iteratorsReverse,
-    fastTraversalIteratorsNatural: fastTraversalIteratorsNatural,
-    fastTraversalIteratorsReverse: fastTraversalIteratorsReverse
-};`;
+    var output = [
+        'var types = ' + JSON.stringify(types, null, 4) + ';',
+        '',
+        'var iteratorsNatural = {',
+        iteratorsNaturalSrc.join('\n'),
+        '};',
+        '',
+        'var iteratorsReverse = {',
+        iteratorsReverseSrc.join('\n'),
+        '};',
+        '',
+        'var fastTraversalIteratorsNatural = {',
+        fastTraversalIteratorsNaturalSrc,
+        '};',
+        '',
+        'var fastTraversalIteratorsReverse = {',
+        fastTraversalIteratorsReverseSrc,
+        '};',
+        '',
+        'module.exports = {',
+        '    types: types,',
+        '    iteratorsNatural: iteratorsNatural,',
+        '    iteratorsReverse: iteratorsReverse,',
+        '    fastTraversalIteratorsNatural: fastTraversalIteratorsNatural,',
+        '    fastTraversalIteratorsReverse: fastTraversalIteratorsReverse',
+        '};'
+].join('\n');
 
     console.log('Writing generated walker code to ' + resultFilename);
     require('fs').writeFileSync(
