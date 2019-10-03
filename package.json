@@ -85,6 +85,7 @@
   "files": [
     "data",
     "dist/csstree.js",
+    "dist/walker-generated.js",
     "lib",
     "CHANGELOG.md",
     "LICENSE",
