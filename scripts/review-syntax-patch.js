@@ -4,7 +4,6 @@ var patchFilename = 'data/patch.json';
 var currentContent = fs.readFileSync(patchFilename, 'utf8').replace(/\r\n/g, '\n');
 var csstreePatch = JSON.parse(currentContent);
 var checkUpdatesNeeded = process.argv[2] === '--lint';
-var issueCount = 0;
 
 function checkSection(section) {
     Object.keys(csstreePatch[section]).forEach(function(name) {
@@ -14,7 +13,6 @@ function checkSection(section) {
 
         if (mdnData && csstreeSyntax.syntax === mdnData.syntax.replace(/[ ]*\n[ ]*/g, ' ')) {
             delete csstreePatch[section][name];
-            issueCount++;
 
             if (checkUpdatesNeeded) {
                 console.error(id, 'is equal to mdn/data syntax (patch is redundant)');

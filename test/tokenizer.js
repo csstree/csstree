@@ -157,6 +157,7 @@ describe('parser/stream', function() {
     });
 
     describe('Raw', function() {
+        /* eslint-disable key-spacing */
         var tests = [
             {
                 source: '? { }',

@@ -36,8 +36,7 @@ iterateSyntaxes(function(section, name, syntax) {
                     case '|':
                         const allTermsIsCorrect = ast.terms.every(term => {
                             return (
-                                isCorrectTerm(term)
-                                ||
+                                isCorrectTerm(term) ||
                                 (term.type === 'Group' && isCorrectTerm(term.terms[0]))
                             );
                         });
