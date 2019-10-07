@@ -48,7 +48,7 @@
     "test": "mocha --reporter progress",
     "gen:syntax": "node scripts/gen-syntax-data",
     "coverage": "istanbul cover _mocha -- -R min",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "travis": "npm run lint-and-test && npm run coveralls",
     "coveralls": "istanbul cover _mocha --report lcovonly -- -R min && cat ./coverage/lcov.info | coveralls",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
