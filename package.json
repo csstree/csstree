@@ -52,7 +52,7 @@
     "terser": "^4.3.4"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=8.0.0"
   },
   "files": [
     "data",
