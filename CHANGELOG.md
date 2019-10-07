@@ -2,6 +2,7 @@
 
 - Walker
     - Changed implementation to avoid runtime compilation due to CSP issues (see #91, #109)
+    - Added `find()`, `findLast()` and `findAll()` methods (e.g. `csstree.find(ast, node => node.type === 'ClassSelector')`)
 
 ## 1.0.0-alpha.34 (July 27, 2019)
 
