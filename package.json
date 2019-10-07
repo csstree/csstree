@@ -2,6 +2,9 @@
   "name": "css-tree",
   "version": "1.0.0-alpha.34",
   "description": "CSSTree is a tool set to work with CSS, including fast detailed parser (string->AST), walker (AST traversal), generator (AST->string) and lexer (validation and matching) based on knowledge of spec and browser implementations",
+  "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
+  "license": "MIT",
+  "repository": "csstree/csstree",
   "keywords": [
     "css",
     "ast",
@@ -14,20 +17,6 @@
     "syntax",
     "validation"
   ],
-  "homepage": "https://github.com/csstree/csstree",
-  "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
-  "maintainers": [
-    {
-      "name": "Roman Dvornov",
-      "email": "rdvornov@gmail.com",
-      "github-username": "lahmatiy"
-    }
-  ],
-  "license": "MIT",
-  "repository": "csstree/csstree",
-  "bugs": {
-    "url": "https://github.com/csstree/csstree/issues"
-  },
   "main": "./lib/index",
   "browser": {
     "./data": "./dist/default-syntax.json"
@@ -83,10 +72,7 @@
   },
   "files": [
     "data",
-    "dist/csstree.js",
-    "lib",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
+    "dist",
+    "lib"
   ]
 }
