@@ -21,36 +21,18 @@
   "browser": {
     "./data": "./dist/default-syntax.json"
   },
-  "eslintConfig": {
-    "env": {
-      "node": true,
-      "mocha": true,
-      "es6": true
-    },
-    "rules": {
-      "no-duplicate-case": 2,
-      "no-undef": 2,
-      "no-unused-vars": [
-        2,
-        {
-          "vars": "all",
-          "args": "after-used"
-        }
-      ]
-    }
-  },
   "scripts": {
-    "lint": "jscs data lib scripts test && eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
+    "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "update:docs": "node scripts/update-docs",
     "review:syntax-patch": "node scripts/review-syntax-patch",
-    "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | uglifyjs --compress --mangle -o dist/csstree.js",
+    "build": "npm run gen:syntax && browserify --standalone csstree lib/index.js | terser --compress --mangle -o dist/csstree.js",
     "lint-and-test": "npm run lint && npm test",
     "test": "mocha --reporter progress",
     "gen:syntax": "node scripts/gen-syntax-data",
-    "coverage": "istanbul cover _mocha -- -R min",
+    "coverage": "nyc npm test",
+    "travis": "nyc npm run lint-and-test && npm run coveralls",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "prepublishOnly": "npm run build",
-    "travis": "npm run lint-and-test && npm run coveralls",
-    "coveralls": "istanbul cover _mocha --report lcovonly -- -R min && cat ./coverage/lcov.info | coveralls",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
   },
   "dependencies": {
@@ -58,14 +40,12 @@
     "source-map": "^0.5.3"
   },
   "devDependencies": {
-    "browserify": "^13.0.0",
-    "coveralls": "^2.11.6",
-    "eslint": "^2.13.1",
-    "istanbul": "^0.4.2",
-    "jscs": "~3.0.7",
+    "coveralls": "^3.0.4",
+    "eslint": "^6.3.0",
     "json-to-ast": "^2.1.0",
-    "mocha": "^3.0.2",
-    "uglify-js": "^2.6.1"
+    "mocha": "^5.2.0",
+    "nyc": "^14.1.1",
+    "terser": "^4.3.4"
   },
   "engines": {
     "node": ">=0.10.0"
