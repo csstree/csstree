@@ -1,4 +1,4 @@
-## next
+## 1.0.0-alpha.35 (October 7, 2019)
 
 - Walker
     - Changed implementation to avoid runtime compilation due to CSP issues (see #91, #109)
