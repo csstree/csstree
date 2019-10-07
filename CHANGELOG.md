@@ -1,3 +1,8 @@
+## next
+
+- Walker
+    - Changed implementation to avoid runtime compilation due to CSP issues (see #91, #109)
+
 ## 1.0.0-alpha.34 (July 27, 2019)
 
 - Tokenizer
