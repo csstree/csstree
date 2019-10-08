@@ -1,14 +1,14 @@
 # Utils for AST
 
-<!-- MarkdownTOC -->
+<!-- TOC depthFrom:2 -->
 
-- [property\(name\)](#propertyname)
-- [keyword\(name\)](#keywordname)
-- [clone\(ast\)](#cloneast)
-- [fromPlainObject\(object\)](#fromplainobjectobject)
-- [toPlainObject\(ast\)](#toplainobjectast)
+- [property(name)](#propertyname)
+- [keyword(name)](#keywordname)
+- [clone(ast)](#cloneast)
+- [fromPlainObject(object)](#fromplainobjectobject)
+- [toPlainObject(ast)](#toplainobjectast)
 
-<!-- /MarkdownTOC -->
+<!-- /TOC -->
 
 ## property(name)
 

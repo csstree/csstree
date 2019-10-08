@@ -1,5 +1,7 @@
 # AST traversal
 
+## Introdution to internals
+
 AST traversal API is provided by `walk()` method.
 
 ```js
@@ -20,14 +22,14 @@ csstree.walk(ast, function(node) {
 // Identifier
 ```
 
-The facts you should know about `walk()` internals:
+Some details about `walk()` internals:
 
 - Method uses `structure` field value of every node type to define the way how to iterate the nodes:
     - A function-iterator is generating for every node type.
     - Node's properties iterates in the order it defined in `structure` ([reverse](#reverse) option can invert an order).
     - Properties that are not defined in `structure` are ignoring (doesn't interate).
     - An exception is possible when a tree is not following to expected structure (it may happen if AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of a tree structure, you can use `try/catch` or check the tree with `csstree.lexer.validateStructure(ast)` before iterate it.
-- Only `children` fields can contain a list of nodes. A list of nodes should be represented as a `List` instances. But for certain cases, `children` can be an array. Since `List` provides a similar to `Array` API, traversal can work in most cases, but without any guarantee. Therefore usings arrays in AST is not recomended, use them on your own risk.
+- Only `children` field may contain a list of nested nodes. A list of nodes must be represented as a `List` instances. Howevet, in certain cases, `children` may be an array. Since `List` provides a similar to `Array` API, traversal can work in most cases, but without any guarantee. Therefore usings arrays in AST is not recomended, use it on your own risk.
 
 ## walk(ast, options)
 
@@ -35,14 +37,14 @@ Method visits each node of passed tree in a natural way and calls a handler for 
 
 Options:
 
-<!-- MarkdownTOC -->
+<!-- TOC depthFrom:3 -->
 
 - [enter](#enter)
 - [leave](#leave)
 - [visit](#visit)
 - [reverse](#reverse)
 
-<!-- /MarkdownTOC -->
+<!-- /TOC -->
 
 ### enter
 
