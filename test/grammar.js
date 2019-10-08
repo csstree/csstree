@@ -1,7 +1,7 @@
 var assert = require('assert');
-var parse = require('../lib').grammar.parse;
-var generate = require('../lib').grammar.generate;
-var walk = require('../lib').grammar.walk;
+var parse = require('../lib').definitionSyntax.parse;
+var generate = require('../lib').definitionSyntax.generate;
+var walk = require('../lib').definitionSyntax.walk;
 var data = require('../data');
 
 function normalize(str) {

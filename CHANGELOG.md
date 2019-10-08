@@ -5,6 +5,7 @@
     - Package provides `dist/csstree.js` and `dist/csstree.min.js` (instead of single `dist/csstree.js` that was a min version)
     - Bundle size (min version) reduced from 191Kb to 158Kb
 - Definition syntax
+    - Renamed `grammar` into `definitionSyntax` (named per spec)
     - Added `compact` option to `generate()` method to avoid formatting (spaces) when possible
 - Lexer
     - Changed `dump()` method to produce syntaxes in compact form by default
