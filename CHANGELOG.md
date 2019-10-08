@@ -1,3 +1,14 @@
+## next
+
+- Updated dev deps (fixed npm audit issues)
+- Reworked build
+    - Package provides `dist/csstree.js` and `dist/csstree.min.js` (instead of single `dist/csstree.js` that was a min version)
+    - Bundle size (min version) reduced from 191Kb to 158Kb
+- Definition syntax
+    - Added `compact` option to `generate()` method to avoid formatting (spaces) when possible
+- Lexer
+    - Changed `dump()` method to produce syntaxes in compact form by default
+
 ## 1.0.0-alpha.35 (October 7, 2019)
 
 - Walker
