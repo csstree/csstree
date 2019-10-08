@@ -40,7 +40,7 @@ describe('grammar', function() {
         it('expected a quote', function() {
             assert.throws(function() {
                 parse('\'x');
-            }, /^SyntaxParseError: Expect an apostrophe\n/);
+            }, /^SyntaxError: Expect an apostrophe\n/);
         });
 
         it('expected a number', function() {
@@ -53,7 +53,7 @@ describe('grammar', function() {
             tests.forEach(function(test) {
                 assert.throws(function() {
                     parse(test);
-                }, /^SyntaxParseError: Expect a number\n/, test);
+                }, /^SyntaxError: Expect a number\n/, test);
             });
         });
 
@@ -65,7 +65,7 @@ describe('grammar', function() {
             tests.forEach(function(test) {
                 assert.throws(function() {
                     parse(test);
-                }, /^SyntaxParseError: Expect a keyword\n/, test);
+                }, /^SyntaxError: Expect a keyword\n/, test);
             });
         });
 
@@ -78,7 +78,7 @@ describe('grammar', function() {
             tests.forEach(function(test) {
                 assert.throws(function() {
                     parse(test);
-                }, /^SyntaxParseError: Unexpected combinator\n/, test);
+                }, /^SyntaxError: Unexpected combinator\n/, test);
             });
         });
 
@@ -95,7 +95,7 @@ describe('grammar', function() {
             tests.forEach(function(test) {
                 assert.throws(function() {
                     parse(test);
-                }, /^SyntaxParseError: Unexpected input\n/);
+                }, /^SyntaxError: Unexpected input\n/);
             });
         });
 
@@ -108,7 +108,7 @@ describe('grammar', function() {
             tests.forEach(function(test) {
                 assert.throws(function() {
                     parse(test);
-                }, /^SyntaxParseError: Expect `.`\n/, test);
+                }, /^SyntaxError: Expect `.`\n/, test);
             });
         });
     });

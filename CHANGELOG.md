@@ -1,5 +1,6 @@
 ## next
 
+- Dropped support for Node < 8
 - Updated dev deps (fixed npm audit issues)
 - Reworked build
     - Package provides `dist/csstree.js` and `dist/csstree.min.js` (instead of single `dist/csstree.js` that was a min version)
