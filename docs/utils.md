@@ -1,4 +1,4 @@
-# Utils to work with AST
+# Utils for AST
 
 <!-- MarkdownTOC -->
 

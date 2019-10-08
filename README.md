@@ -34,11 +34,12 @@ CSSTree is a tool set to work with CSS, including [fast](https://github.com/post
 
 ## Docs
 
-- [Parsing CSS into AST](docs/parsing.md)
 - [AST format](docs/ast.md)
+- [Parsing CSS into AST](docs/parsing.md)
 - [Generate CSS from AST](docs/generate.md)
 - [AST traversal](docs/traversal.md)
-- [Utils to work with AST](docs/utils.md)
+- [Utils for AST](docs/utils.md)
+- [Working with definition syntax](docs/definition-syntax.md)
 
 ## Tools
 
