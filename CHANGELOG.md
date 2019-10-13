@@ -1,10 +1,10 @@
-## next
+## 1.0.0-alpha.36 (October 13, 2019)
 
 - Dropped support for Node < 8
-- Updated dev deps (fixed npm audit issues)
-- Reworked build
-    - Package provides `dist/csstree.js` and `dist/csstree.min.js` (instead of single `dist/csstree.js` that was a min version)
-    - Bundle size (min version) reduced from 191Kb to 158Kb
+- Updated dev deps (fixed `npm audit` issues)
+- Reworked build pipeline
+    - Package provides `dist/csstree.js` and `dist/csstree.min.js` now (instead of single `dist/csstree.js` that was a min version)
+    - Bundle size (min version) reduced from 191Kb to 158Kb due to some optimisations
 - Definition syntax
     - Renamed `grammar` into `definitionSyntax` (named per spec)
     - Added `compact` option to `generate()` method to avoid formatting (spaces) when possible
