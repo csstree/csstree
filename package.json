@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "mdn-data": "2.0.4",
-    "source-map": "^0.5.3"
+    "source-map": "^0.6.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.4",
