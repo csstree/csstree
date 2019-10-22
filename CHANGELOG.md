@@ -1,4 +1,4 @@
-## next (October 22, 2019)
+## 1.0.0-alpha.37 (October 22, 2019)
 
 - Bumped `source-map` version to `^0.6.1` to fix source map generation inconsistency across node.js versions due to mappings sorting bug and v8 moving to [a stable Array#sort](https://v8.dev/blog/array-sort) ([fix commit](https://github.com/mozilla/source-map/commit/f35a2e4212dd025cb5e1fc219e7ac8a4b96c2cc9) in `source-map`)
 
