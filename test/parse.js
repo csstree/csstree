@@ -415,13 +415,13 @@ describe('parse', function() {
                 var defaultGetNode = syntaxConfig.scope.Value.getNode;
 
                 syntaxConfig.scope.Value.getNode = function(context) {
-                    if (this.scanner.isDelim(DollarSign)) {
-                        var start = this.scanner.tokenStart;
-                        this.scanner.next();
+                    if (this.isDelim(DollarSign)) {
+                        var start = this.tokenStart;
+                        this.next();
 
                         return {
                             type: 'Variable',
-                            loc: this.getLocation(start, this.scanner.tokenEnd),
+                            loc: this.getLocation(start, this.tokenEnd),
                             name: this.consume(TYPE.Ident)
                         };
                     }
@@ -472,13 +472,13 @@ describe('parse', function() {
                 var defaultGetNode = syntaxConfig.scope.Selector.getNode;
 
                 syntaxConfig.scope.Selector.getNode = function(context) {
-                    if (this.scanner.isDelim(Ampersand)) {
-                        var start = this.scanner.tokenStart;
-                        this.scanner.next();
+                    if (this.isDelim(Ampersand)) {
+                        var start = this.tokenStart;
+                        this.next();
 
                         return {
                             type: 'Nested',
-                            loc: this.getLocation(start, this.scanner.tokenEnd)
+                            loc: this.getLocation(start, this.tokenEnd)
                         };
                     }
 
