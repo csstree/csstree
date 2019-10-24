@@ -20,6 +20,10 @@
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius",
       "syntax": "<'border-bottom-right-radius'>"
     },
+    "-moz-control-character-visibility": {
+      "comment": "firefox specific keywords, https://bugzilla.mozilla.org/show_bug.cgi?id=947588",
+      "syntax": "visible | hidden"
+    },
     "-moz-osx-font-smoothing": {
       "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "auto | grayscale"
