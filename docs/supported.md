@@ -64,6 +64,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `-moz-border-right-colors`
 - `-moz-border-top-colors`
 - `-moz-context-properties`
+- `-moz-control-character-visibility`
 - `-moz-float-edge`
 - `-moz-force-broken-image-icon`
 - `-moz-image-region`
@@ -104,9 +105,12 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `-ms-flow-from`
 - `-ms-flow-into`
 - `-ms-grid-column-align`
+- `-ms-grid-columns`
 - `-ms-grid-row-align`
+- `-ms-grid-rows`
 - `-ms-high-contrast-adjust`
 - `-ms-hyphenate-limit-chars`
+- `-ms-hyphenate-limit-last`
 - `-ms-hyphenate-limit-lines`
 - `-ms-hyphenate-limit-zone`
 - `-ms-ime-align`
