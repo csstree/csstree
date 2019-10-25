@@ -84,6 +84,10 @@
       "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/2012/WD-css3-grid-layout-20120322/#grid-rows",
       "syntax": "<track-list-v0>"
     },
+    "-ms-hyphenate-limit-last": {
+      "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/css-text-4/#hyphenate-line-limits",
+      "syntax": "none | always | column | page | spread"
+    },
     "-webkit-appearance": {
       "comment": "webkit specific keywords",
       "references": [
