@@ -1,0 +1,28 @@
+{
+    "keyframes": {
+        "prelude": {
+            "valid": [
+                "foo",
+                "'foo'",
+                "\"foo\""
+            ],
+            "invalid": [
+                "",
+                "123"
+            ]
+        }
+    },
+    "font-face": {
+        "descriptors": {
+            "font-display": {
+                "valid": [
+                    "auto"
+                ],
+                "invalid": [
+                    "",
+                    "xxx"
+                ]
+            }
+        }
+    }
+}
