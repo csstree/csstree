@@ -40,6 +40,48 @@ function createMatchTest(testType, testState, name, lexer, property, value, synt
     }
 }
 
+function createAtrulePreludeMatchTest(testType, testState, name, lexer, atruleName, value) {
+    switch (testType) {
+        case 'valid':
+            (it[testState] || it)(name, function() {
+                var match = lexer.matchAtrulePrelude(atruleName, value);
+
+                assert(match.matched !== null, match.error && match.error.message);
+            });
+            break;
+
+        case 'invalid':
+            (it[testState] || it)(name, function() {
+                var match = lexer.matchAtrulePrelude(atruleName, value);
+
+                assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
+                assert.equal(match.error.name, 'SyntaxMatchError');
+            });
+            break;
+    }
+}
+
+function createAtruleDescriptorMatchTest(testType, testState, name, lexer, atruleName, descriptorName, value) {
+    switch (testType) {
+        case 'valid':
+            (it[testState] || it)(name, function() {
+                var match = lexer.matchAtruleDescriptor(atruleName, descriptorName, value);
+
+                assert(match.matched !== null, match.error && match.error.message);
+            });
+            break;
+
+        case 'invalid':
+            (it[testState] || it)(name, function() {
+                var match = lexer.matchAtruleDescriptor(atruleName, descriptorName, value);
+
+                assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
+                assert.equal(match.error.name, 'SyntaxMatchError');
+            });
+            break;
+    }
+}
+
 describe('lexer', function() {
     it('should not override generic types when used', function() {
         var customLexer = syntax.createLexer({
@@ -279,6 +321,171 @@ describe('lexer', function() {
                 });
             });
         });
+    });
+
+    describe('matchAtrulePrelude()', function() {
+        var animationName = parseCss('animation-name', { context: 'atrulePrelude', atrule: 'keyframes' });
+        var number = parseCss('123', { context: 'atrulePrelude', atrule: 'unknown' });
+        var customSyntax = syntax.fork({
+            atrules: {
+                '-foo-keyframes': {
+                    prelude: '<number>'
+                }
+            }
+        });
+
+        it('should match', function() {
+            var match = customSyntax.lexer.matchAtrulePrelude('keyframes', animationName);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
+        describe('vendor prefixes', function() {
+            it('vendor prefix', function() {
+                var match = customSyntax.lexer.matchAtrulePrelude('-webkit-keyframes', animationName);
+
+                assert(match.matched);
+                assert.equal(match.error, null);
+            });
+
+            it('case insensetive with vendor prefix', function() {
+                var match;
+
+                match = customSyntax.lexer.matchAtrulePrelude('KEYFRAMES', animationName);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchAtrulePrelude('-VENDOR-Keyframes', animationName);
+                assert(match.matched);
+                assert.equal(match.error, null);
+            });
+
+            it('should use verdor version first', function() {
+                var match;
+
+                match = customSyntax.lexer.matchAtrulePrelude('-foo-keyframes', number);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchAtrulePrelude('keyframes', number);
+                assert.equal(match.matched, null);
+                assert.equal(match.error.message, 'Mismatch\n  syntax: <keyframes-name>\n   value: 123\n  --------^');
+            });
+        });
+
+        it('should not be matched to empty value', function() {
+            var match = syntax.lexer.matchAtrulePrelude('keyframes', parseCss('', { context: 'atrulePrelude', positions: true }));
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.rawMessage, 'Mismatch');
+            assert.deepEqual({
+                line: match.error.line,
+                column: match.error.column
+            }, {
+                line: 1,
+                column: 1
+            });
+        });
+
+        it('should not be matched to at-rules with no prelude', function() {
+            var match = syntax.lexer.matchAtrulePrelude('font-face', animationName);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'At-rule `font-face` should not contain a prelude');
+
+            var match = syntax.lexer.matchAtrulePrelude('-prefix-font-face', animationName);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'At-rule `-prefix-font-face` should not contain a prelude');
+        });
+
+        fixture.forEachAtrulePreludeTest(createAtrulePreludeMatchTest);
+    });
+
+    describe('matchAtruleDescriptor()', function() {
+        var swapValue = parseCss('swap', { context: 'value' });
+        var xxxValue = parseCss('xxx', { context: 'value' });
+        var customSyntax = syntax.fork((prev) => Object.assign({}, prev, {
+            atrules: {
+                'font-face': {
+                    descriptors: Object.assign({}, prev.atrules['font-face'].descriptors, {
+                        '-foo-font-display': 'auto | block | swap | fallback | optional | xxx'
+                    })
+                }
+            }
+        }));
+
+        it('should match', function() {
+            var match = customSyntax.lexer.matchAtruleDescriptor('font-face', 'font-display', swapValue);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
+        describe('vendor prefixes', function() {
+            it('vendor prefix in keyword name', function() {
+                var match = customSyntax.lexer.matchAtruleDescriptor('-prefix-font-face', 'font-display', swapValue);
+
+                assert(match.matched);
+                assert.equal(match.error, null);
+            });
+
+            it('vendor prefix in declarator name', function() {
+                var match = customSyntax.lexer.matchAtruleDescriptor('font-face', '-prefix-font-display', swapValue);
+
+                assert(match.matched);
+                assert.equal(match.error, null);
+            });
+
+            it('case insensetive with vendor prefix', function() {
+                var match;
+
+                match = customSyntax.lexer.matchAtruleDescriptor('FONT-FACE', 'FONT-DISPLAY', swapValue);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchAtruleDescriptor('FONT-face', '-VENDOR-Font-Display', swapValue);
+                assert(match.matched);
+                assert.equal(match.error, null);
+            });
+
+            it('should use verdor version first', function() {
+                var match;
+                var defaultSyntax = syntax.definitionSyntax.generate(syntax.lexer.atrules['font-face'].descriptors['font-display'].syntax);
+
+                match = customSyntax.lexer.matchAtruleDescriptor('font-face', '-foo-font-display', xxxValue);
+                assert(match.matched);
+                assert.equal(match.error, null);
+
+                match = customSyntax.lexer.matchAtruleDescriptor('font-face', 'font-display', xxxValue);
+                assert.equal(match.matched, null);
+                assert.equal(match.error.message, 'Mismatch\n  syntax: ' + defaultSyntax + '\n   value: ' + syntax.generate(xxxValue) + '\n  --------^');
+            });
+        });
+
+        it('should not be matched to empty value', function() {
+            var match = syntax.lexer.matchAtruleDescriptor('font-face', 'font-display', parseCss('', { context: 'value', positions: true }));
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.rawMessage, 'Mismatch');
+            assert.deepEqual({
+                line: match.error.line,
+                column: match.error.column
+            }, {
+                line: 1,
+                column: 1
+            });
+        });
+
+        it('should not be matched to at-rules with no descriptors', function() {
+            var match = syntax.lexer.matchAtruleDescriptor('keyframes', 'font-face', swapValue);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'At-rule `keyframes` has no known descriptors');
+        });
+
+        fixture.forEachAtruleDescriptorTest(createAtruleDescriptorMatchTest);
     });
 
     describe('matchProperty()', function() {
