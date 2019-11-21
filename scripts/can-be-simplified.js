@@ -1,24 +1,24 @@
 const iterateSyntaxes = require('./utils/iterate-syntaxes');
-const parse = require('../lib').grammar.parse;
-const generate = require('../lib').grammar.generate;
-const walk = require('../lib').grammar.walk;
+const { parse, generate, walk } = require('../lib').definitionSyntax;
 let suggestions = [];
 
 iterateSyntaxes(function(section, name, syntax) {
-    function underlineFragment(ast, highlightNode) {
-        return generate(ast, false, function(str, node) {
-            return str.replace(/[^~]/g, node === highlightNode ? '~' : ' ');
-        });
+    function underlineFragment(ast, highlightNode, replacement) {
+        return generate(ast, function(str, node) {
+            if (node === highlightNode.term) {
+                return replacement ? '' : '\x00'.repeat(str.length);
+            }
+
+            return node === highlightNode
+                ? '\x00'.repeat((replacement ? generate(replacement) : str).length)
+                : str;
+        }).replace(/./g, m => m === '\x00' ? '~' : ' ');
     }
 
-    function replaceFragment(ast, from, to, highlight) {
-        return generate(ast, false, function(str, node) {
-            str = node === from ? generate(to) : str;
-            if (highlight) {
-                str = str.replace(/[^~]/g, node === from ? '~' : ' ');
-            }
-            return str;
-        });
+    function replaceFragment(ast, from, to) {
+        return generate(ast, (str, node) =>
+            node === from ? generate(to) : node === from.term ? '' : str
+        );
     }
 
     function makeSuggestion(message, from, to) {
@@ -33,7 +33,7 @@ iterateSyntaxes(function(section, name, syntax) {
                 'Current syntax:   ' + generate(ast),
                 '                  ' + underlineFragment(ast, from),
                 'Suggested syntax: ' + replaceFragment(ast, from, to),
-                '                  ' + replaceFragment(ast, from, to, true),
+                '                  ' + underlineFragment(ast, from, to),
                 ''
             ].join('\n')
         });
