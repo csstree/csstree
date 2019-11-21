@@ -662,15 +662,15 @@
     },
     "track-group": {
       "comment": "used by old grid-columns and grid-rows syntax v0",
-      "syntax": "[ '(' [ [ <string> ]* <track-minmax> [ <string> ]* ]+ ')' [ '[' <positive-integer> ']' ]? | <track-minmax> ]"
+      "syntax": "'(' [ <string>* <track-minmax> <string>* ]+ ')' [ '[' <positive-integer> ']' ]? | <track-minmax>"
     },
     "track-list-v0": {
       "comment": "used by old grid-columns and grid-rows syntax v0",
-      "syntax": "[ [ <string> ]* <track-group> [ <string> ]* ]+ | 'none'"
+      "syntax": "[ <string>* <track-group> <string>* ]+ | none"
     },
     "track-minmax": {
       "comment": "used by old grid-columns and grid-rows syntax v0",
-      "syntax": "'minmax(' <track-breadth> ',' <track-breadth> ')' | 'auto' | <track-breadth> | 'fit-content'"
+      "syntax": "minmax( <track-breadth> , <track-breadth> ) | auto | <track-breadth> | fit-content"
     },
     "x": {
       "comment": "missed; not sure we should add it, but no others except `cursor` is using it so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
