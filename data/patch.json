@@ -20,6 +20,10 @@
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius",
       "syntax": "<'border-bottom-right-radius'>"
     },
+    "-moz-control-character-visibility": {
+      "comment": "firefox specific keywords, https://bugzilla.mozilla.org/show_bug.cgi?id=947588",
+      "syntax": "visible | hidden"
+    },
     "-moz-osx-font-smoothing": {
       "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "auto | grayscale"
@@ -68,9 +72,21 @@
       "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466338.aspx",
       "syntax": "start | end | center | stretch"
     },
+    "-ms-grid-columns": {
+      "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/2012/WD-css3-grid-layout-20120322/#grid-columns",
+      "syntax": "<track-list-v0>"
+    },
     "-ms-grid-row-align": {
       "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466348.aspx",
       "syntax": "start | end | center | stretch"
+    },
+    "-ms-grid-rows": {
+      "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/2012/WD-css3-grid-layout-20120322/#grid-rows",
+      "syntax": "<track-list-v0>"
+    },
+    "-ms-hyphenate-limit-last": {
+      "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/css-text-4/#hyphenate-line-limits",
+      "syntax": "none | always | column | page | spread"
     },
     "-webkit-appearance": {
       "comment": "webkit specific keywords",
@@ -643,6 +659,18 @@
     "top": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
       "syntax": "<length> | auto"
+    },
+    "track-group": {
+      "comment": "used by old grid-columns and grid-rows syntax v0",
+      "syntax": "'(' [ <string>* <track-minmax> <string>* ]+ ')' [ '[' <positive-integer> ']' ]? | <track-minmax>"
+    },
+    "track-list-v0": {
+      "comment": "used by old grid-columns and grid-rows syntax v0",
+      "syntax": "[ <string>* <track-group> <string>* ]+ | none"
+    },
+    "track-minmax": {
+      "comment": "used by old grid-columns and grid-rows syntax v0",
+      "syntax": "minmax( <track-breadth> , <track-breadth> ) | auto | <track-breadth> | fit-content"
     },
     "x": {
       "comment": "missed; not sure we should add it, but no others except `cursor` is using it so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
