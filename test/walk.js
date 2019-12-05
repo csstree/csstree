@@ -317,5 +317,21 @@ describe('AST traversal', function() {
                 });
             });
         });
+
+        it('iterate DeclarationList', function() {
+            const ast = parse('foo: a; bar: b', { context: 'declarationList' });
+            let visited = 0;
+
+            walk(ast, {
+                visit: 'Declaration',
+                enter(node) {
+                    if (node.type === 'Declaration') {
+                        visited++;
+                    }
+                }
+            });
+
+            assert.equal(visited, 2);
+        });
     });
 });

@@ -1,3 +1,7 @@
+## next
+
+- Fixed walker with `visit: "Declaration"` to iterate `DeclarationList` (#114)
+
 ## 1.0.0-alpha.38 (November 25, 2019)
 
 - Bumped `mdn-data` to `2.0.6`
