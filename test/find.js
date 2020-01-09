@@ -8,15 +8,15 @@ var ast = parse([
     '.bar, .qux.foo { font-weight: bold; color: blue; }'
 ].join(''));
 var firstFoo = ast
-    .children.first()  // Rule
+    .children.first    // Rule
     .prelude           // SelectorList
-    .children.first()  // Selector
-    .children.first(); // ClassSelector
+    .children.first    // Selector
+    .children.first;   // ClassSelector
 var lastFoo = ast
-    .children.last()   // Rule
+    .children.last     // Rule
     .prelude           // SelectorList
-    .children.last()   // Selector
-    .children.last();  // ClassSelector
+    .children.last     // Selector
+    .children.last;    // ClassSelector
 
 describe('Search', function() {
     describe('find', function() {

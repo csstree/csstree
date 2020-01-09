@@ -444,7 +444,7 @@ describe('lexer', function() {
 
         it('should match by type', function() {
             var value = parseCss('fn(1, 2, 3)', { context: 'value' });
-            var fn = value.children.first();
+            var fn = value.children.first;
             var syntax = customSyntax.lexer.getType('fn');
             var match = customSyntax.lexer.match(syntax, fn);
 
@@ -469,7 +469,7 @@ describe('lexer', function() {
 
         it('should fails on bad syntax', function() {
             var value = parseCss('fn(1, 2, 3)', { context: 'value' });
-            var fn = value.children.first();
+            var fn = value.children.first;
             var match = customSyntax.lexer.match({}, fn);
 
             assert.equal(match.matched, null);
@@ -530,7 +530,7 @@ describe('lexer', function() {
 
         beforeEach(function() {
             var ast = parseCss('rgb(1, 2, 3)', { context: 'value' });
-            testNode = ast.children.first().children.first();
+            testNode = ast.children.first.children.first;
             match = syntax.lexer.matchProperty('background', ast);
             mismatch = syntax.lexer.matchProperty('margin', ast);
         });
@@ -567,8 +567,8 @@ describe('lexer', function() {
 
         it('isKeyword()', function() {
             var ast = parseCss('repeat 0', { context: 'value' });
-            var keywordNode = ast.children.first();
-            var numberNode = ast.children.last();
+            var keywordNode = ast.children.first;
+            var numberNode = ast.children.last;
             var match = syntax.lexer.matchProperty('background', ast);
 
             assert.equal(match.isKeyword(keywordNode), true);

@@ -67,7 +67,7 @@ describe('logical parts as standalone modules', function() {
 
     it('convertor', function() {
         assert.equal(ast.children instanceof List, true);
-        assert.equal(ast.children.first().prelude.children instanceof List, true);
+        assert.equal(ast.children.first.prelude.children instanceof List, true);
 
         convertor.toPlainObject(ast);
 
@@ -77,6 +77,6 @@ describe('logical parts as standalone modules', function() {
         convertor.fromPlainObject(ast);
 
         assert.equal(ast.children instanceof List, true);
-        assert.equal(ast.children.first().prelude.children instanceof List, true);
+        assert.equal(ast.children.first.prelude.children instanceof List, true);
     });
 });

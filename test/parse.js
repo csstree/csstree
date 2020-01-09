@@ -67,7 +67,7 @@ describe('parse', function() {
 
             fixture.valid.forEach(function(value) {
                 it(value, function() {
-                    var actual = parse(':nth-child(' + value + ')', { context: 'selector' }).children.first().children.first().nth;
+                    var actual = parse(':nth-child(' + value + ')', { context: 'selector' }).children.first.children.first.nth;
                     var a = value.match(/^([+-]?)(\d+)?n/i);
                     var b = value.match(/([+-]?)\s*(\d+)$/);
                     var expected = {
@@ -98,7 +98,7 @@ describe('parse', function() {
 
             fixture.valid.forEach(function(value) {
                 it(value, function() {
-                    var actual = parse(value, { context: 'value' }).children.first();
+                    var actual = parse(value, { context: 'value' }).children.first;
                     var expected = {
                         type: 'UnicodeRange',
                         value: value
@@ -182,7 +182,7 @@ describe('parse', function() {
             }
         });
 
-        assert.equal(ast.children.getSize(), 3);
+        assert.equal(ast.children.size, 3);
         assert.equal(errors.length, 2);
         assert.equal(errors[0].error.message, 'Identifier is expected');
         assert.equal(errors[0].fallback.value, 'a: 1!;');
