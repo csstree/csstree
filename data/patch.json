@@ -20,6 +20,10 @@
       "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius",
       "syntax": "<'border-bottom-right-radius'>"
     },
+    "-moz-control-character-visibility": {
+      "comment": "firefox specific keywords, https://bugzilla.mozilla.org/show_bug.cgi?id=947588",
+      "syntax": "visible | hidden"
+    },
     "-moz-osx-font-smoothing": {
       "comment": "misssed old syntax https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth",
       "syntax": "auto | grayscale"
@@ -68,9 +72,21 @@
       "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466338.aspx",
       "syntax": "start | end | center | stretch"
     },
+    "-ms-grid-columns": {
+      "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/2012/WD-css3-grid-layout-20120322/#grid-columns",
+      "syntax": "<track-list-v0>"
+    },
     "-ms-grid-row-align": {
       "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466348.aspx",
       "syntax": "start | end | center | stretch"
+    },
+    "-ms-grid-rows": {
+      "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/2012/WD-css3-grid-layout-20120322/#grid-rows",
+      "syntax": "<track-list-v0>"
+    },
+    "-ms-hyphenate-limit-last": {
+      "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/css-text-4/#hyphenate-line-limits",
+      "syntax": "none | always | column | page | spread"
     },
     "-webkit-appearance": {
       "comment": "webkit specific keywords",
@@ -168,7 +184,7 @@
     },
     "display": {
       "comment": "extended with -ms-flexbox",
-      "syntax": "none | inline | block | list-item | inline-list-item | inline-block | inline-table | table | table-cell | table-column | table-column-group | table-footer-group | table-header-group | table-row | table-row-group | flex | inline-flex | grid | inline-grid | run-in | ruby | ruby-base | ruby-text | ruby-base-container | ruby-text-container | contents | -ms-flexbox | -ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
+      "syntax": "block | contents | flex | flow | flow-root | grid | inline | inline-block | inline-flex | inline-grid | inline-list-item | inline-table | list-item | none | ruby | ruby-base | ruby-base-container | ruby-text | ruby-text-container | run-in | table | table-caption | table-cell | table-column | table-column-group | table-footer-group | table-header-group | table-row | table-row-group | -ms-flexbox | -ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
     },
     "position": {
       "comment": "extended with -webkit-sticky",
@@ -643,6 +659,18 @@
     "top": {
       "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
       "syntax": "<length> | auto"
+    },
+    "track-group": {
+      "comment": "used by old grid-columns and grid-rows syntax v0",
+      "syntax": "'(' [ <string>* <track-minmax> <string>* ]+ ')' [ '[' <positive-integer> ']' ]? | <track-minmax>"
+    },
+    "track-list-v0": {
+      "comment": "used by old grid-columns and grid-rows syntax v0",
+      "syntax": "[ <string>* <track-group> <string>* ]+ | none"
+    },
+    "track-minmax": {
+      "comment": "used by old grid-columns and grid-rows syntax v0",
+      "syntax": "minmax( <track-breadth> , <track-breadth> ) | auto | <track-breadth> | fit-content"
     },
     "x": {
       "comment": "missed; not sure we should add it, but no others except `cursor` is using it so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",

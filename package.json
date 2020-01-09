@@ -1,6 +1,6 @@
 {
   "name": "css-tree",
-  "version": "1.0.0-alpha.37",
+  "version": "1.0.0-alpha.39",
   "description": "CSSTree is a tool set to work with CSS, including fast detailed parser (string->AST), walker (AST traversal), generator (AST->string) and lexer (validation and matching) based on knowledge of spec and browser implementations",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
   },
   "dependencies": {
-    "mdn-data": "2.0.4",
+    "mdn-data": "2.0.6",
     "source-map": "^0.6.1"
   },
   "devDependencies": {
