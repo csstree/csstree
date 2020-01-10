@@ -409,9 +409,10 @@ describe('lexer', function() {
         var customSyntax = syntax.fork((prev) => Object.assign({}, prev, {
             atrules: {
                 'font-face': {
-                    descriptors: Object.assign({}, prev.atrules['font-face'].descriptors, {
+                    descriptors: {
+                        ...prev.atrules['font-face'].descriptors,
                         '-foo-font-display': 'auto | block | swap | fallback | optional | xxx'
-                    })
+                    }
                 }
             }
         }));
@@ -451,8 +452,8 @@ describe('lexer', function() {
             });
 
             it('should use verdor version first', function() {
+                var defaultSyntax = syntax.definitionSyntax.generate(syntax.lexer.getAtruleDescriptor('font-face', 'font-display').syntax);
                 var match;
-                var defaultSyntax = syntax.definitionSyntax.generate(syntax.lexer.atrules['font-face'].descriptors['font-display'].syntax);
 
                 match = customSyntax.lexer.matchAtruleDescriptor('font-face', '-foo-font-display', xxxValue);
                 assert(match.matched);
@@ -685,16 +686,17 @@ describe('lexer', function() {
     });
 
     describe('mismatch node', function() {
+        const properties = {
+            'test1': '<foo()>',
+            'test2': '<bar>',
+            'test3': '<baz()>',
+            'test4': '<number>{4}',
+            'test5': '<number>#{4}'
+        };
         var customSyntax = syntax.fork(function(prev, assign) {
             return assign(prev, {
                 generic: true,
-                properties: {
-                    'test1': '<foo()>',
-                    'test2': '<bar>',
-                    'test3': '<baz()>',
-                    'test4': '<number>{4}',
-                    'test5': '<number>#{4}'
-                },
+                properties,
                 types: {
                     'foo()': 'foo( <number>#{3} )',
                     'bar': 'bar( <angle> )',
@@ -726,6 +728,11 @@ describe('lexer', function() {
                 assert.equal(result.matched, null);
                 assert(Boolean(error));
                 assert.equal(error.column, test.column);
+                assert.equal(error.message, `Mismatch\n  syntax: ${
+                    properties[test.property]
+                }\n   value: ${
+                    syntax.generate(ast)
+                }\n  --------${'-'.repeat(error.mismatchOffset)}^`);
             });
         });
     });
