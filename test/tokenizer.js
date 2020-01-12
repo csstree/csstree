@@ -1,6 +1,5 @@
 const assert = require('assert');
 const { tokenize } = require('../lib');
-const Raw = require('../lib/syntax/node/Raw'); // FIXME: do not refer to Raw
 const fixture = require('./fixture/tokenize');
 
 describe('parser/stream', () => {
@@ -151,13 +150,17 @@ describe('parser/stream', () => {
     });
 
     describe('Raw', () => {
+        const LEFTCURLYBRACKET = 0x007B; // U+007B LEFT CURLY BRACKET ({)
+        const SEMICOLON = 0x003B;        // U+003B SEMICOLON (;)
+        const leftCurlyBracket = code => code === LEFTCURLYBRACKET ? 1 : 0;
+        const semicolonIncluded = code => code === SEMICOLON ? 2 : 0;
         /* eslint-disable key-spacing */
         const tests = [
             {
                 source: '? { }',
                 start:  '^',
                 skip:   '^',
-                mode: Raw.mode.leftCurlyBracket,
+                mode: leftCurlyBracket,
                 expected: '? '
             },
             {
@@ -165,42 +168,42 @@ describe('parser/stream', () => {
                 source: 'div { }',
                 start:  '^',
                 skip:   '^',
-                mode: Raw.mode.leftCurlyBracket,
+                mode: leftCurlyBracket,
                 expected: 'div '
             },
             {
                 source: 'foo(bar(1)(2)(3[{}])(4{}){}(5))',
                 start:  '             ^',
                 skip:   '             ^',
-                mode: Raw.mode.leftCurlyBracket,
+                mode: leftCurlyBracket,
                 expected: '(3[{}])(4{})'
             },
             {
                 source: 'foo(bar(1) (2) (3[{}]) (4{}) {} (5))',
                 start:  '               ^',
                 skip:   '                ^',
-                mode: Raw.mode.leftCurlyBracket,
+                mode: leftCurlyBracket,
                 expected: '(3[{}]) (4{}) '
             },
             {
                 source: 'func(a func(;))',
                 start:  '     ^',
                 skip:   '       ^',
-                mode: Raw.mode.semicolonIncluded,
+                mode: semicolonIncluded,
                 expected: 'a func(;)'
             },
             {
                 source: 'func(a func(;))',
                 start:  '     ^',
                 skip:   '            ^',
-                mode: Raw.mode.semicolonIncluded,
+                mode: semicolonIncluded,
                 expected: 'a func(;)'
             },
             {
                 source: 'func(a func(;); b)',
                 start:  '     ^',
                 skip:   '       ^',
-                mode: Raw.mode.semicolonIncluded,
+                mode: semicolonIncluded,
                 expected: 'a func(;);'
             },
             {
@@ -232,6 +235,7 @@ describe('parser/stream', () => {
                 expected: 'func(1, 2, 3) {}'
             }
         ];
+        /* eslint-enable key-spacing */
 
         tests.forEach(function(test, idx) {
             it('testcase#' + idx, () => {
@@ -249,7 +253,7 @@ describe('parser/stream', () => {
                     stream.next();
                 }
 
-                stream.skip(stream.getRawLength(startToken, test.mode || Raw.mode.default));
+                stream.skip(stream.getRawLength(startToken, test.mode || (() => 0)));
                 assert.equal(
                     stream.source.substring(startOffset, stream.tokenStart),
                     test.expected
