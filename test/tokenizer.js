@@ -1,10 +1,11 @@
-var assert = require('assert');
-var tokenize = require('../lib').tokenize;
-var Raw = require('../lib/syntax/node/Raw');
+const assert = require('assert');
+const { tokenize } = require('../lib');
+const Raw = require('../lib/syntax/node/Raw'); // FIXME: do not refer to Raw
+const fixture = require('./fixture/tokenize');
 
-describe('parser/stream', function() {
-    var css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
-    var tokens = [
+describe('parser/stream', () => {
+    const css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
+    const tokens = [
         { type: 'Delim', chunk: '.', balance: 83 },
         { type: 'Ident', chunk: 'test', balance: 83 },
         { type: 'WhiteSpace', chunk: '\n', balance: 83 },
@@ -32,46 +33,42 @@ describe('parser/stream', function() {
         { type: 'WhiteSpace', chunk: '\n', balance: 25 },
         { type: 'RightCurlyBracket', chunk: '}', balance: 3 }
     ];
-    var dump = tokens.map(function(token, idx) {
-        return {
-            idx: idx,
-            type: token.type,
-            chunk: token.chunk,
-            balance: token.balance
-        };
-    });
-    var types = tokens.map(function(token) {
-        return token.type;
-    });
-    var start = tokens.map(function(token) {
-        var start = this.offset;
+    const dump = tokens.map(({ type, chunk, balance }, idx) => ({
+        idx,
+        type,
+        chunk,
+        balance
+    }));
+    const types = tokens.map(token => token.type);
+    const start = tokens.map(function(token) {
+        const start = this.offset;
         this.offset += token.chunk.length;
         return start;
     }, { offset: 0 });
-    var end = tokens.map(function(token) {
+    const end = tokens.map(function(token) {
         this.offset += token.chunk.length;
         return this.offset;
     }, { offset: 0 });
 
-    it('edge case: no arguments', function() {
-        var stream = tokenize();
+    it('edge case: no arguments', () => {
+        const stream = tokenize();
 
         assert.equal(stream.eof, true);
         assert.equal(stream.tokenType, 0);
         assert.equal(stream.source, '');
     });
 
-    it('edge case: empty input', function() {
-        var stream = tokenize('');
+    it('edge case: empty input', () => {
+        const stream = tokenize('');
 
         assert.equal(stream.eof, true);
         assert.equal(stream.tokenType, 0);
         assert.equal(stream.source, '');
     });
 
-    it('should convert input to string', function() {
-        var stream = tokenize({
-            toString: function() {
+    it('should convert input to string', () => {
+        const stream = tokenize({
+            toString: () => {
                 return css;
             }
         });
@@ -79,21 +76,21 @@ describe('parser/stream', function() {
         assert.equal(stream.source, css);
     });
 
-    it('should accept a Buffer', function() {
-        var stream = tokenize(Buffer.from ? Buffer.from(css) : new Buffer(css)); // TODO: remove new Buffer() when nodejs < 6.0 support dropped
+    it('should accept a Buffer', () => {
+        const stream = tokenize(Buffer.from(css));
 
         assert.equal(stream.source, css);
     });
 
-    it('dump()', function() {
-        var stream = tokenize(css);
+    it('dump()', () => {
+        const stream = tokenize(css);
 
         assert.deepEqual(stream.dump(), dump);
     });
 
-    it('next() types', function() {
-        var stream = tokenize(css);
-        var actual = [];
+    it('next() types', () => {
+        const stream = tokenize(css);
+        const actual = [];
 
         while (!stream.eof) {
             actual.push(tokenize.NAME[stream.tokenType]);
@@ -103,9 +100,9 @@ describe('parser/stream', function() {
         assert.deepEqual(actual, types);
     });
 
-    it('next() start', function() {
-        var stream = tokenize(css);
-        var actual = [];
+    it('next() start', () => {
+        const stream = tokenize(css);
+        const actual = [];
 
         while (!stream.eof) {
             actual.push(stream.tokenStart);
@@ -115,9 +112,9 @@ describe('parser/stream', function() {
         assert.deepEqual(actual, start);
     });
 
-    it('next() end', function() {
-        var stream = tokenize(css);
-        var actual = [];
+    it('next() end', () => {
+        const stream = tokenize(css);
+        const actual = [];
 
         while (!stream.eof) {
             actual.push(stream.tokenEnd);
@@ -127,13 +124,12 @@ describe('parser/stream', function() {
         assert.deepEqual(actual, end);
     });
 
-    it('skip()', function() {
-        var stream = tokenize(css);
-        var targetTokens = tokens
-            .filter(function(token) {
-                return token.type === 'Ident' || token.type === 'Delim';
-            });
-        var actual = targetTokens
+    it('skip()', () => {
+        const stream = tokenize(css);
+        const targetTokens = tokens.filter(token =>
+            token.type === 'Ident' || token.type === 'Delim'
+        );
+        const actual = targetTokens
             .map(function(token, idx, idents) {
                 return idx ? tokens.indexOf(token) - tokens.indexOf(idents[idx - 1]) : tokens.indexOf(token);
             })
@@ -143,22 +139,20 @@ describe('parser/stream', function() {
             });
 
         assert.equal(actual.length, 6); // 4 x Indentifier + 2 x Delim
-        assert.deepEqual(actual, targetTokens.map(function(token) {
-            return token.type;
-        }));
+        assert.deepEqual(actual, targetTokens.map(token => token.type));
     });
 
-    it('skip() to end', function() {
-        var stream = tokenize(css);
+    it('skip() to end', () => {
+        const stream = tokenize(css);
 
         stream.skip(tokens.length);
 
         assert.equal(stream.eof, true);
     });
 
-    describe('Raw', function() {
+    describe('Raw', () => {
         /* eslint-disable key-spacing */
-        var tests = [
+        const tests = [
             {
                 source: '? { }',
                 start:  '^',
@@ -240,11 +234,11 @@ describe('parser/stream', function() {
         ];
 
         tests.forEach(function(test, idx) {
-            it('testcase#' + idx, function() {
-                var stream = tokenize(test.source);
-                var startOffset = test.start.indexOf('^');
-                var skipToOffset = test.skip.indexOf('^');
-                var startToken = stream.tokenIndex;
+            it('testcase#' + idx, () => {
+                const stream = tokenize(test.source);
+                const startOffset = test.start.indexOf('^');
+                const skipToOffset = test.skip.indexOf('^');
+                let startToken = stream.tokenIndex;
 
                 while (stream.tokenStart < startOffset) {
                     stream.next();
@@ -264,10 +258,10 @@ describe('parser/stream', function() {
         });
     });
 
-    it('dynamic buffer', function() {
-        var bufferSize = tokenize(css).offsetAndType.length + 10;
-        var stream = tokenize(new Array(bufferSize + 1).join('.'));
-        var count = 0;
+    it('dynamic buffer', () => {
+        const bufferSize = tokenize(css).offsetAndType.length + 10;
+        const stream = tokenize('.'.repeat(bufferSize));
+        let count = 0;
 
         while (!stream.eof) {
             count++;
@@ -278,19 +272,15 @@ describe('parser/stream', function() {
         assert(stream.offsetAndType.length >= bufferSize);
     });
 
-    describe('values', function() {
-        var tests = require('./fixture/tokenize');
-
-        ['valid', 'invalid'].forEach(function(testType) {
-            tests.forEachTest(testType, function(name, value, tokens) {
-                it(name, function() {
+    describe('values', () => {
+        ['valid', 'invalid'].forEach(testType => {
+            fixture.forEachTest(testType, (name, value, tokens) => {
+                it(name, () => {
                     assert[testType === 'valid' ? 'deepEqual' : 'notDeepEqual'](
-                        tokenize(value).dump().map(function(token) {
-                            return {
-                                type: token.type,
-                                chunk: token.chunk
-                            };
-                        }),
+                        tokenize(value).dump().map(token => ({
+                            type: token.type,
+                            chunk: token.chunk
+                        })),
                         tokens
                     );
                 });

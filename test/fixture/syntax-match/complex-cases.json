@@ -1,0 +1,88 @@
+{
+    "[ [ left | center | right | top | bottom | <length> ] | [ left | center | right | <length> ] [ top | center | bottom | <length> ] | [ center | [ left | right ] <length>? ] && [ center | [ top | bottom ] <length>? ] ]": {
+        "types": {
+            "length": "length"
+        },
+        "valid": [
+            "center",
+            "left top",
+            "length length",
+            "left length",
+            "left length bottom length",
+            "left length top"
+        ],
+        "invalid": [
+            "left left",
+            "left length right",
+            "center length left"
+        ]
+    },
+    "rgb( <percentage>{3} [ / <alpha-value> ]? ) | rgb( <number>{3} [ / <alpha-value> ]? ) | rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? )": {
+        "types": {
+            "alpha-value": "<number [0,1]>"
+        },
+        "valid": [
+            "rgb(1, 2, 3)",
+            "rgb(1, 2, 3, 1)",
+            "rgb(1%, 2%, 3%)",
+            "rgb(1%, 2%, 3%, 1)",
+            "rgb(1 2 3)",
+            "rgb(1 2 3 / 1)",
+            "rgb(1% 2% 3%)",
+            "rgb(1% 2% 3% / 1)"
+        ],
+        "invalid": [
+            "rgb(1, 2 3)",
+            "rgb(1, 2, 3%)",
+            "rgb(1, 2, 3, 4)"
+        ]
+    },
+    "<custom-ident>+ from": {
+        "valid": [
+            "a from",
+            "a b from",
+            "a b c d from",
+            "from from",
+            "from from from"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a b",
+            "from"
+        ]
+    },
+    "a <foo> b": {
+        "types": {
+            "foo": "<custom-ident>*"
+        },
+        "valid": [
+            "a b",
+            "a x b",
+            "a b b b"
+        ],
+        "invalid": [
+            "",
+            "a b c"
+        ]
+    },
+    "a? <bar> / c": {
+        "types": {
+            "bar": "<foo>?",
+            "foo": "<custom-ident>+"
+        },
+        "valid": [
+            "/ c",
+            "b b / c",
+            "a a / c",
+            "a / c",
+            "a b / c",
+            "a b b b / c"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a a a"
+        ]
+    }
+}

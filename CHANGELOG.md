@@ -4,6 +4,8 @@
 - Changed `List` to be iterable (iterates data)
 - Changed `List#first`, `List#last` and `List#isEmpty` to getters
 - Changed `List#getSize()` method to `List#size` getters
+- Removed `Lexer#matchDeclaration()` method
+- Exposed parser's inner configuration as `parse.config`
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 

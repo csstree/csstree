@@ -1,13 +1,13 @@
-var assert = require('assert');
-var stringify = require('./helpers/stringify');
-var List = require('../lib/common/List');
-var parse = require('../lib/parser');
-var walk = require('../lib/walker');
-var generate = require('../lib/generator');
-var convertor = require('../lib/convertor');
+const assert = require('assert');
+const List = require('../lib/common/List');
+const parse = require('../lib/parser');
+const walk = require('../lib/walker');
+const generate = require('../lib/generator');
+const convertor = require('../lib/convertor');
+const stringifyWithNoInfo = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 
-var css = '.a{}';
-var expectedAst = {
+const css = '.a{}';
+const expectedAst = {
     type: 'StyleSheet',
     children: [
         {
@@ -34,26 +34,20 @@ var expectedAst = {
     ]
 };
 
-describe('logical parts as standalone modules', function() {
-    var ast;
-    beforeEach(function() {
-        ast = parse(css);
+describe('logical parts as standalone modules', () => {
+    it('parser', () => {
+        const ast = parse(css);
+        assert.equal(stringifyWithNoInfo(ast), stringifyWithNoInfo(expectedAst));
     });
 
-    it('parser', function() {
-        assert.equal(stringify(ast), stringify(expectedAst));
+    it('generator', () => {
+        assert.equal(generate(expectedAst), css);
     });
 
-    it('generator', function() {
-        assert.equal(generate(ast), css);
-    });
+    it('walker', () => {
+        const types = [];
 
-    it('walker', function() {
-        var types = [];
-
-        walk(ast, function(node) {
-            types.push(node.type);
-        });
+        walk(expectedAst, node => types.push(node.type));
 
         assert.deepEqual(types, [
             'StyleSheet',
@@ -65,7 +59,9 @@ describe('logical parts as standalone modules', function() {
         ]);
     });
 
-    it('convertor', function() {
+    it('convertor', () => {
+        const ast = parse(css);
+
         assert.equal(ast.children instanceof List, true);
         assert.equal(ast.children.first.prelude.children instanceof List, true);
 

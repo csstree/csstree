@@ -1,0 +1,196 @@
+{
+    "a, b": {
+        "valid": [
+            "a, b"
+        ],
+        "invalid": [
+            "",
+            "a b"
+        ]
+    },
+    "a?, b": {
+        "valid": [
+            "b",
+            "a, b"
+        ],
+        "invalid": [
+            "",
+            "a",
+            ", b"
+        ]
+    },
+    "a, b?": {
+        "valid": [
+            "a",
+            "a, b"
+        ],
+        "invalid": [
+            "",
+            "a,",
+            "b"
+        ]
+    },
+    "a?, b?": {
+        "valid": [
+            "",
+            "a",
+            "b",
+            "a, b"
+        ],
+        "invalid": [
+            "a,",
+            ",b",
+            ","
+        ]
+    },
+    "[a ,]* b": {
+        "valid": [
+            "b",
+            "a, b",
+            "a, a, b"
+        ],
+        "invalid": [
+            "",
+            "a b",
+            "a, a b",
+            ", b"
+        ]
+    },
+    "a#{0,}, b": {
+        "notes": "equavalent to \"[a ,]* b,\"",
+        "valid": [
+            "b",
+            "a, b",
+            "a, a, b"
+        ],
+        "invalid": [
+            "",
+            "a b",
+            "a, a b",
+            ", b"
+        ]
+    },
+    "a#, b?": {
+        "valid": [
+            "a",
+            "a, a",
+            "a, b",
+            "a, a, b"
+        ],
+        "invalid": [
+            "",
+            "a,",
+            "a, a,",
+            ", b",
+            "a a",
+            "a b",
+            "a a, b"
+        ]
+    },
+    "a, b?, c": {
+        "valid": [
+            "a, c",
+            "a, b, c"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a,,c",
+            "a,",
+            ",c",
+            "a c",
+            "c"
+        ]
+    },
+    "a? [, b]*": {
+        "valid": [
+            "",
+            "a",
+            "a, b, b"
+        ],
+        "invalid": [
+            ", b",
+            ", b, b"
+        ]
+    },
+    "(a? [, b]*)": {
+        "valid": [
+            "()",
+            "(a)",
+            "(b)",
+            "(b, b)",
+            "(a, b, b)"
+        ],
+        "invalid": [
+            "(, b)",
+            "(, b, b)"
+        ]
+    },
+    "([a ,]* b?)": {
+        "valid": [
+            "()",
+            "(a)",
+            "(b)",
+            "(a, a)",
+            "(a, a, b)"
+        ],
+        "invalid": [
+            "(a, )",
+            "(a, a, )",
+            "(, b)"
+        ]
+    },
+    "a / [b?, c?]": {
+        "valid": [
+            "a /",
+            "a / b",
+            "a / c",
+            "a / b, c"
+        ],
+        "invalid": [
+            "",
+            "a / , c",
+            "a / b ,"
+        ]
+    },
+    "[a?, b?] / c": {
+        "valid": [
+            "/ c",
+            "a / c",
+            "b / c",
+            "a , b / c"
+        ],
+        "invalid": [
+            "",
+            "a , / c",
+            ", b / c"
+        ]
+    },
+    "func( [a?, b?] )": {
+        "valid": [
+            "func()",
+            "func(a)",
+            "func(b)",
+            "func(a, b)"
+        ],
+        "invalid": [
+            "",
+            "func(a,)",
+            "func(,b)"
+        ]
+    },
+    "[ foo? ]#": {
+        "valid": [
+            "foo",
+            "foo, foo",
+            "foo, foo, foo, foo"
+        ],
+        "invalid": [
+            "",
+            ",",
+            ", foo",
+            "foo, ",
+            "foo foo"
+        ]
+    }
+}

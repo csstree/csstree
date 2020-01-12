@@ -1,24 +1,24 @@
-var fs = require('fs');
-var path = require('path');
-var JsonLocator = require('../../helpers/JsonLocator.js');
+const fs = require('fs');
+const path = require('path');
+const JsonLocator = require('../../helpers/JsonLocator.js');
 
 function forEachTest(factory) {
-    for (var filename in testFiles) {
-        var file = testFiles[filename];
+    for (const filename in tests) {
+        const file = tests[filename];
 
-        for (var key in file) {
+        for (const key in file) {
             factory(key, file[key]);
         }
     };
 }
 
-var testFiles = fs.readdirSync(__dirname).reduce(function(result, fn) {
+const tests = fs.readdirSync(__dirname).reduce((result, fn) => {
     if (fn !== 'index.js') {
-        var filename = path.join(__dirname, fn);
-        var tests = require(filename);
-        var locator = new JsonLocator(filename);
+        const filename = path.join(__dirname, fn);
+        const tests = require(filename);
+        const locator = new JsonLocator(filename);
 
-        Object.keys(tests).forEach(function(key) {
+        Object.keys(tests).forEach(key => {
             tests[key].name = locator.get(key);
         });
 
@@ -29,6 +29,6 @@ var testFiles = fs.readdirSync(__dirname).reduce(function(result, fn) {
 }, {});
 
 module.exports = {
-    forEachTest: forEachTest,
-    tests: testFiles
+    forEachTest,
+    tests
 };

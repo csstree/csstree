@@ -1,105 +1,77 @@
-var fs = require('fs');
-var path = require('path');
-var parseJSON = require('json-to-ast');
+const fs = require('fs');
+const path = require('path');
+const parseJSON = require('json-to-ast');
 
-// TODO: remove when nodejs < 4.0 support dropped
-if (typeof Object.assign !== 'function') {
-    Object.assign = function(res) {
-        for (var i = 1; i < arguments.length; i++) {
-            var source = arguments[i];
-            for (var key in source) {
-                res[key] = source[key];
+module.exports = class JsonLocator {
+    constructor(filename) {
+        let ast = null;
+
+        this.filename = path.relative(path.join(__dirname, '../..'), filename);
+        this.map = new Map();
+
+        try {
+            ast = parseJSON(fs.readFileSync(filename, 'utf-8'), {
+                source: this.filename
+            });
+        } catch (e) {
+            console.error(String(e));
+            process.exit(1);
+        }
+
+        if (ast !== null && ast.type === 'Object') {
+            this.checkForDuplicateKeys(ast, filename);
+
+            for (const property of ast.children) {
+                this.map.set(property.key.value, property);
+            }
+        }
+    }
+
+    checkForDuplicateKeys(node) {
+        if (!node) {
+            return;
+        }
+
+        if (node.type === 'Object') {
+            const keys = new Set();
+
+            for (const { key, value } of node.children) {
+                if (keys.has(key.value)) {
+                    throw new Error('Duplicate key `' + key.value + '` at ' + this.getLocation(key.loc.start));
+                }
+
+                keys.add(key.value);
+                this.checkForDuplicateKeys(value);
             }
         }
 
-        return res;
-    };
-}
-
-function checkForDuplicateKeys(ast, filename) {
-    if (!ast) {
-        return;
+        if (node.type === 'Array') {
+            node.children.forEach(this.checkForDuplicateKeys, this);
+        }
     }
 
-    if (ast.type === 'Object') {
-        var map = Object.create(null);
+    getLocation(loc) {
+        return `${this.filename}:${loc.line}:${loc.column}`;
+    }
 
-        for (var i = 0; i < ast.children.length; i++) {
-            var property = ast.children[i];
+    get(name, index) {
+        const property = this.map.get(name);
+        let loc;
 
-            if (hasOwnProperty.call(map, property.key.value)) {
-                throw new Error('Duplicate key `' + property.key.value + '` at ' + getLocation(filename, property.key.loc.start));
+        if (!property) {
+            throw new Error('Key `' + name + '` not found in ' + this.filename);
+        }
+
+        if (typeof index === 'number' && property.value.type === 'Array') {
+            if (index in property.value.children === false) {
+                throw new Error('Wrong index `' + index + '` for `' + name + '` in ' + this.filename);
             }
-
-            map[property.key.value] = true;
-            checkForDuplicateKeys(property.value, filename);
+            loc = this.getLocation(property.value.children[index].loc.start);
+            name += ' #' + index;
+        } else {
+            loc = this.getLocation(property.key.loc.start);
         }
+
+        return loc + ' (' + name + ')';
     }
-
-    if (ast.type === 'Array') {
-        ast.children.forEach(function(item) {
-            checkForDuplicateKeys(item, filename);
-        });
-    }
-}
-
-function getLocation(filename, loc) {
-    return [
-        filename,
-        loc.line,
-        loc.column
-    ].join(':');
-}
-
-function JsonLocator(filename) {
-    this.filename = path.relative(__dirname + '/../..', filename);
-    this.map = Object.create(null);
-
-    try {
-        var ast = parseJSON(fs.readFileSync(filename, 'utf-8'), {
-            source: this.filename
-        });
-    } catch (e) {
-        console.error(String(e));
-        process.exit(1);
-    }
-
-    if (ast && ast.type === 'Object') {
-        checkForDuplicateKeys(ast, filename);
-
-        for (var i = 0; i < ast.children.length; i++) {
-            var property = ast.children[i];
-
-            this.map[property.key.value] = {
-                loc: this.getLocation(property.key.loc.start),
-                value: property.value
-            };
-        }
-    }
-}
-
-JsonLocator.prototype.getLocation = function(loc) {
-    return getLocation(this.filename, loc);
 };
-
-JsonLocator.prototype.get = function(name, index) {
-    var loc;
-
-    if (hasOwnProperty.call(this.map, name) === false) {
-        throw new Error('Key `' + name + '` not found in ' + this.filename);
-    }
-
-    if (typeof index === 'number' && this.map[name].value.type === 'Array') {
-        if (index in this.map[name].value.children === false) {
-            throw new Error('Wrong index `' + index + '` for `' + name + '` in ' + this.filename);
-        }
-        loc = this.getLocation(this.map[name].value.children[index].loc.start);
-        name += ' #' + index;
-    } else {
-        loc = this.map[name].loc;
-    }
-
-    return loc + ' (' + name + ')';
-};
-
-module.exports = JsonLocator;

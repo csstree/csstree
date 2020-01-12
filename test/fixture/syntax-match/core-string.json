@@ -1,0 +1,25 @@
+{
+    "'[' <custom-ident> ']'": {
+        "valid": [
+            "[foo]",
+            "[ foo ]"
+        ],
+        "invalid": [
+            "foo",
+            "[]"
+        ]
+    },
+    "'progid:' <ident>": {
+        "valid": [
+            "progid:foo",
+            "progid: foo"
+        ],
+        "invalid": [
+            "progid:",
+            "progid :foo",
+            "progid : foo",
+            "prog id:foo",
+            "foo"
+        ]
+    }
+}
