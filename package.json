@@ -17,7 +17,9 @@
     "syntax",
     "validation"
   ],
-  "main": "./lib/index",
+  "main": "lib/index.js",
+  "unpkg": "dist/csstree.min.js",
+  "jsdelivr": "dist/csstree.min.js",
   "browser": {
     "./data": "./dist/default-syntax.json"
   },
