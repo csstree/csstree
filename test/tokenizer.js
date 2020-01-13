@@ -35,7 +35,7 @@ describe('parser/stream', () => {
         { type: 'Delim', chunk: '<', balance: 93 },
         { type: 'CDC', chunk: '-->', balance: 93 },
         { type: 'Delim', chunk: '\\', balance: 93 },
-        { type: 'WhiteSpace', chunk: '\n', balance: 93 },
+        { type: 'WhiteSpace', chunk: '\n', balance: 93 }
     ];
     const dump = tokens.map(({ type, chunk, balance }, idx) => ({
         idx,
