@@ -26,7 +26,8 @@ module.exports = {
     plugins: [
         resolve({ browser: true }),
         replaceContent({
-            'data/index.js': () => `module.exports = ${JSON.stringify(lexer.dump(), null, 4)};`
+            'data/index.js': () => `module.exports = ${JSON.stringify(lexer.dump(), null, 4)};`,
+            'package.json': id => `{ "version": "${require(id).version}" }`
         }),
         commonjs(),
         json(),

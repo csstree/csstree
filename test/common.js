@@ -28,6 +28,10 @@ describe('Common', function() {
         // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
     });
 
+    it('should expose version', () => {
+        assert.strictEqual(csstree.version, require('../package.json').version);
+    });
+
     it('utils.strigify()', function() {
         assert.equal(
             stringify(ast, true),

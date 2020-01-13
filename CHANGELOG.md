@@ -2,6 +2,7 @@
 
 - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - Removed `dist/default-syntax.json` from package
+- Exposed `version` of the lib
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 
