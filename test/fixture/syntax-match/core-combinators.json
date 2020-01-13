@@ -1,0 +1,173 @@
+{
+    "a b": {
+        "valid": [
+            "a b"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "b a",
+            "a b c"
+        ]
+    },
+    "a | b": {
+        "valid": [
+            "a",
+            "b"
+        ],
+        "invalid": [
+            "",
+            "x",
+            "a b",
+            "b a"
+        ]
+    },
+    "a || b": {
+        "valid": [
+            "a",
+            "b",
+            "a b",
+            "b a"
+        ],
+        "invalid": [
+            "",
+            "a x",
+            "b x",
+            "a b a"
+        ]
+    },
+    "a || b || c || d || e || f": {
+        "valid": [
+            "a",
+            "b",
+            "a b",
+            "b a",
+            "a b c d e f",
+            "f e d c b a",
+            "f d b a e c"
+        ],
+        "invalid": [
+            "",
+            "a x",
+            "a a a",
+            "a b a",
+            "a f f b",
+            "f a f a",
+            "f d b a e c x"
+        ]
+    },
+    "a && b": {
+        "valid": [
+            "a b",
+            "b a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "a x",
+            "b x",
+            "a b a"
+        ]
+    },
+    "a && b && c && d && e && f": {
+        "valid": [
+            "a b c d e f",
+            "f e d c b a",
+            "f d b a e c"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "a b d e f",
+            "f e d c b a x",
+            "a b c d e f a",
+            "a b c d a f"
+        ]
+    },
+    "[a || b] || c": {
+        "valid": [
+            "a",
+            "b",
+            "c",
+            "a b c",
+            "b a c",
+            "a b",
+            "b a",
+            "a c",
+            "b c",
+            "c a",
+            "c b",
+            "c a b",
+            "c b a"
+        ],
+        "invalid": [
+            "",
+            "c a c",
+            "a c a"
+        ]
+    },
+    "[a && b] || c": {
+        "valid": [
+            "a b c",
+            "b a c",
+            "a b",
+            "b a",
+            "c",
+            "c a b",
+            "c b a"
+        ],
+        "invalid": [
+            "",
+            "a c",
+            "b c",
+            "c a",
+            "c b",
+            "c a b b",
+            "c x"
+        ]
+    },
+    "[a b] | [b a]": {
+        "valid": [
+            "a b",
+            "b a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "a x"
+        ]
+    },
+    "[a] | [a && b]": {
+        "valid": [
+            "a",
+            "a b",
+            "b a"
+        ],
+        "invalid": [
+            "",
+            "a b c",
+            "a b a"
+        ]
+    },
+    "[a && b] | [a && b && c && d]": {
+        "valid": [
+            "a b",
+            "b a",
+            "a b c d",
+            "d c b a"
+        ],
+        "invalid": [
+            "",
+            "a b c",
+            "b c d",
+            "a",
+            "b",
+            "c",
+            "d"
+        ]
+    }
+}

@@ -200,6 +200,15 @@
             "block": null
         }
     },
+    "should turn empty prelude to null": {
+        "source": "@import;",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": null,
+            "block": null
+        }
+    },
     "error": [
         {
             "source": "@atrule!;",

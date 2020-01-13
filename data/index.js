@@ -1,19 +1,19 @@
-var mdnAtrules = require('mdn-data/css/at-rules.json');
-var mdnProperties = require('mdn-data/css/properties.json');
-var mdnSyntaxes = require('mdn-data/css/syntaxes.json');
-var patch = require('./patch.json');
+const mdnAtrules = require('mdn-data/css/at-rules.json');
+const mdnProperties = require('mdn-data/css/properties.json');
+const mdnSyntaxes = require('mdn-data/css/syntaxes.json');
+const patch = require('./patch.json');
 
 function preprocessAtrules(dict) {
-    var result = Object.create(null);
+    const result = Object.create(null);
 
-    for (var atruleName in dict) {
-        var atrule = dict[atruleName];
-        var descriptors = null;
+    for (const atruleName in dict) {
+        const atrule = dict[atruleName];
+        let descriptors = null;
 
         if (atrule.descriptors) {
             descriptors = Object.create(null);
 
-            for (var descriptor in atrule.descriptors) {
+            for (const descriptor in atrule.descriptors) {
                 descriptors[descriptor] = atrule.descriptors[descriptor].syntax;
             }
         }
@@ -31,12 +31,12 @@ function buildDictionary(dict, patchDict) {
     var result = {};
 
     // copy all syntaxes for an original dict
-    for (var key in dict) {
+    for (const key in dict) {
         result[key] = dict[key].syntax;
     }
 
     // apply a patch
-    for (var key in patchDict) {
+    for (const key in patchDict) {
         if (key in dict) {
             if (patchDict[key].syntax) {
                 result[key] = patchDict[key].syntax;

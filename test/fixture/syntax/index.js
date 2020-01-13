@@ -1,24 +1,24 @@
-var fs = require('fs');
-var path = require('path');
-var createLexer = require('../../../lib').createLexer;
-var defaultLexer = require('../../../lib').lexer;
-var JsonLocator = require('../../helpers/JsonLocator.js');
+const fs = require('fs');
+const path = require('path');
+const createLexer = require('../../../lib').createLexer;
+const defaultLexer = require('../../../lib').lexer;
+const JsonLocator = require('../../helpers/JsonLocator.js');
 
 function forEachTest(factory) {
-    for (var filename in testFiles) {
-        var file = testFiles[filename];
+    for (const filename in tests) {
+        const file = tests[filename];
 
-        for (var key in file) {
-            var test = file[key];
-            var syntax = test.syntax || (!test.property && !test.type ? key : undefined);
-            var lexer = test.lexer ? createLexer(test.lexer) : defaultLexer;
+        for (const key in file) {
+            const test = file[key];
+            const syntax = test.syntax || (!test.property && !test.type ? key : undefined);
+            const lexer = test.lexer ? createLexer(test.lexer) : defaultLexer;
 
-            for (var field in test) {
+            for (const field in test) {
                 if (field !== 'valid' && field !== 'invalid') {
                     continue;
                 }
 
-                test[field].forEach(function(value, idx) {
+                test[field].forEach((value, idx) => {
                     factory(
                         field,
                         test.test,
@@ -35,17 +35,17 @@ function forEachTest(factory) {
 }
 
 function forEachAtrulePreludeTest(factory) {
-    for (var atruleName in atruleTests) {
-        var testset = atruleTests[atruleName];
+    for (const atruleName in atruleTests) {
+        const testset = atruleTests[atruleName];
 
         if (testset.prelude) {
-            var test = testset.prelude;
-            for (var field in test) {
+            const test = testset.prelude;
+            for (const field in test) {
                 if (field !== 'valid' && field !== 'invalid') {
                     continue;
                 }
 
-                test[field].forEach(function(value, idx) {
+                test[field].forEach((value, idx) => {
                     factory(
                         field,
                         testset.test,
@@ -61,22 +61,22 @@ function forEachAtrulePreludeTest(factory) {
 }
 
 function forEachAtruleDescriptorTest(factory) {
-    for (var atruleName in atruleTests) {
-        var testset = atruleTests[atruleName];
+    for (const atruleName in atruleTests) {
+        const testset = atruleTests[atruleName];
 
         if (testset.descriptors) {
-            for (var descriptorName in testset.descriptors) {
-                var test = testset.descriptors[descriptorName];
-                for (var field in test) {
+            for (const descriptorName in testset.descriptors) {
+                const test = testset.descriptors[descriptorName];
+                for (const field in test) {
                     if (field !== 'valid' && field !== 'invalid') {
                         continue;
                     }
 
-                    test[field].forEach(function(value, idx) {
+                    test[field].forEach((value, idx) => {
                         factory(
                             field,
                             testset.test,
-                            testset.name + ' @' + atruleName + ' descriptor ' + descriptorName + ' ' + field + '#' + idx,
+                            `${testset.name} @${atruleName} descriptor ${descriptorName} ${field}#${idx}`,
                             defaultLexer,
                             atruleName,
                             descriptorName,
@@ -89,15 +89,15 @@ function forEachAtruleDescriptorTest(factory) {
     }
 }
 
-var testFiles = fs.readdirSync(__dirname).reduce(function(result, fn) {
+const tests = fs.readdirSync(__dirname).reduce(function(result, fn) {
     if (fn !== 'index.js' && fn !== 'atrules.json') {
-        var filename = path.join(__dirname, fn);
-        var tests = require(filename);
-        var locator = new JsonLocator(filename);
+        const filename = path.join(__dirname, fn);
+        const tests = require(filename);
+        const locator = new JsonLocator(filename);
 
-        Object.keys(tests).forEach(function(key) {
+        for (const key of Object.keys(tests)) {
             tests[key].name = locator.get(key);
-        });
+        }
 
         result[filename] = tests;
     }
@@ -105,22 +105,22 @@ var testFiles = fs.readdirSync(__dirname).reduce(function(result, fn) {
     return result;
 }, {});
 
-var atruleTests = (function() {
-    var filename = path.join(__dirname, 'atrules.json');
-    var tests = require(filename);
-    var locator = new JsonLocator(filename);
+const atruleTests = (() => {
+    const filename = path.join(__dirname, 'atrules.json');
+    const tests = require(filename);
+    const locator = new JsonLocator(filename);
 
-    Object.keys(tests).forEach(function(key) {
+    for (const key of Object.keys(tests)) {
         tests[key].name = locator.get(key);
-    });
+    }
 
     return tests;
-}());
+})();
 
 module.exports = {
     forEachTest,
     forEachAtrulePreludeTest,
     forEachAtruleDescriptorTest,
-    tests: testFiles,
+    tests,
     atruleTests
 };

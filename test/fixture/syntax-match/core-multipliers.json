@@ -1,0 +1,290 @@
+{
+    "a?": {
+        "valid": [
+            "",
+            "a"
+        ],
+        "invalid": [
+            "b",
+            "a a",
+            "a b"
+        ]
+    },
+    "a{0,1}": {
+        "notes": "equavalent to \"a?\"",
+        "valid": [
+            "",
+            "a"
+        ],
+        "invalid": [
+            "b",
+            "a a",
+            "a b"
+        ]
+    },
+    "a*": {
+        "valid": [
+            "",
+            "a",
+            "a a",
+            "a a a",
+            "a a a a a a"
+        ],
+        "invalid": [
+            "b",
+            "a b",
+            "a a a b"
+        ]
+    },
+    "a{0,}": {
+        "notes": "equavalent to \"a*\"",
+        "valid": [
+            "",
+            "a",
+            "a a",
+            "a a a",
+            "a a a a a a"
+        ],
+        "invalid": [
+            "b",
+            "a b",
+            "a a a b"
+        ]
+    },
+    "a+": {
+        "valid": [
+            "a",
+            "a a",
+            "a a a",
+            "a a a a a a"
+        ],
+        "invalid": [
+            "",
+            "b",
+            "a b",
+            "a a a b"
+        ]
+    },
+    "a{1,}": {
+        "notes": "equavalent to \"a+\"",
+        "valid": [
+            "a",
+            "a a",
+            "a a a",
+            "a a a a a a"
+        ],
+        "invalid": [
+            "",
+            "b",
+            "a b",
+            "a a a b"
+        ]
+    },
+    "a{0,3}": {
+        "valid": [
+            "",
+            "a",
+            "a a",
+            "a a a"
+        ],
+        "invalid": [
+            "b",
+            "a b",
+            "a a a b",
+            "a a a a a a"
+        ]
+    },
+    "a{1,3}": {
+        "valid": [
+            "a",
+            "a a",
+            "a a a"
+        ],
+        "invalid": [
+            "",
+            "b",
+            "a b",
+            "a a a b",
+            "a a a a a a"
+        ]
+    },
+    "a{2,4}": {
+        "valid": [
+            "a a",
+            "a a a",
+            "a a a a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "a b",
+            "a a a b",
+            "a a a a a a"
+        ]
+    },
+    "a{2}": {
+        "valid": [
+            "a a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "a b",
+            "a a a",
+            "a a b",
+            "a a a a a"
+        ]
+    },
+    "a{2,2}": {
+        "notes": "equavalent to \"a{2}\"",
+        "valid": [
+            "a a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "a b",
+            "a a a",
+            "a a b",
+            "a a a a a"
+        ]
+    },
+    "a{2,}": {
+        "valid": [
+            "a a",
+            "a a a",
+            "a a a a",
+            "a a a a a a a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "b",
+            "a b",
+            "a a a b"
+        ]
+    },
+    "a#": {
+        "valid": [
+            "a",
+            "a, a",
+            "a,a",
+            "a, a, a, a"
+        ],
+        "invalid": [
+            "",
+            "a a",
+            "a, , a",
+            "a, a a",
+            "a, b",
+            ", a",
+            ",a",
+            "a,",
+            "a, "
+        ]
+    },
+    "a#{2}": {
+        "valid": [
+            "a, a",
+            "a,a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a,",
+            ",a",
+            "a,a,",
+            ",a,a",
+            "a, a, a",
+            "a,a,a",
+            "a, a, a, a"
+        ]
+    },
+    "a#{2,2}": {
+        "notes": "equavalent to \"a#{2}\"",
+        "valid": [
+            "a, a",
+            "a,a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a,",
+            ",a",
+            "a,a,",
+            ",a,a",
+            "a, a, a",
+            "a,a,a",
+            "a, a, a, a"
+        ]
+    },
+    "a#{2,4}": {
+        "valid": [
+            "a, a",
+            "a, a, a",
+            "a, a, a, a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a,",
+            ",a",
+            "a,a,",
+            ",a,a",
+            "a, a, a, a,",
+            "a, a, a, a, a"
+        ]
+    },
+    "a#{2,}": {
+        "valid": [
+            "a, a",
+            "a, a, a",
+            "a, a, a, a, a, a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a a"
+        ]
+    },
+    "a#{1,4}, a": {
+        "valid": [
+            "a, a",
+            "a, a, a, a, a"
+        ],
+        "invalid": [
+            "",
+            "a",
+            "a, a, a, a, a, a"
+        ]
+    },
+    "a#{1,2}, b": {
+        "valid": [
+            "a, b",
+            "a, a, b"
+        ],
+        "invalid": [
+            "",
+            "a a, b",
+            "b"
+        ]
+    },
+    "[a? b? c?]!": {
+        "valid": [
+            "a",
+            "b",
+            "c",
+            "a b",
+            "a c",
+            "b c",
+            "a b c"
+        ],
+        "invalid": [
+            "",
+            "b a"
+        ]
+    }
+}

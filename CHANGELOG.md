@@ -1,3 +1,14 @@
+## next
+
+- Removed `List#each()` and `List#eachRight()` methods, `List#forEach()` and `List#forEachRight()` should be used instead
+- Changed `List` to be iterable (iterates data)
+- Changed `List#first`, `List#last` and `List#isEmpty` to getters
+- Changed `List#getSize()` method to `List#size` getters
+- Removed `Lexer#matchDeclaration()` method
+- Exposed parser's inner configuration as `parse.config`
+- Changed `TokenStream#getRawLength()` to take second parameter as a function (rule) that check a char code for stop scan
+- Added `consumeUntilBalanceEnd()`, `consumeUntilLeftCurlyBracket()`, `consumeUntilLeftCurlyBracketOrSemicolon()`, `consumeUntilExclamationMarkOrSemicolon()` and `consumeUntilSemicolonIncluded()` methods to parser to use with `Raw` instead of `Raw.mode`
+
 ## 1.0.0-alpha.39 (December 5, 2019)
 
 - Fixed walker with `visit: "Declaration"` to iterate `DeclarationList` (#114)

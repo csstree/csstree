@@ -9,6 +9,7 @@
     ],
     "invalid": [
         "url('abc')",
-        "url(\"abc\")"
+        "url(\"abc\")",
+        "url(ab\\\nc)"
     ]
 }

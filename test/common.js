@@ -1,26 +1,22 @@
-var fs = require('fs');
-var path = require('path');
-var assert = require('assert');
-var csstree = require('../lib');
-var parse = require('../lib').parse;
-var walk = require('../lib').walk;
-var stringify = require('./helpers/stringify.js');
-var fixtureFilename = '/fixture/stringify.css';
-var types = Object.keys(require('../lib/syntax/node')).sort().filter(function(type) {
-    return type !== 'DeclarationList'; // doesn't appear in StyleSheet
-});
+const fs = require('fs');
+const path = require('path');
+const assert = require('assert');
+const csstree = require('../lib');
+const fixtureFilename = '/fixture/stringify.css';
+const types = Object.keys(csstree.parse.config.node).sort()
+    .filter(type => type !== 'DeclarationList'); // DeclarationList doesn't appear in StyleSheet
 
 function normalize(str) {
     return str.replace(/\n|\r\n?|\f/g, '\n');
 }
 
-describe('Common', function() {
-    var css;
-    var ast;
+describe('Common', () => {
+    let css;
+    let ast;
 
-    before(function() {
+    before(() => {
         css = normalize(fs.readFileSync(__dirname + fixtureFilename, 'utf-8'));
-        ast = parse(css, {
+        ast = csstree.parse(css, {
             filename: path.basename(fixtureFilename),
             positions: true
         });
@@ -28,38 +24,36 @@ describe('Common', function() {
         // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
     });
 
-    it('utils.strigify()', function() {
+    it('utils.strigify()', () =>
         assert.equal(
-            stringify(ast, true),
+            JSON.stringify(ast, null, 4),
             normalize(fs.readFileSync(__dirname + '/fixture/stringify.ast', 'utf-8').trim())
-        );
-    });
+        )
+    );
 
-    it('test CSS should contain all node types', function() {
-        var foundTypes = Object.create(null);
+    it('test CSS should contain all node types', () => {
+        const foundTypes = new Set();
 
-        walk(ast, function(node) {
-            foundTypes[node.type] = true;
-        });
+        csstree.walk(ast, node => foundTypes.add(node.type));
 
         assert.deepEqual(
-            Object.keys(foundTypes).sort(),
+            [...foundTypes].sort(),
             types.sort()
         );
     });
 
-    describe('extension in base classes should not cause to exception', function() {
-        beforeEach(function() {
-            Object.prototype.objectExtraField = function() {};
-            Array.prototype.arrayExtraField = function() {};
+    describe('extension in base classes should not cause to exception', () => {
+        beforeEach(() => {
+            Object.prototype.objectExtraField = () => {};
+            Array.prototype.arrayExtraField = () => {};
         });
-        afterEach(function() {
+        afterEach(() => {
             delete Object.prototype.objectExtraField;
             delete Array.prototype.arrayExtraField;
         });
 
-        it('fork()', function() {
-            assert.doesNotThrow(function() {
+        it('fork()', () => {
+            assert.doesNotThrow(() => {
                 csstree.fork({
                     node: {
                         Test: {

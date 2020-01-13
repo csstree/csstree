@@ -9,6 +9,7 @@
         "'str\\?ing'",
         "'str\\31 23ing'",
         "'string",
+        "'string\\",
         "\"string\"",
         "\"str\\\"ing\"",
         "\"str\\\ning\"",
@@ -17,7 +18,8 @@
         "\"str\\\r\ning\"",
         "\"str\\?ing\"",
         "\"str\\31 23ing\"",
-        "\"string"
+        "\"string",
+        "\"string\\"
     ],
     "invalid": [
         "'str\ning'",

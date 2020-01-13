@@ -1,48 +1,37 @@
-var fs = require('fs');
-var path = require('path');
-var JsonLocator = require('../../helpers/JsonLocator.js');
-var merge = require('../../helpers').merge;
-var wrapper = {
-    stylesheet: function(ast) {
-        return {
-            type: 'StyleSheet',
-            children: [ast]
-        };
-    },
-    mediaQuery: function(ast) {
-        return {
-            type: 'MediaQuery',
-            children: [ast]
-        };
-    },
-    rule: function(ast) {
-        return {
-            type: 'Rule',
-            prelude: {
-                type: 'SelectorList',
-                children: []
-            },
-            block: ast
-        };
-    },
-    selector: function(ast) {
-        return {
-            type: 'Selector',
-            children: [ast]
-        };
-    },
-    value: function(ast) {
-        return {
-            type: 'Value',
-            children: [ast]
-        };
-    }
+const fs = require('fs');
+const path = require('path');
+const JsonLocator = require('../../helpers/JsonLocator.js');
+const wrapper = {
+    stylesheet: ast => ({
+        type: 'StyleSheet',
+        children: [ast]
+    }),
+    mediaQuery: ast => ({
+        type: 'MediaQuery',
+        children: [ast]
+    }),
+    rule: ast => ({
+        type: 'Rule',
+        prelude: {
+            type: 'SelectorList',
+            children: []
+        },
+        block: ast
+    }),
+    selector: ast => ({
+        type: 'Selector',
+        children: [ast]
+    }),
+    value: ast => ({
+        type: 'Value',
+        children: [ast]
+    })
 };
 
 function forEachTest(factory, errors) {
-    var testType = errors === true ? 'errors' : 'tests';
-    for (var filename in tests) {
-        var file = tests[filename];
+    const testType = errors === true ? 'errors' : 'tests';
+    for (const filename in tests) {
+        const file = tests[filename];
 
         Object.keys(file[testType]).forEach(function(key) {
             factory(file[testType][key].name, file[testType][key], file.scope);
@@ -50,25 +39,25 @@ function forEachTest(factory, errors) {
     };
 }
 
-var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
+const tests = fs.readdirSync(__dirname).reduce((result, scope) => {
     function scanDir(dir) {
         if (fs.statSync(dir).isDirectory()) {
-            fs.readdirSync(dir).forEach(function(fn) {
+            fs.readdirSync(dir).forEach(fn => {
                 function processTest(test, storeKey) {
                     if (test.error) {
                         if (typeof test.offset === 'string') {
-                            var offset = test.offset.indexOf('^');
-                            var lines = test.source.substr(0, offset).split(/\r|\r\n|\n|\f/g);
-                            var position = {
-                                offset: offset,
+                            const offset = test.offset.indexOf('^');
+                            const lines = test.source.substr(0, offset).split(/\r|\r\n|\n|\f/g);
+                            const position = {
+                                offset,
                                 line: lines.length,
                                 column: lines.pop().length + 1
                             };
 
                             test.position = position;
                         }
-                        test.options = merge(test.options, {
-                            onParseError: function(error) {
+                        Object.assign(test.options, {
+                            onParseError: error => {
                                 throw error;
                             }
                         });
@@ -86,39 +75,41 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
                     }
                 }
 
-                var filename = path.join(dir, fn);
+                const filename = path.join(dir, fn);
 
                 if (fs.statSync(filename).isDirectory()) {
                     return scanDir(filename);
                 }
 
-                var locator = new JsonLocator(filename);
-                var origTests = require(filename);
-                var tests = {};
-                var errors = {};
+                const locator = new JsonLocator(filename);
+                const origTests = require(filename);
+                const tests = {};
+                const errors = {};
 
                 Object.keys(origTests).forEach(function(key) {
                     if (Array.isArray(origTests[key])) {
                         origTests[key].forEach(function(test, idx) {
                             test.name = locator.get(key, idx);
-                            test.options = merge(test.options, {
+                            test.options = {
+                                ...test.options,
                                 context: scope
-                            });
+                            };
                             processTest(test, key + '#' + (idx + 1));
                         });
                     } else {
                         origTests[key].name = locator.get(key);
-                        origTests[key].options = merge(origTests[key].options, {
+                        origTests[key].options = {
+                            ...origTests[key].options,
                             context: scope
-                        });
+                        };
                         processTest(origTests[key], key);
                     }
                 });
 
                 result[filename] = {
-                    scope: scope,
-                    tests: tests,
-                    errors: errors
+                    scope,
+                    tests,
+                    errors
                 };
             });
         }
@@ -130,6 +121,6 @@ var tests = fs.readdirSync(__dirname).reduce(function(result, scope) {
 }, {});
 
 module.exports = {
-    forEachTest: forEachTest,
-    tests: tests
+    forEachTest,
+    tests
 };

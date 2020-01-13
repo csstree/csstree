@@ -1,28 +1,21 @@
-var assert = require('assert');
-var csstree = require('../lib');
-var parse = csstree.parse;
-var generate = csstree.generate;
-var fromPlainObject = csstree.fromPlainObject;
-var toPlainObject = csstree.toPlainObject;
-var css = '.test{a:123}';
+const assert = require('assert');
+const { parse, generate, fromPlainObject, toPlainObject } = require('../lib');
+const css = '.test{a:123}';
 
-describe('convert', function() {
-    it('fromPlainObject', function() {
-        var ast = parse(css);
-        var plainObject = JSON.parse(JSON.stringify(ast));
+describe('convert', () => {
+    it('fromPlainObject', () => {
+        const ast = parse(css);
+        const plainObject = JSON.parse(JSON.stringify(ast));
+        const actual = generate(fromPlainObject(plainObject));
 
-        assert.equal(
-            generate(fromPlainObject(plainObject)),
-            css
-        );
+        assert.equal(actual, css);
     });
 
-    it('toPlainObject', function() {
-        var ast = parse(css);
+    it('toPlainObject', () => {
+        const ast = parse(css);
+        const expected = JSON.parse(JSON.stringify(ast));
+        const actual = toPlainObject(ast);
 
-        assert.deepEqual(
-            toPlainObject(ast),
-            JSON.parse(JSON.stringify(ast))
-        );
+        assert.deepEqual(actual, expected);
     });
 });

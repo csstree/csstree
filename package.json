@@ -28,9 +28,9 @@
     "update:docs": "node scripts/update-docs",
     "gen:syntax": "node scripts/gen-syntax-data",
     "review:syntax-patch": "node scripts/review-syntax-patch",
-    "test": "mocha --reporter progress",
+    "test": "mocha --reporter ${REPORTER:-progress}",
     "coverage": "nyc npm test",
-    "travis": "nyc npm run lint-and-test && npm run coveralls",
+    "travis": "npm run lint && nyc npm run test && npm run coveralls",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "prepublishOnly": "npm run build",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
@@ -49,7 +49,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "terser": "^4.3.4"
+    "terser": "^4.6.2"
   },
   "engines": {
     "node": ">=8.0.0"

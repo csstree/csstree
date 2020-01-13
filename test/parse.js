@@ -1,139 +1,106 @@
-var assert = require('assert');
-var syntax = require('../lib');
-var parse = require('../lib').parse;
-var TYPE = require('../lib').tokenize.TYPE;
-var toPlainObject = require('../lib').toPlainObject;
-var walk = require('../lib').walk;
-var lexer = require('../lib').lexer;
-var List = require('../lib').List;
-var forEachParseTest = require('./fixture/parse').forEachTest;
-var genericTypesFixture = require('./fixture/syntax-match/generic.json');
-var stringify = require('./helpers/stringify');
-var merge = require('./helpers').merge;
-
-var DollarSign = 0x0024; // U+0024 DOLLAR SIGN ($)
-var Ampersand = 0x0026;  // U+0026 ANPERSAND (&)
-
-function repeat(str, count) {
-    return new Array(count + 1).join(str);
-}
-
-function checkStructure(ast) {
-    var warnings = lexer.checkStructure(ast);
-
-    if (Array.isArray(warnings)) {
-        warnings = warnings.map(function(entry) {
-            return entry.message;
-        });
-    }
-
-    return warnings;
-}
+const assert = require('assert');
+const { parse, walk, List } = require('../lib');
+const forEachParseTest = require('./fixture/parse').forEachTest;
+const genericTypesFixture = require('./fixture/syntax-match/generic.json');
+const stringifyWithNoInfo = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 
 function createParseErrorTest(name, test, options) {
-    (test.skip ? it.skip : it)(name + ' ' + JSON.stringify(test.source), function() {
-        var error;
+    (test.skip ? it.skip : it)(`${name} ${JSON.stringify(test.source)}`, () => {
+        let error;
 
-        assert.throws(function() {
-            parse(test.source, options);
-        }, function(e) {
-            error = e;
-            if (e.parseError) {
-                return true;
-            }
-        }, 'Should be a CSS parse error');
+        assert.throws(
+            () => parse(test.source, options),
+            (e) => {
+                error = e;
+                if (e.parseError) {
+                    return true;
+                }
+            },
+            'Should be a CSS parse error'
+        );
 
         assert.equal(error.message, test.error);
         assert.deepEqual(error.parseError, test.position);
     });
 }
 
-describe('parse', function() {
-    describe('basic', function() {
-        forEachParseTest(function createParseTest(name, test) {
-            (test.skip ? it.skip : it)(name, function() {
-                var ast = parse(test.source, test.options);
+describe('parse', () => {
+    describe('basic', () => {
+        forEachParseTest((name, test) => {
+            (test.skip ? it.skip : it)(name, () => {
+                const ast = parse(test.source, test.options);
 
                 // AST should be equal
-                assert.equal(stringify(ast), stringify(test.ast));
-
-                // structure should be correct
-                assert.equal(checkStructure(ast), false);
+                assert.equal(stringifyWithNoInfo(ast), stringifyWithNoInfo(test.ast));
             });
         });
 
-        describe('AnPlusB', function() {
-            var fixture = genericTypesFixture['<an-plus-b>'];
+        describe('AnPlusB', () => {
+            const fixture = genericTypesFixture['<an-plus-b>'];
 
-            fixture.valid.forEach(function(value) {
-                it(value, function() {
-                    var actual = parse(':nth-child(' + value + ')', { context: 'selector' }).children.first().children.first().nth;
-                    var a = value.match(/^([+-]?)(\d+)?n/i);
-                    var b = value.match(/([+-]?)\s*(\d+)$/);
-                    var expected = {
+            fixture.valid.forEach(value => {
+                it(value, () => {
+                    const actual = parse(':nth-child(' + value + ')', { context: 'selector' }).children.first.children.first.nth;
+                    const a = value.match(/^([+-]?)(\d+)?n/i);
+                    const b = value.match(/([+-]?)\s*(\d+)$/);
+                    const expected = {
                         type: 'AnPlusB',
                         a: a ? (a[1] === '-' ? '-' : '') + (a[2] || '1') : null,
                         b: b ? (b[1] === '-' ? '-' : '') + b[2] : null
                     };
 
                     // AST should be equal
-                    assert.equal(stringify(actual), stringify(expected));
-
-                    // structure should be correct
-                    assert.equal(checkStructure(actual), false);
+                    assert.equal(stringifyWithNoInfo(actual), stringifyWithNoInfo(expected));
                 });
             });
 
-            fixture.invalid.forEach(function(value) {
-                it(value, function() {
-                    assert.throws(function() {
-                        parse(':nth-child(' + value + ')', { context: 'selector' });
-                    });
-                });
-            });
+            fixture.invalid.forEach(value =>
+                it(value, () =>
+                    assert.throws(
+                        () => parse(':nth-child(' + value + ')', { context: 'selector' })
+                    )
+                )
+            );
         });
 
-        describe('UnicodeRange', function() {
-            var fixture = genericTypesFixture['<urange>'];
+        describe('UnicodeRange', () => {
+            const fixture = genericTypesFixture['<urange>'];
 
-            fixture.valid.forEach(function(value) {
-                it(value, function() {
-                    var actual = parse(value, { context: 'value' }).children.first();
-                    var expected = {
+            fixture.valid.forEach(value => {
+                it(value, () => {
+                    const actual = parse(value, { context: 'value' }).children.first;
+                    const expected = {
                         type: 'UnicodeRange',
-                        value: value
+                        value
                     };
 
                     // AST should be equal
-                    assert.equal(stringify(actual), stringify(expected));
-
-                    // structure should be correct
-                    assert.equal(checkStructure(actual), false);
+                    assert.equal(stringifyWithNoInfo(actual), stringifyWithNoInfo(expected));
                 });
             });
 
-            fixture.invalid.forEach(function(value) {
-                it(value, function() {
-                    assert.throws(function() {
-                        var actual = parse(value, { context: 'value' });
-                        var expected = {
+            fixture.invalid.forEach(value => {
+                it(value, () => {
+                    assert.throws(() => {
+                        const actual = parse(value, { context: 'value' });
+                        const expected = {
                             type: 'Value',
                             children: [{
                                 type: 'Raw',
-                                value: value
+                                value
                             }]
                         };
 
                         // AST should not be equal
-                        assert.equal(stringify(actual), stringify(expected));
+                        assert.equal(stringifyWithNoInfo(actual), stringifyWithNoInfo(expected));
                     });
                 });
             });
         });
     });
 
-    describe('context', function() {
-        it('should take parse context', function() {
+    describe('context', () => {
+        it('should take parse context', () => {
             assert.deepEqual(parse('property: value'), {
                 type: 'StyleSheet',
                 loc: null,
@@ -163,117 +130,117 @@ describe('parse', function() {
             });
         });
 
-        it('wrong context', function() {
-            assert.throws(function() {
+        it('wrong context', () => {
+            assert.throws(() => {
                 parse('a{}', { context: 'unknown' });
             }, /Unknown context `unknown`/);
         });
     });
 
-    it('should call onParseError when handler is passed', function() {
-        var errors = [];
-        var ast = parse('{ a: 1!; foo; b: 2 }', {
+    it('should call onParseError when handler is passed', () => {
+        const errors = [];
+        const ast = parse('{ a: 1!; foo; b: 2 }', {
             context: 'block',
-            onParseError: function(error, fallbackNode) {
-                errors.push({
-                    error: error,
-                    fallback: fallbackNode
-                });
-            }
+            onParseError: (error, fallbackNode) => errors.push({ error, fallbackNode })
         });
 
-        assert.equal(ast.children.getSize(), 3);
+        assert.equal(ast.children.size, 3);
         assert.equal(errors.length, 2);
         assert.equal(errors[0].error.message, 'Identifier is expected');
-        assert.equal(errors[0].fallback.value, 'a: 1!;');
+        assert.equal(errors[0].fallbackNode.value, 'a: 1!;');
         assert.equal(errors[1].error.message, 'Colon is expected');
-        assert.equal(errors[1].fallback.value, 'foo;');
+        assert.equal(errors[1].fallbackNode.value, 'foo;');
     });
 
-    describe('errors', function() {
-        var throwOnParseErrorOptions = {
-            onParseError: function(e) {
+    describe('errors', () => {
+        const throwOnParseErrorOptions = {
+            onParseError: e => {
                 throw e;
             }
         };
 
-        forEachParseTest(function(name, test) {
-            createParseErrorTest(name, test, merge(test.options, {
+        forEachParseTest((name, test) => {
+            createParseErrorTest(name, test, {
+                ...test.options,
                 positions: false
-            }));
-            createParseErrorTest(name + ' (with positions)', test, merge(test.options, {
+            });
+            createParseErrorTest(name + ' (with positions)', test, {
+                ...test.options,
                 positions: true
-            }));
+            });
         }, true);
 
-        it('formattedMessage', function() {
-            assert.throws(function() {
-                parse('/**/\n.\nfoo', throwOnParseErrorOptions);
-            }, function(e) {
-                assert.equal(e.formattedMessage,
-                    'Parse error: Identifier is expected\n' +
-                    '    1 |/**/\n' +
-                    '    2 |.\n' +
-                    '--------^\n' +
-                    '    3 |foo'
-                );
-                assert.equal(e.sourceFragment(),
-                    '    2 |.\n' +
-                    '--------^'
-                );
-                assert.equal(e.sourceFragment(3),
-                    '    1 |/**/\n' +
-                    '    2 |.\n' +
-                    '--------^\n' +
-                    '    3 |foo'
-                );
+        it('formattedMessage', () => {
+            assert.throws(
+                () => parse('/**/\n.\nfoo', throwOnParseErrorOptions),
+                (e) => {
+                    assert.equal(e.formattedMessage,
+                        'Parse error: Identifier is expected\n' +
+                        '    1 |/**/\n' +
+                        '    2 |.\n' +
+                        '--------^\n' +
+                        '    3 |foo'
+                    );
+                    assert.equal(e.sourceFragment(),
+                        '    2 |.\n' +
+                        '--------^'
+                    );
+                    assert.equal(e.sourceFragment(3),
+                        '    1 |/**/\n' +
+                        '    2 |.\n' +
+                        '--------^\n' +
+                        '    3 |foo'
+                    );
 
-                return true;
-            });
+                    return true;
+                }
+            );
         });
 
-        it('formattedMessage at eof', function() {
-            assert.throws(function() {
-                parse('.', throwOnParseErrorOptions);
-            }, function(e) {
-                assert.equal(e.formattedMessage,
-                    'Parse error: Identifier is expected\n' +
-                    '    1 |.\n' +
-                    '--------^'
-                );
+        it('formattedMessage at eof', () => {
+            assert.throws(
+                () => parse('.', throwOnParseErrorOptions),
+                (e) => {
+                    assert.equal(e.formattedMessage,
+                        'Parse error: Identifier is expected\n' +
+                        '    1 |.\n' +
+                        '--------^'
+                    );
 
-                return true;
-            });
+                    return true;
+                }
+            );
         });
 
-        it('formattedMessage (windows new lines)', function() {
-            assert.throws(function() {
-                parse('/**/\r\n.\r\nfoo', throwOnParseErrorOptions);
-            }, function(e) {
-                assert.equal(e.formattedMessage,
-                    'Parse error: Identifier is expected\n' +
-                    '    1 |/**/\n' +
-                    '    2 |.\n' +
-                    '--------^\n' +
-                    '    3 |foo'
-                );
-                assert.equal(e.sourceFragment(),
-                    '    2 |.\n' +
-                    '--------^'
-                );
-                assert.equal(e.sourceFragment(3),
-                    '    1 |/**/\n' +
-                    '    2 |.\n' +
-                    '--------^\n' +
-                    '    3 |foo'
-                );
+        it('formattedMessage (windows new lines)', () => {
+            assert.throws(
+                () => parse('/**/\r\n.\r\nfoo', throwOnParseErrorOptions),
+                (e) => {
+                    assert.equal(e.formattedMessage,
+                        'Parse error: Identifier is expected\n' +
+                        '    1 |/**/\n' +
+                        '    2 |.\n' +
+                        '--------^\n' +
+                        '    3 |foo'
+                    );
+                    assert.equal(e.sourceFragment(),
+                        '    2 |.\n' +
+                        '--------^'
+                    );
+                    assert.equal(e.sourceFragment(3),
+                        '    1 |/**/\n' +
+                        '    2 |.\n' +
+                        '--------^\n' +
+                        '    3 |foo'
+                    );
 
-                return true;
-            });
+                    return true;
+                }
+            );
         });
 
-        it('formattedMessage with tabs', function() {
-            assert.throws(function() {
+        it('formattedMessage with tabs', () => {
+            assert.throws(() => {
                 parse('a {\n\tb:\tc#\t\n}', throwOnParseErrorOptions);
             }, function(e) {
                 assert.equal(e.formattedMessage,
@@ -288,38 +255,39 @@ describe('parse', function() {
             });
         });
 
-        it('formattedMessage for source with long lines', function() {
-            assert.throws(function() {
-                parse(
-                    '/*' + repeat('1234567890', 20) + '*/\n' +
-                    repeat(' ', 117) + '.\n' +
+        it('formattedMessage for source with long lines', () => {
+            assert.throws(
+                () => parse(
+                    '/*' + '1234567890'.repeat(20) + '*/\n' +
+                    ' '.repeat(117) + '.\n' +
                     'foo\n' +
-                    repeat(' ', 120) + 'bar',
+                    ' '.repeat(120) + 'bar',
                     throwOnParseErrorOptions
-                );
-            }, function(e) {
-                assert.equal(e.formattedMessage,
-                    'Parse error: Identifier is expected\n' +
-                    '    1 |…12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678…\n' +
-                    '    2 |…                                                       .\n' +
-                    '----------------------------------------------------------------^\n' +
-                    '    3 |\n' +
-                    '    4 |…                                                          bar'
-                );
+                ),
+                (e) => {
+                    assert.equal(e.formattedMessage,
+                        'Parse error: Identifier is expected\n' +
+                        '    1 |…12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678…\n' +
+                        '    2 |…                                                       .\n' +
+                        '----------------------------------------------------------------^\n' +
+                        '    3 |\n' +
+                        '    4 |…                                                          bar'
+                    );
 
-                return true;
-            });
+                    return true;
+                }
+            );
         });
     });
 
-    describe('positions', function() {
-        it('should start with line 1 column 1 by default', function() {
-            var ast = parse('.foo.bar {\n  property: value 123 123.4 .123 123px 99% #fff url( a ) / var( --a ), "test" \'test\';\n}', {
+    describe('positions', () => {
+        it('should start with line 1 column 1 by default', () => {
+            const positions = [];
+            const ast = parse('.foo.bar {\n  property: value 123 123.4 .123 123px 99% #fff url( a ) / var( --a ), "test" \'test\';\n}', {
                 positions: true
             });
-            var positions = [];
 
-            walk(ast, function(node) {
+            walk(ast, node => {
                 if (node.loc) {
                     positions.push([
                         node.loc.start.offset,
@@ -330,7 +298,6 @@ describe('parse', function() {
                 }
             });
 
-            assert.equal(checkStructure(ast), false);
             assert.deepEqual(positions, [
                 [0, 1, 1, 'StyleSheet'],
                 [0, 1, 1, 'Rule'],
@@ -359,16 +326,16 @@ describe('parse', function() {
             ]);
         });
 
-        it('should start with specified offset, line and column', function() {
-            var ast = parse('.foo.bar {\n  property: value 123 123.4 .123 123px 99% #fff url( a ) / var( --a ), "test" \'test\';\n}', {
+        it('should start with specified offset, line and column', () => {
+            const positions = [];
+            const ast = parse('.foo.bar {\n  property: value 123 123.4 .123 123px 99% #fff url( a ) / var( --a ), "test" \'test\';\n}', {
                 positions: true,
                 offset: 100,
                 line: 3,
                 column: 5
             });
-            var positions = [];
 
-            walk(ast, function(node) {
+            walk(ast, node => {
                 if (node.loc) {
                     positions.push([
                         node.loc.start.offset,
@@ -379,7 +346,6 @@ describe('parse', function() {
                 }
             });
 
-            assert.equal(checkStructure(ast), false);
             assert.deepEqual(positions, [
                 [100, 3, 5, 'StyleSheet'],
                 [100, 3, 5, 'Rule'],
@@ -406,130 +372,6 @@ describe('parse', function() {
                 [182, 4, 72, 'String'],
                 [189, 4, 79, 'String']
             ]);
-        });
-    });
-
-    describe('extension', function() {
-        describe('value', function() {
-            var extended = syntax.fork(function(syntaxConfig) {
-                var defaultGetNode = syntaxConfig.scope.Value.getNode;
-
-                syntaxConfig.scope.Value.getNode = function(context) {
-                    if (this.scanner.isDelim(DollarSign)) {
-                        var start = this.scanner.tokenStart;
-                        this.scanner.next();
-
-                        return {
-                            type: 'Variable',
-                            loc: this.getLocation(start, this.scanner.tokenEnd),
-                            name: this.consume(TYPE.Ident)
-                        };
-                    }
-
-                    return defaultGetNode.call(this, context);
-                };
-
-                return syntaxConfig;
-            });
-
-            it('should not affect base syntax', function() {
-                assert.throws(function() {
-                    parse('$a', {
-                        context: 'value'
-                    });
-                }, /Unexpected input/);
-            });
-
-            it('should parse according new rules', function() {
-                var ast = extended.parse('$a', {
-                    context: 'value'
-                });
-
-                assert.deepEqual(toPlainObject(ast), {
-                    type: 'Value',
-                    loc: null,
-                    children: [
-                        {
-                            type: 'Variable',
-                            loc: null,
-                            name: 'a'
-                        }
-                    ]
-                });
-            });
-
-            it('should fail on unknown', function() {
-                assert.throws(function() {
-                    extended.parse('@a', {
-                        context: 'value'
-                    });
-                }, /Unexpected input/);
-            });
-        });
-
-        describe('selector', function() {
-            var extended = syntax.fork(function(syntaxConfig) {
-                var defaultGetNode = syntaxConfig.scope.Selector.getNode;
-
-                syntaxConfig.scope.Selector.getNode = function(context) {
-                    if (this.scanner.isDelim(Ampersand)) {
-                        var start = this.scanner.tokenStart;
-                        this.scanner.next();
-
-                        return {
-                            type: 'Nested',
-                            loc: this.getLocation(start, this.scanner.tokenEnd)
-                        };
-                    }
-
-                    return defaultGetNode.call(this, context);
-                };
-
-                return syntaxConfig;
-            });
-
-            it('should not affect base syntax', function() {
-                assert.throws(function() {
-                    parse('a &', {
-                        context: 'selector'
-                    });
-                }, /Unexpected input/);
-            });
-
-            it('should parse according new rules', function() {
-                var ast = extended.parse('a &', {
-                    context: 'selector'
-                });
-
-                assert.deepEqual(toPlainObject(ast), {
-                    type: 'Selector',
-                    loc: null,
-                    children: [
-                        {
-                            type: 'TypeSelector',
-                            loc: null,
-                            name: 'a'
-                        },
-                        {
-                            type: 'WhiteSpace',
-                            loc: null,
-                            value: ' '
-                        },
-                        {
-                            type: 'Nested',
-                            loc: null
-                        }
-                    ]
-                });
-            });
-
-            it('should fail on unknown', function() {
-                assert.throws(function() {
-                    extended.parse('@a', {
-                        context: 'selector'
-                    });
-                }, /Selector is expected/);
-            });
         });
     });
 });
