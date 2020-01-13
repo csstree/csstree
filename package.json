@@ -17,16 +17,14 @@
     "syntax",
     "validation"
   ],
-  "main": "./lib/index",
-  "browser": {
-    "./data": "./dist/default-syntax.json"
-  },
+  "main": "lib/index.js",
+  "unpkg": "dist/csstree.min.js",
+  "jsdelivr": "dist/csstree.min.js",
   "scripts": {
-    "build": "npm run gen:syntax && rollup --config",
+    "build": "rollup --config",
     "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
-    "gen:syntax": "node scripts/gen-syntax-data",
     "review:syntax-patch": "node scripts/review-syntax-patch",
     "test": "mocha --reporter progress",
     "coverage": "nyc npm test",
