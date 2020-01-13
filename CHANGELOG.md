@@ -1,3 +1,7 @@
+## next
+
+- Fixed `Lexer#dump()` to dump atrules syntaxes as well
+
 ## 1.0.0-alpha.39 (December 5, 2019)
 
 - Fixed walker with `visit: "Declaration"` to iterate `DeclarationList` (#114)
