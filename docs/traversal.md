@@ -5,8 +5,8 @@
 AST traversal API is provided by `walk()` method.
 
 ```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; }');
+const csstree = require('css-tree');
+const ast = csstree.parse('.a { color: red; }');
 
 csstree.walk(ast, function(node) {
     console.log(node.type);
@@ -54,11 +54,11 @@ Default: `undefined`
 Handler on node entrance, i.e. before any nested node is processed.
 
 ```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; }');
+const csstree = require('css-tree');
+const ast = csstree.parse('.a { color: red; }');
 
 csstree.walk(ast, {
-    enter: function(node) {
+    enter(node) {
         console.log(node.type);
     }
 });
@@ -152,11 +152,11 @@ Default: `undefined`
 The same as `enter` handler but invokes on node exit, i.e. after all nested nodes are processed.
 
 ```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; }');
+const csstree = require('css-tree');
+const ast = csstree.parse('.a { color: red; }');
 
 csstree.walk(ast, {
-    leave: function(node) {
+    leave(node) {
         console.log(node.type);
     }
 });
@@ -179,19 +179,19 @@ Default: `null`
 Invokes a handler for a specified node type only.
 
 ```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+const csstree = require('css-tree');
+const ast = csstree.parse('.a { color: red; } .b { color: green; }');
 
 csstree.walk(ast, {
     visit: 'ClassSelector',
-    enter: function(node) {
+    enter(node) {
         console.log(node.name);
     }
 });
 
-// example above is equal to
+// example above is equivalent to
 csstree.walk(ast, {
-    enter: function(node) {
+    enter(node) {
         if (node.type === 'ClassSelector') {
             console.log(node.name);
         }
@@ -218,32 +218,32 @@ Inverts a natural order of traversal of nodes. To achieve this, the following ac
 - `enter` and `leave` handlers are swapped
 
 ```js
-var assert = require('assert');
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; }');
+const assert = require('assert');
+const csstree = require('css-tree');
+const ast = csstree.parse('.a { color: red; }');
 
-var natural = [];
+const natural = [];
 csstree.walk(ast, {
-    enter: function(node) {
-        natural.push('enter ' + node.type);
+    enter(node) {
+        natural.push(`enter ${node.type}`);
     },
-    leave: function(node) {
-        natural.push('leave ' + node.type);
+    leave(node) {
+        natural.push(`leave ${node.type}`);
     }
 });
 
-var reverse = [];
+const reverse = [];
 csstree.walk(ast, {
-    reverse: true,
-    enter: function(node) {
-        reverse.push('enter ' + node.type);
+    reverse: true,    // !!!
+    enter(node) {
+        reverse.push(`enter ${node.type}`);
     },
-    leave: function(node) {
-        reverse.push('leave ' + node.type);
+    leave(node) {
+        reverse.push(`leave ${node.type}`);
     }
 });
 
-// will be truthy
+// will pass assert
 assert.deepEqual(
     reverse,
     natural.reverse()

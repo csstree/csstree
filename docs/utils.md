@@ -15,7 +15,7 @@
 Returns details for a property name, such as vendor prefix, used hack etc. Using for safe test of declaration property names, i.e. `Declaration.property`.
 
 ```js
-var csstree = require('css-tree');
+const csstree = require('css-tree');
 
 csstree.property('*-vendor-property');
 // {
@@ -45,7 +45,7 @@ csstree.property('name') === csstree.property('NAME')         // true
 csstree.property('NAME').name === 'name'                      // true
 csstree.property('--custom') === csstree.property('--Custom') // false
 
-var info = csstree.property('NAME');
+const info = csstree.property('NAME');
 info.name === 'name'; // 
 info.name = 'foo';    // have no effect
 info.name === 'name'; // true
@@ -66,7 +66,7 @@ Supported hacks:
 Mostly the same as `property()` function, but without hack detection. Using for any identifier except declaration property name.
 
 ```js
-var csstree = require('css-tree');
+const csstree = require('css-tree');
 
 csstree.keyword('-vendor-keyword');
 // {
@@ -83,8 +83,8 @@ csstree.keyword('-vendor-keyword');
 Make AST deep copy.
 
 ```js
-var orig = csstree.parse('.test { color: red }');
-var copy = csstree.clone(orig);
+const orig = csstree.parse('.test { color: red }');
+const copy = csstree.clone(orig);
 
 csstree.walk(copy, function(node) {
     if (node.type === 'ClassSelector') {
@@ -103,8 +103,8 @@ console.log(csstree.generate(copy));
 `fromPlainObject()` walks through AST and coverts each `children` value into a `List` instance when value is an array.
 
 ```js
-var csstree = require('css-tree');
-var ast = {
+const csstree = require('css-tree');
+const ast = {
     type: 'SelectorList',
     children: []
 };
@@ -129,8 +129,8 @@ astClone = csstree.fromPlainObject(csstree.clone(ast));
 `fromPlainObject()` walks through AST and coverts each `children` value to regular array when value is a `List` instance.
 
 ```js
-var csstree = require('css-tree');
-var ast = {
+const csstree = require('css-tree');
+const ast = {
     type: 'SelectorList',
     children: new List()
 };

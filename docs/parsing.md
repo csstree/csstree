@@ -8,10 +8,10 @@ Parses CSS into AST.
 
 ```js
 // simple parsing with no options
-var ast = csstree.parse('.example { color: red }');
+const ast = csstree.parse('.example { color: red }');
 
 // parse with options
-var ast = csstree.parse('.foo.bar', {
+const ast = csstree.parse('.foo.bar', {
     context: 'selector',
     positions: true
 });
@@ -97,7 +97,7 @@ Parsing is tolerant by default, i.e. any text may to be parsed with no an raised
 
 ```js
 csstree.parse('example { foo; bar: 1! }', {
-    onParseError: function(error) {
+    onParseError(error) {
         console.log(error.formattedMessage);
     }
 });
@@ -159,7 +159,9 @@ csstree.parse('@example 1 2;');
 //     "block": null
 // }
 
-csstree.parse('@example 1 2;', { parseAtrulePrelude: false });
+csstree.parse('@example 1 2;', {
+    parseAtrulePrelude: false
+});
 // {
 //     "type": "Atrule",
 //     "prelude": {
@@ -198,7 +200,9 @@ csstree.parse('.foo {}');
 //     }
 // }
 
-csstree.parse('.foo {}', { parseRulePrelude: false });
+csstree.parse('.foo {}', {
+    parseRulePrelude: false
+});
 // {
 //     "type": "Rule",
 //     "prelude": {
@@ -220,7 +224,9 @@ Default: `true`
 Defines to parse a declaration value in details (represents as `Value`). Otherwise represents value as `Raw` node.
 
 ```js
-csstree.parse('color: #aabbcc', { context: 'declaration' });
+csstree.parse('color: #aabbcc', {
+    context: 'declaration'
+});
 // {
 //     "type": "Declaration",
 //     "important": false,
@@ -236,7 +242,10 @@ csstree.parse('color: #aabbcc', { context: 'declaration' });
 //     }
 // }
 
-csstree.parse('color: #aabbcc', { context: 'declaration', parseValue: false });
+csstree.parse('color: #aabbcc', {
+    context: 'declaration',
+    parseValue: false
+});
 // {
 //     "type": "Declaration",
 //     "important": false,
@@ -256,7 +265,9 @@ Default: `false`
 Defines to parse a custom property value and a `var()` fallback in details (represents as `Value`). Otherwise represents value as `Raw` node.
 
 ```js
-csstree.parse('--custom: #aabbcc', { context: 'declaration' });
+csstree.parse('--custom: #aabbcc', {
+    context: 'declaration'
+});
 // {
 //     "type": "Declaration",
 //     "important": false,
@@ -267,7 +278,10 @@ csstree.parse('--custom: #aabbcc', { context: 'declaration' });
 //     }
 // }
 
-csstree.parse('--custom: #aabbcc', { context: 'declaration', parseCustomProperty: true });
+csstree.parse('--custom: #aabbcc', {
+    context: 'declaration',
+    parseCustomProperty: true
+});
 // {
 //     "type": "Declaration",
 //     "important": false,

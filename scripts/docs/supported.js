@@ -1,11 +1,9 @@
-var csstree = require('../../lib');
-var setup;
+const csstree = require('../../lib');
+let setup;
 
-csstree.fork(function(setup_) {
-    return setup = setup_;
-});
+csstree.fork(setup_ => setup = setup_);
 
-var nameDecorator = {
+const nameDecorator = {
     atrule: function(name) {
         return '@' + name;
     },
@@ -24,7 +22,7 @@ function decorateName(type, name) {
 
 module.exports = function(content) {
     return content.replace(/(<!-- gen:(\S+) -->)(?:.|\s)*?(<!-- \/gen:\2 -->)/g, function(m, pre, type, post) {
-        var items = Object.keys(setup[type] || {}).sort().map(function(name) {
+        const items = Object.keys(setup[type] || {}).sort().map(function(name) {
             return '- `' + decorateName(type, name) + '`';
         });
 

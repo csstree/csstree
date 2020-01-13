@@ -1,18 +1,18 @@
-var path = require('path');
-var fs = require('fs');
-var checkUpdatesNeeded = process.argv[2] === '--lint';
+const path = require('path');
+const fs = require('fs');
+const checkUpdatesNeeded = process.argv[2] === '--lint';
 
 fs.readdirSync(path.resolve(__dirname, 'docs')).forEach(function(filename) {
-    var name = path.basename(filename);
-    var docsFilename = path.resolve(__dirname, '../docs', name.replace(/\.js$/, '.md'));
-    var updateFn = require('./docs/' + filename);
+    const name = path.basename(filename);
+    const docsFilename = path.resolve(__dirname, '../docs', name.replace(/\.js$/, '.md'));
+    const updateFn = require('./docs/' + filename);
 
     if (!checkUpdatesNeeded) {
         console.log('Synchronizing ' + docsFilename);
     }
 
-    var currentContent = fs.readFileSync(docsFilename, 'utf8').replace(/\r\n/g, '\n');
-    var newContent = updateFn(currentContent);
+    const currentContent = fs.readFileSync(docsFilename, 'utf8').replace(/\r\n/g, '\n');
+    const newContent = updateFn(currentContent);
 
     if (typeof newContent === 'string' && newContent !== currentContent) {
         if (checkUpdatesNeeded) {
