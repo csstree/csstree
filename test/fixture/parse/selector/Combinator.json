@@ -368,5 +368,12 @@
                 }
             ]
         }
-    }
+    },
+    "errors": [
+        {
+            "source": "a /deep b",
+            "offset": "       ^",
+            "error": "Delim \"/\" is expected"
+        }
+    ]
 }

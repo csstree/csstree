@@ -589,6 +589,11 @@
             "source": "[:--test=foo]{}",
             "offset": " ^",
             "error": "Identifier is expected"
+        },
+        {
+            "source": "[foo*bar]{}",
+            "offset": "     ^",
+            "error": "Equal sign is expected"
         }
     ]
 }

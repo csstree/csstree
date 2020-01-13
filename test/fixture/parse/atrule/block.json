@@ -511,6 +511,18 @@
             }
         }
     },
+    "should turn empty prelude to null": {
+        "source": "@media{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "error": [
         {
             "source": "@atrule { a: 1",

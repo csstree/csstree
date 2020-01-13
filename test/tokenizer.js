@@ -3,11 +3,11 @@ const { tokenize } = require('../lib');
 const fixture = require('./fixture/tokenize');
 
 describe('parser/stream', () => {
-    const css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}';
+    const css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}<!--<-->\\\n';
     const tokens = [
-        { type: 'Delim', chunk: '.', balance: 83 },
-        { type: 'Ident', chunk: 'test', balance: 83 },
-        { type: 'WhiteSpace', chunk: '\n', balance: 83 },
+        { type: 'Delim', chunk: '.', balance: 93 },
+        { type: 'Ident', chunk: 'test', balance: 93 },
+        { type: 'WhiteSpace', chunk: '\n', balance: 93 },
         { type: 'LeftCurlyBracket', chunk: '{', balance: 25 },
         { type: 'WhiteSpace', chunk: '\n  ', balance: 25 },
         { type: 'Ident', chunk: 'prop', balance: 25 },
@@ -30,7 +30,12 @@ describe('parser/stream', () => {
         { type: 'Ident', chunk: '\\aa ', balance: 25 },
         { type: 'Semicolon', chunk: ';', balance: 25 },
         { type: 'WhiteSpace', chunk: '\n', balance: 25 },
-        { type: 'RightCurlyBracket', chunk: '}', balance: 3 }
+        { type: 'RightCurlyBracket', chunk: '}', balance: 3 },
+        { type: 'CDO', chunk: '<!--', balance: 93 },
+        { type: 'Delim', chunk: '<', balance: 93 },
+        { type: 'CDC', chunk: '-->', balance: 93 },
+        { type: 'Delim', chunk: '\\', balance: 93 },
+        { type: 'WhiteSpace', chunk: '\n', balance: 93 },
     ];
     const dump = tokens.map(({ type, chunk, balance }, idx) => ({
         idx,
@@ -137,7 +142,7 @@ describe('parser/stream', () => {
                 return tokenize.NAME[stream.tokenType];
             });
 
-        assert.equal(actual.length, 6); // 4 x Indentifier + 2 x Delim
+        assert.equal(actual.length, 8); // 4 x Indentifier + 4 x Delim
         assert.deepEqual(actual, targetTokens.map(token => token.type));
     });
 

@@ -113,7 +113,7 @@
         {
             "source": "a /foo/ b",
             "offset": "   ^     ",
-            "error": "Identifier `deep` is expected"
+            "error": "Identifier \"deep\" is expected"
         },
         {
             "source": ".a",

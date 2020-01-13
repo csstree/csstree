@@ -185,6 +185,11 @@
             "source": "@media (foo:1) ~",
             "offset": "               ^",
             "error": "Semicolon or block is expected"
+        },
+        {
+            "source": "@media ! {}",
+            "offset": "       ^",
+            "error": "Identifier or parenthesis is expected"
         }
     ]
 }

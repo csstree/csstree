@@ -116,12 +116,17 @@
         {
             "source": "u+123456z",
             "offset": "        ^",
-            "error": "HyphenMinus is expected"
+            "error": "Hyphen minus is expected"
         },
         {
             "source": "u+123456z",
             "offset": "        ^",
-            "error": "HyphenMinus is expected"
+            "error": "Hyphen minus is expected"
+        },
+        {
+            "source": "u+123456-x",
+            "offset": "         ^",
+            "error": "Hex digit is expected"
         },
         {
             "source": "u+123456-1234567",
@@ -161,12 +166,22 @@
         {
             "source": "u+12e+12",
             "offset": "     ^",
-            "error": "HyphenMinus or hex digit is expected"
+            "error": "Hyphen minus or hex digit is expected"
+        },
+        {
+            "source": "u+12+22",
+            "offset": "    ^",
+            "error": "Hyphen minus is expected"
+        },
+        {
+            "source": "u+12+1e",
+            "offset": "    ^",
+            "error": "Hyphen minus is expected"
         },
         {
             "source": "u+0.200",
             "offset": "   ^",
-            "error": "HyphenMinus or hex digit is expected"
+            "error": "Hyphen minus or hex digit is expected"
         }
     ]
 }
