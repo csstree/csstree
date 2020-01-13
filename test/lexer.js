@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { lexer, createLexer, fork } = require('../lib');
+const { lexer, createLexer, fork } = require('./helpers/lib');
 
 describe('lexer', () => {
     it('should not override generic types when used', () => {

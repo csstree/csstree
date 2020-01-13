@@ -1,6 +1,6 @@
 const assert = require('assert');
 const path = require('path');
-const { parse, walk } = require('../lib');
+const { parse, walk } = require('./helpers/lib');
 const notInsideAtrulePrelude = stack => stack.every(node => node.type !== 'AtrulePrelude');
 const { tests, forEachTest: forEachParseTest } = require('./fixture/parse');
 const testWithRules = Object.keys(tests)

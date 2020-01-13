@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, generate, lexer } = require('../lib');
+const { parse, generate, lexer } = require('./helpers/lib');
 
 describe('lexer search fragments', () => {
     function translateFragments(fragments) {

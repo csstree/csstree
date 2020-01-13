@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, lexer, fork } = require('../lib');
+const { parse, lexer, fork } = require('./helpers/lib');
 const fixture = require('./fixture/syntax');
 
 describe('Lexer#matchAtrulePrelude()', () => {

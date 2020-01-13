@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { definitionSyntax: { parse, generate, walk } } = require('../lib');
+const { definitionSyntax: { parse, generate, walk } } = require('./helpers/lib');
 
 describe('definitionSyntax.walk()', () => {
     it('pass a single walk function', () => {

@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { lexer, definitionSyntax: { parse } } = require('../lib');
+const { lexer, definitionSyntax: { parse } } = require('./helpers/lib');
 
 describe('definitionSyntax.parse()', () => {
     describe('combinator precedence', () => {

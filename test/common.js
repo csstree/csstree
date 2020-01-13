@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
-const csstree = require('../lib');
+const csstree = require('./helpers/lib');
 const fixtureFilename = '/fixture/stringify.css';
 const types = Object.keys(csstree.parse.config.node).sort()
     .filter(type => type !== 'DeclarationList'); // DeclarationList doesn't appear in StyleSheet

@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, generate, toPlainObject } = require('../lib');
+const { parse, generate, toPlainObject } = require('./helpers/lib');
 const forEachParseTest = require('./fixture/parse').forEachTest;
 
 function createGenerateTests(name, test) {

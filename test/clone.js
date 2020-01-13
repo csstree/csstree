@@ -4,7 +4,7 @@ const {
     clone,
     walk,
     toPlainObject
-} = require('../lib');
+} = require('./helpers/lib');
 
 function createCloneTest(name, getAst) {
     it(name, () => {

@@ -24,15 +24,17 @@
     "./data": "./dist/default-syntax.json"
   },
   "scripts": {
-    "build": "npm run gen:syntax && rollup --config && terser dist/csstree.js --compress --mangle -o dist/csstree.min.js",
+    "build": "npm run gen:syntax && rollup --config",
+    "build-and-test": "npm run build && npm run test:dist",
     "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
     "gen:syntax": "node scripts/gen-syntax-data",
     "review:syntax-patch": "node scripts/review-syntax-patch",
     "test": "mocha --reporter ${REPORTER:-progress}",
+    "test:dist": "MODE=dist npm test && MODE=dist-min npm test",
     "coverage": "nyc npm test",
-    "travis": "npm run lint && nyc npm run test && npm run coveralls",
+    "travis": "npm run lint && nyc npm run test && npm run build-and-test && npm run coveralls",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "prepublishOnly": "npm run build",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
@@ -51,7 +53,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "terser": "^4.6.2"
+    "rollup-plugin-terser": "^5.2.0"
   },
   "engines": {
     "node": ">=8.0.0"
