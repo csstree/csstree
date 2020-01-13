@@ -20,16 +20,12 @@
   "main": "lib/index.js",
   "unpkg": "dist/csstree.min.js",
   "jsdelivr": "dist/csstree.min.js",
-  "browser": {
-    "./data": "./dist/default-syntax.json"
-  },
   "scripts": {
-    "build": "npm run gen:syntax && rollup --config",
+    "build": "rollup --config",
     "build-and-test": "npm run build && npm run test:dist",
     "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
-    "gen:syntax": "node scripts/gen-syntax-data",
     "review:syntax-patch": "node scripts/review-syntax-patch",
     "test": "mocha --reporter ${REPORTER:-progress}",
     "test:dist": "MODE=dist npm test && MODE=dist-min npm test",
