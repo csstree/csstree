@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { keyword, property, isCustomProperty, vendorPrefix } = require('../lib');
+const { keyword, property, isCustomProperty, vendorPrefix } = require('./helpers/lib');
 
 describe('names utils', () => {
     describe('keyword', () => {

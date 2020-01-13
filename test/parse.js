@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, walk, List } = require('../lib');
+const { parse, walk, List } = require('./helpers/lib');
 const forEachParseTest = require('./fixture/parse').forEachTest;
 const genericTypesFixture = require('./fixture/syntax-match/generic.json');
 const stringifyWithNoInfo = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);

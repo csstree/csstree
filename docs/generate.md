@@ -31,12 +31,12 @@ Default: `false`
 Generates a source map (nodes should contain positions in `loc` property). Note, that an object instead of string is returned in that case.
 
 ```js
-var ast = csstree.parse('.test { color: red }', {
+const ast = csstree.parse('.test { color: red }', {
     filename: 'my.css',
     positions: true
 });
 
-var result = csstree.generate(ast, { sourceMap: true });
+const result = csstree.generate(ast, { sourceMap: true });
 // { css: '.test{color:red}', map: SourceMapGenerator {} }
 ```
 

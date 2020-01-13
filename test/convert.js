@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, generate, fromPlainObject, toPlainObject } = require('../lib');
+const { parse, generate, fromPlainObject, toPlainObject } = require('./helpers/lib');
 const css = '.test{a:123}';
 
 describe('convert', () => {

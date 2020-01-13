@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { List } = require('../lib');
+const { List } = require('./helpers/lib');
 
 function getFirstArg(data) {
     return data;

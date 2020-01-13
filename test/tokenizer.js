@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { tokenize } = require('../lib');
+const { tokenize } = require('./helpers/lib');
 const fixture = require('./fixture/tokenize');
 
 describe('parser/stream', () => {

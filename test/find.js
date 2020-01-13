@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, find, findLast, findAll } = require('../lib');
+const { parse, find, findLast, findAll } = require('./helpers/lib');
 const ast = parse(`
     .foo { color: red; background: green; }
     .bar, .qux.foo { font-weight: bold; color: blue; }

@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
-const csstree = require('../lib');
+const { parse, walk, fork, version } = require('./helpers/lib');
 const fixtureFilename = '/fixture/stringify.css';
-const types = Object.keys(csstree.parse.config.node).sort()
+const fixture = normalize(fs.readFileSync(__dirname + fixtureFilename, 'utf-8'));;
+const types = Object.keys(parse.config.node).sort()
     .filter(type => type !== 'DeclarationList'); // DeclarationList doesn't appear in StyleSheet
 
 function normalize(str) {
@@ -11,30 +12,29 @@ function normalize(str) {
 }
 
 describe('Common', () => {
-    let css;
-    let ast;
+    it('should expose version', () => {
+        assert.strictEqual(version, require('../package.json').version);
+    });
 
-    before(() => {
-        css = normalize(fs.readFileSync(__dirname + fixtureFilename, 'utf-8'));
-        ast = csstree.parse(css, {
+    it('JSON.strigify()', () => {
+        const ast = parse(fixture, {
             filename: path.basename(fixtureFilename),
             positions: true
         });
 
         // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
-    });
 
-    it('utils.strigify()', () =>
         assert.equal(
             JSON.stringify(ast, null, 4),
             normalize(fs.readFileSync(__dirname + '/fixture/stringify.ast', 'utf-8').trim())
-        )
-    );
+        );
+    });
 
     it('test CSS should contain all node types', () => {
         const foundTypes = new Set();
+        const ast = parse(fixture);
 
-        csstree.walk(ast, node => foundTypes.add(node.type));
+        walk(ast, node => foundTypes.add(node.type));
 
         assert.deepEqual(
             [...foundTypes].sort(),
@@ -54,7 +54,7 @@ describe('Common', () => {
 
         it('fork()', () => {
             assert.doesNotThrow(() => {
-                csstree.fork({
+                fork({
                     node: {
                         Test: {
                             structure: {

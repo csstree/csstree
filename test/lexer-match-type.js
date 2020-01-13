@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, fork } = require('../lib');
+const { parse, fork } = require('./helpers/lib');
 
 describe('Lexer#matchType()', () => {
     const singleNumber = parse('1', { context: 'value' });
