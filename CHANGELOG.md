@@ -11,6 +11,7 @@
 - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - Removed `dist/default-syntax.json` from package
 - Exposed `version` of the lib
+- Changed generator's handler `chunk()` to `token()` and `tokenize()`
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 

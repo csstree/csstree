@@ -45,4 +45,4 @@ const result = csstree.generate(ast, { sourceMap: true });
 Type: `function`  
 Default: none
 
-A function that a handlers used by a generator. TBD
+A function that returns handlers used by a generator. TBD
