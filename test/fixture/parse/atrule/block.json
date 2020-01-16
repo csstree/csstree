@@ -52,10 +52,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -102,10 +98,6 @@
                     {
                         "type": "Identifier",
                         "name": "y"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "Function",
@@ -186,10 +178,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -218,7 +206,7 @@
     },
     "block at-rule #c.2": {
         "source": "@test/*test*/x/*test*/,/*test*/y/*test*/ x(/*test*/1/*test*/+/*test*/2/*test*/)/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
-        "generate": "@test x,y x(1+2){p:v}",
+        "generate": "@test x,y x(1+ 2){p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -236,10 +224,6 @@
                     {
                         "type": "Identifier",
                         "name": "y"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "Function",
@@ -324,10 +308,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -356,7 +336,7 @@
     },
     "block at-rule #s.2": {
         "source": "@test  x  ,  y  x(  1  +  2  )  {  p  :  v  }",
-        "generate": "@test x,y x(1 + 2){p:v}",
+        "generate": "@test x,y x(1+ 2){p:v}",
         "ast": {
             "type": "Atrule",
             "name": "test",
@@ -376,10 +356,6 @@
                         "name": "y"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Function",
                         "name": "x",
                         "children": [
@@ -388,16 +364,8 @@
                                 "value": "1"
                             },
                             {
-                                "type": "WhiteSpace",
-                                "value": " "
-                            },
-                            {
                                 "type": "Operator",
                                 "value": "+"
-                            },
-                            {
-                                "type": "WhiteSpace",
-                                "value": " "
                             },
                             {
                                 "type": "Number",

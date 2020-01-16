@@ -9,8 +9,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "type": "Combinator",
+                    "name": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -109,8 +109,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "type": "Combinator",
+                    "name": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -154,8 +154,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "type": "Combinator",
+                    "name": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -229,7 +229,7 @@
     },
     "combinator with comments around #4": {
         "source": "a/*test*/ /deep/ /*test*/b",
-        "generate": "a /deep/ b",
+        "generate": "a/deep/b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -238,16 +238,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Combinator",
                     "name": "/deep/"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -267,8 +259,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "type": "Combinator",
+                    "name": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -342,7 +334,7 @@
     },
     "combinator with spaces around #4": {
         "source": "a  /deep/  b",
-        "generate": "a /deep/ b",
+        "generate": "a/deep/b",
         "ast": {
             "type": "Selector",
             "children": [
@@ -351,16 +343,8 @@
                     "name": "a"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Combinator",
                     "name": "/deep/"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "TypeSelector",

@@ -28,10 +28,6 @@
                     "name": "foo"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Identifier",
                     "name": "bar"
                 }

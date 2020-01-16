@@ -1,6 +1,7 @@
 {
     "basic": {
         "source": "calc(1 + 2 * 3 / 4 - 5)",
+        "generate": "calc(1 + 2*3/4 - 5)",
         "ast": {
             "type": "Function",
             "name": "calc",
@@ -10,64 +11,32 @@
                     "value": "1"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "value": " + "
                 },
                 {
                     "type": "Number",
                     "value": "2"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
                     "value": "*"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "Number",
                     "value": "3"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
                     "value": "/"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "Number",
                     "value": "4"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
-                    "value": "-"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "value": " - "
                 },
                 {
                     "type": "Number",
@@ -78,6 +47,7 @@
     },
     "with dimension and percentage": {
         "source": "calc(1% + 2 * 3em)",
+        "generate": "calc(1% + 2*3em)",
         "ast": {
             "type": "Function",
             "name": "calc",
@@ -87,32 +57,16 @@
                     "value": "1"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "value": " + "
                 },
                 {
                     "type": "Number",
                     "value": "2"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
                     "value": "*"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "Dimension",
@@ -124,6 +78,7 @@
     },
     "nested": {
         "source": "calc(1% + (2 * (3em / 4)))",
+        "generate": "calc(1% + (2*(3em/4)))",
         "ast": {
             "type": "Function",
             "name": "calc",
@@ -133,16 +88,8 @@
                     "value": "1"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "value": " + "
                 },
                 {
                     "type": "Parentheses",
@@ -152,16 +99,8 @@
                             "value": "2"
                         },
                         {
-                            "type": "WhiteSpace",
-                            "value": " "
-                        },
-                        {
                             "type": "Operator",
                             "value": "*"
-                        },
-                        {
-                            "type": "WhiteSpace",
-                            "value": " "
                         },
                         {
                             "type": "Parentheses",
@@ -172,16 +111,8 @@
                                     "unit": "em"
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "value": " "
-                                },
-                                {
                                     "type": "Operator",
                                     "value": "/"
-                                },
-                                {
-                                    "type": "WhiteSpace",
-                                    "value": " "
                                 },
                                 {
                                     "type": "Number",
@@ -205,16 +136,8 @@
                     "value": "1"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "value": " + "
                 },
                 {
                     "type": "Function",

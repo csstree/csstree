@@ -38,7 +38,7 @@
     },
     "with media": {
         "source": "@import 'test' all, screen and (min-width: 600px);",
-        "generate": "@import 'test' all,screen and (min-width:600px);",
+        "generate": "@import 'test'all,screen and (min-width:600px);",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -48,10 +48,6 @@
                     {
                         "type": "String",
                         "value": "'test'"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "MediaQueryList",
@@ -73,16 +69,8 @@
                                         "name": "screen"
                                     },
                                     {
-                                        "type": "WhiteSpace",
-                                        "value": " "
-                                    },
-                                    {
                                         "type": "Identifier",
                                         "name": "and"
-                                    },
-                                    {
-                                        "type": "WhiteSpace",
-                                        "value": " "
                                     },
                                     {
                                         "type": "MediaFeature",
@@ -104,6 +92,7 @@
     },
     "should be case insensetive": {
         "source": "@ImpOrt 'test' all;",
+        "generate": "@ImpOrt 'test'all;",
         "ast": {
             "type": "Atrule",
             "name": "ImpOrt",
@@ -113,10 +102,6 @@
                     {
                         "type": "String",
                         "value": "'test'"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "MediaQueryList",

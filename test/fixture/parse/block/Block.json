@@ -323,10 +323,6 @@
                                 "name": "a"
                             },
                             {
-                                "type": "WhiteSpace",
-                                "value": " "
-                            },
-                            {
                                 "type": "Identifier",
                                 "name": "b"
                             }
@@ -410,10 +406,6 @@
                             {
                                 "type": "Identifier",
                                 "name": "a"
-                            },
-                            {
-                                "type": "WhiteSpace",
-                                "value": " "
                             },
                             {
                                 "type": "Identifier",

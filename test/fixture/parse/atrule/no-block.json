@@ -21,10 +21,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -94,10 +90,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -128,10 +120,6 @@
                     {
                         "type": "Identifier",
                         "name": "x"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "Identifier",

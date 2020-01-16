@@ -39,6 +39,7 @@
     "edge cases": [
         {
             "source": "#1.2AaB",
+            "generate": "#1 .2AaB",
             "ast": {
                 "type": "Value",
                 "children": [
@@ -56,6 +57,7 @@
         },
         {
             "source": "#a1.2AaB",
+            "generate": "#a1 .2AaB",
             "ast": {
                 "type": "Value",
                 "children": [

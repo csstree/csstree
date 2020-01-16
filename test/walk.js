@@ -116,8 +116,7 @@ describe('AST traversal', () => {
             'String',
             'StyleSheet',
             'Url',
-            'Value',
-            'WhiteSpace'
+            'Value'
         ];
 
         walk(ast, node => visitedTypes.add(node.type));

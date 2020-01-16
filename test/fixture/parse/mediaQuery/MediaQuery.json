@@ -106,10 +106,6 @@
                     "name": "all"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "MediaFeature",
                     "name": "foo",
                     "value": {

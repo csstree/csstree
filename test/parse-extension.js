@@ -103,9 +103,9 @@ describe('extension', () => {
                         name: 'a'
                     },
                     {
-                        type: 'WhiteSpace',
+                        type: 'Combinator',
                         loc: null,
-                        value: ' '
+                        name: ' '
                     },
                     {
                         type: 'Nested',

@@ -103,6 +103,7 @@
     },
     "function.5": {
         "source": "test(10px,'test' test(x),89%)",
+        "generate": "test(10px,'test'test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -119,10 +120,6 @@
                 {
                     "type": "String",
                     "value": "'test'"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "Function",
@@ -346,16 +343,8 @@
                     "name": "x"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "value": " + "
                 },
                 {
                     "type": "Identifier",
@@ -388,7 +377,7 @@
     },
     "function.s.5": {
         "source": "test(  10px  ,  'test'  test(  x  )  ,  89%  )",
-        "generate": "test(10px,'test' test(x),89%)",
+        "generate": "test(10px,'test'test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -405,10 +394,6 @@
                 {
                     "type": "String",
                     "value": "'test'"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "Function",

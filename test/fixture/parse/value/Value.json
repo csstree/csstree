@@ -186,10 +186,6 @@
                     "value": "1"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Identifier",
                     "name": "foo"
                 }

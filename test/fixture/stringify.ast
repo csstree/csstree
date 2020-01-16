@@ -8,8 +8,8 @@
             "column": 1
         },
         "end": {
-            "offset": 1271,
-            "line": 50,
+            "offset": 1348,
+            "line": 56,
             "column": 1
         }
     },
@@ -327,11 +327,6 @@
                                         "name": "screen"
                                     },
                                     {
-                                        "type": "WhiteSpace",
-                                        "loc": null,
-                                        "value": " "
-                                    },
-                                    {
                                         "type": "Identifier",
                                         "loc": {
                                             "source": "stringify.css",
@@ -347,11 +342,6 @@
                                             }
                                         },
                                         "name": "and"
-                                    },
-                                    {
-                                        "type": "WhiteSpace",
-                                        "loc": null,
-                                        "value": " "
                                     },
                                     {
                                         "type": "MediaFeature",
@@ -634,9 +624,9 @@
                                 "name": "class"
                             },
                             {
-                                "type": "WhiteSpace",
+                                "type": "Combinator",
                                 "loc": null,
-                                "value": " "
+                                "name": " "
                             },
                             {
                                 "type": "TypeSelector",
@@ -709,9 +699,9 @@
                                 "flags": null
                             },
                             {
-                                "type": "WhiteSpace",
+                                "type": "Combinator",
                                 "loc": null,
-                                "value": " "
+                                "name": " "
                             },
                             {
                                 "type": "AttributeSelector",
@@ -1883,11 +1873,6 @@
                                     "name": "ident"
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "Number",
                                     "loc": {
                                         "source": "stringify.css",
@@ -1905,11 +1890,6 @@
                                     "value": "1.2e+3"
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "Percentage",
                                     "loc": {
                                         "source": "stringify.css",
@@ -1925,11 +1905,6 @@
                                         }
                                     },
                                     "value": "100"
-                                },
-                                {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
                                 },
                                 {
                                     "type": "Dimension",
@@ -1985,11 +1960,6 @@
                                     "unit": "ex"
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "Function",
                                     "loc": {
                                         "source": "stringify.css",
@@ -2025,11 +1995,6 @@
                                             "unit": "em"
                                         },
                                         {
-                                            "type": "WhiteSpace",
-                                            "loc": null,
-                                            "value": " "
-                                        },
-                                        {
                                             "type": "Operator",
                                             "loc": {
                                                 "source": "stringify.css",
@@ -2044,12 +2009,7 @@
                                                     "column": 45
                                                 }
                                             },
-                                            "value": "+"
-                                        },
-                                        {
-                                            "type": "WhiteSpace",
-                                            "loc": null,
-                                            "value": " "
+                                            "value": " + "
                                         },
                                         {
                                             "type": "Percentage",
@@ -2069,11 +2029,6 @@
                                             "value": "3"
                                         },
                                         {
-                                            "type": "WhiteSpace",
-                                            "loc": null,
-                                            "value": " "
-                                        },
-                                        {
                                             "type": "Operator",
                                             "loc": {
                                                 "source": "stringify.css",
@@ -2089,11 +2044,6 @@
                                                 }
                                             },
                                             "value": "*"
-                                        },
-                                        {
-                                            "type": "WhiteSpace",
-                                            "loc": null,
-                                            "value": " "
                                         },
                                         {
                                             "type": "Number",
@@ -2165,11 +2115,6 @@
                                     }
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "Url",
                                     "loc": {
                                         "source": "stringify.css",
@@ -2203,11 +2148,6 @@
                                     }
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "UnicodeRange",
                                     "loc": {
                                         "source": "stringify.css",
@@ -2225,11 +2165,6 @@
                                     "value": "u+123-456"
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "UnicodeRange",
                                     "loc": {
                                         "source": "stringify.css",
@@ -2245,11 +2180,6 @@
                                         }
                                     },
                                     "value": "u+123???"
-                                },
-                                {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
                                 },
                                 {
                                     "type": "Function",
@@ -2390,11 +2320,6 @@
                                     ]
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "HexColor",
                                     "loc": {
                                         "source": "stringify.css",
@@ -2410,11 +2335,6 @@
                                         }
                                     },
                                     "value": "def"
-                                },
-                                {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
                                 },
                                 {
                                     "type": "HexColor",
@@ -2434,11 +2354,6 @@
                                     "value": "123abc"
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "String",
                                     "loc": {
                                         "source": "stringify.css",
@@ -2456,11 +2371,6 @@
                                     "value": "\"string\""
                                 },
                                 {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
-                                },
-                                {
                                     "type": "String",
                                     "loc": {
                                         "source": "stringify.css",
@@ -2476,11 +2386,6 @@
                                         }
                                     },
                                     "value": "'string'"
-                                },
-                                {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
                                 },
                                 {
                                     "type": "Parentheses",
@@ -2516,11 +2421,6 @@
                                             "name": "parenthesis"
                                         }
                                     ]
-                                },
-                                {
-                                    "type": "WhiteSpace",
-                                    "loc": null,
-                                    "value": " "
                                 },
                                 {
                                     "type": "Brackets",
@@ -3034,11 +2934,6 @@
                                             "unit": "px"
                                         },
                                         {
-                                            "type": "WhiteSpace",
-                                            "loc": null,
-                                            "value": " "
-                                        },
-                                        {
                                             "type": "Dimension",
                                             "loc": {
                                                 "source": "stringify.css",
@@ -3055,11 +2950,6 @@
                                             },
                                             "value": "2",
                                             "unit": "px"
-                                        },
-                                        {
-                                            "type": "WhiteSpace",
-                                            "loc": null,
-                                            "value": " "
                                         },
                                         {
                                             "type": "Identifier",
@@ -3642,11 +3532,6 @@
                             }
                         },
                         "value": "'foo'"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "loc": null,
-                        "value": " "
                     },
                     {
                         "type": "MediaQueryList",
@@ -4275,6 +4160,267 @@
                                         }
                                     },
                                     "value": ";"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Rule",
+            "loc": {
+                "source": "stringify.css",
+                "start": {
+                    "offset": 1272,
+                    "line": 51,
+                    "column": 1
+                },
+                "end": {
+                    "offset": 1347,
+                    "line": 55,
+                    "column": 2
+                }
+            },
+            "prelude": {
+                "type": "SelectorList",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1272,
+                        "line": 51,
+                        "column": 1
+                    },
+                    "end": {
+                        "offset": 1287,
+                        "line": 51,
+                        "column": 16
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Selector",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1272,
+                                "line": 51,
+                                "column": 1
+                            },
+                            "end": {
+                                "offset": 1287,
+                                "line": 51,
+                                "column": 16
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "loc": {
+                                    "source": "stringify.css",
+                                    "start": {
+                                        "offset": 1272,
+                                        "line": 51,
+                                        "column": 1
+                                    },
+                                    "end": {
+                                        "offset": 1278,
+                                        "line": 51,
+                                        "column": 7
+                                    }
+                                },
+                                "name": "edge\\ "
+                            },
+                            {
+                                "type": "ClassSelector",
+                                "loc": {
+                                    "source": "stringify.css",
+                                    "start": {
+                                        "offset": 1278,
+                                        "line": 51,
+                                        "column": 7
+                                    },
+                                    "end": {
+                                        "offset": 1287,
+                                        "line": 51,
+                                        "column": 16
+                                    }
+                                },
+                                "name": "c\\61ases"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1288,
+                        "line": 51,
+                        "column": 17
+                    },
+                    "end": {
+                        "offset": 1347,
+                        "line": 55,
+                        "column": 2
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1294,
+                                "line": 52,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1307,
+                                "line": 52,
+                                "column": 18
+                            }
+                        },
+                        "important": false,
+                        "property": "--empty-var",
+                        "value": {
+                            "type": "Raw",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1306,
+                                    "line": 52,
+                                    "column": 17
+                                },
+                                "end": {
+                                    "offset": 1307,
+                                    "line": 52,
+                                    "column": 18
+                                }
+                            },
+                            "value": " "
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1313,
+                                "line": 53,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1323,
+                                "line": 53,
+                                "column": 15
+                            }
+                        },
+                        "important": false,
+                        "property": "--bad-var",
+                        "value": {
+                            "type": "Raw",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1323,
+                                    "line": 53,
+                                    "column": 15
+                                },
+                                "end": {
+                                    "offset": 1323,
+                                    "line": 53,
+                                    "column": 15
+                                }
+                            },
+                            "value": ""
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1329,
+                                "line": 54,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1344,
+                                "line": 54,
+                                "column": 20
+                            }
+                        },
+                        "important": false,
+                        "property": "number",
+                        "value": {
+                            "type": "Value",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1337,
+                                    "line": 54,
+                                    "column": 13
+                                },
+                                "end": {
+                                    "offset": 1344,
+                                    "line": 54,
+                                    "column": 20
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Number",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1337,
+                                            "line": 54,
+                                            "column": 13
+                                        },
+                                        "end": {
+                                            "offset": 1340,
+                                            "line": 54,
+                                            "column": 16
+                                        }
+                                    },
+                                    "value": "0.1"
+                                },
+                                {
+                                    "type": "Number",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1340,
+                                            "line": 54,
+                                            "column": 16
+                                        },
+                                        "end": {
+                                            "offset": 1342,
+                                            "line": 54,
+                                            "column": 18
+                                        }
+                                    },
+                                    "value": ".2"
+                                },
+                                {
+                                    "type": "Number",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1342,
+                                            "line": 54,
+                                            "column": 18
+                                        },
+                                        "end": {
+                                            "offset": 1344,
+                                            "line": 54,
+                                            "column": 20
+                                        }
+                                    },
+                                    "value": ".3"
                                 }
                             ]
                         }

@@ -84,10 +84,6 @@
                         "name": "not"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Parentheses",
                         "children": [
                             {
@@ -228,10 +224,6 @@
                         "name": "not"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Parentheses",
                         "children": [
                             {
@@ -260,7 +252,7 @@
     },
     "complex prelude": {
         "source": "@supports (not (flex: 1)) or (grid: support) {}",
-        "generate": "@supports (not (flex:1)) or (grid:support){}",
+        "generate": "@supports (not (flex:1))or (grid:support){}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -273,10 +265,6 @@
                             {
                                 "type": "Identifier",
                                 "name": "not"
-                            },
-                            {
-                                "type": "WhiteSpace",
-                                "value": " "
                             },
                             {
                                 "type": "Parentheses",
@@ -300,16 +288,8 @@
                         ]
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "or"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "Parentheses",
@@ -386,10 +366,6 @@
                                         {
                                             "type": "Identifier",
                                             "name": "something"
-                                        },
-                                        {
-                                            "type": "WhiteSpace",
-                                            "value": " "
                                         },
                                         {
                                             "type": "Function",

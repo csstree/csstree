@@ -63,10 +63,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -135,10 +131,6 @@
                     {
                         "type": "Identifier",
                         "name": "y"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "Function",
@@ -349,10 +341,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -403,7 +391,7 @@
     },
     "atruler.c.2": {
         "source": "@atrule/*test*/x/*test*/,/*test*/y/*test*/ f(/*test*/1/*test*/+/*test*/2/*test*/)/*test*/{/*test*/s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}/*test*/}",
-        "generate": "@atrule x,y f(1+2){s{p:v}}",
+        "generate": "@atrule x,y f(1+ 2){s{p:v}}",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -421,10 +409,6 @@
                     {
                         "type": "Identifier",
                         "name": "y"
-                    },
-                    {
-                        "type": "WhiteSpace",
-                        "value": " "
                     },
                     {
                         "type": "Function",
@@ -553,10 +537,6 @@
                         "name": "x"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Identifier",
                         "name": "y"
                     }
@@ -627,20 +607,12 @@
                         "name": "y"
                     },
                     {
-                        "type": "WhiteSpace",
-                        "value": " "
-                    },
-                    {
                         "type": "Function",
                         "name": "f",
                         "children": [
                             {
                                 "type": "Number",
                                 "value": "1"
-                            },
-                            {
-                                "type": "WhiteSpace",
-                                "value": " "
                             },
                             {
                                 "type": "Number",

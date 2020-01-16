@@ -47,17 +47,13 @@
         }
     },
     "parentheses.9": {
-        "source": "(#123456 'string')",
+        "source": "(#123456'string')",
         "ast": {
             "type": "Parentheses",
             "children": [
                 {
                     "type": "HexColor",
                     "value": "123456"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
                 },
                 {
                     "type": "String",
@@ -102,7 +98,7 @@
     },
     "parentheses.c.3": {
         "source": "(/*test*/x/*test*/+/*test*/1/*test*/)",
-        "generate": "(x+1)",
+        "generate": "(x+ 1)",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -166,16 +162,8 @@
                     "name": "x"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
-                },
-                {
                     "type": "Operator",
-                    "value": "+"
-                },
-                {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "value": " + "
                 },
                 {
                     "type": "Number",

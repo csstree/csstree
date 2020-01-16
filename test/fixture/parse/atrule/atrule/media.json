@@ -48,10 +48,6 @@
                                         "name": "not"
                                     },
                                     {
-                                        "type": "WhiteSpace",
-                                        "value": " "
-                                    },
-                                    {
                                         "type": "Identifier",
                                         "name": "screen"
                                     }
@@ -84,10 +80,6 @@
                                     {
                                         "type": "Identifier",
                                         "name": "only"
-                                    },
-                                    {
-                                        "type": "WhiteSpace",
-                                        "value": " "
                                     },
                                     {
                                         "type": "Identifier",

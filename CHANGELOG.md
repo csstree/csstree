@@ -12,6 +12,12 @@
 - Removed `dist/default-syntax.json` from package
 - Exposed `version` of the lib
 - Changed generator's handler `chunk()` to `token()` and `tokenize()`
+- Parser:
+    - Produce `{ type: 'Combinator', name: ' ' }` node instead of `WhiteSpace` node
+    - Don't produce `WhiteSpace` nodes anymore, with the single exception: a custom property declaration with no tokens in a value except a white space
+    - Add a whitespace to `+` and `-` operators, when a whitespace before and/or after an operatorß
+- Changed `Nth` to serialize `+n` as `n`
+- Changed generator to determine when a white space required between emiting tokens
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 

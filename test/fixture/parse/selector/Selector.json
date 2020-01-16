@@ -100,8 +100,8 @@
                     "name": "\\31 "
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "type": "Combinator",
+                    "name": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -217,8 +217,8 @@
                     "name": "b"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "type": "Combinator",
+                    "name": " "
                 },
                 {
                     "type": "TypeSelector",
@@ -233,8 +233,8 @@
                     "name": "d"
                 },
                 {
-                    "type": "WhiteSpace",
-                    "value": " "
+                    "type": "Combinator",
+                    "name": " "
                 },
                 {
                     "type": "TypeSelector",
