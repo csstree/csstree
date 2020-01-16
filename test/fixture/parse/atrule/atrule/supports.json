@@ -252,7 +252,7 @@
     },
     "complex prelude": {
         "source": "@supports (not (flex: 1)) or (grid: support) {}",
-        "generate": "@supports (not (flex:1))or (grid:support){}",
+        "generate": "@supports (not (flex:1)) or (grid:support){}",
         "ast": {
             "type": "Atrule",
             "name": "supports",

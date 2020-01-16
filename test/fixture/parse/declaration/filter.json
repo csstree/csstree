@@ -12,14 +12,14 @@
         }
     },
     "filter.1": {
-        "source": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
+        "source": "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')",
         "ast": {
             "type": "Declaration",
             "important": false,
             "property": "filter",
             "value": {
                 "type": "Raw",
-                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
+                "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='something')"
             }
         }
     },
