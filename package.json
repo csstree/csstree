@@ -40,6 +40,7 @@
     "source-map": "^0.6.1"
   },
   "devDependencies": {
+    "clap": "^2.0.1",
     "coveralls": "^3.0.4",
     "eslint": "^6.3.0",
     "json-to-ast": "^2.1.0",
