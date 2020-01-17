@@ -6,8 +6,8 @@
             "name": "element",
             "children": [
                 {
-                    "type": "IdSelector",
-                    "name": "foo"
+                    "type": "Hash",
+                    "value": "foo"
                 }
             ]
         }
@@ -19,8 +19,8 @@
             "name": "ElemenT",
             "children": [
                 {
-                    "type": "IdSelector",
-                    "name": "foo"
+                    "type": "Hash",
+                    "value": "foo"
                 }
             ]
         }
@@ -33,8 +33,8 @@
             "name": "element",
             "children": [
                 {
-                    "type": "IdSelector",
-                    "name": "foo"
+                    "type": "Hash",
+                    "value": "foo"
                 }
             ]
         }
@@ -46,32 +46,10 @@
             "name": "-moz-element",
             "children": [
                 {
-                    "type": "IdSelector",
-                    "name": "foo"
+                    "type": "Hash",
+                    "value": "foo"
                 }
             ]
         }
-    },
-    "error": [
-        {
-            "source": "element()",
-            "offset": "        ^",
-            "error": "Hash is expected"
-        },
-        {
-            "source": "element(#)",
-            "offset": "         ^",
-            "error": "Name is expected"
-        },
-        {
-            "source": "element(123)",
-            "offset": "        ^",
-            "error": "Hash is expected"
-        },
-        {
-            "source": "element(#foo #bar)",
-            "offset": "             ^",
-            "error": "RightParenthesis is expected"
-        }
-    ]
+    }
 }

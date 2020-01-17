@@ -2807,7 +2807,7 @@
                                                 "name": "element",
                                                 "children": [
                                                     {
-                                                        "type": "IdSelector",
+                                                        "type": "Hash",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -2821,7 +2821,7 @@
                                                                 "column": 32
                                                             }
                                                         },
-                                                        "name": "id"
+                                                        "value": "id"
                                                     }
                                                 ]
                                             }

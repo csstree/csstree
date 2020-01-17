@@ -19,6 +19,7 @@
 - Changed `Nth` to serialize `+n` as `n`
 - Changed generator to determine when a white space required between emiting tokens
 - Renamed `HexColor` node type into `Hash`
+- Removed `element()` specific parsing rules
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 
