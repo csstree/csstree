@@ -27,7 +27,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [DeclarationList](#declarationlist)
     - [Dimension](#dimension)
     - [Function](#function)
-    - [HexColor](#hexcolor)
+    - [Hash](#hash)
     - [IdSelector](#idselector)
     - [Identifier](#identifier)
     - [MediaFeature](#mediafeature)
@@ -325,11 +325,11 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-### HexColor
+### Hash
 
 ```js
 {
-    type: "HexColor",
+    type: "Hash",
     value: String
 }
 ```
