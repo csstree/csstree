@@ -18,6 +18,7 @@
     - Add a whitespace to `+` and `-` operators, when a whitespace before and/or after an operatorß
 - Changed `Nth` to serialize `+n` as `n`
 - Changed generator to determine when a white space required between emiting tokens
+- Added `mode` option for `generate()` to specify a mode of token separation: `spec` or `safe` (by default)
 - Renamed `HexColor` node type into `Hash`
 - Removed `element()` specific parsing rules
 
