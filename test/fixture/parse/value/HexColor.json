@@ -3,35 +3,35 @@
         {
             "source": "#100",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "100"
             }
         },
         {
             "source": "#123abc",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "123abc"
             }
         },
         {
             "source": "#abc123",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "abc123"
             }
         },
         {
             "source": "#a1b2c3d4",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "a1b2c3d4"
             }
         },
         {
             "source": "#AaBbCc",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "AaBbCc"
             }
         }
@@ -43,7 +43,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "1"
                     },
                     {
@@ -60,7 +60,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "a1"
                     },
                     {
@@ -77,7 +77,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "1e-2Aa"
                     }
                 ]
@@ -89,7 +89,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "a1e-2Aa"
                     }
                 ]
@@ -101,7 +101,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "123xxx"
                     }
                 ]
@@ -113,7 +113,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "123azz"
                     }
                 ]
@@ -125,7 +125,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "123\\9"
                     }
                 ]
@@ -137,7 +137,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "123a\\9"
                     }
                 ]
@@ -149,7 +149,7 @@
                 "type": "Value",
                 "children": [
                     {
-                        "type": "HexColor",
+                        "type": "Hash",
                         "value": "abc\\0"
                     }
                 ]
@@ -158,21 +158,21 @@
         {
             "source": "#1e57e9",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "1e57e9"
             }
         },
         {
             "source": "#id",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "id"
             }
         },
         {
             "source": "#-123",
             "ast": {
-                "type": "HexColor",
+                "type": "Hash",
                 "value": "-123"
             }
         }

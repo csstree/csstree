@@ -229,7 +229,7 @@ csstree.parse('color: #aabbcc', { context: 'declaration' });
 //         "type": "Value",
 //         "children": [
 //             {
-//                 "type": "HexColor",
+//                 "type": "Hash",
 //                 "value": "aabbcc"
 //             }
 //         ]
@@ -276,7 +276,7 @@ csstree.parse('--custom: #aabbcc', { context: 'declaration', parseCustomProperty
 //         "type": "Value",
 //         "children": [
 //             {
-//                 "type": "HexColor",
+//                 "type": "Hash",
 //                 "value": "aabbcc"
 //             }
 //         ]

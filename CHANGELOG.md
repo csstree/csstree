@@ -5,6 +5,7 @@
 - Removed `dist/default-syntax.json` from package
 - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - Fixed matching comma separated `<urange>` list (#135)
+- Renamed `HexColor` node type into `Hash`
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 

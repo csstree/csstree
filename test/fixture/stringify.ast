@@ -2395,7 +2395,7 @@
                                     "value": " "
                                 },
                                 {
-                                    "type": "HexColor",
+                                    "type": "Hash",
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
@@ -2417,7 +2417,7 @@
                                     "value": " "
                                 },
                                 {
-                                    "type": "HexColor",
+                                    "type": "Hash",
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
