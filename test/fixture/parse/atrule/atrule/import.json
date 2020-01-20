@@ -26,10 +26,7 @@
                 "children": [
                     {
                         "type": "Url",
-                        "value": {
-                            "type": "Raw",
-                            "value": "test"
-                        }
+                        "value": "test"
                     }
                 ]
             },

@@ -540,7 +540,7 @@ Used for [the Unicode-Range microsyntax](https://drafts.csswg.org/css-syntax/#ur
 ```js
 {
     type: "Url",
-    value: <String> | <Raw>
+    value: String
 }
 ```
 

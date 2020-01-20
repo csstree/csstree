@@ -21,7 +21,8 @@
 - Added `mode` option for `generate()` to specify a mode of token separation: `spec` or `safe` (by default)
 - Renamed `HexColor` node type into `Hash`
 - Removed `element()` specific parsing rules
-- Changed `String` to store decoded string value (and auto encode a value on serialize)
+- Changed `String` node type to store decoded string value (and auto encode a value on serialize)
+- Changed `Url` node type to store decoded url value (and auto encode a value on serialize)
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 

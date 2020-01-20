@@ -92,7 +92,7 @@ function createWalkDeclarationsTest(test, context, walker) {
 
 describe('AST traversal', () => {
     it('base test', () => {
-        const ast = parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%) } }');
+        const ast = parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%); content: "test" } }');
         const visitedTypes = new Set();
         const expected = [
             'AnPlusB',

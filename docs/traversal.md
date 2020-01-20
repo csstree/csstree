@@ -130,13 +130,7 @@ const ast = csstree.parse(`
 const urls = [];
 csstree.walk(ast, function(node) {
     if (this.declaration !== null && node.type === 'Url') {
-        const value = node.value;
-
-        if (value.type === 'Raw') {
-            urls.push(value.value);
-        } else {
-            urls.push(value.value.substr(1, value.value.length - 2));
-        }
+        urls.push(node.value);
     }
 });
 

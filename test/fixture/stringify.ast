@@ -2096,23 +2096,7 @@
                                             "column": 25
                                         }
                                     },
-                                    "value": {
-                                        "type": "Raw",
-                                        "loc": {
-                                            "source": "stringify.css",
-                                            "start": {
-                                                "offset": 601,
-                                                "line": 20,
-                                                "column": 13
-                                            },
-                                            "end": {
-                                                "offset": 612,
-                                                "line": 20,
-                                                "column": 24
-                                            }
-                                        },
-                                        "value": "path/to.png"
-                                    }
+                                    "value": "path/to.png"
                                 },
                                 {
                                     "type": "Url",
@@ -2129,23 +2113,7 @@
                                             "column": 48
                                         }
                                     },
-                                    "value": {
-                                        "type": "String",
-                                        "loc": {
-                                            "source": "stringify.css",
-                                            "start": {
-                                                "offset": 619,
-                                                "line": 20,
-                                                "column": 31
-                                            },
-                                            "end": {
-                                                "offset": 634,
-                                                "line": 20,
-                                                "column": 46
-                                            }
-                                        },
-                                        "value": "path/test.svg"
-                                    }
+                                    "value": "path/test.svg"
                                 },
                                 {
                                     "type": "UnicodeRange",

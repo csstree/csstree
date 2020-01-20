@@ -1,43 +1,32 @@
 {
     "uri.0": {
         "source": "url(\"http://test.com\")",
+        "generate": "url(http://test.com)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "String",
-                "value": "http://test.com"
-            }
+            "value": "http://test.com"
         }
     },
     "uri.1": {
         "source": "url(http://test.com)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "Raw",
-                "value": "http://test.com"
-            }
+            "value": "http://test.com"
         }
     },
     "uri.c.1": {
         "source": "url(/*test*/http://test.com/*test*/)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "Raw",
-                "value": "/*test*/http://test.com/*test*/"
-            }
+            "value": "/*test*/http://test.com/*test*/"
         }
     },
     "uri.s.0": {
         "source": "url(  'http://test.com'  )",
-        "generate": "url(\"http://test.com\")",
+        "generate": "url(http://test.com)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "String",
-                "value": "http://test.com"
-            }
+            "value": "http://test.com"
         }
     },
     "uri.s.1": {
@@ -45,10 +34,7 @@
         "generate": "url(http://test.com)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "Raw",
-                "value": "http://test.com"
-            }
+            "value": "http://test.com"
         }
     },
     "uri with parentheses": {
@@ -56,21 +42,15 @@
         "generate": "url(p\\(1\\).png)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "Raw",
-                "value": "p\\(1\\).png"
-            }
+            "value": "p(1).png"
         }
     },
     "uri escaping": {
         "source": "url(  \\31 \\ \\(2\\)\\.png  )",
-        "generate": "url(\\31 \\ \\(2\\)\\.png)",
+        "generate": "url(1\\ \\(2\\).png)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "Raw",
-                "value": "\\31 \\ \\(2\\)\\.png"
-            }
+            "value": "1 (2).png"
         }
     },
     "uri with special symbols": {
@@ -78,21 +58,15 @@
         "generate": "url(p{1};.png)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "Raw",
-                "value": "p{1};.png"
-            }
+            "value": "p{1};.png"
         }
     },
     "uri with parentheses in string": {
         "source": "url(  'p (1).png'  )",
-        "generate": "url(\"p (1).png\")",
+        "generate": "url(p\\ \\(1\\).png)",
         "ast": {
             "type": "Url",
-            "value": {
-                "type": "String",
-                "value": "p (1).png"
-            }
+            "value": "p (1).png"
         }
     },
     "error": [
