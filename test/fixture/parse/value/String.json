@@ -1,51 +1,56 @@
 {
     "string.0": {
         "source": "'test'",
+        "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "'test'"
+            "value": "test"
         }
     },
     "string.1": {
         "source": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "\"test\""
+            "value": "test"
         }
     },
     "string.2": {
         "source": "'te\\'st'",
+        "generate": "\"te'st\"",
         "ast": {
             "type": "String",
-            "value": "'te\\'st'"
+            "value": "te'st"
         }
     },
     "string.3": {
         "source": "\"te\\\"st\"",
         "ast": {
             "type": "String",
-            "value": "\"te\\\"st\""
+            "value": "te\"st"
         }
     },
     "string with escaped \\n": {
         "source": "\"te\\\nst\"",
+        "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "\"te\\\nst\""
+            "value": "test"
         }
     },
     "string with escaped \\r": {
         "source": "\"te\\\rst\"",
+        "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "\"te\\\rst\""
+            "value": "test"
         }
     },
     "string with escaped \\r\\n": {
         "source": "\"te\\\r\nst\"",
+        "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "\"te\\\r\nst\""
+            "value": "test"
         }
     }
 }

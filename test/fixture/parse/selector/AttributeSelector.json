@@ -16,7 +16,7 @@
         }
     },
     "attrib.1": {
-        "source": "[a='b']",
+        "source": "[a=\"b\"]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -26,13 +26,13 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": null
         }
     },
     "attrib.1 with flags": {
-        "source": "[a='b'i]",
+        "source": "[a=\"b\"i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -42,7 +42,7 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": "i"
         }
@@ -147,7 +147,7 @@
     },
     "attrib.s.1": {
         "source": "[  a  =  'b'  ]",
-        "generate": "[a='b']",
+        "generate": "[a=\"b\"]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -157,14 +157,14 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": null
         }
     },
     "attrib.1 with flags and spaces": {
         "source": "[  a  =  'b'  i  ]",
-        "generate": "[a='b'i]",
+        "generate": "[a=\"b\"i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -174,7 +174,7 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": "i"
         }
@@ -198,7 +198,7 @@
     },
     "attrib.c.1": {
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/]",
-        "generate": "[a='b']",
+        "generate": "[a=\"b\"]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -208,14 +208,14 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": null
         }
     },
     "attrib.c.1 with flags and comments": {
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/i/*test*/]",
-        "generate": "[a='b'i]",
+        "generate": "[a=\"b\"i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -225,7 +225,7 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": "i"
         }
@@ -241,7 +241,7 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "\"#test\""
+                "value": "#test"
             },
             "flags": null
         }
@@ -257,7 +257,7 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "\"#test\""
+                "value": "#test"
             },
             "flags": null
         }
@@ -273,7 +273,7 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "\"#test\""
+                "value": "#test"
             },
             "flags": null
         }
@@ -318,7 +318,7 @@
         }
     },
     "attrib with dashmatch": {
-        "source": "[a|='b']",
+        "source": "[a|=\"b\"]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -328,13 +328,13 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": null
         }
     },
     "attrib with namespace and dashmatch": {
-        "source": "[a|b|='c']",
+        "source": "[a|b|=\"c\"]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -344,14 +344,14 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "'c'"
+                "value": "c"
             },
             "flags": null
         }
     },
     "attrib with dashmatch and spaces": {
         "source": "[  a  |=  'b'  ]",
-        "generate": "[a|='b']",
+        "generate": "[a|=\"b\"]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -361,14 +361,14 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": null
         }
     },
     "attrib with namespace, dashmatch and spaces": {
         "source": "[  a|b  |=  'c'  ]",
-        "generate": "[a|b|='c']",
+        "generate": "[a|b|=\"c\"]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -378,7 +378,7 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "'c'"
+                "value": "c"
             },
             "flags": null
         }
@@ -480,7 +480,7 @@
         }
     },
     "attrib with flags": {
-        "source": "[a='b'i]",
+        "source": "[a=\"b\"i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -490,14 +490,14 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": "i"
         }
     },
     "attrib with flags and spaces": {
         "source": "[  a  =  'b'  i  ]",
-        "generate": "[a='b'i]",
+        "generate": "[a=\"b\"i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -507,14 +507,14 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": "i"
         }
     },
     "attrib with flags and comments": {
         "source": "[/*1*/a/*2*/=/*3*/'b'/*4*/i/*5*/]",
-        "generate": "[a='b'i]",
+        "generate": "[a=\"b\"i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -524,7 +524,7 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "'b'"
+                "value": "b"
             },
             "flags": "i"
         }

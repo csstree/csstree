@@ -1,6 +1,6 @@
 {
     "with string": {
-        "source": "@import 'test';",
+        "source": "@import \"test\";",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -9,7 +9,7 @@
                 "children": [
                     {
                         "type": "String",
-                        "value": "'test'"
+                        "value": "test"
                     }
                 ]
             },
@@ -38,7 +38,7 @@
     },
     "with media": {
         "source": "@import 'test' all, screen and (min-width: 600px);",
-        "generate": "@import 'test'all,screen and (min-width:600px);",
+        "generate": "@import \"test\"all,screen and (min-width:600px);",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -47,7 +47,7 @@
                 "children": [
                     {
                         "type": "String",
-                        "value": "'test'"
+                        "value": "test"
                     },
                     {
                         "type": "MediaQueryList",
@@ -92,7 +92,7 @@
     },
     "should be case insensetive": {
         "source": "@ImpOrt 'test' all;",
-        "generate": "@ImpOrt 'test'all;",
+        "generate": "@ImpOrt \"test\"all;",
         "ast": {
             "type": "Atrule",
             "name": "ImpOrt",
@@ -101,7 +101,7 @@
                 "children": [
                     {
                         "type": "String",
-                        "value": "'test'"
+                        "value": "test"
                     },
                     {
                         "type": "MediaQueryList",
@@ -124,7 +124,7 @@
     },
     "@import with block is not an error": {
         "source": "@import 'test' {}",
-        "generate": "@import 'test'{}",
+        "generate": "@import \"test\"{}",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -133,7 +133,7 @@
                 "children": [
                     {
                         "type": "String",
-                        "value": "'test'"
+                        "value": "test"
                     }
                 ]
             },
@@ -145,7 +145,7 @@
     },
     "white spaces and comment should not affect prelude consuming": {
         "source": "@import 'test' /* comment */ {}",
-        "generate": "@import 'test'{}",
+        "generate": "@import \"test\"{}",
         "ast": {
             "type": "Atrule",
             "name": "import",
@@ -154,7 +154,7 @@
                 "children": [
                     {
                         "type": "String",
-                        "value": "'test'"
+                        "value": "test"
                     }
                 ]
             },

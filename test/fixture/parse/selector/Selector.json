@@ -57,7 +57,7 @@
         }
     },
     "simpleselector.4": {
-        "source": "[a=b][c='d']",
+        "source": "[a=b][c=\"d\"]",
         "ast": {
             "type": "Selector",
             "children": [
@@ -83,7 +83,7 @@
                     "matcher": "=",
                     "value": {
                         "type": "String",
-                        "value": "'d'"
+                        "value": "d"
                     },
                     "flags": null
                 }

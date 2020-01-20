@@ -39,7 +39,7 @@
                 "children": [
                     {
                         "type": "String",
-                        "value": "\"blah\""
+                        "value": "blah"
                     }
                 ]
             },
@@ -169,7 +169,7 @@
     },
     "no at-rule ending on eof is not an error": {
         "source": "@atrule url('..')",
-        "generate": "@atrule url('..');",
+        "generate": "@atrule url(\"..\");",
         "ast": {
             "type": "Atrule",
             "name": "atrule",
@@ -180,7 +180,7 @@
                         "type": "Url",
                         "value": {
                             "type": "String",
-                            "value": "'..'"
+                            "value": ".."
                         }
                     }
                 ]

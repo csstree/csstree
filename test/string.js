@@ -1,10 +1,9 @@
-var assert = require('assert');
-var decode = require('../lib/utils/string').decode;
-var encode = require('../lib/utils/string').encode;
+const assert = require('assert');
+const { decode, encode } = require('../lib/utils/string');
 
-describe('string', function() {
-    describe('decode', function() {
-        var tests = {
+describe('string', () => {
+    describe('decode', () => {
+        const tests = {
             '': '',
             '"': '',
             '\'': '',
@@ -42,18 +41,19 @@ describe('string', function() {
             '"\\abcdef1"': '\ufffd1',
             // (30)
             '"\\a\\d\\c\\9"': '\n\r\f\t',
-            '"\\(\\)\\\\"': '()\\'
+            '"\\(\\)\\\\"': '()\\',
+            '"\\\r\\\n\\\r\n"': ''
         };
 
-        Object.keys(tests).forEach(function(from, idx) {
-            it('(' + idx + ') ' + from, function() {
+        Object.keys(tests).forEach((from, idx) => {
+            it('(' + idx + ') ' + JSON.stringify(from), () => {
                 assert.equal(decode(from), tests[from]);
             });
         });
     });
 
-    describe('encode', function() {
-        var tests = {
+    describe('encode', () => {
+        const tests = {
             '': '""',
             '"': '"\\""',
             '\'': '"\'"',
@@ -68,8 +68,8 @@ describe('string', function() {
             'a&z': '"a&z"'
         };
 
-        Object.keys(tests).forEach(function(from, idx) {
-            it('(' + idx + ') ' + from, function() {
+        Object.keys(tests).forEach((from, idx) => {
+            it('(' + idx + ') ' + JSON.stringify(from), () => {
                 assert.equal(encode(from), tests[from]);
             });
         });

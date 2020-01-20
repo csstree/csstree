@@ -47,7 +47,7 @@
         }
     },
     "parentheses.9": {
-        "source": "(#123456'string')",
+        "source": "(#123456\"string\")",
         "ast": {
             "type": "Parentheses",
             "children": [
@@ -57,7 +57,7 @@
                 },
                 {
                     "type": "String",
-                    "value": "'string'"
+                    "value": "string"
                 }
             ]
         }

@@ -1,11 +1,11 @@
 {
     "uri.0": {
-        "source": "url('http://test.com')",
+        "source": "url(\"http://test.com\")",
         "ast": {
             "type": "Url",
             "value": {
                 "type": "String",
-                "value": "'http://test.com'"
+                "value": "http://test.com"
             }
         }
     },
@@ -31,12 +31,12 @@
     },
     "uri.s.0": {
         "source": "url(  'http://test.com'  )",
-        "generate": "url('http://test.com')",
+        "generate": "url(\"http://test.com\")",
         "ast": {
             "type": "Url",
             "value": {
                 "type": "String",
-                "value": "'http://test.com'"
+                "value": "http://test.com"
             }
         }
     },
@@ -86,12 +86,12 @@
     },
     "uri with parentheses in string": {
         "source": "url(  'p (1).png'  )",
-        "generate": "url('p (1).png')",
+        "generate": "url(\"p (1).png\")",
         "ast": {
             "type": "Url",
             "value": {
                 "type": "String",
-                "value": "'p (1).png'"
+                "value": "p (1).png"
             }
         }
     },

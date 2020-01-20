@@ -103,7 +103,7 @@
     },
     "function.5": {
         "source": "test(10px,'test' test(x),89%)",
-        "generate": "test(10px,'test'test(x),89%)",
+        "generate": "test(10px,\"test\"test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -119,7 +119,7 @@
                 },
                 {
                     "type": "String",
-                    "value": "'test'"
+                    "value": "test"
                 },
                 {
                     "type": "Function",
@@ -255,7 +255,7 @@
     },
     "function.c.5": {
         "source": "test(/*test*/10px/*test*/,/*test*/'test'/*test*/test(/*test*/x/*test*/)/*test*/,/*test*/89%/*test*/)",
-        "generate": "test(10px,'test'test(x),89%)",
+        "generate": "test(10px,\"test\"test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -271,7 +271,7 @@
                 },
                 {
                     "type": "String",
-                    "value": "'test'"
+                    "value": "test"
                 },
                 {
                     "type": "Function",
@@ -377,7 +377,7 @@
     },
     "function.s.5": {
         "source": "test(  10px  ,  'test'  test(  x  )  ,  89%  )",
-        "generate": "test(10px,'test'test(x),89%)",
+        "generate": "test(10px,\"test\"test(x),89%)",
         "ast": {
             "type": "Function",
             "name": "test",
@@ -393,7 +393,7 @@
                 },
                 {
                     "type": "String",
-                    "value": "'test'"
+                    "value": "test"
                 },
                 {
                     "type": "Function",

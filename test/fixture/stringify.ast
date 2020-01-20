@@ -78,7 +78,7 @@
                                 "column": 17
                             }
                         },
-                        "value": "'utf-8'"
+                        "value": "utf-8"
                     }
                 ]
             },
@@ -751,7 +751,7 @@
                                             "column": 38
                                         }
                                     },
-                                    "value": "\"asd\""
+                                    "value": "asd"
                                 },
                                 "flags": null
                             },
@@ -2144,7 +2144,7 @@
                                                 "column": 46
                                             }
                                         },
-                                        "value": "'path/test.svg'"
+                                        "value": "path/test.svg"
                                     }
                                 },
                                 {
@@ -2368,7 +2368,7 @@
                                             "column": 47
                                         }
                                     },
-                                    "value": "\"string\""
+                                    "value": "string"
                                 },
                                 {
                                     "type": "String",
@@ -2385,7 +2385,7 @@
                                             "column": 56
                                         }
                                     },
-                                    "value": "'string'"
+                                    "value": "string"
                                 },
                                 {
                                     "type": "Parentheses",
@@ -3531,7 +3531,7 @@
                                 "column": 14
                             }
                         },
-                        "value": "'foo'"
+                        "value": "foo"
                     },
                     {
                         "type": "MediaQueryList",
@@ -3637,7 +3637,7 @@
                                 "column": 18
                             }
                         },
-                        "value": "'anim'"
+                        "value": "anim"
                     }
                 ]
             },

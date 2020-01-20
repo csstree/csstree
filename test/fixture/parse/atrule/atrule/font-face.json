@@ -1,6 +1,6 @@
 {
     "single declaration": {
-        "source": "@font-face{font-family:'name'}",
+        "source": "@font-face{font-family:\"name\"}",
         "ast": {
             "type": "Atrule",
             "name": "font-face",
@@ -17,7 +17,7 @@
                             "children": [
                                 {
                                     "type": "String",
-                                    "value": "'name'"
+                                    "value": "name"
                                 }
                             ]
                         }
