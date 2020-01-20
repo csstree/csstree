@@ -58,11 +58,14 @@ describe('string', function() {
             '"': '"\\""',
             '\'': '"\'"',
             'a\nb': '"a\\a b"',
+            'a\nz': '"a\\az"',
             'a\rb': '"a\\d b"',
             'a\fb': '"a\\c b"',
-            'a\tb': '"a\\9 b"',
-            'a\tx': '"a\\9x"',
-            'a\nbc\n"b\tx': '"a\\a bc\\a\\"b\\9x"'
+            'a\tb': '"a\tb"',
+            'a\nbc\n"b\tx': '"a\\a bc\\a\\"b\tx"',
+            'a\\26b': '"a\\\\26b"',
+            'a&b': '"a&b"',
+            'a&z': '"a&z"'
         };
 
         Object.keys(tests).forEach(function(from, idx) {
