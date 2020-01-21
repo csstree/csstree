@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { string, url } = require('../lib');
+const { ident, string, url } = require('../lib');
 
 function forEachTest(tests, func) {
     Object.keys(tests).forEach((from, idx) => {
@@ -51,7 +51,9 @@ describe('decode/encode', () => {
                 // (30)
                 '"\\a\\d\\c\\9"': '\n\r\f\t',
                 '"\\(\\)\\\\"': '()\\',
-                '"\\\r\\\n\\\r\n"': ''
+                '"\\\r\\\n\\\r\n"': '',
+                '"\\"': '"',
+                '"\\': ''
             };
 
             forEachTest(tests, string.decode);
@@ -67,8 +69,8 @@ describe('decode/encode', () => {
                 // (5)
                 'a\rb': '"a\\d b"',
                 'a\fb': '"a\\c b"',
-                'a\tb': '"a\tb"',
-                'a\nbc\n"b\tx': '"a\\a bc\\a\\"b\tx"',
+                'a\tb': '"a\\9 b"',
+                'a\nbc\n"b\tx': '"a\\a bc\\a\\"b\\9x"',
                 'a\\26b': '"a\\\\26b"',
                 // (10)
                 'a&b': '"a&b"',
@@ -105,7 +107,10 @@ describe('decode/encode', () => {
                 'url(\\abcdefa)': '\ufffda',  // is greater than the maximum allowed code point
                 'url(\\def0)': '\ufffd',      // is for a surrogate
                 'url(\\00abcdef)': '\uabcdef',
-                'url(\\abcdef1)': '\ufffd1'
+                // (20)
+                'url(\\abcdef1)': '\ufffd1',
+                'url(\\)': ')',
+                'url(\\': ''
             };
 
             forEachTest(tests, url.decode);
@@ -131,6 +136,109 @@ describe('decode/encode', () => {
             };
 
             forEachTest(tests, url.encode);
+        });
+    });
+
+    describe('ident', () => {
+        describe('decode', () => {
+            const tests = {
+                '': '',
+                'foo': 'foo',
+                'a\\\r\\\n\\\r\nb': 'ab',
+                '\\21': '!',
+                '\\021': '!',
+                // (5)
+                '\\0021': '!',
+                '\\00021': '!',
+                '\\000021': '!',
+                '\\0000211': '!1',
+                '\\000021 1': '!1',
+                // (10)
+                '\\000021\t1': '!1',
+                '\\0': '\ufffd',
+                '\\0x': '\ufffdx',
+                '\\abcdefa': '\ufffda',  // is greater than the maximum allowed code point
+                '\\def0': '\ufffd',      // is for a surrogate
+                // (15)
+                '\\00abcdef': '\uabcdef',
+                '\\abcdef1': '\ufffd1',
+                '\\': ''
+            };
+
+            forEachTest(tests, ident.decode);
+        });
+
+        describe('encode', () => {
+            // Adopted tests: https://github.com/mathiasbynens/CSS.escape/blob/master/tests/tests.js
+            const tests = {
+                '': '',
+                '\0': '\uFFFD',
+                'a\0': 'a\uFFFD',
+                '\0b': '\uFFFDb',
+                'a\0b': 'a\uFFFDb',
+
+                '\uFFFD': '\uFFFD',
+                'a\uFFFD': 'a\uFFFD',
+                '\uFFFDb': '\uFFFDb',
+                'a\uFFFDb': 'a\uFFFDb',
+
+                '\x01\x02\x1E\x1F': '\\1 \\2 \\1e \\1f ',
+
+                '0a': '\\30 a',
+                '1a': '\\31 a',
+                '2a': '\\32 a',
+                '3a': '\\33 a',
+                '4a': '\\34 a',
+                '5a': '\\35 a',
+                '6a': '\\36 a',
+                '7a': '\\37 a',
+                '8a': '\\38 a',
+                '9a': '\\39 a',
+
+                'a0b': 'a0b',
+                'a1b': 'a1b',
+                'a2b': 'a2b',
+                'a3b': 'a3b',
+                'a4b': 'a4b',
+                'a5b': 'a5b',
+                'a6b': 'a6b',
+                'a7b': 'a7b',
+                'a8b': 'a8b',
+                'a9b': 'a9b',
+
+                '-0a': '-\\30 a',
+                '-1a': '-\\31 a',
+                '-2a': '-\\32 a',
+                '-3a': '-\\33 a',
+                '-4a': '-\\34 a',
+                '-5a': '-\\35 a',
+                '-6a': '-\\36 a',
+                '-7a': '-\\37 a',
+                '-8a': '-\\38 a',
+                '-9a': '-\\39 a',
+
+                '-': '\\-',
+                '-a': '-a',
+                '--': '--',
+                '--a': '--a',
+
+                '\x80\x2D\x5F\xA9': '\x80\x2D\x5F\xA9',
+                '\x7F\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8A\x8B\x8C\x8D\x8E\x8F\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9A\x9B\x9C\x9D\x9E\x9F': '\\7f \x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8A\x8B\x8C\x8D\x8E\x8F\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9A\x9B\x9C\x9D\x9E\x9F',
+                '\xA0\xA1\xA2': '\xA0\xA1\xA2',
+                'a0123456789b': 'a0123456789b',
+                'abcdefghijklmnopqrstuvwxyz': 'abcdefghijklmnopqrstuvwxyz',
+                'ABCDEFGHIJKLMNOPQRSTUVWXYZ': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+
+                '\x20\x21\x78\x79': '\\ \\!xy',
+
+                // astral symbol (U+1D306 TETRAGRAM FOR CENTRE)
+                '\uD834\uDF06': '\uD834\uDF06',
+                // lone surrogates
+                '\uDF06': '\uDF06',
+                '\uD834': '\uD834'
+            };
+
+            forEachTest(tests, ident.encode);
         });
     });
 });
