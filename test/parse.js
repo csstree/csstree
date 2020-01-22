@@ -12,7 +12,7 @@ function createParseErrorTest(name, test, options) {
             () => parse(test.source, options),
             (e) => {
                 error = e;
-                if (e.parseError) {
+                if (e instanceof parse.SyntaxError === false) {
                     return true;
                 }
             },
@@ -20,7 +20,11 @@ function createParseErrorTest(name, test, options) {
         );
 
         assert.equal(error.message, test.error);
-        assert.deepEqual(error.parseError, test.position);
+        assert.deepEqual({
+            offset: error.offset,
+            line: error.line,
+            column: error.column
+        }, test.position);
     });
 }
 

@@ -23,6 +23,8 @@
 - Removed `element()` specific parsing rules
 - Changed `String` node type to store decoded string value (and auto encode a value on serialize)
 - Changed `Url` node type to store decoded url value (and auto encode a value on serialize)
+- Removed `SyntaxError` (custom parse error class) from public API
+- Removed `parseError` field in parse `SyntaxError`
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 
