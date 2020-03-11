@@ -1,5 +1,6 @@
 const assert = require('assert');
 const path = require('path');
+const { lazyValues } = require('./helpers');
 const { parse, walk } = require('./helpers/lib');
 const notInsideAtrulePrelude = stack => stack.every(node => node.type !== 'AtrulePrelude');
 const { tests, forEachTest: forEachParseTest } = require('./fixture/parse');
@@ -156,13 +157,15 @@ describe('AST traversal', () => {
     });
 
     describe('traverse order', () => {
-        const ast = parse('.a.b { foo: bar; baz: qux } .c {} @media all { .d:not(.e) { aa: bb; cc: dd } f { ee: ff } }');
-        const expectedOrder = 'a b foo bar baz qux c media all d not e aa bb cc dd f ee ff'.split(' ');
+        const values = lazyValues({
+            ast: () => parse('.a.b { foo: bar; baz: qux } .c {} @media all { .d:not(.e) { aa: bb; cc: dd } f { ee: ff } }'),
+            expectedOrder: () => 'a b foo bar baz qux c media all d not e aa bb cc dd f ee ff'.split(' ')
+        });
 
         it('natural', () => {
             const visitedNames = [];
 
-            walk(ast, {
+            walk(values.ast, {
                 enter: (node) => {
                     if (node.name || node.property) {
                         visitedNames.push(node.name || node.property);
@@ -172,14 +175,14 @@ describe('AST traversal', () => {
 
             assert.deepEqual(
                 visitedNames,
-                expectedOrder
+                values.expectedOrder
             );
         });
 
         it('reverse', () => {
             const visitedNames = [];
 
-            walk(ast, {
+            walk(values.ast, {
                 reverse: true,
                 enter: (node) => {
                     if (node.name || node.property) {
@@ -190,13 +193,13 @@ describe('AST traversal', () => {
 
             assert.deepEqual(
                 visitedNames,
-                expectedOrder.slice().reverse()
+                values.expectedOrder.slice().reverse()
             );
         });
     });
 
     describe('bad options', () => {
-        const ast = parse('.foo { color: red }');
+        const ast = {};
 
         it('should throws when no enter/leave handlers is set', () => {
             assert.throws(

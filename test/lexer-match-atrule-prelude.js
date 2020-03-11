@@ -1,20 +1,22 @@
 const assert = require('assert');
 const { parse, lexer, fork } = require('./helpers/lib');
+const { lazyValues } = require('./helpers');
 const fixture = require('./fixture/syntax');
-
-describe('Lexer#matchAtrulePrelude()', () => {
-    const animationName = parse('animation-name', { context: 'atrulePrelude', atrule: 'keyframes' });
-    const number = parse('123', { context: 'atrulePrelude', atrule: 'unknown' });
-    const customSyntax = fork({
+const values = lazyValues({
+    animationName: () => parse('animation-name', { context: 'atrulePrelude', atrule: 'keyframes' }),
+    number: () => parse('123', { context: 'atrulePrelude', atrule: 'unknown' }),
+    customSyntax: () => fork({
         atrules: {
             '-foo-keyframes': {
                 prelude: '<number>'
             }
         }
-    });
+    })
+});
 
+describe('Lexer#matchAtrulePrelude()', () => {
     it('should match', () => {
-        const match = customSyntax.lexer.matchAtrulePrelude('keyframes', animationName);
+        const match = values.customSyntax.lexer.matchAtrulePrelude('keyframes', values.animationName);
 
         assert(match.matched);
         assert.equal(match.error, null);
@@ -22,7 +24,7 @@ describe('Lexer#matchAtrulePrelude()', () => {
 
     describe('vendor prefixes', () => {
         it('vendor prefix', () => {
-            const match = customSyntax.lexer.matchAtrulePrelude('-webkit-keyframes', animationName);
+            const match = values.customSyntax.lexer.matchAtrulePrelude('-webkit-keyframes', values.animationName);
 
             assert(match.matched);
             assert.equal(match.error, null);
@@ -31,11 +33,11 @@ describe('Lexer#matchAtrulePrelude()', () => {
         it('case insensetive with vendor prefix', () => {
             let match;
 
-            match = customSyntax.lexer.matchAtrulePrelude('KEYFRAMES', animationName);
+            match = values.customSyntax.lexer.matchAtrulePrelude('KEYFRAMES', values.animationName);
             assert(match.matched);
             assert.equal(match.error, null);
 
-            match = customSyntax.lexer.matchAtrulePrelude('-VENDOR-Keyframes', animationName);
+            match = values.customSyntax.lexer.matchAtrulePrelude('-VENDOR-Keyframes', values.animationName);
             assert(match.matched);
             assert.equal(match.error, null);
         });
@@ -43,11 +45,11 @@ describe('Lexer#matchAtrulePrelude()', () => {
         it('should use verdor version first', () => {
             let match;
 
-            match = customSyntax.lexer.matchAtrulePrelude('-foo-keyframes', number);
+            match = values.customSyntax.lexer.matchAtrulePrelude('-foo-keyframes', values.number);
             assert(match.matched);
             assert.equal(match.error, null);
 
-            match = customSyntax.lexer.matchAtrulePrelude('keyframes', number);
+            match = values.customSyntax.lexer.matchAtrulePrelude('keyframes', values.number);
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'Mismatch\n  syntax: <keyframes-name>\n   value: 123\n  --------^');
         });
@@ -69,14 +71,14 @@ describe('Lexer#matchAtrulePrelude()', () => {
 
     describe('should not be matched to at-rules with no prelude', () => {
         it('regular name', () => {
-            const match = lexer.matchAtrulePrelude('font-face', animationName);
+            const match = lexer.matchAtrulePrelude('font-face', values.animationName);
 
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'At-rule `font-face` should not contain a prelude');
         });
 
         it('with verdor prefix', () => {
-            const match = lexer.matchAtrulePrelude('-prefix-font-face', animationName);
+            const match = lexer.matchAtrulePrelude('-prefix-font-face', values.animationName);
 
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'At-rule `-prefix-font-face` should not contain a prelude');

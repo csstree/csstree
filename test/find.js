@@ -1,40 +1,43 @@
 const assert = require('assert');
 const { parse, find, findLast, findAll } = require('./helpers/lib');
-const ast = parse(`
-    .foo { color: red; background: green; }
-    .bar, .qux.foo { font-weight: bold; color: blue; }
-`);
-const firstFoo = ast
-    .children.first    // Rule
-    .prelude           // SelectorList
-    .children.first    // Selector
-    .children.first;   // ClassSelector
-const lastFoo = ast
-    .children.last     // Rule
-    .prelude           // SelectorList
-    .children.last     // Selector
-    .children.last;    // ClassSelector
+const { lazyValues } = require('./helpers');
+const values = lazyValues({
+    ast: () => parse(`
+        .foo { color: red; background: green; }
+        .bar, .qux.foo { font-weight: bold; color: blue; }
+    `),
+    firstFoo: () => values.ast
+        .children.first    // Rule
+        .prelude           // SelectorList
+        .children.first    // Selector
+        .children.first,   // ClassSelector
+    lastFoo: () => values.ast
+        .children.last     // Rule
+        .prelude           // SelectorList
+        .children.last     // Selector
+        .children.last     // ClassSelector
+});
 
 describe('Search', () => {
     describe('find', () => {
         it('base', () => {
-            const actual = find(ast, node =>
+            const actual = find(values.ast, node =>
                 node.type === 'ClassSelector' && node.name === 'foo'
             );
 
-            assert.equal(actual, firstFoo);
+            assert.equal(actual, values.firstFoo);
         });
 
         it('using refs', () => {
-            const actual = find(ast, (node, item, list) =>
+            const actual = find(values.ast, (node, item, list) =>
                 node.type === 'ClassSelector' && node.name === 'foo' && list.head !== item
             );
 
-            assert.equal(actual, lastFoo);
+            assert.equal(actual, values.lastFoo);
         });
 
         it('using context', () => {
-            const actual = find(ast, function(node) {
+            const actual = find(values.ast, function(node) {
                 return (
                     node.type === 'ClassSelector' &&
                     node.name === 'foo' &&
@@ -42,29 +45,29 @@ describe('Search', () => {
                 );
             });
 
-            assert.equal(actual, lastFoo);
+            assert.equal(actual, values.lastFoo);
         });
     });
 
     describe('findLast', () => {
         it('findLast', () => {
-            const actual = findLast(ast, node =>
+            const actual = findLast(values.ast, node =>
                 node.type === 'ClassSelector' && node.name === 'foo'
             );
 
-            assert.equal(actual, lastFoo);
+            assert.equal(actual, values.lastFoo);
         });
 
         it('using refs', () => {
-            const actual = findLast(ast, (node, item, list) =>
+            const actual = findLast(values.ast, (node, item, list) =>
                 node.type === 'ClassSelector' && node.name === 'foo' && list.head === item
             );
 
-            assert.equal(actual, firstFoo);
+            assert.equal(actual, values.firstFoo);
         });
 
         it('using context', () => {
-            const actual = findLast(ast, function(node) {
+            const actual = findLast(values.ast, function(node) {
                 return (
                     node.type === 'ClassSelector' &&
                     node.name === 'foo' &&
@@ -72,17 +75,17 @@ describe('Search', () => {
                 );
             });
 
-            assert.equal(actual, firstFoo);
+            assert.equal(actual, values.firstFoo);
         });
     });
 
     it('findAll', () => {
-        const actual = findAll(ast, node =>
+        const actual = findAll(values.ast, node =>
             node.type === 'ClassSelector' && node.name === 'foo'
         );
 
         assert.equal(actual.length, 2);
-        assert.equal(actual[0], firstFoo);
-        assert.equal(actual[1], lastFoo);
+        assert.equal(actual[0], values.firstFoo);
+        assert.equal(actual[1], values.lastFoo);
     });
 });

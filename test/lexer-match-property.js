@@ -1,6 +1,19 @@
 const assert = require('assert');
 const { parse, lexer, fork } = require('./helpers/lib');
+const { lazyValues } = require('./helpers');
 const fixture = require('./fixture/syntax');
+const values = lazyValues({
+    bar: () => parse('bar', { context: 'value' }),
+    qux: () => parse('qux', { context: 'value' }),
+    customSyntax: () => fork(function(prev, assign) {
+        return assign(prev, {
+            properties: {
+                foo: 'bar',
+                '-baz-foo': 'qux'
+            }
+        });
+    })
+});
 
 function getMatch(lexer, property, value, syntax) {
     return syntax
@@ -9,55 +22,44 @@ function getMatch(lexer, property, value, syntax) {
 }
 
 describe('Lexer#matchProperty()', () => {
-    const bar = parse('bar', { context: 'value' });
-    const qux = parse('qux', { context: 'value' });
-    const customSyntax = fork(function(prev, assign) {
-        return assign(prev, {
-            properties: {
-                foo: 'bar',
-                '-baz-foo': 'qux'
-            }
-        });
-    });
-
     describe('vendor prefixes and hacks', () => {
         it('vendor prefix', () => {
-            const match = customSyntax.lexer.matchProperty('-vendor-foo', bar);
+            const match = values.customSyntax.lexer.matchProperty('-vendor-foo', values.bar);
 
             assert(match.matched);
             assert.equal(match.error, null);
         });
 
         it('hacks', () => {
-            const match = customSyntax.lexer.matchProperty('_foo', bar);
+            const match = values.customSyntax.lexer.matchProperty('_foo', values.bar);
 
             assert(match.matched);
-            assert.equal(customSyntax.lexer.lastMatchError, null);
+            assert.equal(values.customSyntax.lexer.lastMatchError, null);
         });
 
         it('vendor prefix and hack', () => {
-            const match = customSyntax.lexer.matchProperty('_-vendor-foo', bar);
+            const match = values.customSyntax.lexer.matchProperty('_-vendor-foo', values.bar);
 
             assert(match.matched);
-            assert.equal(customSyntax.lexer.lastMatchError, null);
+            assert.equal(values.customSyntax.lexer.lastMatchError, null);
         });
 
         it('case insensetive with vendor prefix and hack', () => {
             let match;
 
-            match = customSyntax.lexer.matchProperty('FOO', bar);
+            match = values.customSyntax.lexer.matchProperty('FOO', values.bar);
             assert(match.matched);
             assert.equal(match.error, null);
 
-            match = customSyntax.lexer.matchProperty('-VENDOR-Foo', bar);
+            match = values.customSyntax.lexer.matchProperty('-VENDOR-Foo', values.bar);
             assert(match.matched);
             assert.equal(match.error, null);
 
-            match = customSyntax.lexer.matchProperty('_FOO', bar);
+            match = values.customSyntax.lexer.matchProperty('_FOO', values.bar);
             assert(match.matched);
             assert.equal(match.error, null);
 
-            match = customSyntax.lexer.matchProperty('_-VENDOR-Foo', bar);
+            match = values.customSyntax.lexer.matchProperty('_-VENDOR-Foo', values.bar);
             assert(match.matched);
             assert.equal(match.error, null);
         });
@@ -65,18 +67,18 @@ describe('Lexer#matchProperty()', () => {
         it('should use verdor version first', () => {
             let match;
 
-            match = customSyntax.lexer.matchProperty('-baz-foo', qux);
+            match = values.customSyntax.lexer.matchProperty('-baz-foo', values.qux);
             assert(match.matched);
             assert.equal(match.error, null);
 
-            match = customSyntax.lexer.matchProperty('-baz-baz-foo', qux);
+            match = values.customSyntax.lexer.matchProperty('-baz-baz-foo', values.qux);
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'Unknown property `-baz-baz-foo`');
         });
     });
 
     it('custom property', () => {
-        const match = lexer.matchProperty('--foo', bar);
+        const match = lexer.matchProperty('--foo', values.bar);
 
         assert.equal(match.matched, null);
         assert.equal(match.error.message, 'Lexer matching doesn\'t applicable for custom properties');

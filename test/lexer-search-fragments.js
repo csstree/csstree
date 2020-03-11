@@ -1,15 +1,15 @@
 const assert = require('assert');
 const { parse, generate, lexer } = require('./helpers/lib');
 
-describe('lexer search fragments', () => {
-    function translateFragments(fragments) {
-        return fragments.map(fragment => generate({
-            type: 'Value',
-            loc: null,
-            children: fragment.nodes
-        }));
-    }
+function translateFragments(fragments) {
+    return fragments.map(fragment => generate({
+        type: 'Value',
+        loc: null,
+        children: fragment.nodes
+    }));
+}
 
+describe('lexer search fragments', () => {
     describe('findValueFragments()', () => {
         it('should find single entry', () => {
             const declaration = parse('border: 1px solid red', { context: 'declaration' });
