@@ -109,6 +109,13 @@ csstree.parse('example { foo; bar: 1! }', {
 // ------------------------------^
 ```
 
+### onComment
+
+Type: `function(value, loc)` or `null`  
+Default: `null`
+
+A handler to call for every comment in parsing source. Value is passing without surrounding `/*` and `*/`. `loc` will be `null` until `positions` option is set to `true`.
+
 ### filename
 
 Type: `string`  
