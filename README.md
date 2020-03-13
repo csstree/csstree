@@ -92,7 +92,7 @@ Syntax matching:
 // parse CSS to AST as a declaration value
 var ast = csstree.parse('red 1px solid', { context: 'value' });
 
-// march to syntax of `border` property
+// match to syntax of `border` property
 var matchResult = csstree.lexer.matchProperty('border', ast);
 
 // check first value node is a <color>
