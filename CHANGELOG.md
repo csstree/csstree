@@ -6,6 +6,7 @@
     - Changed `tokenize()` to take a function as second argument, which will be called for every token. No stream instance is creating when second argument is ommited.
     - Changed `TokenStream#getRawLength()` to take second parameter as a function (rule) that check a char code to stop a scanning
     - Added `TokenStream#forEachToken(fn)` method
+    - Removed `TokenStream#skipWS()` method
 - Parser
     - Renamed `HexColor` node type into `Hash`
     - Changed selector parsing to produce `{ type: 'Combinator', name: ' ' }` node instead of `WhiteSpace` node
