@@ -1,8 +1,9 @@
 const assert = require('assert');
-const { tokenize } = require('./helpers/lib');
+const { TokenStream, tokenize } = require('./helpers/lib');
 const fixture = require('./fixture/tokenize');
 
-describe('parser/stream', () => {
+describe('tokenize/stream', () => {
+    const createStream = source => new TokenStream(source, tokenize);
     const css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}<!--<-->\\\n';
     const tokens = [
         { type: 'Delim', chunk: '.', balance: 93 },
@@ -55,7 +56,7 @@ describe('parser/stream', () => {
     }, { offset: 0 });
 
     it('edge case: no arguments', () => {
-        const stream = tokenize();
+        const stream = createStream();
 
         assert.equal(stream.eof, true);
         assert.equal(stream.tokenType, 0);
@@ -63,7 +64,7 @@ describe('parser/stream', () => {
     });
 
     it('edge case: empty input', () => {
-        const stream = tokenize('');
+        const stream = createStream('');
 
         assert.equal(stream.eof, true);
         assert.equal(stream.tokenType, 0);
@@ -71,8 +72,8 @@ describe('parser/stream', () => {
     });
 
     it('should convert input to string', () => {
-        const stream = tokenize({
-            toString: () => {
+        const stream = createStream({
+            toString() {
                 return css;
             }
         });
@@ -81,19 +82,19 @@ describe('parser/stream', () => {
     });
 
     it('should accept a Buffer', () => {
-        const stream = tokenize(Buffer.from(css));
+        const stream = createStream(Buffer.from(css));
 
         assert.equal(stream.source, css);
     });
 
     it('dump()', () => {
-        const stream = tokenize(css);
+        const stream = createStream(css);
 
         assert.deepEqual(stream.dump(), dump);
     });
 
     it('next() types', () => {
-        const stream = tokenize(css);
+        const stream = createStream(css);
         const actual = [];
 
         while (!stream.eof) {
@@ -105,7 +106,7 @@ describe('parser/stream', () => {
     });
 
     it('next() start', () => {
-        const stream = tokenize(css);
+        const stream = createStream(css);
         const actual = [];
 
         while (!stream.eof) {
@@ -117,7 +118,7 @@ describe('parser/stream', () => {
     });
 
     it('next() end', () => {
-        const stream = tokenize(css);
+        const stream = createStream(css);
         const actual = [];
 
         while (!stream.eof) {
@@ -129,7 +130,7 @@ describe('parser/stream', () => {
     });
 
     it('skip()', () => {
-        const stream = tokenize(css);
+        const stream = createStream(css);
         const targetTokens = tokens.filter(token =>
             token.type === 'Ident' || token.type === 'Delim'
         );
@@ -147,7 +148,7 @@ describe('parser/stream', () => {
     });
 
     it('skip() to end', () => {
-        const stream = tokenize(css);
+        const stream = createStream(css);
 
         stream.skip(tokens.length);
 
@@ -244,7 +245,7 @@ describe('parser/stream', () => {
 
         tests.forEach(function(test, idx) {
             it('testcase#' + idx, () => {
-                const stream = tokenize(test.source);
+                const stream = createStream(test.source, tokenize);
                 const startOffset = test.start.indexOf('^');
                 const skipToOffset = test.skip.indexOf('^');
                 let startToken = stream.tokenIndex;
@@ -268,8 +269,8 @@ describe('parser/stream', () => {
     });
 
     it('dynamic buffer', () => {
-        const bufferSize = tokenize(css).offsetAndType.length + 10;
-        const stream = tokenize('.'.repeat(bufferSize));
+        const bufferSize = createStream(css, tokenize).offsetAndType.length + 10;
+        const stream = createStream('.'.repeat(bufferSize), tokenize);
         let count = 0;
 
         while (!stream.eof) {
@@ -283,14 +284,18 @@ describe('parser/stream', () => {
 
     describe('values', () => {
         ['valid', 'invalid'].forEach(testType => {
-            fixture.forEachTest(testType, (name, value, tokens) => {
+            fixture.forEachTest(testType, (name, value, expected) => {
                 it(name, () => {
+                    const actual = [];
+
+                    tokenize(value, (type, start, end) => actual.push({
+                        type: tokenize.NAME[type],
+                        chunk: value.substring(start, end)
+                    }));
+
                     assert[testType === 'valid' ? 'deepEqual' : 'notDeepEqual'](
-                        tokenize(value).dump().map(token => ({
-                            type: token.type,
-                            chunk: token.chunk
-                        })),
-                        tokens
+                        actual,
+                        expected
                     );
                 });
             });
