@@ -259,7 +259,7 @@ describe('tokenize/stream', () => {
                     stream.next();
                 }
 
-                stream.skip(stream.getRawLength(startToken, test.mode || (() => 0)));
+                stream.skipUntilBalanced(startToken, test.mode || (() => 0));
                 assert.equal(
                     stream.source.substring(startOffset, stream.tokenStart),
                     test.expected
