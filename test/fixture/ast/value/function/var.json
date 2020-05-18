@@ -117,6 +117,30 @@
             ]
         }
     },
+    "empty fallback (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name,)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": []
+                }
+            ]
+        }
+    },
     "should preserve single spaces": {
         "source": "var(--name, )",
         "ast": {
@@ -134,6 +158,35 @@
                 {
                     "type": "Raw",
                     "value": " "
+                }
+            ]
+        }
+    },
+    "should preserve single spaces (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
                 }
             ]
         }
@@ -156,6 +209,151 @@
                 {
                     "type": "Raw",
                     "value": " /* 3 */ "
+                }
+            ]
+        }
+    },
+    "spaces and comments (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var( /* 1 */ --name /* 2 */ , /* 3 */ )",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces and comments #2 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name, /* 1 *//* 2 */)",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces and comments #3 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name, /* 1 *//* 2 */ )",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces and comments #4 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name,/* 1 */ /* 2 */)",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "only comments (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name,/* 1 *//* 2 */)",
+        "generate": "var(--name,)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": []
                 }
             ]
         }
