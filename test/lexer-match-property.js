@@ -1,7 +1,7 @@
 const assert = require('assert');
 const { parse, lexer, fork } = require('./helpers/lib');
 const { lazyValues } = require('./helpers');
-const fixture = require('./fixture/syntax');
+const fixture = require('./fixture/definition-syntax');
 const values = lazyValues({
     bar: () => parse('bar', { context: 'value' }),
     qux: () => parse('qux', { context: 'value' }),
