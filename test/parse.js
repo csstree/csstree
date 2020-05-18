@@ -1,7 +1,7 @@
 const assert = require('assert');
 const { parse, walk, List } = require('./helpers/lib');
 const forEachParseTest = require('./fixture/parse').forEachTest;
-const genericTypesFixture = require('./fixture/syntax-match/generic.json');
+const genericTypesFixture = require('./fixture/definition-syntax-match/generic.json');
 const stringifyWithNoInfo = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 
 function createParseErrorTest(name, test, options) {
@@ -281,6 +281,60 @@ describe('parse', () => {
                     return true;
                 }
             );
+        });
+    });
+
+    describe('onComment', () => {
+        const source = '/*123*/.foo[a=/* 234 */] {\n  color: red; /* 345*/\n  background: url(/*456*/foo);\n} /*567*';
+
+        it('with no locations', () => {
+            const actual = [];
+            parse(source, {
+                onComment(value, loc) {
+                    actual.push({ value, loc });
+                }
+            });
+
+            assert.deepEqual(actual, [
+                { value: '123', loc: null },
+                { value: ' 234 ', loc: null },
+                { value: ' 345', loc: null },
+                { value: '567*', loc: null }
+            ]);
+        });
+
+        it('with locations', () => {
+            const actual = [];
+            const offsetToPos = offset => {
+                const lines = source.slice(0, offset).split('\n');
+                return {
+                    offset,
+                    line: lines.length,
+                    column: lines.pop().length + 1
+                };
+            };
+            const loc = (start, end) => {
+                return {
+                    source: 'test.css',
+                    start: offsetToPos(start),
+                    end: offsetToPos(end)
+                };
+            };
+
+            parse(source, {
+                filename: 'test.css',
+                positions: true,
+                onComment(value, loc) {
+                    actual.push({ value, loc });
+                }
+            });
+
+            assert.deepEqual(actual, [
+                { value: '123', loc: loc(0, 7) },
+                { value: ' 234 ', loc: loc(14, 23) },
+                { value: ' 345', loc: loc(41, 49) },
+                { value: '567*', loc: loc(83, 89) }
+            ]);
         });
     });
 

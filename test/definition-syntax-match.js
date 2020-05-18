@@ -3,7 +3,7 @@ const prepareTokens = require('../lib/lexer/prepare-tokens');
 const genericSyntaxes = require('../lib/lexer/generic');
 const { buildMatchGraph } = require('../lib/lexer/match-graph');
 const { matchAsList, matchAsTree } = require('../lib/lexer/match');
-const fixture = require('./fixture/syntax-match');
+const fixture = require('./fixture/definition-syntax-match');
 
 function processMatchResult(mr) {
     if (Array.isArray(mr)) {
