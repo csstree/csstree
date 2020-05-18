@@ -1,21 +1,24 @@
 const assert = require('assert');
 const { parse, generate, toPlainObject } = require('./helpers/lib');
-const forEachParseTest = require('./fixture/parse').forEachTest;
+const forEachAstTest = require('./fixture/ast').forEachTest;
 
 function createGenerateTests(name, test) {
     (test.skip ? it.skip : it)(name, () => {
         const ast = parse(test.source, test.options);
-        const restoredCss = generate(ast);
+        const actual = generate(ast);
+        const expected = 'generate' in test ? test.generate : test.source;
 
         // strings should be equal
-        assert.equal(restoredCss, 'generate' in test ? test.generate : test.source);
+        assert.equal(actual, expected);
     });
 
     (test.skip ? it.skip : it)(name + ' (plain object)', () => {
         const ast = parse(test.source, test.options);
+        const actual = generate(toPlainObject(ast));
+        const expected = 'generate' in test ? test.generate : test.source;
 
         // strings should be equal
-        assert.equal(generate(toPlainObject(ast)), 'generate' in test ? test.generate : test.source);
+        assert.equal(actual, expected);
     });
 
     // FIXME: Skip some test cases for round-trip check until generator's improvements
@@ -49,7 +52,7 @@ function createGenerateWithSourceMapTest(name, test) {
 }
 
 describe('generate', () => {
-    forEachParseTest(createGenerateTests);
+    forEachAstTest(createGenerateTests);
 
     it('should throws on unknown node type', () =>
         assert.throws(
@@ -59,7 +62,7 @@ describe('generate', () => {
     );
 
     describe('sourceMap', () => {
-        forEachParseTest(createGenerateWithSourceMapTest);
+        forEachAstTest(createGenerateWithSourceMapTest);
 
         it('should generate a map', () => {
             const ast = parse('.a {\n  color: red;\n}\n', {

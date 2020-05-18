@@ -1,6 +1,6 @@
 const assert = require('assert');
 const { parse, lexer, fork } = require('./helpers/lib');
-const forEachParseTest = require('./fixture/parse').forEachTest;
+const forEachAstTest = require('./fixture/ast').forEachTest;
 
 describe('Lexer#checkStructure()', () => {
     describe('structure in AST node definition', () => {
@@ -52,7 +52,7 @@ describe('Lexer#checkStructure()', () => {
     });
 
     describe('all parse test fixtures must have correct structure', () => {
-        forEachParseTest((name, test) => {
+        forEachAstTest((name, test) => {
             (test.skip ? it.skip : it)(name, () => {
                 const ast = parse(test.source, test.options);
 

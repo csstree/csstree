@@ -1,8 +1,8 @@
 const assert = require('assert');
 const { parse, walk, List } = require('./helpers/lib');
-const forEachParseTest = require('./fixture/parse').forEachTest;
+const forEachAstTest = require('./fixture/ast').forEachTest;
 const genericTypesFixture = require('./fixture/definition-syntax-match/generic.json');
-const stringifyWithNoInfo = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
+const stringifyWithNoLoc = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 
 function createParseErrorTest(name, test, options) {
     (test.skip ? it.skip : it)(`${name} ${JSON.stringify(test.source)}`, () => {
@@ -26,12 +26,12 @@ function createParseErrorTest(name, test, options) {
 
 describe('parse', () => {
     describe('basic', () => {
-        forEachParseTest((name, test) => {
+        forEachAstTest((name, test) => {
             (test.skip ? it.skip : it)(name, () => {
                 const ast = parse(test.source, test.options);
 
                 // AST should be equal
-                assert.equal(stringifyWithNoInfo(ast), stringifyWithNoInfo(test.ast));
+                assert.equal(stringifyWithNoLoc(ast), stringifyWithNoLoc(test.ast));
             });
         });
 
@@ -50,7 +50,7 @@ describe('parse', () => {
                     };
 
                     // AST should be equal
-                    assert.equal(stringifyWithNoInfo(actual), stringifyWithNoInfo(expected));
+                    assert.equal(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
                 });
             });
 
@@ -75,7 +75,7 @@ describe('parse', () => {
                     };
 
                     // AST should be equal
-                    assert.equal(stringifyWithNoInfo(actual), stringifyWithNoInfo(expected));
+                    assert.equal(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
                 });
             });
 
@@ -92,7 +92,7 @@ describe('parse', () => {
                         };
 
                         // AST should not be equal
-                        assert.equal(stringifyWithNoInfo(actual), stringifyWithNoInfo(expected));
+                        assert.equal(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
                     });
                 });
             });
@@ -159,7 +159,7 @@ describe('parse', () => {
             }
         };
 
-        forEachParseTest((name, test) => {
+        forEachAstTest((name, test) => {
             createParseErrorTest(name, test, {
                 ...test.options,
                 positions: false
