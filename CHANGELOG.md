@@ -1,4 +1,4 @@
-## next
+## nextt
 
 - Exposed `version` of the lib (i.e. `import { version } from 'css-tree'`)
 - Removed `dist/default-syntax.json` from package
