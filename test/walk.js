@@ -2,8 +2,8 @@ const assert = require('assert');
 const path = require('path');
 const { lazyValues } = require('./helpers');
 const { parse, walk } = require('./helpers/lib');
+const { tests, forEachTest: forEachAstTest } = require('./fixture/ast');
 const notInsideAtrulePrelude = stack => stack.every(node => node.type !== 'AtrulePrelude');
-const { tests, forEachTest: forEachParseTest } = require('./fixture/parse');
 const testWithRules = Object.keys(tests)
     .map(function(filename) {
         const dir = path.basename(path.dirname(filename));
@@ -222,13 +222,13 @@ describe('AST traversal', () => {
     });
 
     describe('walk(ast, fn)', () => {
-        forEachParseTest((name, test, context) =>
+        forEachAstTest((name, test, context) =>
             createWalkTest(name, test, context, walk, true, false)
         );
     });
 
     describe('walk(ast, { leave: fn })', () => {
-        forEachParseTest((name, test, context) =>
+        forEachAstTest((name, test, context) =>
             createWalkTest(name, test, context, function(ast, fn) {
                 walk(ast, { leave: fn });
             }, false, true)
