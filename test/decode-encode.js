@@ -53,7 +53,9 @@ describe('decode/encode', () => {
                 '"\\(\\)\\\\"': '()\\',
                 '"\\\r\\\n\\\r\n"': '',
                 '"\\"': '"',
-                '"\\': ''
+                '"\\': '',
+                // (35)
+                '\\31  b': '1 b'
             };
 
             forEachTest(tests, string.decode);
@@ -74,7 +76,8 @@ describe('decode/encode', () => {
                 'a\\26b': '"a\\\\26b"',
                 // (10)
                 'a&b': '"a&b"',
-                'a&z': '"a&z"'
+                'a&z': '"a&z"',
+                '\n b': '"\\a  b"'
             };
 
             forEachTest(tests, string.encode);
@@ -132,7 +135,9 @@ describe('decode/encode', () => {
                 // (10)
                 '1 (2).jpg': 'url(1\\ \\(2\\).jpg)',
                 '"\'() \\': 'url(\\"\\\'\\(\\)\\ \\\\)',
-                '\u0008': 'url(\\8)'
+                '\u0008': 'url(\\8)',
+                '1 b': 'url(1\\ b)',
+                '1\n b': 'url(1\\a\\ b)'
             };
 
             forEachTest(tests, url.encode);
@@ -162,7 +167,13 @@ describe('decode/encode', () => {
                 // (15)
                 '\\00abcdef': '\uabcdef',
                 '\\abcdef1': '\ufffd1',
-                '\\': ''
+                '\\': '',
+                '\\31 \\ b': '1 b',
+                '\\31 \\ x': '1 x',
+                // (20)
+                '\\31 b': '1b',
+                '\\31 x': '1x',
+                '\\31 ': '1'
             };
 
             forEachTest(tests, ident.decode);
@@ -184,6 +195,7 @@ describe('decode/encode', () => {
 
                 '\x01\x02\x1E\x1F': '\\1 \\2 \\1e \\1f ',
 
+                // (10)
                 '0a': '\\30 a',
                 '1a': '\\31 a',
                 '2a': '\\32 a',
@@ -195,6 +207,7 @@ describe('decode/encode', () => {
                 '8a': '\\38 a',
                 '9a': '\\39 a',
 
+                // (20)
                 'a0b': 'a0b',
                 'a1b': 'a1b',
                 'a2b': 'a2b',
@@ -206,6 +219,7 @@ describe('decode/encode', () => {
                 'a8b': 'a8b',
                 'a9b': 'a9b',
 
+                // (30)
                 '-0a': '-\\30 a',
                 '-1a': '-\\31 a',
                 '-2a': '-\\32 a',
@@ -217,6 +231,7 @@ describe('decode/encode', () => {
                 '-8a': '-\\38 a',
                 '-9a': '-\\39 a',
 
+                // (40)
                 '-': '\\-',
                 '-a': '-a',
                 '--': '--',
@@ -229,13 +244,21 @@ describe('decode/encode', () => {
                 'abcdefghijklmnopqrstuvwxyz': 'abcdefghijklmnopqrstuvwxyz',
                 'ABCDEFGHIJKLMNOPQRSTUVWXYZ': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
 
+                // (50)
                 '\x20\x21\x78\x79': '\\ \\!xy',
 
                 // astral symbol (U+1D306 TETRAGRAM FOR CENTRE)
                 '\uD834\uDF06': '\uD834\uDF06',
                 // lone surrogates
                 '\uDF06': '\uDF06',
-                '\uD834': '\uD834'
+                '\uD834': '\uD834',
+
+                '1 b': '\\31 \\ b',
+                // (55)
+                '1 x': '\\31 \\ x',
+                '1b': '\\31 b',
+                '1x': '\\31 x',
+                '1': '\\31 '
             };
 
             forEachTest(tests, ident.encode);
