@@ -24,6 +24,7 @@ Options (optional):
 - [context](#context)
 - [atrule](#atrule)
 - [positions](#positions)
+- [onComment](#oncomment)
 - [onParseError](#onparseerror)
 - [filename](#filename)
 - [offset](#offset)
