@@ -4,5 +4,5 @@ var defaultSyntax = require('../lib').lexer;
 console.log('Write data to ' + resultFilename);
 require('fs').writeFileSync(
     resultFilename,
-    defaultSyntax
+    String(defaultSyntax)
 );

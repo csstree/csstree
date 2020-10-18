@@ -22,7 +22,7 @@
     "./data": "./dist/default-syntax.json"
   },
   "scripts": {
-    "build": "npm run gen:syntax && rollup --config && terser dist/csstree.js --compress --mangle -o dist/csstree.min.js",
+    "build": "npm run gen:syntax && rollup --config",
     "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
@@ -49,7 +49,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "terser": "^4.3.4"
+    "rollup-plugin-terser": "^5.2.0"
   },
   "engines": {
     "node": ">=8.0.0"

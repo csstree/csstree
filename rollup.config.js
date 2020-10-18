@@ -1,17 +1,18 @@
-var resolve = require('rollup-plugin-node-resolve');
-var commonjs = require('rollup-plugin-commonjs');
-var json = require('rollup-plugin-json');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
+const json = require('rollup-plugin-json');
+const { terser } = require('rollup-plugin-terser');
 
 module.exports = {
     input: 'lib/index.js',
-    output: {
-        file: 'dist/csstree.js',
-        name: 'csstree',
-        format: 'umd'
-    },
+    output: [
+        { name: 'csstree', format: 'umd', file: 'dist/csstree.js' },
+        { name: 'csstree', format: 'umd', file: 'dist/csstree.min.js' }
+    ],
     plugins: [
         resolve({ browser: true }),
+        commonjs(),
         json(),
-        commonjs()
+        terser({ include: /\.min\./ })
     ]
 };
