@@ -72,17 +72,9 @@
             "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466338.aspx",
             "syntax": "start | end | center | stretch"
         },
-        "-ms-grid-columns": {
-            "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/2012/WD-css3-grid-layout-20120322/#grid-columns",
-            "syntax": "<track-list-v0>"
-        },
         "-ms-grid-row-align": {
             "comment": "add this property first since it uses as fallback for flexbox, https://msdn.microsoft.com/en-us/library/windows/apps/hh466348.aspx",
             "syntax": "start | end | center | stretch"
-        },
-        "-ms-grid-rows": {
-            "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/2012/WD-css3-grid-layout-20120322/#grid-rows",
-            "syntax": "<track-list-v0>"
         },
         "-ms-hyphenate-limit-last": {
             "comment": "misssed old syntax implemented in IE; https://www.w3.org/TR/css-text-4/#hyphenate-line-limits",
@@ -93,7 +85,7 @@
             "references": [
                 "http://css-infos.net/property/-webkit-appearance"
             ],
-            "syntax": "none | button | button-bevel | caps-lock-indicator | caret | checkbox | default-button | listbox | listitem | media-fullscreen-button | media-mute-button | media-play-button | media-seek-back-button | media-seek-forward-button | media-slider | media-sliderthumb | menulist | menulist-button | menulist-text | menulist-textfield | push-button | radio | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbargripper-horizontal | scrollbargripper-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbartrack-horizontal | scrollbartrack-vertical | searchfield | searchfield-cancel-button | searchfield-decoration | searchfield-results-button | searchfield-results-decoration | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | square-button | textarea | textfield"
+            "syntax": "none | button | button-bevel | caps-lock-indicator | caret | checkbox | default-button | inner-spin-button | listbox | listitem | media-controls-background | media-controls-fullscreen-background | media-current-time-display | media-enter-fullscreen-button | media-exit-fullscreen-button | media-fullscreen-button | media-mute-button | media-overlay-play-button | media-play-button | media-seek-back-button | media-seek-forward-button | media-slider | media-sliderthumb | media-time-remaining-display | media-toggle-closed-captions-button | media-volume-slider | media-volume-slider-container | media-volume-sliderthumb | menulist | menulist-button | menulist-text | menulist-textfield | meter | progress-bar | progress-bar-value | push-button | radio | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbargripper-horizontal | scrollbargripper-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbartrack-horizontal | scrollbartrack-vertical | searchfield | searchfield-cancel-button | searchfield-decoration | searchfield-results-button | searchfield-results-decoration | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | square-button | textarea | textfield | -apple-pay-button"
         },
         "-webkit-background-clip": {
             "comment": "https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
@@ -184,7 +176,7 @@
         },
         "display": {
             "comment": "extended with -ms-flexbox",
-            "syntax": "block | contents | flex | flow | flow-root | grid | inline | inline-block | inline-flex | inline-grid | inline-list-item | inline-table | list-item | none | ruby | ruby-base | ruby-base-container | ruby-text | ruby-text-container | run-in | table | table-caption | table-cell | table-column | table-column-group | table-footer-group | table-header-group | table-row | table-row-group | -ms-flexbox | -ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
+            "syntax": "[ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy> | <-non-standard-display>"
         },
         "position": {
             "comment": "extended with -webkit-sticky",
@@ -287,16 +279,16 @@
             "syntax": "none | <url>"
         },
         "max-width": {
-            "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
-            "syntax": "<length> | <percentage> | none | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
+            "comment": "fix auto -> none (https://github.com/mdn/data/pull/431); extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
+            "syntax": "none | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
+        },
+        "max-height": {
+            "comment": "fix auto -> none (https://github.com/mdn/data/pull/431)",
+            "syntax": "none | <length-percentage> | min-content | max-content | fit-content(<length-percentage>)"
         },
         "min-width": {
             "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-            "syntax": "<length> | <percentage> | auto | max-content | min-content | fit-content | fill-available | <-non-standard-width>"
-        },
-        "opacity": {
-            "comment": "strict to 0..1 <number> -> <number-zero-one>",
-            "syntax": "<number-zero-one>"
+            "syntax": "auto | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
         },
         "overflow": {
             "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
@@ -515,7 +507,7 @@
         },
         "-non-standard-width": {
             "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-            "syntax": "min-intrinsic | intrinsic | -moz-min-content | -moz-max-content | -webkit-min-content | -webkit-max-content"
+            "syntax": "fill-available | min-intrinsic | intrinsic | -moz-available | -moz-fit-content | -moz-min-content | -moz-max-content | -webkit-min-content | -webkit-max-content"
         },
         "-webkit-gradient()": {
             "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
@@ -584,7 +576,7 @@
         },
         "content-list": {
             "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
-            "syntax": "[ <string> | contents | <url> | <quote> | <attr()> | counter( <ident>, <'list-style-type'>? ) ]+"
+            "syntax": "[ <string> | contents | <image> | <quote> | <target> | <leader()> | <attr()> | counter( <ident>, <'list-style-type'>? ) ]+"
         },
         "generic-voice": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
@@ -624,10 +616,6 @@
         "paint": {
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
             "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
-        },
-        "path()": {
-            "comment": "missed, `motion` property was renamed, but left it as is for now; path() syntax was get from last draft https://drafts.fxtf.org/motion-1/#funcdef-offset-path-path",
-            "syntax": "path( <string> )"
         },
         "ratio": {
             "comment": "missed, https://drafts.csswg.org/mediaqueries-4/#typedef-ratio",
@@ -704,6 +692,9 @@
         },
         "positive-integer": {
             "syntax": "<integer [0,∞]>"
+        },
+        "-non-standard-display": {
+            "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
         }
     }
 }
