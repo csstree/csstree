@@ -343,6 +343,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `font-optical-sizing`
 - `font-size`
 - `font-size-adjust`
+- `font-smooth`
 - `font-stretch`
 - `font-style`
 - `font-synthesis`
@@ -419,6 +420,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `margin-left`
 - `margin-right`
 - `margin-top`
+- `margin-trim`
 - `marker`
 - `marker-end`
 - `marker-mid`
@@ -475,6 +477,8 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `overflow-x`
 - `overflow-y`
 - `overscroll-behavior`
+- `overscroll-behavior-block`
+- `overscroll-behavior-inline`
 - `overscroll-behavior-x`
 - `overscroll-behavior-y`
 - `padding`
