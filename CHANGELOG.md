@@ -1,8 +1,10 @@
 ## next
 
-- Fixed `Lexer#dump()` to dump atrules syntaxes as well
+- Bumped `mdn-data` to 2.0.12
+- Exposed version of the lib (i.e. import { version } from 'css-tree')
 - Removed `dist/default-syntax.json` from package
-- Exposed `version` of the lib
+- Fixed `Lexer#dump()` to dump atrules syntaxes as well
+- Fixed matching comma separated `<urange>` list (#135)
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 
