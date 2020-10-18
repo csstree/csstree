@@ -2,6 +2,7 @@
 
 - Bumped `mdn-data` to 2.0.12
 - Exposed version of the lib (i.e. import { version } from 'css-tree')
+- Added `onComment` option to parser config
 - Removed `dist/default-syntax.json` from package
 - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - Fixed matching comma separated `<urange>` list (#135)
