@@ -31,7 +31,7 @@ function checkSection(section) {
 checkSection('properties');
 checkSection('syntaxes');
 
-var newContent = JSON.stringify(csstreePatch, null, 2) + '\n';
+var newContent = JSON.stringify(csstreePatch, null, 4) + '\n';
 
 if (newContent !== currentContent) {
     if (checkUpdatesNeeded) {
