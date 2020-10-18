@@ -578,6 +578,10 @@
             "comment": "missed -> https://drafts.csswg.org/css-content/#typedef-content-list (document-url, <target> and leader() is omitted util stabilization)",
             "syntax": "[ <string> | contents | <image> | <quote> | <target> | <leader()> | <attr()> | counter( <ident>, <'list-style-type'>? ) ]+"
         },
+        "element()": {
+            "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
+            "syntax": "element( <custom-ident> , [ first | start | last | first-except ]? ) | element( <id-selector> )"
+        },
         "generic-voice": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "[ <age>? <gender> <integer>? ]"
