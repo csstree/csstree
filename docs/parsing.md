@@ -71,23 +71,7 @@ Using for `atrulePrelude` context to apply atrule specific parse rules.
 Type: `boolean`  
 Default: `false`
 
-Specify to store locations of node content in original source. Location is storing as `loc` field of nodes. `loc` property is always `null` when option is `false`. The structure of `loc`:
-
-```
-loc: {
-    source: 'value of `filename` option or `<unknown>`',
-    start: {
-        offset: <number>,
-        line: <number>,
-        column: <number>
-    },
-    end: {
-        offset: <number>,
-        line: <number>,
-        column: <number>
-    }
-}
-```
+Specify to store locations of node content in original source. Location is storing as `loc` field of nodes. `loc` property is always `null` when this option is `false`. See structure of [`loc`](ast.md#loc) in AST format description.
 
 ### onParseError
 
@@ -115,28 +99,28 @@ csstree.parse('example { foo; bar: 1! }', {
 Type: `function(value, loc)` or `null`  
 Default: `null`
 
-A handler to call for every comment in parsing source. Value is passing without surrounding `/*` and `*/`. `loc` will be `null` until `positions` option is set to `true`.
+A handler to call for every comment in parsing source. Value is passing without surrounding `/*` and `*/`. [`loc`](ast.md#loc) will be `null` until `positions` option is set to `true`.
 
 ### filename
 
 Type: `string`  
 Default: `'<unknown>'`
 
-Filename of source. This value adds to `loc` as `source` property when `positions` option is `true`. Using for source map generation.
+Filename of source. This value adds to [`loc`](ast.md#loc) as `source` property when `positions` option is `true`. Using for source map generation.
 
 ### offset
 
 Type: `number`  
 Default: `0`
 
-Start offset. Useful when parsing a fragment of CSS to store a correct positions for node's `loc` property.
+Start offset. Useful when parsing a fragment of CSS to store a correct positions for node's [`loc`](ast.md#loc) property.
 
 ### line
 
 Type: `number`  
 Default: `1`
 
-Start line number. Useful when parsing fragment of CSS to store correct positions in node's `loc` property.
+Start line number. Useful when parsing fragment of CSS to store correct positions in node's [`loc`](ast.md#loc) property.
 
 ### column
 
