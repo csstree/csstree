@@ -1,4 +1,4 @@
-## next
+## 1.0.0 (October 27, 2020)
 
 - Added `onComment` option to parser config
 - Added support for `break` and `skip` values in `walk()` to control traversal
