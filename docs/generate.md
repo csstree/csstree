@@ -1,4 +1,4 @@
-# Generating CSS from AST
+# Serialization AST to CSS
 
 ## generate(ast[, options])
 
