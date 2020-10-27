@@ -12,7 +12,7 @@
 
 CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations. The main goal is to be efficient and W3C spec compliant, with focus on CSS analyzing and source-to-source transforming tasks.
 
-> NOTE: The project is in alpha stage since some parts need further improvements, AST format and API are subjects to change. However it's stable enough and used by packages like [CSSO](https://github.com/css/csso) (CSS minifier) and [SVGO](https://github.com/svg/svgo) (SVG optimizer) in production.
+> NOTE: The library isn't in final shape and needs further improvements (e.g. AST format and API are subjects to change in next major versions). However it's stable and used by projects like [CSSO](https://github.com/css/csso) (CSS minifier) and [SVGO](https://github.com/svg/svgo) (SVG optimizer) in production. Master branch contains changes for next major version, for stable published version see branch [1.0](https://github.com/csstree/csstree/tree/1.0).
 
 ## Features
 
