@@ -26,6 +26,19 @@
     - Changed `List#getSize()` method to `List#size` getter
     - Removed `List#each()` and `List#eachRight()` methods, `List#forEach()` and `List#forEachRight()` should be used instead
 
+## 1.0.0 (October 27, 2020)
+
+- Added `onComment` option to parser config
+- Added support for `break` and `skip` values in `walk()` to control traversal
+- Added `List#reduce()` and `List#reduceRight()` methods
+- Bumped `mdn-data` to 2.0.12
+- Exposed version of the lib (i.e. `import { version } from 'css-tree'`)
+- Fixed `Lexer#dump()` to dump atrules syntaxes as well
+- Fixed matching comma separated `<urange>` list (#135)
+- Renamed `HexColor` node type into `Hash`
+- Removed `element()` specific parsing rules
+- Removed `dist/default-syntax.json` from package
+
 ## 1.0.0-alpha.39 (December 5, 2019)
 
 - Fixed walker with `visit: "Declaration"` to iterate `DeclarationList` (#114)
