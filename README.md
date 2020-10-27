@@ -32,14 +32,29 @@ CSSTree is a tool set to work with CSS, including [fast](https://github.com/post
 
   The build-in lexer can test CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as a basis for lexer's dictionaries and extends it with vendor specific and legacy syntaxes. Lexer can only check the declaration values currently, but this feature will be extended to other parts of the CSS in the future.
 
-## Docs
+## Documentation
 
 - [AST format](docs/ast.md)
-- [Parsing CSS into AST](docs/parsing.md)
-- [Generate CSS from AST](docs/generate.md)
+- [Parsing CSS → AST](docs/parsing.md)
+  - [parse(source[, options])](docs/parsing.md#parsesource-options)
+- [Generating CSS ← AST](docs/generate.md)
+  - [generate(ast[, options])](docs/generate.mdgenerateast-options)
 - [AST traversal](docs/traversal.md)
+  - [walk(ast, options)](docs/traversal.md#walkast-options)
+  - [find(ast, fn)](docs/traversal.md#findast-fn)
+  - [findLast(ast, fn)](docs/traversal.md#findlastast-fn)
+  - [findAll(ast, fn)](docs/traversal.md#findallast-fn)
 - [Utils for AST](docs/utils.md)
-- [Working with definition syntax](docs/definition-syntax.md)
+  - [property(name)](docs/utils.md#propertyname)
+  - [keyword(name)](docs/utils.md#keywordname)
+  - [clone(ast)](docs/utils.md#cloneast)
+  - [fromPlainObject(object)](docs/utils.md#fromplainobjectobject)
+  - [toPlainObject(ast)](docs/utils.md#toplainobjectast)
+- [Value Definition Syntax](docs/definition-syntax.md)
+  - [parse(source)](docs/definition-syntax.md#parsesource)
+  - [walk(node, options, context)](docs/definition-syntax.md#walknode-options-context)
+  - [generate(node, options)](docs/definition-syntax.md#generatenode-options)
+  - [AST format](docs/definition-syntax.md#ast-format)
 
 ## Tools
 
