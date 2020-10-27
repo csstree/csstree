@@ -260,6 +260,20 @@ describe('List', () => {
         createIteratorWithModificationTests(iterateList, 'forEachRight', [iterateList.tail, iterateList.head]);
     });
 
+    it('#reduce()', function() {
+        const expected = 'foobar';
+        const actual = new List().fromArray(['foo', 'bar']).reduce((res, data) => res + data, '');
+
+        assert.equal(actual, expected);
+    });
+
+    it('#reduceRight()', function() {
+        const expected = 'barfoo';
+        const actual = new List().fromArray(['foo', 'bar']).reduceRight((res, data) => res + data, '');
+
+        assert.equal(actual, expected);
+    });
+
     describe('#nextUntil()', () => {
         it('should not iterate when start is null', () => {
             let count = 0;
