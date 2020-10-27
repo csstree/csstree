@@ -1,4 +1,4 @@
-# Translate AST to string
+# Generating CSS from AST
 
 ## generate(ast[, options])
 

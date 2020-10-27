@@ -1,4 +1,4 @@
-# Working with definition syntax
+# Value Definition Syntax
 
 This article describes API to work with [Value Definition Syntax](https://www.w3.org/TR/css-values-4/#value-defs) (or CSS Definition Syntax since it used to define various parts of CSS language beside values). API provides ability to parse a definition into AST, traverse through it and translate AST back to a string (see corresponding section for details).
 

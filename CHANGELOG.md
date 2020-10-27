@@ -1,9 +1,10 @@
 ## next
 
+- Added `onComment` option to parser config
+- Added support for `break` and `skip` values in `walk()` to control traversal
+- Added `List#reduce()` and `List#reduceRight()` methods
 - Bumped `mdn-data` to 2.0.12
 - Exposed version of the lib (i.e. `import { version } from 'css-tree'`)
-- Added `onComment` option to parser config
-- Added `List#reduce()` and `List#reduceRight()` methods
 - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - Fixed matching comma separated `<urange>` list (#135)
 - Renamed `HexColor` node type into `Hash`
