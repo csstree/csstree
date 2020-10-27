@@ -10,7 +10,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/css-tree.svg)](https://www.npmjs.com/package/css-tree)
 [![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)
 
-CSSTree is a tool set to work with CSS, including [fast](https://github.com/postcss/benchmark) detailed parser (string->AST), walker (AST traversal), generator (AST->string) and lexer (validation and matching) based on knowledge of spec and browser implementations. The main goal is to be efficient and W3C spec compliant, with focus on CSS analyzing and source-to-source transforming tasks.
+CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations. The main goal is to be efficient and W3C spec compliant, with focus on CSS analyzing and source-to-source transforming tasks.
 
 > NOTE: The project is in alpha stage since some parts need further improvements, AST format and API are subjects to change. However it's stable enough and used by packages like [CSSO](https://github.com/css/csso) (CSS minifier) and [SVGO](https://github.com/svg/svgo) (SVG optimizer) in production.
 
