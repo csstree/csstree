@@ -1,13 +1,14 @@
 ## next
 
 - Bumped `mdn-data` to 2.0.12
-- Exposed version of the lib (i.e. import { version } from 'css-tree')
+- Exposed version of the lib (i.e. `import { version } from 'css-tree'`)
 - Added `onComment` option to parser config
-- Removed `dist/default-syntax.json` from package
+- Added `List#reduce()` and `List#reduceRight()` methods
 - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - Fixed matching comma separated `<urange>` list (#135)
 - Renamed `HexColor` node type into `Hash`
 - Removed `element()` specific parsing rules
+- Removed `dist/default-syntax.json` from package
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 

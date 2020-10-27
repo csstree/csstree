@@ -266,6 +266,24 @@ describe('List', function() {
         createIteratorWithModificationTests(iterateList, 'eachRight', [iterateList.tail, iterateList.head]);
     });
 
+    it('#reduce()', function() {
+        var expected = 'foobar';
+        var actual = new List().fromArray(['foo', 'bar']).reduce(function(res, data) {
+            return res + data;
+        }, '');
+
+        assert.equal(actual, expected);
+    });
+
+    it('#reduceRight()', function() {
+        var expected = 'barfoo';
+        var actual = new List().fromArray(['foo', 'bar']).reduceRight(function(res, data) {
+            return res + data;
+        }, '');
+
+        assert.equal(actual, expected);
+    });
+
     describe('#nextUntil()', function() {
         it('should not iterate when start is null', function() {
             var count = 0;
