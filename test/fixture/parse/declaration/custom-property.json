@@ -83,6 +83,21 @@
             }
         }
     },
+    "empty (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var:",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": []
+            }
+        }
+    },
     "empty with important": {
         "source": "--var:!important",
         "ast": {
@@ -92,6 +107,21 @@
             "value": {
                 "type": "Raw",
                 "value": ""
+            }
+        }
+    },
+    "empty with important (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var:!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": []
             }
         }
     },
@@ -107,6 +137,26 @@
             }
         }
     },
+    "should preserve single spaces (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var: ",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "WhiteSpace",
+                        "value": " "
+                    }
+                ]
+            }
+        }
+    },
     "should preserve single spaces with important": {
         "source": "--var: !important",
         "ast": {
@@ -119,6 +169,26 @@
             }
         }
     },
+    "should preserve single spaces with important (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var: !important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "WhiteSpace",
+                        "value": " "
+                    }
+                ]
+            }
+        }
+    },
     "spaces and comments": {
         "source": "--var: /* 1 */ ",
         "ast": {
@@ -128,6 +198,118 @@
             "value": {
                 "type": "Raw",
                 "value": " /* 1 */ "
+            }
+        }
+    },
+    "spaces and comments (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var: /* 1 */ ",
+        "generate": "--var: ",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "WhiteSpace",
+                        "value": " "
+                    }
+                ]
+            }
+        }
+    },
+    "spaces and comments #2 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var: /* 1 */",
+        "generate": "--var: ",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "WhiteSpace",
+                        "value": " "
+                    }
+                ]
+            }
+        }
+    },
+    "spaces and comments #3 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var:/* 1 */ ",
+        "generate": "--var: ",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "WhiteSpace",
+                        "value": " "
+                    }
+                ]
+            }
+        }
+    },
+    "only a comment": {
+        "source": "--var:/* 1 */",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": "/* 1 */"
+            }
+        }
+    },
+    "only a comment (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var:/* 1 */",
+        "generate": "--var:",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": []
+            }
+        }
+    },
+    "whitespace beetween comments (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "--var:/* 1 */ /* 2 */",
+        "generate": "--var: ",
+        "ast": {
+            "type": "Declaration",
+            "important": false,
+            "property": "--var",
+            "value": {
+                "type": "Value",
+                "children": [
+                    {
+                        "type": "WhiteSpace",
+                        "value": " "
+                    }
+                ]
             }
         }
     },

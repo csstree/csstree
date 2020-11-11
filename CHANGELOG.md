@@ -1,3 +1,7 @@
+## next
+
+- Fixed edge cases for parsing of custom property value with a single whitespace when `parseCustomProperty:true`
+
 ## 1.0.0 (October 27, 2020)
 
 - Added `onComment` option to parser config
