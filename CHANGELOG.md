@@ -1,3 +1,7 @@
+## next
+
+- Bumped `mdn-data` to 2.0.14
+
 ## 1.0.1 (November 11, 2020)
 
 - Fixed edge cases for parsing of custom property value with a single whitespace when `parseCustomProperty:true`

@@ -282,10 +282,6 @@
             "comment": "fix auto -> none (https://github.com/mdn/data/pull/431); extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
             "syntax": "none | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
         },
-        "max-height": {
-            "comment": "fix auto -> none (https://github.com/mdn/data/pull/431)",
-            "syntax": "none | <length-percentage> | min-content | max-content | fit-content(<length-percentage>)"
-        },
         "min-width": {
             "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
             "syntax": "auto | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
