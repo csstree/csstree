@@ -184,6 +184,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `align-content`
 - `align-items`
 - `align-self`
+- `align-tracks`
 - `alignment-baseline`
 - `all`
 - `animation`
@@ -398,6 +399,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `justify-content`
 - `justify-items`
 - `justify-self`
+- `justify-tracks`
 - `kerning`
 - `left`
 - `letter-spacing`
@@ -442,6 +444,8 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `mask-repeat`
 - `mask-size`
 - `mask-type`
+- `masonry-auto-flow`
+- `math-style`
 - `max-block-size`
 - `max-height`
 - `max-inline-size`
@@ -551,6 +555,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `scroll-snap-type-x`
 - `scroll-snap-type-y`
 - `scrollbar-color`
+- `scrollbar-gutter`
 - `scrollbar-width`
 - `shape-image-threshold`
 - `shape-margin`

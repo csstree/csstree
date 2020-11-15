@@ -2,6 +2,7 @@ const mdnAtrules = require('mdn-data/css/at-rules.json');
 const mdnProperties = require('mdn-data/css/properties.json');
 const mdnSyntaxes = require('mdn-data/css/syntaxes.json');
 const patch = require('./patch.json');
+const extendSyntax = /^\s*\|\s*/;
 
 function preprocessAtrules(dict) {
     const result = Object.create(null);
@@ -39,13 +40,15 @@ function buildDictionary(dict, patchDict) {
     for (const key in patchDict) {
         if (key in dict) {
             if (patchDict[key].syntax) {
-                result[key] = patchDict[key].syntax;
+                result[key] = extendSyntax.test(patchDict[key].syntax)
+                    ? result[key] + ' ' + patchDict[key].syntax.trim()
+                    : patchDict[key].syntax;
             } else {
                 delete result[key];
             }
         } else {
             if (patchDict[key].syntax) {
-                result[key] = patchDict[key].syntax;
+                result[key] = patchDict[key].syntax.replace(extendSyntax, '');
             }
         }
     }
