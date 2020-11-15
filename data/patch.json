@@ -176,11 +176,11 @@
         },
         "display": {
             "comment": "extended with -ms-flexbox",
-            "syntax": "[ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy> | <-non-standard-display>"
+            "syntax": "| <-non-standard-display>"
         },
         "position": {
             "comment": "extended with -webkit-sticky",
-            "syntax": "static | relative | absolute | sticky | fixed | -webkit-sticky"
+            "syntax": "| -webkit-sticky"
         },
         "dominant-baseline": {
             "comment": "added SVG property",
@@ -195,7 +195,7 @@
                 "https://developer.mozilla.org/en/docs/Web/CSS/image-rendering",
                 "https://www.w3.org/TR/SVG/painting.html#ImageRenderingProperty"
             ],
-            "syntax": "auto | crisp-edges | pixelated | optimizeSpeed | optimizeQuality | <-non-standard-image-rendering>"
+            "syntax": "| optimizeSpeed | optimizeQuality | <-non-standard-image-rendering>"
         },
         "fill": {
             "comment": "added SVG property",
@@ -220,7 +220,7 @@
         },
         "filter": {
             "comment": "extend with IE legacy syntaxes",
-            "syntax": "none | <filter-function-list> | <-ms-filter-function-list>"
+            "syntax": "| <-ms-filter-function-list>"
         },
         "glyph-orientation-horizontal": {
             "comment": "added SVG property",
@@ -288,7 +288,7 @@
         },
         "overflow": {
             "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
-            "syntax": "[ visible | hidden | clip | scroll | auto ]{1,2} | <-non-standard-overflow>"
+            "syntax": "| <-non-standard-overflow>"
         },
         "pause": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
@@ -398,7 +398,7 @@
         },
         "unicode-bidi": {
             "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
-            "syntax": "normal | embed | isolate | bidi-override | isolate-override | plaintext | -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate"
+            "syntax": "| -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate"
         },
         "unicode-range": {
             "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
@@ -438,7 +438,7 @@
         },
         "writing-mode": {
             "comment": "extend with SVG keywords",
-            "syntax": "horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr | <svg-writing-mode>"
+            "syntax": "| <svg-writing-mode>"
         }
     },
     "syntaxes": {
@@ -591,11 +591,11 @@
             "references": [
                 "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
             ],
-            "syntax": "serif | sans-serif | cursive | fantasy | monospace | -apple-system"
+            "syntax": "| -apple-system"
         },
         "gradient": {
             "comment": "added legacy syntaxes support",
-            "syntax": "<linear-gradient()> | <repeating-linear-gradient()> | <radial-gradient()> | <repeating-radial-gradient()> | <conic-gradient()> | <-legacy-gradient>"
+            "syntax": "| <-legacy-gradient>"
         },
         "left": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -611,7 +611,7 @@
         },
         "named-color": {
             "comment": "added non standard color names",
-            "syntax": "transparent | aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | <-non-standard-color>"
+            "syntax": "| <-non-standard-color>"
         },
         "paint": {
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
