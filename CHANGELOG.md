@@ -1,6 +1,11 @@
 ## next
 
 - Bumped `mdn-data` to 2.0.14
+- Extended lexer API for validation
+    - Added `Lexer#checkAtruleName(atruleName)`, `Lexer#checkAtrulePrelude(atruleName, prelude)`, `Lexer#checkAtruleDescriptorName(atruleName, descriptorName)` and `Lexer#checkPropertyName(propertyName)`
+    - Added `Lexer#getAtrule(atruleName, fallbackBasename)` method
+    - Extended `Lexer#getAtrulePrelude()` and `Lexer#getProperty()` methods to take `fallbackBasename` parameter
+    - Changed error messages
 
 ## 1.0.1 (November 11, 2020)
 

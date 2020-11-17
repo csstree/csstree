@@ -53,9 +53,10 @@ function createAtrulePreludeMatchTest(testType, testState, name, lexer, atruleNa
         case 'invalid':
             (it[testState] || it)(name, function() {
                 var match = lexer.matchAtrulePrelude(atruleName, value);
+                var allowedErrors = ['SyntaxMatchError', 'SyntaxError'];
 
                 assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
-                assert.equal(match.error.name, 'SyntaxMatchError');
+                assert.equal(allowedErrors.includes(match.error.name), true, 'should be one of ' + JSON.stringify(allowedErrors));
             });
             break;
     }
@@ -392,12 +393,12 @@ describe('lexer', function() {
             var match = syntax.lexer.matchAtrulePrelude('font-face', animationName);
 
             assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'At-rule `font-face` should not contain a prelude');
+            assert.equal(match.error.message, 'At-rule `@font-face` should not contain a prelude');
 
             var match = syntax.lexer.matchAtrulePrelude('-prefix-font-face', animationName);
 
             assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'At-rule `-prefix-font-face` should not contain a prelude');
+            assert.equal(match.error.message, 'At-rule `@-prefix-font-face` should not contain a prelude');
         });
 
         fixture.forEachAtrulePreludeTest(createAtrulePreludeMatchTest);
@@ -482,7 +483,7 @@ describe('lexer', function() {
             var match = syntax.lexer.matchAtruleDescriptor('keyframes', 'font-face', swapValue);
 
             assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'At-rule `keyframes` has no known descriptors');
+            assert.equal(match.error.message, 'At-rule `@keyframes` has no known descriptors');
         });
 
         fixture.forEachAtruleDescriptorTest(createAtruleDescriptorMatchTest);
