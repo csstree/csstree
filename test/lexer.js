@@ -708,7 +708,7 @@ describe('lexer', function() {
             { property: 'test1', value: 'foo(1, 2, 3, 4)', column: 12 },
             { property: 'test1', value: 'foo(1, 211px)', column: 8 },
             { property: 'test1', value: 'foo(1, 2 3)', column: 10 },
-            { property: 'test1', value: 'foo(1, 2)', column: 10 },
+            { property: 'test1', value: 'foo(1, 2)', column: 9, astColumn: 10 }, // in this case AST match can't answer with correct location
             { property: 'test2', value: 'bar( foo )', column: 6 },
             { property: 'test3', value: 'baz( foo )', column: 6 },
             { property: 'test3', value: 'baz( 1px )', column: 6 },
@@ -717,18 +717,26 @@ describe('lexer', function() {
             { property: 'test5', value: '1, 2, 3,', column: 9 },
             { property: 'test5', value: '1, 2, 3, 4,', column: 11 }
         ];
+        var values = [
+            ['ast', value => parseCss(value, { context: 'value', positions: true })],
+            ['string', String]
+        ];
 
-        tests.forEach(function(test) {
-            it('<\'' + test.property + '\'> -> ' + test.value, function() {
-                var ast = parseCss(test.value, { context: 'value', positions: true });
-                var result = customSyntax.lexer.matchProperty(test.property, ast);
-                var error = result.error;
+        for (const [type, fn] of values) {
+            describe(type + ' value', () => tests.forEach(test => {
+                it('<\'' + test.property + '\'> -> ' + test.value, function() {
+                    var result = customSyntax.lexer.matchProperty(test.property, fn(test.value));
+                    var error = result.error;
 
-                assert.equal(result.matched, null);
-                assert(Boolean(error));
-                assert.equal(error.column, test.column);
-            });
-        });
+                    assert.strictEqual(result.matched, null);
+                    assert(Boolean(error));
+                    assert.strictEqual(error.column, type === 'ast' && 'astColumn' in test
+                        ? test.astColumn
+                        : test.column
+                    );
+                });
+            }));
+        }
     });
 
     describe('trace', function() {

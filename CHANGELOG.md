@@ -5,6 +5,7 @@
     - Added `Lexer#checkAtruleName(atruleName)`, `Lexer#checkAtrulePrelude(atruleName, prelude)`, `Lexer#checkAtruleDescriptorName(atruleName, descriptorName)` and `Lexer#checkPropertyName(propertyName)`
     - Added `Lexer#getAtrule(atruleName, fallbackBasename)` method
     - Extended `Lexer#getAtrulePrelude()` and `Lexer#getProperty()` methods to take `fallbackBasename` parameter
+    - Improved SyntaxMatchError location details
     - Changed error messages
 
 ## 1.0.1 (November 11, 2020)
