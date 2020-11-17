@@ -85,7 +85,7 @@ describe('Lexer#matchAtruleDescriptor()', () => {
         const match = lexer.matchAtruleDescriptor('keyframes', 'font-face', values.swapValue);
 
         assert.equal(match.matched, null);
-        assert.equal(match.error.message, 'At-rule `keyframes` has no known descriptors');
+        assert.equal(match.error.message, 'At-rule `@keyframes` has no known descriptors');
     });
 
     fixture.forEachAtruleDescriptorTest((testType, testState, name, lexer, atruleName, descriptorName, value) => {

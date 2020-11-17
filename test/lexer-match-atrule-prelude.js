@@ -74,14 +74,14 @@ describe('Lexer#matchAtrulePrelude()', () => {
             const match = lexer.matchAtrulePrelude('font-face', values.animationName);
 
             assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'At-rule `font-face` should not contain a prelude');
+            assert.equal(match.error.message, 'At-rule `@font-face` should not contain a prelude');
         });
 
         it('with verdor prefix', () => {
             const match = lexer.matchAtrulePrelude('-prefix-font-face', values.animationName);
 
             assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'At-rule `-prefix-font-face` should not contain a prelude');
+            assert.equal(match.error.message, 'At-rule `@-prefix-font-face` should not contain a prelude');
         });
     });
 
@@ -98,9 +98,10 @@ describe('Lexer#matchAtrulePrelude()', () => {
             case 'invalid':
                 (it[testState] || it)(name, () => {
                     const match = lexer.matchAtrulePrelude(atruleName, value);
+                    const allowedErrors = ['SyntaxMatchError', 'SyntaxError'];
 
                     assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
-                    assert.equal(match.error.name, 'SyntaxMatchError');
+                    assert.equal(allowedErrors.includes(match.error.name), true, 'should be one of ' + JSON.stringify(allowedErrors));
                 });
                 break;
         }
