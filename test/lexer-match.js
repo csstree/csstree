@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { parse, fork } = require('./helpers/lib');
+const { parse, generate, fork } = require('./helpers/lib');
 
 describe('Lexer#match()', () => {
     const customSyntax = fork(prev => ({
@@ -60,7 +60,7 @@ describe('Lexer#match()', () => {
             { syntax: '<foo()>', value: 'foo(1, 2, 3, 4)', offset: 11 },
             { syntax: '<foo()>', value: 'foo(1, 211px)', offset: 7 },
             { syntax: '<foo()>', value: 'foo(1, 2 3)', offset: 9 },
-            { syntax: '<foo()>', value: 'foo(1, 2)', offset: 8 },
+            { syntax: '<foo()>', value: 'foo(1, 2)', offset: 8, astOffset: 9 }, // in this case AST match can't answer with correct location
             { syntax: '<bar>', value: 'bar( foo )', offset: 5 },
             { syntax: '<baz()>', value: 'baz( foo )', offset: 5 },
             { syntax: '<baz()>', value: 'baz( 1px )', offset: 5 },
@@ -69,19 +69,28 @@ describe('Lexer#match()', () => {
             { syntax: '<number>#{4}', value: '1, 2, 3,', offset: 8 },
             { syntax: '<number>#{4}', value: '1, 2, 3, 4,', offset: 10 }
         ];
+        const values = [
+            ['ast', value => parse(value, { context: 'value', positions: true }), ast => generate(ast)],
+            ['string', String, String]
+        ];
 
-        for (const { syntax, value, offset } of tests) {
-            it(`${syntax} -> ${value}`, () => {
-                const { error, matched } = customSyntax.lexer.match(syntax, value);
+        for (const [type, parse, serialize] of values) {
+            describe(type + ' value', () => {
+                for (const { syntax, value, offset, astOffset } of tests) {
+                    it(`${syntax} -> ${value}`, () => {
+                        const testValue = parse(value);
+                        const { error, matched } = customSyntax.lexer.match(syntax, testValue);
 
-                assert.equal(matched, null);
-                assert.notStrictEqual(error, null);
-                assert.equal(error.mismatchOffset, offset);
-                assert.equal(error.message, `Mismatch\n  syntax: ${
-                    syntax
-                }\n   value: ${
-                    value
-                }\n  --------${'-'.repeat(error.mismatchOffset)}^`);
+                        assert.equal(matched, null);
+                        assert.notStrictEqual(error, null);
+                        assert.equal(error.offset, type === 'ast' && astOffset !== undefined ? astOffset : offset);
+                        assert.equal(error.message, `Mismatch\n  syntax: ${
+                            syntax
+                        }\n   value: ${
+                            serialize(testValue)
+                        }\n  --------${'-'.repeat(error.mismatchOffset)}^`);
+                    });
+                }
             });
         }
     });

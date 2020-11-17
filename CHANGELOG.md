@@ -14,8 +14,9 @@
     - Added `consumeUntilBalanceEnd()`, `consumeUntilLeftCurlyBracket()`, `consumeUntilLeftCurlyBracketOrSemicolon()`, `consumeUntilExclamationMarkOrSemicolon()` and `consumeUntilSemicolonIncluded()` methods to parser's inner API to use with `Raw` instead of `Raw.mode`
 - Generator
     - Generator is now determines itself when a white space required between emitting tokens
-    - Changed `chunk()` handler to `token()` (put a token to output) and `tokenize()` (split a string into tokens and put each of them to output)
+    - Changed `chunk()` handler to `token()` (output a single token) and `tokenize()` (split a string into tokens and output each of them)
     - Added `mode` option for `generate()` to specify a mode of token separation: `spec` or `safe` (by default)
+    - Added `emit(token, type, auto)` handler as implementation specific token processor
     - Changed `Nth` serialiation to serialize `+n` as `n`
 - Lexer
     - Removed `Lexer#matchDeclaration()` method
@@ -33,6 +34,7 @@
     - Added `Lexer#checkAtruleName(atruleName)`, `Lexer#checkAtrulePrelude(atruleName, prelude)`, `Lexer#checkAtruleDescriptorName(atruleName, descriptorName)` and `Lexer#checkPropertyName(propertyName)`
     - Added `Lexer#getAtrule(atruleName, fallbackBasename)` method
     - Extended `Lexer#getAtrulePrelude()` and `Lexer#getProperty()` methods to take `fallbackBasename` parameter
+    - Improved SyntaxMatchError location details
     - Changed error messages
 
 ## 1.0.1 (November 11, 2020)
