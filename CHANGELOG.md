@@ -1,4 +1,4 @@
-## next
+## 1.1.1 (November 18, 2020)
 
 - Fixed edge cases in mismatch location computation for `SyntaxMatchError`
 
