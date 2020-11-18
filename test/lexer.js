@@ -107,7 +107,7 @@ describe('lexer', function() {
         assert.equal(customLexer.matchType('length', '1px').matched, null);
     });
 
-    describe.only('should append definitions', function() {
+    describe('should append definitions', function() {
         var customSyntax = syntax.fork({
             properties: {
                 color: '| foo',
