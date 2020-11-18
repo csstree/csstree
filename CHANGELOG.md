@@ -1,4 +1,4 @@
-## next
+## 1.1.0 (November 17, 2020)
 
 - Bumped `mdn-data` to 2.0.14
 - Extended `fork()` method to allow append syntax instead of overriding for `types`, `properties` and `atrules`, e.g. `csstree.fork({ types: { color: '| foo | bar' } })`
