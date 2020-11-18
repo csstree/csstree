@@ -720,32 +720,46 @@ describe('lexer', function() {
                     'test2': '<bar>',
                     'test3': '<baz()>',
                     'test4': '<number>{4}',
-                    'test5': '<number>#{4}'
+                    'test5': '<number>#{4}',
+                    'rgb': '<rgb>+'
                 },
                 types: {
                     'foo()': 'foo( <number>#{3} )',
                     'bar': 'bar( <angle> )',
-                    'baz()': 'baz( <angle> | <number> )'
+                    'baz()': 'baz( <angle> | <number> )',
+                    'rgb': 'red | green | blue'
                 }
             });
         });
         var tests = [
-            { property: 'test1', value: 'foo(1, 2px, 3)', column: 8 },
-            { property: 'test1', value: 'foo(1, 2, 3, 4)', column: 12 },
-            { property: 'test1', value: 'foo(1, 211px)', column: 8 },
-            { property: 'test1', value: 'foo(1, 2 3)', column: 10 },
-            { property: 'test1', value: 'foo(1, 2)', column: 9, astColumn: 10 }, // in this case AST match can't answer with correct location
-            { property: 'test2', value: 'bar( foo )', column: 6 },
-            { property: 'test3', value: 'baz( foo )', column: 6 },
-            { property: 'test3', value: 'baz( 1px )', column: 6 },
-            { property: 'test4', value: '1 2 3', column: 6 },
-            { property: 'test5', value: '1, 2, 3', column: 8 },
-            { property: 'test5', value: '1, 2, 3,', column: 9 },
-            { property: 'test5', value: '1, 2, 3, 4,', column: 11 }
+            { property: 'test1', value: 'foo(1, 2px, 3)', startColumn: 8, endColumn: 11 },
+            { property: 'test1', value: 'foo(1, 2, 3, 4)', startColumn: 12, endColumn: 13 },
+            { property: 'test1', value: 'foo(1, 211px)', startColumn: 8, endColumn: 13 },
+            { property: 'test1', value: 'foo(1, 2 3)', startColumn: 10, endColumn: 11 },
+            { property: 'test1', value: 'foo(1, 2)', startColumn: 9, endColumn: 10, astStartColumn: 10 }, // in this case AST match can't answer with correct location
+            { property: 'test2', value: 'bar( foo )', startColumn: 6, endColumn: 9 },
+            { property: 'test3', value: 'baz( foo )', startColumn: 6, endColumn: 9 },
+            { property: 'test3', value: 'baz( 1px )', startColumn: 6, endColumn: 9 },
+            { property: 'test4', value: '1 2 3', startColumn: 6, endColumn: 6 },
+            { property: 'test5', value: '1, 2, 3', startColumn: 8, endColumn: 8 },
+            { property: 'test5', value: '1, 2, 3,', startColumn: 9, endColumn: 9 },
+            { property: 'test5', value: '1, 2, 3, 4,', startColumn: 11, endColumn: 12 },
+            { property: 'rgb',   value: 'yellow', startColumn: 1, endColumn: 7 },
+            { property: 'rgb',   value: 'yellow red', startColumn: 1, endColumn: 7 },
+            { property: 'rgb',   value: 'red yellow', startColumn: 5, endColumn: 11 },
+            { property: 'rgb',   value: 'red yellow green', startColumn: 5, endColumn: 11 }
         ];
         var values = [
+            ['string', String],
             ['ast', value => parseCss(value, { context: 'value', positions: true })],
-            ['string', String]
+            ['ast Raw', value => ({
+                type: 'Raw',
+                value,
+                loc: {
+                    start: { line: 1, column: 1, offset: 0 },
+                    end: { line: 1, column: value.length + 1, offset: value.length }
+                }
+            })]
         ];
 
         for (const [type, fn] of values) {
@@ -756,9 +770,14 @@ describe('lexer', function() {
 
                     assert.strictEqual(result.matched, null);
                     assert(Boolean(error));
-                    assert.strictEqual(error.column, type === 'ast' && 'astColumn' in test
-                        ? test.astColumn
-                        : test.column
+                    assert.strictEqual(error.column, error.loc.start.column);
+                    assert.strictEqual(error.column, type === 'ast' && 'astStartColumn' in test
+                        ? test.astStartColumn
+                        : test.startColumn
+                    );
+                    assert.strictEqual(error.loc.end.column, type === 'ast' && 'astEndColumn' in test
+                        ? test.astEndColumn
+                        : test.endColumn
                     );
                 });
             }));

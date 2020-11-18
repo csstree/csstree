@@ -1,3 +1,7 @@
+## next
+
+- Fixed edge cases in mismatch location computation for `SyntaxMatchError`
+
 ## 1.1.0 (November 17, 2020)
 
 - Bumped `mdn-data` to 2.0.14
@@ -6,7 +10,7 @@
     - Added `Lexer#checkAtruleName(atruleName)`, `Lexer#checkAtrulePrelude(atruleName, prelude)`, `Lexer#checkAtruleDescriptorName(atruleName, descriptorName)` and `Lexer#checkPropertyName(propertyName)`
     - Added `Lexer#getAtrule(atruleName, fallbackBasename)` method
     - Extended `Lexer#getAtrulePrelude()` and `Lexer#getProperty()` methods to take `fallbackBasename` parameter
-    - Improved SyntaxMatchError location details
+    - Improved `SyntaxMatchError` location details
     - Changed error messages
 
 ## 1.0.1 (November 11, 2020)
