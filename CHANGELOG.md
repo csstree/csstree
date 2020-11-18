@@ -30,6 +30,7 @@
 ## next 1.x
 
 - Bumped `mdn-data` to 2.0.14
+- Extended `fork()` method to allow append syntax instead of overriding for `types`, `properties` and `atrules`, e.g. `csstree.fork({ types: { color: '| foo | bar' } })`
 - Extended lexer API for validation
     - Added `Lexer#checkAtruleName(atruleName)`, `Lexer#checkAtrulePrelude(atruleName, prelude)`, `Lexer#checkAtruleDescriptorName(atruleName, descriptorName)` and `Lexer#checkPropertyName(propertyName)`
     - Added `Lexer#getAtrule(atruleName, fallbackBasename)` method
