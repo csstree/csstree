@@ -51,40 +51,55 @@ describe('Lexer#match()', () => {
             types: {
                 'foo()': 'foo( <number>#{3} )',
                 'bar': 'bar( <angle> )',
-                'baz()': 'baz( <angle> | <number> )'
+                'baz()': 'baz( <angle> | <number> )',
+                'rgb': 'red | green | blue'
             }
         }));
 
         const tests = [
-            { syntax: '<foo()>', value: 'foo(1, 2px, 3)', offset: 7 },
-            { syntax: '<foo()>', value: 'foo(1, 2, 3, 4)', offset: 11 },
-            { syntax: '<foo()>', value: 'foo(1, 211px)', offset: 7 },
-            { syntax: '<foo()>', value: 'foo(1, 2 3)', offset: 9 },
-            { syntax: '<foo()>', value: 'foo(1, 2)', offset: 8, astOffset: 9 }, // in this case AST match can't answer with correct location
-            { syntax: '<bar>', value: 'bar( foo )', offset: 5 },
-            { syntax: '<baz()>', value: 'baz( foo )', offset: 5 },
-            { syntax: '<baz()>', value: 'baz( 1px )', offset: 5 },
-            { syntax: '<number>{4}', value: '1 2 3', offset: 5 },
-            { syntax: '<number>#{4}', value: '1, 2, 3', offset: 7 },
-            { syntax: '<number>#{4}', value: '1, 2, 3,', offset: 8 },
-            { syntax: '<number>#{4}', value: '1, 2, 3, 4,', offset: 10 }
+            { syntax: '<foo()>', value: 'foo(1, 2px, 3)', start: 7, end: 10 },
+            { syntax: '<foo()>', value: 'foo(1, 2, 3, 4)', start: 11, end: 12 },
+            { syntax: '<foo()>', value: 'foo(1, 211px)', start: 7, end: 12 },
+            { syntax: '<foo()>', value: 'foo(1, 2 3)', start: 9, end: 10 },
+            { syntax: '<foo()>', value: 'foo(1, 2)', start: 8, end: 9, astStart: 9 }, // in this case AST match can't answer with correct location
+            { syntax: '<bar>', value: 'bar( foo )', start: 5, end: 8 },
+            { syntax: '<baz()>', value: 'baz( foo )', start: 5, end: 8 },
+            { syntax: '<baz()>', value: 'baz( 1px )', start: 5, end: 8 },
+            { syntax: '<number>{4}', value: '1 2 3', start: 5, end: 5 },
+            { syntax: '<number>#{4}', value: '1, 2, 3', start: 7, end: 7 },
+            { syntax: '<number>#{4}', value: '1, 2, 3,', start: 8, end: 8 },
+            { syntax: '<number>#{4}', value: '1, 2, 3, 4,', start: 10, end: 11 },
+            { syntax: '<rgb>+', value: 'yellow', start: 0, end: 6 },
+            { syntax: '<rgb>+', value: 'yellow red', start: 0, end: 6 },
+            { syntax: '<rgb>+', value: 'red yellow', start: 4, end: 10 },
+            { syntax: '<rgb>+', value: 'red yellow green', start: 4, end: 10 }
         ];
         const values = [
+            ['string', String, String],
             ['ast', value => parse(value, { context: 'value', positions: true }), ast => generate(ast)],
-            ['string', String, String]
+            ['ast Raw', value => ({
+                type: 'Raw',
+                value,
+                loc: {
+                    start: { line: 1, column: 1, offset: 0 },
+                    end: { line: 1, column: value.length + 1, offset: value.length }
+                }
+            }), ast => generate(ast)]
         ];
 
         for (const [type, parse, serialize] of values) {
             describe(type + ' value', () => {
-                for (const { syntax, value, offset, astOffset } of tests) {
+                for (const { syntax, value, start, end, astStart, astEnd } of tests) {
                     it(`${syntax} -> ${value}`, () => {
                         const testValue = parse(value);
                         const { error, matched } = customSyntax.lexer.match(syntax, testValue);
 
-                        assert.equal(matched, null);
+                        assert.strictEqual(matched, null);
                         assert.notStrictEqual(error, null);
-                        assert.equal(error.offset, type === 'ast' && astOffset !== undefined ? astOffset : offset);
-                        assert.equal(error.message, `Mismatch\n  syntax: ${
+                        assert.strictEqual(error.offset, error.loc.start.offset, 'offset shoud be the same as loc.start.offset');
+                        assert.strictEqual(error.loc.start.offset, type === 'ast' && astStart !== undefined ? astStart : start, 'loc.start');
+                        assert.strictEqual(error.loc.end.offset, type === 'ast' && astEnd !== undefined ? astEnd : end, 'loc.end');
+                        assert.strictEqual(error.message, `Mismatch\n  syntax: ${
                             syntax
                         }\n   value: ${
                             serialize(testValue)
