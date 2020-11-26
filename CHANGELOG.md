@@ -1,4 +1,4 @@
-## next
+## 1.1.2
 
 - Rolled back to use spread syntax in object literals since it not supported by nodejs < 8.3 (#145)
 
