@@ -1,3 +1,7 @@
+## next
+
+- Rolled back to use spread syntax in object literals since it not supported by nodejs < 8.3 (#145)
+
 ## 1.1.1 (November 18, 2020)
 
 - Fixed edge cases in mismatch location computation for `SyntaxMatchError`
