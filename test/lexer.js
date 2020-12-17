@@ -427,12 +427,20 @@ describe('lexer', function() {
             assert.equal(match.error.message, 'At-rule `@-prefix-font-face` should not contain a prelude');
         });
 
+        it('should not match css wide keywords', function() {
+            var match = customSyntax.lexer.matchAtrulePrelude('import', 'inherit');
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.rawMessage, 'Mismatch');
+        });
+
         fixture.forEachAtrulePreludeTest(createAtrulePreludeMatchTest);
     });
 
     describe('matchAtruleDescriptor()', function() {
         var swapValue = parseCss('swap', { context: 'value' });
         var xxxValue = parseCss('xxx', { context: 'value' });
+        var inherit = parseCss('inherit', { context: 'value' });
         var customSyntax = syntax.fork((prev) => Object.assign({}, prev, {
             atrules: {
                 'font-face': {
@@ -491,6 +499,13 @@ describe('lexer', function() {
             });
         });
 
+        it('should not match css wide keywords', function() {
+            var match = customSyntax.lexer.matchAtruleDescriptor('font-face', 'font-display', inherit);
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.rawMessage, 'Mismatch');
+        });
+
         it('should not be matched to empty value', function() {
             var match = syntax.lexer.matchAtruleDescriptor('font-face', 'font-display', parseCss('', { context: 'value', positions: true }));
 
@@ -518,6 +533,7 @@ describe('lexer', function() {
     describe('matchProperty()', function() {
         var bar = parseCss('bar', { context: 'value' });
         var qux = parseCss('qux', { context: 'value' });
+        var inherit = parseCss('inherit', { context: 'value' });
         var customSyntax = syntax.fork(function(prev, assign) {
             return assign(prev, {
                 properties: {
@@ -582,6 +598,13 @@ describe('lexer', function() {
             });
         });
 
+        it('should match css wide keywords', function() {
+            var match = customSyntax.lexer.matchProperty('foo', inherit);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
         it('custom property', function() {
             var match = syntax.lexer.matchProperty('--foo', bar);
 
@@ -609,6 +632,14 @@ describe('lexer', function() {
     describe('matchDeclaration()', function() {
         it('should match', function() {
             var declaration = parseCss('color: red', { context: 'declaration' });
+            var match = syntax.lexer.matchDeclaration(declaration);
+
+            assert(match.matched);
+            assert.equal(match.error, null);
+        });
+
+        it('should match css wide keywords', function() {
+            var declaration = parseCss('color: inherit', { context: 'declaration' });
             var match = syntax.lexer.matchDeclaration(declaration);
 
             assert(match.matched);
@@ -708,6 +739,13 @@ describe('lexer', function() {
 
             assert.equal(match.matched, null);
             assert.equal(match.error.message, 'Bad syntax');
+        });
+
+        it('should not match to CSS wide names', function() {
+            var match = customSyntax.lexer.match('<length>', 'inherit');
+
+            assert.equal(match.matched, null);
+            assert.equal(match.error.message, 'Mismatch\n  syntax: <length>\n   value: inherit\n  --------^');
         });
     });
 

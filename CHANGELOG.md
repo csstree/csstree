@@ -1,3 +1,7 @@
+## next
+
+- Fixed matching on CSS wide keywords for at-rule's prelude and descriptors
+
 ## 1.1.2
 
 - Rolled back to use spread syntax in object literals since it not supported by nodejs < 8.3 (#145)
