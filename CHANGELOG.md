@@ -1,8 +1,9 @@
 ## next
 
 - Fixed matching on CSS wide keywords for at-rule's prelude and descriptors
+- Added `fit-content` to `width` property patch as browsers are supported it as a keyword (nonstandard), but spec defines it as a function
 
-## 1.1.2
+## 1.1.2 (November 26, 2020)
 
 - Rolled back to use spread syntax in object literals since it not supported by nodejs < 8.3 (#145)
 
