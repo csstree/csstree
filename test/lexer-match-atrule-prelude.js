@@ -69,6 +69,13 @@ describe('Lexer#matchAtrulePrelude()', () => {
         });
     });
 
+    it('should not match css wide keywords', function() {
+        var match = lexer.matchAtrulePrelude('import', parse('inherit', { context: 'atrulePrelude', positions: true }));
+
+        assert.equal(match.matched, null);
+        assert.equal(match.error.rawMessage, 'Mismatch');
+    });
+
     describe('should not be matched to at-rules with no prelude', () => {
         it('regular name', () => {
             const match = lexer.matchAtrulePrelude('font-face', values.animationName);
