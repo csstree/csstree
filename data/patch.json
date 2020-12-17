@@ -295,6 +295,10 @@
             "comment": "fix auto -> none (https://github.com/mdn/data/pull/431); extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
             "syntax": "none | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
         },
+        "width": {
+            "comment": "per spec fit-content should be a function, however browsers are supporting it as a keyword (https://github.com/csstree/stylelint-validator/issues/29)",
+            "syntax": "| fit-content | -moz-fit-content | -webkit-fit-content"
+        },
         "min-width": {
             "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
             "syntax": "auto | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
