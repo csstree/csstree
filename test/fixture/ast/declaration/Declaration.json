@@ -329,6 +329,69 @@
             }
         }
     },
+    "shouldn't include !important into a value when parseValue is false": {
+        "options": {
+            "parseValue": false
+        },
+        "source": "property: value !important",
+        "generate": "property:value!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "property",
+            "value": {
+                "type": "Raw",
+                "value": "value"
+            }
+        }
+    },
+    "shouldn't include !important into a value when parseValue is false (function)": {
+        "options": {
+            "parseValue": false
+        },
+        "source": "property: calc(1px + 1%) !important",
+        "generate": "property:calc(1px + 1%)!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "property",
+            "value": {
+                "type": "Raw",
+                "value": "calc(1px + 1%)"
+            }
+        }
+    },
+    "shouldn't include !important into a value when parseValue is false (brackets)": {
+        "options": {
+            "parseValue": false
+        },
+        "source": "property: [ value ] !important",
+        "generate": "property:[ value ]!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "property",
+            "value": {
+                "type": "Raw",
+                "value": "[ value ]"
+            }
+        }
+    },
+    "shouldn't include !important into a value when parseValue is false (w/o whitespaces)": {
+        "options": {
+            "parseValue": false
+        },
+        "source": "property:value!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "property",
+            "value": {
+                "type": "Raw",
+                "value": "value"
+            }
+        }
+    },
     "error": [
         {
             "source": "//: 1",

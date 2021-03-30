@@ -29,13 +29,27 @@
 
 ## next 1.x
 
+- Fixed matching on CSS wide keywords for at-rule's prelude and descriptors
+- Added `fit-content` to `width` property patch as browsers are supported it as a keyword (nonstandard), but spec defines it as a function
+- Fixed parsing a value contains parentheses or brackets and `parseValue` option is set to `false`, in that case `!important` was included into a value but must not (#155)
+
+## 1.1.2 (November 26, 2020)
+
+- Rolled back to use spread syntax in object literals since it not supported by nodejs < 8.3 (#145)
+
+## 1.1.1 (November 18, 2020)
+
+- Fixed edge cases in mismatch location computation for `SyntaxMatchError`
+
+## 1.1.0 (November 17, 2020)
+
 - Bumped `mdn-data` to 2.0.14
 - Extended `fork()` method to allow append syntax instead of overriding for `types`, `properties` and `atrules`, e.g. `csstree.fork({ types: { color: '| foo | bar' } })`
 - Extended lexer API for validation
     - Added `Lexer#checkAtruleName(atruleName)`, `Lexer#checkAtrulePrelude(atruleName, prelude)`, `Lexer#checkAtruleDescriptorName(atruleName, descriptorName)` and `Lexer#checkPropertyName(propertyName)`
     - Added `Lexer#getAtrule(atruleName, fallbackBasename)` method
     - Extended `Lexer#getAtrulePrelude()` and `Lexer#getProperty()` methods to take `fallbackBasename` parameter
-    - Improved SyntaxMatchError location details
+    - Improved `SyntaxMatchError` location details
     - Changed error messages
 
 ## 1.0.1 (November 11, 2020)
