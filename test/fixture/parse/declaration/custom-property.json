@@ -35,6 +35,18 @@
             }
         }
     },
+    "with parentheses and important": {
+        "source": "--var:calc(1)!important",
+        "ast": {
+            "type": "Declaration",
+            "important": true,
+            "property": "--var",
+            "value": {
+                "type": "Raw",
+                "value": "calc(1)"
+            }
+        }
+    },
     "value is {}-block": {
         "source": "--var:{foo:bar;baz:{}}",
         "ast": {

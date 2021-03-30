@@ -2,6 +2,7 @@
 
 - Fixed matching on CSS wide keywords for at-rule's prelude and descriptors
 - Added `fit-content` to `width` property patch as browsers are supported it as a keyword (nonstandard), but spec defines it as a function
+- Fixed parsing a value contains parentheses or brackets and `parseValue` option is set to `false`, in that case `!important` was included into a value but must not (#155)
 
 ## 1.1.2 (November 26, 2020)
 
