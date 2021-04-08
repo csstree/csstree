@@ -12,6 +12,7 @@
     - Parser adds a whitespace to `+` and `-` operators, when a whitespace is before and/or after an operator
     - Exposed parser's inner configuration as `parse.config`
     - Added `consumeUntilBalanceEnd()`, `consumeUntilLeftCurlyBracket()`, `consumeUntilLeftCurlyBracketOrSemicolon()`, `consumeUntilExclamationMarkOrSemicolon()` and `consumeUntilSemicolonIncluded()` methods to parser's inner API to use with `Raw` instead of `Raw.mode`
+    - Changed `Nth` to always consume `of` clause when presented, so it became more general and moves validation to lexer
 - Generator
     - Generator is now determines itself when a white space required between emitting tokens
     - Changed `chunk()` handler to `token()` (output a single token) and `tokenize()` (split a string into tokens and output each of them)
