@@ -20,7 +20,6 @@
     - Changed `Nth` serialiation to serialize `+n` as `n`
 - Lexer
     - Removed `Lexer#matchDeclaration()` method
-    - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - List
     - Changed `List` to be iterable (iterates data)
     - Changed `List#first`, `List#last` and `List#isEmpty` to getters
