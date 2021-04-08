@@ -5,6 +5,7 @@ const fixture = require('./fixture/definition-syntax');
 const values = lazyValues({
     bar: () => parse('bar', { context: 'value' }),
     qux: () => parse('qux', { context: 'value' }),
+    inherit: () => parse('inherit', { context: 'value' }),
     customSyntax: () => fork(function(prev, assign) {
         return assign(prev, {
             properties: {
@@ -82,6 +83,13 @@ describe('Lexer#matchProperty()', () => {
 
         assert.equal(match.matched, null);
         assert.equal(match.error.message, 'Lexer matching doesn\'t applicable for custom properties');
+    });
+
+    it('should match css wide keywords', function() {
+        var match = lexer.matchProperty('color', values.inherit);
+
+        assert(match.matched);
+        assert.equal(match.error, null);
     });
 
     it('should not be matched to empty value', () => {

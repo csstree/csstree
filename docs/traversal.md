@@ -1,8 +1,13 @@
 # AST traversal
 
-## Introdution to internals
+- [walk(ast, options)](#walkast-options)
+- [find(ast, fn)](#findast-fn)
+- [findLast(ast, fn)](#findlastast-fn)
+- [findAll(ast, fn)](#findallast-fn)
 
-AST traversal API is provided by `walk()` method.
+## walk(ast, options)
+
+Method visits each node of passed AST in a natural way and calls handlers for each one. It takes two arguments: a root node (`ast`) and an object (`options`). In simple case, it may take a function (handler) instead of `options` (`walk(ast, fn)` is equivalent to `walk(ast, { enter: fn })`).
 
 ```js
 const csstree = require('css-tree');
@@ -22,29 +27,42 @@ csstree.walk(ast, function(node) {
 // Identifier
 ```
 
-Some details about `walk()` internals:
+How does it works:
 
-- Method uses `structure` field value of every node type to define the way how to iterate the nodes:
+- Method uses `structure` field value of every node type to define the way how to iterate node's properties:
     - A function-iterator is generating for every node type.
-    - Node's properties iterates in the order it defined in `structure` ([reverse](#reverse) option can invert an order).
-    - Properties that are not defined in `structure` are ignoring (doesn't interate).
-    - An exception is possible when a tree is not following to expected structure (it may happen if AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of a tree structure, you can use `try/catch` or check the tree with `csstree.lexer.validateStructure(ast)` before iterate it.
-- Only `children` field may contain a list of nested nodes. A list of nodes must be represented as a `List` instances. Howevet, in certain cases, `children` may be an array. Since `List` provides a similar to `Array` API, traversal can work in most cases, but without any guarantee. Therefore usings arrays in AST is not recomended, use it on your own risk.
+    - Node's properties are iterated in the order as defined in `structure` ([reverse](#reverse) option inverts the order).
+    - Properties that are not defined in `structure` are ignored (aren't interated).
+    - An exception is possible when a tree is not following to expected structure (e.g. AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of the tree structure, you may use `try/catch` or check the tree structure with `csstree.lexer.validateStructure(ast)` before iterating.
+- Only `children` field may contain a list of nested nodes. A list of nodes should a `List` instances. Since `List` class provides API similar to `Array`, traversal may work in cases when `children` is an array, but without any guarantee. Usings arrays in AST is not recomended, use it on your own risk.
 
-## walk(ast, options)
+Walk visitor's function may return special values to control traversal:
+- `walk.break` or `this.break` – stops traversal, i.e. no any visitor function will be invoked once this value returned by a visitor;
+- `walk.skip` or `this.skip` – prevent current node from being iterated, i.e. no any visitor function will be invoked for its properties or children nodes; note that this value only has an effect for `enter` visitor as `leave` visitor invokes after iterating over all node's properties and children.
 
-Method visits each node of passed tree in a natural way and calls a handler for each one. It takes two arguments: a root node (`ast`) and an object (`options`). In simple case, it can take a function (handler) instead of `options` (`walk(ast, fn)` is equivalent to `walk(ast, { enter: fn })`).
+> NOTE: `walk.break` and `walk.skip` are only possible option for arrow functions, since such functions have no their own `this`.
+
+```js
+csstree.walk(ast, {
+    enter: function(node) {
+        if (node.type === 'Block') {
+            return this.skip;
+        }
+
+        if (node.name === 'foo') {
+            return this.break;
+        }
+    },
+    leave: node => node.name === 'bar' ? csstree.walk.break : false
+});
+```
 
 Options:
-
-<!-- TOC depthFrom:3 -->
 
 - [enter](#enter)
 - [leave](#leave)
 - [visit](#visit)
 - [reverse](#reverse)
-
-<!-- /TOC -->
 
 ### enter
 
@@ -206,10 +224,9 @@ The traveral for some node types can performs faster (10-15 times depending on t
 Type: `boolean`  
 Default: `false`
 
-Inverts a natural order of traversal of nodes. To achieve this, the following actions are performed:
-- children nodes are iterated in reverse order (from last to first)
-- properties are iterated in reverse order (according to `structure` definition of node)
-- `enter` and `leave` handlers are swapped
+Inverts the natural order of traversing nodes:
+- node's properties are iterated over in reverse order to the node's `structure` definition
+- children nodes are iterated from last to first
 
 ```js
 const assert = require('assert');
@@ -242,4 +259,52 @@ assert.deepEqual(
     reverse,
     natural.reverse()
 );
+```
+
+## find(ast, fn)
+
+Returns the first node in natural order for which `fn` function returns a truthy value.
+
+```js
+var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+
+var firstColorDeclaration = csstree.find(ast, function(node, item, list) {
+    return node.type === 'Declaration' && node.property === 'color';
+});
+
+console.log(csstree.generate(firstColorDeclaration));
+// color:red
+```
+
+## findLast(ast, fn)
+
+Returns the first node in reverse order for which `fn` function returns a truthy value.
+
+```js
+var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+
+var firstColorDeclaration = csstree.findLast(ast, function(node, item, list) {
+    return node.type === 'Declaration' && node.property === 'color';
+});
+
+console.log(csstree.generate(firstColorDeclaration));
+// color:green
+```
+
+## findAll(ast, fn)
+
+Returns all nodes in natural order for which `fn` function returns a truthy value.
+
+```js
+var csstree = require('css-tree');
+var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+
+var colorDeclarations = csstree.findAll(ast, function(node, item, list) {
+    return node.type === 'Declaration' && node.property === 'color';
+});
+
+console.log(colorDeclarations.map(decl => csstree.generate(decl)).join(', '));
+// color:red, color:green
 ```

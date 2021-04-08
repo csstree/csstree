@@ -1,7 +1,5 @@
 ## next
 
-- Exposed `version` of the lib (i.e. `import { version } from 'css-tree'`)
-- Removed `dist/default-syntax.json` from package
 - Changed `String` node type to store decoded string value (and auto encode a value on serialize)
 - Changed `Url` node type to store decoded url value (and auto encode a value on serialize)
 - Removed `SyntaxError` (custom parse error class) from public API
@@ -13,27 +11,67 @@
     - Removed `TokenStream#skipWS()` method
     - Removed `TokenStream#getTokenLength()` method
 - Parser
-    - Renamed `HexColor` node type into `Hash`
     - Changed selector parsing to produce `{ type: 'Combinator', name: ' ' }` node instead of `WhiteSpace` node
     - Don't produce `WhiteSpace` nodes anymore, with the single exception: a custom property declaration with a single white space token as a value
     - Parser adds a whitespace to `+` and `-` operators, when a whitespace is before and/or after an operator
-    - Removed `element()` specific parsing rules
     - Exposed parser's inner configuration as `parse.config`
-    - Added `onComment` option
     - Added `consumeUntilBalanceEnd()`, `consumeUntilLeftCurlyBracket()`, `consumeUntilLeftCurlyBracketOrSemicolon()`, `consumeUntilExclamationMarkOrSemicolon()` and `consumeUntilSemicolonIncluded()` methods to parser's inner API to use with `Raw` instead of `Raw.mode`
+    - Changed `Nth` to always consume `of` clause when presented, so it became more general and moves validation to lexer
 - Generator
     - Generator is now determines itself when a white space required between emitting tokens
-    - Changed `chunk()` handler to `token()` (put a token to output) and `tokenize()` (split a string into tokens and put each of them to output)
+    - Changed `chunk()` handler to `token()` (output a single token) and `tokenize()` (split a string into tokens and output each of them)
     - Added `mode` option for `generate()` to specify a mode of token separation: `spec` or `safe` (by default)
+    - Added `emit(token, type, auto)` handler as implementation specific token processor
     - Changed `Nth` serialiation to serialize `+n` as `n`
 - Lexer
     - Removed `Lexer#matchDeclaration()` method
-    - Fixed `Lexer#dump()` to dump atrules syntaxes as well
 - List
     - Changed `List` to be iterable (iterates data)
     - Changed `List#first`, `List#last` and `List#isEmpty` to getters
     - Changed `List#getSize()` method to `List#size` getter
     - Removed `List#each()` and `List#eachRight()` methods, `List#forEach()` and `List#forEachRight()` should be used instead
+
+## next 1.x
+
+- Fixed matching on CSS wide keywords for at-rule's prelude and descriptors
+- Added `fit-content` to `width` property patch as browsers are supported it as a keyword (nonstandard), but spec defines it as a function
+- Fixed parsing a value contains parentheses or brackets and `parseValue` option is set to `false`, in that case `!important` was included into a value but must not (#155)
+
+## 1.1.2 (November 26, 2020)
+
+- Rolled back to use spread syntax in object literals since it not supported by nodejs < 8.3 (#145)
+
+## 1.1.1 (November 18, 2020)
+
+- Fixed edge cases in mismatch location computation for `SyntaxMatchError`
+
+## 1.1.0 (November 17, 2020)
+
+- Bumped `mdn-data` to 2.0.14
+- Extended `fork()` method to allow append syntax instead of overriding for `types`, `properties` and `atrules`, e.g. `csstree.fork({ types: { color: '| foo | bar' } })`
+- Extended lexer API for validation
+    - Added `Lexer#checkAtruleName(atruleName)`, `Lexer#checkAtrulePrelude(atruleName, prelude)`, `Lexer#checkAtruleDescriptorName(atruleName, descriptorName)` and `Lexer#checkPropertyName(propertyName)`
+    - Added `Lexer#getAtrule(atruleName, fallbackBasename)` method
+    - Extended `Lexer#getAtrulePrelude()` and `Lexer#getProperty()` methods to take `fallbackBasename` parameter
+    - Improved `SyntaxMatchError` location details
+    - Changed error messages
+
+## 1.0.1 (November 11, 2020)
+
+- Fixed edge cases for parsing of custom property value with a single whitespace when `parseCustomProperty:true`
+
+## 1.0.0 (October 27, 2020)
+
+- Added `onComment` option to parser config
+- Added support for `break` and `skip` values in `walk()` to control traversal
+- Added `List#reduce()` and `List#reduceRight()` methods
+- Bumped `mdn-data` to 2.0.12
+- Exposed version of the lib (i.e. `import { version } from 'css-tree'`)
+- Fixed `Lexer#dump()` to dump atrules syntaxes as well
+- Fixed matching comma separated `<urange>` list (#135)
+- Renamed `HexColor` node type into `Hash`
+- Removed `element()` specific parsing rules
+- Removed `dist/default-syntax.json` from package
 
 ## 1.0.0-alpha.39 (December 5, 2019)
 

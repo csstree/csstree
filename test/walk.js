@@ -158,15 +158,15 @@ describe('AST traversal', () => {
 
     describe('traverse order', () => {
         const values = lazyValues({
-            ast: () => parse('.a.b { foo: bar; baz: qux } .c {} @media all { .d:not(.e) { aa: bb; cc: dd } f { ee: ff } }'),
-            expectedOrder: () => 'a b foo bar baz qux c media all d not e aa bb cc dd f ee ff'.split(' ')
+            ast: () => parse('.a.b { foo: bar; baz: qux } .c {} @media all { .d:not(.e > .f) { aa: bb; cc: dd ee } f { ff: gg } }')
         });
 
         it('natural', () => {
             const visitedNames = [];
+            const expected = 'a b foo bar baz qux c media all d not e > f aa bb cc dd ee f ff gg'.split(' ');
 
             walk(values.ast, {
-                enter: (node) => {
+                enter(node) {
                     if (node.name || node.property) {
                         visitedNames.push(node.name || node.property);
                     }
@@ -175,16 +175,17 @@ describe('AST traversal', () => {
 
             assert.deepEqual(
                 visitedNames,
-                values.expectedOrder
+                expected
             );
         });
 
         it('reverse', () => {
             const visitedNames = [];
+            const expected = 'media ff gg f cc ee dd aa bb not f > e d all c baz qux foo bar b a'.split(' ');
 
             walk(values.ast, {
                 reverse: true,
-                enter: (node) => {
+                enter(node) {
                     if (node.name || node.property) {
                         visitedNames.push(node.name || node.property);
                     }
@@ -193,10 +194,353 @@ describe('AST traversal', () => {
 
             assert.deepEqual(
                 visitedNames,
-                values.expectedOrder.slice().reverse()
+                expected
             );
         });
     });
+
+    describe('break traverse', () => {
+        const ast = parse('.a.b { foo: bar; } .c {} .a.b { foo: bar; }');
+        const nodeName = (node) =>
+            node.type + (node.name || node.property ? ':' + (node.name || node.property) : '');
+
+        describe('natural order', () => {
+            const expected = [
+                'enter StyleSheet',
+                'enter Rule',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:a',
+                'leave ClassSelector:a',
+                'enter ClassSelector:b',
+                'leave ClassSelector:b',
+                'leave Selector',
+                'leave SelectorList',
+                'enter Block',
+                'enter Declaration:foo',
+                'enter Value',
+                'enter Identifier:bar',
+                'leave Identifier:bar',
+                'leave Value',
+                'leave Declaration:foo',
+                'leave Block',
+                'leave Rule',
+                'enter Rule',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:c'
+            ];
+
+            it('this.break', () => {
+                const actual = [];
+
+                walk(ast, {
+                    enter(node) {
+                        actual.push('enter ' + nodeName(node));
+
+                        if (node.name === 'c') {
+                            return this.break;
+                        }
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+
+            it('walk.break', () => {
+                const actual = [];
+
+                walk(ast, {
+                    enter: (node) => {
+                        actual.push('enter ' + nodeName(node));
+
+                        if (node.name === 'c') {
+                            return walk.break;
+                        }
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+        });
+
+        describe('reverse order', () => {
+            const expected = [
+                'enter StyleSheet',
+                'enter Rule',
+                'enter Block',
+                'enter Declaration:foo',
+                'enter Value',
+                'enter Identifier:bar',
+                'leave Identifier:bar',
+                'leave Value',
+                'leave Declaration:foo',
+                'leave Block',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:b',
+                'leave ClassSelector:b',
+                'enter ClassSelector:a',
+                'leave ClassSelector:a',
+                'leave Selector',
+                'leave SelectorList',
+                'leave Rule',
+                'enter Rule',
+                'enter Block',
+                'leave Block',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:c'
+            ];
+
+            it('this.break', () => {
+                const actual = [];
+
+                walk(ast, {
+                    reverse: true,
+                    enter(node) {
+                        actual.push('enter ' + nodeName(node));
+
+                        if (node.name === 'c') {
+                            return this.break;
+                        }
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+
+            it('walk.break', () => {
+                const actual = [];
+
+                walk(ast, {
+                    reverse: true,
+                    enter: (node) => {
+                        actual.push('enter ' + nodeName(node));
+
+                        if (node.name === 'c') {
+                            return walk.break;
+                        }
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+        });
+    });
+
+    describe('skip node traverse', () => {
+        const ast = parse('.a.b { foo: bar } @media all { selector { foo: bar } } .c.d { foo: bar }');
+        const nodeName = node =>
+            node.type + (node.name || node.property ? ':' + (node.name || node.property) : '');
+
+        describe('natural order', () => {
+            const expected = [
+                'enter StyleSheet',
+                'enter Rule',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:a',
+                'leave ClassSelector:a',
+                'enter ClassSelector:b',
+                'leave ClassSelector:b',
+                'leave Selector',
+                'leave SelectorList',
+                'enter Block',
+                'enter Declaration:foo',
+                'enter Value',
+                'enter Identifier:bar',
+                'leave Identifier:bar',
+                'leave Value',
+                'leave Declaration:foo',
+                'leave Block',
+                'leave Rule',
+                'skip Atrule:media',
+                'enter Rule',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:c',
+                'leave ClassSelector:c',
+                'enter ClassSelector:d',
+                'leave ClassSelector:d',
+                'leave Selector',
+                'leave SelectorList',
+                'enter Block',
+                'enter Declaration:foo',
+                'enter Value',
+                'enter Identifier:bar',
+                'leave Identifier:bar',
+                'leave Value',
+                'leave Declaration:foo',
+                'leave Block',
+                'leave Rule',
+                'leave StyleSheet'
+            ];
+
+            it('this.skip', () => {
+                const actual = [];
+
+                walk(ast, {
+                    enter(node) {
+                        if (node.name === 'media') {
+                            actual.push('skip ' + nodeName(node));
+                            return this.skip;
+                        }
+
+                        actual.push('enter ' + nodeName(node));
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+
+            it('walk.skip', () => {
+                const actual = [];
+
+                walk(ast, {
+                    enter: (node) => {
+                        if (node.name === 'media') {
+                            actual.push('skip ' + nodeName(node));
+                            return walk.skip;
+                        }
+
+                        actual.push('enter ' + nodeName(node));
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+        });
+
+        describe('reverse order', () => {
+            const expected = [
+                'enter StyleSheet',
+                'enter Rule',
+                'enter Block',
+                'enter Declaration:foo',
+                'enter Value',
+                'enter Identifier:bar',
+                'leave Identifier:bar',
+                'leave Value',
+                'leave Declaration:foo',
+                'leave Block',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:d',
+                'leave ClassSelector:d',
+                'enter ClassSelector:c',
+                'leave ClassSelector:c',
+                'leave Selector',
+                'leave SelectorList',
+                'leave Rule',
+                'skip Atrule:media',
+                'enter Rule',
+                'enter Block',
+                'enter Declaration:foo',
+                'enter Value',
+                'enter Identifier:bar',
+                'leave Identifier:bar',
+                'leave Value',
+                'leave Declaration:foo',
+                'leave Block',
+                'enter SelectorList',
+                'enter Selector',
+                'enter ClassSelector:b',
+                'leave ClassSelector:b',
+                'enter ClassSelector:a',
+                'leave ClassSelector:a',
+                'leave Selector',
+                'leave SelectorList',
+                'leave Rule',
+                'leave StyleSheet'
+            ];
+
+            it('this.skip', () => {
+                const actual = [];
+
+                walk(ast, {
+                    reverse: true,
+                    enter(node) {
+                        if (node.name === 'media') {
+                            actual.push('skip ' + nodeName(node));
+                            return this.skip;
+                        }
+
+                        actual.push('enter ' + nodeName(node));
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+
+            it('walk.skip', () => {
+                const actual = [];
+
+                walk(ast, {
+                    reverse: true,
+                    enter: (node) => {
+                        if (node.name === 'media') {
+                            actual.push('skip ' + nodeName(node));
+                            return walk.skip;
+                        }
+
+                        actual.push('enter ' + nodeName(node));
+                    },
+                    leave(node) {
+                        actual.push('leave ' + nodeName(node));
+                    }
+                });
+
+                assert.deepEqual(
+                    actual,
+                    expected
+                );
+            });
+        });
+    });
+
 
     describe('bad options', () => {
         const ast = {};

@@ -50,6 +50,32 @@ describe('lexer', () => {
         });
     });
 
+    describe('should allow append definitions', function() {
+        const customSyntax = fork({
+            properties: {
+                color: '| foo',
+                new: '| foo'
+            },
+            types: {
+                length: '| foo',
+                box: '| foo',
+                new: '| foo'
+            }
+        });
+
+        it('properties', () => {
+            assert.notStrictEqual(customSyntax.lexer.matchProperty('color', 'foo').matched, null);
+            assert.notStrictEqual(customSyntax.lexer.matchProperty('new', 'foo').matched, null);
+        });
+        it('types', () => {
+            assert.notStrictEqual(customSyntax.lexer.matchType('box', 'foo').matched, null);
+            assert.notStrictEqual(customSyntax.lexer.matchType('new', 'foo').matched, null);
+        });
+        it('should not append to generic', () => {
+            assert.strictEqual(customSyntax.lexer.matchType('length', 'foo').matched, null);
+        });
+    });
+
     it('default syntax shouldn\'t to be broken', () => {
         assert.equal(lexer.validate(), null);
     });

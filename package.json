@@ -1,7 +1,7 @@
 {
   "name": "css-tree",
   "version": "1.0.0-alpha.39",
-  "description": "CSSTree is a tool set to work with CSS, including fast detailed parser (string->AST), walker (AST traversal), generator (AST->string) and lexer (validation and matching) based on knowledge of spec and browser implementations",
+  "description": "A tool set for CSS: fast detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
   "license": "MIT",
   "repository": "csstree/csstree",
@@ -21,7 +21,7 @@
   "unpkg": "dist/csstree.min.js",
   "jsdelivr": "dist/csstree.min.js",
   "scripts": {
-    "build": "rollup --config",
+    "build": "node scripts/build",
     "build-and-test": "npm run build && npm run test:dist",
     "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
@@ -36,21 +36,17 @@
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
   },
   "dependencies": {
-    "mdn-data": "2.0.6",
+    "mdn-data": "2.0.14",
     "source-map": "^0.6.1"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-json": "^4.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
     "clap": "^2.0.1",
     "coveralls": "^3.0.9",
+    "esbuild": "^0.11.2",
     "eslint": "^6.8.0",
     "json-to-ast": "^2.1.0",
-    "mocha": "^5.2.0",
-    "nyc": "^14.1.1",
-    "rollup": "^1.32.1",
-    "rollup-plugin-terser": "^5.3.0"
+    "mocha": "^6.2.3",
+    "nyc": "^14.1.1"
   },
   "engines": {
     "node": ">=8.0.0"

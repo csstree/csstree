@@ -5,6 +5,7 @@ const fixture = require('./fixture/definition-syntax');
 const values = lazyValues({
     swapValue: () => parse('swap', { context: 'value' }),
     xxxValue: () => parse('xxx', { context: 'value' }),
+    inherit: () => parse('inherit', { context: 'value' }),
     fontDisplaySyntax: () => 'auto | block | swap | fallback | optional',
     customSyntax: () => fork(prev => ({
         ...prev,
@@ -85,7 +86,14 @@ describe('Lexer#matchAtruleDescriptor()', () => {
         const match = lexer.matchAtruleDescriptor('keyframes', 'font-face', values.swapValue);
 
         assert.equal(match.matched, null);
-        assert.equal(match.error.message, 'At-rule `keyframes` has no known descriptors');
+        assert.equal(match.error.message, 'At-rule `@keyframes` has no known descriptors');
+    });
+
+    it('should not match css wide keywords', function() {
+        var match = lexer.matchAtruleDescriptor('font-face', 'font-display', values.inherit);
+
+        assert.equal(match.matched, null);
+        assert.equal(match.error.rawMessage, 'Mismatch');
     });
 
     fixture.forEachAtruleDescriptorTest((testType, testState, name, lexer, atruleName, descriptorName, value) => {
