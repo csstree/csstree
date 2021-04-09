@@ -1,7 +1,6 @@
 ## next
 
-- Changed `String` node type to store decoded string value (and auto encode a value on serialize)
-- Changed `Url` node type to store decoded url value (and auto encode a value on serialize)
+- Dropped support for Node.js prior 10.12
 - Added `ident`, `string` and `url` helpers to decode/encode corresponding values, e.g. `url.decode('url("image.jpg")')` === `'image.jpg'`
 - Moved `SyntaxError` (custom parser's error class) from root of public API to parser via `parse.SyntaxError`
 - Removed `parseError` field in parser's `SyntaxError`
@@ -18,12 +17,15 @@
     - Exposed parser's inner configuration as `parse.config`
     - Added `consumeUntilBalanceEnd()`, `consumeUntilLeftCurlyBracket()`, `consumeUntilLeftCurlyBracketOrSemicolon()`, `consumeUntilExclamationMarkOrSemicolon()` and `consumeUntilSemicolonIncluded()` methods to parser's inner API to use with `Raw` instead of `Raw.mode`
     - Changed `Nth` to always consume `of` clause when presented, so it became more general and moves validation to lexer
+    - Changed `String` node type to store decoded string value
+    - Changed `Url` node type to store decoded url value as a string instead of `String` or `Raw` node
 - Generator
     - Generator is now determines itself when a white space required between emitting tokens
     - Changed `chunk()` handler to `token()` (output a single token) and `tokenize()` (split a string into tokens and output each of them)
     - Added `mode` option for `generate()` to specify a mode of token separation: `spec` or `safe` (by default)
     - Added `emit(token, type, auto)` handler as implementation specific token processor
     - Changed `Nth` serialiation to serialize `+n` as `n`
+    - Added encoding for a `string` and `url` tokens on serialization
 - Lexer
     - Removed `Lexer#matchDeclaration()` method
 - List

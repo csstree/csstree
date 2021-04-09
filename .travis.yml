@@ -1,7 +1,7 @@
 language: node_js
 script: "npm run travis"
 node_js:
-  - "8"
+  - "10"
   - "node"
 env:
   - REPORTER=min
