@@ -2,8 +2,9 @@
 
 - Changed `String` node type to store decoded string value (and auto encode a value on serialize)
 - Changed `Url` node type to store decoded url value (and auto encode a value on serialize)
-- Removed `SyntaxError` (custom parse error class) from public API
-- Removed `parseError` field in parse `SyntaxError`
+- Added `ident`, `string` and `url` helpers to decode/encode corresponding values, e.g. `url.decode('url("image.jpg")')` === `'image.jpg'`
+- Moved `SyntaxError` (custom parser's error class) from root of public API to parser via `parse.SyntaxError`
+- Removed `parseError` field in parser's `SyntaxError`
 - Tokenizer
     - Changed `tokenize()` to take a function as second argument, which will be called for every token. No stream instance is creating when second argument is ommited.
     - Changed `TokenStream#getRawLength()` to take second parameter as a function (rule) that check a char code to stop a scanning
