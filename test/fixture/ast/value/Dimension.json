@@ -33,10 +33,11 @@
     },
     "IE hack": {
         "source": "1px\\9",
+        "generate": "1px\\9 ",
         "ast": {
             "type": "Dimension",
             "value": "1",
-            "unit": "px\\9"
+            "unit": "px\t"
         }
     }
 }

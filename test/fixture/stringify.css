@@ -48,7 +48,7 @@ svg|*:matches(a)::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a])
     100%  { ;color: blue;; }
 }
 
-edge\ .c\61ases {
+edge\ .c\61 ses {
     --empty-var: ;
     --bad-var:;
     number: 0.1.2.3;

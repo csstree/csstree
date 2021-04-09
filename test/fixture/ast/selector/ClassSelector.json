@@ -17,35 +17,36 @@
         "source": ".\\31 0\\+",
         "ast": {
             "type": "ClassSelector",
-            "name": "\\31 0\\+"
+            "name": "10+"
         }
     },
     "escaped class selector #2": {
         "source": ".\\31 b",
         "ast": {
             "type": "ClassSelector",
-            "name": "\\31 b"
+            "name": "1b"
         }
     },
     "escaped class selector #3": {
         "source": ".\\31 \\ b",
         "ast": {
             "type": "ClassSelector",
-            "name": "\\31 \\ b"
+            "name": "1 b"
         }
     },
     "escaped class selector #4": {
         "source": ".\\30 \\30\r\\30\r\n\\30\n\\30\f",
+        "generate": ".\\30 0000",
         "ast": {
             "type": "ClassSelector",
-            "name": "\\30 \\30\r\\30\r\n\\30\n\\30\f"
+            "name": "00000"
         }
     },
     "escaped class selector #5": {
         "source": ".test\\(1\\)",
         "ast": {
             "type": "ClassSelector",
-            "name": "test\\(1\\)"
+            "name": "test(1)"
         }
     }
 }

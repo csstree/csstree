@@ -152,6 +152,7 @@
     },
     "number with \\0 hack": {
         "source": "(min-width:0\\0)",
+        "generate": "(min-width:0\uFFFD)",
         "ast": {
             "type": "MediaQuery",
             "children": [
@@ -161,7 +162,7 @@
                     "value": {
                         "type": "Dimension",
                         "value": "0",
-                        "unit": "\\0"
+                        "unit": "\uFFFD"
                     }
                 }
             ]

@@ -147,26 +147,28 @@
     "should parse number with following \\0 or \\9 hack as Dimension": [
         {
             "source": "1\\0",
+            "generate": "1\uFFFD",
             "ast": {
                 "type": "Value",
                 "children": [
                     {
                         "type": "Dimension",
                         "value": "1",
-                        "unit": "\\0"
+                        "unit": "\uFFFD"
                     }
                 ]
             }
         },
         {
             "source": "1\\9",
+            "generate": "1\\9 ",
             "ast": {
                 "type": "Value",
                 "children": [
                     {
                         "type": "Dimension",
                         "value": "1",
-                        "unit": "\\9"
+                        "unit": "\t"
                     }
                 ]
             }
