@@ -76,9 +76,18 @@ CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) deta
 
 Install with npm:
 
-
 ```
-> npm install css-tree
+npm install css-tree
+```
+
+For using in a browser unminified (`dist/csstree.js`) and minified (`dist/csstree.min.js`) bundles are available:
+
+```html
+<script src="node_modules/css-tree/dist/csstree.js"></script>
+<script src="node_modules/css-tree/dist/csstree.min.js"></script>
+<!-- or use one of CDN -->
+<script src="https://unpkg.com/browse/css-tree/dist/csstree.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/css-tree/dist/csstree.js"></script>
 ```
 
 Basic usage:
