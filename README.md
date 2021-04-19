@@ -124,7 +124,7 @@ console.log(matchResult.getTrace(ast.children.first()));
 
 ## Top level API
 
-![API map](https://cdn.rawgit.com/csstree/csstree/1e568ab/docs/api-map.svg)
+![API map](https://cdn.rawgit.com/csstree/csstree/aaf327e/docs/api-map.svg)
 
 ## License
 
