@@ -1,6 +1,6 @@
 ## next
 
-- Dropped support for Node.js prior 10.12
+- Dropped support for Node.js prior 14.16
 - Added `ident`, `string` and `url` helpers to decode/encode corresponding values, e.g. `url.decode('url("image.jpg")')` === `'image.jpg'`
 - Moved `SyntaxError` (custom parser's error class) from root of public API to parser via `parse.SyntaxError`
 - Removed `parseError` field in parser's `SyntaxError`
@@ -24,7 +24,7 @@
     - Changed `chunk()` handler to `token()` (output a single token) and `tokenize()` (split a string into tokens and output each of them)
     - Added `mode` option for `generate()` to specify a mode of token separation: `spec` or `safe` (by default)
     - Added `emit(token, type, auto)` handler as implementation specific token processor
-    - Changed `Nth` serialiation to serialize `+n` as `n`
+    - Changed `Nth` to serialize `+n` as `n`
     - Added encoding for a `string` and `url` tokens on serialization
 - Lexer
     - Removed `Lexer#matchDeclaration()` method
