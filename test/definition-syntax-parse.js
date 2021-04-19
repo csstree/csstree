@@ -16,13 +16,13 @@ describe('definitionSyntax.parse()', () => {
                     const hilo = `a${hi}b${lo}c`;
                     it(hilo, () => {
                         const ast = parse(hilo);
-                        assert.equal(print(ast), `((a${hi}b)${lo}c)`);
+                        assert.strictEqual(print(ast), `((a${hi}b)${lo}c)`);
                     });
 
                     const lohi = `a${lo}b${hi}c`;
                     it(lohi, () => {
                         const ast = parse(lohi);
-                        assert.equal(print(ast), `(a${lo}(b${hi}c))`);
+                        assert.strictEqual(print(ast), `(a${lo}(b${hi}c))`);
                     });
                 });
             }
@@ -139,7 +139,7 @@ describe('definitionSyntax.parse()', () => {
             for (const [name, definition] of Object.entries(lexer[section])) {
                 if (definition.serializable) {
                     it(`${section}/${name}`, () => {
-                        assert.equal(definition.syntax.type, 'Group');
+                        assert.strictEqual(definition.syntax.type, 'Group');
                     });
                 }
             }
@@ -148,13 +148,13 @@ describe('definitionSyntax.parse()', () => {
         for (const [name, definition] of Object.entries(lexer.atrules)) {
             describe(`atrules/${name}`, () => {
                 if (definition.prelude !== null) {
-                    it('prelude', () => assert.equal(definition.prelude.syntax.type, 'Group'));
+                    it('prelude', () => assert.strictEqual(definition.prelude.syntax.type, 'Group'));
                 }
 
                 if (definition.descriptors) {
                     describe('definitions', () => {
                         for (const name in definition.descriptors) {
-                            it(name, () => assert.equal(definition.descriptors[name].syntax.type, 'Group'));
+                            it(name, () => assert.strictEqual(definition.descriptors[name].syntax.type, 'Group'));
                         }
                     });
                 }

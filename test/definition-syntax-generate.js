@@ -1,12 +1,12 @@
 const assert = require('assert');
 const { lexer, definitionSyntax: { parse, generate } } = require('./helpers/lib');
-const assertGenerateParseRoundTrip = (syntax) => assert.deepEqual(parse(generate(syntax)), syntax);
+const assertGenerateParseRoundTrip = (syntax) => assert.deepStrictEqual(parse(generate(syntax)), syntax);
 
 function createParseGenerateTest(test) {
     it(test.source + (test.generate ? ' → ' + test.generate : ''), () => {
         const actual = generate(parse(test.source));
 
-        assert.equal(actual, test.generate || test.source);
+        assert.strictEqual(actual, test.generate || test.source);
     });
 }
 
@@ -95,7 +95,7 @@ describe('definitionSyntax.generate()', () => {
         const actual = generate(ast, { forceBraces: true });
         const expected = '[ [ a b ] | [ c || [ d && [ e f ] ] ] ]';
 
-        assert.equal(actual, expected);
+        assert.strictEqual(actual, expected);
     });
 
     describe('using decorate', () => {
@@ -115,7 +115,7 @@ describe('definitionSyntax.generate()', () => {
                 }
             });
 
-            assert.equal(actual, expected);
+            assert.strictEqual(actual, expected);
         });
 
         it('all the node types', () => {
@@ -125,7 +125,7 @@ describe('definitionSyntax.generate()', () => {
                 return '{' + node.type + '}' + str + '{/' + node.type + '}';
             });
 
-            assert.equal(actual, expected);
+            assert.strictEqual(actual, expected);
         });
     });
 });

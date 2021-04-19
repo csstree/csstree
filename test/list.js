@@ -67,7 +67,7 @@ function createIteratorTests(list, method, items, until, retValue) {
         const collector = createIteratorStateCollector(retValue);
 
         iterate(collector.collect);
-        assert.deepEqual(collector.states, items.map(item =>
+        assert.deepStrictEqual(collector.states, items.map(item =>
             getIteratorState(list, item.data, item, list)
         ));
     });
@@ -77,7 +77,7 @@ function createIteratorTests(list, method, items, until, retValue) {
         const collector = createIteratorStateCollector(retValue);
 
         iterate(collector.collect, thisArg);
-        assert.deepEqual(collector.states, items.map(item =>
+        assert.deepStrictEqual(collector.states, items.map(item =>
             getIteratorState(thisArg, item.data, item, list)
         ));
     });
@@ -90,7 +90,7 @@ function createIteratorTests(list, method, items, until, retValue) {
             return retValue;
         });
 
-        assert.deepEqual(collector.states, items.reduce(
+        assert.deepStrictEqual(collector.states, items.reduce(
             expected => expected.concat(items.map(item =>
                 getIteratorState(list, item.data, item, list)
             )),
@@ -130,8 +130,8 @@ function createIteratorWithModificationTests(list, method, items, until, retValu
             return retValue;
         });
 
-        assert.equal(iterateList.head, null);
-        assert.deepEqual(removed, items.map(getData));
+        assert.strictEqual(iterateList.head, null);
+        assert.deepStrictEqual(removed, items.map(getData));
     });
 
     it('insert items on iterate', () => {
@@ -155,7 +155,7 @@ function createIteratorWithModificationTests(list, method, items, until, retValu
             return retValue;
         });
 
-        assert.deepEqual(
+        assert.deepStrictEqual(
             inserted,
             items.reduce(
                 (res, item, idx) => res.concat(item.data, 'ins' + idx),
@@ -163,7 +163,7 @@ function createIteratorWithModificationTests(list, method, items, until, retValu
             )
         );
 
-        assert.deepEqual(
+        assert.deepStrictEqual(
             [...iterateList],
             [...list].reduce(
                 (res, data) => {
@@ -190,7 +190,7 @@ describe('List', () => {
     });
 
     it('.createItem()', () => {
-        assert.deepEqual(List.createItem(foo), {
+        assert.deepStrictEqual(List.createItem(foo), {
             prev: null,
             next: null,
             data: foo
@@ -198,7 +198,7 @@ describe('List', () => {
     });
 
     it('#createItem()', () => {
-        assert.deepEqual(empty.createItem(foo), {
+        assert.deepStrictEqual(empty.createItem(foo), {
             prev: null,
             next: null,
             data: foo
@@ -206,46 +206,46 @@ describe('List', () => {
     });
 
     it('#size', () => {
-        assert.equal(empty.size, 0);
-        assert.equal(list1.size, 1);
-        assert.equal(list2.size, 2);
+        assert.strictEqual(empty.size, 0);
+        assert.strictEqual(list1.size, 1);
+        assert.strictEqual(list2.size, 2);
     });
 
     it('#fromArray()', () => {
         const list = new List().fromArray([foo, bar]);
 
-        assert.equal(list.head.data, foo);
-        assert.equal(list.tail.data, bar);
+        assert.strictEqual(list.head.data, foo);
+        assert.strictEqual(list.tail.data, bar);
     });
 
     it('#toArray()', () => {
-        assert.deepEqual(empty.toArray(), []);
-        assert.deepEqual(list1.toArray(), [foo]);
-        assert.deepEqual(list2.toArray(), [foo, bar]);
+        assert.deepStrictEqual(empty.toArray(), []);
+        assert.deepStrictEqual(list1.toArray(), [foo]);
+        assert.deepStrictEqual(list2.toArray(), [foo, bar]);
     });
 
     it('#toJSON()', () => {
-        assert.deepEqual(empty.toJSON(), []);
-        assert.deepEqual(list1.toJSON(), [foo]);
-        assert.deepEqual(list2.toJSON(), [foo, bar]);
+        assert.deepStrictEqual(empty.toJSON(), []);
+        assert.deepStrictEqual(list1.toJSON(), [foo]);
+        assert.deepStrictEqual(list2.toJSON(), [foo, bar]);
     });
 
     it('#isEmpty', () => {
-        assert.equal(empty.isEmpty, true);
-        assert.equal(list1.isEmpty, false);
-        assert.equal(list2.isEmpty, false);
+        assert.strictEqual(empty.isEmpty, true);
+        assert.strictEqual(list1.isEmpty, false);
+        assert.strictEqual(list2.isEmpty, false);
     });
 
     it('#first', () => {
-        assert.equal(empty.first, null);
-        assert.equal(list1.first, foo);
-        assert.equal(list2.first, foo);
+        assert.strictEqual(empty.first, null);
+        assert.strictEqual(list1.first, foo);
+        assert.strictEqual(list2.first, foo);
     });
 
     it('#last', () => {
-        assert.equal(empty.last, null);
-        assert.equal(list1.last, foo);
-        assert.equal(list2.last, bar);
+        assert.strictEqual(empty.last, null);
+        assert.strictEqual(list1.last, foo);
+        assert.strictEqual(list2.last, bar);
     });
 
     describe('#forEach()', () => {
@@ -264,14 +264,14 @@ describe('List', () => {
         const expected = 'foobar';
         const actual = new List().fromArray(['foo', 'bar']).reduce((res, data) => res + data, '');
 
-        assert.equal(actual, expected);
+        assert.strictEqual(actual, expected);
     });
 
     it('#reduceRight()', function() {
         const expected = 'barfoo';
         const actual = new List().fromArray(['foo', 'bar']).reduceRight((res, data) => res + data, '');
 
-        assert.equal(actual, expected);
+        assert.strictEqual(actual, expected);
     });
 
     describe('#nextUntil()', () => {
@@ -282,7 +282,7 @@ describe('List', () => {
                 count++;
             });
 
-            assert.equal(count, 0);
+            assert.strictEqual(count, 0);
         });
 
         it('should stop iterate when callback returns true', () => {
@@ -293,7 +293,7 @@ describe('List', () => {
                 return true;
             });
 
-            assert.equal(count, 1);
+            assert.strictEqual(count, 1);
         });
 
         const iterateList = new List().fromArray([foo, bar]);
@@ -309,7 +309,7 @@ describe('List', () => {
                 count++;
             });
 
-            assert.equal(count, 0);
+            assert.strictEqual(count, 0);
         });
 
         it('should stop iterate when callback returns true', () => {
@@ -320,7 +320,7 @@ describe('List', () => {
                 return true;
             });
 
-            assert.equal(count, 1);
+            assert.strictEqual(count, 1);
         });
 
         const iterateList = new List().fromArray([foo, bar]);
@@ -330,20 +330,20 @@ describe('List', () => {
 
     describe('#some()', () => {
         it('basic', () => {
-            assert.equal(list2.some(Boolean), true);
-            assert.equal(list2.some(() => {}), false);
-            assert.equal(list2.some(function(data) {
+            assert.strictEqual(list2.some(Boolean), true);
+            assert.strictEqual(list2.some(() => {}), false);
+            assert.strictEqual(list2.some(function(data) {
                 return data === bar;
             }), true);
         });
 
         it('should stop on first match', () => {
             let count = 0;
-            assert.equal(list2.some(function(data) {
+            assert.strictEqual(list2.some(function(data) {
                 count++;
                 return data === foo;
             }), true);
-            assert.equal(count, 1);
+            assert.strictEqual(count, 1);
         });
 
         const iterateList = new List().fromArray([foo, bar]);
@@ -352,16 +352,16 @@ describe('List', () => {
 
     describe('#map()', () => {
         it('basic', () => {
-            assert.deepEqual(empty.map(getFirstArg).toArray(), []);
-            assert.deepEqual(list1.map(getFirstArg).toArray(), [foo]);
+            assert.deepStrictEqual(empty.map(getFirstArg).toArray(), []);
+            assert.deepStrictEqual(list1.map(getFirstArg).toArray(), [foo]);
 
             const foo2 = {};
             const bar2 = {};
             const mapped = list2.map(function(node) {
                 return node === foo ? foo2 : bar2;
             });
-            assert.deepEqual(mapped.toArray(), [foo2, bar2]);
-            assert.deepEqual(list2.toArray(), [foo, bar]);
+            assert.deepStrictEqual(mapped.toArray(), [foo2, bar2]);
+            assert.deepStrictEqual(list2.toArray(), [foo, bar]);
         });
 
         const iterateList = new List().fromArray([foo, bar]);
@@ -370,14 +370,14 @@ describe('List', () => {
 
     describe('#filter()', () => {
         it('basic', () => {
-            assert.deepEqual(empty.filter(getFirstArg).toArray(), []);
-            assert.deepEqual(list2.filter(Boolean).toArray(), [foo, bar]);
+            assert.deepStrictEqual(empty.filter(getFirstArg).toArray(), []);
+            assert.deepStrictEqual(list2.filter(Boolean).toArray(), [foo, bar]);
 
             const filtered = list2.filter(function(node) {
                 return node === bar;
             });
-            assert.deepEqual(filtered.toArray(), [bar]);
-            assert.deepEqual(list2.toArray(), [foo, bar]);
+            assert.deepStrictEqual(filtered.toArray(), [bar]);
+            assert.deepStrictEqual(list2.toArray(), [foo, bar]);
         });
 
         const iterateList = new List().fromArray([foo, bar]);
@@ -386,63 +386,63 @@ describe('List', () => {
 
     describe('#clear()', () => {
         it('empty list', () => {
-            assert.equal(empty.head, null);
-            assert.equal(empty.tail, null);
+            assert.strictEqual(empty.head, null);
+            assert.strictEqual(empty.tail, null);
             empty.clear();
-            assert.equal(empty.head, null);
-            assert.equal(empty.tail, null);
+            assert.strictEqual(empty.head, null);
+            assert.strictEqual(empty.tail, null);
         });
 
         it('non-empty list', () => {
-            assert.notEqual(list2.head, null);
-            assert.notEqual(list2.tail, null);
+            assert.notStrictEqual(list2.head, null);
+            assert.notStrictEqual(list2.tail, null);
             list2.clear();
-            assert.equal(list2.head, null);
-            assert.equal(list2.tail, null);
+            assert.strictEqual(list2.head, null);
+            assert.strictEqual(list2.tail, null);
         });
     });
 
     it('#copy()', () => {
         const copy = list2.copy();
 
-        assert.notEqual(copy, list2);
-        assert.notEqual(copy.head, list2.head);
-        assert.equal(copy.head.data, list2.head.data);
-        assert.notEqual(copy.tail, list2.tail);
-        assert.equal(copy.tail.data, list2.tail.data);
+        assert.notStrictEqual(copy, list2);
+        assert.notStrictEqual(copy.head, list2.head);
+        assert.strictEqual(copy.head.data, list2.head.data);
+        assert.notStrictEqual(copy.tail, list2.tail);
+        assert.strictEqual(copy.tail.data, list2.tail.data);
     });
 
     it('#prepend()', () => {
         const qux = {};
 
-        assert.deepEqual(toArray(empty.prepend(List.createItem(qux))), [qux]);
-        assert.deepEqual(toArray(list1.prepend(List.createItem(qux))), [qux, foo]);
-        assert.deepEqual(toArray(list2.prepend(List.createItem(qux))), [qux, foo, bar]);
-        assert.equal(list2.prepend(List.createItem({})), list2);
+        assert.deepStrictEqual(toArray(empty.prepend(List.createItem(qux))), [qux]);
+        assert.deepStrictEqual(toArray(list1.prepend(List.createItem(qux))), [qux, foo]);
+        assert.deepStrictEqual(toArray(list2.prepend(List.createItem(qux))), [qux, foo, bar]);
+        assert.strictEqual(list2.prepend(List.createItem({})), list2);
     });
 
     it('#prependData()', () => {
         const qux = {};
 
-        assert.deepEqual(toArray(empty.prependData(qux)), [qux]);
-        assert.deepEqual(toArray(list1.prependData(qux)), [qux, foo]);
-        assert.deepEqual(toArray(list2.prependData(qux)), [qux, foo, bar]);
-        assert.equal(list2.prependData(qux), list2);
+        assert.deepStrictEqual(toArray(empty.prependData(qux)), [qux]);
+        assert.deepStrictEqual(toArray(list1.prependData(qux)), [qux, foo]);
+        assert.deepStrictEqual(toArray(list2.prependData(qux)), [qux, foo, bar]);
+        assert.strictEqual(list2.prependData(qux), list2);
     });
 
     it('#unshift()', () => {
         const qux = {};
 
         empty.unshift(qux);
-        assert.deepEqual(empty.toArray(), [qux]);
+        assert.deepStrictEqual(empty.toArray(), [qux]);
 
         list1.unshift(qux);
-        assert.deepEqual(list1.toArray(), [qux, foo]);
+        assert.deepStrictEqual(list1.toArray(), [qux, foo]);
 
         list2.unshift(qux);
-        assert.deepEqual(list2.toArray(), [qux, foo, bar]);
+        assert.deepStrictEqual(list2.toArray(), [qux, foo, bar]);
 
-        assert.equal(list2.unshift(qux), undefined);
+        assert.strictEqual(list2.unshift(qux), undefined);
     });
 
     describe('#shift()', () => {
@@ -450,47 +450,47 @@ describe('List', () => {
             const head = list2.head;
             const tail = list2.tail;
 
-            assert.equal(list2.shift(), head);
-            assert.equal(list2.shift(), tail);
-            assert.equal(list2.head, null);
+            assert.strictEqual(list2.shift(), head);
+            assert.strictEqual(list2.shift(), tail);
+            assert.strictEqual(list2.head, null);
         });
 
         it('should return an undefined for an empty list', () => {
-            assert.equal(empty.shift(), undefined);
+            assert.strictEqual(empty.shift(), null);
         });
     });
 
     it('#append()', () => {
         const qux = {};
 
-        assert.deepEqual(toArray(empty.append(List.createItem(qux))), [qux]);
-        assert.deepEqual(toArray(list1.append(List.createItem(qux))), [foo, qux]);
-        assert.deepEqual(toArray(list2.append(List.createItem(qux))), [foo, bar, qux]);
-        assert.equal(list2.append(List.createItem({})), list2);
+        assert.deepStrictEqual(toArray(empty.append(List.createItem(qux))), [qux]);
+        assert.deepStrictEqual(toArray(list1.append(List.createItem(qux))), [foo, qux]);
+        assert.deepStrictEqual(toArray(list2.append(List.createItem(qux))), [foo, bar, qux]);
+        assert.strictEqual(list2.append(List.createItem({})), list2);
     });
 
     it('#appendData()', () => {
         const qux = {};
 
-        assert.deepEqual(toArray(empty.appendData(qux)), [qux]);
-        assert.deepEqual(toArray(list1.appendData(qux)), [foo, qux]);
-        assert.deepEqual(toArray(list2.appendData(qux)), [foo, bar, qux]);
-        assert.equal(list2.appendData(qux), list2);
+        assert.deepStrictEqual(toArray(empty.appendData(qux)), [qux]);
+        assert.deepStrictEqual(toArray(list1.appendData(qux)), [foo, qux]);
+        assert.deepStrictEqual(toArray(list2.appendData(qux)), [foo, bar, qux]);
+        assert.strictEqual(list2.appendData(qux), list2);
     });
 
     it('#push()', () => {
         const qux = {};
 
         empty.push(qux);
-        assert.deepEqual(empty.toArray(), [qux]);
+        assert.deepStrictEqual(empty.toArray(), [qux]);
 
         list1.push(qux);
-        assert.deepEqual(list1.toArray(), [foo, qux]);
+        assert.deepStrictEqual(list1.toArray(), [foo, qux]);
 
         list2.push(qux);
-        assert.deepEqual(list2.toArray(), [foo, bar, qux]);
+        assert.deepStrictEqual(list2.toArray(), [foo, bar, qux]);
 
-        assert.equal(list2.push(qux), undefined);
+        assert.strictEqual(list2.push(qux), undefined);
     });
 
     describe('#pop()', () => {
@@ -498,13 +498,13 @@ describe('List', () => {
             const head = list2.head;
             const tail = list2.tail;
 
-            assert.equal(list2.pop(), tail);
-            assert.equal(list2.pop(), head);
-            assert.equal(list2.head, null);
+            assert.strictEqual(list2.pop(), tail);
+            assert.strictEqual(list2.pop(), head);
+            assert.strictEqual(list2.head, null);
         });
 
         it('should return an undefined for an empty list', () => {
-            assert.equal(empty.pop(), undefined);
+            assert.strictEqual(empty.pop(), null);
         });
     });
 
@@ -513,16 +513,16 @@ describe('List', () => {
             const afterTail = {};
             const res = list2.insert(List.createItem(afterTail));
 
-            assert.equal(res, list2);
-            assert.equal(list2.tail.data, afterTail);
+            assert.strictEqual(res, list2);
+            assert.strictEqual(list2.tail.data, afterTail);
         });
 
         it('should insert before ref item', () => {
             const beforeHead = {};
             const res = list2.insert(List.createItem(beforeHead), list2.head);
 
-            assert.equal(res, list2);
-            assert.equal(list2.head.data, beforeHead);
+            assert.strictEqual(res, list2);
+            assert.strictEqual(list2.head.data, beforeHead);
         });
 
         it('insert in the middle', () => {
@@ -532,18 +532,18 @@ describe('List', () => {
             const list2tail = list2.tail;
             const res = list2.insert(inserted, list2.tail);
 
-            assert.equal(res, list2);
-            assert.deepEqual(list2head, {
+            assert.strictEqual(res, list2);
+            assert.deepStrictEqual(list2head, {
                 prev: null,
                 next: inserted,
                 data: foo
             });
-            assert.deepEqual(inserted, {
+            assert.deepStrictEqual(inserted, {
                 prev: list2head,
                 next: list2tail,
                 data: qux
             });
-            assert.deepEqual(list2tail, {
+            assert.deepStrictEqual(list2tail, {
                 prev: inserted,
                 next: null,
                 data: bar
@@ -564,16 +564,16 @@ describe('List', () => {
             const afterTail = {};
             const res = list2.insertData(afterTail);
 
-            assert.equal(res, list2);
-            assert.equal(list2.tail.data, afterTail);
+            assert.strictEqual(res, list2);
+            assert.strictEqual(list2.tail.data, afterTail);
         });
 
         it('should insert before ref item', () => {
             const beforeHead = {};
             const res = list2.insertData(beforeHead, list2.head);
 
-            assert.equal(res, list2);
-            assert.equal(list2.head.data, beforeHead);
+            assert.strictEqual(res, list2);
+            assert.strictEqual(list2.head.data, beforeHead);
         });
 
         it('insert in the middle', () => {
@@ -582,18 +582,18 @@ describe('List', () => {
             const list2tail = list2.tail;
             const res = list2.insertData(qux, list2.tail);
 
-            assert.equal(res, list2);
-            assert.deepEqual(list2head, {
+            assert.strictEqual(res, list2);
+            assert.deepStrictEqual(list2head, {
                 prev: null,
                 next: list2tail.prev,
                 data: foo
             });
-            assert.deepEqual(list2tail.prev, {
+            assert.deepStrictEqual(list2tail.prev, {
                 prev: list2head,
                 next: list2tail,
                 data: qux
             });
-            assert.deepEqual(list2tail, {
+            assert.deepStrictEqual(list2tail, {
                 prev: list2tail.prev,
                 next: null,
                 data: bar
@@ -615,14 +615,14 @@ describe('List', () => {
             list2.remove(list2.tail);
             list2.remove(list2.head);
 
-            assert.equal(list2.head, null);
-            assert.equal(list2.tail, null);
-            assert.deepEqual(head, {
+            assert.strictEqual(list2.head, null);
+            assert.strictEqual(list2.tail, null);
+            assert.deepStrictEqual(head, {
                 prev: null,
                 next: null,
                 data: foo
             });
-            assert.deepEqual(tail, {
+            assert.deepStrictEqual(tail, {
                 prev: null,
                 next: null,
                 data: bar
@@ -636,14 +636,14 @@ describe('List', () => {
             list2.remove(list2.head);
             list2.remove(list2.tail);
 
-            assert.equal(list2.head, null);
-            assert.equal(list2.tail, null);
-            assert.deepEqual(head, {
+            assert.strictEqual(list2.head, null);
+            assert.strictEqual(list2.tail, null);
+            assert.deepStrictEqual(head, {
                 prev: null,
                 next: null,
                 data: foo
             });
-            assert.deepEqual(tail, {
+            assert.deepStrictEqual(tail, {
                 prev: null,
                 next: null,
                 data: bar
@@ -669,15 +669,15 @@ describe('List', () => {
             const list2head = list2.head;
             const res = list2.prependList(list1);
 
-            assert.equal(res, list2);
-            assert.equal(list1.head, null);
-            assert.equal(list2.head, list1head);
-            assert.deepEqual(list1head, {
+            assert.strictEqual(res, list2);
+            assert.strictEqual(list1.head, null);
+            assert.strictEqual(list2.head, list1head);
+            assert.deepStrictEqual(list1head, {
                 prev: null,
                 next: list2head,
                 data: foo
             });
-            assert.deepEqual(list2head, {
+            assert.deepStrictEqual(list2head, {
                 prev: list1head,
                 next: list2.tail,
                 data: bar
@@ -689,20 +689,20 @@ describe('List', () => {
             const list2tail = list2.tail;
             const res = empty.prependList(list2);
 
-            assert.equal(res, empty);
-            assert.equal(empty.head, list2head);
-            assert.equal(empty.tail, list2tail);
-            assert.equal(list2.head, null);
-            assert.equal(list2.tail, null);
+            assert.strictEqual(res, empty);
+            assert.strictEqual(empty.head, list2head);
+            assert.strictEqual(empty.tail, list2tail);
+            assert.strictEqual(list2.head, null);
+            assert.strictEqual(list2.tail, null);
         });
 
         it('prepend empty list to non-empty', () => {
             const list2head = list2.head;
             const res = list2.prependList(empty);
 
-            assert.equal(res, list2);
-            assert.equal(empty.head, null);
-            assert.equal(list2.head, list2head);
+            assert.strictEqual(res, list2);
+            assert.strictEqual(empty.head, null);
+            assert.strictEqual(list2.head, list2head);
         });
     });
 
@@ -712,15 +712,15 @@ describe('List', () => {
             const list2tail = list2.tail;
             const res = list2.appendList(list1);
 
-            assert.equal(res, list2);
-            assert.equal(list1.head, null);
-            assert.equal(list2.tail, list1head);
-            assert.deepEqual(list1head, {
+            assert.strictEqual(res, list2);
+            assert.strictEqual(list1.head, null);
+            assert.strictEqual(list2.tail, list1head);
+            assert.deepStrictEqual(list1head, {
                 prev: list2tail,
                 next: null,
                 data: foo
             });
-            assert.deepEqual(list2tail, {
+            assert.deepStrictEqual(list2tail, {
                 prev: list2.head,
                 next: list1head,
                 data: bar
@@ -732,20 +732,20 @@ describe('List', () => {
             const list2tail = list2.tail;
             const res = empty.appendList(list2);
 
-            assert.equal(res, empty);
-            assert.equal(empty.head, list2head);
-            assert.equal(empty.tail, list2tail);
-            assert.equal(list2.head, null);
-            assert.equal(list2.tail, null);
+            assert.strictEqual(res, empty);
+            assert.strictEqual(empty.head, list2head);
+            assert.strictEqual(empty.tail, list2tail);
+            assert.strictEqual(list2.head, null);
+            assert.strictEqual(list2.tail, null);
         });
 
         it('append empty list to non-empty', () => {
             const list2tail = list2.tail;
             const res = list2.appendList(empty);
 
-            assert.equal(res, list2);
-            assert.equal(empty.head, null);
-            assert.equal(list2.tail, list2tail);
+            assert.strictEqual(res, list2);
+            assert.strictEqual(empty.head, null);
+            assert.strictEqual(list2.tail, list2tail);
         });
     });
 
@@ -754,20 +754,20 @@ describe('List', () => {
             const list1head = list1.head;
             const res = list2.insertList(list1, list2.tail);
 
-            assert.equal(res, list2);
-            assert.equal(list1.head, null);
-            assert.equal(list1.tail, null);
-            assert.deepEqual(list1head, {
+            assert.strictEqual(res, list2);
+            assert.strictEqual(list1.head, null);
+            assert.strictEqual(list1.tail, null);
+            assert.deepStrictEqual(list1head, {
                 prev: list2.head,
                 next: list2.tail,
                 data: foo
             });
-            assert.deepEqual(list2.head, {
+            assert.deepStrictEqual(list2.head, {
                 prev: null,
                 next: list1head,
                 data: bar
             });
-            assert.deepEqual(list2.tail, {
+            assert.deepStrictEqual(list2.tail, {
                 prev: list1head,
                 next: null,
                 data: bar
@@ -779,20 +779,20 @@ describe('List', () => {
             const list2tail = list2.tail;
             const res = empty.insertList(list2);
 
-            assert.equal(res, empty);
-            assert.equal(empty.head, list2head);
-            assert.equal(empty.tail, list2tail);
-            assert.equal(list2.head, null);
-            assert.equal(list2.tail, null);
+            assert.strictEqual(res, empty);
+            assert.strictEqual(empty.head, list2head);
+            assert.strictEqual(empty.tail, list2tail);
+            assert.strictEqual(list2.head, null);
+            assert.strictEqual(list2.tail, null);
         });
 
         it('add empty list to non-empty', () => {
             const list2tail = list2.tail;
             const res = list2.insertList(empty);
 
-            assert.equal(res, list2);
-            assert.equal(empty.head, null);
-            assert.equal(list2.tail, list2tail);
+            assert.strictEqual(res, list2);
+            assert.strictEqual(empty.head, null);
+            assert.strictEqual(list2.tail, list2tail);
         });
     });
 
@@ -801,13 +801,13 @@ describe('List', () => {
             const qux = {};
             list2.replace(list2.tail, List.createItem(qux));
 
-            assert.deepEqual(toArray(list2), [foo, qux]);
+            assert.deepStrictEqual(toArray(list2), [foo, qux]);
         });
 
         it('replace for a list', () => {
             list2.replace(list2.tail, list1);
 
-            assert.deepEqual(toArray(list2), [foo, foo]);
+            assert.deepStrictEqual(toArray(list2), [foo, foo]);
         });
     });
 });

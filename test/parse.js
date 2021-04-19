@@ -19,8 +19,8 @@ function createParseErrorTest(name, test, options) {
             'Should be a CSS parse error'
         );
 
-        assert.equal(error.message, test.error);
-        assert.deepEqual({
+        assert.strictEqual(error.message, test.error);
+        assert.deepStrictEqual({
             offset: error.offset,
             line: error.line,
             column: error.column
@@ -35,7 +35,7 @@ describe('parse', () => {
                 const ast = parse(test.source, test.options);
 
                 // AST should be equal
-                assert.equal(stringifyWithNoLoc(ast), stringifyWithNoLoc(test.ast));
+                assert.strictEqual(stringifyWithNoLoc(ast), stringifyWithNoLoc(test.ast));
             });
         });
 
@@ -54,7 +54,7 @@ describe('parse', () => {
                     };
 
                     // AST should be equal
-                    assert.equal(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
+                    assert.strictEqual(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
                 });
             });
 
@@ -79,7 +79,7 @@ describe('parse', () => {
                     };
 
                     // AST should be equal
-                    assert.equal(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
+                    assert.strictEqual(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
                 });
             });
 
@@ -96,7 +96,7 @@ describe('parse', () => {
                         };
 
                         // AST should not be equal
-                        assert.equal(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
+                        assert.strictEqual(stringifyWithNoLoc(actual), stringifyWithNoLoc(expected));
                     });
                 });
             });
@@ -105,7 +105,7 @@ describe('parse', () => {
 
     describe('context', () => {
         it('should take parse context', () => {
-            assert.deepEqual(parse('property: value'), {
+            assert.deepStrictEqual(parse('property: value'), {
                 type: 'StyleSheet',
                 loc: null,
                 children: new List().appendData({
@@ -115,7 +115,7 @@ describe('parse', () => {
                 })
             });
 
-            assert.deepEqual(parse('property: value', {
+            assert.deepStrictEqual(parse('property: value', {
                 context: 'declaration'
             }), {
                 type: 'Declaration',
@@ -148,12 +148,12 @@ describe('parse', () => {
             onParseError: (error, fallbackNode) => errors.push({ error, fallbackNode })
         });
 
-        assert.equal(ast.children.size, 3);
-        assert.equal(errors.length, 2);
-        assert.equal(errors[0].error.message, 'Identifier is expected');
-        assert.equal(errors[0].fallbackNode.value, 'a: 1!;');
-        assert.equal(errors[1].error.message, 'Colon is expected');
-        assert.equal(errors[1].fallbackNode.value, 'foo;');
+        assert.strictEqual(ast.children.size, 3);
+        assert.strictEqual(errors.length, 2);
+        assert.strictEqual(errors[0].error.message, 'Identifier is expected');
+        assert.strictEqual(errors[0].fallbackNode.value, 'a: 1!;');
+        assert.strictEqual(errors[1].error.message, 'Colon is expected');
+        assert.strictEqual(errors[1].fallbackNode.value, 'foo;');
     });
 
     describe('errors', () => {
@@ -178,18 +178,18 @@ describe('parse', () => {
             assert.throws(
                 () => parse('/**/\n.\nfoo', throwOnParseErrorOptions),
                 (e) => {
-                    assert.equal(e.formattedMessage,
+                    assert.strictEqual(e.formattedMessage,
                         'Parse error: Identifier is expected\n' +
                         '    1 |/**/\n' +
                         '    2 |.\n' +
                         '--------^\n' +
                         '    3 |foo'
                     );
-                    assert.equal(e.sourceFragment(),
+                    assert.strictEqual(e.sourceFragment(),
                         '    2 |.\n' +
                         '--------^'
                     );
-                    assert.equal(e.sourceFragment(3),
+                    assert.strictEqual(e.sourceFragment(3),
                         '    1 |/**/\n' +
                         '    2 |.\n' +
                         '--------^\n' +
@@ -205,7 +205,7 @@ describe('parse', () => {
             assert.throws(
                 () => parse('.', throwOnParseErrorOptions),
                 (e) => {
-                    assert.equal(e.formattedMessage,
+                    assert.strictEqual(e.formattedMessage,
                         'Parse error: Identifier is expected\n' +
                         '    1 |.\n' +
                         '--------^'
@@ -220,18 +220,18 @@ describe('parse', () => {
             assert.throws(
                 () => parse('/**/\r\n.\r\nfoo', throwOnParseErrorOptions),
                 (e) => {
-                    assert.equal(e.formattedMessage,
+                    assert.strictEqual(e.formattedMessage,
                         'Parse error: Identifier is expected\n' +
                         '    1 |/**/\n' +
                         '    2 |.\n' +
                         '--------^\n' +
                         '    3 |foo'
                     );
-                    assert.equal(e.sourceFragment(),
+                    assert.strictEqual(e.sourceFragment(),
                         '    2 |.\n' +
                         '--------^'
                     );
-                    assert.equal(e.sourceFragment(3),
+                    assert.strictEqual(e.sourceFragment(3),
                         '    1 |/**/\n' +
                         '    2 |.\n' +
                         '--------^\n' +
@@ -247,7 +247,7 @@ describe('parse', () => {
             assert.throws(() => {
                 parse('a {\n\tb:\tc#\t\n}', throwOnParseErrorOptions);
             }, function(e) {
-                assert.equal(e.formattedMessage,
+                assert.strictEqual(e.formattedMessage,
                     'Parse error: Hex or identifier is expected\n' +
                     '    1 |a {\n' +
                     '    2 |    b:    c#    \n' +
@@ -269,7 +269,7 @@ describe('parse', () => {
                     throwOnParseErrorOptions
                 ),
                 (e) => {
-                    assert.equal(e.formattedMessage,
+                    assert.strictEqual(e.formattedMessage,
                         'Parse error: Identifier is expected\n' +
                         '    1 |…12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678…\n' +
                         '    2 |…                                                       .\n' +
@@ -295,7 +295,7 @@ describe('parse', () => {
                 }
             });
 
-            assert.deepEqual(actual, [
+            assert.deepStrictEqual(actual, [
                 { value: '123', loc: null },
                 { value: ' 234 ', loc: null },
                 { value: ' 345', loc: null },
@@ -329,7 +329,7 @@ describe('parse', () => {
                 }
             });
 
-            assert.deepEqual(actual, [
+            assert.deepStrictEqual(actual, [
                 { value: '123', loc: loc(0, 7) },
                 { value: ' 234 ', loc: loc(14, 23) },
                 { value: ' 345', loc: loc(41, 49) },
@@ -356,7 +356,7 @@ describe('parse', () => {
                 }
             });
 
-            assert.deepEqual(positions, [
+            assert.deepStrictEqual(positions, [
                 [0, 1, 1, 'StyleSheet'],
                 [0, 1, 1, 'Rule'],
                 [0, 1, 1, 'SelectorList'],
@@ -403,7 +403,7 @@ describe('parse', () => {
                 }
             });
 
-            assert.deepEqual(positions, [
+            assert.deepStrictEqual(positions, [
                 [100, 3, 5, 'StyleSheet'],
                 [100, 3, 5, 'Rule'],
                 [100, 3, 5, 'SelectorList'],

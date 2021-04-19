@@ -25,7 +25,7 @@ describe('Search', () => {
                 node.type === 'ClassSelector' && node.name === 'foo'
             );
 
-            assert.equal(actual, values.firstFoo);
+            assert.strictEqual(actual, values.firstFoo);
         });
 
         it('using refs', () => {
@@ -33,7 +33,7 @@ describe('Search', () => {
                 node.type === 'ClassSelector' && node.name === 'foo' && list.head !== item
             );
 
-            assert.equal(actual, values.lastFoo);
+            assert.strictEqual(actual, values.lastFoo);
         });
 
         it('using context', () => {
@@ -45,7 +45,7 @@ describe('Search', () => {
                 );
             });
 
-            assert.equal(actual, values.lastFoo);
+            assert.strictEqual(actual, values.lastFoo);
         });
     });
 
@@ -55,7 +55,7 @@ describe('Search', () => {
                 node.type === 'ClassSelector' && node.name === 'foo'
             );
 
-            assert.equal(actual, values.lastFoo);
+            assert.strictEqual(actual, values.lastFoo);
         });
 
         it('using refs', () => {
@@ -63,7 +63,7 @@ describe('Search', () => {
                 node.type === 'ClassSelector' && node.name === 'foo' && list.head === item
             );
 
-            assert.equal(actual, values.firstFoo);
+            assert.strictEqual(actual, values.firstFoo);
         });
 
         it('using context', () => {
@@ -75,7 +75,7 @@ describe('Search', () => {
                 );
             });
 
-            assert.equal(actual, values.firstFoo);
+            assert.strictEqual(actual, values.firstFoo);
         });
     });
 
@@ -84,8 +84,8 @@ describe('Search', () => {
             node.type === 'ClassSelector' && node.name === 'foo'
         );
 
-        assert.equal(actual.length, 2);
-        assert.equal(actual[0], values.firstFoo);
-        assert.equal(actual[1], values.lastFoo);
+        assert.strictEqual(actual.length, 2);
+        assert.strictEqual(actual[0], values.firstFoo);
+        assert.strictEqual(actual[1], values.lastFoo);
     });
 });

@@ -39,7 +39,7 @@ describe('extension', () => {
                 context: 'value'
             });
 
-            assert.deepEqual(toPlainObject(ast), {
+            assert.deepStrictEqual(toPlainObject(ast), {
                 type: 'Value',
                 loc: null,
                 children: [
@@ -93,7 +93,7 @@ describe('extension', () => {
                 context: 'selector'
             });
 
-            assert.deepEqual(toPlainObject(ast), {
+            assert.deepStrictEqual(toPlainObject(ast), {
                 type: 'Selector',
                 loc: null,
                 children: [

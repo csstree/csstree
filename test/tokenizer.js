@@ -58,17 +58,17 @@ describe('tokenize/stream', () => {
     it('edge case: no arguments', () => {
         const stream = createStream();
 
-        assert.equal(stream.eof, true);
-        assert.equal(stream.tokenType, 0);
-        assert.equal(stream.source, '');
+        assert.strictEqual(stream.eof, true);
+        assert.strictEqual(stream.tokenType, 0);
+        assert.strictEqual(stream.source, '');
     });
 
     it('edge case: empty input', () => {
         const stream = createStream('');
 
-        assert.equal(stream.eof, true);
-        assert.equal(stream.tokenType, 0);
-        assert.equal(stream.source, '');
+        assert.strictEqual(stream.eof, true);
+        assert.strictEqual(stream.tokenType, 0);
+        assert.strictEqual(stream.source, '');
     });
 
     it('should convert input to string', () => {
@@ -78,19 +78,19 @@ describe('tokenize/stream', () => {
             }
         });
 
-        assert.equal(stream.source, css);
+        assert.strictEqual(stream.source, css);
     });
 
     it('should accept a Buffer', () => {
         const stream = createStream(Buffer.from(css));
 
-        assert.equal(stream.source, css);
+        assert.strictEqual(stream.source, css);
     });
 
     it('dump()', () => {
         const stream = createStream(css);
 
-        assert.deepEqual(stream.dump(), dump);
+        assert.deepStrictEqual(stream.dump(), dump);
     });
 
     it('next() types', () => {
@@ -102,7 +102,7 @@ describe('tokenize/stream', () => {
             stream.next();
         }
 
-        assert.deepEqual(actual, types);
+        assert.deepStrictEqual(actual, types);
     });
 
     it('next() start', () => {
@@ -114,7 +114,7 @@ describe('tokenize/stream', () => {
             stream.next();
         }
 
-        assert.deepEqual(actual, start);
+        assert.deepStrictEqual(actual, start);
     });
 
     it('next() end', () => {
@@ -126,7 +126,7 @@ describe('tokenize/stream', () => {
             stream.next();
         }
 
-        assert.deepEqual(actual, end);
+        assert.deepStrictEqual(actual, end);
     });
 
     it('skip()', () => {
@@ -143,8 +143,8 @@ describe('tokenize/stream', () => {
                 return tokenize.NAME[stream.tokenType];
             });
 
-        assert.equal(actual.length, 8); // 4 x Indentifier + 4 x Delim
-        assert.deepEqual(actual, targetTokens.map(token => token.type));
+        assert.strictEqual(actual.length, 8); // 4 x Indentifier + 4 x Delim
+        assert.deepStrictEqual(actual, targetTokens.map(token => token.type));
     });
 
     it('skip() to end', () => {
@@ -152,7 +152,7 @@ describe('tokenize/stream', () => {
 
         stream.skip(tokens.length);
 
-        assert.equal(stream.eof, true);
+        assert.strictEqual(stream.eof, true);
     });
 
     describe('Raw', () => {
@@ -260,7 +260,7 @@ describe('tokenize/stream', () => {
                 }
 
                 stream.skipUntilBalanced(startToken, test.mode || (() => 0));
-                assert.equal(
+                assert.strictEqual(
                     stream.source.substring(startOffset, stream.tokenStart),
                     test.expected
                 );
@@ -278,7 +278,7 @@ describe('tokenize/stream', () => {
             stream.next();
         }
 
-        assert.equal(count, bufferSize);
+        assert.strictEqual(count, bufferSize);
         assert(stream.offsetAndType.length >= bufferSize);
     });
 

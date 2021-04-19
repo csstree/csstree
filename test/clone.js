@@ -20,8 +20,8 @@ function createCloneTest(name, getAst) {
             nonClonedNodeCount += astNodes.includes(node);
         });
 
-        assert.equal(clonedNodeCount, astNodes.length);
-        assert.equal(nonClonedNodeCount, 0);
+        assert.strictEqual(clonedNodeCount, astNodes.length);
+        assert.strictEqual(nonClonedNodeCount, 0);
     });
 }
 

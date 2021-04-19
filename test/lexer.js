@@ -10,8 +10,8 @@ describe('lexer', () => {
             }
         });
 
-        assert.equal(customLexer.matchType('length', 'foo').matched, null);
-        assert.notEqual(customLexer.matchType('length', '1px').matched, null);
+        assert.strictEqual(customLexer.matchType('length', 'foo').matched, null);
+        assert.notStrictEqual(customLexer.matchType('length', '1px').matched, null);
     });
 
     it('should not use generic type names when generics are not used', () => {
@@ -21,8 +21,8 @@ describe('lexer', () => {
             }
         });
 
-        assert.notEqual(customLexer.matchType('length', 'foo').matched, null);
-        assert.equal(customLexer.matchType('length', '1px').matched, null);
+        assert.notStrictEqual(customLexer.matchType('length', 'foo').matched, null);
+        assert.strictEqual(customLexer.matchType('length', '1px').matched, null);
     });
 
     it('validate()', () => {
@@ -40,7 +40,7 @@ describe('lexer', () => {
             }
         });
 
-        assert.deepEqual(customLexer.validate(), {
+        assert.deepStrictEqual(customLexer.validate(), {
             types: [
                 'invalid'
             ],
@@ -77,7 +77,7 @@ describe('lexer', () => {
     });
 
     it('default syntax shouldn\'t to be broken', () => {
-        assert.equal(lexer.validate(), null);
+        assert.strictEqual(lexer.validate(), null);
     });
 
     describe('dump & recovery', () => {
@@ -92,18 +92,18 @@ describe('lexer', () => {
         });
 
         it('custom syntax should not affect base syntax', () => {
-            assert.equal(lexer.validate(), null);
-            assert.equal(lexer.matchProperty('test', '1 2 3').matched, null);
-            assert.notEqual(lexer.matchProperty('color', 'red').matched, null);
+            assert.strictEqual(lexer.validate(), null);
+            assert.strictEqual(lexer.matchProperty('test', '1 2 3').matched, null);
+            assert.notStrictEqual(lexer.matchProperty('color', 'red').matched, null);
         });
 
         it('custom syntax should be valid and correct', () => {
-            assert.equal(customLexer.validate(), null);
+            assert.strictEqual(customLexer.validate(), null);
         });
 
         it('custom syntax should match own grammar only', () => {
-            assert.notEqual(customLexer.matchProperty('test', '1 2 3').matched, null);
-            assert.equal(customLexer.matchProperty('color', 'red').matched, null);
+            assert.notStrictEqual(customLexer.matchProperty('test', '1 2 3').matched, null);
+            assert.strictEqual(customLexer.matchProperty('color', 'red').matched, null);
         });
 
         it('recovery syntax from dump', () => {
@@ -112,8 +112,8 @@ describe('lexer', () => {
                 ...customLexer.dump()
             }));
 
-            assert.equal(recoverySyntax.lexer.validate(), null);
-            assert.notEqual(recoverySyntax.lexer.matchProperty('test', '1 2 3').matched, null);
+            assert.strictEqual(recoverySyntax.lexer.validate(), null);
+            assert.notStrictEqual(recoverySyntax.lexer.matchProperty('test', '1 2 3').matched, null);
         });
     });
 });

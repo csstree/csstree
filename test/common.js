@@ -24,7 +24,7 @@ describe('Common', () => {
 
         // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
 
-        assert.equal(
+        assert.strictEqual(
             JSON.stringify(ast, null, 4),
             normalize(fs.readFileSync(__dirname + '/fixture/stringify.ast', 'utf-8').trim())
         );
@@ -36,7 +36,7 @@ describe('Common', () => {
 
         walk(ast, node => foundTypes.add(node.type));
 
-        assert.deepEqual(
+        assert.deepStrictEqual(
             [...foundTypes].sort(),
             types.sort().filter(type => type !== 'WhiteSpace') // FIXME: temporary filter white space
         );

@@ -9,7 +9,7 @@ function createGenerateTests(name, test) {
         const expected = 'generate' in test ? test.generate : test.source;
 
         // strings should be equal
-        assert.equal(actual, expected);
+        assert.strictEqual(actual, expected);
     });
 
     (test.skip ? it.skip : it)(name + ' (plain object)', () => {
@@ -18,7 +18,7 @@ function createGenerateTests(name, test) {
         const expected = 'generate' in test ? test.generate : test.source;
 
         // strings should be equal
-        assert.equal(actual, expected);
+        assert.strictEqual(actual, expected);
     });
 
     // FIXME: Skip some test cases for round-trip check until generator's improvements
@@ -32,7 +32,7 @@ function createGenerateTests(name, test) {
         // that is, parsing the stylesheet must produce the same data structures as parsing,
         // serializing, and parsing again, except for consecutive <whitespace-token>s,
         // which may be collapsed into a single token.
-        assert.deepEqual(actual, expected);
+        assert.deepStrictEqual(actual, expected);
     });
 }
 
@@ -44,7 +44,7 @@ function createGenerateWithSourceMapTest(name, test) {
         });
 
         // strings should be equal
-        assert.equal(
+        assert.strictEqual(
             generate(ast, { sourceMap: true }).css,
             'generate' in test ? test.generate : test.source
         );
@@ -71,8 +71,8 @@ describe('generate', () => {
             });
             const result = generate(ast, { sourceMap: true });
 
-            assert.equal(result.css, '.a{color:red}');
-            assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CACE,S"}');
+            assert.strictEqual(result.css, '.a{color:red}');
+            assert.strictEqual(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CACE,S"}');
         });
 
         it('complex CSS', () => {
@@ -82,8 +82,8 @@ describe('generate', () => {
             });
             const result = generate(ast, { sourceMap: true });
 
-            assert.equal(result.css, '.a{color:#ff0000}.b{display:block;float:left}@media foo{.c{color:red}}');
-            assert.equal(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CAAK,a,CAAkB,E,CAAK,a,CAAgB,U,CAAe,WAAa,E,CAAK,W"}');
+            assert.strictEqual(result.css, '.a{color:#ff0000}.b{display:block;float:left}@media foo{.c{color:red}}');
+            assert.strictEqual(result.map.toString(), '{"version":3,"sources":["test.css"],"names":[],"mappings":"AAAA,E,CAAK,a,CAAkB,E,CAAK,a,CAAgB,U,CAAe,WAAa,E,CAAK,W"}');
         });
     });
 });

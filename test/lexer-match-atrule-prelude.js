@@ -19,7 +19,7 @@ describe('Lexer#matchAtrulePrelude()', () => {
         const match = values.customSyntax.lexer.matchAtrulePrelude('keyframes', values.animationName);
 
         assert(match.matched);
-        assert.equal(match.error, null);
+        assert.strictEqual(match.error, null);
     });
 
     describe('vendor prefixes', () => {
@@ -27,7 +27,7 @@ describe('Lexer#matchAtrulePrelude()', () => {
             const match = values.customSyntax.lexer.matchAtrulePrelude('-webkit-keyframes', values.animationName);
 
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('case insensetive with vendor prefix', () => {
@@ -35,11 +35,11 @@ describe('Lexer#matchAtrulePrelude()', () => {
 
             match = values.customSyntax.lexer.matchAtrulePrelude('KEYFRAMES', values.animationName);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchAtrulePrelude('-VENDOR-Keyframes', values.animationName);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('should use verdor version first', () => {
@@ -47,20 +47,20 @@ describe('Lexer#matchAtrulePrelude()', () => {
 
             match = values.customSyntax.lexer.matchAtrulePrelude('-foo-keyframes', values.number);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchAtrulePrelude('keyframes', values.number);
-            assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'Mismatch\n  syntax: <keyframes-name>\n   value: 123\n  --------^');
+            assert.strictEqual(match.matched, null);
+            assert.strictEqual(match.error.message, 'Mismatch\n  syntax: <keyframes-name>\n   value: 123\n  --------^');
         });
     });
 
     it('should not be matched to empty value', () => {
         const match = lexer.matchAtrulePrelude('keyframes', parse('', { context: 'atrulePrelude', positions: true }));
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.rawMessage, 'Mismatch');
-        assert.deepEqual({
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.rawMessage, 'Mismatch');
+        assert.deepStrictEqual({
             line: match.error.line,
             column: match.error.column
         }, {
@@ -72,23 +72,23 @@ describe('Lexer#matchAtrulePrelude()', () => {
     it('should not match css wide keywords', function() {
         var match = lexer.matchAtrulePrelude('import', parse('inherit', { context: 'atrulePrelude', positions: true }));
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.rawMessage, 'Mismatch');
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.rawMessage, 'Mismatch');
     });
 
     describe('should not be matched to at-rules with no prelude', () => {
         it('regular name', () => {
             const match = lexer.matchAtrulePrelude('font-face', values.animationName);
 
-            assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'At-rule `@font-face` should not contain a prelude');
+            assert.strictEqual(match.matched, null);
+            assert.strictEqual(match.error.message, 'At-rule `@font-face` should not contain a prelude');
         });
 
         it('with verdor prefix', () => {
             const match = lexer.matchAtrulePrelude('-prefix-font-face', values.animationName);
 
-            assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'At-rule `@-prefix-font-face` should not contain a prelude');
+            assert.strictEqual(match.matched, null);
+            assert.strictEqual(match.error.message, 'At-rule `@-prefix-font-face` should not contain a prelude');
         });
     });
 
@@ -107,8 +107,8 @@ describe('Lexer#matchAtrulePrelude()', () => {
                     const match = lexer.matchAtrulePrelude(atruleName, value);
                     const allowedErrors = ['SyntaxMatchError', 'SyntaxError'];
 
-                    assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
-                    assert.equal(allowedErrors.includes(match.error.name), true, 'should be one of ' + JSON.stringify(allowedErrors));
+                    assert.strictEqual(match.matched, null, 'should NOT MATCH to "' + value + '"');
+                    assert.strictEqual(allowedErrors.includes(match.error.name), true, 'should be one of ' + JSON.stringify(allowedErrors));
                 });
                 break;
         }

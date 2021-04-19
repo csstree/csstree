@@ -33,7 +33,7 @@ describe('Lexer#checkStructure()', () => {
         const ast = parse('.foo { color: red }', { positions: true });
         const warns = lexer.checkStructure(ast);
 
-        assert.equal(warns, false);
+        assert.strictEqual(warns, false);
     });
 
     it('should ignore properties from prototype', () => {
@@ -45,7 +45,7 @@ describe('Lexer#checkStructure()', () => {
 
         Object.prototype.foo = 123;
         try {
-            assert.equal(lexer.checkStructure(node), false);
+            assert.strictEqual(lexer.checkStructure(node), false);
         } finally {
             delete Object.prototype.foo;
         }
@@ -57,7 +57,7 @@ describe('Lexer#checkStructure()', () => {
                 const ast = parse(test.source, test.options);
 
                 // structure should be correct
-                assert.equal(lexer.checkStructure(ast), false);
+                assert.strictEqual(lexer.checkStructure(ast), false);
             });
         });
     });
@@ -67,7 +67,7 @@ describe('Lexer#checkStructure()', () => {
             const node = [];
             node.type = 'Number';
 
-            assert.deepEqual(lexer.checkStructure(node), [
+            assert.deepStrictEqual(lexer.checkStructure(node), [
                 { node, message: 'Type of node should be an Object' }
             ]);
         });
@@ -77,7 +77,7 @@ describe('Lexer#checkStructure()', () => {
                 type: 'Foo'
             };
 
-            assert.deepEqual(lexer.checkStructure(node), [
+            assert.deepStrictEqual(lexer.checkStructure(node), [
                 { node, message: 'Unknown node type `Foo`' }
             ]);
         });
@@ -88,7 +88,7 @@ describe('Lexer#checkStructure()', () => {
                 value: '123'
             };
 
-            assert.deepEqual(lexer.checkStructure(node), [
+            assert.deepStrictEqual(lexer.checkStructure(node), [
                 { node, message: 'Field `Dimension.loc` is missed' },
                 { node, message: 'Field `Dimension.unit` is missed' }
             ]);
@@ -102,7 +102,7 @@ describe('Lexer#checkStructure()', () => {
                 foo: 1
             };
 
-            assert.deepEqual(lexer.checkStructure(node), [
+            assert.deepStrictEqual(lexer.checkStructure(node), [
                 { node, message: 'Unknown field `foo` for Number node type' }
             ]);
         });
@@ -115,7 +115,7 @@ describe('Lexer#checkStructure()', () => {
                     value: 123
                 };
 
-                assert.deepEqual(lexer.checkStructure(node), [
+                assert.deepStrictEqual(lexer.checkStructure(node), [
                     { node, message: 'Bad value for `Number.value`' }
                 ]);
             });
@@ -127,7 +127,7 @@ describe('Lexer#checkStructure()', () => {
                     value: '123'
                 };
 
-                assert.deepEqual(lexer.checkStructure(node), [
+                assert.deepStrictEqual(lexer.checkStructure(node), [
                     { node, message: 'Bad value for `Number.loc.source`' }
                 ]);
             });
@@ -143,7 +143,7 @@ describe('Lexer#checkStructure()', () => {
                     value: '123'
                 };
 
-                assert.deepEqual(lexer.checkStructure(node), [
+                assert.deepStrictEqual(lexer.checkStructure(node), [
                     { node, message: 'Bad value for `Number.loc.start`' }
                 ]);
             });
@@ -159,7 +159,7 @@ describe('Lexer#checkStructure()', () => {
                     value: '123'
                 };
 
-                assert.deepEqual(lexer.checkStructure(node), [
+                assert.deepStrictEqual(lexer.checkStructure(node), [
                     { node, message: 'Bad value for `Number.loc.end`' }
                 ]);
             });

@@ -37,11 +37,11 @@ const expectedAst = {
 describe('logical parts as standalone modules', () => {
     it('parser', () => {
         const ast = parse(css);
-        assert.equal(stringifyWithNoInfo(ast), stringifyWithNoInfo(expectedAst));
+        assert.strictEqual(stringifyWithNoInfo(ast), stringifyWithNoInfo(expectedAst));
     });
 
     it('generator', () => {
-        assert.equal(generate(expectedAst), css);
+        assert.strictEqual(generate(expectedAst), css);
     });
 
     it('walker', () => {
@@ -49,7 +49,7 @@ describe('logical parts as standalone modules', () => {
 
         walk(expectedAst, node => types.push(node.type));
 
-        assert.deepEqual(types, [
+        assert.deepStrictEqual(types, [
             'StyleSheet',
             'Rule',
             'SelectorList',
@@ -62,17 +62,17 @@ describe('logical parts as standalone modules', () => {
     it('convertor', () => {
         const ast = parse(css);
 
-        assert.equal(ast.children instanceof List, true);
-        assert.equal(ast.children.first.prelude.children instanceof List, true);
+        assert.strictEqual(ast.children instanceof List, true);
+        assert.strictEqual(ast.children.first.prelude.children instanceof List, true);
 
         convertor.toPlainObject(ast);
 
-        assert.equal(Array.isArray(ast.children), true);
-        assert.equal(Array.isArray(ast.children[0].prelude.children), true);
+        assert.strictEqual(Array.isArray(ast.children), true);
+        assert.strictEqual(Array.isArray(ast.children[0].prelude.children), true);
 
         convertor.fromPlainObject(ast);
 
-        assert.equal(ast.children instanceof List, true);
-        assert.equal(ast.children.first.prelude.children instanceof List, true);
+        assert.strictEqual(ast.children instanceof List, true);
+        assert.strictEqual(ast.children.first.prelude.children instanceof List, true);
     });
 });

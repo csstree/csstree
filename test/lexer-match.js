@@ -18,7 +18,7 @@ describe('Lexer#match()', () => {
         const match = customSyntax.lexer.match(syntax, fn);
 
         assert(match.matched);
-        assert.equal(match.error, null);
+        assert.strictEqual(match.error, null);
     });
 
     it('should take a string as a value', () => {
@@ -26,14 +26,14 @@ describe('Lexer#match()', () => {
         const match = customSyntax.lexer.match(syntax, 'fn(1, 2, 3)');
 
         assert(match.matched);
-        assert.equal(match.error, null);
+        assert.strictEqual(match.error, null);
     });
 
     it('should take a string as a syntax', () => {
         const match = customSyntax.lexer.match('fn( <number># )', 'fn(1, 2, 3)');
 
         assert(match.matched);
-        assert.equal(match.error, null);
+        assert.strictEqual(match.error, null);
     });
 
     it('should fails on bad syntax', () => {
@@ -41,8 +41,8 @@ describe('Lexer#match()', () => {
         const fn = value.children.first;
         const match = customSyntax.lexer.match({}, fn);
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.message, 'Bad syntax');
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.message, 'Bad syntax');
     });
 
     describe('mismatch position', () => {

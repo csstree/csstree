@@ -15,14 +15,14 @@ describe('lexer search fragments', () => {
             const declaration = parse('border: 1px solid red', { context: 'declaration' });
             const result = lexer.findValueFragments(declaration.property, declaration.value, 'Type', 'color');
 
-            assert.deepEqual(translateFragments(result), ['red']);
+            assert.deepStrictEqual(translateFragments(result), ['red']);
         });
 
         it('should find multiple entries', () => {
             const declaration = parse('font: 10px Arial, Courier new, Times new roman', { context: 'declaration' });
             const result = lexer.findValueFragments(declaration.property, declaration.value, 'Type', 'family-name');
 
-            assert.deepEqual(translateFragments(result), ['Arial', 'Courier new', 'Times new roman']);
+            assert.deepStrictEqual(translateFragments(result), ['Arial', 'Courier new', 'Times new roman']);
         });
     });
 
@@ -31,14 +31,14 @@ describe('lexer search fragments', () => {
             const declaration = parse('border: 1px solid red', { context: 'declaration' });
             const result = lexer.findDeclarationValueFragments(declaration, 'Type', 'color');
 
-            assert.deepEqual(translateFragments(result), ['red']);
+            assert.deepStrictEqual(translateFragments(result), ['red']);
         });
 
         it('should find multiple entries', () => {
             const declaration = parse('font: 10px Arial, Courier new, Times new roman', { context: 'declaration' });
             const result = lexer.findDeclarationValueFragments(declaration, 'Type', 'family-name');
 
-            assert.deepEqual(translateFragments(result), ['Arial', 'Courier new', 'Times new roman']);
+            assert.deepStrictEqual(translateFragments(result), ['Arial', 'Courier new', 'Times new roman']);
         });
     });
 
@@ -47,7 +47,7 @@ describe('lexer search fragments', () => {
             const ast = parse('foo { border: 1px solid red; } bar { color: rgba(1,2,3,4); border-color: #123 rgb(1,2,3) }');
             const result = lexer.findAllFragments(ast, 'Type', 'color');
 
-            assert.deepEqual(translateFragments(result), ['red', 'rgba(1,2,3,4)', '#123', 'rgb(1,2,3)']);
+            assert.deepStrictEqual(translateFragments(result), ['red', 'rgba(1,2,3,4)', '#123', 'rgb(1,2,3)']);
         });
     });
 });

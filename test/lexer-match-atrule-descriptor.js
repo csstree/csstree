@@ -25,7 +25,7 @@ describe('Lexer#matchAtruleDescriptor()', () => {
         const match = values.customSyntax.lexer.matchAtruleDescriptor('font-face', 'font-display', values.swapValue);
 
         assert(match.matched);
-        assert.equal(match.error, null);
+        assert.strictEqual(match.error, null);
     });
 
     describe('vendor prefixes', () => {
@@ -33,14 +33,14 @@ describe('Lexer#matchAtruleDescriptor()', () => {
             const match = values.customSyntax.lexer.matchAtruleDescriptor('-prefix-font-face', 'font-display', values.swapValue);
 
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('vendor prefix in declarator name', () => {
             const match = values.customSyntax.lexer.matchAtruleDescriptor('font-face', '-prefix-font-display', values.swapValue);
 
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('case insensetive with vendor prefix', () => {
@@ -48,11 +48,11 @@ describe('Lexer#matchAtruleDescriptor()', () => {
 
             match = values.customSyntax.lexer.matchAtruleDescriptor('FONT-FACE', 'FONT-DISPLAY', values.swapValue);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchAtruleDescriptor('FONT-face', '-VENDOR-Font-Display', values.swapValue);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('should use verdor version first', () => {
@@ -60,20 +60,20 @@ describe('Lexer#matchAtruleDescriptor()', () => {
 
             match = values.customSyntax.lexer.matchAtruleDescriptor('font-face', '-foo-font-display', values.xxxValue);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchAtruleDescriptor('font-face', 'font-display', values.xxxValue);
-            assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'Mismatch\n  syntax: ' + values.fontDisplaySyntax + '\n   value: xxx\n  --------^');
+            assert.strictEqual(match.matched, null);
+            assert.strictEqual(match.error.message, 'Mismatch\n  syntax: ' + values.fontDisplaySyntax + '\n   value: xxx\n  --------^');
         });
     });
 
     it('should not be matched to empty value', () => {
         const match = lexer.matchAtruleDescriptor('font-face', 'font-display', parse('', { context: 'value', positions: true }));
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.rawMessage, 'Mismatch');
-        assert.deepEqual({
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.rawMessage, 'Mismatch');
+        assert.deepStrictEqual({
             line: match.error.line,
             column: match.error.column
         }, {
@@ -85,15 +85,15 @@ describe('Lexer#matchAtruleDescriptor()', () => {
     it('should not be matched to at-rules with no descriptors', () => {
         const match = lexer.matchAtruleDescriptor('keyframes', 'font-face', values.swapValue);
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.message, 'At-rule `@keyframes` has no known descriptors');
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.message, 'At-rule `@keyframes` has no known descriptors');
     });
 
     it('should not match css wide keywords', function() {
         var match = lexer.matchAtruleDescriptor('font-face', 'font-display', values.inherit);
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.rawMessage, 'Mismatch');
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.rawMessage, 'Mismatch');
     });
 
     fixture.forEachAtruleDescriptorTest((testType, testState, name, lexer, atruleName, descriptorName, value) => {
@@ -110,8 +110,8 @@ describe('Lexer#matchAtruleDescriptor()', () => {
                 (it[testState] || it)(name, () => {
                     const match = lexer.matchAtruleDescriptor(atruleName, descriptorName, value);
 
-                    assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
-                    assert.equal(match.error.name, 'SyntaxMatchError');
+                    assert.strictEqual(match.matched, null, 'should NOT MATCH to "' + value + '"');
+                    assert.strictEqual(match.error.name, 'SyntaxMatchError');
                 });
                 break;
         }

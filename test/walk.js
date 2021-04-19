@@ -50,7 +50,7 @@ function createWalkTest(name, test, context, walker, enter, leave) {
         walker(ast, node => actual.push(node.type));
 
         // type arrays should be equal
-        assert.deepEqual(
+        assert.deepStrictEqual(
             actual,
             expectedWalk(test.ast, enter, leave)
         );
@@ -65,7 +65,7 @@ function createWalkVisitTest(test, visitType, walker) {
         walker(ast, node => actual.push(node.type));
 
         // type arrays should be equal
-        assert.deepEqual(
+        assert.deepStrictEqual(
             actual.sort(),
             expectedWalk(test.ast, true, false)
                 .filter(type => type === visitType)
@@ -82,7 +82,7 @@ function createWalkDeclarationsTest(test, context, walker) {
         walker(ast, node => actual.push(node.type));
 
         // type arrays should be equal
-        assert.deepEqual(
+        assert.deepStrictEqual(
             actual.sort(),
             expectedWalk(test.ast, false, true, notInsideAtrulePrelude)
                 .filter(type => type === 'Declaration')
@@ -122,7 +122,7 @@ describe('AST traversal', () => {
 
         walk(ast, node => visitedTypes.add(node.type));
 
-        assert.deepEqual([...visitedTypes].sort(), expected);
+        assert.deepStrictEqual([...visitedTypes].sort(), expected);
     });
 
     it('base test #2', () => {
@@ -134,7 +134,7 @@ describe('AST traversal', () => {
             leave: node => log.push('leave ' + node.type)
         });
 
-        assert.deepEqual(log, [
+        assert.deepStrictEqual(log, [
             'enter StyleSheet',
             'enter Rule',
             'enter SelectorList',
@@ -173,7 +173,7 @@ describe('AST traversal', () => {
                 }
             });
 
-            assert.deepEqual(
+            assert.deepStrictEqual(
                 visitedNames,
                 expected
             );
@@ -192,7 +192,7 @@ describe('AST traversal', () => {
                 }
             });
 
-            assert.deepEqual(
+            assert.deepStrictEqual(
                 visitedNames,
                 expected
             );
@@ -247,7 +247,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -269,7 +269,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -322,7 +322,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -345,7 +345,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -418,7 +418,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -441,7 +441,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -509,7 +509,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -533,7 +533,7 @@ describe('AST traversal', () => {
                     }
                 });
 
-                assert.deepEqual(
+                assert.deepStrictEqual(
                     actual,
                     expected
                 );
@@ -657,7 +657,7 @@ describe('AST traversal', () => {
                 }
             });
 
-            assert.equal(visited, 2);
+            assert.strictEqual(visited, 2);
         });
     });
 });

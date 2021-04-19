@@ -28,21 +28,21 @@ describe('Lexer#matchProperty()', () => {
             const match = values.customSyntax.lexer.matchProperty('-vendor-foo', values.bar);
 
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('hacks', () => {
             const match = values.customSyntax.lexer.matchProperty('_foo', values.bar);
 
             assert(match.matched);
-            assert.equal(values.customSyntax.lexer.lastMatchError, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('vendor prefix and hack', () => {
             const match = values.customSyntax.lexer.matchProperty('_-vendor-foo', values.bar);
 
             assert(match.matched);
-            assert.equal(values.customSyntax.lexer.lastMatchError, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('case insensetive with vendor prefix and hack', () => {
@@ -50,19 +50,19 @@ describe('Lexer#matchProperty()', () => {
 
             match = values.customSyntax.lexer.matchProperty('FOO', values.bar);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchProperty('-VENDOR-Foo', values.bar);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchProperty('_FOO', values.bar);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchProperty('_-VENDOR-Foo', values.bar);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
         });
 
         it('should use verdor version first', () => {
@@ -70,34 +70,34 @@ describe('Lexer#matchProperty()', () => {
 
             match = values.customSyntax.lexer.matchProperty('-baz-foo', values.qux);
             assert(match.matched);
-            assert.equal(match.error, null);
+            assert.strictEqual(match.error, null);
 
             match = values.customSyntax.lexer.matchProperty('-baz-baz-foo', values.qux);
-            assert.equal(match.matched, null);
-            assert.equal(match.error.message, 'Unknown property `-baz-baz-foo`');
+            assert.strictEqual(match.matched, null);
+            assert.strictEqual(match.error.message, 'Unknown property `-baz-baz-foo`');
         });
     });
 
     it('custom property', () => {
         const match = lexer.matchProperty('--foo', values.bar);
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.message, 'Lexer matching doesn\'t applicable for custom properties');
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.message, 'Lexer matching doesn\'t applicable for custom properties');
     });
 
     it('should match css wide keywords', function() {
         var match = lexer.matchProperty('color', values.inherit);
 
         assert(match.matched);
-        assert.equal(match.error, null);
+        assert.strictEqual(match.error, null);
     });
 
     it('should not be matched to empty value', () => {
         const match = lexer.matchProperty('color', parse('', { context: 'value', positions: true }));
 
-        assert.equal(match.matched, null);
-        assert.equal(match.error.rawMessage, 'Mismatch');
-        assert.deepEqual({
+        assert.strictEqual(match.matched, null);
+        assert.strictEqual(match.error.rawMessage, 'Mismatch');
+        assert.deepStrictEqual({
             line: match.error.line,
             column: match.error.column
         }, {
@@ -130,8 +130,8 @@ describe('Lexer#matchProperty()', () => {
                 (it[testState] || it)(name, function() {
                     const match = getMatch(lexer, property, value, syntax);
 
-                    assert.equal(match.matched, null, 'should NOT MATCH to "' + value + '"');
-                    assert.equal(match.error.name, 'SyntaxMatchError');
+                    assert.strictEqual(match.matched, null, 'should NOT MATCH to "' + value + '"');
+                    assert.strictEqual(match.error.name, 'SyntaxMatchError');
                 });
                 break;
         }

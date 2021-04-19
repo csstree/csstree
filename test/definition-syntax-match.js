@@ -56,8 +56,8 @@ function createSyntaxTest(testName, test) {
                 it(`should MATCH to "${input}"`, () => {
                     const m = matchAsList(prepareTokens(input), matchTree, syntaxes);
 
-                    assert.notEqual(m.match, null);
-                    assert.deepEqual(
+                    assert.notStrictEqual(m.match, null);
+                    assert.deepStrictEqual(
                         m.match
                             .map(x => x.token)
                             .filter(x => x !== undefined),
@@ -74,7 +74,7 @@ function createSyntaxTest(testName, test) {
                 it(`should NOT MATCH to "${input}"`, () => {
                     const m = matchAsList(prepareTokens(input), matchTree, syntaxes);
 
-                    assert.equal(m.match, null);
+                    assert.strictEqual(m.match, null);
                 });
             });
         }
@@ -86,7 +86,7 @@ function createSyntaxTest(testName, test) {
                 it(`match result for "${input}"`, () => {
                     const m = matchAsTree(prepareTokens(input), matchTree, syntaxes);
 
-                    assert.deepEqual(processMatchResult(m.match.match), matchResult);
+                    assert.deepStrictEqual(processMatchResult(m.match.match), matchResult);
                 });
             });
         }

@@ -11,7 +11,7 @@ describe('definitionSyntax.walk()', () => {
             value: generate(node)
         }));
 
-        assert.deepEqual(visited, [
+        assert.deepStrictEqual(visited, [
             { type: 'Group',       value: 'a b | c( ) && [ <d>? || <\'e\'> || ( f{2,4} ) ]*' },
             { type: 'Group',       value: 'a b' },        // implicit group: a b -> [ a b ]
             { type: 'Keyword',     value: 'a' },
@@ -48,7 +48,7 @@ describe('definitionSyntax.walk()', () => {
             })
         });
 
-        assert.deepEqual(visited, [
+        assert.deepStrictEqual(visited, [
             { action: 'enter', value: 'a b? | c( ) && [ <d> ]+' },
             { action: 'enter', value: 'a b?' },
             { action: 'enter', value: 'a' },

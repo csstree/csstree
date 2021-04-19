@@ -14,7 +14,7 @@ describe('lexer match result', () => {
     });
 
     it('getTrace()', () => {
-        assert.deepEqual(match.getTrace(testNode), [
+        assert.deepStrictEqual(match.getTrace(testNode), [
             { type: 'Property', name: 'background' },
             { type: 'Type', opts: null, name: 'final-bg-layer' },
             { type: 'Property', name: 'background-color' },
@@ -22,25 +22,25 @@ describe('lexer match result', () => {
             { type: 'Type', opts: null, name: 'rgb()' },
             { type: 'Type', opts: null, name: 'number' }
         ]);
-        assert.equal(mismatch.getTrace(testNode), null);
+        assert.strictEqual(mismatch.getTrace(testNode), null);
     });
 
     it('isType()', () => {
-        assert.equal(match.isType(testNode, 'color'), true);
-        assert.equal(match.isType(testNode, 'final-bg-layer'), true);
-        assert.equal(match.isType(testNode, 'background-color'), false);
-        assert.equal(match.isType(testNode, 'foo'), false);
+        assert.strictEqual(match.isType(testNode, 'color'), true);
+        assert.strictEqual(match.isType(testNode, 'final-bg-layer'), true);
+        assert.strictEqual(match.isType(testNode, 'background-color'), false);
+        assert.strictEqual(match.isType(testNode, 'foo'), false);
 
-        assert.equal(mismatch.isType(testNode, 'color'), false);
+        assert.strictEqual(mismatch.isType(testNode, 'color'), false);
     });
 
     it('isProperty()', () => {
-        assert.equal(match.isProperty(testNode, 'color'), false);
-        assert.equal(match.isProperty(testNode, 'final-bg-layer'), false);
-        assert.equal(match.isProperty(testNode, 'background-color'), true);
-        assert.equal(match.isProperty(testNode, 'foo'), false);
+        assert.strictEqual(match.isProperty(testNode, 'color'), false);
+        assert.strictEqual(match.isProperty(testNode, 'final-bg-layer'), false);
+        assert.strictEqual(match.isProperty(testNode, 'background-color'), true);
+        assert.strictEqual(match.isProperty(testNode, 'foo'), false);
 
-        assert.equal(mismatch.isProperty(testNode, 'color'), false);
+        assert.strictEqual(mismatch.isProperty(testNode, 'color'), false);
     });
 
     it('isKeyword()', () => {
@@ -49,7 +49,7 @@ describe('lexer match result', () => {
         const numberNode = ast.children.last;
         const match = lexer.matchProperty('background', ast);
 
-        assert.equal(match.isKeyword(keywordNode), true);
-        assert.equal(match.isKeyword(numberNode), false);
+        assert.strictEqual(match.isKeyword(keywordNode), true);
+        assert.strictEqual(match.isKeyword(numberNode), false);
     });
 });

@@ -8,7 +8,7 @@ describe('convert', () => {
         const plainObject = JSON.parse(JSON.stringify(ast));
         const actual = generate(fromPlainObject(plainObject));
 
-        assert.equal(actual, css);
+        assert.strictEqual(actual, css);
     });
 
     it('toPlainObject', () => {
@@ -16,6 +16,6 @@ describe('convert', () => {
         const expected = JSON.parse(JSON.stringify(ast));
         const actual = toPlainObject(ast);
 
-        assert.deepEqual(actual, expected);
+        assert.deepStrictEqual(actual, expected);
     });
 });

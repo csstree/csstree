@@ -1,10 +1,10 @@
 const assert = require('assert');
-const { ident, string, url } = require('../lib');
+const { ident, string, url } = require('./helpers/lib');
 
 function forEachTest(tests, func) {
     Object.keys(tests).forEach((from, idx) => {
         it('(' + idx + ') ' + JSON.stringify(from), () => {
-            assert.equal(func(from), tests[from]);
+            assert.strictEqual(func(from), tests[from]);
         });
     });
 }
