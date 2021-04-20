@@ -1,7 +1,11 @@
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 const mdnAtrules = require('mdn-data/css/at-rules.json');
 const mdnProperties = require('mdn-data/css/properties.json');
 const mdnSyntaxes = require('mdn-data/css/syntaxes.json');
 const patch = require('./patch.json');
+
 const extendSyntax = /^\s*\|\s*/;
 
 function preprocessAtrules(dict) {
@@ -96,7 +100,7 @@ function patchAtrules(dict, patchDict) {
     return result;
 }
 
-module.exports = {
+export default {
     types: patchDictionary(mdnSyntaxes, patch.syntaxes),
     atrules: patchAtrules(preprocessAtrules(mdnAtrules), patch.atrules),
     properties: patchDictionary(mdnProperties, patch.properties)

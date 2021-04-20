@@ -1,10 +1,10 @@
-const assert = require('assert');
-const {
+import assert from 'assert';
+import {
     parse,
     clone,
     walk,
     toPlainObject
-} = require('./helpers/lib');
+} from './helpers/lib.js';
 
 function createCloneTest(name, getAst) {
     it(name, () => {

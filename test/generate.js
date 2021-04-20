@@ -1,6 +1,6 @@
-const assert = require('assert');
-const { parse, generate, toPlainObject } = require('./helpers/lib');
-const forEachAstTest = require('./fixture/ast').forEachTest;
+import assert from 'assert';
+import { parse, generate, toPlainObject } from './helpers/lib.js';
+import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
 
 function createGenerateTests(name, test) {
     (test.skip ? it.skip : it)(name, () => {

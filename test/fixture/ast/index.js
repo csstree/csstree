@@ -1,6 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const JsonLocator = require('../../helpers/JsonLocator.js');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { JsonLocator } from '../../helpers/JsonLocator.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const wrapper = {
     stylesheet: ast => ({
         type: 'StyleSheet',
@@ -28,7 +31,7 @@ const wrapper = {
     })
 };
 
-function forEachTest(factory, errors) {
+export function forEachTest(factory, errors) {
     const testType = errors === true ? 'errors' : 'tests';
     for (const filename in tests) {
         const file = tests[filename];
@@ -39,7 +42,7 @@ function forEachTest(factory, errors) {
     };
 }
 
-const tests = fs.readdirSync(__dirname).reduce((result, scope) => {
+export const tests = fs.readdirSync(__dirname).reduce((result, scope) => {
     function scanDir(dir) {
         if (fs.statSync(dir).isDirectory()) {
             fs.readdirSync(dir).forEach(fn => {
@@ -82,7 +85,7 @@ const tests = fs.readdirSync(__dirname).reduce((result, scope) => {
                 }
 
                 const locator = new JsonLocator(filename);
-                const origTests = require(filename);
+                const origTests = JSON.parse(fs.readFileSync(filename));
                 const tests = {};
                 const errors = {};
 
@@ -119,8 +122,3 @@ const tests = fs.readdirSync(__dirname).reduce((result, scope) => {
 
     return result;
 }, {});
-
-module.exports = {
-    forEachTest,
-    tests
-};

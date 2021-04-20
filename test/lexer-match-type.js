@@ -1,6 +1,7 @@
-const assert = require('assert');
-const { lazyValues } = require('./helpers');
-const { parse, fork } = require('./helpers/lib');
+import assert from 'assert';
+import { parse, fork } from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+
 const values = lazyValues({
     singleNumber: () => parse('1', { context: 'value' }),
     severalNumbers: () => parse('1, 2, 3', { context: 'value' }),

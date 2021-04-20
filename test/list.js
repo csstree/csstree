@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { List } = require('./helpers/lib');
+import assert from 'assert';
+import { List } from './helpers/lib.js';
 
 function getFirstArg(data) {
     return data;

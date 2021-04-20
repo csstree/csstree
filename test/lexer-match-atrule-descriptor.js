@@ -1,7 +1,8 @@
-const assert = require('assert');
-const { parse, lexer, fork } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
-const fixture = require('./fixture/definition-syntax');
+import assert from 'assert';
+import { parse, lexer, fork } from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+import { forEachAtruleDescriptorTest } from './fixture/definition-syntax/index.js';
+
 const values = lazyValues({
     swapValue: () => parse('swap', { context: 'value' }),
     xxxValue: () => parse('xxx', { context: 'value' }),
@@ -96,7 +97,7 @@ describe('Lexer#matchAtruleDescriptor()', () => {
         assert.strictEqual(match.error.rawMessage, 'Mismatch');
     });
 
-    fixture.forEachAtruleDescriptorTest((testType, testState, name, lexer, atruleName, descriptorName, value) => {
+    forEachAtruleDescriptorTest((testType, testState, name, lexer, atruleName, descriptorName, value) => {
         switch (testType) {
             case 'valid':
                 (it[testState] || it)(name, () => {

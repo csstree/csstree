@@ -1,7 +1,8 @@
-const assert = require('assert');
-const { parse, lexer, fork } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
-const fixture = require('./fixture/definition-syntax');
+import assert from 'assert';
+import { parse, lexer, fork } from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+import { forEachAtrulePreludeTest } from './fixture/definition-syntax/index.js';
+
 const values = lazyValues({
     animationName: () => parse('animation-name', { context: 'atrulePrelude', atrule: 'keyframes' }),
     number: () => parse('123', { context: 'atrulePrelude', atrule: 'unknown' }),
@@ -92,7 +93,7 @@ describe('Lexer#matchAtrulePrelude()', () => {
         });
     });
 
-    fixture.forEachAtrulePreludeTest((testType, testState, name, lexer, atruleName, value) => {
+    forEachAtrulePreludeTest((testType, testState, name, lexer, atruleName, value) => {
         switch (testType) {
             case 'valid':
                 (it[testState] || it)(name, () => {

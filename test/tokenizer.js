@@ -1,6 +1,6 @@
-const assert = require('assert');
-const { TokenStream, tokenize } = require('./helpers/lib');
-const fixture = require('./fixture/tokenize');
+import assert from 'assert';
+import { TokenStream, tokenize, tokenNames } from './helpers/lib.js';
+import * as fixture from './fixture/tokenize/index.js';
 
 describe('tokenize/stream', () => {
     const createStream = source => new TokenStream(source, tokenize);
@@ -98,7 +98,7 @@ describe('tokenize/stream', () => {
         const actual = [];
 
         while (!stream.eof) {
-            actual.push(tokenize.NAME[stream.tokenType]);
+            actual.push(tokenNames[stream.tokenType]);
             stream.next();
         }
 
@@ -140,7 +140,7 @@ describe('tokenize/stream', () => {
             })
             .map(function(skip) {
                 stream.skip(skip);
-                return tokenize.NAME[stream.tokenType];
+                return tokenNames[stream.tokenType];
             });
 
         assert.strictEqual(actual.length, 8); // 4 x Indentifier + 4 x Delim
@@ -289,7 +289,7 @@ describe('tokenize/stream', () => {
                     const actual = [];
 
                     tokenize(value, (type, start, end) => actual.push({
-                        type: tokenize.NAME[type],
+                        type: tokenNames[type],
                         chunk: value.substring(start, end)
                     }));
 

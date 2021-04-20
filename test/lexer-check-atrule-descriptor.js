@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { lexer } = require('./helpers/lib');
+import assert from 'assert';
+import { lexer } from './helpers/lib.js';
 
 describe('Lexer#checkAtruleDescriptorName()', () => {
     it('should fail on invalid atrule', () => {

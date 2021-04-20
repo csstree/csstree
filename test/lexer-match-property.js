@@ -1,7 +1,8 @@
-const assert = require('assert');
-const { parse, lexer, fork } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
-const fixture = require('./fixture/definition-syntax');
+import assert from 'assert';
+import { parse, lexer, fork } from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+import { forEachTest } from './fixture/definition-syntax/index.js';
+
 const values = lazyValues({
     bar: () => parse('bar', { context: 'value' }),
     qux: () => parse('qux', { context: 'value' }),
@@ -106,7 +107,7 @@ describe('Lexer#matchProperty()', () => {
         });
     });
 
-    fixture.forEachTest((testType, testState, name, lexer, property, value, syntax) => {
+    forEachTest((testType, testState, name, lexer, property, value, syntax) => {
         switch (testType) {
             case 'valid':
                 (it[testState] || it)(name, () => {

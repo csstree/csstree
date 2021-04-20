@@ -1,7 +1,7 @@
-const data = require('mdn-data/css');
-const csstreeData = require('../../data');
+import data from 'mdn-data/css/index.js';
+import csstreeData from '../../data/index.js';
 
-module.exports = function iterate(fn) {
+export default function iterateSyntaxes(fn) {
     for (const name in data.atRules) {
         fn('mdn/atRules', name, data.atRules[name].syntax);
         for (const descriptor in data.atRules[name].descriptors) {

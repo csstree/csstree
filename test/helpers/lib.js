@@ -1,8 +1,8 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 const libPaths = {
-    'src': 'lib/index.js',
-    'dist': 'dist/csstree.js',
-    'dist-min': 'dist/csstree.min.js'
+    'src': 'lib/index.js'
+    // 'dist': 'dist/csstree.js',
+    // 'dist-min': 'dist/csstree.min.js'
 };
 const mode = process.env.MODE || 'src';
 const libPath = libPaths[mode];
@@ -15,4 +15,5 @@ if (!libPaths.hasOwnProperty(mode)) {
 
 console.info('Test lib entry:', chalk.yellow(libPath + postfix));
 
-module.exports = require('../../' + libPath);
+// module.exports = require('../../' + libPath);
+export * from '../../lib/index.js';

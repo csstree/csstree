@@ -1,7 +1,7 @@
-const csstree = require('../../lib');
+import { fork } from '../../lib/index.js';
 let setup;
 
-csstree.fork(setup_ => setup = setup_);
+fork(setup_ => setup = setup_);
 
 const nameDecorator = {
     atrule: function(name) {
@@ -20,7 +20,7 @@ function decorateName(type, name) {
     return name;
 }
 
-module.exports = function(content) {
+export default function(content) {
     return content.replace(/(<!-- gen:(\S+) -->)(?:.|\s)*?(<!-- \/gen:\2 -->)/g, function(m, pre, type, post) {
         const items = Object.keys(setup[type] || {}).sort().map(function(name) {
             return '- `' + decorateName(type, name) + '`';

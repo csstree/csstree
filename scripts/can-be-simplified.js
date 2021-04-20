@@ -1,5 +1,7 @@
-const iterateSyntaxes = require('./utils/iterate-syntaxes');
-const { parse, generate, walk } = require('../lib').definitionSyntax;
+import iterateSyntaxes from './utils/iterate-syntaxes.js';
+import { definitionSyntax } from '../lib/index.js';
+
+const { parse, generate, walk } = definitionSyntax;
 let suggestions = [];
 
 iterateSyntaxes(function(section, name, syntax) {

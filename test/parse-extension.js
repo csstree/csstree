@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { parse, tokenize: { TYPE }, toPlainObject, fork } = require('./helpers/lib');
+import assert from 'assert';
+import { parse, tokenTypes, toPlainObject, fork } from './helpers/lib.js';
 
 const DollarSign = 0x0024; // U+0024 DOLLAR SIGN ($)
 const Ampersand = 0x0026;  // U+0026 ANPERSAND (&)
@@ -17,7 +17,7 @@ describe('extension', () => {
                     return {
                         type: 'Variable',
                         loc: this.getLocation(start, this.tokenEnd),
-                        name: this.consume(TYPE.Ident)
+                        name: this.consume(tokenTypes.Ident)
                     };
                 }
 

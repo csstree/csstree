@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { parse, lexer } = require('./helpers/lib');
+import assert from 'assert';
+import { parse, lexer } from './helpers/lib.js';
 
 describe('lexer match result', () => {
     let testNode;

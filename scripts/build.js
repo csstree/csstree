@@ -1,11 +1,15 @@
-const path = require('path');
-const esbuild = require('esbuild');
-const { lexer } = require('../lib');
+import path from 'path';
+import esbuild from 'esbuild';
+import csstree from '../lib/index.js';
+import { createRequire } from 'module';
+
+const { lexer } = csstree;
+const { version } = createRequire(import.meta.url)('../package.json');
 
 async function build() {
     const genModules = {
-        [path.resolve('data/index.js')]: () => `module.exports = ${JSON.stringify(lexer.dump(), null, 4)};`,
-        [path.resolve('package.json')]: () => `module.exports = { "version": "${require('../package.json').version}" }`
+        [path.resolve('data/index.js')]: () => `export default ${JSON.stringify(lexer.dump(), null, 4)};`,
+        [path.resolve('lib/version.js')]: () => `export const version = "${version}";`
     };
     const genModulesFilter = new RegExp('(' + Object.keys(genModules).join('|').replace(/\./g, '\\.') + ')$');
     const genModuleCache = new Map();
@@ -28,7 +32,7 @@ async function build() {
     esbuild.build({
         entryPoints: ['lib/index.js'],
         outfile: 'dist/csstree.js',
-        format: 'cjs',
+        format: 'esm',
         bundle: true,
         logLevel: 'info',
         plugins
@@ -37,7 +41,7 @@ async function build() {
     esbuild.build({
         entryPoints: ['lib/index.js'],
         outfile: 'dist/csstree.min.js',
-        format: 'cjs',
+        format: 'esm',
         bundle: true,
         logLevel: 'info',
         minify: true,

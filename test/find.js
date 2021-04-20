@@ -1,6 +1,7 @@
-const assert = require('assert');
-const { parse, find, findLast, findAll } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
+import assert from 'assert';
+import { parse, find, findLast, findAll } from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+
 const values = lazyValues({
     ast: () => parse(`
         .foo { color: red; background: green; }

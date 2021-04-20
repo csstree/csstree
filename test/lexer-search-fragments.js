@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { parse, generate, lexer } = require('./helpers/lib');
+import assert from 'assert';
+import { parse, generate, lexer } from './helpers/lib.js';
 
 function translateFragments(fragments) {
     return fragments.map(fragment => generate({

@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { parse, generate, fork } = require('./helpers/lib');
+import assert from 'assert';
+import { parse, generate, fork } from './helpers/lib.js';
 
 describe('Lexer#match()', () => {
     const customSyntax = fork(prev => ({

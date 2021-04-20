@@ -1,4 +1,4 @@
-function lazyValues(dict) {
+export function lazyValues(dict) {
     const result = Object.create(null);
 
     for (const [key, compute] of Object.entries(dict)) {
@@ -13,8 +13,4 @@ function lazyValues(dict) {
     }
 
     return result;
-};
-
-module.exports = {
-    lazyValues
 };

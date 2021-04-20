@@ -1,7 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const assert = require('assert');
-const { parse, walk, fork, version } = require('./helpers/lib');
+import fs from 'fs';
+import path from 'path';
+import assert from 'assert';
+import { parse, walk, fork, version } from './helpers/lib.js';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const fixtureFilename = '/fixture/stringify.css';
 const fixture = normalize(fs.readFileSync(__dirname + fixtureFilename, 'utf-8'));;
 const types = Object.keys(parse.config.node).sort()
@@ -13,7 +16,7 @@ function normalize(str) {
 
 describe('Common', () => {
     it('should expose version', () => {
-        assert.strictEqual(version, require('../package.json').version);
+        assert.strictEqual(version, JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'))).version);
     });
 
     it('JSON.strigify()', () => {

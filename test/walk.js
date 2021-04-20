@@ -1,8 +1,9 @@
-const assert = require('assert');
-const path = require('path');
-const { lazyValues } = require('./helpers');
-const { parse, walk } = require('./helpers/lib');
-const { tests, forEachTest: forEachAstTest } = require('./fixture/ast');
+import assert from 'assert';
+import path from 'path';
+import { lazyValues } from './helpers/index.js';
+import { parse, walk } from './helpers/lib.js';
+import { tests, forEachTest as forEachAstTest } from './fixture/ast/index.js';
+
 const notInsideAtrulePrelude = stack => stack.every(node => node.type !== 'AtrulePrelude');
 const testWithRules = Object.keys(tests)
     .map(function(filename) {
@@ -560,7 +561,7 @@ describe('AST traversal', () => {
         it('should throws when visit has wrong value', () => {
             assert.throws(
                 () => walk(ast, { visit: 'Foo' }),
-                /Bad value `Foo` for `visit` option \(should be: AnPlusB, Atrule, AtrulePrelude, AttributeSelector, Block, Brackets, CDC, CDO, ClassSelector, Combinator, Comment, Declaration, DeclarationList, Dimension, Function, Hash, Identifier, IdSelector, MediaFeature, MediaQuery, MediaQueryList, Nth, Number, Operator, Parentheses, Percentage, PseudoClassSelector, PseudoElementSelector, Ratio, Raw, Rule, Selector, SelectorList, String, StyleSheet, TypeSelector, UnicodeRange, Url, Value, WhiteSpace\)/
+                /Bad value `Foo` for `visit` option \(should be: AnPlusB, Atrule, AtrulePrelude, AttributeSelector, Block, Brackets, CDC, CDO, ClassSelector, Combinator, Comment, Declaration, DeclarationList, Dimension, Function, Hash, IdSelector, Identifier, MediaFeature, MediaQuery, MediaQueryList, Nth, Number, Operator, Parentheses, Percentage, PseudoClassSelector, PseudoElementSelector, Ratio, Raw, Rule, Selector, SelectorList, String, StyleSheet, TypeSelector, UnicodeRange, Url, Value, WhiteSpace\)/
             );
         });
     });

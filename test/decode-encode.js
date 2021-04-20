@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { ident, string, url } = require('./helpers/lib');
+import assert from 'assert';
+import { ident, string, url } from './helpers/lib.js';
 
 function forEachTest(tests, func) {
     Object.keys(tests).forEach((from, idx) => {

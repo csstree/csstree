@@ -1,8 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-const parseJSON = require('json-to-ast');
+import fs from 'fs';
+import path from 'path';
+import parseJSON from 'json-to-ast';
+import { fileURLToPath } from 'url';
 
-module.exports = class JsonLocator {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export class JsonLocator {
     constructor(filename) {
         let ast = null;
 

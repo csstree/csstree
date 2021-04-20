@@ -1,5 +1,7 @@
-const assert = require('assert');
-const { lexer, definitionSyntax: { parse, generate } } = require('./helpers/lib');
+import assert from 'assert';
+import { lexer, definitionSyntax } from './helpers/lib.js';
+
+const { parse, generate } = definitionSyntax;
 const assertGenerateParseRoundTrip = (syntax) => assert.deepStrictEqual(parse(generate(syntax)), syntax);
 
 function createParseGenerateTest(test) {

@@ -1,11 +1,14 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const checkUpdatesNeeded = process.argv[2] === '--lint';
 
-fs.readdirSync(path.resolve(__dirname, 'docs')).forEach(function(filename) {
+fs.readdirSync(path.join(__dirname, 'docs')).forEach(async (filename) => {
     const name = path.basename(filename);
-    const docsFilename = path.resolve(__dirname, '../docs', name.replace(/\.js$/, '.md'));
-    const updateFn = require('./docs/' + filename);
+    const docsFilename = path.join(__dirname, '../docs', name.replace(/\.js$/, '.md'));
+    const { default: updateFn } = await import('./docs/' + filename);
 
     if (!checkUpdatesNeeded) {
         console.log('Synchronizing ' + docsFilename);

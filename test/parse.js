@@ -1,6 +1,9 @@
-const assert = require('assert');
-const { parse, walk, List } = require('./helpers/lib');
-const forEachAstTest = require('./fixture/ast').forEachTest;
+import assert from 'assert';
+import { parse, walk, List } from './helpers/lib.js';
+import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 const genericTypesFixture = require('./fixture/definition-syntax-match/generic.json');
 const stringifyWithNoLoc = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 

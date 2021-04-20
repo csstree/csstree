@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { keyword, property, isCustomProperty, vendorPrefix } = require('./helpers/lib');
+import assert from 'assert';
+import { keyword, property, isCustomProperty, vendorPrefix } from './helpers/lib.js';
 
 describe('names utils', () => {
     describe('keyword', () => {
@@ -15,7 +15,9 @@ describe('names utils', () => {
 
         it('result should be immutable', () => {
             const data = keyword('test');
-            data.name = 'xxx';
+            try {
+                data.name = 'xxx';
+            } catch {}
             assert.deepStrictEqual(data, {
                 name: 'test',
                 basename: 'test',
@@ -101,7 +103,9 @@ describe('names utils', () => {
 
         it('result should be immutable', () => {
             const data = property('test');
-            data.name = 'xxx';
+            try {
+                data.name = 'xxx';
+            } catch {}
             assert.deepStrictEqual(data, {
                 name: 'test',
                 basename: 'test',

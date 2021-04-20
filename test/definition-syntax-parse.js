@@ -1,5 +1,7 @@
-const assert = require('assert');
-const { lexer, definitionSyntax: { parse } } = require('./helpers/lib');
+import assert from 'assert';
+import { lexer, definitionSyntax } from './helpers/lib.js';
+
+const { parse } = definitionSyntax;
 
 describe('definitionSyntax.parse()', () => {
     describe('combinator precedence', () => {

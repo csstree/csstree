@@ -1,6 +1,9 @@
-const fs = require('fs');
-const path = require('path');
-const JsonLocator = require('../../helpers/JsonLocator.js');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { JsonLocator } from '../../helpers/JsonLocator.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function ensureArray(value) {
     return Array.isArray(value) ? value : [];
@@ -24,7 +27,7 @@ function processTests(tests, key, type, locator) {
     });
 }
 
-function forEachTest(testType, factory) {
+export function forEachTest(testType, factory) {
     for (const filename in tests) {
         const file = tests[filename];
 
@@ -37,7 +40,7 @@ function forEachTest(testType, factory) {
     };
 }
 
-const tests = fs.readdirSync(__dirname).reduce(function(result, filename) {
+export const tests = fs.readdirSync(__dirname).reduce(function(result, filename) {
     const absFilename = path.join(__dirname, filename);
 
     if (path.extname(filename) !== '.json' || fs.statSync(absFilename).isDirectory()) {
@@ -45,7 +48,7 @@ const tests = fs.readdirSync(__dirname).reduce(function(result, filename) {
     }
 
     const locator = new JsonLocator(absFilename);
-    const tests = require(absFilename);
+    const tests = JSON.parse(fs.readFileSync(absFilename));
     const type = path.basename(filename, '.json').replace(
         /^(.+)-token$/,
         (_, type) => camelize(type)
@@ -59,8 +62,3 @@ const tests = fs.readdirSync(__dirname).reduce(function(result, filename) {
 
     return result;
 }, {});
-
-module.exports = {
-    forEachTest,
-    tests
-};
