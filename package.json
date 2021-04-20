@@ -29,10 +29,10 @@
     "update:docs": "node scripts/update-docs",
     "review:syntax-patch": "node scripts/review-syntax-patch",
     "test": "mocha --reporter ${REPORTER:-progress}",
-    "test:dist": "MODE=dist npm test && MODE=dist-min npm test",
-    "coverage": "nyc npm test",
-    "travis": "npm run lint && nyc npm run test && npm run build-and-test && npm run coveralls",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test:dist": "echo \"MODE=dist npm test && MODE=dist-min npm test\"",
+    "coverage": "c8 npm test",
+    "travis": "npm run lint && npm run coverage && npm run build-and-test && npm run coveralls",
+    "coveralls": "c8 report --reporter=text-lcov | coveralls",
     "prepublishOnly": "npm run build",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
   },
@@ -41,13 +41,13 @@
     "source-map": "^0.6.1"
   },
   "devDependencies": {
+    "c8": "^7.7.1",
     "clap": "^2.0.1",
     "coveralls": "^3.1.0",
-    "esbuild": "^0.11.2",
-    "eslint": "^6.8.0",
+    "esbuild": "^0.11.12",
+    "eslint": "^7.24.0",
     "json-to-ast": "^2.1.0",
-    "mocha": "^8.3.2",
-    "nyc": "^15.1.0"
+    "mocha": "^8.3.2"
   },
   "engines": {
     "node": "^14.16.0 || >=15.0.0"
