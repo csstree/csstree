@@ -83,7 +83,7 @@
         {
             "source": ":pseudo({}",
             "offset": "          ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":lang(var(--test)) {}",
@@ -118,17 +118,17 @@
         {
             "source": ".a",
             "offset": "  ^",
-            "error": "LeftCurlyBracket is expected"
+            "error": "\"{\" is expected"
         },
         {
             "source": ".a \n    ",
             "offset": "  ^",
-            "error": "LeftCurlyBracket is expected"
+            "error": "\"{\" is expected"
         },
         {
             "source": "  \n   \n.a \n    ",
             "offset": "         ^",
-            "error": "LeftCurlyBracket is expected"
+            "error": "\"{\" is expected"
         },
         {
             "source": ".foo { var(--side): 20px }",

@@ -62,7 +62,7 @@
         {
             "source": "::slotted(.a{)",
             "offset": "            ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": "::slotted(,.b)",
@@ -72,7 +72,7 @@
         {
             "source": "::slotted(.a,)",
             "offset": "            ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": "::slotted(var(--test))",
@@ -82,7 +82,7 @@
         {
             "source": "::slotted(foo,bar)",
             "offset": "             ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         }
     ]
 }

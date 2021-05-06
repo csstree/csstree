@@ -176,7 +176,7 @@
         {
             "source": "(foo: bar baz)",
             "offset": "          ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": "(foo: 'foo')",

@@ -127,7 +127,7 @@
         {
             "source": ":matches(.a{)",
             "offset": "           ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":matches(,.b)",
@@ -147,7 +147,7 @@
         {
             "source": ":matches(.a,.b{)",
             "offset": "              ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":matches(var(--test))",

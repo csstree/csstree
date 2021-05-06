@@ -127,7 +127,7 @@
         {
             "source": ":not(.a{)",
             "offset": "       ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":not(,.b)",
@@ -147,7 +147,7 @@
         {
             "source": ":not(.a,.b{)",
             "offset": "          ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":not(var(--test))",

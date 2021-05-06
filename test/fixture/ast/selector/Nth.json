@@ -493,7 +493,7 @@
         {
             "source": ":nth-child(3 n)",
             "offset": "             ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":nth-child(+ 2n)",

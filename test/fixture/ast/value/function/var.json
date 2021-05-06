@@ -395,7 +395,7 @@
     "should be a error here (since unmatched tokens are disallowed), but ok for now": {
         "source": "var(--name, ()])",
         "offset": "              ^",
-        "_error": "RightParenthesis is expected",
+        "_error": ")-token is expected",
         "ast": {
             "type": "Function",
             "name": "var",
@@ -446,12 +446,12 @@
         {
             "source": "var(--name, !important ())",
             "offset": "            ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": "var(--name, foo; bar)",
             "offset": "               ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         }
     ]
 }

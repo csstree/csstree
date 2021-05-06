@@ -4,17 +4,17 @@
         {
             "value": "url('foo')",
             "tokens": [
-                { "type": "Function", "chunk": "url(" },
-                { "type": "String", "chunk": "'foo'" },
-                { "type": "RightParenthesis", "chunk": ")" }
+                { "type": "function-token", "chunk": "url(" },
+                { "type": "string-token", "chunk": "'foo'" },
+                { "type": ")-token", "chunk": ")" }
             ]
         },
         {
             "value": "url(\"foo\")",
             "tokens": [
-                { "type": "Function", "chunk": "url(" },
-                { "type": "String", "chunk": "\"foo\"" },
-                { "type": "RightParenthesis", "chunk": ")" }
+                { "type": "function-token", "chunk": "url(" },
+                { "type": "string-token", "chunk": "\"foo\"" },
+                { "type": ")-token", "chunk": ")" }
             ]
         }
     ],

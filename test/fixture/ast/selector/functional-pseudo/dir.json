@@ -48,7 +48,7 @@
         {
             "source": ":dir(foo var)",
             "offset": "         ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         }
     ]
 }

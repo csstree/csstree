@@ -6,37 +6,37 @@ describe('tokenize/stream', () => {
     const createStream = source => new TokenStream(source, tokenize);
     const css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}<!--<-->\\\n';
     const tokens = [
-        { type: 'Delim', chunk: '.', balance: 93 },
-        { type: 'Ident', chunk: 'test', balance: 93 },
-        { type: 'WhiteSpace', chunk: '\n', balance: 93 },
-        { type: 'LeftCurlyBracket', chunk: '{', balance: 25 },
-        { type: 'WhiteSpace', chunk: '\n  ', balance: 25 },
-        { type: 'Ident', chunk: 'prop', balance: 25 },
-        { type: 'Colon', chunk: ':', balance: 25 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
-        { type: 'Url', chunk: 'url(foo/bar.jpg)', balance: 25 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
-        { type: 'Url', chunk: 'url( a\\(\\33 \\).\\ \\"\\\'test )', balance: 25 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
-        { type: 'Function', chunk: 'calc(', balance: 18 },
-        { type: 'Number', chunk: '1', balance: 18 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 18 },
-        { type: 'Delim', chunk: '+', balance: 18 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 18 },
-        { type: 'Number', chunk: '1', balance: 18 },
-        { type: 'RightParenthesis', chunk: ')', balance: 12 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
-        { type: 'Ident', chunk: '\\x', balance: 25 },
-        { type: 'WhiteSpace', chunk: ' ', balance: 25 },
-        { type: 'Ident', chunk: '\\aa ', balance: 25 },
-        { type: 'Semicolon', chunk: ';', balance: 25 },
-        { type: 'WhiteSpace', chunk: '\n', balance: 25 },
-        { type: 'RightCurlyBracket', chunk: '}', balance: 3 },
-        { type: 'CDO', chunk: '<!--', balance: 93 },
-        { type: 'Delim', chunk: '<', balance: 93 },
-        { type: 'CDC', chunk: '-->', balance: 93 },
-        { type: 'Delim', chunk: '\\', balance: 93 },
-        { type: 'WhiteSpace', chunk: '\n', balance: 93 }
+        { type: 'delim-token', chunk: '.', balance: 93 },
+        { type: 'ident-token', chunk: 'test', balance: 93 },
+        { type: 'whitespace-token', chunk: '\n', balance: 93 },
+        { type: '{-token', chunk: '{', balance: 25 },
+        { type: 'whitespace-token', chunk: '\n  ', balance: 25 },
+        { type: 'ident-token', chunk: 'prop', balance: 25 },
+        { type: 'colon-token', chunk: ':', balance: 25 },
+        { type: 'whitespace-token', chunk: ' ', balance: 25 },
+        { type: 'url-token', chunk: 'url(foo/bar.jpg)', balance: 25 },
+        { type: 'whitespace-token', chunk: ' ', balance: 25 },
+        { type: 'url-token', chunk: 'url( a\\(\\33 \\).\\ \\"\\\'test )', balance: 25 },
+        { type: 'whitespace-token', chunk: ' ', balance: 25 },
+        { type: 'function-token', chunk: 'calc(', balance: 18 },
+        { type: 'number-token', chunk: '1', balance: 18 },
+        { type: 'whitespace-token', chunk: ' ', balance: 18 },
+        { type: 'delim-token', chunk: '+', balance: 18 },
+        { type: 'whitespace-token', chunk: ' ', balance: 18 },
+        { type: 'number-token', chunk: '1', balance: 18 },
+        { type: ')-token', chunk: ')', balance: 12 },
+        { type: 'whitespace-token', chunk: ' ', balance: 25 },
+        { type: 'ident-token', chunk: '\\x', balance: 25 },
+        { type: 'whitespace-token', chunk: ' ', balance: 25 },
+        { type: 'ident-token', chunk: '\\aa ', balance: 25 },
+        { type: 'semicolon-token', chunk: ';', balance: 25 },
+        { type: 'whitespace-token', chunk: '\n', balance: 25 },
+        { type: '}-token', chunk: '}', balance: 3 },
+        { type: 'CDO-token', chunk: '<!--', balance: 93 },
+        { type: 'delim-token', chunk: '<', balance: 93 },
+        { type: 'CDC-token', chunk: '-->', balance: 93 },
+        { type: 'delim-token', chunk: '\\', balance: 93 },
+        { type: 'whitespace-token', chunk: '\n', balance: 93 }
     ];
     const dump = tokens.map(({ type, chunk, balance }, idx) => ({
         idx,
@@ -132,7 +132,7 @@ describe('tokenize/stream', () => {
     it('skip()', () => {
         const stream = createStream(css);
         const targetTokens = tokens.filter(token =>
-            token.type === 'Ident' || token.type === 'Delim'
+            token.type === 'ident-token' || token.type === 'delim-token'
         );
         const actual = targetTokens
             .map(function(token, idx, idents) {
@@ -143,7 +143,7 @@ describe('tokenize/stream', () => {
                 return tokenNames[stream.tokenType];
             });
 
-        assert.strictEqual(actual.length, 8); // 4 x Indentifier + 4 x Delim
+        assert.strictEqual(actual.length, 8); // 4 x Indentifier + 4 x delim-token
         assert.deepStrictEqual(actual, targetTokens.map(token => token.type));
     });
 

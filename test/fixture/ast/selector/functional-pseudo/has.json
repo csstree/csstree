@@ -167,7 +167,7 @@
         {
             "source": ":has(.a{)",
             "offset": "       ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":has(,.b)",
@@ -187,7 +187,7 @@
         {
             "source": ":has(.a,.b{)",
             "offset": "          ^",
-            "error": "RightParenthesis is expected"
+            "error": "\")\" is expected"
         },
         {
             "source": ":has(var(--test))",

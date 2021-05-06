@@ -9,13 +9,6 @@ function ensureArray(value) {
     return Array.isArray(value) ? value : [];
 }
 
-function camelize(str) {
-    return str.replace(
-        /(^|-)(.)/g,
-        (_, prefix, ch) => prefix + ch.toUpperCase()
-    );
-}
-
 function processTests(tests, key, type, locator) {
     return ensureArray(tests[key]).map((value, idx) => {
         return {
@@ -49,10 +42,7 @@ export const tests = fs.readdirSync(__dirname).reduce(function(result, filename)
 
     const locator = new JsonLocator(absFilename);
     const tests = JSON.parse(fs.readFileSync(absFilename));
-    const type = path.basename(filename, '.json').replace(
-        /^(.+)-token$/,
-        (_, type) => camelize(type)
-    );
+    const type = path.basename(filename, '.json');
 
     result[filename] = {
         type,
