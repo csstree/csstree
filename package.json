@@ -20,6 +20,10 @@
   "main": "lib/index.js",
   "unpkg": "dist/csstree.min.js",
   "jsdelivr": "dist/csstree.min.js",
+  "browser": {
+    "./data/index.js": "./dist/default-syntax.js",
+    "./lib/version.js": "./dist/version.js"
+  },
   "scripts": {
     "build": "rollup --config",
     "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
@@ -39,7 +43,6 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "coveralls": "^3.0.9",
     "eslint": "^6.8.0",

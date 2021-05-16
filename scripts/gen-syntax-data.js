@@ -1,8 +1,14 @@
-var resultFilename = require('path').resolve(__dirname + '/../dist/default-syntax.json');
+var defaultFilename = require('path').resolve(__dirname + '/../dist/default-syntax.js');
 var defaultSyntax = require('../lib').lexer;
 
-console.log('Write data to ' + resultFilename);
-require('fs').writeFileSync(
-    resultFilename,
-    String(defaultSyntax)
-);
+module.exports = function writeFile(filename = defaultFilename) {
+    console.log('Write default syntax data to ' + filename);
+    require('fs').writeFileSync(
+        filename,
+        'module.exports = ' + String(defaultSyntax)
+    );
+};
+
+if (require.main === module) {
+    module.exports();
+}

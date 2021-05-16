@@ -1,3 +1,7 @@
+## next
+
+- Included definition syntax dictionary (`dist/default-syntax.js`) and version (`dist/version.js`) modules into package. This allows to reduce a bundle size when CSSTree is bundling by external bundler (not by repo scripts).
+
 ## 1.1.3 (March 31, 2021)
 
 - Fixed matching on CSS wide keywords for at-rule's prelude and descriptors
