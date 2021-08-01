@@ -1,10 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const createLexer = require('../../../lib').createLexer;
-const defaultLexer = require('../../../lib').lexer;
-const JsonLocator = require('../../helpers/JsonLocator.js');
+import fs from 'fs';
+import url from 'url';
+import path from 'path';
+import { createRequire } from 'module';
+import csstree from '../../../lib/index.js';
+import JsonLocator from '../../helpers/JsonLocator.js';
 
-function forEachTest(factory) {
+const require = createRequire(import.meta.url);
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const { createLexer, lexer: defaultLexer } = csstree;
+
+export function forEachTest(factory) {
     for (const filename in tests) {
         const file = tests[filename];
 
@@ -34,7 +39,7 @@ function forEachTest(factory) {
     }
 }
 
-function forEachAtrulePreludeTest(factory) {
+export function forEachAtrulePreludeTest(factory) {
     for (const atruleName in atruleTests) {
         const testset = atruleTests[atruleName];
 
@@ -60,7 +65,7 @@ function forEachAtrulePreludeTest(factory) {
     }
 }
 
-function forEachAtruleDescriptorTest(factory) {
+export function forEachAtruleDescriptorTest(factory) {
     for (const atruleName in atruleTests) {
         const testset = atruleTests[atruleName];
 
@@ -89,7 +94,7 @@ function forEachAtruleDescriptorTest(factory) {
     }
 }
 
-const tests = fs.readdirSync(__dirname).reduce(function(result, fn) {
+export const tests = fs.readdirSync(__dirname).reduce(function(result, fn) {
     if (fn !== 'index.js' && fn !== 'atrules.json') {
         const filename = path.join(__dirname, fn);
         const tests = require(filename);
@@ -105,7 +110,7 @@ const tests = fs.readdirSync(__dirname).reduce(function(result, fn) {
     return result;
 }, {});
 
-const atruleTests = (() => {
+export const atruleTests = (() => {
     const filename = path.join(__dirname, 'atrules.json');
     const tests = require(filename);
     const locator = new JsonLocator(filename);
@@ -116,11 +121,3 @@ const atruleTests = (() => {
 
     return tests;
 })();
-
-module.exports = {
-    forEachTest,
-    forEachAtrulePreludeTest,
-    forEachAtruleDescriptorTest,
-    tests,
-    atruleTests
-};

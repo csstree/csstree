@@ -1,17 +1,26 @@
-const fs = require('fs');
-const path = require('path');
-const assert = require('assert');
-const { parse, walk, fork, version } = require('./helpers/lib');
+import fs from 'fs';
+import url from 'url';
+import path from 'path';
+import assert from 'assert';
+import { createRequire } from 'module';
+import importLib from './helpers/lib.js';
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
+
 const fixtureFilename = '/fixture/stringify.css';
 const fixture = normalize(fs.readFileSync(__dirname + fixtureFilename, 'utf-8'));;
-const types = Object.keys(parse.config.node).sort()
-    .filter(type => type !== 'DeclarationList'); // DeclarationList doesn't appear in StyleSheet
 
 function normalize(str) {
     return str.replace(/\n|\r\n?|\f/g, '\n');
 }
 
-describe('Common', () => {
+describe('Common', async () => {
+    const { parse, walk, fork, version } = await importLib();
+
+    const types = Object.keys(parse.config.node).sort()
+        .filter(type => type !== 'DeclarationList'); // DeclarationList doesn't appear in StyleSheet
+
     it('should expose version', () => {
         assert.strictEqual(version, require('../package.json').version);
     });

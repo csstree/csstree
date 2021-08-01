@@ -1,20 +1,23 @@
-const assert = require('assert');
-const { parse, lexer, fork } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
-const fixture = require('./fixture/definition-syntax');
-const values = lazyValues({
-    animationName: () => parse('animation-name', { context: 'atrulePrelude', atrule: 'keyframes' }),
-    number: () => parse('123', { context: 'atrulePrelude', atrule: 'unknown' }),
-    customSyntax: () => fork({
-        atrules: {
-            '-foo-keyframes': {
-                prelude: '<number>'
-            }
-        }
-    })
-});
+import assert from 'assert';
+import importLib from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+import * as fixture from './fixture/definition-syntax/index.js';
 
-describe('Lexer#matchAtrulePrelude()', () => {
+describe('Lexer#matchAtrulePrelude()', async () => {
+    const { parse, lexer, fork } = await importLib();
+
+    const values = lazyValues({
+        animationName: () => parse('animation-name', { context: 'atrulePrelude', atrule: 'keyframes' }),
+        number: () => parse('123', { context: 'atrulePrelude', atrule: 'unknown' }),
+        customSyntax: () => fork({
+            atrules: {
+                '-foo-keyframes': {
+                    prelude: '<number>'
+                }
+            }
+        })
+    });
+
     it('should match', () => {
         const match = values.customSyntax.lexer.matchAtrulePrelude('keyframes', values.animationName);
 

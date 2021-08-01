@@ -1,7 +1,9 @@
-const assert = require('assert');
-const { lexer } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-describe('Lexer#checkPropertyName()', () => {
+describe('Lexer#checkPropertyName()', async () => {
+    const { lexer } = await importLib();
+
     it('should pass correct property', () => {
         assert.strictEqual(lexer.checkPropertyName('color'), undefined);
     });

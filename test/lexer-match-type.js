@@ -1,20 +1,23 @@
-const assert = require('assert');
-const { lazyValues } = require('./helpers');
-const { parse, fork } = require('./helpers/lib');
-const values = lazyValues({
-    singleNumber: () => parse('1', { context: 'value' }),
-    severalNumbers: () => parse('1, 2, 3', { context: 'value' }),
-    cssWideKeyword: () => parse('inherit', { context: 'value' }),
-    customSyntax: () => fork(prev => ({
-        ...prev,
-        types: {
-            foo: '<bar>#',
-            bar: '[ 1 | 2 | 3 ]'
-        }
-    }))
-});
+import assert from 'assert';
+import { lazyValues } from './helpers/index.js';
+import importLib from './helpers/lib.js';
 
-describe('Lexer#matchType()', () => {
+describe('Lexer#matchType()', async () => {
+    const { parse, fork } = await importLib();
+
+    const values = lazyValues({
+        singleNumber: () => parse('1', { context: 'value' }),
+        severalNumbers: () => parse('1, 2, 3', { context: 'value' }),
+        cssWideKeyword: () => parse('inherit', { context: 'value' }),
+        customSyntax: () => fork(prev => ({
+            ...prev,
+            types: {
+                foo: '<bar>#',
+                bar: '[ 1 | 2 | 3 ]'
+            }
+        }))
+    });
+
     it('should match type', () => {
         const match = values.customSyntax.lexer.matchType('bar', values.singleNumber);
 

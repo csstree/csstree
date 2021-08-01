@@ -1,31 +1,28 @@
-const assert = require('assert');
-const {
-    parse,
-    clone,
-    walk,
-    toPlainObject
-} = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-function createCloneTest(name, getAst) {
-    it(name, () => {
-        const ast = getAst();
-        const astCopy = clone(ast);
-        const astNodes = [];
-        let clonedNodeCount = 0;
-        let nonClonedNodeCount = 0;
+describe('clone()', async () => {
+    const { parse, clone, walk, toPlainObject } = await importLib();
 
-        walk(ast, node => astNodes.push(node));
-        walk(astCopy, node => {
-            clonedNodeCount++;
-            nonClonedNodeCount += astNodes.includes(node);
+    function createCloneTest(name, getAst) {
+        it(name, () => {
+            const ast = getAst();
+            const astCopy = clone(ast);
+            const astNodes = [];
+            let clonedNodeCount = 0;
+            let nonClonedNodeCount = 0;
+
+            walk(ast, node => astNodes.push(node));
+            walk(astCopy, node => {
+                clonedNodeCount++;
+                nonClonedNodeCount += astNodes.includes(node);
+            });
+
+            assert.strictEqual(clonedNodeCount, astNodes.length);
+            assert.strictEqual(nonClonedNodeCount, 0);
         });
+    }
 
-        assert.strictEqual(clonedNodeCount, astNodes.length);
-        assert.strictEqual(nonClonedNodeCount, 0);
-    });
-}
-
-describe('clone()', function() {
     createCloneTest('a regular AST', () =>
         parse('.test{color:red;}@media foo{div{color:green}}')
     );

@@ -1,34 +1,40 @@
-const assert = require('assert');
-const { parse, walk, List } = require('./helpers/lib');
-const forEachAstTest = require('./fixture/ast').forEachTest;
+import assert from 'assert';
+import { createRequire } from 'module';
+import importLib from './helpers/lib.js';
+import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
+
+const require = createRequire(import.meta.url);
 const genericTypesFixture = require('./fixture/definition-syntax-match/generic.json');
+
 const stringifyWithNoLoc = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 
-function createParseErrorTest(name, test, options) {
-    (test.skip ? it.skip : it)(`${name} ${JSON.stringify(test.source)}`, () => {
-        let error;
+describe('parse', async () => {
+    const { parse, walk, List } = await importLib();
 
-        assert.throws(
-            () => parse(test.source, options),
-            (e) => {
-                error = e;
-                if (e instanceof parse.SyntaxError === false) {
-                    return true;
-                }
-            },
-            'Should be a CSS parse error'
-        );
+    function createParseErrorTest(name, test, options) {
+        (test.skip ? it.skip : it)(`${name} ${JSON.stringify(test.source)}`, () => {
+            let error;
 
-        assert.strictEqual(error.message, test.error);
-        assert.deepStrictEqual({
-            offset: error.offset,
-            line: error.line,
-            column: error.column
-        }, test.position);
-    });
-}
+            assert.throws(
+                () => parse(test.source, options),
+                (e) => {
+                    error = e;
+                    if (e instanceof parse.SyntaxError === false) {
+                        return true;
+                    }
+                },
+                'Should be a CSS parse error'
+            );
 
-describe('parse', () => {
+            assert.strictEqual(error.message, test.error);
+            assert.deepStrictEqual({
+                offset: error.offset,
+                line: error.line,
+                column: error.column
+            }, test.position);
+        });
+    }
+
     describe('basic', () => {
         forEachAstTest((name, test) => {
             (test.skip ? it.skip : it)(name, () => {

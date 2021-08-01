@@ -1,16 +1,20 @@
-const assert = require('assert');
-const { lexer, definitionSyntax: { parse, generate } } = require('./helpers/lib');
-const assertGenerateParseRoundTrip = (syntax) => assert.deepStrictEqual(parse(generate(syntax)), syntax);
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-function createParseGenerateTest(test) {
-    it(test.source + (test.generate ? ' → ' + test.generate : ''), () => {
-        const actual = generate(parse(test.source));
+describe('definitionSyntax.generate()', async () => {
+    const { lexer, definitionSyntax: { parse, generate } } = await importLib();
 
-        assert.strictEqual(actual, test.generate || test.source);
-    });
-}
+    const assertGenerateParseRoundTrip = (syntax) => assert.deepStrictEqual(parse(generate(syntax)), syntax);
 
-describe('definitionSyntax.generate()', () => {
+    function createParseGenerateTest(test) {
+        it(test.source + (test.generate ? ' → ' + test.generate : ''), () => {
+            const actual = generate(parse(test.source));
+
+            assert.strictEqual(actual, test.generate || test.source);
+        });
+    }
+
+
     it('should throw an exception on bad node type', () =>
         assert.throws(
             () => generate({ type: 'Unknown' }),

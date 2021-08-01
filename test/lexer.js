@@ -1,7 +1,9 @@
-const assert = require('assert');
-const { lexer, createLexer, fork } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-describe('lexer', () => {
+describe('lexer', async () => {
+    const { lexer, createLexer, fork } = await importLib();
+
     it('should not override generic types when used', () => {
         const customLexer = createLexer({
             generic: true,

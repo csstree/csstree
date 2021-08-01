@@ -1,8 +1,10 @@
-const assert = require('assert');
-const { parse, lexer, fork } = require('./helpers/lib');
-const forEachAstTest = require('./fixture/ast').forEachTest;
+import assert from 'assert';
+import importLib from './helpers/lib.js';
+import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
 
-describe('Lexer#checkStructure()', () => {
+describe('Lexer#checkStructure()', async () => {
+    const { parse, lexer, fork } = await importLib();
+
     describe('structure in AST node definition', () => {
         it('should fail when no structure field in node definition', () => {
             assert.throws(

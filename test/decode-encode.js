@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { ident, string, url } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
 function forEachTest(tests, func) {
     Object.keys(tests).forEach((from, idx) => {
@@ -9,7 +9,9 @@ function forEachTest(tests, func) {
     });
 }
 
-describe('decode/encode', () => {
+describe('decode/encode', async () => {
+    const { ident, string, url } = await importLib();
+
     describe('string', () => {
         describe('decode', () => {
             const tests = {

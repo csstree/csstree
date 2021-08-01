@@ -1,7 +1,9 @@
-const assert = require('assert');
-const { keyword, property, isCustomProperty, vendorPrefix } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-describe('names utils', () => {
+describe('names utils', async () => {
+    const { keyword, property, isCustomProperty, vendorPrefix } = await importLib();
+
     describe('keyword', () => {
         it('base test', () => {
             assert.deepStrictEqual(keyword('test'), {
@@ -15,13 +17,10 @@ describe('names utils', () => {
 
         it('result should be immutable', () => {
             const data = keyword('test');
-            data.name = 'xxx';
-            assert.deepStrictEqual(data, {
-                name: 'test',
-                basename: 'test',
-                prefix: '',
-                vendor: '',
-                custom: false
+            assert.throws(() => {
+              data.name = 'xxx';
+            }, {
+              message: /Cannot assign to read only property 'name' of object/
             });
         });
 
@@ -101,14 +100,10 @@ describe('names utils', () => {
 
         it('result should be immutable', () => {
             const data = property('test');
-            data.name = 'xxx';
-            assert.deepStrictEqual(data, {
-                name: 'test',
-                basename: 'test',
-                custom: false,
-                prefix: '',
-                hack: '',
-                vendor: ''
+            assert.throws(() => {
+                data.name = 'xxx';
+            }, {
+              message: /Cannot assign to read only property 'name' of object/
             });
         });
 

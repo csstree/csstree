@@ -1,8 +1,9 @@
-const assert = require('assert');
-const path = require('path');
-const { lazyValues } = require('./helpers');
-const { parse, walk } = require('./helpers/lib');
-const { tests, forEachTest: forEachAstTest } = require('./fixture/ast');
+import assert from 'assert';
+import path from 'path';
+import { lazyValues } from './helpers/index.js';
+import importLib from './helpers/lib.js';
+import { tests, forEachTest as forEachAstTest } from './fixture/ast/index.js';
+
 const notInsideAtrulePrelude = stack => stack.every(node => node.type !== 'AtrulePrelude');
 const testWithRules = Object.keys(tests)
     .map(function(filename) {
@@ -13,85 +14,87 @@ const testWithRules = Object.keys(tests)
     })
     .filter(Boolean);
 
-function expectedWalk(ast, enter, leave, checker = Boolean) {
-    function walk(node) {
-        if (enter && checker(stack, node)) {
-            result.push(node.type);
-        }
+describe('AST traversal', async () => {
+    const { parse, walk } = await importLib();
 
-        stack.push(node);
-        for (const value of Object.values(node)) {
-            if (Array.isArray(value)) {
-                value.forEach(walk);
-            } else if (value && typeof value === 'object') {
-                walk(value);
+    function expectedWalk(ast, enter, leave, checker = Boolean) {
+        function walk(node) {
+            if (enter && checker(stack, node)) {
+                result.push(node.type);
+            }
+
+            stack.push(node);
+            for (const value of Object.values(node)) {
+                if (Array.isArray(value)) {
+                    value.forEach(walk);
+                } else if (value && typeof value === 'object') {
+                    walk(value);
+                }
+            }
+            stack.pop();
+
+            if (leave && checker(stack, node)) {
+                result.push(node.type);
             }
         }
-        stack.pop();
 
-        if (leave && checker(stack, node)) {
-            result.push(node.type);
-        }
+        const result = [];
+        const stack = [];
+
+        walk(ast);
+
+        return result;
     }
 
-    const result = [];
-    const stack = [];
+    function createWalkTest(name, test, context, walker, enter, leave) {
+        (test.skip ? it.skip : it)(name, () => {
+            const actual = [];
+            const ast = parse(test.source, test.options);
 
-    walk(ast);
+            walker(ast, node => actual.push(node.type));
 
-    return result;
-}
+            // type arrays should be equal
+            assert.deepStrictEqual(
+                actual,
+                expectedWalk(test.ast, enter, leave)
+            );
+        });
+    }
 
-function createWalkTest(name, test, context, walker, enter, leave) {
-    (test.skip ? it.skip : it)(name, () => {
-        const actual = [];
-        const ast = parse(test.source, test.options);
+    function createWalkVisitTest(test, visitType, walker) {
+        (test.skip ? it.skip : it)(test.name, () => {
+            const actual = [];
+            const ast = parse(test.source, test.options);
 
-        walker(ast, node => actual.push(node.type));
+            walker(ast, node => actual.push(node.type));
 
-        // type arrays should be equal
-        assert.deepStrictEqual(
-            actual,
-            expectedWalk(test.ast, enter, leave)
-        );
-    });
-}
+            // type arrays should be equal
+            assert.deepStrictEqual(
+                actual.sort(),
+                expectedWalk(test.ast, true, false)
+                    .filter(type => type === visitType)
+                    .sort()
+            );
+        });
+    }
 
-function createWalkVisitTest(test, visitType, walker) {
-    (test.skip ? it.skip : it)(test.name, () => {
-        const actual = [];
-        const ast = parse(test.source, test.options);
+    function createWalkDeclarationsTest(test, context, walker) {
+        (test.skip ? it.skip : it)(test.name, () => {
+            const actual = [];
+            const ast = parse(test.source, test.options);
 
-        walker(ast, node => actual.push(node.type));
+            walker(ast, node => actual.push(node.type));
 
-        // type arrays should be equal
-        assert.deepStrictEqual(
-            actual.sort(),
-            expectedWalk(test.ast, true, false)
-                .filter(type => type === visitType)
-                .sort()
-        );
-    });
-}
+            // type arrays should be equal
+            assert.deepStrictEqual(
+                actual.sort(),
+                expectedWalk(test.ast, false, true, notInsideAtrulePrelude)
+                    .filter(type => type === 'Declaration')
+                    .sort()
+            );
+        });
+    }
 
-function createWalkDeclarationsTest(test, context, walker) {
-    (test.skip ? it.skip : it)(test.name, () => {
-        const actual = [];
-        const ast = parse(test.source, test.options);
-
-        walker(ast, node => actual.push(node.type));
-
-        // type arrays should be equal
-        assert.deepStrictEqual(
-            actual.sort(),
-            expectedWalk(test.ast, false, true, notInsideAtrulePrelude)
-                .filter(type => type === 'Declaration')
-                .sort()
-        );
-    });
-}
-
-describe('AST traversal', () => {
     it('base test', () => {
         const ast = parse('@import url("test");@media (min-width: 200px) { .foo:nth-child(2n) { color: rgb(100%, 10%, 0%); width: calc(3px + 5%); content: "test" } }');
         const visitedTypes = new Set();

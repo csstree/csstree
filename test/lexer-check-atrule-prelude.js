@@ -1,7 +1,9 @@
-const assert = require('assert');
-const { lexer } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-describe('Lexer#checkAtrulePrelude()', () => {
+describe('Lexer#checkAtrulePrelude()', async () => {
+    const { lexer } = await importLib();
+
     it('should fail on invalid atrule', () => {
         const error = lexer.checkAtrulePrelude('foo');
         assert.strictEqual(error.name, 'SyntaxReferenceError');

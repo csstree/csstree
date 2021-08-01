@@ -1,9 +1,10 @@
-const assert = require('assert');
-const List = require('../lib/common/List');
-const parse = require('../lib/parser');
-const walk = require('../lib/walker');
-const generate = require('../lib/generator');
-const convertor = require('../lib/convertor');
+import assert from 'assert';
+import List from '../lib/common/List.js';
+import parse from '../lib/parser/index.js';
+import walk from '../lib/walker/index.js';
+import generate from '../lib/generator/index.js';
+import convertor from '../lib/convertor/index.js';
+
 const stringifyWithNoInfo = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 
 const css = '.a{}';

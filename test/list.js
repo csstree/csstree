@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { List } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
 function getFirstArg(data) {
     return data;
@@ -99,7 +99,7 @@ function createIteratorTests(list, method, items, until, retValue) {
     });
 }
 
-function createIteratorWithModificationTests(list, method, items, until, retValue) {
+function createIteratorWithModificationTests(List, list, method, items, until, retValue) {
     const iterate = until !== undefined
         ? function(list, ...args) {
             let untilCopy = null;
@@ -176,7 +176,9 @@ function createIteratorWithModificationTests(list, method, items, until, retValu
     });
 }
 
-describe('List', () => {
+describe('List', async () => {
+    const { List } = await importLib();
+
     const foo = {};
     const bar = {};
     let empty;
@@ -251,13 +253,13 @@ describe('List', () => {
     describe('#forEach()', () => {
         const iterateList = new List().fromArray([foo, bar]);
         createIteratorTests(iterateList, 'forEach', [iterateList.head, iterateList.tail]);
-        createIteratorWithModificationTests(iterateList, 'forEach', [iterateList.head, iterateList.tail]);
+        createIteratorWithModificationTests(List, iterateList, 'forEach', [iterateList.head, iterateList.tail]);
     });
 
     describe('#forEachRight()', () => {
         const iterateList = new List().fromArray([foo, bar]);
         createIteratorTests(iterateList, 'forEachRight', [iterateList.tail, iterateList.head]);
-        createIteratorWithModificationTests(iterateList, 'forEachRight', [iterateList.tail, iterateList.head]);
+        createIteratorWithModificationTests(List, iterateList, 'forEachRight', [iterateList.tail, iterateList.head]);
     });
 
     it('#reduce()', function() {
@@ -298,7 +300,7 @@ describe('List', () => {
 
         const iterateList = new List().fromArray([foo, bar]);
         createIteratorTests(iterateList, 'nextUntil', [iterateList.head, iterateList.tail], iterateList.head);
-        createIteratorWithModificationTests(iterateList, 'nextUntil', [iterateList.head, iterateList.tail], iterateList.head);
+        createIteratorWithModificationTests(List, iterateList, 'nextUntil', [iterateList.head, iterateList.tail], iterateList.head);
     });
 
     describe('#prevUntil()', () => {
@@ -325,7 +327,7 @@ describe('List', () => {
 
         const iterateList = new List().fromArray([foo, bar]);
         createIteratorTests(iterateList, 'prevUntil', [iterateList.tail, iterateList.head], iterateList.tail);
-        createIteratorWithModificationTests(iterateList, 'prevUntil', [iterateList.tail, iterateList.head], iterateList.tail);
+        createIteratorWithModificationTests(List, iterateList, 'prevUntil', [iterateList.tail, iterateList.head], iterateList.tail);
     });
 
     describe('#some()', () => {

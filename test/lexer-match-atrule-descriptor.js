@@ -1,26 +1,29 @@
-const assert = require('assert');
-const { parse, lexer, fork } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
-const fixture = require('./fixture/definition-syntax');
-const values = lazyValues({
-    swapValue: () => parse('swap', { context: 'value' }),
-    xxxValue: () => parse('xxx', { context: 'value' }),
-    inherit: () => parse('inherit', { context: 'value' }),
-    fontDisplaySyntax: () => 'auto | block | swap | fallback | optional',
-    customSyntax: () => fork(prev => ({
-        ...prev,
-        atrules: {
-            'font-face': {
-                descriptors: {
-                    'font-display': values.fontDisplaySyntax,
-                    '-foo-font-display': `${values.fontDisplaySyntax} | xxx`
+import assert from 'assert';
+import importLib from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+import * as fixture from './fixture/definition-syntax/index.js';
+
+describe('Lexer#matchAtruleDescriptor()', async () => {
+    const { parse, lexer, fork } = await importLib();
+
+    const values = lazyValues({
+        swapValue: () => parse('swap', { context: 'value' }),
+        xxxValue: () => parse('xxx', { context: 'value' }),
+        inherit: () => parse('inherit', { context: 'value' }),
+        fontDisplaySyntax: () => 'auto | block | swap | fallback | optional',
+        customSyntax: () => fork(prev => ({
+            ...prev,
+            atrules: {
+                'font-face': {
+                    descriptors: {
+                        'font-display': values.fontDisplaySyntax,
+                        '-foo-font-display': `${values.fontDisplaySyntax} | xxx`
+                    }
                 }
             }
-        }
-    }))
-});
+        }))
+    });
 
-describe('Lexer#matchAtruleDescriptor()', () => {
     it('should match', () => {
         const match = values.customSyntax.lexer.matchAtruleDescriptor('font-face', 'font-display', values.swapValue);
 

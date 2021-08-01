@@ -1,7 +1,9 @@
-const assert = require('assert');
-const { lexer, definitionSyntax: { parse } } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-describe('definitionSyntax.parse()', () => {
+describe('definitionSyntax.parse()', async () => {
+    const { lexer, definitionSyntax: { parse } } = await importLib();
+
     describe('combinator precedence', () => {
         const combinators = [' ', '&&', '||', '|']; // higher goes first
         const print = node => {

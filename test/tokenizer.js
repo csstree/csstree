@@ -1,8 +1,10 @@
-const assert = require('assert');
-const { TokenStream, tokenize } = require('./helpers/lib');
-const fixture = require('./fixture/tokenize');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
+import * as fixture from './fixture/tokenize/index.js';
 
-describe('tokenize/stream', () => {
+describe('tokenize/stream', async () => {
+    const { TokenStream, tokenize } = await importLib();
+
     const createStream = source => new TokenStream(source, tokenize);
     const css = '.test\n{\n  prop: url(foo/bar.jpg) url( a\\(\\33 \\).\\ \\"\\\'test ) calc(1 + 1) \\x \\aa ;\n}<!--<-->\\\n';
     const tokens = [

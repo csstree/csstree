@@ -1,8 +1,13 @@
-const fs = require('fs');
-const path = require('path');
-const JsonLocator = require('../../helpers/JsonLocator.js');
+import fs from 'fs';
+import url from 'url';
+import path from 'path';
+import { createRequire } from 'module';
+import JsonLocator from '../../helpers/JsonLocator.js';
 
-function forEachTest(factory) {
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
+
+export function forEachTest(factory) {
     for (const filename in tests) {
         const file = tests[filename];
 
@@ -12,7 +17,7 @@ function forEachTest(factory) {
     };
 }
 
-const tests = fs.readdirSync(__dirname).reduce((result, fn) => {
+export const tests = fs.readdirSync(__dirname).reduce((result, fn) => {
     if (fn !== 'index.js') {
         const filename = path.join(__dirname, fn);
         const tests = require(filename);
@@ -27,8 +32,3 @@ const tests = fs.readdirSync(__dirname).reduce((result, fn) => {
 
     return result;
 }, {});
-
-module.exports = {
-    forEachTest,
-    tests
-};

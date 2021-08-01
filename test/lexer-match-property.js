@@ -1,20 +1,7 @@
-const assert = require('assert');
-const { parse, lexer, fork } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
-const fixture = require('./fixture/definition-syntax');
-const values = lazyValues({
-    bar: () => parse('bar', { context: 'value' }),
-    qux: () => parse('qux', { context: 'value' }),
-    inherit: () => parse('inherit', { context: 'value' }),
-    customSyntax: () => fork(function(prev, assign) {
-        return assign(prev, {
-            properties: {
-                foo: 'bar',
-                '-baz-foo': 'qux'
-            }
-        });
-    })
-});
+import assert from 'assert';
+import importLib from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
+import * as fixture from './fixture/definition-syntax/index.js';
 
 function getMatch(lexer, property, value, syntax) {
     return syntax
@@ -22,7 +9,23 @@ function getMatch(lexer, property, value, syntax) {
         : lexer.matchProperty(property, value);
 }
 
-describe('Lexer#matchProperty()', () => {
+describe('Lexer#matchProperty()', async () => {
+    const { parse, lexer, fork } = await importLib();
+
+    const values = lazyValues({
+        bar: () => parse('bar', { context: 'value' }),
+        qux: () => parse('qux', { context: 'value' }),
+        inherit: () => parse('inherit', { context: 'value' }),
+        customSyntax: () => fork(function(prev, assign) {
+            return assign(prev, {
+                properties: {
+                    foo: 'bar',
+                    '-baz-foo': 'qux'
+                }
+            });
+        })
+    });
+
     describe('vendor prefixes and hacks', () => {
         it('vendor prefix', () => {
             const match = values.customSyntax.lexer.matchProperty('-vendor-foo', values.bar);

@@ -1,10 +1,12 @@
-const assert = require('assert');
-const { parse, tokenize: { TYPE }, toPlainObject, fork } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
 const DollarSign = 0x0024; // U+0024 DOLLAR SIGN ($)
 const Ampersand = 0x0026;  // U+0026 ANPERSAND (&)
 
-describe('extension', () => {
+describe('extension', async () => {
+    const { parse, tokenize: { TYPE }, toPlainObject, fork } = await importLib();
+
     describe('value', () => {
         const extended = fork(syntaxConfig => {
             const defaultGetNode = syntaxConfig.scope.Value.getNode;

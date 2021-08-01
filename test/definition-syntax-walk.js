@@ -1,7 +1,9 @@
-const assert = require('assert');
-const { definitionSyntax: { parse, generate, walk } } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-describe('definitionSyntax.walk()', () => {
+describe('definitionSyntax.walk()', async () => {
+    const { definitionSyntax: { parse, generate, walk } } = await importLib();
+
     it('pass a single walk function', () => {
         const ast = parse('a b | c() && [ <d>? || <\'e\'> || ( f{2,4} ) ]*');
         const visited = [];

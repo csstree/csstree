@@ -1,24 +1,27 @@
-const assert = require('assert');
-const { parse, find, findLast, findAll } = require('./helpers/lib');
-const { lazyValues } = require('./helpers');
-const values = lazyValues({
-    ast: () => parse(`
-        .foo { color: red; background: green; }
-        .bar, .qux.foo { font-weight: bold; color: blue; }
-    `),
-    firstFoo: () => values.ast
-        .children.first    // Rule
-        .prelude           // SelectorList
-        .children.first    // Selector
-        .children.first,   // ClassSelector
-    lastFoo: () => values.ast
-        .children.last     // Rule
-        .prelude           // SelectorList
-        .children.last     // Selector
-        .children.last     // ClassSelector
-});
+import assert from 'assert';
+import importLib from './helpers/lib.js';
+import { lazyValues } from './helpers/index.js';
 
-describe('Search', () => {
+describe('Search', async () => {
+    const { parse, find, findLast, findAll } = await importLib();
+
+    const values = lazyValues({
+        ast: () => parse(`
+            .foo { color: red; background: green; }
+            .bar, .qux.foo { font-weight: bold; color: blue; }
+        `),
+        firstFoo: () => values.ast
+            .children.first    // Rule
+            .prelude           // SelectorList
+            .children.first    // Selector
+            .children.first,   // ClassSelector
+        lastFoo: () => values.ast
+            .children.last     // Rule
+            .prelude           // SelectorList
+            .children.last     // Selector
+            .children.last     // ClassSelector
+    });
+
     describe('find', () => {
         it('base', () => {
             const actual = find(values.ast, node =>

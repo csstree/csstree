@@ -1,9 +1,9 @@
-const assert = require('assert');
-const prepareTokens = require('../lib/lexer/prepare-tokens');
-const genericSyntaxes = require('../lib/lexer/generic');
-const { buildMatchGraph } = require('../lib/lexer/match-graph');
-const { matchAsList, matchAsTree } = require('../lib/lexer/match');
-const fixture = require('./fixture/definition-syntax-match');
+import assert from 'assert';
+import prepareTokens from '../lib/lexer/prepare-tokens.js';
+import genericSyntaxes from '../lib/lexer/generic.js';
+import { buildMatchGraph } from '../lib/lexer/match-graph.js';
+import { matchAsList, matchAsTree } from '../lib/lexer/match.js';
+import * as fixture from './fixture/definition-syntax-match/index.js';
 
 function processMatchResult(mr) {
     if (Array.isArray(mr)) {

@@ -1,7 +1,9 @@
-const assert = require('assert');
-const { lexer } = require('./helpers/lib');
+import assert from 'assert';
+import importLib from './helpers/lib.js';
 
-describe('Lexer#checkAtruleName()', () => {
+describe('Lexer#checkAtruleName()', async () => {
+    const { lexer } = await importLib();
+
     it('should pass correct atrule', () => {
         assert.strictEqual(lexer.checkAtruleName('media'), undefined);
     });

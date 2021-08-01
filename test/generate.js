@@ -1,57 +1,59 @@
-const assert = require('assert');
-const { parse, generate, toPlainObject } = require('./helpers/lib');
-const forEachAstTest = require('./fixture/ast').forEachTest;
+import assert from 'assert';
+import importLib from './helpers/lib.js';
+import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
 
-function createGenerateTests(name, test) {
-    (test.skip ? it.skip : it)(name, () => {
-        const ast = parse(test.source, test.options);
-        const actual = generate(ast);
-        const expected = 'generate' in test ? test.generate : test.source;
+describe('generate', async () => {
+    const { parse, generate, toPlainObject } = await importLib();
 
-        // strings should be equal
-        assert.strictEqual(actual, expected);
-    });
+    function createGenerateTests(name, test) {
+        (test.skip ? it.skip : it)(name, () => {
+            const ast = parse(test.source, test.options);
+            const actual = generate(ast);
+            const expected = 'generate' in test ? test.generate : test.source;
 
-    (test.skip ? it.skip : it)(name + ' (plain object)', () => {
-        const ast = parse(test.source, test.options);
-        const actual = generate(toPlainObject(ast));
-        const expected = 'generate' in test ? test.generate : test.source;
-
-        // strings should be equal
-        assert.strictEqual(actual, expected);
-    });
-
-    // FIXME: Skip some test cases for round-trip check until generator's improvements
-    const skipRoundTrip = test.skip || /block at-rule #c\.2|atruler\.c\.2|parentheses\.c\.3/.test(name);
-    (skipRoundTrip ? it.skip : it)(name + ' (round-trip)', () => {
-        const expected = parse(test.source, test.options);
-        const actual = parse(generate(expected), test.options);
-
-        // https://drafts.csswg.org/css-syntax/#serialization
-        // The only requirement for serialization is that it must "round-trip" with parsing,
-        // that is, parsing the stylesheet must produce the same data structures as parsing,
-        // serializing, and parsing again, except for consecutive <whitespace-token>s,
-        // which may be collapsed into a single token.
-        assert.deepStrictEqual(actual, expected);
-    });
-}
-
-function createGenerateWithSourceMapTest(name, test) {
-    (test.skip ? it.skip : it)(name, () => {
-        const ast = parse(test.source, {
-            ...test.options,
-            positions: true
+            // strings should be equal
+            assert.strictEqual(actual, expected);
         });
 
-        // strings should be equal
-        assert.strictEqual(
-            generate(ast, { sourceMap: true }).css,
-            'generate' in test ? test.generate : test.source
-        );
-    });
-}
+        (test.skip ? it.skip : it)(name + ' (plain object)', () => {
+            const ast = parse(test.source, test.options);
+            const actual = generate(toPlainObject(ast));
+            const expected = 'generate' in test ? test.generate : test.source;
 
-describe('generate', () => {
+            // strings should be equal
+            assert.strictEqual(actual, expected);
+        });
+
+        // FIXME: Skip some test cases for round-trip check until generator's improvements
+        const skipRoundTrip = test.skip || /block at-rule #c\.2|atruler\.c\.2|parentheses\.c\.3/.test(name);
+        (skipRoundTrip ? it.skip : it)(name + ' (round-trip)', () => {
+            const expected = parse(test.source, test.options);
+            const actual = parse(generate(expected), test.options);
+
+            // https://drafts.csswg.org/css-syntax/#serialization
+            // The only requirement for serialization is that it must "round-trip" with parsing,
+            // that is, parsing the stylesheet must produce the same data structures as parsing,
+            // serializing, and parsing again, except for consecutive <whitespace-token>s,
+            // which may be collapsed into a single token.
+            assert.deepStrictEqual(actual, expected);
+        });
+    }
+
+    function createGenerateWithSourceMapTest(name, test) {
+        (test.skip ? it.skip : it)(name, () => {
+            const ast = parse(test.source, {
+                ...test.options,
+                positions: true
+            });
+
+            // strings should be equal
+            assert.strictEqual(
+                generate(ast, { sourceMap: true }).css,
+                'generate' in test ? test.generate : test.source
+            );
+        });
+    }
+
     forEachAstTest(createGenerateTests);
 
     it('should throws on unknown node type', () =>

@@ -1,4 +1,5 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
+
 const libPaths = {
     'src': 'lib/index.js',
     'dist': 'dist/csstree.js',
@@ -15,4 +16,7 @@ if (!libPaths.hasOwnProperty(mode)) {
 
 console.info('Test lib entry:', chalk.yellow(libPath + postfix));
 
-module.exports = require('../../' + libPath);
+export default async function importLib() {
+  const { default: lib } = await import('../../' + libPath);
+  return lib;
+}
