@@ -1,10 +1,8 @@
 const path = require('path');
 const esbuild = require('esbuild');
-const { lexer } = require('../lib');
 
 async function build() {
     const genModules = {
-        [path.resolve('data/index.js')]: () => `module.exports = ${JSON.stringify(lexer.dump(), null, 4)};`,
         [path.resolve('package.json')]: () => `module.exports = { "version": "${require('../package.json').version}" }`
     };
     const genModulesFilter = new RegExp('(' + Object.keys(genModules).join('|').replace(/\./g, '\\.') + ')$');
