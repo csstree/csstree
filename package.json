@@ -24,11 +24,11 @@
   "scripts": {
     "build": "node scripts/build",
     "build-and-test": "npm run build && npm run test:dist",
-    "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
+    "lint": "eslint data lib scripts && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
     "review:syntax-patch": "node scripts/review-syntax-patch",
-    "test": "mocha --reporter ${REPORTER:-progress}",
+    "test": "mocha lib/__tests --reporter ${REPORTER:-progress}",
     "test:dist": "echo \"MODE=dist npm test && MODE=dist-min npm test\"",
     "coverage": "c8 npm test",
     "travis": "npm run lint && npm run coverage && npm run build-and-test && npm run coveralls",
@@ -55,6 +55,7 @@
   "files": [
     "data",
     "dist",
-    "lib"
+    "lib",
+    "!lib/__tests"
   ]
 }
