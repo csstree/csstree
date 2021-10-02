@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { parse, lexer, fork } from './helpers/lib.js';
 import { lazyValues } from './helpers/index.js';
-import { forEachAtruleDescriptorTest } from './fixture/definition-syntax/index.js';
+import { forEachAtruleDescriptorTest } from './fixture/definition-syntax.js';
 
 const values = lazyValues({
     swapValue: () => parse('swap', { context: 'value' }),

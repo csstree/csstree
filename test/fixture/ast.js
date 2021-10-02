@@ -1,9 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { JsonLocator } from '../../helpers/JsonLocator.js';
+import { JsonLocator } from '../helpers/JsonLocator.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = 'fixtures/ast';
 const wrapper = {
     stylesheet: ast => ({
         type: 'StyleSheet',

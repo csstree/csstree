@@ -1,10 +1,9 @@
 import assert from 'assert';
+import fs from 'fs';
 import { parse, walk, List } from './helpers/lib.js';
-import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
-import { createRequire } from 'module';
+import { forEachTest as forEachAstTest } from './fixture/ast.js';
 
-const require = createRequire(import.meta.url);
-const genericTypesFixture = require('./fixture/definition-syntax-match/generic.json');
+const genericTypesFixture = JSON.parse(fs.readFileSync('../fixtures/definition-syntax-match/generic.json'));
 const stringifyWithNoLoc = ast => JSON.stringify(ast, (key, value) => key !== 'loc' ? value : undefined, 4);
 
 function createParseErrorTest(name, test, options) {

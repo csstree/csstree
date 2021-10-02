@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { parse, generate, toPlainObject } from './helpers/lib.js';
-import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
+import { forEachTest as forEachAstTest } from './fixture/ast.js';
 
 function createGenerateTests(name, test) {
     (test.skip ? it.skip : it)(name, () => {

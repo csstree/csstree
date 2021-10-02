@@ -3,7 +3,7 @@ import prepareTokens from '../lib/lexer/prepare-tokens.js';
 import genericSyntaxes from '../lib/lexer/generic.js';
 import { buildMatchGraph } from '../lib/lexer/match-graph.js';
 import { matchAsList, matchAsTree } from '../lib/lexer/match.js';
-import * as fixture from './fixture/definition-syntax-match/index.js';
+import * as fixture from './fixture/definition-syntax-match.js';
 
 function processMatchResult(mr) {
     if (Array.isArray(mr)) {

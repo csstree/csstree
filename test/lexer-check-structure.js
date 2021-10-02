@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { parse, lexer, fork } from './helpers/lib.js';
-import { forEachTest as forEachAstTest } from './fixture/ast/index.js';
+import { forEachTest as forEachAstTest } from './fixture/ast.js';
 
 describe('Lexer#checkStructure()', () => {
     describe('structure in AST node definition', () => {

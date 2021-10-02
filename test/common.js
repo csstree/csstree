@@ -2,11 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import assert from 'assert';
 import { parse, walk, fork, version } from './helpers/lib.js';
-import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const fixtureFilename = '/fixture/stringify.css';
-const fixture = normalize(fs.readFileSync(__dirname + fixtureFilename, 'utf-8'));;
+const fixtureFilename = './fixtures/stringify.css';
+const fixture = normalize(fs.readFileSync(fixtureFilename, 'utf-8'));;
 const types = Object.keys(parse.config.node).sort()
     .filter(type => type !== 'DeclarationList'); // DeclarationList doesn't appear in StyleSheet
 
@@ -16,7 +14,7 @@ function normalize(str) {
 
 describe('Common', () => {
     it('should expose version', () => {
-        assert.strictEqual(version, JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'))).version);
+        assert.strictEqual(version, JSON.parse(fs.readFileSync('./package.json')).version);
     });
 
     it('JSON.strigify()', () => {
@@ -25,11 +23,11 @@ describe('Common', () => {
             positions: true
         });
 
-        // fs.writeFileSync(__dirname + '/fixture/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
+        // fs.writeFileSync('/fixtures/stringify.ast', stringify(ast, true) + '\n', 'utf-8');
 
         assert.strictEqual(
             JSON.stringify(ast, null, 4),
-            normalize(fs.readFileSync(__dirname + '/fixture/stringify.ast', 'utf-8').trim())
+            normalize(fs.readFileSync('./fixtures/stringify.ast', 'utf-8').trim())
         );
     });
 

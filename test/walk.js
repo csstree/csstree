@@ -2,7 +2,7 @@ import assert from 'assert';
 import path from 'path';
 import { lazyValues } from './helpers/index.js';
 import { parse, walk } from './helpers/lib.js';
-import { tests, forEachTest as forEachAstTest } from './fixture/ast/index.js';
+import { tests, forEachTest as forEachAstTest } from './fixture/ast.js';
 
 const notInsideAtrulePrelude = stack => stack.every(node => node.type !== 'AtrulePrelude');
 const testWithRules = Object.keys(tests)

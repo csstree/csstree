@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { TokenStream, tokenize, tokenNames } from './helpers/lib.js';
-import * as fixture from './fixture/tokenize/index.js';
+import * as fixture from './fixture/tokenize.js';
 
 describe('tokenize/stream', () => {
     const createStream = source => new TokenStream(source, tokenize);

@@ -1,10 +1,9 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { createLexer, lexer as defaultLexer } from '../../helpers/lib.js';
-import { JsonLocator } from '../../helpers/JsonLocator.js';
+import { createLexer, lexer as defaultLexer } from '../helpers/lib.js';
+import { JsonLocator } from '../helpers/JsonLocator.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = 'fixtures/definition-syntax';
 
 export function forEachTest(factory) {
     for (const filename in tests) {

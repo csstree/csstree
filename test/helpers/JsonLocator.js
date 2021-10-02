@@ -1,15 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import parseJSON from 'json-to-ast';
-import { fileURLToPath } from 'url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export class JsonLocator {
     constructor(filename) {
         let ast = null;
 
-        this.filename = path.relative(path.join(__dirname, '../..'), filename);
+        this.filename = path.relative(process.cwd(), filename);
         this.map = new Map();
 
         try {
