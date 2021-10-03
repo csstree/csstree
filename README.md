@@ -80,26 +80,16 @@ Install with npm:
 npm install css-tree
 ```
 
-For using in a browser unminified (`dist/csstree.js`) and minified (`dist/csstree.min.js`) bundles are available:
-
-```html
-<script src="node_modules/css-tree/dist/csstree.js"></script>
-<script src="node_modules/css-tree/dist/csstree.min.js"></script>
-<!-- or use one of CDN -->
-<script src="https://unpkg.com/browse/css-tree/dist/csstree.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/css-tree/dist/csstree.js"></script>
-```
-
 Basic usage:
 
 ```js
-var csstree = require('css-tree');
+import * as csstree from 'css-tree';
 
 // parse CSS to AST
-var ast = csstree.parse('.example { world: "!" }');
+const ast = csstree.parse('.example { world: "!" }');
 
 // traverse AST and modify it
-csstree.walk(ast, function(node) {
+csstree.walk(ast, (node) => {
     if (node.type === 'ClassSelector' && node.name === 'example') {
         node.name = 'hello';
     }
@@ -114,10 +104,10 @@ Syntax matching:
 
 ```js
 // parse CSS to AST as a declaration value
-var ast = csstree.parse('red 1px solid', { context: 'value' });
+const ast = csstree.parse('red 1px solid', { context: 'value' });
 
 // match to syntax of `border` property
-var matchResult = csstree.lexer.matchProperty('border', ast);
+const matchResult = csstree.lexer.matchProperty('border', ast);
 
 // check first value node is a <color>
 console.log(matchResult.isType(ast.children.first(), 'color'));
@@ -129,6 +119,53 @@ console.log(matchResult.getTrace(ast.children.first()));
 //   { type: 'Type', name: 'color' },
 //   { type: 'Type', name: 'named-color' },
 //   { type: 'Keyword', name: 'red' } ]
+```
+
+### Exports
+
+Is it possible to import just a needed part of library like a parser or a walker. That's might useful for loading time or bundle size optiomisations. 
+
+```js
+import * as tokenizer from 'css-tree/tokenizer';
+import * as parser from 'css-tree/parser';
+import * as walker from 'css-tree/walker';
+import * as lexer from 'css-tree/lexer';
+import * as definitionSyntax from 'css-tree/definition-syntax';
+import * as utils from 'css-tree/utils';
+```
+
+### Using in a browser
+
+There are bundles are available for using in a browser:
+
+- `dist/csstree.js` – minified IIFE with `csstree` as global
+```html
+<script src="node_modules/css-tree/dist/csstreejs"></script>
+<script>
+  csstree.parse('.example { color: green }');
+</script>
+```
+
+- `dist/csstree.esm.js` – minified ES module
+```html
+<script type="module">
+  import { parse } from 'node_modules/css-tree/dist/csstree.esm.js'
+  parse('.example { color: green }');
+</script>
+```
+
+One of CDN services like `unpkg` or `jsDelivr` can be used. By default (for short path) a ESM version is exposing. For IIFE version a full path to a bundle should be specified:
+
+```html
+<!-- ESM -->
+<script type="module">
+  import * as csstree from 'https://cdn.jsdelivr.net/npm/css-tree';
+  import * as csstree from 'https://unpkg.com/css-tree';
+</script>
+
+<!-- IIFE with an export to global -->
+<script src="https://cdn.jsdelivr.net/npm/css-tree/dist/csstree.js"></script>
+<script src="https://unpkg.com/css-tree/dist/csstree.js"></script>
 ```
 
 ## Top level API

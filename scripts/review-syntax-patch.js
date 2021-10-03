@@ -1,6 +1,10 @@
-const fs = require('fs');
-const data = require('mdn-data/css');
-const patchFilename = 'data/patch.json';
+import fs from 'fs';
+import path from 'path';
+import data from 'mdn-data/css/index.js';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const patchFilename = path.join(__dirname, '../data/patch.json');
 const currentContent = fs.readFileSync(patchFilename, 'utf8').replace(/\r\n/g, '\n');
 const csstreePatch = JSON.parse(currentContent);
 const checkUpdatesNeeded = process.argv[2] === '--lint';

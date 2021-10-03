@@ -17,22 +17,70 @@
     "syntax",
     "validation"
   ],
-  "main": "lib/index.js",
-  "unpkg": "dist/csstree.min.js",
-  "jsdelivr": "dist/csstree.min.js",
+  "type": "module",
+  "main": "./cjs/index.cjs",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./cjs/index.cjs"
+    },
+    "./dist/*": "./dist/*.js",
+    "./package.json": "./package.json",
+    "./tokenizer": {
+      "import": "./lib/tokenizer/index.js",
+      "require": "./cjs/tokenizer/index.cjs"
+    },
+    "./parser": {
+      "import": "./lib/parser/index.js",
+      "require": "./cjs/parser/index.cjs"
+    },
+    "./generator": {
+      "import": "./lib/generator/index.js",
+      "require": "./cjs/generator/index.cjs"
+    },
+    "./walker": {
+      "import": "./lib/walker/index.js",
+      "require": "./cjs/walker/index.cjs"
+    },
+    "./lexer": {
+      "import": "./lib/lexer/index.js",
+      "require": "./cjs/lexer/index.cjs"
+    },
+    "./definition-syntax": {
+      "import": "./lib/definition-syntax/index.js",
+      "require": "./cjs/definition-syntax/index.cjs"
+    },
+    "./utils": {
+      "import": "./lib/utils/index.js",
+      "require": "./cjs/utils/index.cjs"
+    }
+  },
+  "browser": {
+    "./cjs/data.cjs": "./dist/data.js",
+    "./cjs/version.cjs": "./dist/version.js",
+    "./lib/data.js": "./dist/data.js",
+    "./lib/version.js": "./dist/version.js"
+  },
+  "unpkg": "dist/csstree.esm.js",
+  "jsdelivr": "dist/csstree.esm.js",
   "scripts": {
-    "build": "node scripts/build",
-    "build-and-test": "npm run build && npm run test:dist",
-    "lint": "eslint data lib scripts test && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
+    "build": "npm run bundle && npm run esm-to-cjs",
+    "build-and-test": "npm run bundle-and-test && npm run esm-to-cjs-and-test",
+    "bundle": "node scripts/bundle",
+    "bundle-and-test": "npm run bundle && npm run test:dist",
+    "esm-to-cjs": "node scripts/esm-to-cjs",
+    "esm-to-cjs-and-test": "npm run esm-to-cjs && npm run test:cjs",
+    "lint": "eslint lib scripts && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
     "review:syntax-patch": "node scripts/review-syntax-patch",
-    "test": "mocha --reporter ${REPORTER:-progress}",
-    "test:dist": "MODE=dist npm test && MODE=dist-min npm test",
-    "coverage": "nyc npm test",
-    "travis": "npm run lint && nyc npm run test && npm run build-and-test && npm run coveralls",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "prepublishOnly": "npm run build",
+    "test": "mocha lib/__tests --reporter ${REPORTER:-progress}",
+    "test:cjs": "mocha cjs/__tests --reporter ${REPORTER:-progress}",
+    "test:dist": "mocha dist/__tests --reporter ${REPORTER:-progress}",
+    "coverage": "c8 npm test",
+    "travis": "npm run lint && npm run coverage && npm run build-and-test && npm run coveralls",
+    "coveralls": "c8 report --reporter=text-lcov | coveralls",
+    "prepublishOnly": "npm run lint-and-test && npm run build-and-test",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
   },
   "dependencies": {
@@ -40,20 +88,25 @@
     "source-map": "^0.6.1"
   },
   "devDependencies": {
+    "c8": "^7.7.1",
     "clap": "^2.0.1",
-    "coveralls": "^3.0.9",
-    "esbuild": "^0.11.2",
-    "eslint": "^6.8.0",
+    "coveralls": "^3.1.0",
+    "esbuild": "^0.13.3",
+    "eslint": "^7.24.0",
     "json-to-ast": "^2.1.0",
-    "mocha": "^6.2.3",
-    "nyc": "^14.1.1"
+    "mocha": "^9.1.2",
+    "rollup": "^2.58.0"
   },
   "engines": {
-    "node": "^14.16.0 || >=15.0.0"
+    "node": "^14.16.0 || >=15.0.0",
+    "npm": "^7.0.0"
   },
   "files": [
     "data",
     "dist",
-    "lib"
+    "cjs",
+    "!cjs/__tests",
+    "lib",
+    "!lib/__tests"
   ]
 }

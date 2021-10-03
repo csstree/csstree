@@ -1,0 +1,54 @@
+{
+    "basic": {
+        "source": ":lang(en)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "lang",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "en"
+                }
+            ]
+        }
+    },
+    "with spaces and comments": {
+        "source": ":lang(  en /* test */ )",
+        "generate": ":lang(en)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "lang",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "en"
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":LanG(en-US)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "LanG",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "en-US"
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":lang(1)",
+            "offset": "      ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":lang(en en)",
+            "offset": "         ^",
+            "error": "\")\" is expected"
+        }
+    ]
+}

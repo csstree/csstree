@@ -1,0 +1,54 @@
+{
+    "basic": {
+        "source": ":dir(ltr)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "dir",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "ltr"
+                }
+            ]
+        }
+    },
+    "with spaces and comments": {
+        "source": ":dir(  ltr /* test */ )",
+        "generate": ":dir(ltr)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "dir",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "ltr"
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":DiR(ltr)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "DiR",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "ltr"
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":dir(1)",
+            "offset": "     ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":dir(foo var)",
+            "offset": "         ^",
+            "error": "\")\" is expected"
+        }
+    ]
+}

@@ -1,0 +1,457 @@
+{
+    "basic": {
+        "source": "var(--name)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                }
+            ]
+        }
+    },
+    "with fallback": {
+        "source": "var(--name,value)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "value"
+                }
+            ]
+        }
+    },
+    "falback is {}-block": {
+        "source": "var(--name,{foo:bar;baz:{}})",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "{foo:bar;baz:{}}"
+                }
+            ]
+        }
+    },
+    "complex balanced": {
+        "source": "var(--name,{[({()})()()[({})]]}[{()}]([]))",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "{[({()})()()[({})]]}[{()}]([])"
+                }
+            ]
+        }
+    },
+    "should ignore everything inside falback's block": {
+        "source": "var(--name,{!important})",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "{!important}"
+                }
+            ]
+        }
+    },
+    "empty fallback": {
+        "source": "var(--name,)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": ""
+                }
+            ]
+        }
+    },
+    "empty fallback (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name,)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": []
+                }
+            ]
+        }
+    },
+    "should preserve single spaces": {
+        "source": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": " "
+                }
+            ]
+        }
+    },
+    "should preserve single spaces (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces and comments": {
+        "source": "var( /* 1 */ --name /* 2 */ , /* 3 */ )",
+        "generate": "var(--name, /* 3 */ )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": " /* 3 */ "
+                }
+            ]
+        }
+    },
+    "spaces and comments (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var( /* 1 */ --name /* 2 */ , /* 3 */ )",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces and comments #2 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name, /* 1 *//* 2 */)",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces and comments #3 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name, /* 1 *//* 2 */ )",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces and comments #4 (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name,/* 1 */ /* 2 */)",
+        "generate": "var(--name, )",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "WhiteSpace",
+                            "value": " "
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "only comments (parseCustomProperty:true)": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--name,/* 1 *//* 2 */)",
+        "generate": "var(--name,)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": []
+                }
+            ]
+        }
+    },
+    "should parse a fallback value when parseCustomProperty is true": {
+        "options": {
+            "parseCustomProperty": true
+        },
+        "source": "var(--foo, 1 foo)",
+        "generate": "var(--foo,1 foo)",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--foo"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Value",
+                    "children": [
+                        {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        {
+                            "type": "Identifier",
+                            "name": "foo"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be a error here (since unmatched tokens are disallowed), but ok for now": {
+        "source": "var(--name, ()])",
+        "offset": "              ^",
+        "_error": ")-token is expected",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": " ()]"
+                }
+            ]
+        }
+    },
+    "unclosed var() is not an error": {
+        "source": "var(--name,([)])",
+        "generate": "var(--name,([)]))",
+        "ast": {
+            "type": "Function",
+            "name": "var",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "--name"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Raw",
+                    "value": "([)])"
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": "var(-!)",
+            "offset": "    ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "var(--name, !important ())",
+            "offset": "            ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": "var(--name, foo; bar)",
+            "offset": "               ^",
+            "error": "\")\" is expected"
+        }
+    ]
+}

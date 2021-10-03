@@ -1,0 +1,158 @@
+{
+    "basic": {
+        "source": ":matches(test)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "matches",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "TypeSelector",
+                                    "name": "test"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "selector group": {
+        "source": ":matches(.a,.b.c)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "matches",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "selector group and spaces": {
+        "source": ":matches(  .a  ,  .b  )",
+        "generate": ":matches(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "matches",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":MatcheS(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "MatcheS",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":matches(.a{)",
+            "offset": "           ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":matches(,.b)",
+            "offset": "         ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":matches(.a,)",
+            "offset": "            ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":matches(.a,,)",
+            "offset": "            ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":matches(.a,.b{)",
+            "offset": "              ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":matches(var(--test))",
+            "offset": "         ^",
+            "error": "Selector is expected"
+        }
+    ]
+}

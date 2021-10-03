@@ -1,0 +1,674 @@
+{
+    "nth-child": {
+        "source": ":nth-child(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth-child case insensetive": {
+        "source": ":Nth-Child(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "Nth-Child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth-last-child": {
+        "source": ":nth-last-child(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-last-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth-last-child case insensetive": {
+        "source": ":Nth-last-Child(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "Nth-last-Child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth-of-type": {
+        "source": ":nth-of-type(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-of-type",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth-of-type case insensetive": {
+        "source": ":Nth-Of-Type(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "Nth-Of-Type",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth-last-of-type": {
+        "source": ":nth-last-of-type(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-last-of-type",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth-last-of-type case insensetive": {
+        "source": ":Nth-Last-Of-Type(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "Nth-Last-Of-Type",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nthselector.0 case insensitive": {
+        "source": ":nth-child(2N+1)",
+        "generate": ":nth-child(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nthselector.1": {
+        "source": ":nth-last-child(+3n-2)",
+        "generate": ":nth-last-child(3n-2)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-last-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "3",
+                        "b": "-2"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth.0": {
+        "source": ":nth-child(10)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": null,
+                        "b": "10"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth.1": {
+        "source": ":nth-child(2n)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": null
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "odd keyword": {
+        "source": ":nth-child(odd)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "odd"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "odd keyword be case insensitive": {
+        "source": ":nth-child(OdD)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "OdD"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "even keyword": {
+        "source": ":nth-child(even)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "even"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "even keyword should be case insensitive": {
+        "source": ":nth-child(eVeN)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "Identifier",
+                        "name": "eVeN"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth.4": {
+        "source": ":nth-child(n)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "1",
+                        "b": null
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nth.5": {
+        "source": ":nth-child(-n)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "-1",
+                        "b": null
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nthselector.c.0": {
+        "source": ":nth-child(/*test*/2n/*test*/+/*test*/1/*test*/)",
+        "generate": ":nth-child(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nthselector.c.1": {
+        "source": ":nth-last-child(/*test*/+3n/*test*/-/*test*/2/*test*/)",
+        "generate": ":nth-last-child(3n-2)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-last-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "3",
+                        "b": "-2"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nthselector.s.0": {
+        "source": ":nth-child(  2n  +  1  )",
+        "generate": ":nth-child(2n+1)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "nthselector.s.1": {
+        "source": ":nth-last-child(  +3n  -  2  )",
+        "generate": ":nth-last-child(3n-2)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-last-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "3",
+                        "b": "-2"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "+n": {
+        "source": ":nth-last-child(+n - 2)",
+        "generate": ":nth-last-child(n-2)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-last-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "1",
+                        "b": "-2"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "big numbers": {
+        "source": ":nth-last-child(123456n-12345678)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-last-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "123456",
+                        "b": "-12345678"
+                    },
+                    "selector": null
+                }
+            ]
+        }
+    },
+    "of clause": {
+        "source": ":nth-child(2n+1 of li,.test)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "nth-child",
+            "children": [
+                {
+                    "type": "Nth",
+                    "nth": {
+                        "type": "AnPlusB",
+                        "a": "2",
+                        "b": "1"
+                    },
+                    "selector": {
+                        "type": "SelectorList",
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "TypeSelector",
+                                        "name": "li"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "ClassSelector",
+                                        "name": "test"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":nth-child(xxx)",
+            "offset": "           ^",
+            "error": "N is expected"
+        },
+        {
+            "source": ":nth-child(--test) {}",
+            "offset": "            ^",
+            "error": "N is expected"
+        },
+        {
+            "source": ":nth-child(var(--test)) {}",
+            "offset": "           ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3 n)",
+            "offset": "             ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":nth-child(+ 2n)",
+            "offset": "           ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(+ 2)",
+            "offset": "           ^",
+            "error": "Unexpected input"
+        },
+        {
+            "source": ":nth-child(3n - +1)",
+            "offset": "                ^",
+            "error": "Number sign is not allowed"
+        },
+        {
+            "source": ":nth-child(3n - -1)",
+            "offset": "                ^",
+            "error": "Number sign is not allowed"
+        },
+        {
+            "source": ":nth-child(3n- +1)",
+            "offset": "               ^",
+            "error": "Number sign is not allowed"
+        },
+        {
+            "source": ":nth-child(3n- -1)",
+            "offset": "               ^",
+            "error": "Number sign is not allowed"
+        },
+        {
+            "source": ":nth-child(3n-2n)",
+            "offset": "               ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n + -6)",
+            "offset": "                ^",
+            "error": "Number sign is not allowed"
+        },
+        {
+            "source": ":nth-child(3n - 2n)",
+            "offset": "                 ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n- 2n)",
+            "offset": "                ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n-x)",
+            "offset": "              ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n- 3.5)",
+            "offset": "                ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n 1)",
+            "offset": "              ^",
+            "error": "Number sign is expected"
+        },
+        {
+            "source": ":nth-child(3nn)",
+            "offset": "             ^",
+            "error": "HyphenMinus is expected"
+        },
+        {
+            "source": ":nth-child(3n- n)",
+            "offset": "               ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n + -2)",
+            "offset": "                ^",
+            "error": "Number sign is not allowed"
+        },
+        {
+            "source": ":nth-child(3n+-2)",
+            "offset": "              ^",
+            "error": "Number sign is not allowed"
+        },
+        {
+            "source": ":nth-child(1.3n+2)",
+            "offset": "            ^",
+            "error": "N is expected"
+        },
+        {
+            "source": ":nth-child(1e3n+2)",
+            "offset": "            ^",
+            "error": "N is expected"
+        },
+        {
+            "source": ":nth-child(.3n+2)",
+            "offset": "           ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n+2.1)",
+            "offset": "               ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n+2e1)",
+            "offset": "               ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(3n+.1)",
+            "offset": "              ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(2.1)",
+            "offset": "            ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(2e1)",
+            "offset": "            ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(.1)",
+            "offset": "           ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(+-n)",
+            "offset": "            ^",
+            "error": "N is expected"
+        },
+        {
+            "source": ":nth-child(n -)",
+            "offset": "              ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(n +)",
+            "offset": "              ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(n+)",
+            "offset": "             ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(n-)",
+            "offset": "             ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(-n+)",
+            "offset": "              ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(-n-)",
+            "offset": "              ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(-n +)",
+            "offset": "               ^",
+            "error": "Integer is expected"
+        },
+        {
+            "source": ":nth-child(-n -)",
+            "offset": "               ^",
+            "error": "Integer is expected"
+        }
+    ]
+}

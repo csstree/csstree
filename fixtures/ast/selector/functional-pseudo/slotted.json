@@ -1,0 +1,88 @@
+{
+    "basic": {
+        "source": "::slotted(test)",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "slotted",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "TypeSelector",
+                            "name": "test"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces around selector": {
+        "source": "::slotted(  .a.b  )",
+        "generate": "::slotted(.a.b)",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "slotted",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "ClassSelector",
+                            "name": "a"
+                        },
+                        {
+                            "type": "ClassSelector",
+                            "name": "b"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": "::SloTted(.a)",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "SloTted",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "ClassSelector",
+                            "name": "a"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": "::slotted(.a{)",
+            "offset": "            ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": "::slotted(,.b)",
+            "offset": "          ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "::slotted(.a,)",
+            "offset": "            ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": "::slotted(var(--test))",
+            "offset": "          ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "::slotted(foo,bar)",
+            "offset": "             ^",
+            "error": "\")\" is expected"
+        }
+    ]
+}

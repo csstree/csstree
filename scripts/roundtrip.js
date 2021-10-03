@@ -1,5 +1,5 @@
-const cli = require('clap');
-const { parse, generate } = require('../lib');
+import cli from 'clap';
+import { parse, generate } from '../lib/index.js';
 
 cli.command('parse', '[css]')
     .option('-c, --context <context>')

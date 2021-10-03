@@ -1,6 +1,7 @@
-const iterateSyntaxes = require('./utils/iterate-syntaxes');
-const parse = require('../lib').grammar.parse;
-const walk = require('../lib').grammar.walk;
+import iterateSyntaxes from './utils/iterate-syntaxes.js';
+import { definitionSyntax } from '../lib/index.js';
+
+const { parse, walk } = definitionSyntax;
 const collected = {
     Function: new Set(),
     String: new Set()

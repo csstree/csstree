@@ -1,0 +1,158 @@
+{
+    "basic": {
+        "source": ":not(test)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "not",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "TypeSelector",
+                                    "name": "test"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "selector group": {
+        "source": ":not(.a,.b.c)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "not",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "selector group and spaces": {
+        "source": ":not(  .a  ,  .b  )",
+        "generate": ":not(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "not",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":NoT(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "NoT",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":not(.a{)",
+            "offset": "       ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":not(,.b)",
+            "offset": "     ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":not(.a,)",
+            "offset": "        ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":not(.a,,)",
+            "offset": "        ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":not(.a,.b{)",
+            "offset": "          ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":not(var(--test))",
+            "offset": "     ^",
+            "error": "Selector is expected"
+        }
+    ]
+}

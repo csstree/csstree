@@ -1,0 +1,24 @@
+{
+    "valid": [
+        "foo(",
+        {
+            "value": "url('foo')",
+            "tokens": [
+                { "type": "function-token", "chunk": "url(" },
+                { "type": "string-token", "chunk": "'foo'" },
+                { "type": ")-token", "chunk": ")" }
+            ]
+        },
+        {
+            "value": "url(\"foo\")",
+            "tokens": [
+                { "type": "function-token", "chunk": "url(" },
+                { "type": "string-token", "chunk": "\"foo\"" },
+                { "type": ")-token", "chunk": ")" }
+            ]
+        }
+    ],
+    "invalid": [
+        "url(abc)"
+    ]
+}

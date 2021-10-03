@@ -1,0 +1,139 @@
+{
+    "error": [
+        {
+            "source": "100 {}",
+            "offset": "   ^",
+            "error": "Percent sign is expected"
+        },
+        {
+            "source": ". {}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ".{}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ".",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ".1px {}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "# {}",
+            "offset": " ^",
+            "error": "Name is expected"
+        },
+        {
+            "source": "#{}",
+            "offset": " ^",
+            "error": "Name is expected"
+        },
+        {
+            "source": "#",
+            "offset": " ^",
+            "error": "Name is expected"
+        },
+        {
+            "source": "a { color }",
+            "offset": "          ^",
+            "error": "Colon is expected"
+        },
+        {
+            "source": "a { color: #}",
+            "offset": "            ^",
+            "error": "Hex or identifier is expected"
+        },
+        {
+            "source": "a { color: # }",
+            "offset": "            ^",
+            "error": "Hex or identifier is expected"
+        },
+        {
+            "source": ": {}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":{}",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": "::",
+            "offset": "  ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ": ",
+            "offset": " ^",
+            "error": "Identifier is expected"
+        },
+        {
+            "source": ":pseudo({}",
+            "offset": "          ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":lang(var(--test)) {}",
+            "offset": "         ^",
+            "error": "Identifier is expected but function found"
+        },
+        {
+            "source": "[",
+            "offset": " ^",
+            "error": "Unexpected end of input"
+        },
+        {
+            "source": "]",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ")",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "}",
+            "offset": "^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": "a /foo/ b",
+            "offset": "   ^     ",
+            "error": "Identifier \"deep\" is expected"
+        },
+        {
+            "source": ".a",
+            "offset": "  ^",
+            "error": "\"{\" is expected"
+        },
+        {
+            "source": ".a \n    ",
+            "offset": "  ^",
+            "error": "\"{\" is expected"
+        },
+        {
+            "source": "  \n   \n.a \n    ",
+            "offset": "         ^",
+            "error": "\"{\" is expected"
+        },
+        {
+            "source": ".foo { var(--side): 20px }",
+            "offset": "          ^",
+            "error": "Identifier is expected but function found"
+        }
+    ]
+}

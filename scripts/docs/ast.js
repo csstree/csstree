@@ -1,4 +1,5 @@
-const { lexer } = require('../../lib');
+import { lexer } from '../../lib/index.js';
+
 const TOC_RX = /(<!-- MarkdownTOC .*?-->\n+)((?:\s|.)*?)(\n+<!-- \/MarkdownTOC -->)/;
 const ARTICLES_RX = /(<!-- node types -->\n+)((?:\s|.)*?)(\n+<!-- \/node types -->)/;
 
@@ -50,7 +51,7 @@ function updateArticles(md, definitions) {
     });
 }
 
-module.exports = function(md) {
+export default function(md) {
     const toc = [];
     const types = [];
 

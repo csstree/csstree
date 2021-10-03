@@ -1,0 +1,187 @@
+{
+    "single media type": {
+        "source": "@media screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "single media type with negation": {
+        "source": "@media not screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "not"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "single media type with only": {
+        "source": "@media only screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "only"
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "should be case insensitive": {
+        "source": "@mEdiA screen{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "mEdiA",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "screen"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "shouldn't parse an at-rule prelude when parseAtrulePrelude is false": {
+        "source": "@media screen and (feature: 1){}",
+        "options": {
+            "parseAtrulePrelude": false
+        },
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "Raw",
+                "value": "screen and (feature: 1)"
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@media with no block is not an error": {
+        "source": "@media;",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": null,
+            "block": null
+        }
+    },
+    "@media with no prelude is not an error": {
+        "source": "@media {}",
+        "generate": "@media{}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "error": [
+        {
+            "source": "@media (foo:1",
+            "offset": "             ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": "@media (foo:1) ~",
+            "offset": "               ^",
+            "error": "Semicolon or block is expected"
+        },
+        {
+            "source": "@media ! {}",
+            "offset": "       ^",
+            "error": "Identifier or parenthesis is expected"
+        }
+    ]
+}

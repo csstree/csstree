@@ -1,6 +1,7 @@
-const iterateSyntaxes = require('./utils/iterate-syntaxes');
-const parse = require('../lib').grammar.parse;
-const generate = require('../lib').grammar.generate;
+import iterateSyntaxes from './utils/iterate-syntaxes.js';
+import { definitionSyntax } from '../lib/index.js';
+
+const { parse, generate } = definitionSyntax;
 const problems = {};
 
 iterateSyntaxes(function(section, name, syntax) {

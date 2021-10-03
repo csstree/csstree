@@ -1,0 +1,192 @@
+{
+    "boolean media feature": {
+        "source": "(foo)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": null
+                }
+            ]
+        }
+    },
+    "media feature with number value": {
+        "source": "(foo:1)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Number",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    "media feature with identifier value": {
+        "source": "(foo:bar)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Identifier",
+                        "name": "bar"
+                    }
+                }
+            ]
+        }
+    },
+    "media feature with dimension value": {
+        "source": "(foo:2px)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Dimension",
+                        "value": "2",
+                        "unit": "px"
+                    }
+                }
+            ]
+        }
+    },
+    "media feature with ratio": {
+        "source": "(foo:3/4)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Ratio",
+                        "left": "3",
+                        "right": "4"
+                    }
+                }
+            ]
+        }
+    },
+    "media feature with spaces": {
+        "source": "(  foo  :  1  )",
+        "generate": "(foo:1)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Number",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    "media feature with comments": {
+        "source": "all /*0*/ (/*1*/foo/*2*/:/*3*/1/*4*/)",
+        "generate": "all (foo:1)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "all"
+                },
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Number",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    "media feature with ratio and spaces": {
+        "source": "(  foo  :  3  /  4  )",
+        "generate": "(foo:3/4)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Ratio",
+                        "left": "3",
+                        "right": "4"
+                    }
+                }
+            ]
+        }
+    },
+    "vendor media feature": {
+        "source": "(-webkit-min-device-pixel-ratio:2)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "-webkit-min-device-pixel-ratio",
+                    "value": {
+                        "type": "Number",
+                        "value": "2"
+                    }
+                }
+            ]
+        }
+    },
+    "number with \\0 hack": {
+        "source": "(min-width:0\\0)",
+        "ast": {
+            "type": "MediaQuery",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "min-width",
+                    "value": {
+                        "type": "Dimension",
+                        "value": "0",
+                        "unit": "\\0"
+                    }
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": "(foo 123)",
+            "offset": "     ^",
+            "error": "Colon is expected"
+        },
+        {
+            "source": "(foo: bar baz)",
+            "offset": "          ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": "(foo: 'foo')",
+            "offset": "      ^",
+            "error": "Number, dimension, ratio or identifier is expected"
+        },
+        {
+            "source": "(fo",
+            "offset": "   ^",
+            "error": "Colon is expected"
+        }
+    ]
+}
