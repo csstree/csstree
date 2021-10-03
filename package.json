@@ -23,6 +23,12 @@
     "import": "./lib/index.js",
     "require": "./cjs/index.cjs"
   },
+  "browser": {
+    "./cjs/data.cjs": "./dist/data.js",
+    "./cjs/version.cjs": "./dist/version.js",
+    "./lib/data.js": "./dist/data.js",
+    "./lib/version.js": "./dist/version.js"
+  },
   "unpkg": "dist/csstree.min.js",
   "jsdelivr": "dist/csstree.min.js",
   "scripts": {
@@ -42,7 +48,7 @@
     "coverage": "c8 npm test",
     "travis": "npm run lint && npm run coverage && npm run build-and-test && npm run coveralls",
     "coveralls": "c8 report --reporter=text-lcov | coveralls",
-    "prepublishOnly": "npm run build-and-test",
+    "prepublishOnly": "npm run lint-and-test && npm run build-and-test",
     "hydrogen": "node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --trace_hydrogen_file=code.cfg --print-opt-code bin/parse --stat -o /dev/null"
   },
   "dependencies": {

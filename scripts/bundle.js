@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import esbuild from 'esbuild';
 import { lexer } from '../lib/index.js';
@@ -28,26 +29,33 @@ async function build() {
         }
     }];
 
-    esbuild.build({
-        entryPoints: ['lib/index.js'],
-        outfile: 'dist/csstree.js',
-        format: 'iife',
-        globalName: 'csstree',
-        bundle: true,
-        minify: true,
-        logLevel: 'info',
-        plugins
-    });
+    await Promise.all([
+        esbuild.build({
+            entryPoints: ['lib/index.js'],
+            outfile: 'dist/csstree.js',
+            format: 'iife',
+            globalName: 'csstree',
+            bundle: true,
+            minify: true,
+            logLevel: 'info',
+            plugins
+        }),
 
-    esbuild.build({
-        entryPoints: ['lib/index.js'],
-        outfile: 'dist/csstree.esm.js',
-        format: 'esm',
-        bundle: true,
-        minify: true,
-        logLevel: 'info',
-        plugins
-    });
+        esbuild.build({
+            entryPoints: ['lib/index.js'],
+            outfile: 'dist/csstree.esm.js',
+            format: 'esm',
+            bundle: true,
+            minify: true,
+            logLevel: 'info',
+            plugins
+        })
+    ]);
+
+    for (const [key, value] of genModuleCache) {
+        const fn = path.basename(key);
+        fs.writeFileSync(`dist/${fn}`, value);
+    }
 }
 
 build();
