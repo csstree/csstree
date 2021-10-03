@@ -20,8 +20,40 @@
   "type": "module",
   "main": "./cjs/index.cjs",
   "exports": {
-    "import": "./lib/index.js",
-    "require": "./cjs/index.cjs"
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./cjs/index.cjs"
+    },
+    "./dist/*": "./dist/*.js",
+    "./package.json": "./package.json",
+    "./tokenizer": {
+      "import": "./lib/tokenizer/index.js",
+      "require": "./cjs/tokenizer/index.cjs"
+    },
+    "./parser": {
+      "import": "./lib/parser/index.js",
+      "require": "./cjs/parser/index.cjs"
+    },
+    "./generator": {
+      "import": "./lib/generator/index.js",
+      "require": "./cjs/generator/index.cjs"
+    },
+    "./walker": {
+      "import": "./lib/walker/index.js",
+      "require": "./cjs/walker/index.cjs"
+    },
+    "./lexer": {
+      "import": "./lib/lexer/index.js",
+      "require": "./cjs/lexer/index.cjs"
+    },
+    "./definition-syntax": {
+      "import": "./lib/definition-syntax/index.js",
+      "require": "./cjs/definition-syntax/index.cjs"
+    },
+    "./utils": {
+      "import": "./lib/utils/index.js",
+      "require": "./cjs/utils/index.cjs"
+    }
   },
   "browser": {
     "./cjs/data.cjs": "./dist/data.js",
@@ -29,8 +61,8 @@
     "./lib/data.js": "./dist/data.js",
     "./lib/version.js": "./dist/version.js"
   },
-  "unpkg": "dist/csstree.min.js",
-  "jsdelivr": "dist/csstree.min.js",
+  "unpkg": "dist/csstree.esm.js",
+  "jsdelivr": "dist/csstree.esm.js",
   "scripts": {
     "build": "npm run bundle && npm run esm-to-cjs",
     "build-and-test": "npm run bundle-and-test && npm run esm-to-cjs-and-test",
