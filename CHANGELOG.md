@@ -1,6 +1,7 @@
 ## next
 
 - Dropped support for Node.js prior 14.16
+- Converted to dual module to support ESM and CommonJS
 - Added `ident`, `string` and `url` helpers to decode/encode corresponding values, e.g. `url.decode('url("image.jpg")')` === `'image.jpg'`
 - Moved `SyntaxError` (custom parser's error class) from root of public API to parser via `parse.SyntaxError`
 - Removed `parseError` field in parser's `SyntaxError`

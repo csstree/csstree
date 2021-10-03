@@ -1,5 +1,6 @@
 /.nyc_output/
 /.vscode/
 /coverage/
+/cjs/
 /node_modules/
 /tmp/
