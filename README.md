@@ -123,7 +123,7 @@ console.log(matchResult.getTrace(ast.children.first()));
 
 ### Exports
 
-Is it possible to import just a needed part of library like a parser or a walker. That's might useful for loading time or bundle size optiomisations. 
+Is it possible to import just a needed part of library like a parser or a walker. That's might useful for loading time or bundle size optimisations. 
 
 ```js
 import * as tokenizer from 'css-tree/tokenizer';
