@@ -17,6 +17,8 @@ jobs:
             - run: npm ci
             - run: npm run lint
             - run: npm run build-and-test
+              env:
+                  REPORTER: "min"
             - run: npm run coverage
               env:
                   REPORTER: "min"
@@ -24,7 +26,6 @@ jobs:
               uses: coverallsapp/github-action@1.1.3
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
-                  parallel-finished: true
 
     test:
         needs: lint-coverage
