@@ -1,3 +1,4 @@
-*
+*.js
+!__tests/*.js
 !.gitignore
 !.npmignore
