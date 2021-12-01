@@ -181,6 +181,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `-webkit-user-drag`
 - `-webkit-user-modify`
 - `-webkit-user-select`
+- `accent-color`
 - `align-content`
 - `align-items`
 - `align-self`
@@ -301,6 +302,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `clip-rule`
 - `color`
 - `color-adjust`
+- `color-scheme`
 - `column-count`
 - `column-fill`
 - `column-gap`
@@ -313,6 +315,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `columns`
 - `contain`
 - `content`
+- `content-visibility`
 - `counter-increment`
 - `counter-reset`
 - `counter-set`
@@ -357,6 +360,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `font-variant-position`
 - `font-variation-settings`
 - `font-weight`
+- `forced-color-adjust`
 - `gap`
 - `glyph-orientation-horizontal`
 - `glyph-orientation-vertical`
@@ -476,6 +480,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `overflow-anchor`
 - `overflow-block`
 - `overflow-clip-box`
+- `overflow-clip-margin`
 - `overflow-inline`
 - `overflow-wrap`
 - `overflow-x`

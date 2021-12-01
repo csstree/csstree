@@ -634,10 +634,6 @@
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
             "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
         },
-        "page-size": {
-            "comment": "https://www.w3.org/TR/css-page-3/#typedef-page-size-page-size",
-            "syntax": "A5 | A4 | A3 | B5 | B4 | JIS-B5 | JIS-B4 | letter | legal | ledger"
-        },
         "ratio": {
             "comment": "missed, https://drafts.csswg.org/mediaqueries-4/#typedef-ratio",
             "syntax": "<integer> / <integer>"
