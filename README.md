@@ -5,7 +5,7 @@
 # CSSTree
 
 [![NPM version](https://img.shields.io/npm/v/css-tree.svg)](https://www.npmjs.com/package/css-tree)
-[![Build Status](https://travis-ci.org/csstree/csstree.svg?branch=master)](https://travis-ci.org/csstree/csstree)
+[![Build Status](https://github.com/csstree/csstree/actions/workflows/build.yml/badge.svg)](https://github.com/csstree/csstree/actions/workflows/build.yml)
 [![Coverage Status](https://coveralls.io/repos/github/csstree/csstree/badge.svg?branch=master)](https://coveralls.io/github/csstree/csstree?branch=master)
 [![NPM Downloads](https://img.shields.io/npm/dm/css-tree.svg)](https://www.npmjs.com/package/css-tree)
 [![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)

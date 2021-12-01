@@ -1,4 +1,4 @@
-name: Node.js CI
+name: build
 
 on:
     push:
@@ -27,7 +27,7 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    test:
+    run-tests:
         needs: lint-coverage
         runs-on: ubuntu-latest
 
