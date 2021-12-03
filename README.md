@@ -12,8 +12,6 @@
 
 CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations. The main goal is to be efficient and W3C spec compliant, with focus on CSS analyzing and source-to-source transforming tasks.
 
-> NOTE: The library isn't in final shape and needs further improvements (e.g. AST format and API are subjects to change in next major versions). However it's stable and used by projects like [CSSO](https://github.com/css/csso) (CSS minifier) and [SVGO](https://github.com/svg/svgo) (SVG optimizer) in production. Master branch contains changes for next major version, for stable published version see branch [1.0](https://github.com/csstree/csstree/tree/1.0).
-
 ## Features
 
 - **Detailed parsing with an adjustable level of detail**
@@ -31,6 +29,17 @@ CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) deta
 - **Syntax validation**
 
   The build-in lexer can test CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as a basis for lexer's dictionaries and extends it with vendor specific and legacy syntaxes. Lexer can only check the declaration values currently, but this feature will be extended to other parts of the CSS in the future.
+
+## Projects using CSSTree
+
+- [Svelte](https://github.com/sveltejs/svelte) – Cybernetically enhanced web apps
+- [SVGO](https://github.com/svg/svgo) – Node.js tool for optimizing SVG files
+- [CSSO](https://github.com/css/csso) – CSS minifier with structural optimizations
+- [NativeScript](https://github.com/NativeScript/NativeScript) – NativeScript empowers you to access native APIs from JavaScript directly
+- [react-native-svg](https://github.com/react-native-svg/react-native-svg) – SVG library for React Native, React Native Web, and plain React web projects
+- [penthouse](https://github.com/pocketjoso/penthouse) – Critical Path CSS Generator
+- [Bit](https://github.com/teambit/bit) – Bit is the platform for collaborating on components
+- and more...
 
 ## Documentation
 
