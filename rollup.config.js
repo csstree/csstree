@@ -12,7 +12,7 @@ fs.writeFileSync(
 );
 
 module.exports = {
-    input: 'lib/parser/index.js',
+    input: 'lib/index.js',
     output: [
         { name: 'csstree', format: 'umd', file: 'dist/csstree.js' },
         { name: 'csstree', format: 'umd', file: 'dist/csstree.min.js' }
