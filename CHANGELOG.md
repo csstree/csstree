@@ -1,19 +1,18 @@
-## next
+## 2.0.0 (December 3, 2021)
 
-- Dropped support for Node.js prior 14.16
-- Moved to ES modules. However, CommonJS is supported (dual module)
-- Added exports for standalone parts instead of internal paths usage (use as `import * as parser from "css-tree/parser"` or `require("css-tree/parser")`):
-    - `css-tree/tokenizer`
-    - `css-tree/parser`
-    - `css-tree/walker`
-    - `css-tree/generator`
-    - `css-tree/lexer`
-    - `css-tree/definition-syntax`
-    - `css-tree/utils`
-- Changed bundle set to provide `dist/csstree.js` (IIFE with `csstree` as a global name) and `dist/csstree.esm.js` (ES module). Both are minified
-- Added `ident`, `string` and `url` helpers to decode/encode corresponding values, e.g. `url.decode('url("image.jpg")')` === `'image.jpg'`
-- Moved `SyntaxError` (custom parser's error class) from root of public API to parser via `parse.SyntaxError`
-- Removed `parseError` field in parser's `SyntaxError`
+- Package
+    - Dropped support for Node.js prior 14.16
+    - Converted to ES modules. However, CommonJS is supported as well (dual module)
+    - Added exports for standalone parts instead of internal paths usage (use as `import * as parser from "css-tree/parser"` or `require("css-tree/parser")`):
+        - `css-tree/tokenizer`
+        - `css-tree/parser`
+        - `css-tree/walker`
+        - `css-tree/generator`
+        - `css-tree/lexer`
+        - `css-tree/definition-syntax`
+        - `css-tree/utils`
+    - Changed bundle set to provide `dist/csstree.js` (an IIFE version with `csstree` as a global name) and `dist/csstree.esm.js` (as ES module). Both are minified
+    - Bumped `mdn-data` to `2.0.23`
 - Tokenizer
     - Changed `tokenize()` to take a function as second argument, which will be called for every token. No stream instance is creating when second argument is ommited.
     - Changed `TokenStream#getRawLength()` to take second parameter as a function (rule) that check a char code to stop a scanning
@@ -21,30 +20,34 @@
     - Removed `TokenStream#skipWS()` method
     - Removed `TokenStream#getTokenLength()` method
 - Parser
+    - Moved `SyntaxError` (custom parser's error class) from root of public API to parser via `parse.SyntaxError`
+    - Removed `parseError` field in parser's `SyntaxError`
     - Changed selector parsing to produce `{ type: 'Combinator', name: ' ' }` node instead of `WhiteSpace` node
-    - Don't produce `WhiteSpace` nodes anymore, with the single exception: a custom property declaration with a single white space token as a value
+    - Removed producing of `WhiteSpace` nodes with the single exception for a custom property declaration with a single white space token as a value
     - Parser adds a whitespace to `+` and `-` operators, when a whitespace is before and/or after an operator
     - Exposed parser's inner configuration as `parse.config`
     - Added `consumeUntilBalanceEnd()`, `consumeUntilLeftCurlyBracket()`, `consumeUntilLeftCurlyBracketOrSemicolon()`, `consumeUntilExclamationMarkOrSemicolon()` and `consumeUntilSemicolonIncluded()` methods to parser's inner API to use with `Raw` instead of `Raw.mode`
     - Changed `Nth` to always consume `of` clause when presented, so it became more general and moves validation to lexer
-    - Changed `String` node type to store decoded string value
-    - Changed `Url` node type to store decoded url value as a string instead of `String` or `Raw` node
+    - Changed `String` node type to store decoded string value, i.e. with no quotes and escape sequences
+    - Changed `Url` node type to store decoded url value as a string instead of `String` or `Raw` node, i.e. with no quotes, escape sequences and `url()` wrapper
 - Generator
     - Generator is now determines itself when a white space required between emitting tokens
     - Changed `chunk()` handler to `token()` (output a single token) and `tokenize()` (split a string into tokens and output each of them)
     - Added `mode` option for `generate()` to specify a mode of token separation: `spec` or `safe` (by default)
     - Added `emit(token, type, auto)` handler as implementation specific token processor
     - Changed `Nth` to serialize `+n` as `n`
-    - Added encoding for a `string` and `url` tokens on serialization
+    - Added auto-encoding for a `string` and `url` tokens on serialization
 - Lexer
     - Removed `Lexer#matchDeclaration()` method
-- List
-    - Changed `List` to be iterable (iterates data)
-    - Changed `List#first`, `List#last` and `List#isEmpty` to getters
-    - Changed `List#getSize()` method to `List#size` getter
-    - Removed `List#each()` and `List#eachRight()` methods, `List#forEach()` and `List#forEachRight()` should be used instead
+- Utils
+    - Added `ident`, `string` and `url` helpers to decode/encode corresponding values, e.g. `url.decode('url("image.jpg")')` === `'image.jpg'`
+    - List
+        - Changed `List` to be iterable (iterates data)
+        - Changed `List#first`, `List#last` and `List#isEmpty` to getters
+        - Changed `List#getSize()` method to `List#size` getter
+        - Removed `List#each()` and `List#eachRight()` methods, `List#forEach()` and `List#forEachRight()` should be used instead
 
-## next 1.x
+## 1.1.3 (March 31, 2021)
 
 - Fixed matching on CSS wide keywords for at-rule's prelude and descriptors
 - Added `fit-content` to `width` property patch as browsers are supported it as a keyword (nonstandard), but spec defines it as a function
