@@ -1,8 +1,8 @@
 # API documentation
 
 - [AST format](ast.md)
-- [Parsing CSS into AST](parsing.md)
-- [Generate CSS from AST](generate.md)
+- [Parsing CSS → AST](parsing.md)
+- [Serialization AST → CSS](generate.md)
 - [AST traversal](traversal.md)
-- [Utils for AST](utils.md)
+- [Util functions](utils.md)
 - [Working with definition syntax](definition-syntax.md)

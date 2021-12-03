@@ -7,11 +7,13 @@
 Parses CSS into AST.
 
 ```js
+import { parse } from 'css-tree';
+
 // simple parsing with no options
-const ast = csstree.parse('.example { color: red }');
+const ast = parse('.example { color: red }');
 
 // parse with options
-const ast = csstree.parse('.foo.bar', {
+const ast = parse('.foo.bar', {
     context: 'selector',
     positions: true
 });
@@ -139,28 +141,39 @@ Defines to parse a at-rule prelude in details (represents as `AtruleExpresion`, 
 ```js
 csstree.parse('@example 1 2;');
 // {
-//     "type": "Atrule",
-//     "prelude": {
-//         "type": "AtrulePrelude",
-//         "children": [
-//             { "type": "Number", "value": "1" },
-//             { "type": "WhiteSpace", "value": " " },
-//             { "type": "Number", "value": "2" }
-//         ]
-//     },
-//     "block": null
+//     "type": "StyleSheet",
+//     "children": [
+//         {
+//             "type": "Atrule",
+//             "name": "example",
+//             "prelude": {
+//                 "type": "AtrulePrelude",
+//                 "children": [
+//                     { "type": "Number", "value": "1" },
+//                     { "type": "Number", "value": "2" }
+//                 ]
+//             },
+//             "block": null
+//         }
+//     ]
 // }
 
 csstree.parse('@example 1 2;', {
     parseAtrulePrelude: false
 });
 // {
-//     "type": "Atrule",
-//     "prelude": {
-//         "type": "Raw",
-//         "value": "1 2"
-//     },
-//     "block": null
+//     "type": "StyleSheet",
+//     "children": [
+//         {
+//             "type": "Atrule",
+//             "name": "example",
+//             "prelude": {
+//                 "type": "Raw",
+//                 "value": "1 2"
+//             },
+//             "block": null
+//         }
+//     ]
 // }
 ```
 
@@ -174,37 +187,47 @@ Defines to parse a rule prelude in details or left unparsed (represents as `Raw`
 ```js
 csstree.parse('.foo {}');
 // {
-//     "type": "Rule",
-//     "prelude": {
-//         "type": "SelectorList",
-//         "children": [
-//             {
-//                 "type": "Selector",
+//     "type": "StyleSheet",
+//     "children": [
+//         {
+//             "type": "Rule",
+//             "prelude": {
+//                 "type": "SelectorList",
 //                 "children": [
-//                     { "type": "ClassSelector", "name": "foo" }
+//                     {
+//                         "type": "Selector",
+//                         "children": [
+//                             { "type": "ClassSelector", "name": "foo" }
+//                         ]
+//                     }
 //                 ]
+//             },
+//             "block": {
+//                 "type": "Block",
+//                 "children": []
 //             }
-//         ]
-//     },
-//     "block": {
-//         "type": "Block",
-//         "children": []
-//     }
+//         }
+//     ]
 // }
 
 csstree.parse('.foo {}', {
     parseRulePrelude: false
 });
 // {
-//     "type": "Rule",
-//     "prelude": {
-//         "type": "Raw",
-//         "value": ".foo"
-//     },
-//     "block": {
-//         "type": "Block",
-//         "children": []
-//     }
+//     "type": "StyleSheet",
+//     "children": [
+//         {
+//             "type": "Rule",
+//             "prelude": {
+//                 "type": "Raw",
+//                 "value": ".foo"
+//             },
+//             "block": {
+//                 "type": "Block",
+//                 "children": []
+//             }
+//         }
+//     ]
 // }
 ```
 
@@ -244,7 +267,7 @@ csstree.parse('color: #aabbcc', {
 //     "property": "color",
 //     "value": {
 //         "type": "Raw",
-//         "value": " #aabbcc"
+//         "value": "#aabbcc"
 //     }
 // }
 ```

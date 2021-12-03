@@ -1,21 +1,27 @@
-# Utils for AST
+# Util functions
 
 <!-- TOC depthFrom:2 -->
 
-- [property(name)](#propertyname)
-- [keyword(name)](#keywordname)
-- [clone(ast)](#cloneast)
-- [fromPlainObject(object)](#fromplainobjectobject)
-- [toPlainObject(ast)](#toplainobjectast)
+- Value encoding & decoding
+    - [property(name)](#propertyname)
+    - [keyword(name)](#keywordname)
+    - [ident](#ident)
+    - [string](#string)
+    - [url](#url)
+- AST transforming
+    - [clone(ast)](#cloneast)
+    - [fromPlainObject(object)](#fromplainobjectobject)
+    - [toPlainObject(ast)](#toplainobjectast)
 
 <!-- /TOC -->
 
-## property(name)
+## Value encoding & decoding
+### property(name)
 
 Returns details for a property name, such as vendor prefix, used hack etc. Using for safe test of declaration property names, i.e. `Declaration.property`.
 
 ```js
-const csstree = require('css-tree');
+import * as csstree from 'css-tree';
 
 csstree.property('*-vendor-property');
 // {
@@ -46,7 +52,7 @@ csstree.property('NAME').name === 'name'                      // true
 csstree.property('--custom') === csstree.property('--Custom') // false
 
 const info = csstree.property('NAME');
-info.name === 'name'; // 
+info.name === 'name'; // true
 info.name = 'foo';    // have no effect
 info.name === 'name'; // true
 ```
@@ -61,12 +67,12 @@ Supported hacks:
 - `/` in the beginning
 - `//` in the beginning
 
-## keyword(name)
+### keyword(name)
 
 Mostly the same as `property()` function, but without hack detection. Using for any identifier except declaration property name.
 
 ```js
-const csstree = require('css-tree');
+import * as csstree from 'css-tree';
 
 csstree.keyword('-vendor-keyword');
 // {
@@ -78,7 +84,44 @@ csstree.keyword('-vendor-keyword');
 // };
 ```
 
-## clone(ast)
+### ident
+
+Decode and encode of `ident` token values.
+
+```js
+import { ident } from 'css-tree';
+
+ident.decode('hello\\9 \\ world')   // hello\t world
+ident.encode('hello\t world')       // hello\9 \ world
+```
+
+### string
+
+Decode and encode of `string` token values.
+
+```js
+import { string } from 'css-tree';
+
+string.decode('"hello\\9  \\"world\\""') // hello\t "world"
+string.decode('\'hello\\9  "world"\'')   // hello\t "world"
+string.encode('hello\t "world"')         // "hello\9  \"world\""
+string.encode('hello\t "world"', true)   // 'hello\9  "world"'
+```
+
+### url
+
+Decode and encode of `url` token values.
+
+```js
+import { url } from 'css-tree';
+
+url.decode('url(file\ \(1\).ext)')  // file (1).ext
+url.encode('file (1).ext')          // url(file\ \(1\).ext)
+```
+
+## AST transforming
+
+### clone(ast)
 
 Make AST deep copy.
 
@@ -103,19 +146,20 @@ console.log(csstree.generate(copy));
 `fromPlainObject()` walks through AST and coverts each `children` value into a `List` instance when value is an array.
 
 ```js
-const csstree = require('css-tree');
+import * as csstree from 'css-tree';
+
 const ast = {
     type: 'SelectorList',
     children: []
 };
 
-console.log(Array.isArray(ast.children));          // true
-console.log(ast.children instanceof csstree.List); // false
+Array.isArray(ast.children)          // true
+ast.children instanceof csstree.List // false
 
 ast = csstree.fromPlainObject(ast);
 
-console.log(Array.isArray(ast.children));          // false
-console.log(ast.children instanceof csstree.List); // true
+Array.isArray(ast.children)          // false
+ast.children instanceof csstree.List // true
 ```
 
 Function mutates the passed AST. Use `clone()` function before passing AST to `fromPlainObject()` in case you want to avoid original tree mutation.
@@ -129,19 +173,20 @@ astClone = csstree.fromPlainObject(csstree.clone(ast));
 `fromPlainObject()` walks through AST and coverts each `children` value to regular array when value is a `List` instance.
 
 ```js
-const csstree = require('css-tree');
+import * as csstree from 'css-tree';
+
 const ast = {
     type: 'SelectorList',
     children: new List()
 };
 
-console.log(Array.isArray(ast.children));          // false
-console.log(ast.children instanceof csstree.List); // true
+Array.isArray(ast.children)          // false
+ast.children instanceof csstree.List // true
 
 ast = csstree.toPlainObject(ast);
 
-console.log(Array.isArray(ast.children));          // true
-console.log(ast.children instanceof csstree.List); // false
+Array.isArray(ast.children)          // true
+ast.children instanceof csstree.List // false
 ```
 
 Function mutates the passed AST. Use `clone()` function before passing AST to `toPlainObject()` in case you want to avoid original tree mutation.

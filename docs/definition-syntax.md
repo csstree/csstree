@@ -32,7 +32,7 @@ Arguments:
   A definition to parse
 
 ```js
-const { definitionSyntax } = require('css-tree');
+import { definitionSyntax } from 'css-tree';
 
 definitionSyntax.parse('foo | bar');
 // { Group
@@ -56,7 +56,8 @@ Arguments:
   Defines a value as `this` in enter and leave handlers.
 
 ```js
-const { definitionSyntax } = require('css-tree');
+import { definitionSyntax } from 'css-tree';
+
 const ast = definitionSyntax.parse('foo | bar');
 
 definitionSyntax.walk(ast, {
@@ -96,7 +97,8 @@ definitionSyntax.walk(ast, node =>
     A function to post-process result of node translation to a string. Handy to make some kind of result wrapping.
 
 ```js
-const { definitionSyntax } = require('css-tree');
+import { definitionSyntax } from 'css-tree';
+
 const ast = definitionSyntax.parse('foo && bar || [ baz | qux ]');
 
 definitionSyntax.generate(ast);

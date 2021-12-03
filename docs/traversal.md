@@ -10,10 +10,11 @@
 Method visits each node of passed AST in a natural way and calls handlers for each one. It takes two arguments: a root node (`ast`) and an object (`options`). In simple case, it may take a function (handler) instead of `options` (`walk(ast, fn)` is equivalent to `walk(ast, { enter: fn })`).
 
 ```js
-const csstree = require('css-tree');
-const ast = csstree.parse('.a { color: red; }');
+import { parse, walk } from 'css-tree';
 
-csstree.walk(ast, function(node) {
+const ast = parse('.a { color: red; }');
+
+walk(ast, function(node) {
     console.log(node.type);
 });
 // StyleSheet
@@ -44,7 +45,7 @@ Walk visitor's function may return special values to control traversal:
 
 ```js
 csstree.walk(ast, {
-    enter: function(node) {
+    enter(node) {
         if (node.type === 'Block') {
             return this.skip;
         }
@@ -72,10 +73,11 @@ Default: `undefined`
 Handler on node entrance, i.e. before any nested node is processed.
 
 ```js
-const csstree = require('css-tree');
-const ast = csstree.parse('.a { color: red; }');
+import { parse, walk } from 'css-tree';
 
-csstree.walk(ast, {
+const ast = parse('.a { color: red; }');
+
+walk(ast, {
     enter(node) {
         console.log(node.type);
     }
@@ -101,21 +103,22 @@ Handler receives a three arguments:
 > NOTE: If `children` is an array, the last two arguments are `index` and `array`, like for `Array#forEach()` or `Array#map()` methods.
 
 ```js
-const csstree = require('css-tree');
-const ast = csstree.parse(`
+import { parse, walk, generate } from 'css-tree';
+
+const ast = parse(`
     .a { foo: 1; bar: 2; }
     .b { bar: 3; baz: 4; }
 `);
 
 // remove declarations with `bar` property from the tree
-csstree.walk(ast, function(node, item, list) {
+walk(ast, (node, item, list) => {
     if (node.type === 'Declaration' && node.property === 'bar' && list) {
         // remove a declaration from a list it
         list.remove(item);
     }
 });
 
-console.log(csstree.generate(ast));
+console.log(generate(ast));
 // .a{foo:1}.b{baz:4}
 ```
 
@@ -137,8 +140,9 @@ Context (`this`) for a handler is an object with a references to the closest anc
 - `function` – refers to closest `Function`, `PseudoClassSelector` or `PseudoElementSelector` node if current node inside one of them
 
 ```js
-const csstree = require('css-tree');
-const ast = csstree.parse(`
+import { parse, walk } from 'css-tree';
+
+const ast = parse(`
     @import url(import.css);
     .foo { background: url('foo.jpg'); }
     .bar { background-image: url(bar.png); }
@@ -146,7 +150,8 @@ const ast = csstree.parse(`
 
 // collect all urls in declarations
 const urls = [];
-csstree.walk(ast, function(node) {
+
+walk(ast, function(node) {
     if (this.declaration !== null && node.type === 'Url') {
         urls.push(node.value);
     }
@@ -164,10 +169,11 @@ Default: `undefined`
 The same as `enter` handler but invokes on node exit, i.e. after all nested nodes are processed.
 
 ```js
-const csstree = require('css-tree');
-const ast = csstree.parse('.a { color: red; }');
+import { parse, walk } from 'css-tree';
 
-csstree.walk(ast, {
+const ast = parse('.a { color: red; }');
+
+walk(ast, {
     leave(node) {
         console.log(node.type);
     }
@@ -191,10 +197,11 @@ Default: `null`
 Invokes a handler for a specified node type only.
 
 ```js
-const csstree = require('css-tree');
-const ast = csstree.parse('.a { color: red; } .b { color: green; }');
+import { parse, walk } from 'css-tree';
 
-csstree.walk(ast, {
+const ast = parse('.a { color: red; } .b { color: green; }');
+
+walk(ast, {
     visit: 'ClassSelector',
     enter(node) {
         console.log(node.name);
@@ -202,7 +209,7 @@ csstree.walk(ast, {
 });
 
 // example above is equivalent to
-csstree.walk(ast, {
+walk(ast, {
     enter(node) {
         if (node.type === 'ClassSelector') {
             console.log(node.name);
@@ -224,41 +231,69 @@ The traveral for some node types can performs faster (10-15 times depending on t
 Type: `boolean`  
 Default: `false`
 
-Inverts the natural order of traversing nodes:
-- node's properties are iterated over in reverse order to the node's `structure` definition
+Inverts the natural order of node traversing:
+- node's properties are iterated in reverse order to the node's `structure` definition
 - children nodes are iterated from last to first
 
 ```js
-const assert = require('assert');
-const csstree = require('css-tree');
+import * as csstree from 'css-tree';
+
 const ast = csstree.parse('.a { color: red; }');
 
-const natural = [];
 csstree.walk(ast, {
     enter(node) {
-        natural.push(`enter ${node.type}`);
+        console.log(`enter ${node.type}`);
     },
     leave(node) {
-        natural.push(`leave ${node.type}`);
+        console.log(`leave ${node.type}`);
     }
 });
+// enter StyleSheet
+// enter Rule
+// enter SelectorList
+// enter Selector
+// enter ClassSelector
+// leave ClassSelector
+// leave Selector
+// leave SelectorList
+// enter Block
+// enter Declaration
+// enter Value
+// enter Identifier
+// leave Identifier
+// leave Value
+// leave Declaration
+// leave Block
+// leave Rule
+// leave StyleSheet
 
-const reverse = [];
 csstree.walk(ast, {
     reverse: true,    // !!!
     enter(node) {
-        reverse.push(`enter ${node.type}`);
+        console.log(`enter ${node.type}`);
     },
     leave(node) {
-        reverse.push(`leave ${node.type}`);
+        console.log(`leave ${node.type}`);
     }
 });
-
-// will pass assert
-assert.deepEqual(
-    reverse,
-    natural.reverse()
-);
+// enter StyleSheet
+// enter Rule
+// enter Block
+// enter Declaration
+// enter Value
+// enter Identifier
+// leave Identifier
+// leave Value
+// leave Declaration
+// leave Block
+// enter SelectorList
+// enter Selector
+// enter ClassSelector
+// leave ClassSelector
+// leave Selector
+// leave SelectorList
+// leave Rule
+// leave StyleSheet
 ```
 
 ## find(ast, fn)
@@ -266,12 +301,13 @@ assert.deepEqual(
 Returns the first node in natural order for which `fn` function returns a truthy value.
 
 ```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+import * as csstree from 'css-tree';
 
-var firstColorDeclaration = csstree.find(ast, function(node, item, list) {
-    return node.type === 'Declaration' && node.property === 'color';
-});
+const ast = csstree.parse('.a { color: red; } .b { color: green; }');
+
+const firstColorDeclaration = csstree.find(ast, (node, item, list) =>
+    node.type === 'Declaration' && node.property === 'color'
+);
 
 console.log(csstree.generate(firstColorDeclaration));
 // color:red
@@ -282,12 +318,13 @@ console.log(csstree.generate(firstColorDeclaration));
 Returns the first node in reverse order for which `fn` function returns a truthy value.
 
 ```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+import * as csstree from 'css-tree';
 
-var firstColorDeclaration = csstree.findLast(ast, function(node, item, list) {
-    return node.type === 'Declaration' && node.property === 'color';
-});
+const ast = csstree.parse('.a { color: red; } .b { color: green; }');
+
+const firstColorDeclaration = csstree.findLast(ast, (node, item, list) =>
+    node.type === 'Declaration' && node.property === 'color'
+);
 
 console.log(csstree.generate(firstColorDeclaration));
 // color:green
@@ -298,12 +335,13 @@ console.log(csstree.generate(firstColorDeclaration));
 Returns all nodes in natural order for which `fn` function returns a truthy value.
 
 ```js
-var csstree = require('css-tree');
-var ast = csstree.parse('.a { color: red; } .b { color: green; }');
+import * as csstree from 'css-tree';
 
-var colorDeclarations = csstree.findAll(ast, function(node, item, list) {
-    return node.type === 'Declaration' && node.property === 'color';
-});
+const ast = csstree.parse('.a { color: red; } .b { color: green; }');
+
+const colorDeclarations = csstree.findAll(ast, (node, item, list) =>
+    node.type === 'Declaration' && node.property === 'color'
+);
 
 console.log(colorDeclarations.map(decl => csstree.generate(decl)).join(', '));
 // color:red, color:green
