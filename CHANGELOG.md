@@ -1,4 +1,4 @@
-## next
+## 2.0.1 (December 4, 2021)
 
 - Extended Node.js support to include `^12.20.0` and `^14.13.0` versions
 
