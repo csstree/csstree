@@ -65,7 +65,7 @@
   "jsdelivr": "dist/csstree.esm.js",
   "scripts": {
     "build": "npm run bundle && npm run esm-to-cjs",
-    "build-and-test": "npm run bundle-and-test && npm run esm-to-cjs-and-test",
+    "build-and-test": "npm run build && npm run test:dist && npm run test:cjs",
     "bundle": "node scripts/bundle",
     "bundle-and-test": "npm run bundle && npm run test:dist",
     "esm-to-cjs": "node scripts/esm-to-cjs",
@@ -96,7 +96,7 @@
     "rollup": "^2.58.0"
   },
   "engines": {
-    "node": "^14.16.0 || >=15.0.0",
+    "node": "^12.20.0 || ^14.13.0 || >=15.0.0",
     "npm": ">=7.0.0"
   },
   "files": [

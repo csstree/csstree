@@ -16,7 +16,7 @@ jobs:
                   cache: "npm"
             - run: npm ci
             - run: npm run lint
-            - run: npm run build-and-test
+            - run: npm run bundle-and-test
               env:
                   REPORTER: "min"
             - run: npm run coverage
@@ -35,7 +35,8 @@ jobs:
             matrix:
                 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
                 node_version:
-                    - 14.16
+                    - 12.20.0
+                    - 14.13.0
                     - 16
 
         steps:
@@ -47,5 +48,8 @@ jobs:
                   cache: "npm"
             - run: npm ci
             - run: npm test
+              env:
+                  REPORTER: "min"
+            - run: npm run esm-to-cjs-and-test
               env:
                   REPORTER: "min"
