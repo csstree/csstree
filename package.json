@@ -50,6 +50,14 @@
       "import": "./lib/definition-syntax/index.js",
       "require": "./cjs/definition-syntax/index.cjs"
     },
+    "./definition-syntax-data": {
+      "import": "./lib/data.js",
+      "require": "./cjs/data.cjs"
+    },
+    "./definition-syntax-data-patch": {
+      "import": "./lib/data-patch.js",
+      "require": "./cjs/data-patch.cjs"
+    },
     "./utils": {
       "import": "./lib/utils/index.js",
       "require": "./cjs/utils/index.cjs"

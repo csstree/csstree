@@ -145,6 +145,8 @@ import * as parser from 'css-tree/parser';
 import * as walker from 'css-tree/walker';
 import * as lexer from 'css-tree/lexer';
 import * as definitionSyntax from 'css-tree/definition-syntax';
+import * as data from 'css-tree/definition-syntax-data';
+import * as dataPatch from 'css-tree/definition-syntax-data-patch';
 import * as utils from 'css-tree/utils';
 ```
 

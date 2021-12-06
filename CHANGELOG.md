@@ -1,6 +1,9 @@
 ## next
 
-- Fixed browser files for CommonJS, i.e. added `dist/data.cjs` and `dist/version.cjs`
+- Fixed CommonJS bundling by adding browser files `dist/data.cjs` and `dist/version.cjs`
+- Added exports:
+    - `css-tree/definition-syntax-data`
+    - `css-tree/definition-syntax-data-patch`
 
 ## 2.0.1 (December 4, 2021)
 

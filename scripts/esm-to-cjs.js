@@ -47,6 +47,7 @@ async function build() {
         plugins: [
             replaceContent({
                 'lib/data.js': removeCreateRequire,
+                'lib/data-patch.js': removeCreateRequire,
                 'lib/version.js': removeCreateRequire
             })
         ]
