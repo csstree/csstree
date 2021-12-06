@@ -56,8 +56,8 @@
     }
   },
   "browser": {
-    "./cjs/data.cjs": "./dist/data.js",
-    "./cjs/version.cjs": "./dist/version.js",
+    "./cjs/data.cjs": "./dist/data.cjs",
+    "./cjs/version.cjs": "./dist/version.cjs",
     "./lib/data.js": "./dist/data.js",
     "./lib/version.js": "./dist/version.js"
   },

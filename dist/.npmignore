@@ -2,4 +2,6 @@
 !csstree.js
 !csstree.esm.js
 !data.js
+!data.cjs
 !version.js
+!version.cjs
