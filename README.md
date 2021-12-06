@@ -150,11 +150,11 @@ import * as utils from 'css-tree/utils';
 
 ### Using in a browser
 
-There are bundles are available for using in a browser:
+Bundles are available for use in a browser:
 
 - `dist/csstree.js` – minified IIFE with `csstree` as global
 ```html
-<script src="node_modules/css-tree/dist/csstreejs"></script>
+<script src="node_modules/css-tree/dist/csstree.js"></script>
 <script>
   csstree.parse('.example { color: green }');
 </script>
