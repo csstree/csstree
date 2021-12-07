@@ -34,6 +34,7 @@
         "invalid": [
             "rgb(1, 2 3)",
             "rgb(1, 2, 3%)",
+            "rgb(1, 2, 3, )",
             "rgb(1, 2, 3, 4)"
         ]
     },
@@ -95,7 +96,8 @@
             "1px normal",
             "large 1px",
             "calc(1px)",
-            "calc(1px) normal"
+            "calc(1px) normal",
+            "calc(1px + (2px / 3) + 10%) normal"
         ],
         "invalid": [
             "1deg small",
@@ -103,6 +105,8 @@
             "1px normal small",
             "normal 1px small",
             "calc(1px) normal small",
+            "calc(1px] normal",
+            "calc(1px(])) normal",
             "normal calc(1px) small"
         ]
     }
