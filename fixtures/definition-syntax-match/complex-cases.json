@@ -84,5 +84,26 @@
             "a",
             "a a a"
         ]
+    },
+    "<length> || <size>": {
+        "types": {
+            "size": "[ small | normal | large ]"
+        },
+        "valid": [
+            "1px",
+            "normal",
+            "1px normal",
+            "large 1px",
+            "calc(1px)",
+            "calc(1px) normal"
+        ],
+        "invalid": [
+            "1deg small",
+            "foo 1px",
+            "1px normal small",
+            "normal 1px small",
+            "calc(1px) normal small",
+            "normal calc(1px) small"
+        ]
     }
 }

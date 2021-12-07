@@ -72,7 +72,8 @@
         "invalid": [
             "",
             "1s",
-            "1s 2px"
+            "1s 2px",
+            "calc(2 * 1px) 3px"
         ]
     },
     "<frequency>": {
