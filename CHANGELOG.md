@@ -1,5 +1,6 @@
 ## next
 
+- Replaced `source-map` with `source-map-js` which reduce install size by ~700KB
 - Fixed `calc()` function consumption on definition syntax matching
 - Fixed CommonJS bundling by adding browser files `dist/data.cjs` and `dist/version.cjs`
 - Added exports:

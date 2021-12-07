@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "mdn-data": "2.0.23",
-    "source-map": "^0.6.1"
+    "source-map-js": "^1.0.1"
   },
   "devDependencies": {
     "c8": "^7.7.1",
