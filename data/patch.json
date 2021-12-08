@@ -292,16 +292,19 @@
             "syntax": "none | <url>"
         },
         "max-width": {
-            "comment": "fix auto -> none (https://github.com/mdn/data/pull/431); extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
-            "syntax": "none | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
+            "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
+            "syntax": "| <-non-standard-width>"
         },
         "width": {
-            "comment": "per spec fit-content should be a function, however browsers are supporting it as a keyword (https://github.com/csstree/stylelint-validator/issues/29)",
-            "syntax": "| fit-content | -moz-fit-content | -webkit-fit-content"
+            "references": [
+                "https://developer.mozilla.org/en-US/docs/Web/CSS/width",
+                "https://github.com/csstree/stylelint-validator/issues/29"
+            ],
+            "syntax": "| fill | stretch | intrinsic | -moz-max-content | -webkit-max-content | -moz-fit-content | -webkit-fit-content"
         },
         "min-width": {
             "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-            "syntax": "auto | <length-percentage> | min-content | max-content | fit-content(<length-percentage>) | <-non-standard-width>"
+            "syntax": "| <-non-standard-width>"
         },
         "overflow": {
             "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
