@@ -1,6 +1,9 @@
 {
     "valid": [
         "foo(",
+        "--foo(",
+        "--(",
+        "---(",
         {
             "value": "url('foo')",
             "tokens": [
@@ -19,6 +22,7 @@
         }
     ],
     "invalid": [
+        "-(",
         "url(abc)"
     ]
 }
