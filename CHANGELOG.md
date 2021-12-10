@@ -1,4 +1,4 @@
-## next
+## 2.0.2 (December 4, 2021)
 
 - Updated `width`, `min-width` and `max-width` syntax definitions
 - Patched counter related syntaxes to match specs until updated in `mdn-data`
