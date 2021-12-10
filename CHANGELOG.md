@@ -5,6 +5,7 @@
 - Replaced `source-map` with `source-map-js` which reduce install size by ~700KB
 - Fixed `calc()` function consumption on definition syntax matching
 - Fixed `generate()` auto emitting a whitespace edge cases when next token starts with a dash (minus)
+- Fixed `generate()` safe mode to cover more cases for IE11
 - Fixed CommonJS bundling by adding browser files `dist/data.cjs` and `dist/version.cjs`
 - Added exports:
     - `css-tree/definition-syntax-data`

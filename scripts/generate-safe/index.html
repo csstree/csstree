@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<body>
+    <style>
+        body {
+            font-family: Tahoma, serif;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            vertical-align: top;
+            width: 50%;
+        }
+        .testcase {
+            margin: 2px 0;
+            padding: 2px 4px;
+            font-size: 11px;
+            background: #eee;
+        }
+    </style>
+    <select id="selectedMode" onChange="runMode(selectedMode.value)">
+        <option value="spec">spec
+        <option value="safe" selected>safe
+    </select>
+    <table>
+        <tr>
+            <td id="okTestsCount">
+            <td id="failedTestsCount">
+        <tr>
+            <td id="okTests">
+            <td id="failedTests">
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
