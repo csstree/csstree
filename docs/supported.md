@@ -28,7 +28,7 @@ At-rules with a custom parsing rules. In fact, any at-rule is supported but prel
 
 ## Functional pseudos
 
-Functional pseudos with a custom parsing rule. Non-listed functional pseudos don't parse a content inside parentheses and represent it as a `Raw` node if any. There is no difference between pseudo class and pseudo element on parsing, like no validation for functional pseudos is supported at the moment.
+Functional pseudos with a custom parsing rule. Non-listed functional pseudos don't parse a content inside parentheses and represent it as a `Raw` node if any. There is no difference between pseudo-class and pseudo-element on parsing, like no validation for functional pseudos is supported at the moment.
 
 <!-- gen:pseudo -->
 
@@ -47,7 +47,7 @@ Functional pseudos with a custom parsing rule. Non-listed functional pseudos don
 
 ## Properties
 
-Support for a property means CSSTree has a grammar for such property, so its value can be checked (validated) for complience to spec or browser inplementations (for non-standart properties). The validation doesn't perform on parsing stage and should be done as a separate step using Lexer API. In other words any property value can be parsed with default parsing rules, but validation is possible for listed properties only.
+Support for a property means CSSTree has a grammar for such property, so its value can be checked (validated) for compliance to spec or browser implementations (for non-standard properties). The validation doesn't perform on parsing stage and should be done as a separate step using Lexer API. In other words any property value can be parsed with default parsing rules, but validation is possible for listed properties only.
 
 <!-- gen:properties -->
 
