@@ -1,6 +1,6 @@
 # AST format
 
-CSSTree's AST consists of nodes (leafs). Each node is an object with a set of properties that depends on node's type. Nodes can refers to other nodes and contain a list of nested nodes.
+CSSTree's AST consists of nodes (leaves). Each node is an object with a set of properties that depends on node's type. Nodes can refer to other nodes and contain a list of nested nodes.
 
 Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist/244e2fb4da940df52bf0f4b94277db44/e79aff44611020b22cfd9708f3a99ce09b7d67a8).
 
@@ -166,7 +166,7 @@ The `loc` property lets you know from which source file the node comes from (if 
 
 ### children
 
-Type: `List` or `null`  
+Type: `List` or `null`
 
 Only certain types of nodes can contain this property, such as [`StyleSheet`](#stylesheet) or [`Block`](#block). However, this is the only property that can store a list of nested nodes.
 

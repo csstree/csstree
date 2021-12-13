@@ -28,20 +28,20 @@ walk(ast, function(node) {
 // Identifier
 ```
 
-How does it works:
+How it works:
 
 - Method uses `structure` field value of every node type to define the way how to iterate node's properties:
     - A function-iterator is generating for every node type.
     - Node's properties are iterated in the order as defined in `structure` ([reverse](#reverse) option inverts the order).
-    - Properties that are not defined in `structure` are ignored (aren't interated).
+    - Properties that are not defined in `structure` are ignored (won't be iterated over).
     - An exception is possible when a tree is not following to expected structure (e.g. AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of the tree structure, you may use `try/catch` or check the tree structure with `csstree.lexer.validateStructure(ast)` before iterating.
-- Only `children` field may contain a list of nested nodes. A list of nodes should a `List` instances. Since `List` class provides API similar to `Array`, traversal may work in cases when `children` is an array, but without any guarantee. Usings arrays in AST is not recomended, use it on your own risk.
+- Only `children` field may contain a list of nested nodes. A list of nodes should a `List` instances. Since `List` class provides API similar to `Array`, traversal may work in cases when `children` is an array, but without any guarantee. Using arrays in AST is not recommended, use it on your own risk.
 
 Walk visitor's function may return special values to control traversal:
-- `walk.break` or `this.break` – stops traversal, i.e. no any visitor function will be invoked once this value returned by a visitor;
-- `walk.skip` or `this.skip` – prevent current node from being iterated, i.e. no any visitor function will be invoked for its properties or children nodes; note that this value only has an effect for `enter` visitor as `leave` visitor invokes after iterating over all node's properties and children.
+- `walk.break` or `this.break` – stops traversal, i.e. no visitor function will be invoked once this value is returned by a visitor;
+- `walk.skip` or `this.skip` – prevent current node from being iterated, i.e. no visitor function will be invoked for its properties or children nodes; note that this value only has an effect for `enter` visitor as `leave` visitor invokes after iterating over all node's properties and children.
 
-> NOTE: `walk.break` and `walk.skip` are only possible option for arrow functions, since such functions have no their own `this`.
+> NOTE: `walk.break` and `walk.skip` are only possible option for arrow functions, since such functions don't have their own `this`.
 
 ```js
 csstree.walk(ast, {
@@ -93,9 +93,9 @@ walk(ast, {
 // Identifier
 ```
 
-In case `options` has a single `enter` field, it can replaced for the handler passed as a value for `enter`, i.e. `walk(ast, { enter: fn })` → `walk(ast, fn)`.
+In case `options` has a single `enter` field, it can be replaced for the handler passed as a value for `enter`, i.e. `walk(ast, { enter: fn })` → `walk(ast, fn)`.
 
-Handler receives a three arguments:
+Handler receives three arguments:
 - `node` – the AST node a walker entering to
 - `item` – node wrapper, that contains references to `prev` and `next` nodes in a list, and `data` reference for the node
 - `list` – is a reference for the list; it's useful for list operations like `remove()` or `insert()`
@@ -123,7 +123,7 @@ console.log(generate(ast));
 ```
 
 > NOTE:
-> - `item` and `list` are not defined for nodes that are not in a list. Even `Declaration` can be outside of any list in case it is a root of tree or a part of `@supports` prelude, e.g. `@supports (bar: 123) { ... }`. Therefore, it's recomended to check `item` or `list` are defined before using of it (those values both are defined or both are undefined, so it's enough to test one of them)
+> - `item` and `list` are not defined for nodes that are not in a list. Even `Declaration` can be outside any list in case it is a root of tree or a part of `@supports` prelude, e.g. `@supports (bar: 123) { ... }`. Therefore, it's recommended to check `item` or `list` are defined before using of it (those values both are defined or both are undefined, so it's enough to test one of them)
 > - Only `List` instances are safe for tree transformations such as node removal. In case you perform such operations, you can ensure that all `children` in a tree is a `List` instances by calling `csstree.fromPlainObject(ast)` before traversal.
 > - It's better to use `visit` option when possible to reach better performance
 
@@ -218,7 +218,7 @@ walk(ast, {
 });
 ```
 
-The traveral for some node types can performs faster (10-15 times depending on the CSS structure), because some subtrees may to be skipped since they can't contain a node of specified type (e.g. `Rule` can't be used inside of `Declaration`, so declaration's subtree can be exclude from traversal path). Fast traversal is supported for node types:
+The traversal for some node types can perform faster (10-15 times depending on the CSS structure), because some subtrees may to be skipped since they can't contain a node of specified type (e.g. `Rule` can't be used inside of `Declaration`, so declaration's subtree can be excluded from traversal path). Fast traversal is supported for node types:
 
 - `Atrule`
 - `Rule`

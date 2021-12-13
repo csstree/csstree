@@ -44,7 +44,7 @@ csstree.property('--test-var');
 // };
 ```
 
-`property()` function normalizes a name to lower case, except custom property names since they are case sensitive. It returns the same immutable (freezed) object for the same input (input after normalization).
+`property()` function normalizes a name to lower case, except custom property names since they are case-sensitive. It returns the same immutable (frozen) object for the same input (input after normalization).
 
 ```js
 csstree.property('name') === csstree.property('NAME')         // true

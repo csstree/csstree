@@ -1,6 +1,6 @@
 # Parsing CSS into AST
 
-> NOTE: Currenly parser omits redundant separators, spaces and comments (except exclamation comments, i.e. `/*! comment */`) on AST build.
+> NOTE: Currently, parser omits redundant separators, spaces and comments (except exclamation comments, i.e. `/*! comment */`) on AST build.
 
 ## parse(source[, options])
 
@@ -136,7 +136,7 @@ Start column number. Useful when parsing fragment of CSS to store correct positi
 Type: `boolean`  
 Default: `true`
 
-Defines to parse a at-rule prelude in details (represents as `AtruleExpresion`, `MediaQueryList` or `SelectorList` if any). Otherwise represents prelude as `Raw` node.
+Defines to parse an at-rule prelude in details (represents as `AtruleExpresion`, `MediaQueryList` or `SelectorList` if any). Otherwise, represents prelude as `Raw` node.
 
 ```js
 csstree.parse('@example 1 2;');
