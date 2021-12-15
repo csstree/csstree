@@ -31,7 +31,7 @@ iterateSyntaxes(function(section, name, syntax) {
         //             const parent = stack[stack.length - 1];
         //             const start = parent.terms.indexOf(node);
 
-        //             for (var i = start; i < parent.terms.length; i++) {
+        //             for (let i = start; i < parent.terms.length; i++) {
         //                 if (parent.terms[i].type === 'Token' && parent.terms[i].value === ')') {
         //                     i++;
         //                     break;

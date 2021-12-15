@@ -1,7 +1,9 @@
 /* eslint-env browser */
 /* global selectedMode, okTests, okTestsCount, failedTestsCount, failedTests */
 
-const fixture = [];
+// Keep `var` in this script since it has to be written in ES5 to able run it in old browsers without transpilation.
+
+var fixture = [];
 
 function test(testcase, mode) {
     var el = document.createElement('div');
