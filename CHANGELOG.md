@@ -1,8 +1,8 @@
-## next
+## 2.0.2 (December 14, 2021)
 
 - Fixed unintended whitespace on `generate()` in `safe` mode between `type-selector` and `id-selector` (e.g. `a#id`). A regression was introduces in `2.0.2` since IE11 fails on values when `<hash-token>` goes after `<ident-token>` without a whitespace in the middle, e.g. `1px solid#000`. Thus, in one case, a space between the `<ident-token>` and the `<hash-token>` is required, and in the other, vice versa. Until a better solution found, a workaround is used on `id-selector` generation by producing a `<delim-token>` instead of `<hash-token>`.
 
-## 2.0.2 (December 4, 2021)
+## 2.0.2 (December 10, 2021)
 
 - Updated `width`, `min-width` and `max-width` syntax definitions
 - Patched counter related syntaxes to match specs until updated in `mdn-data`
