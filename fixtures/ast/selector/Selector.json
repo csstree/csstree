@@ -35,6 +35,22 @@
             ]
         }
     },
+    "type & id": {
+        "source": "a#test",
+        "ast": {
+            "type": "Selector",
+            "children": [
+                {
+                    "type": "TypeSelector",
+                    "name": "a"
+                },
+                {
+                    "type": "IdSelector",
+                    "name": "test"
+                }
+            ]
+        }
+    },
     "simpleselector.3": {
         "source": "[a=b]",
         "ast": {
