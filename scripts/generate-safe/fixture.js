@@ -48,6 +48,11 @@ const pairToProperty = [].concat(...[
         right: ['Ident:red', 'Hash', 'Function:rgb(1,2,3)']
     },
     {
+        property: 'border',
+        left: ['Ident:solid', 'Dimension:2px'],
+        right: ['Hash']
+    },
+    {
         property: 'background',
         symetric: true,
         left: ['Url', 'Percentage', 'Dimension'],
