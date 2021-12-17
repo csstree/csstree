@@ -1,6 +1,7 @@
 ## next
 
 - Fixed `generate()` in safe mode to add a whitespace between `<dimension-token>` and `<hash-token>`, otherwise some values are broken in IE11, e.g. `border` properties (#173)
+- Removed allowance for `:` for an attribute name on `AttributeSelector` parsing as it does not meet the CSS specs ([details](https://github.com/csstree/csstree/discussions/149))
 
 ## 2.0.2 (December 14, 2021)
 

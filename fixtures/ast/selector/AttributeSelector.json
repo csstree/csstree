@@ -99,35 +99,6 @@
             "flags": "i"
         }
     },
-    "attrib.3": {
-        "source": "[ng:cloak]",
-        "ast": {
-            "type": "AttributeSelector",
-            "name": {
-                "type": "Identifier",
-                "name": "ng:cloak"
-            },
-            "matcher": null,
-            "value": null,
-            "flags": null
-        }
-    },
-    "attrib.4": {
-        "source": "[ng:cloak=x]",
-        "ast": {
-            "type": "AttributeSelector",
-            "name": {
-                "type": "Identifier",
-                "name": "ng:cloak"
-            },
-            "matcher": "=",
-            "value": {
-                "type": "Identifier",
-                "name": "x"
-            },
-            "flags": null
-        }
-    },
     "attrib.s.0": {
         "source": "[  a  =  b  ]",
         "generate": "[a=b]",
@@ -582,8 +553,8 @@
         },
         {
             "source": "[--test:=foo]{}",
-            "offset": "        ^",
-            "error": "Identifier is expected"
+            "offset": "       ^",
+            "error": "Attribute selector (=, ~=, ^=, $=, *=, |=) is expected"
         },
         {
             "source": "[:--test=foo]{}",
@@ -594,6 +565,16 @@
             "source": "[foo*bar]{}",
             "offset": "     ^",
             "error": "Equal sign is expected"
+        },
+        {
+            "source": "[ng:cloak]{}",
+            "offset": "   ^",
+            "error": "Attribute selector (=, ~=, ^=, $=, *=, |=) is expected"
+        },
+        {
+            "source": "[ng:cloak=x]{}",
+            "offset": "   ^",
+            "error": "Attribute selector (=, ~=, ^=, $=, *=, |=) is expected"
         }
     ]
 }
