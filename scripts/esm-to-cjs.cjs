@@ -1,53 +1,74 @@
-// This script is written using CommonJS since it should run
-// on Node.js versions which don't support for ESM
+// This script is written as CommonJS since it should run (convert and test)
+// on Node.js versions which don't support ESM
 
 const fs = require('fs');
 const path = require('path');
 const { rollup } = require('rollup');
 
 const { name: packageName } = require('../package.json');
+const treeshake = 'smallest'; // see https://rollupjs.org/guide/en/#treeshake
+const patchImportSelf = 'auto'; // 'auto' | false | true
+const testFilePattern = /\/__tests\//;
+const output = [{
+    entryPoints: ['./lib/index.js', ...readDir('./lib/__tests')],
+    outputDir: './cjs'
+}];
+const external = [
+    'module',
+    'fs',
+    'path',
+    'assert',
+    'json-to-ast',
+    'css-tree',
+    /^source-map/
+];
 
-function removeCreateRequire(id) {
-    return fs.readFileSync(id, 'utf8')
-        .replace(/import .+ from 'module';/, '')
-        .replace(/const require = .+;/, '');
+function readDir(dir, pattern = /\.js$/) {
+    return fs.readdirSync(dir)
+        .map(fn => `${dir}/${fn}`)
+        .filter(fn => fs.statSync(fn).isFile() && pattern.test(fn));
 }
 
-function replaceContent(map) {
+function removeCreateRequire() {
     return {
-        name: 'file-content-replacement',
-        load(id) {
-            const key = path.relative('', id);
-            if (map.hasOwnProperty(key)) {
-                return map[key](id);
-            }
+        name: 'remove-createRequire',
+        transform(code) {
+            return code
+                .replace(/import { createRequire } from 'module';\n?/, '')
+                .replace(/const require = createRequire\(.+?\);\n?/, '');
         }
     };
 }
 
 function patchTests() {
+    if (patchImportSelf === false) {
+        return;
+    }
+
     // If Node.js doesn't support for `exports` it doesn't support for import/require
-    // by package name inside the package itself, so this resolving will fail.
-    // We can't use just `require(packageName)` here since CJS modules are not generated yet,
-    // and Node.js will fail on resolving it either disregarding of `exports` support.
+    // by package name inside the package itself, so this require() call will fail.
+    // We can't use `require(packageName)` here since CJS modules are not generated yet,
+    // and Node.js will fail on resolving it disregarding of `exports` support.
     // In this case we need to replace import/require using a package name with
     // a relative path to a module.
     try {
-        require(`${packageName}/package.json`);
-        return;
+        if (patchImportSelf === 'auto') {
+            require(`${packageName}/package.json`);
+            return;
+        }
     } catch (e) {}
 
     const pathToIndex = path.resolve(__dirname, '../lib/index.js');
 
     // Make replacement for relative path only for tests since we need to check everything
-    // is work on old Node.js version. The rest of code should be unchanged since will run
+    // is work on old Node.js version. The rest of code should be unchanged since it will run
     // on any Node.js version.
     console.log(`Fixing CommonJS tests by replacing "${packageName}" for a relative paths`);
 
     return {
         name: 'cjs-tests-fix',
         transform(code, id) {
-            if (/\/__tests\//.test(id)) {
+            if (testFilePattern.test(id)) {
                 return code.replace(
                     new RegExp(`from (['"])${packageName}\\1;`, 'g'),
                     `from '${path.relative(path.dirname(id), pathToIndex)}'`
@@ -57,36 +78,18 @@ function patchTests() {
     };
 }
 
-async function build() {
-    const testsDir = 'lib/__tests';
-    const outputDir = './cjs';
+async function convert({ entryPoints, outputDir }) {
     const startTime = Date.now();
 
     console.log();
     console.log(`Convert ESM to CommonJS (output: ${outputDir})`);
 
-    const tests = fs.readdirSync(testsDir)
-        .filter(fn => fn.endsWith('.js'))
-        .map(fn => `${testsDir}/${fn}`);
-
     const res = await rollup({
-        external: [
-            'module',
-            'fs',
-            'path',
-            'assert',
-            'chalk',
-            'json-to-ast',
-            'css-tree',
-            /^source-map/
-        ],
-        input: ['lib/index.js', ...tests],
+        input: entryPoints,
+        external,
+        treeshake,
         plugins: [
-            replaceContent({
-                'lib/data.js': removeCreateRequire,
-                'lib/data-patch.js': removeCreateRequire,
-                'lib/version.js': removeCreateRequire
-            }),
+            removeCreateRequire(),
             patchTests()
         ]
     });
@@ -102,9 +105,14 @@ async function build() {
             constBindings: true
         }
     });
-    await res.close();
 
     console.log(`Done in ${Date.now() - startTime}ms`);
 }
 
-build();
+async function convertAll() {
+    for (const entry of output) {
+        await convert(entry);
+    }
+}
+
+convertAll();

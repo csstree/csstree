@@ -1,6 +1,7 @@
 ## next
 
 - Added `module` field to `package.json`
+- Fixed minor issues in CommonJS version
 
 ## 2.0.4 (December 17, 2021)
 
