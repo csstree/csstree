@@ -18,6 +18,7 @@
     "validation"
   ],
   "type": "module",
+  "module": "./lib/index.js",
   "main": "./cjs/index.cjs",
   "exports": {
     ".": {

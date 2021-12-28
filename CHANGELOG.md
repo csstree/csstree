@@ -1,8 +1,12 @@
+## next
+
+- Added `module` field to `package.json`
+
 ## 2.0.4 (December 17, 2021)
 
+- Extended Node.js support to include `^10`
 - Fixed `generate()` in safe mode to add a whitespace between `<dimension-token>` and `<hash-token>`, otherwise some values are broken in IE11, e.g. `border` properties (#173)
 - Removed allowance for `:` for an attribute name on `AttributeSelector` parsing as it does not meet the CSS specs ([details](https://github.com/csstree/csstree/discussions/149))
-- Extended Node.js support to include `^10`
 
 ## 2.0.3 (December 14, 2021)
 
@@ -28,7 +32,7 @@
 ## 2.0.0 (December 3, 2021)
 
 - Package
-    - Dropped support for Node.js prior 14.16 (following patch versions are changed it to `^10 || ^12.20.0 || ^14.13.0 || >=15.0.0`)
+    - Dropped support for Node.js prior 14.16 (following patch versions changed it to `^10 || ^12.20.0 || ^14.13.0 || >=15.0.0`)
     - Converted to ES modules. However, CommonJS is supported as well (dual module)
     - Added exports for standalone parts instead of internal paths usage (use as `import * as parser from "css-tree/parser"` or `require("css-tree/parser")`):
         - `css-tree/tokenizer`
