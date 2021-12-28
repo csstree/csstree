@@ -9,12 +9,7 @@ const { name: packageName } = require('../package.json');
 const treeshake = 'smallest'; // see https://rollupjs.org/guide/en/#treeshake
 const patchImportSelf = 'auto'; // 'auto' | false | true
 const testFilePattern = /\/__tests\//;
-const output = [{
-    entryPoints: ['./lib/index.js', ...readDir('./lib/__tests')],
-    outputDir: './cjs'
-}];
 const external = [
-    'module',
     'fs',
     'path',
     'assert',
@@ -22,6 +17,16 @@ const external = [
     'css-tree',
     /^source-map/
 ];
+
+convertAll([{
+    entryPoints: ['./lib/index.js', ...readDir('./lib/__tests')],
+    outputDir: './cjs'
+}]);
+
+
+//
+// helpers
+//
 
 function readDir(dir, pattern = /\.js$/) {
     return fs.readdirSync(dir)
@@ -109,10 +114,8 @@ async function convert({ entryPoints, outputDir }) {
     console.log(`Done in ${Date.now() - startTime}ms`);
 }
 
-async function convertAll() {
-    for (const entry of output) {
+async function convertAll(config) {
+    for (const entry of config) {
         await convert(entry);
     }
 }
-
-convertAll();
