@@ -73,7 +73,8 @@
   "unpkg": "dist/csstree.esm.js",
   "jsdelivr": "dist/csstree.esm.js",
   "scripts": {
-    "build": "npm run bundle && npm run esm-to-cjs",
+    "watch": "npm run build -- --watch",
+    "build": "npm run bundle && npm run esm-to-cjs --",
     "build-and-test": "npm run build && npm run test:dist && npm run test:cjs",
     "bundle": "node scripts/bundle",
     "bundle-and-test": "npm run bundle && npm run test:dist",

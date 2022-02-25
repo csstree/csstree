@@ -3,9 +3,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { rollup } = require('rollup');
+const { rollup, watch } = require('rollup');
 
 const { name: packageName } = require('../package.json');
+const watchMode = process.argv.includes('--watch');
 const treeshake = 'smallest'; // see https://rollupjs.org/guide/en/#treeshake
 const patchImportSelf = 'auto'; // 'auto' | false | true
 const testFilePattern = /\/__tests\//;
@@ -89,7 +90,7 @@ async function convert({ entryPoints, outputDir }) {
     console.log();
     console.log(`Convert ESM to CommonJS (output: ${outputDir})`);
 
-    const res = await rollup({
+    const inputOptions = {
         input: entryPoints,
         external,
         treeshake,
@@ -97,8 +98,8 @@ async function convert({ entryPoints, outputDir }) {
             removeCreateRequire(),
             patchTests()
         ]
-    });
-    await res.write({
+    };
+    const outputOptions = {
         dir: outputDir,
         entryFileNames: '[name].cjs',
         format: 'cjs',
@@ -109,9 +110,29 @@ async function convert({ entryPoints, outputDir }) {
         generatedCode: {
             constBindings: true
         }
-    });
+    };
 
-    console.log(`Done in ${Date.now() - startTime}ms`);
+    if (!watchMode) {
+        console.log();
+        console.log(`Convert ESM to CommonJS (output: ${outputDir})`);
+
+        const bundle = await rollup(inputOptions);
+        await bundle.write(outputOptions);
+        await bundle.close();
+
+        console.log(`Done in ${Date.now() - startTime}ms`);
+    } else {
+        const watcher = watch({
+            ...inputOptions,
+            output: outputOptions
+        });
+
+        watcher.on('event', ({ code, duration }) => {
+            if (code === 'BUNDLE_END') {
+                console.log(`Convert ESM to CommonJS into "${outputDir}" done in ${duration}ms`);
+            }
+        });
+    }
 }
 
 async function convertAll(config) {
