@@ -668,6 +668,10 @@
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
         },
+        "layer-name": {
+            "comment": "missed in mdn/data",
+            "syntax": "<ident> [ '.' <ident> ]*"
+        },
         "mask-image": {
             "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
             "syntax": "<mask-reference>#"
@@ -710,6 +714,20 @@
                 "https://www.w3.org/TR/SVG/text.html#WritingModeProperty"
             ],
             "syntax": "lr-tb | rl-tb | tb-rl | lr | rl | tb"
+        },
+        "single-animation-timeline": {
+            "comment": "missed in mdn/data",
+            "references": [
+                "https://drafts.csswg.org/css-animations-2/#typedef-single-animation-timeline"
+            ],
+            "syntax": "auto | none | <timeline-name>"
+        },
+        "timeline-name": {
+            "comment": "missed in mdn/data",
+            "references": [
+                "https://drafts.csswg.org/css-animations-2/#typedef-timeline-name"
+            ],
+            "syntax": "<custom-ident> | <string>"
         },
         "top": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
