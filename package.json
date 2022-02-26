@@ -43,6 +43,10 @@
       "import": "./lib/walker/index.js",
       "require": "./cjs/walker/index.cjs"
     },
+    "./convertor": {
+      "import": "./lib/convertor/index.js",
+      "require": "./cjs/convertor/index.cjs"
+    },
     "./lexer": {
       "import": "./lib/lexer/index.js",
       "require": "./cjs/lexer/index.cjs"

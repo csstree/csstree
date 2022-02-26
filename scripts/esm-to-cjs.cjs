@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const { rollup, watch } = require('rollup');
 
-const { name: packageName } = require('../package.json');
+const { name: packageName, exports: packageExports } = require('../package.json');
 const watchMode = process.argv.includes('--watch');
 const treeshake = 'smallest'; // see https://rollupjs.org/guide/en/#treeshake
 const patchImportSelf = 'auto'; // 'auto' | false | true
@@ -16,11 +16,31 @@ const external = [
     'assert',
     'json-to-ast',
     'css-tree',
+    'css-tree/tokenizer',
+    'css-tree/parser',
+    'css-tree/generator',
+    'css-tree/walker',
+    'css-tree/definition-syntax',
+    'css-tree/definition-syntax-data',
+    'css-tree/definition-syntax-data-patch',
+    'css-tree/lexer',
+    'css-tree/convertor',
+    'css-tree/utils',
     /^source-map/
 ];
 
 convertAll([{
-    entryPoints: ['./lib/index.js', ...readDir('./lib/__tests')],
+    entryPoints: [
+        './lib/index.js',
+        './lib/tokenizer/index.js',
+        './lib/parser/index.js',
+        './lib/generator/index.js',
+        './lib/walker/index.js',
+        './lib/lexer/index.js',
+        './lib/convertor/index.js',
+        './lib/utils/index.js',
+        ...readDir('./lib/__tests')
+    ],
     outputDir: './cjs'
 }]);
 
@@ -64,7 +84,15 @@ function patchTests() {
         }
     } catch (e) {}
 
-    const pathToIndex = path.resolve(__dirname, '../lib/index.js');
+    const resolveMap = new Map([
+        [packageName, path.resolve(__dirname, '../lib/index.js')]
+    ]);
+
+    for (const [path, resolve] of Object.entries(packageExports)) {
+        if (resolve.import) {
+            resolveMap.set(path.replace(/^\./, packageName), resolve.import);
+        }
+    }
 
     // Make replacement for relative path only for tests since we need to check everything
     // is work on old Node.js version. The rest of code should be unchanged since it will run
@@ -76,8 +104,10 @@ function patchTests() {
         transform(code, id) {
             if (testFilePattern.test(id)) {
                 return code.replace(
-                    new RegExp(`from (['"])${packageName}\\1;`, 'g'),
-                    `from '${path.relative(path.dirname(id), pathToIndex)}'`
+                    new RegExp('from ([\'"])(.+?)\\1;', 'g'),
+                    (match, quote, from) => resolveMap.has(from)
+                        ? `from '${path.relative(path.dirname(id), resolveMap.get(from))}'`
+                        : match
                 );
             }
         }

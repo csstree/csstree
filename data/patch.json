@@ -486,7 +486,7 @@
             "syntax": "| <svg-writing-mode>"
         }
     },
-    "syntaxes": {
+    "types": {
         "-legacy-gradient": {
             "comment": "added collection of legacy gradient syntaxes",
             "syntax": "<-webkit-gradient()> | <-legacy-linear-gradient> | <-legacy-repeating-linear-gradient> | <-legacy-radial-gradient> | <-legacy-repeating-radial-gradient>"
