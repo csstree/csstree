@@ -168,28 +168,10 @@
             ],
             "syntax": "nonzero | evenodd"
         },
-        "content": {
-            "comment": "https://www.w3.org/TR/css-content-3/#content-property",
-            "syntax": "normal | none | [ <content-replacement> | <content-list> ] [/ [ <string> | <counter> ]+ ]?"
-        },
         "counter-reset": {
             "comment": "<custom-ident> -> <counter-name>",
             "references": [
                 "https://www.w3.org/TR/css-lists-3/#counter-reset"
-            ],
-            "syntax": "[ <counter-name> <integer>? ]+ | none"
-        },
-        "counter-increment": {
-            "comment": "<custom-ident> -> <counter-name>",
-            "references": [
-                "https://www.w3.org/TR/css-lists-3/#propdef-counter-increment"
-            ],
-            "syntax": "[ <counter-name> <integer>? ]+ | none"
-        },
-        "counter-set": {
-            "comment": "<custom-ident> -> <counter-name>",
-            "references": [
-                "https://www.w3.org/TR/css-lists-3/#propdef-counter-set"
             ],
             "syntax": "[ <counter-name> <integer>? ]+ | none"
         },
@@ -614,32 +596,6 @@
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
-        },
-        "content-list": {
-            "comment": "add missed <counter> -> https://drafts.csswg.org/css-content/#typedef-content-list",
-            "syntax": "[ <string> | contents | <image> | <counter> | <quote> | <target> | <leader()> ]+"
-        },
-        "counter": {
-            "comment": "missed",
-            "syntax": "<counter()> | <counters()>"
-        },
-        "counter()": {
-            "comment": "<custom-ident> -> <counter-name>",
-            "references": [
-                "https://www.w3.org/TR/css-lists-3/#counter-functions"
-            ],
-            "syntax": "counter( <counter-name>, <counter-style>? )"
-        },
-        "counters()": {
-            "comment": "<custom-ident> -> <counter-name>",
-            "references": [
-                "https://www.w3.org/TR/css-lists-3/#counter-functions"
-            ],
-            "syntax": "counters( <counter-name>, <string>, <counter-style>? )"
-        },
-        "counter-name": {
-            "comment": "missed",
-            "syntax": "<custom-ident>"
         },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",

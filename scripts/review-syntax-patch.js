@@ -9,10 +9,10 @@ const currentContent = fs.readFileSync(patchFilename, 'utf8').replace(/\r\n/g, '
 const csstreePatch = JSON.parse(currentContent);
 const checkUpdatesNeeded = process.argv[2] === '--lint';
 
-function checkSection(section) {
+function checkSection(section, mdnDataSection = section) {
     Object.keys(csstreePatch[section]).forEach(function(name) {
         const csstreeSyntax = csstreePatch[section][name];
-        const mdnData = data[section][name];
+        const mdnData = data[mdnDataSection][name];
         const id = `${section}/${name}`;
 
         if (mdnData && csstreeSyntax.syntax === mdnData.syntax.replace(/[ ]*\n[ ]*/g, ' ')) {
@@ -33,7 +33,7 @@ function checkSection(section) {
 }
 
 checkSection('properties');
-checkSection('syntaxes');
+checkSection('types', 'syntaxes');
 
 const newContent = JSON.stringify(csstreePatch, null, 4) + '\n';
 

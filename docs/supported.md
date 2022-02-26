@@ -196,6 +196,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `animation-iteration-count`
 - `animation-name`
 - `animation-play-state`
+- `animation-timeline`
 - `animation-timing-function`
 - `appearance`
 - `aspect-ratio`
@@ -301,7 +302,6 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `clip-path`
 - `clip-rule`
 - `color`
-- `color-adjust`
 - `color-scheme`
 - `column-count`
 - `column-fill`
@@ -384,6 +384,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `grid-template-rows`
 - `hanging-punctuation`
 - `height`
+- `hyphenate-character`
 - `hyphens`
 - `image-orientation`
 - `image-rendering`
@@ -392,6 +393,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `initial-letter`
 - `initial-letter-align`
 - `inline-size`
+- `input-security`
 - `inset`
 - `inset-block`
 - `inset-block-end`
@@ -515,6 +517,7 @@ Support for a property means CSSTree has a grammar for such property, so its val
 - `place-self`
 - `pointer-events`
 - `position`
+- `print-color-adjust`
 - `quotes`
 - `resize`
 - `rest`
