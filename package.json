@@ -35,6 +35,10 @@
       "import": "./lib/parser/index.js",
       "require": "./cjs/parser/index.cjs"
     },
+    "./selector-parser": {
+      "import": "./lib/parser/parse-selector.js",
+      "require": "./cjs/parser/parse-selector.cjs"
+    },
     "./generator": {
       "import": "./lib/generator/index.js",
       "require": "./cjs/generator/index.cjs"

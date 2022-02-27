@@ -2,10 +2,11 @@
 
 - Bumped `mdn-data` to `2.0.27`
 - Added `module` field to `package.json`
+- Fixed minor issues in CommonJS version
 - Fixed `css-tree/utils` export
 - Added `css-tree/convertor` export
+- Added `css-tree/selector-parser` export (~27kb when bundled)
 - Renamed `syntaxes` into `types` in `css-tree/definition-syntax-data-patch`
-- Fixed minor issues in CommonJS version
 
 ## 2.0.4 (December 17, 2021)
 
