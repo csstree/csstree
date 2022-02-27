@@ -1,4 +1,4 @@
-## next
+## 2.1.0 (February 17, 2021)
 
 - Bumped `mdn-data` to `2.0.27`
 - Added `module` field to `package.json`
