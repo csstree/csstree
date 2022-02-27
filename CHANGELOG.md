@@ -6,6 +6,9 @@
 - Fixed `css-tree/utils` export
 - Added `css-tree/convertor` export
 - Added `css-tree/selector-parser` export (~27kb when bundled)
+- Reduced bundle size:
+    - `css-tree/parser` 50kb -> 41kb
+    - `css-tree/generator` 46kb -> 23kb
 - Renamed `syntaxes` into `types` in `css-tree/definition-syntax-data-patch`
 
 ## 2.0.4 (December 17, 2021)
