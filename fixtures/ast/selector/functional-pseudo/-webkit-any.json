@@ -1,0 +1,198 @@
+{
+    "basic": {
+        "source": ":-webkit-any(test)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "-webkit-any",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "TypeSelector",
+                                    "name": "test"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "negation with selector group": {
+        "source": ":-webkit-any(.a,.b.c)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "-webkit-any",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "selector group and spaces": {
+        "source": ":-webkit-any(  .a  ,  .b  )",
+        "generate": ":-webkit-any(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "-webkit-any",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":HaS(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "HaS",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should support relative selectors": {
+        "source": ":-webkit-any(>.a,+.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "-webkit-any",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "Combinator",
+                                    "name": ">"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "Combinator",
+                                    "name": "+"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":-webkit-any(.a{)",
+            "offset": "               ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":-webkit-any(,.b)",
+            "offset": "             ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":-webkit-any(.a,)",
+            "offset": "                ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":-webkit-any(.a,,)",
+            "offset": "                ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":-webkit-any(.a,.b{)",
+            "offset": "                  ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":-webkit-any(var(--test))",
+            "offset": "             ^",
+            "error": "Selector is expected"
+        }
+    ]
+}

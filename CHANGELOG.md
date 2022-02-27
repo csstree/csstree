@@ -3,13 +3,14 @@
 - Bumped `mdn-data` to `2.0.27`
 - Added `module` field to `package.json`
 - Fixed minor issues in CommonJS version
-- Fixed `css-tree/utils` export
+- Fixed `css-tree/utils` export (#181)
 - Added `css-tree/convertor` export
-- Added `css-tree/selector-parser` export (~27kb when bundled)
+- Added `css-tree/selector-parser` export (~27kb when bundled, #183)
 - Reduced bundle size:
     - `css-tree/parser` 50kb -> 41kb
     - `css-tree/generator` 46kb -> 23kb
 - Renamed `syntaxes` into `types` in `css-tree/definition-syntax-data-patch`
+- Added parsing support for `:is()`, `:-moz-any()`, `:-webkit-any()` and `:where()` (#182, #184)
 
 ## 2.0.4 (December 17, 2021)
 

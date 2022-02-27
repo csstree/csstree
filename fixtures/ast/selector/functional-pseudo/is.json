@@ -1,0 +1,198 @@
+{
+    "basic": {
+        "source": ":is(test)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "is",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "TypeSelector",
+                                    "name": "test"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "negation with selector group": {
+        "source": ":is(.a,.b.c)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "is",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "selector group and spaces": {
+        "source": ":is(  .a  ,  .b  )",
+        "generate": ":is(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "is",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":HaS(.a,.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "HaS",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should support relative selectors": {
+        "source": ":is(>.a,+.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "is",
+            "children": [
+                {
+                    "type": "SelectorList",
+                    "children": [
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "Combinator",
+                                    "name": ">"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "a"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Selector",
+                            "children": [
+                                {
+                                    "type": "Combinator",
+                                    "name": "+"
+                                },
+                                {
+                                    "type": "ClassSelector",
+                                    "name": "b"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":is(.a{)",
+            "offset": "      ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":is(,.b)",
+            "offset": "    ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":is(.a,)",
+            "offset": "       ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":is(.a,,)",
+            "offset": "       ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":is(.a,.b{)",
+            "offset": "         ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":is(var(--test))",
+            "offset": "    ^",
+            "error": "Selector is expected"
+        }
+    ]
+}
