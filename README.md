@@ -124,11 +124,11 @@ const ast = csstree.parse('red 1px solid', { context: 'value' });
 const matchResult = csstree.lexer.matchProperty('border', ast);
 
 // check first value node is a <color>
-console.log(matchResult.isType(ast.children.first(), 'color'));
+console.log(matchResult.isType(ast.children.first, 'color'));
 // true
 
 // get a type list matched to a node
-console.log(matchResult.getTrace(ast.children.first()));
+console.log(matchResult.getTrace(ast.children.first));
 // [ { type: 'Property', name: 'border' },
 //   { type: 'Type', name: 'color' },
 //   { type: 'Type', name: 'named-color' },

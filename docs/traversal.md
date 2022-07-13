@@ -34,7 +34,7 @@ How it works:
     - A function-iterator is generating for every node type.
     - Node's properties are iterated in the order as defined in `structure` ([reverse](#reverse) option inverts the order).
     - Properties that are not defined in `structure` are ignored (won't be iterated over).
-    - An exception is possible when a tree is not following to expected structure (e.g. AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of the tree structure, you may use `try/catch` or check the tree structure with `csstree.lexer.validateStructure(ast)` before iterating.
+    - An exception is possible when a tree is not following to expected structure (e.g. AST was built outside the CSSTree parser or transformed in a wrong way). In case you are not sure about correctness of the tree structure, you may use `try/catch` or check the tree structure with `csstree.lexer.checkStructure(ast)` before iterating.
 - Only `children` field may contain a list of nested nodes. A list of nodes should a `List` instances. Since `List` class provides API similar to `Array`, traversal may work in cases when `children` is an array, but without any guarantee. Using arrays in AST is not recommended, use it on your own risk.
 
 Walk visitor's function may return special values to control traversal:
