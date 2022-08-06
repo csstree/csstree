@@ -3,8 +3,10 @@
 - Bumped `mdn-data` to `2.0.28`
 - Added support for CSS wide keywords `revert` and `revert-layer`
 - Dropped support for `expression()` the same way as CSS wide keywords
-- Changed parsing of range definition notation in a syntax definition to not omitting `[-∞,∞]` ranges
-- Added support for stacked multipliers `+#` and `#?` in a syntax definition according to spec (#199)
+- Value definition syntax:
+    - Added support for stacked multipliers `+#` and `#?` according to spec (#199)
+    - Added parsing of a dimension in range definition notations, however, a validation for such ranges is not supported yet (#192)
+    - Changed parsing of range definition notation to not omitting `[-∞,∞]` ranges
 
 ## 2.1.0 (February 17, 2021)
 
