@@ -3,6 +3,7 @@
 - Bumped `mdn-data` to `2.0.28`
 - Added support for CSS wide keywords `revert` and `revert-layer`
 - Dropped support for `expression()` the same way as CSS wide keywords
+- Patched `background-clip` definition to match [Backgrounds and Borders 4](https://drafts.csswg.org/css-backgrounds-4/#background-clip) (#190)
 - Value definition syntax:
     - Added support for stacked multipliers `+#` and `#?` according to spec (#199)
     - Added parsing of a dimension in range definition notations, however, a validation for such ranges is not supported yet (#192)
