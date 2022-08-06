@@ -4,6 +4,8 @@
 - Added support for CSS wide keywords `revert` and `revert-layer`
 - Dropped support for `expression()` the same way as CSS wide keywords
 - Patched `background-clip` definition to match [Backgrounds and Borders 4](https://drafts.csswg.org/css-backgrounds-4/#background-clip) (#190)
+- Added new units according to current state of [CSS Values and Units 4](https://drafts.csswg.org/css-values-4/): `rex`, `cap`, `rcap`, `rch`, `ic`, `ric`, `lh`, `rlh`, `vi`, `vb`, `sv*`, `lv*`, `dv*`
+- Removed `vm` unit (supposed to be an old IE versions supported this unit instead of `vmax`)
 - Value definition syntax:
     - Added support for stacked multipliers `+#` and `#?` according to spec (#199)
     - Added parsing of a dimension in range definition notations, however, a validation for such ranges is not supported yet (#192)
