@@ -1,5 +1,5 @@
 import data from 'mdn-data/css/index.js';
-import csstreeData from '../../data/index.js';
+import csstreeData from '../../lib/data.js';
 
 export default function iterateSyntaxes(fn) {
     for (const name in data.atRules) {

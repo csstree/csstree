@@ -3,6 +3,7 @@
 - Bumped `mdn-data` to `2.0.28`
 - Added support for CSS wide keywords `revert` and `revert-layer`
 - Dropped support for `expression()` the same way as CSS wide keywords
+- Changed parsing of range definition notation in a syntax definition to not omitting `[-∞,∞]` ranges
 
 ## 2.1.0 (February 17, 2021)
 

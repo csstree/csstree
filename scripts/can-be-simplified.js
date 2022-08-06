@@ -49,7 +49,7 @@ iterateSyntaxes(function(section, name, syntax) {
         ast = parse(syntax);
 
         walk(ast, {
-            enter: function(node) {
+            enter(node) {
                 if (node.type === 'Group' && node.explicit && !node.disallowEmpty) {
                     // a group with no multiplier
                     if (!stack.length || stack[stack.length - 1].type !== 'Multiplier') {
@@ -67,6 +67,16 @@ iterateSyntaxes(function(section, name, syntax) {
                         //         node.terms[0]
                         //     );
                         // }
+                    }
+                }
+
+                if (node.opts && node.opts.type === 'Range') {
+                    if (node.opts.min === null && node.opts.max === null) {
+                        makeSuggestion(
+                            'Range [−∞,∞] is redundant',
+                            node,
+                            { ...node, opts: null }
+                        );
                     }
                 }
 
