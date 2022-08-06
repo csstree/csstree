@@ -168,13 +168,6 @@
             ],
             "syntax": "nonzero | evenodd"
         },
-        "counter-reset": {
-            "comment": "<custom-ident> -> <counter-name>",
-            "references": [
-                "https://www.w3.org/TR/css-lists-3/#counter-reset"
-            ],
-            "syntax": "[ <counter-name> <integer>? ]+ | none"
-        },
         "cue": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<'cue-before'> <'cue-after'>?"
@@ -620,21 +613,21 @@
             "comment": "added legacy syntaxes support",
             "syntax": "| <-legacy-gradient>"
         },
+        "lab()": {
+            "comment": "missed; https://www.w3.org/TR/css-color-4/#specifying-lab-lch",
+            "syntax": "lab( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? )"
+        },
+        "lch()": {
+            "comment": "missed; https://www.w3.org/TR/css-color-4/#specifying-lab-lch",
+            "syntax": "lch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? )"
+        },
         "left": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
         },
-        "layer-name": {
-            "comment": "missed in mdn/data",
-            "syntax": "<ident> [ '.' <ident> ]*"
-        },
         "mask-image": {
             "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
             "syntax": "<mask-reference>#"
-        },
-        "name-repeat": {
-            "comment": "missed, and looks like obsolete, keep it as is since other property syntaxes should be changed too; https://www.w3.org/TR/2015/WD-css-grid-1-20150917/#typedef-name-repeat",
-            "syntax": "repeat( [ <positive-integer> | auto-fill ], <line-names>+)"
         },
         "named-color": {
             "comment": "added non standard color names",
@@ -645,8 +638,12 @@
             "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
         },
         "ratio": {
-            "comment": "missed, https://drafts.csswg.org/mediaqueries-4/#typedef-ratio",
-            "syntax": "<integer> / <integer>"
+            "comment": "missed, https://drafts.csswg.org/css-values-4/#ratio-value",
+            "syntax": "<number [0,∞]> [ / <number [0,∞]> ]?"
+        },
+        "reversed-counter-name": {
+            "comment": "missed; https://drafts.csswg.org/css-lists/#typedef-reversed-counter-name",
+            "syntax": "reversed( <counter-name> )"
         },
         "right": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -670,20 +667,6 @@
                 "https://www.w3.org/TR/SVG/text.html#WritingModeProperty"
             ],
             "syntax": "lr-tb | rl-tb | tb-rl | lr | rl | tb"
-        },
-        "single-animation-timeline": {
-            "comment": "missed in mdn/data",
-            "references": [
-                "https://drafts.csswg.org/css-animations-2/#typedef-single-animation-timeline"
-            ],
-            "syntax": "auto | none | <timeline-name>"
-        },
-        "timeline-name": {
-            "comment": "missed in mdn/data",
-            "references": [
-                "https://drafts.csswg.org/css-animations-2/#typedef-timeline-name"
-            ],
-            "syntax": "<custom-ident> | <string>"
         },
         "top": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
