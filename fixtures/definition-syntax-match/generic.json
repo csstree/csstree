@@ -431,6 +431,8 @@
             "",
             "inherit",
             "initial",
+            "revert",
+            "revert-layer",
             "unset",
             "default",
             "0"

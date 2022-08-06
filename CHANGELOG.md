@@ -1,3 +1,7 @@
+## next
+
+- Added support for CSS wide keywords `revert` and `revert-layer`
+
 ## 2.1.0 (February 17, 2021)
 
 - Bumped `mdn-data` to `2.0.27`
