@@ -503,16 +503,6 @@
             "[)]"
         ]
     },
-    "<-ms-legacy-expression>": {
-        "valid": [
-            "expression(...)",
-            "EXPRESSION(...)"
-        ],
-        "invalid": [
-            "expression",
-            "foo()"
-        ]
-    },
     "calc": {
         "syntax": "<length>",
         "valid": [

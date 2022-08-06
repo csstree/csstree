@@ -1,6 +1,7 @@
 ## next
 
 - Added support for CSS wide keywords `revert` and `revert-layer`
+- Dropped support for `expression()` the same way as CSS wide keywords
 
 ## 2.1.0 (February 17, 2021)
 
