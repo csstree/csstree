@@ -8,6 +8,7 @@
         "ecmaVersion": 2020,
         "sourceType": "module"
     },
+    "ignorePatterns": ["dist"],
     "rules": {
         "no-duplicate-case": 2,
         "no-undef": 2,
