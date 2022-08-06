@@ -122,6 +122,25 @@
             "bar"
         ]
     },
+    "one or more stacked with one or more comma separated": {
+        "syntax": "foo+#",
+        "valid": [
+            "foo",
+            "foo foo",
+            "foo foo foo foo foo",
+            "foo foo, foo",
+            "foo, foo, foo",
+            "foo , foo foo foo , foo",
+            "foo foo, foo foo foo, foo"
+        ],
+        "invalid": [
+            "foo,",
+            ", foo",
+            "foo , , foo",
+            "",
+            "bar"
+        ]
+    },
     "exact": {
         "syntax": "foo{2}",
         "valid": [
@@ -209,6 +228,20 @@
             "foo foo",
             "foo",
             "",
+            "bar"
+        ]
+    },
+    "one or more comma separated stacked with zero or one": {
+        "syntax": "foo#?",
+        "valid": [
+            "foo",
+            "foo, foo",
+            "foo,foo,foo",
+            ""
+        ],
+        "invalid": [
+            "foo, foo, bar",
+            "foo foo",
             "bar"
         ]
     }

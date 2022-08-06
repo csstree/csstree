@@ -4,6 +4,7 @@
 - Added support for CSS wide keywords `revert` and `revert-layer`
 - Dropped support for `expression()` the same way as CSS wide keywords
 - Changed parsing of range definition notation in a syntax definition to not omitting `[-∞,∞]` ranges
+- Added support for stacked multipliers `+#` and `#?` in a syntax definition according to spec (#199)
 
 ## 2.1.0 (February 17, 2021)
 
