@@ -45,7 +45,7 @@
         ]
     },
     "zero or one – all optional in group": {
-        "syntax": "[foo? bar? baz?]",
+        "syntax": "[ foo? bar? baz? ]",
         "valid": [
             "",
             "foo",
@@ -61,7 +61,7 @@
         ]
     },
     "zero or one – all optional but not empty group": {
-        "syntax": "[foo? bar? baz?]!",
+        "syntax": "[ foo? bar? baz? ]!",
         "valid": [
             "foo",
             "bar",
