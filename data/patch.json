@@ -579,9 +579,25 @@
         "-ms-filter": {
             "syntax": "<string>"
         },
+        "acos()": {
+            "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
+            "syntax": "acos( [ <number> | <angle> ] )"
+        },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
+        },
+        "asin()": {
+            "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
+            "syntax": "asin( [ <number> | <angle> ] )"
+        },
+        "atan()": {
+            "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
+            "syntax": "atan( [ <number> | <angle> ] )"
+        },
+        "atan2()": {
+            "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
+            "syntax": "atan2( [ <number> | <dimension> | <percentage> ] [, <number> | <dimension> | <percentage> ]? )"
         },
         "attr-name": {
             "syntax": "<wq-name>"
@@ -600,6 +616,10 @@
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
+        },
+        "cos()": {
+            "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
+            "syntax": "cos( [ <number> | <angle> ] )"
         },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
@@ -664,6 +684,10 @@
             "comment": "missed spaces in function body and add backwards compatible syntax",
             "syntax": "rect( <top>, <right>, <bottom>, <left> ) | rect( <top> <right> <bottom> <left> )"
         },
+        "sin()": {
+            "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
+            "syntax": "sin( [ <number> | <angle> ] )"
+        },
         "svg-length": {
             "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
             "references": [
@@ -678,6 +702,10 @@
                 "https://www.w3.org/TR/SVG/text.html#WritingModeProperty"
             ],
             "syntax": "lr-tb | rl-tb | tb-rl | lr | rl | tb"
+        },
+        "tan()": {
+            "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
+            "syntax": "tan( [ <number> | <angle> ] )"
         },
         "top": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
