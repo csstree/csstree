@@ -581,7 +581,7 @@
         },
         "acos()": {
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
-            "syntax": "acos( [ <number> | <angle> ] )"
+            "syntax": "acos( <calc-sum> )"
         },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
@@ -589,15 +589,15 @@
         },
         "asin()": {
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
-            "syntax": "asin( [ <number> | <angle> ] )"
+            "syntax": "asin( <calc-sum> )"
         },
         "atan()": {
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
-            "syntax": "atan( [ <number> | <angle> ] )"
+            "syntax": "atan( <calc-sum> )"
         },
         "atan2()": {
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
-            "syntax": "atan2( [ <number> | <dimension> | <percentage> ] [, <number> | <dimension> | <percentage> ]? )"
+            "syntax": "atan2( <calc-sum>, <calc-sum> )"
         },
         "attr-name": {
             "syntax": "<wq-name>"
@@ -619,7 +619,7 @@
         },
         "cos()": {
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
-            "syntax": "cos( [ <number> | <angle> ] )"
+            "syntax": "cos( <calc-sum> )"
         },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
@@ -686,7 +686,7 @@
         },
         "sin()": {
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
-            "syntax": "sin( [ <number> | <angle> ] )"
+            "syntax": "sin( <calc-sum> )"
         },
         "svg-length": {
             "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
@@ -705,7 +705,7 @@
         },
         "tan()": {
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
-            "syntax": "tan( [ <number> | <angle> ] )"
+            "syntax": "tan( <calc-sum> )"
         },
         "top": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
