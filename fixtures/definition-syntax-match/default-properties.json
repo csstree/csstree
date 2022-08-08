@@ -1,0 +1,11 @@
+{
+    "<'content'>": {
+        "defaultSyntaxes": true,
+        "valid": [
+            "'test'",
+            "url(test)",
+            "attr(foo)",
+            "'(' attr(foo) ')'"
+        ]
+    }
+}

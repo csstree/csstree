@@ -601,6 +601,10 @@
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
         },
+        "content-list": {
+            "comment": "added attr(), see https://github.com/csstree/csstree/issues/201",
+            "syntax": "[ <string> | contents | <image> | <counter> | <quote> | <target> | <leader()> | <attr()> ]+"
+        },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
             "syntax": "element( <custom-ident> , [ first | start | last | first-except ]? ) | element( <id-selector> )"
