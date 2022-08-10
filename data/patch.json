@@ -621,6 +621,10 @@
             "comment": "https://www.w3.org/TR/css-values-4/#trig-funcs",
             "syntax": "cos( <calc-sum> )"
         },
+        "content-list": {
+            "comment": "added attr(), see https://github.com/csstree/csstree/issues/201",
+            "syntax": "[ <string> | contents | <image> | <counter> | <quote> | <target> | <leader()> | <attr()> ]+"
+        },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
             "syntax": "element( <custom-ident> , [ first | start | last | first-except ]? ) | element( <id-selector> )"

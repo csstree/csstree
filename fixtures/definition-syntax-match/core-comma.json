@@ -166,6 +166,29 @@
             ", b / c"
         ]
     },
+    "<name> [, <any-value>]?": {
+        "types": {
+            "name": "a [ '|' b ]?",
+            "fallback": "<any-value>"
+        },
+        "valid": [
+            "a",
+            "a | b",
+            "a | b, foo",
+            "a , foo"
+        ],
+        "invalid": [
+            "a foo",
+            "a,",
+            "foo"
+        ],
+        "matchResult": {
+            "a | b": {
+                "syntax": "<name>",
+                "match": ["a", "|", "b"]
+            }
+        }
+    },
     "func( [a?, b?] )": {
         "valid": [
             "func()",

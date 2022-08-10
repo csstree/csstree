@@ -28,6 +28,7 @@
             "foo()",
             "foo(bar)",
             "foo(baz)",
+            "foo(bar baz)",
             "foo(bar, qux)"
         ]
     },
@@ -56,6 +57,7 @@
             "foo()"
         ],
         "invalid": [
+            "foo(bar baz)",
             "foo(baz, bar)",
             "foo(something)"
         ]
