@@ -1,4 +1,4 @@
-## next
+## 2.2.0 (August 10, 2022)
 
 - Bumped `mdn-data` to `2.0.28`
 - Added support for CSS wide keywords `revert` and `revert-layer`
@@ -15,7 +15,7 @@
     - Added parsing of a dimension in range definition notations, however, a validation for such ranges is not supported yet (#192)
     - Changed parsing of range definition notation to not omitting `[-∞,∞]` ranges
 
-## 2.1.0 (February 17, 2021)
+## 2.1.0 (February 17, 2022)
 
 - Bumped `mdn-data` to `2.0.27`
 - Added `module` field to `package.json`
