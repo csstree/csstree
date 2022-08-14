@@ -1,3 +1,7 @@
+## next
+
+- Fixed a regression added in `2.2.0` for at-rule syntax matching when at-rule has no prelude
+
 ## 2.2.0 (August 10, 2022)
 
 - Bumped `mdn-data` to `2.0.28`
