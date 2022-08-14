@@ -1,4 +1,4 @@
-## next
+## 2.2.1 (August 14, 2022)
 
 - Fixed a regression added in `2.2.0` for at-rule syntax matching when at-rule has no prelude
 
