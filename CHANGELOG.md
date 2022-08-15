@@ -1,3 +1,11 @@
+## next
+
+- Added [CSS Nesting](https://www.w3.org/TR/css-nesting-1/) support:
+    - Added `NestingSelector` node type for `&` (a nesting selector) in selectors
+    - Added `@nest` at-rule
+    - Changed behaviour for `@media` inside a `Rule` to parse its block content as a `Declaration` first
+    - Changed `DeclarationList` behaviour to follow the rules for `Rule`'s block
+
 ## 2.2.1 (August 14, 2022)
 
 - Fixed a regression added in `2.2.0` for at-rule syntax matching when at-rule has no prelude

@@ -33,6 +33,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [MediaFeature](#mediafeature)
     - [MediaQuery](#mediaquery)
     - [MediaQueryList](#mediaquerylist)
+    - [NestingSelector](#nestingselector)
     - [Nth](#nth)
     - [Number](#number)
     - [Operator](#operator)
@@ -377,6 +378,14 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 {
     type: "MediaQueryList",
     children: List
+}
+```
+
+### NestingSelector
+
+```js
+{
+    type: "NestingSelector"
 }
 ```
 

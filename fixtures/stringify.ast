@@ -8,8 +8,8 @@
             "column": 1
         },
         "end": {
-            "offset": 1348,
-            "line": 56,
+            "offset": 1529,
+            "line": 69,
             "column": 1
         }
     },
@@ -4389,6 +4389,692 @@
                                         }
                                     },
                                     "value": ".3"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Rule",
+            "loc": {
+                "source": "stringify.css",
+                "start": {
+                    "offset": 1349,
+                    "line": 57,
+                    "column": 1
+                },
+                "end": {
+                    "offset": 1528,
+                    "line": 68,
+                    "column": 2
+                }
+            },
+            "prelude": {
+                "type": "SelectorList",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1349,
+                        "line": 57,
+                        "column": 1
+                    },
+                    "end": {
+                        "offset": 1353,
+                        "line": 57,
+                        "column": 5
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Selector",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1349,
+                                "line": 57,
+                                "column": 1
+                            },
+                            "end": {
+                                "offset": 1353,
+                                "line": 57,
+                                "column": 5
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "loc": {
+                                    "source": "stringify.css",
+                                    "start": {
+                                        "offset": 1349,
+                                        "line": 57,
+                                        "column": 1
+                                    },
+                                    "end": {
+                                        "offset": 1353,
+                                        "line": 57,
+                                        "column": 5
+                                    }
+                                },
+                                "name": "foo"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1354,
+                        "line": 57,
+                        "column": 6
+                    },
+                    "end": {
+                        "offset": 1528,
+                        "line": 68,
+                        "column": 2
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1360,
+                                "line": 58,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1371,
+                                "line": 58,
+                                "column": 16
+                            }
+                        },
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1367,
+                                    "line": 58,
+                                    "column": 12
+                                },
+                                "end": {
+                                    "offset": 1371,
+                                    "line": 58,
+                                    "column": 16
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1367,
+                                            "line": 58,
+                                            "column": 12
+                                        },
+                                        "end": {
+                                            "offset": 1371,
+                                            "line": 58,
+                                            "column": 16
+                                        }
+                                    },
+                                    "name": "blue"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1377,
+                                "line": 59,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1414,
+                                "line": 61,
+                                "column": 6
+                            }
+                        },
+                        "prelude": {
+                            "type": "SelectorList",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1377,
+                                    "line": 59,
+                                    "column": 5
+                                },
+                                "end": {
+                                    "offset": 1384,
+                                    "line": 59,
+                                    "column": 12
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1377,
+                                            "line": 59,
+                                            "column": 5
+                                        },
+                                        "end": {
+                                            "offset": 1384,
+                                            "line": 59,
+                                            "column": 12
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "NestingSelector",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1377,
+                                                    "line": 59,
+                                                    "column": 5
+                                                },
+                                                "end": {
+                                                    "offset": 1378,
+                                                    "line": 59,
+                                                    "column": 6
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "PseudoClassSelector",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1378,
+                                                    "line": 59,
+                                                    "column": 6
+                                                },
+                                                "end": {
+                                                    "offset": 1384,
+                                                    "line": 59,
+                                                    "column": 12
+                                                }
+                                            },
+                                            "name": "hover",
+                                            "children": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1385,
+                                    "line": 59,
+                                    "column": 13
+                                },
+                                "end": {
+                                    "offset": 1414,
+                                    "line": 61,
+                                    "column": 6
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1395,
+                                            "line": 60,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "offset": 1407,
+                                            "line": 60,
+                                            "column": 21
+                                        }
+                                    },
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1402,
+                                                "line": 60,
+                                                "column": 16
+                                            },
+                                            "end": {
+                                                "offset": 1407,
+                                                "line": 60,
+                                                "column": 21
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1402,
+                                                        "line": 60,
+                                                        "column": 16
+                                                    },
+                                                    "end": {
+                                                        "offset": 1407,
+                                                        "line": 60,
+                                                        "column": 21
+                                                    }
+                                                },
+                                                "name": "green"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Atrule",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1419,
+                                "line": 62,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1463,
+                                "line": 64,
+                                "column": 6
+                            }
+                        },
+                        "name": "nest",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1425,
+                                    "line": 62,
+                                    "column": 11
+                                },
+                                "end": {
+                                    "offset": 1432,
+                                    "line": 62,
+                                    "column": 18
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "SelectorList",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1425,
+                                            "line": 62,
+                                            "column": 11
+                                        },
+                                        "end": {
+                                            "offset": 1432,
+                                            "line": 62,
+                                            "column": 18
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "Selector",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1425,
+                                                    "line": 62,
+                                                    "column": 11
+                                                },
+                                                "end": {
+                                                    "offset": 1432,
+                                                    "line": 62,
+                                                    "column": 18
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "type": "PseudoClassSelector",
+                                                    "loc": {
+                                                        "source": "stringify.css",
+                                                        "start": {
+                                                            "offset": 1425,
+                                                            "line": 62,
+                                                            "column": 11
+                                                        },
+                                                        "end": {
+                                                            "offset": 1432,
+                                                            "line": 62,
+                                                            "column": 18
+                                                        }
+                                                    },
+                                                    "name": "not",
+                                                    "children": [
+                                                        {
+                                                            "type": "SelectorList",
+                                                            "loc": {
+                                                                "source": "stringify.css",
+                                                                "start": {
+                                                                    "offset": 1430,
+                                                                    "line": 62,
+                                                                    "column": 16
+                                                                },
+                                                                "end": {
+                                                                    "offset": 1431,
+                                                                    "line": 62,
+                                                                    "column": 17
+                                                                }
+                                                            },
+                                                            "children": [
+                                                                {
+                                                                    "type": "Selector",
+                                                                    "loc": {
+                                                                        "source": "stringify.css",
+                                                                        "start": {
+                                                                            "offset": 1430,
+                                                                            "line": 62,
+                                                                            "column": 16
+                                                                        },
+                                                                        "end": {
+                                                                            "offset": 1431,
+                                                                            "line": 62,
+                                                                            "column": 17
+                                                                        }
+                                                                    },
+                                                                    "children": [
+                                                                        {
+                                                                            "type": "NestingSelector",
+                                                                            "loc": {
+                                                                                "source": "stringify.css",
+                                                                                "start": {
+                                                                                    "offset": 1430,
+                                                                                    "line": 62,
+                                                                                    "column": 16
+                                                                                },
+                                                                                "end": {
+                                                                                    "offset": 1431,
+                                                                                    "line": 62,
+                                                                                    "column": 17
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1433,
+                                    "line": 62,
+                                    "column": 19
+                                },
+                                "end": {
+                                    "offset": 1463,
+                                    "line": 64,
+                                    "column": 6
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1443,
+                                            "line": 63,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "offset": 1456,
+                                            "line": 63,
+                                            "column": 22
+                                        }
+                                    },
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1450,
+                                                "line": 63,
+                                                "column": 16
+                                            },
+                                            "end": {
+                                                "offset": 1456,
+                                                "line": 63,
+                                                "column": 22
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1450,
+                                                        "line": 63,
+                                                        "column": 16
+                                                    },
+                                                    "end": {
+                                                        "offset": 1456,
+                                                        "line": 63,
+                                                        "column": 22
+                                                    }
+                                                },
+                                                "name": "yellow"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Atrule",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1468,
+                                "line": 65,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1526,
+                                "line": 67,
+                                "column": 6
+                            }
+                        },
+                        "name": "media",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1475,
+                                    "line": 65,
+                                    "column": 12
+                                },
+                                "end": {
+                                    "offset": 1498,
+                                    "line": 65,
+                                    "column": 35
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "MediaQueryList",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1475,
+                                            "line": 65,
+                                            "column": 12
+                                        },
+                                        "end": {
+                                            "offset": 1498,
+                                            "line": 65,
+                                            "column": 35
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "MediaQuery",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1475,
+                                                    "line": 65,
+                                                    "column": 12
+                                                },
+                                                "end": {
+                                                    "offset": 1498,
+                                                    "line": 65,
+                                                    "column": 35
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "type": "MediaFeature",
+                                                    "loc": {
+                                                        "source": "stringify.css",
+                                                        "start": {
+                                                            "offset": 1475,
+                                                            "line": 65,
+                                                            "column": 12
+                                                        },
+                                                        "end": {
+                                                            "offset": 1498,
+                                                            "line": 65,
+                                                            "column": 35
+                                                        }
+                                                    },
+                                                    "name": "orientation",
+                                                    "value": {
+                                                        "type": "Identifier",
+                                                        "loc": {
+                                                            "source": "stringify.css",
+                                                            "start": {
+                                                                "offset": 1489,
+                                                                "line": 65,
+                                                                "column": 26
+                                                            },
+                                                            "end": {
+                                                                "offset": 1497,
+                                                                "line": 65,
+                                                                "column": 34
+                                                            }
+                                                        },
+                                                        "name": "vertical"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1499,
+                                    "line": 65,
+                                    "column": 36
+                                },
+                                "end": {
+                                    "offset": 1526,
+                                    "line": 67,
+                                    "column": 6
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1509,
+                                            "line": 66,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "offset": 1519,
+                                            "line": 66,
+                                            "column": 19
+                                        }
+                                    },
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1516,
+                                                "line": 66,
+                                                "column": 16
+                                            },
+                                            "end": {
+                                                "offset": 1519,
+                                                "line": 66,
+                                                "column": 19
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1516,
+                                                        "line": 66,
+                                                        "column": 16
+                                                    },
+                                                    "end": {
+                                                        "offset": 1519,
+                                                        "line": 66,
+                                                        "column": 19
+                                                    }
+                                                },
+                                                "name": "red"
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         }

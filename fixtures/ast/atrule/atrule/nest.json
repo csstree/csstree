@@ -1,0 +1,52 @@
+{
+    "single media type": {
+        "source": "@nest .bar:not(&) {}",
+        "generate": "@nest.bar:not(&){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "nest",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "SelectorList",
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "ClassSelector",
+                                        "name": "bar"
+                                    },
+                                    {
+                                        "type": "PseudoClassSelector",
+                                        "name": "not",
+                                        "children": [
+                                            {
+                                                "type": "SelectorList",
+                                                "children": [
+                                                    {
+                                                        "type": "Selector",
+                                                        "children": [
+                                                            {
+                                                                "type": "NestingSelector"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    }
+}

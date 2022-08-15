@@ -1,0 +1,261 @@
+{
+    "basic": {
+        "source": " color: blue; &:hover { color: green; } @nest :not(&) { color: red; } ",
+        "generate": "color:blue;&:hover{color:green}@nest :not(&){color:red}",
+        "ast": {
+            "type": "DeclarationList",
+            "children": [
+                {
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "color",
+                    "value": {
+                        "type": "Value",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "blue"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Rule",
+                    "prelude": {
+                        "type": "SelectorList",
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "children": [
+                                    {
+                                        "type": "NestingSelector"
+                                    },
+                                    {
+                                        "type": "PseudoClassSelector",
+                                        "name": "hover",
+                                        "children": null
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "color",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "green"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Atrule",
+                    "name": "nest",
+                    "prelude": {
+                        "type": "AtrulePrelude",
+                        "children": [
+                            {
+                                "type": "SelectorList",
+                                "children": [
+                                    {
+                                        "type": "Selector",
+                                        "children": [
+                                            {
+                                                "type": "PseudoClassSelector",
+                                                "name": "not",
+                                                "children": [
+                                                    {
+                                                        "type": "SelectorList",
+                                                        "children": [
+                                                            {
+                                                                "type": "Selector",
+                                                                "children": [
+                                                                    {
+                                                                        "type": "NestingSelector"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "color",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "red"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "nested @media": {
+        "source": " color: blue; @media (orientation: landscape) { color: red; @media (min-width: 1024px) { color: green; } } ",
+        "generate": "color:blue;@media (orientation:landscape){color:red;@media (min-width:1024px){color:green}}",
+        "ast": {
+            "type": "DeclarationList",
+            "children": [
+                {
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "color",
+                    "value": {
+                        "type": "Value",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "blue"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Atrule",
+                    "name": "media",
+                    "prelude": {
+                        "type": "AtrulePrelude",
+                        "children": [
+                            {
+                                "type": "MediaQueryList",
+                                "children": [
+                                    {
+                                        "type": "MediaQuery",
+                                        "children": [
+                                            {
+                                                "type": "MediaFeature",
+                                                "name": "orientation",
+                                                "value": {
+                                                    "type": "Identifier",
+                                                    "name": "landscape"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "color",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "red"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Atrule",
+                                "name": "media",
+                                "prelude": {
+                                    "type": "AtrulePrelude",
+                                    "children": [
+                                        {
+                                            "type": "MediaQueryList",
+                                            "children": [
+                                                {
+                                                    "type": "MediaQuery",
+                                                    "children": [
+                                                        {
+                                                            "type": "MediaFeature",
+                                                            "name": "min-width",
+                                                            "value": {
+                                                                "type": "Dimension",
+                                                                "value": "1024",
+                                                                "unit": "px"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "block": {
+                                    "type": "Block",
+                                    "children": [
+                                        {
+                                            "type": "Declaration",
+                                            "important": false,
+                                            "property": "color",
+                                            "value": {
+                                                "type": "Value",
+                                                "children": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "green"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "don't parse nested rule when it not started with &": {
+        "source": ".bar & { color: green; }; div:hover { color: red; }",
+        "generate": ".bar & { color: green; };div:hover { color: red; }",
+        "ast": {
+
+            "type": "DeclarationList",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": ".bar & { color: green; };"
+                },
+                {
+                    "type": "Declaration",
+                    "important": false,
+                    "property": "div",
+                    "value": {
+                        "type": "Raw",
+                        "value": "hover { color: red; }"
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -53,3 +53,16 @@ edge\ .c\61ases {
     --bad-var:;
     number: 0.1.2.3;
 }
+
+.foo {
+    color: blue;
+    &:hover {
+        color: green;
+    }
+    @nest :not(&) {
+        color: yellow;
+    }
+    @media (orientation: vertical) {
+        color: red;
+    }
+}
