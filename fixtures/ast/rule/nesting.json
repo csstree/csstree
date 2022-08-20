@@ -269,6 +269,140 @@
             }
         }
     },
+    "nested @supports": {
+        "source": ".foo{ color: blue; @supports (prop: value) { color: red; @supports (prop2: value2) { color: green; } } }",
+        "generate": ".foo{color:blue;@supports (prop:value){color:red;@supports (prop2:value2){color:green}}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "foo"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "blue"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Atrule",
+                        "name": "supports",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "children": [
+                                {
+                                    "type": "Parentheses",
+                                    "children": [
+                                        {
+                                            "type": "Declaration",
+                                            "important": false,
+                                            "property": "prop",
+                                            "value": {
+                                                "type": "Value",
+                                                "children": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "value"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "red"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Atrule",
+                                    "name": "supports",
+                                    "prelude": {
+                                        "type": "AtrulePrelude",
+                                        "children": [
+                                            {
+                                                "type": "Parentheses",
+                                                "children": [
+                                                    {
+                                                        "type": "Declaration",
+                                                        "important": false,
+                                                        "property": "prop2",
+                                                        "value": {
+                                                            "type": "Value",
+                                                            "children": [
+                                                                {
+                                                                    "type": "Identifier",
+                                                                    "name": "value2"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "block": {
+                                        "type": "Block",
+                                        "children": [
+                                            {
+                                                "type": "Declaration",
+                                                "important": false,
+                                                "property": "color",
+                                                "value": {
+                                                    "type": "Value",
+                                                    "children": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "green"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
     "don't parse nested rule when it not started with &": {
         "source": ".foo{ .bar & { color: green; }; div:hover { color: red; } }",
         "generate": ".foo{.bar & { color: green; };div:hover { color: red; }}",
