@@ -10,6 +10,9 @@
                     "syntax": "<urange>#"
                 }
             }
+        },
+        "nest": {
+            "prelude": "<complex-selector-list>"
         }
     },
     "properties": {
