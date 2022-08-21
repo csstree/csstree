@@ -5,6 +5,10 @@
     - Added `@nest` at-rule
     - Changed behaviour for `@media` inside a `Rule` to parse its block content as a `Declaration` first
     - Changed `DeclarationList` behaviour to follow the rules for `Rule`'s block
+- Added the dimension units introspection & customisation:
+    - Added `Lexer#units` dictionary to provide unit groups (`length`, `angle`, etc.) used for matching
+    - Changed Lexer's constructor to take into consideration `config.units` to override default units
+    - Extended lexer's dump to contain a units dictionary
 
 ## 2.2.1 (August 14, 2022)
 
