@@ -732,8 +732,32 @@
         "number-one-or-greater": {
             "syntax": "<number [1,∞]>"
         },
+        "perspective()": {
+            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
+            "syntax": "perspective( [ <length [0,∞]> | none ] )"
+        },
         "positive-integer": {
             "syntax": "<integer [0,∞]>"
+        },
+        "scale()": {
+            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
+            "syntax": "scale( [ <number> | <percentage> ]#{1,2} )"
+        },
+        "scale3d()": {
+            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
+            "syntax": "scale3d( [ <number> | <percentage> ]#{3} )"
+        },
+        "scaleX()": {
+            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
+            "syntax": "scaleX( [ <number> | <percentage> ] )"
+        },
+        "scaleY()": {
+            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
+            "syntax": "scaleY( [ <number> | <percentage> ] )"
+        },
+        "scaleZ()": {
+            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
+            "syntax": "scaleZ( [ <number> | <percentage> ] )"
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
