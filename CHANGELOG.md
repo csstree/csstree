@@ -1,4 +1,4 @@
-## next
+## 2.3.0 (November 30, 2022)
 
 - Added [CSS Nesting](https://www.w3.org/TR/css-nesting-1/) support:
     - Added `NestingSelector` node type for `&` (a nesting selector) in selectors
