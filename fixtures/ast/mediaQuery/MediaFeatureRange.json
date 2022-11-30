@@ -1,0 +1,51 @@
+{
+    "basic": {
+        "source": "(foo>1)",
+        "ast": {
+            "type": "MediaCondition",
+            "children": [
+                {
+                    "type": "MediaFeatureRange",
+                    "left": {
+                        "type": "Identifier",
+                        "name": "foo"
+                    },
+                    "leftComparison": ">",
+                    "middle": {
+                        "type": "Number",
+                        "value": "1"
+                    },
+                    "rightComparison": null,
+                    "right": null
+                }
+            ]
+        }
+    },
+    "full form": {
+        "source": "(100px<bar<200px)",
+        "ast": {
+            "type": "MediaCondition",
+            "children": [
+                {
+                    "type": "MediaFeatureRange",
+                    "left": {
+                        "type": "Dimension",
+                        "value": "100",
+                        "unit": "px"
+                    },
+                    "leftComparison": "<",
+                    "middle": {
+                        "type": "Identifier",
+                        "name": "bar"
+                    },
+                    "rightComparison": "<",
+                    "right": {
+                        "type": "Dimension",
+                        "value": "200",
+                        "unit": "px"
+                    }
+                }
+            ]
+        }
+    }
+}

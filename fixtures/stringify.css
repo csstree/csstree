@@ -66,3 +66,11 @@ edge\ .c\61ases {
         color: red;
     }
 }
+
+@media (100px < width < 400px) {
+    @container foo {
+        .test {
+            color: #0f08;
+        }
+    }
+}

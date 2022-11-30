@@ -6,6 +6,7 @@
   - Right part can be ommited as per [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) spec
 - Added `TokenStream#lookupTypeNonSC()` method
 - Added `MediaCondition` node
+- Added `MediaFeatureRange` node to support ranges in media queries
 - Changed `MediaQuery` node structure to the following form:
     ```ts
     type MediaQuery = {

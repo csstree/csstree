@@ -82,6 +82,7 @@
     },
     "a list of conditions": {
         "source": "@media all and (min-width: 500px), only screen, (200px < width) and ((foo: 1/2) or (100px > width > 200px)) {}",
+        "generate": "@media all and (min-width:500px),only screen,(200px<width) and ((foo:1/2) or (100px>width>200px)){}",
         "ast": {
             "type": "Atrule",
             "name": "media",
@@ -238,6 +239,49 @@
             }
         }
     },
+    "missed 'and' keyword": {
+        "source": "@media screen (feature:1){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "modifier": null,
+                                "mediaType": null,
+                                "condition": {
+                                    "type": "MediaCondition",
+                                    "children": [
+                                        {
+                                            "type": "Identifier",
+                                            "name": "screen"
+                                        },
+                                        {
+                                            "type": "MediaFeature",
+                                            "name": "feature",
+                                            "value": {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
     "shouldn't parse an at-rule prelude when parseAtrulePrelude is false": {
         "source": "@media screen and (feature: 1){}",
         "options": {
@@ -283,11 +327,6 @@
             "source": "@media foo screen {}",
             "offset": "           ^",
             "error": "Identifier \"and\" is expected"
-        },
-        {
-            "source": "@media screen (foo: 1)",
-            "offset": "              ^",
-            "error": "xxx"
         },
         {
             "source": "@media (foo:1",
