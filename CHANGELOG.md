@@ -1,3 +1,10 @@
+## next
+
+- Changed parsing rules of `Ratio`:
+  - Left and right part of ratio can be any number, for now that's not a responsibility of parser to validate numbers are in allowed range
+  - *Left and right part can be a function now. That's not explicitly defined be a spec, but math functions might be used in any place where a number is used, so this change allows to process such cases* (#162)
+  - Right part can be ommited as per [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) spec
+
 ## 2.3.0 (November 30, 2022)
 
 - Added [CSS Nesting](https://www.w3.org/TR/css-nesting-1/) support:

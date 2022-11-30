@@ -2,50 +2,70 @@
     "basic ratio": {
         "source": "(foo:1/2)",
         "ast": {
-            "type": "MediaFeature",
-            "name": "foo",
-            "value": {
-                "type": "Ratio",
-                "left": "1",
-                "right": "2"
-            }
+            "type": "MediaCondition",
+            "children": [
+                {
+                    "type": "MediaFeature",
+                    "name": "foo",
+                    "value": {
+                        "type": "Ratio",
+                        "left": "1",
+                        "right": "2"
+                    }
+                }
+            ]
         }
     },
-    "fractal": [
+    "fractional": [
         {
             "source": "(foo:2.5/3)",
             "ast": {
-                "type": "MediaFeature",
-                "name": "foo",
-                "value": {
-                    "type": "Ratio",
-                    "left": "2.5",
-                    "right": "3"
-                }
+                "type": "MediaCondition",
+                "children": [
+                    {
+                        "type": "MediaFeature",
+                        "name": "foo",
+                        "value": {
+                            "type": "Ratio",
+                            "left": "2.5",
+                            "right": "3"
+                        }
+                    }
+                ]
             }
         },
         {
             "source": "(foo:3/1.6)",
             "ast": {
-                "type": "MediaFeature",
-                "name": "foo",
-                "value": {
-                    "type": "Ratio",
-                    "left": "3",
-                    "right": "1.6"
-                }
+                "type": "MediaCondition",
+                "children": [
+                    {
+                        "type": "MediaFeature",
+                        "name": "foo",
+                        "value": {
+                            "type": "Ratio",
+                            "left": "3",
+                            "right": "1.6"
+                        }
+                    }
+                ]
             }
         },
         {
             "source": "(foo:2.5/1.6)",
             "ast": {
-                "type": "MediaFeature",
-                "name": "foo",
-                "value": {
-                    "type": "Ratio",
-                    "left": "2.5",
-                    "right": "1.6"
-                }
+                "type": "MediaCondition",
+                "children": [
+                    {
+                        "type": "MediaFeature",
+                        "name": "foo",
+                        "value": {
+                            "type": "Ratio",
+                            "left": "2.5",
+                            "right": "1.6"
+                        }
+                    }
+                ]
             }
         }
     ],
