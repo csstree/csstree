@@ -9,6 +9,7 @@
     - Added `Lexer#units` dictionary to provide unit groups (`length`, `angle`, etc.) used for matching
     - Changed Lexer's constructor to take into consideration `config.units` to override default units
     - Extended lexer's dump to contain a units dictionary
+- Bumped `mdn-data` to `2.0.30`
 
 ## 2.2.1 (August 14, 2022)
 

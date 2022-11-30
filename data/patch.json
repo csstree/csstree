@@ -627,14 +627,6 @@
             "comment": "added legacy syntaxes support",
             "syntax": "| <-legacy-gradient>"
         },
-        "lab()": {
-            "comment": "missed; https://www.w3.org/TR/css-color-4/#specifying-lab-lch",
-            "syntax": "lab( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? )"
-        },
-        "lch()": {
-            "comment": "missed; https://www.w3.org/TR/css-color-4/#specifying-lab-lch",
-            "syntax": "lch( [<percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? )"
-        },
         "left": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -651,14 +643,6 @@
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
             "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
         },
-        "ratio": {
-            "comment": "missed, https://drafts.csswg.org/css-values-4/#ratio-value",
-            "syntax": "<number [0,∞]> [ / <number [0,∞]> ]?"
-        },
-        "reversed-counter-name": {
-            "comment": "missed; https://drafts.csswg.org/css-lists/#typedef-reversed-counter-name",
-            "syntax": "reversed( <counter-name> )"
-        },
         "right": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -666,6 +650,24 @@
         "shape": {
             "comment": "missed spaces in function body and add backwards compatible syntax",
             "syntax": "rect( <top>, <right>, <bottom>, <left> ) | rect( <top> <right> <bottom> <left> )"
+        },
+        "scroll-timeline-axis": {
+            "comment": "missed definition",
+            "syntax": "block | inline | vertical | horizontal"
+        },
+        "scroll-timeline-name": {
+            "comment": "missed definition",
+            "references": [
+                "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
+            ],
+            "syntax": "none | <custom-ident>"
+        },
+        "single-animation-composition": {
+            "comment": "missed definition",
+            "references": [
+                "https://w3c.github.io/csswg-drafts/css-animations-2/#typedef-single-animation-composition"
+            ],
+            "syntax": "replace | add | accumulate"
         },
         "svg-length": {
             "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
@@ -715,34 +717,6 @@
         },
         "number-one-or-greater": {
             "syntax": "<number [1,∞]>"
-        },
-        "perspective()": {
-            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
-            "syntax": "perspective( [ <length [0,∞]> | none ] )"
-        },
-        "scale()": {
-            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
-            "syntax": "scale( [ <number> | <percentage> ]#{1,2} )"
-        },
-        "scale3d()": {
-            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
-            "syntax": "scale3d( [ <number> | <percentage> ]#{3} )"
-        },
-        "scaleX()": {
-            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
-            "syntax": "scaleX( [ <number> | <percentage> ] )"
-        },
-        "scaleY()": {
-            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
-            "syntax": "scaleY( [ <number> | <percentage> ] )"
-        },
-        "scaleZ()": {
-            "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
-            "syntax": "scaleZ( [ <number> | <percentage> ] )"
-        },
-        "track-size": {
-            "comment": "align with https://www.w3.org/TR/css-grid-1",
-            "syntax": "<track-breadth> | minmax( <inflexible-breadth> , <track-breadth> ) | fit-content( <length-percentage> )"
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
