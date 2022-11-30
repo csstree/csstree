@@ -149,12 +149,9 @@
                                 "children": [
                                     {
                                         "type": "MediaQuery",
-                                        "children": [
-                                            {
-                                                "type": "Identifier",
-                                                "name": "test"
-                                            }
-                                        ]
+                                        "modifier": null,
+                                        "mediaType": "test",
+                                        "condition": null
                                     }
                                 ]
                             }
@@ -246,12 +243,9 @@
                                 "children": [
                                     {
                                         "type": "MediaQuery",
-                                        "children": [
-                                            {
-                                                "type": "Identifier",
-                                                "name": "test"
-                                            }
-                                        ]
+                                        "modifier": null,
+                                        "mediaType": "test",
+                                        "condition": null
                                     }
                                 ]
                             }

@@ -12,12 +12,9 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "screen"
-                                    }
-                                ]
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": null
                             }
                         ]
                     }
@@ -42,16 +39,9 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "not"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "screen"
-                                    }
-                                ]
+                                "modifier": "not",
+                                "mediaType": "screen",
+                                "condition": null
                             }
                         ]
                     }
@@ -76,16 +66,140 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "only"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "screen"
-                                    }
-                                ]
+                                "modifier": "only",
+                                "mediaType": "screen",
+                                "condition": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "a list of conditions": {
+        "source": "@media all and (min-width: 500px), only screen, (200px < width) and ((foo: 1/2) or (100px > width > 200px)) {}",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "loc": null,
+                                "modifier": null,
+                                "mediaType": "all",
+                                "condition": {
+                                    "type": "MediaCondition",
+                                    "loc": null,
+                                    "children": [
+                                        {
+                                            "type": "MediaFeature",
+                                            "loc": null,
+                                            "name": "min-width",
+                                            "value": {
+                                                "type": "Dimension",
+                                                "loc": null,
+                                                "value": "500",
+                                                "unit": "px"
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "MediaQuery",
+                                "loc": null,
+                                "modifier": "only",
+                                "mediaType": "screen",
+                                "condition": null
+                            },
+                            {
+                                "type": "MediaQuery",
+                                "loc": null,
+                                "modifier": null,
+                                "mediaType": null,
+                                "condition": {
+                                    "type": "MediaCondition",
+                                    "loc": null,
+                                    "children": [
+                                        {
+                                            "type": "MediaFeatureRange",
+                                            "loc": null,
+                                            "left": {
+                                                "type": "Dimension",
+                                                "loc": null,
+                                                "value": "200",
+                                                "unit": "px"
+                                            },
+                                            "leftComparison": "<",
+                                            "middle": {
+                                                "type": "Identifier",
+                                                "loc": null,
+                                                "name": "width"
+                                            },
+                                            "rightComparison": null,
+                                            "right": null
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "loc": null,
+                                            "name": "and"
+                                        },
+                                        {
+                                            "type": "MediaCondition",
+                                            "loc": null,
+                                            "children": [
+                                                {
+                                                    "type": "MediaFeature",
+                                                    "loc": null,
+                                                    "name": "foo",
+                                                    "value": {
+                                                        "type": "Ratio",
+                                                        "loc": null,
+                                                        "left": "1",
+                                                        "right": "2"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Identifier",
+                                                    "loc": null,
+                                                    "name": "or"
+                                                },
+                                                {
+                                                    "type": "MediaFeatureRange",
+                                                    "loc": null,
+                                                    "left": {
+                                                        "type": "Dimension",
+                                                        "loc": null,
+                                                        "value": "100",
+                                                        "unit": "px"
+                                                    },
+                                                    "leftComparison": ">",
+                                                    "middle": {
+                                                        "type": "Identifier",
+                                                        "loc": null,
+                                                        "name": "width"
+                                                    },
+                                                    "rightComparison": ">",
+                                                    "right": {
+                                                        "type": "Dimension",
+                                                        "loc": null,
+                                                        "value": "200",
+                                                        "unit": "px"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -110,12 +224,9 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "screen"
-                                    }
-                                ]
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": null
                             }
                         ]
                     }
@@ -168,6 +279,16 @@
         }
     },
     "error": [
+        {
+            "source": "@media foo screen {}",
+            "offset": "           ^",
+            "error": "Identifier \"and\" is expected"
+        },
+        {
+            "source": "@media screen (foo: 1)",
+            "offset": "              ^",
+            "error": "xxx"
+        },
         {
             "source": "@media (foo:1",
             "offset": "             ^",

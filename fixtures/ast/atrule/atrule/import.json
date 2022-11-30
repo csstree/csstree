@@ -51,34 +51,28 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "all"
-                                    }
-                                ]
+                                "modifier": null,
+                                "mediaType": "all",
+                                "condition": null
                             },
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "screen"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "and"
-                                    },
-                                    {
-                                        "type": "MediaFeature",
-                                        "name": "min-width",
-                                        "value": {
-                                            "type": "Dimension",
-                                            "value": "600",
-                                            "unit": "px"
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": {
+                                    "type": "MediaCondition",
+                                    "children": [
+                                        {
+                                            "type": "MediaFeature",
+                                            "name": "min-width",
+                                            "value": {
+                                                "type": "Dimension",
+                                                "value": "600",
+                                                "unit": "px"
+                                            }
                                         }
-                                    }
-                                ]
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -105,12 +99,9 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "all"
-                                    }
-                                ]
+                                "modifier": null,
+                                "mediaType": "all",
+                                "condition": null
                             }
                         ]
                     }
