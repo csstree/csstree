@@ -596,10 +596,6 @@
             "comment": "missed, https://drafts.csswg.org/css-backgrounds-4/#typedef-bg-clip",
             "syntax": "<box> | border | text"
         },
-        "border-radius": {
-            "comment": "missed, https://drafts.csswg.org/css-backgrounds-3/#the-border-radius",
-            "syntax": "<length-percentage>{1,2}"
-        },
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -690,18 +686,6 @@
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
         },
-        "track-group": {
-            "comment": "used by old grid-columns and grid-rows syntax v0",
-            "syntax": "'(' [ <string>* <track-minmax> <string>* ]+ ')' [ '[' <positive-integer> ']' ]? | <track-minmax>"
-        },
-        "track-list-v0": {
-            "comment": "used by old grid-columns and grid-rows syntax v0",
-            "syntax": "[ <string>* <track-group> <string>* ]+ | none"
-        },
-        "track-minmax": {
-            "comment": "used by old grid-columns and grid-rows syntax v0",
-            "syntax": "minmax( <track-breadth> , <track-breadth> ) | auto | <track-breadth> | fit-content"
-        },
         "x": {
             "comment": "missed; not sure we should add it, but no others except `cursor` is using it so it's ok for now; https://drafts.csswg.org/css-ui-3/#cursor",
             "syntax": "<number>"
@@ -736,9 +720,6 @@
             "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
             "syntax": "perspective( [ <length [0,∞]> | none ] )"
         },
-        "positive-integer": {
-            "syntax": "<integer [0,∞]>"
-        },
         "scale()": {
             "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
             "syntax": "scale( [ <number> | <percentage> ]#{1,2} )"
@@ -758,6 +739,10 @@
         "scaleZ()": {
             "comment": "align with https://www.w3.org/TR/css-transforms-2, remove when https://github.com/mdn/data/pull/595 is merged and published",
             "syntax": "scaleZ( [ <number> | <percentage> ] )"
+        },
+        "track-size": {
+            "comment": "align with https://www.w3.org/TR/css-grid-1",
+            "syntax": "<track-breadth> | minmax( <inflexible-breadth> , <track-breadth> ) | fit-content( <length-percentage> )"
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
