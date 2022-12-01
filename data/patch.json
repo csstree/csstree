@@ -3,6 +3,9 @@
         "charset": {
             "prelude": "<string>"
         },
+        "container": {
+            "prelude": "[ <container-name> ]? <container-condition>"
+        },
         "font-face": {
             "descriptors": {
                 "unicode-range": {
@@ -177,6 +180,18 @@
                 "https://www.w3.org/TR/SVG/masking.html#ClipRuleProperty"
             ],
             "syntax": "nonzero | evenodd"
+        },
+        "container": {
+            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container",
+            "syntax": "<'container-name'> [ / <'container-type'> ]?"
+        },
+        "container-name": {
+            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-name",
+            "syntax": "none | <custom-ident>+"
+        },
+        "container-type": {
+            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-type",
+            "syntax": "normal || [ size | inline-size ]"
         },
         "cue": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
@@ -604,6 +619,14 @@
             "comment": "added attr(), see https://github.com/csstree/csstree/issues/201",
             "syntax": "[ <string> | contents | <image> | <counter> | <quote> | <target> | <leader()> | <attr()> ]+"
         },
+        "container-name": {
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
+            "syntax": "<custom-ident>"
+        },
+        "container-condition": {
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
+            "syntax": "not <query-in-parens> | <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ]"
+        },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
             "syntax": "element( <custom-ident> , [ first | start | last | first-except ]? ) | element( <id-selector> )"
@@ -717,6 +740,30 @@
         },
         "number-one-or-greater": {
             "syntax": "<number [1,∞]>"
+        },
+        "query-in-parens":{
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
+            "syntax": "( <container-condition> ) | ( <size-feature> ) | style( <style-query> ) | <general-enclosed>"
+        },
+        "size-feature": {
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#typedef-size-feature",
+            "syntax": "<mf-plain> | <mf-boolean> | <mf-range>"
+        },
+        "style-feature": {
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#typedef-style-feature",
+            "syntax": "<declaration>"
+        },
+        "style-query": {
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
+            "syntax": "<style-condition> | <style-feature>"
+        },
+        "style-condition": {
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
+            "syntax": "not <style-in-parens> | <style-in-parens> [ [ and <style-in-parens> ]* | [ or <style-in-parens> ]* ]"
+        },
+        "style-in-parens": {
+            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
+            "syntax": "( <style-condition> ) | ( <style-feature> ) | <general-enclosed>"
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
