@@ -39,7 +39,8 @@
                 "children": [
                     {
                         "type": "String",
-                        "value": "blah"
+                        "value": "blah",
+                        "apostrophe": false
                     }
                 ]
             },

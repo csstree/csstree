@@ -1,32 +1,34 @@
 {
     "string.0": {
         "source": "'test'",
-        "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "test"
+            "value": "test",
+            "apostrophe": true
         }
     },
     "string.1": {
         "source": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "test"
+            "value": "test",
+            "apostrophe": false
         }
     },
     "string.2": {
         "source": "'te\\'st'",
-        "generate": "\"te'st\"",
         "ast": {
             "type": "String",
-            "value": "te'st"
+            "value": "te'st",
+            "apostrophe": true
         }
     },
     "string.3": {
         "source": "\"te\\\"st\"",
         "ast": {
             "type": "String",
-            "value": "te\"st"
+            "value": "te\"st",
+            "apostrophe": false
         }
     },
     "string with escaped \\n": {
@@ -34,7 +36,8 @@
         "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "test"
+            "value": "test",
+            "apostrophe": false
         }
     },
     "string with escaped \\r": {
@@ -42,7 +45,8 @@
         "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "test"
+            "value": "test",
+            "apostrophe": false
         }
     },
     "string with escaped \\r\\n": {
@@ -50,7 +54,8 @@
         "generate": "\"test\"",
         "ast": {
             "type": "String",
-            "value": "test"
+            "value": "test",
+            "apostrophe": false
         }
     }
 }

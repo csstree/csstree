@@ -26,7 +26,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": false
             },
             "flags": null
         }
@@ -42,7 +43,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": false
             },
             "flags": "i"
         }
@@ -118,7 +120,7 @@
     },
     "attrib.s.1": {
         "source": "[  a  =  'b'  ]",
-        "generate": "[a=\"b\"]",
+        "generate": "[a='b']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -128,14 +130,15 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": true
             },
             "flags": null
         }
     },
     "attrib.1 with flags and spaces": {
         "source": "[  a  =  'b'  i  ]",
-        "generate": "[a=\"b\"i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -145,7 +148,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": true
             },
             "flags": "i"
         }
@@ -169,7 +173,7 @@
     },
     "attrib.c.1": {
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/]",
-        "generate": "[a=\"b\"]",
+        "generate": "[a='b']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -179,14 +183,15 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": true
             },
             "flags": null
         }
     },
     "attrib.c.1 with flags and comments": {
         "source": "[/*test*/a/*test*/=/*test*/'b'/*test*/i/*test*/]",
-        "generate": "[a=\"b\"i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -196,7 +201,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": true
             },
             "flags": "i"
         }
@@ -212,7 +218,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "#test"
+                "value": "#test",
+                "apostrophe": false
             },
             "flags": null
         }
@@ -228,7 +235,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "#test"
+                "value": "#test",
+                "apostrophe": false
             },
             "flags": null
         }
@@ -244,7 +252,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "#test"
+                "value": "#test",
+                "apostrophe": false
             },
             "flags": null
         }
@@ -299,7 +308,8 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": false
             },
             "flags": null
         }
@@ -315,14 +325,15 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "c"
+                "value": "c",
+                "apostrophe": false
             },
             "flags": null
         }
     },
     "attrib with dashmatch and spaces": {
         "source": "[  a  |=  'b'  ]",
-        "generate": "[a|=\"b\"]",
+        "generate": "[a|='b']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -332,14 +343,15 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": true
             },
             "flags": null
         }
     },
     "attrib with namespace, dashmatch and spaces": {
         "source": "[  a|b  |=  'c'  ]",
-        "generate": "[a|b|=\"c\"]",
+        "generate": "[a|b|='c']",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -349,7 +361,8 @@
             "matcher": "|=",
             "value": {
                 "type": "String",
-                "value": "c"
+                "value": "c",
+                "apostrophe": true
             },
             "flags": null
         }
@@ -461,14 +474,15 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": false
             },
             "flags": "i"
         }
     },
     "attrib with flags and spaces": {
         "source": "[  a  =  'b'  i  ]",
-        "generate": "[a=\"b\"i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -478,14 +492,15 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": true
             },
             "flags": "i"
         }
     },
     "attrib with flags and comments": {
         "source": "[/*1*/a/*2*/=/*3*/'b'/*4*/i/*5*/]",
-        "generate": "[a=\"b\"i]",
+        "generate": "[a='b'i]",
         "ast": {
             "type": "AttributeSelector",
             "name": {
@@ -495,7 +510,8 @@
             "matcher": "=",
             "value": {
                 "type": "String",
-                "value": "b"
+                "value": "b",
+                "apostrophe": true
             },
             "flags": "i"
         }

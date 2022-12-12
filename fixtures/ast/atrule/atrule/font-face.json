@@ -17,7 +17,8 @@
                             "children": [
                                 {
                                     "type": "String",
-                                    "value": "name"
+                                    "value": "name",
+                                    "apostrophe": false
                                 }
                             ]
                         }

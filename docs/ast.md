@@ -511,7 +511,8 @@ A sequence of characters enclosed in double quotes or single quotes.
 ```js
 {
     type: "String",
-    value: String
+    value: String,
+    apostrophe: null | Boolean
 }
 ```
 

@@ -78,7 +78,8 @@
                                 "column": 17
                             }
                         },
-                        "value": "utf-8"
+                        "value": "utf-8",
+                        "apostrophe": true
                     }
                 ]
             },
@@ -751,7 +752,8 @@
                                             "column": 38
                                         }
                                     },
-                                    "value": "asd"
+                                    "value": "asd",
+                                    "apostrophe": false
                                 },
                                 "flags": null
                             },
@@ -2336,7 +2338,8 @@
                                             "column": 47
                                         }
                                     },
-                                    "value": "string"
+                                    "value": "string",
+                                    "apostrophe": false
                                 },
                                 {
                                     "type": "String",
@@ -2353,7 +2356,8 @@
                                             "column": 56
                                         }
                                     },
-                                    "value": "string"
+                                    "value": "string",
+                                    "apostrophe": true
                                 },
                                 {
                                     "type": "Parentheses",
@@ -3499,7 +3503,8 @@
                                 "column": 14
                             }
                         },
-                        "value": "foo"
+                        "value": "foo",
+                        "apostrophe": true
                     },
                     {
                         "type": "MediaQueryList",
@@ -3605,7 +3610,8 @@
                                 "column": 18
                             }
                         },
-                        "value": "anim"
+                        "value": "anim",
+                        "apostrophe": true
                     }
                 ]
             },

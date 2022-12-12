@@ -99,7 +99,8 @@
                     "matcher": "=",
                     "value": {
                         "type": "String",
-                        "value": "d"
+                        "value": "d",
+                        "apostrophe": false
                     },
                     "flags": null
                 }
