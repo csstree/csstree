@@ -60,6 +60,11 @@
     },
     "error": [
         {
+            "source": "::slotted(.a .b)",
+            "offset": "               ^",
+            "error": "CompoundSelector is expected"
+        },
+        {
             "source": "::slotted(.a{)",
             "offset": "            ^",
             "error": "\")\" is expected"
