@@ -1,0 +1,88 @@
+{
+    "basic": {
+        "source": ":host-context(test)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "host-context",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "TypeSelector",
+                            "name": "test"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "spaces around selector": {
+        "source": ":host-context(  .a.b  )",
+        "generate": ":host-context(.a.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "host-context",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "ClassSelector",
+                            "name": "a"
+                        },
+                        {
+                            "type": "ClassSelector",
+                            "name": "b"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":hOsT-cOntexT(.a)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "hOsT-cOntexT",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "ClassSelector",
+                            "name": "a"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":host-context(.a{)",
+            "offset": "                ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":host-context(,.b)",
+            "offset": "              ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":host-context(.a,)",
+            "offset": "                ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":host-context(var(--test))",
+            "offset": "              ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":host-context(foo,bar)",
+            "offset": "                 ^",
+            "error": "\")\" is expected"
+        }
+    ]
+}

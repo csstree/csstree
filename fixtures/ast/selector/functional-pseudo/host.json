@@ -1,0 +1,101 @@
+{
+    "basic": {
+        "source": ":host(test)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "host",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "TypeSelector",
+                            "name": "test"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "no argument": {
+        "source": ":host",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "host",
+            "children": null
+        }
+    },
+    "spaces around selector": {
+        "source": ":host(  .a.b  )",
+        "generate": ":host(.a.b)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "host",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "ClassSelector",
+                            "name": "a"
+                        },
+                        {
+                            "type": "ClassSelector",
+                            "name": "b"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "should be case insensitive": {
+        "source": ":hOsT(.a)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "hOsT",
+            "children": [
+                {
+                    "type": "Selector",
+                    "children": [
+                        {
+                            "type": "ClassSelector",
+                            "name": "a"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "error": [
+        {
+            "source": ":host()",
+            "offset": "      ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":host(.a{)",
+            "offset": "        ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":host(,.b)",
+            "offset": "      ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":host(.a,)",
+            "offset": "        ^",
+            "error": "\")\" is expected"
+        },
+        {
+            "source": ":host(var(--test))",
+            "offset": "      ^",
+            "error": "Selector is expected"
+        },
+        {
+            "source": ":host(foo,bar)",
+            "offset": "         ^",
+            "error": "\")\" is expected"
+        }
+    ]
+}
