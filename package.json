@@ -1,6 +1,6 @@
 {
   "name": "css-tree",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "A tool set for CSS: fast detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
   "license": "MIT",
@@ -113,8 +113,7 @@
     "rollup": "^2.68.0"
   },
   "engines": {
-    "node": "^10 || ^12.20.0 || ^14.13.0 || >=15.0.0",
-    "npm": ">=7.0.0"
+    "node": "^10 || ^12.20.0 || ^14.13.0 || >=15.0.0"
   },
   "files": [
     "data",
