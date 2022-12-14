@@ -1,4 +1,4 @@
-## next
+## 2.3.1 (December 14, 2022)
 
 - Added `:host`, `:host()` and `:host-context()` pseudo class support (#216)
 - Fixed `generator`, `parse` and `parse-selector` entry points by adding missed `NestedSelector` node type
