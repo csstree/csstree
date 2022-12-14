@@ -1,3 +1,9 @@
+## next
+
+- Added `:host`, `:host()` and `:host-context()` pseudo class support (#216)
+- Fixed `generator`, `parse` and `parse-selector` entry points by adding missed `NestedSelector` node type
+- Removed npm > 7 version requirement (#218)
+
 ## 2.3.0 (November 30, 2022)
 
 - Added [CSS Nesting](https://www.w3.org/TR/css-nesting-1/) support:
