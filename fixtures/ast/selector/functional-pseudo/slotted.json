@@ -17,6 +17,22 @@
             ]
         }
     },
+    "no argument": {
+        "source": "::slotted",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "slotted",
+            "children": null
+        }
+    },
+    "empty argument": {
+        "source": "::slotted()",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "slotted",
+            "children": []
+        }
+    },
     "spaces around selector": {
         "source": "::slotted(  .a.b  )",
         "generate": "::slotted(.a.b)",

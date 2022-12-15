@@ -22,6 +22,22 @@
             ]
         }
     },
+    "no argument": {
+        "source": ":has",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "has",
+            "children": null
+        }
+    },
+    "empty argument": {
+        "source": ":has()",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "has",
+            "children": []
+        }
+    },
     "negation with selector group": {
         "source": ":has(.a,.b.c)",
         "ast": {
