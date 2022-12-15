@@ -8,8 +8,8 @@
             "column": 1
         },
         "end": {
-            "offset": 1644,
-            "line": 77,
+            "offset": 1708,
+            "line": 80,
             "column": 1
         }
     },
@@ -311,7 +311,7 @@
                                 "modifier": null,
                                 "mediaType": "screen",
                                 "condition": {
-                                    "type": "MediaCondition",
+                                    "type": "Condition",
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
@@ -325,9 +325,10 @@
                                             "column": 27
                                         }
                                     },
+                                    "kind": "media",
                                     "children": [
                                         {
-                                            "type": "MediaFeature",
+                                            "type": "Feature",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -341,6 +342,7 @@
                                                     "column": 27
                                                 }
                                             },
+                                            "kind": "media",
                                             "name": "foo",
                                             "value": {
                                                 "type": "Number",
@@ -2481,7 +2483,7 @@
                                 "modifier": null,
                                 "mediaType": null,
                                 "condition": {
-                                    "type": "MediaCondition",
+                                    "type": "Condition",
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
@@ -2495,9 +2497,10 @@
                                             "column": 35
                                         }
                                     },
+                                    "kind": "media",
                                     "children": [
                                         {
-                                            "type": "MediaFeature",
+                                            "type": "Feature",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -2511,6 +2514,7 @@
                                                     "column": 35
                                                 }
                                             },
+                                            "kind": "media",
                                             "name": "device-aspect-ratio",
                                             "value": {
                                                 "type": "Ratio",
@@ -4955,7 +4959,7 @@
                                             "modifier": null,
                                             "mediaType": null,
                                             "condition": {
-                                                "type": "MediaCondition",
+                                                "type": "Condition",
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
@@ -4969,9 +4973,10 @@
                                                         "column": 35
                                                     }
                                                 },
+                                                "kind": "media",
                                                 "children": [
                                                     {
-                                                        "type": "MediaFeature",
+                                                        "type": "Feature",
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
@@ -4985,6 +4990,7 @@
                                                                 "column": 35
                                                             }
                                                         },
+                                                        "kind": "media",
                                                         "name": "orientation",
                                                         "value": {
                                                             "type": "Identifier",
@@ -5152,7 +5158,7 @@
                                 "modifier": null,
                                 "mediaType": null,
                                 "condition": {
-                                    "type": "MediaCondition",
+                                    "type": "Condition",
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
@@ -5166,9 +5172,10 @@
                                             "column": 31
                                         }
                                     },
+                                    "kind": "media",
                                     "children": [
                                         {
-                                            "type": "MediaFeatureRange",
+                                            "type": "FeatureRange",
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
@@ -5182,6 +5189,7 @@
                                                     "column": 31
                                                 }
                                             },
+                                            "kind": "media",
                                             "left": {
                                                 "type": "Dimension",
                                                 "loc": {
@@ -5472,6 +5480,254 @@
                         }
                     }
                 ]
+            }
+        },
+        {
+            "type": "Atrule",
+            "loc": {
+                "source": "stringify.css",
+                "start": {
+                    "offset": 1668,
+                    "line": 79,
+                    "column": 1
+                },
+                "end": {
+                    "offset": 1707,
+                    "line": 79,
+                    "column": 40
+                }
+            },
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1675,
+                        "line": 79,
+                        "column": 8
+                    },
+                    "end": {
+                        "offset": 1705,
+                        "line": 79,
+                        "column": 38
+                    }
+                },
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1675,
+                                "line": 79,
+                                "column": 8
+                            },
+                            "end": {
+                                "offset": 1705,
+                                "line": 79,
+                                "column": 38
+                            }
+                        },
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "loc": {
+                                    "source": "stringify.css",
+                                    "start": {
+                                        "offset": 1675,
+                                        "line": 79,
+                                        "column": 8
+                                    },
+                                    "end": {
+                                        "offset": 1705,
+                                        "line": 79,
+                                        "column": 38
+                                    }
+                                },
+                                "modifier": null,
+                                "mediaType": null,
+                                "condition": {
+                                    "type": "Condition",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1675,
+                                            "line": 79,
+                                            "column": 8
+                                        },
+                                        "end": {
+                                            "offset": 1704,
+                                            "line": 79,
+                                            "column": 37
+                                        }
+                                    },
+                                    "kind": "media",
+                                    "children": [
+                                        {
+                                            "type": "Feature",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1675,
+                                                    "line": 79,
+                                                    "column": 8
+                                                },
+                                                "end": {
+                                                    "offset": 1685,
+                                                    "line": 79,
+                                                    "column": 18
+                                                }
+                                            },
+                                            "kind": "media",
+                                            "name": "foo",
+                                            "value": {
+                                                "type": "Number",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1681,
+                                                        "line": 79,
+                                                        "column": 14
+                                                    },
+                                                    "end": {
+                                                        "offset": 1684,
+                                                        "line": 79,
+                                                        "column": 17
+                                                    }
+                                                },
+                                                "value": "123"
+                                            }
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1686,
+                                                    "line": 79,
+                                                    "column": 19
+                                                },
+                                                "end": {
+                                                    "offset": 1689,
+                                                    "line": 79,
+                                                    "column": 22
+                                                }
+                                            },
+                                            "name": "and"
+                                        },
+                                        {
+                                            "type": "GeneralEnclosed",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1690,
+                                                    "line": 79,
+                                                    "column": 23
+                                                },
+                                                "end": {
+                                                    "offset": 1693,
+                                                    "line": 79,
+                                                    "column": 26
+                                                }
+                                            },
+                                            "function": null,
+                                            "children": [
+                                                {
+                                                    "type": "Number",
+                                                    "loc": {
+                                                        "source": "stringify.css",
+                                                        "start": {
+                                                            "offset": 1691,
+                                                            "line": 79,
+                                                            "column": 24
+                                                        },
+                                                        "end": {
+                                                            "offset": 1692,
+                                                            "line": 79,
+                                                            "column": 25
+                                                        }
+                                                    },
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Identifier",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1694,
+                                                    "line": 79,
+                                                    "column": 27
+                                                },
+                                                "end": {
+                                                    "offset": 1697,
+                                                    "line": 79,
+                                                    "column": 30
+                                                }
+                                            },
+                                            "name": "and"
+                                        },
+                                        {
+                                            "type": "GeneralEnclosed",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1698,
+                                                    "line": 79,
+                                                    "column": 31
+                                                },
+                                                "end": {
+                                                    "offset": 1704,
+                                                    "line": 79,
+                                                    "column": 37
+                                                }
+                                            },
+                                            "function": "foo",
+                                            "children": [
+                                                {
+                                                    "type": "Number",
+                                                    "loc": {
+                                                        "source": "stringify.css",
+                                                        "start": {
+                                                            "offset": 1702,
+                                                            "line": 79,
+                                                            "column": 35
+                                                        },
+                                                        "end": {
+                                                            "offset": 1703,
+                                                            "line": 79,
+                                                            "column": 36
+                                                        }
+                                                    },
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1705,
+                        "line": 79,
+                        "column": 38
+                    },
+                    "end": {
+                        "offset": 1707,
+                        "line": 79,
+                        "column": 40
+                    }
+                },
+                "children": []
             }
         }
     ]

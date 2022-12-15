@@ -2,10 +2,12 @@
     "basic ratio": {
         "source": "(foo:1/2)",
         "ast": {
-            "type": "MediaCondition",
+            "type": "Condition",
+            "kind": "media",
             "children": [
                 {
-                    "type": "MediaFeature",
+                    "type": "Feature",
+                    "kind": "media",
                     "name": "foo",
                     "value": {
                         "type": "Ratio",
@@ -20,10 +22,12 @@
         {
             "source": "(foo:2.5/3)",
             "ast": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Ratio",
@@ -37,10 +41,12 @@
         {
             "source": "(foo:3/1.6)",
             "ast": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Ratio",
@@ -54,10 +60,12 @@
         {
             "source": "(foo:2.5/1.6)",
             "ast": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Ratio",

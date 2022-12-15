@@ -6,10 +6,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": null
                     }
@@ -24,10 +26,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Number",
@@ -45,10 +49,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Identifier",
@@ -66,10 +72,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Dimension",
@@ -88,10 +96,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Ratio",
@@ -111,10 +121,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Number",
@@ -133,14 +145,16 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
                         "type": "Identifier",
                         "name": "all"
                     },
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Number",
@@ -159,10 +173,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "foo",
                         "value": {
                             "type": "Ratio",
@@ -181,10 +197,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "-webkit-min-device-pixel-ratio",
                         "value": {
                             "type": "Number",
@@ -202,10 +220,12 @@
             "modifier": null,
             "mediaType": null,
             "condition": {
-                "type": "MediaCondition",
+                "type": "Condition",
+                "kind": "media",
                 "children": [
                     {
-                        "type": "MediaFeature",
+                        "type": "Feature",
+                        "kind": "media",
                         "name": "min-width",
                         "value": {
                             "type": "Dimension",
@@ -222,11 +242,6 @@
             "source": "(foo 123)",
             "offset": "     ^",
             "error": "Expected \":\", \"<\", \">\", \"=\" or \")\""
-        },
-        {
-            "source": "(foo > 123 123)",
-            "offset": "           ^",
-            "error": "Expected \"<\", \">\", \"=\" or \")\""
         },
         {
             "source": "(foo: bar baz)",

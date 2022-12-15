@@ -186,10 +186,12 @@
                                             "modifier": null,
                                             "mediaType": null,
                                             "condition": {
-                                                "type": "MediaCondition",
+                                                "type": "Condition",
+                                                "kind": "media",
                                                 "children": [
                                                     {
-                                                        "type": "MediaFeature",
+                                                        "type": "Feature",
+                                                        "kind": "media",
                                                         "name": "orientation",
                                                         "value": {
                                                             "type": "Identifier",
@@ -234,10 +236,12 @@
                                                         "modifier": null,
                                                         "mediaType": null,
                                                         "condition": {
-                                                            "type": "MediaCondition",
+                                                            "type": "Condition",
+                                                            "kind": "media",
                                                             "children": [
                                                                 {
-                                                                    "type": "MediaFeature",
+                                                                    "type": "Feature",
+                                                                    "kind": "media",
                                                                     "name": "min-width",
                                                                     "value": {
                                                                         "type": "Dimension",

@@ -2,10 +2,12 @@
     "basic": {
         "source": "(foo>1)",
         "ast": {
-            "type": "MediaCondition",
+            "type": "Condition",
+            "kind": "media",
             "children": [
                 {
-                    "type": "MediaFeatureRange",
+                    "type": "FeatureRange",
+                    "kind": "media",
                     "left": {
                         "type": "Identifier",
                         "name": "foo"
@@ -24,10 +26,12 @@
     "full form": {
         "source": "(100px<bar<200px)",
         "ast": {
-            "type": "MediaCondition",
+            "type": "Condition",
+            "kind": "media",
             "children": [
                 {
-                    "type": "MediaFeatureRange",
+                    "type": "FeatureRange",
+                    "kind": "media",
                     "left": {
                         "type": "Dimension",
                         "value": "100",
@@ -47,5 +51,12 @@
                 }
             ]
         }
-    }
+    },
+    "error": [
+        {
+            "source": "(foo > 123 123)",
+            "offset": "           ^",
+            "error": "Expected \"<\", \">\", \"=\" or \")\""
+        }
+    ]
 }

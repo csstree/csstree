@@ -23,14 +23,17 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [ClassSelector](#classselector)
     - [Combinator](#combinator)
     - [Comment](#comment)
+    - [Condition](#condition)
     - [Declaration](#declaration)
     - [DeclarationList](#declarationlist)
     - [Dimension](#dimension)
+    - [Feature](#feature)
+    - [FeatureRange](#featurerange)
     - [Function](#function)
+    - [GeneralEnclosed](#generalenclosed)
     - [Hash](#hash)
     - [IdSelector](#idselector)
     - [Identifier](#identifier)
-    - [MediaFeature](#mediafeature)
     - [MediaQuery](#mediaquery)
     - [MediaQueryList](#mediaquerylist)
     - [NestingSelector](#nestingselector)
@@ -286,6 +289,16 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
+### Condition
+
+```js
+{
+    type: "Condition",
+    kind: String,
+    children: List
+}
+```
+
 ### Declaration
 
 ```js
@@ -316,12 +329,47 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
+### Feature
+
+```js
+{
+    type: "Feature",
+    kind: String,
+    name: String,
+    value: <Identifier> | <Number> | <Dimension> | <Ratio> | null
+}
+```
+
+### FeatureRange
+
+```js
+{
+    type: "FeatureRange",
+    kind: String,
+    left: <Identifier> | <Number> | <Dimension> | <Ratio>,
+    leftComparison: String,
+    middle: <Identifier> | <Number> | <Dimension> | <Ratio>,
+    rightComparison: String | null,
+    right: <Identifier> | <Number> | <Dimension> | <Ratio> | null
+}
+```
+
 ### Function
 
 ```js
 {
     type: "Function",
     name: String,
+    children: List
+}
+```
+
+### GeneralEnclosed
+
+```js
+{
+    type: "GeneralEnclosed",
+    function: String | null,
     children: List
 }
 ```
@@ -353,22 +401,14 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-### MediaFeature
-
-```js
-{
-    type: "MediaFeature",
-    name: String,
-    value: <Identifier> | <Number> | <Dimension> | <Ratio> | null
-}
-```
-
 ### MediaQuery
 
 ```js
 {
     type: "MediaQuery",
-    children: List
+    modifier: String | null,
+    mediaType: String | null,
+    condition: <Condition> | null
 }
 ```
 

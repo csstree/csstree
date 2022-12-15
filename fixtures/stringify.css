@@ -74,3 +74,6 @@ edge\ .c\61ases {
         }
     }
 }
+
+/* general enclosed */
+@media (foo: 123) and (1) and foo(1) {}

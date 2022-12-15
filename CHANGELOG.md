@@ -1,20 +1,25 @@
 ## next
 
+- Added `TokenStream#lookupTypeNonSC()` method
 - Changed parsing rules of `Ratio`:
   - Left and right part of ratio can be any number, for now that's not a responsibility of parser to validate numbers are in allowed range
   - *Left and right part can be a function now. That's not explicitly defined be a spec, but math functions might be used in any place where a number is used, so this change allows to process such cases* (#162)
-  - Right part can be ommited as per [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) spec
-- Added `TokenStream#lookupTypeNonSC()` method
-- Added `MediaCondition` node
-- Added `MediaFeatureRange` node to support ranges in media queries
-- Changed `MediaQuery` node structure to the following form:
-    ```ts
-    type MediaQuery = {
-        modifier: string | null; // e.g. "not", "only", etc.
-        mediaType: string | null; // e.g. "all", "screen", etc.
-        condition: MediaCondition | null;
-    }
-    ```
+  - Right part of `Ratio` can be ommited as per [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) spec. That's impossible to get as a result of parser, since it produces a `Number` node in that case, but can be result of a constructing or tranformation of `Ratio` node.
+- Query related at-rules:
+    - Renamed `MediaFeature` node type into `Feature` to use as a common term in various types of queries
+    - Added `Condition` and `GeneralEnclosure` node types as a common terms of queries
+    - Added `FeatureRange` node type to represent ranges in media queries
+    - Added `condition` context support into parser to parse a query condition. The `kind` option specifies a kind of condition, i.e. `parse('...', { context: 'condition', kind: 'media' })`
+    - Added `kind` property to `Condition`, `Feature` and `FeatureRange` node types to specify a type of condition. Supported kinds: `media`, `supports` and `container`.
+    - Changed `MediaQuery` node structure into the following form:
+        ```ts
+        type MediaQuery = {
+            type: "MediaQuery";
+            modifier: string | null; // e.g. "not", "only", etc.
+            mediaType: string | null; // e.g. "all", "screen", etc.
+            condition: Condition | null;
+        }
+        ```
 ## 2.3.1 (December 14, 2022)
 
 - Added `:host`, `:host()` and `:host-context()` pseudo class support (#216)

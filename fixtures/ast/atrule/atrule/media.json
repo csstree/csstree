@@ -94,20 +94,18 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "loc": null,
                                 "modifier": null,
                                 "mediaType": "all",
                                 "condition": {
-                                    "type": "MediaCondition",
-                                    "loc": null,
+                                    "type": "Condition",
+                                    "kind": "media",
                                     "children": [
                                         {
-                                            "type": "MediaFeature",
-                                            "loc": null,
+                                            "type": "Feature",
+                                            "kind": "media",
                                             "name": "min-width",
                                             "value": {
                                                 "type": "Dimension",
-                                                "loc": null,
                                                 "value": "500",
                                                 "unit": "px"
                                             }
@@ -117,33 +115,30 @@
                             },
                             {
                                 "type": "MediaQuery",
-                                "loc": null,
                                 "modifier": "only",
                                 "mediaType": "screen",
                                 "condition": null
                             },
                             {
                                 "type": "MediaQuery",
-                                "loc": null,
                                 "modifier": null,
                                 "mediaType": null,
                                 "condition": {
-                                    "type": "MediaCondition",
-                                    "loc": null,
+                                    "type": "Condition",
+                                    "kind": "media",
                                     "children": [
                                         {
-                                            "type": "MediaFeatureRange",
-                                            "loc": null,
+                                            "type": "FeatureRange",
+                                            
+                                            "kind": "media",
                                             "left": {
                                                 "type": "Dimension",
-                                                "loc": null,
                                                 "value": "200",
                                                 "unit": "px"
                                             },
                                             "leftComparison": "<",
                                             "middle": {
                                                 "type": "Identifier",
-                                                "loc": null,
                                                 "name": "width"
                                             },
                                             "rightComparison": null,
@@ -151,48 +146,42 @@
                                         },
                                         {
                                             "type": "Identifier",
-                                            "loc": null,
                                             "name": "and"
                                         },
                                         {
-                                            "type": "MediaCondition",
-                                            "loc": null,
+                                            "type": "Condition",
+                                            "kind": "media",
                                             "children": [
                                                 {
-                                                    "type": "MediaFeature",
-                                                    "loc": null,
+                                                    "type": "Feature",
+                                                    "kind": "media",
                                                     "name": "foo",
                                                     "value": {
                                                         "type": "Ratio",
-                                                        "loc": null,
                                                         "left": "1",
                                                         "right": "2"
                                                     }
                                                 },
                                                 {
                                                     "type": "Identifier",
-                                                    "loc": null,
                                                     "name": "or"
                                                 },
                                                 {
-                                                    "type": "MediaFeatureRange",
-                                                    "loc": null,
+                                                    "type": "FeatureRange",
+                                                    "kind": "media",
                                                     "left": {
                                                         "type": "Dimension",
-                                                        "loc": null,
                                                         "value": "100",
                                                         "unit": "px"
                                                     },
                                                     "leftComparison": ">",
                                                     "middle": {
                                                         "type": "Identifier",
-                                                        "loc": null,
                                                         "name": "width"
                                                     },
                                                     "rightComparison": ">",
                                                     "right": {
                                                         "type": "Dimension",
-                                                        "loc": null,
                                                         "value": "200",
                                                         "unit": "px"
                                                     }
@@ -255,14 +244,16 @@
                                 "modifier": null,
                                 "mediaType": null,
                                 "condition": {
-                                    "type": "MediaCondition",
+                                    "type": "Condition",
+                                    "kind": "media",
                                     "children": [
                                         {
                                             "type": "Identifier",
                                             "name": "screen"
                                         },
                                         {
-                                            "type": "MediaFeature",
+                                            "type": "Feature",
+                                            "kind": "media",
                                             "name": "feature",
                                             "value": {
                                                 "type": "Number",
