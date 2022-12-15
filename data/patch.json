@@ -344,6 +344,27 @@
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
         },
+        "scroll-timeline": {
+            "comment": "fix according to spec",
+            "references": [
+                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
+            ],
+            "syntax": "[ <'scroll-timeline-name'> || <'scroll-timeline-axis'> ]#"
+        },
+        "scroll-timeline-axis": {
+            "comment": "fix according to spec",
+            "references": [
+                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
+            ],
+            "syntax": "[ block | inline | vertical | horizontal ]#"
+        },
+        "scroll-timeline-name": {
+            "comment": "fix according to spec",
+            "references": [
+                "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
+            ],
+            "syntax": "none | <custom-ident>#"
+        },
         "shape-rendering": {
             "comment": "added SVG property",
             "references": [
@@ -650,17 +671,6 @@
         "shape": {
             "comment": "missed spaces in function body and add backwards compatible syntax",
             "syntax": "rect( <top>, <right>, <bottom>, <left> ) | rect( <top> <right> <bottom> <left> )"
-        },
-        "scroll-timeline-axis": {
-            "comment": "missed definition",
-            "syntax": "block | inline | vertical | horizontal"
-        },
-        "scroll-timeline-name": {
-            "comment": "missed definition",
-            "references": [
-                "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
-            ],
-            "syntax": "none | <custom-ident>"
         },
         "single-animation-composition": {
             "comment": "missed definition",
