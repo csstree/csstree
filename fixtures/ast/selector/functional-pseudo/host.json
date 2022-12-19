@@ -25,6 +25,14 @@
             "children": null
         }
     },
+    "empty argument": {
+        "source": ":host()",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "host",
+            "children": []
+        }
+    },
     "spaces around selector": {
         "source": ":host(  .a.b  )",
         "generate": ":host(.a.b)",
@@ -67,11 +75,6 @@
         }
     },
     "error": [
-        {
-            "source": ":host()",
-            "offset": "      ^",
-            "error": "Selector is expected"
-        },
         {
             "source": ":host(.a{)",
             "offset": "        ^",
