@@ -70,6 +70,18 @@
     "./utils": {
       "import": "./lib/utils/index.js",
       "require": "./cjs/utils/index.cjs"
+    },
+    "./lexer/error": {
+      "import": "./lib/lexer/error.js",
+      "require": "./cjs/lexer/error.cjs"
+    },
+    "./lexer/match": {
+      "import": "./lib/lexer/match.js",
+      "require": "./cjs/lexer/match.cjs"
+    },
+    "./lexer/prepare-tokens": {
+      "import": "./lib/lexer/prepare-tokens.js",
+      "require": "./cjs/lexer/prepare-tokens.cjs"
     }
   },
   "browser": {
