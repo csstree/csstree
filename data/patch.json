@@ -310,7 +310,7 @@
                 "https://developer.mozilla.org/en-US/docs/Web/CSS/width",
                 "https://github.com/csstree/stylelint-validator/issues/29"
             ],
-            "syntax": "| fill | stretch | intrinsic | -moz-max-content | -webkit-max-content | -moz-fit-content | -webkit-fit-content"
+            "syntax": "| fill | stretch | intrinsic | min-intrinsic | -moz-min-content | -moz-max-content | -webkit-max-content | -moz-fit-content | -webkit-fit-content | -moz-available | -webkit-fill-available"
         },
         "min-width": {
             "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
