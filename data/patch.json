@@ -351,20 +351,6 @@
             ],
             "syntax": "[ <'scroll-timeline-name'> || <'scroll-timeline-axis'> ]#"
         },
-        "scroll-timeline-axis": {
-            "comment": "fix according to spec",
-            "references": [
-                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
-            ],
-            "syntax": "[ block | inline | vertical | horizontal ]#"
-        },
-        "scroll-timeline-name": {
-            "comment": "fix according to spec",
-            "references": [
-                "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
-            ],
-            "syntax": "none | <custom-ident>#"
-        },
         "shape-rendering": {
             "comment": "added SVG property",
             "references": [
@@ -730,6 +716,12 @@
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
+        },
+        "palette-identifier": {
+            "syntax": "dashed-ident"
+        },
+        "ray-size": {
+            "syntax": "closest-side | closest-corner | farthest-side | farthest-corner | sides"
         }
     }
 }
