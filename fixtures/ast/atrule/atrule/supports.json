@@ -45,7 +45,8 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
                                 "type": "Declaration",
@@ -81,12 +82,13 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Identifier",
-                        "name": "not"
-                    },
-                    {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "not"
+                            },        
                             {
                                 "type": "Declaration",
                                 "important": false,
@@ -120,7 +122,8 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
                                 "type": "Declaration",
@@ -155,7 +158,8 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
                                 "type": "Declaration",
@@ -190,7 +194,8 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
                                 "type": "Declaration",
@@ -221,12 +226,13 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Identifier",
-                        "name": "not"
-                    },
-                    {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "not"
+                            },        
                             {
                                 "type": "Declaration",
                                 "important": false,
@@ -261,15 +267,17 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "not"
-                            },
-                            {
-                                "type": "Parentheses",
+                                "type": "Condition",
+                                "kind": "supports",
                                 "children": [
+                                    {
+                                        "type": "Identifier",
+                                        "name": "not"
+                                    },
                                     {
                                         "type": "Declaration",
                                         "important": false,
@@ -285,16 +293,11 @@
                                         }
                                     }
                                 ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "or"
-                    },
-                    {
-                        "type": "Parentheses",
-                        "children": [
+                            },
+                            {
+                                "type": "Identifier",
+                                "name": "or"
+                            },
                             {
                                 "type": "Declaration",
                                 "important": false,
@@ -328,12 +331,18 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Function",
-                        "name": "func",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Raw",
-                                "value": "flex: 1"
+                                "type": "GeneralEnclosed",
+                                "function": "func",
+                                "children": [
+                                    {
+                                        "type": "Raw",
+                                        "value": "flex: 1"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -355,7 +364,8 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
                                 "type": "Declaration",
@@ -401,7 +411,8 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
                                 "type": "Declaration",

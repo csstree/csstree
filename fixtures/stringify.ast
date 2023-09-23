@@ -2829,32 +2829,33 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 948,
+                        "offset": 949,
                         "line": 33,
-                        "column": 11
+                        "column": 12
                     },
                     "end": {
-                        "offset": 986,
+                        "offset": 985,
                         "line": 33,
-                        "column": 49
+                        "column": 48
                     }
                 },
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 948,
+                                "offset": 949,
                                 "line": 33,
-                                "column": 11
+                                "column": 12
                             },
                             "end": {
-                                "offset": 986,
+                                "offset": 985,
                                 "line": 33,
-                                "column": 49
+                                "column": 48
                             }
                         },
+                        "kind": "supports",
                         "children": [
                             {
                                 "type": "Declaration",

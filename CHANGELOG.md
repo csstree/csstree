@@ -8,7 +8,7 @@
 - Query related at-rules:
     - Renamed `MediaFeature` node type into `Feature` to use as a common term in various types of queries
     - Added `Condition` and `GeneralEnclosure` node types as a common terms of queries
-    - Added `FeatureRange` node type to represent ranges in media queries
+    - Added `FeatureRange` node type to represent [ranges in media queries](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)
     - Added `condition` context support into parser to parse a query condition. The `kind` option specifies a kind of condition, i.e. `parse('...', { context: 'condition', kind: 'media' })`
     - Added `kind` property to `Condition`, `Feature` and `FeatureRange` node types to specify a type of condition. Supported kinds: `media`, `supports` and `container`.
     - Changed `MediaQuery` node structure into the following form:
@@ -20,6 +20,8 @@
             condition: Condition | null;
         }
         ```
+    - Changed `@supports` prelude parsing to use `Condition` nodes with kind `supports` instead of `Parentheses` and `GeneralEnclosed` nodes when content of parentheses can't be parsed
+
 ## 2.3.1 (December 14, 2022)
 
 - Added `:host`, `:host()` and `:host-context()` pseudo class support (#216)

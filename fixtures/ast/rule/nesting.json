@@ -326,7 +326,8 @@
                             "type": "AtrulePrelude",
                             "children": [
                                 {
-                                    "type": "Parentheses",
+                                    "type": "Condition",
+                                    "kind": "supports",
                                     "children": [
                                         {
                                             "type": "Declaration",
@@ -370,7 +371,8 @@
                                         "type": "AtrulePrelude",
                                         "children": [
                                             {
-                                                "type": "Parentheses",
+                                                "type": "Condition",
+                                                "kind": "supports",
                                                 "children": [
                                                     {
                                                         "type": "Declaration",
