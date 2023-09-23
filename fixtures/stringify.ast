@@ -2829,14 +2829,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 949,
+                        "offset": 948,
                         "line": 33,
-                        "column": 12
+                        "column": 11
                     },
                     "end": {
-                        "offset": 985,
+                        "offset": 986,
                         "line": 33,
-                        "column": 48
+                        "column": 49
                     }
                 },
                 "children": [
@@ -2845,105 +2845,122 @@
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 949,
+                                "offset": 948,
                                 "line": 33,
-                                "column": 12
+                                "column": 11
                             },
                             "end": {
-                                "offset": 985,
+                                "offset": 986,
                                 "line": 33,
-                                "column": 48
+                                "column": 49
                             }
                         },
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
+                                "type": "SupportsFeature",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 949,
+                                        "offset": 948,
                                         "line": 33,
-                                        "column": 12
+                                        "column": 11
                                     },
                                     "end": {
-                                        "offset": 985,
+                                        "offset": 986,
                                         "line": 33,
-                                        "column": 48
+                                        "column": 49
                                     }
                                 },
-                                "important": true,
-                                "property": "box-shadow",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
+                                    "type": "Declaration",
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 961,
+                                            "offset": 949,
                                             "line": 33,
-                                            "column": 24
+                                            "column": 12
                                         },
                                         "end": {
-                                            "offset": 975,
+                                            "offset": 985,
                                             "line": 33,
-                                            "column": 38
+                                            "column": 48
                                         }
                                     },
-                                    "children": [
-                                        {
-                                            "type": "Dimension",
-                                            "loc": {
-                                                "source": "stringify.css",
-                                                "start": {
-                                                    "offset": 961,
-                                                    "line": 33,
-                                                    "column": 24
-                                                },
-                                                "end": {
-                                                    "offset": 964,
-                                                    "line": 33,
-                                                    "column": 27
-                                                }
+                                    "important": true,
+                                    "property": "box-shadow",
+                                    "value": {
+                                        "type": "Value",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 961,
+                                                "line": 33,
+                                                "column": 24
                                             },
-                                            "value": "1",
-                                            "unit": "px"
+                                            "end": {
+                                                "offset": 975,
+                                                "line": 33,
+                                                "column": 38
+                                            }
                                         },
-                                        {
-                                            "type": "Dimension",
-                                            "loc": {
-                                                "source": "stringify.css",
-                                                "start": {
-                                                    "offset": 965,
-                                                    "line": 33,
-                                                    "column": 28
+                                        "children": [
+                                            {
+                                                "type": "Dimension",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 961,
+                                                        "line": 33,
+                                                        "column": 24
+                                                    },
+                                                    "end": {
+                                                        "offset": 964,
+                                                        "line": 33,
+                                                        "column": 27
+                                                    }
                                                 },
-                                                "end": {
-                                                    "offset": 968,
-                                                    "line": 33,
-                                                    "column": 31
-                                                }
+                                                "value": "1",
+                                                "unit": "px"
                                             },
-                                            "value": "2",
-                                            "unit": "px"
-                                        },
-                                        {
-                                            "type": "Identifier",
-                                            "loc": {
-                                                "source": "stringify.css",
-                                                "start": {
-                                                    "offset": 969,
-                                                    "line": 33,
-                                                    "column": 32
+                                            {
+                                                "type": "Dimension",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 965,
+                                                        "line": 33,
+                                                        "column": 28
+                                                    },
+                                                    "end": {
+                                                        "offset": 968,
+                                                        "line": 33,
+                                                        "column": 31
+                                                    }
                                                 },
-                                                "end": {
-                                                    "offset": 974,
-                                                    "line": 33,
-                                                    "column": 37
-                                                }
+                                                "value": "2",
+                                                "unit": "px"
                                             },
-                                            "name": "black"
-                                        }
-                                    ]
+                                            {
+                                                "type": "Identifier",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 969,
+                                                        "line": 33,
+                                                        "column": 32
+                                                    },
+                                                    "end": {
+                                                        "offset": 974,
+                                                        "line": 33,
+                                                        "column": 37
+                                                    }
+                                                },
+                                                "name": "black"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]

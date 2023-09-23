@@ -330,17 +330,21 @@
                                     "kind": "supports",
                                     "children": [
                                         {
-                                            "type": "Declaration",
-                                            "important": false,
-                                            "property": "prop",
+                                            "type": "SupportsFeature",
+                                            "feature": "declaration",
                                             "value": {
-                                                "type": "Value",
-                                                "children": [
-                                                    {
-                                                        "type": "Identifier",
-                                                        "name": "value"
-                                                    }
-                                                ]
+                                                "type": "Declaration",
+                                                "important": false,
+                                                "property": "prop",
+                                                "value": {
+                                                    "type": "Value",
+                                                    "children": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "value"
+                                                        }
+                                                    ]
+                                                }
                                             }
                                         }
                                     ]
@@ -375,17 +379,21 @@
                                                 "kind": "supports",
                                                 "children": [
                                                     {
-                                                        "type": "Declaration",
-                                                        "important": false,
-                                                        "property": "prop2",
+                                                        "type": "SupportsFeature",
+                                                        "feature": "declaration",
                                                         "value": {
-                                                            "type": "Value",
-                                                            "children": [
-                                                                {
-                                                                    "type": "Identifier",
-                                                                    "name": "value2"
-                                                                }
-                                                            ]
+                                                            "type": "Declaration",
+                                                            "important": false,
+                                                            "property": "prop2",
+                                                            "value": {
+                                                                "type": "Value",
+                                                                "children": [
+                                                                    {
+                                                                        "type": "Identifier",
+                                                                        "name": "value2"
+                                                                    }
+                                                                ]
+                                                            }
                                                         }
                                                     }
                                                 ]

@@ -51,6 +51,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [SelectorList](#selectorlist)
     - [String](#string)
     - [StyleSheet](#stylesheet)
+    - [SupportsFeature](#supportsfeature)
     - [TypeSelector](#typeselector)
     - [UnicodeRange](#unicoderange)
     - [Url](#url)
@@ -561,6 +562,16 @@ A sequence of characters enclosed in double quotes or single quotes.
 {
     type: "StyleSheet",
     children: List
+}
+```
+
+### SupportsFeature
+
+```js
+{
+    type: "SupportsFeature",
+    feature: String,
+    value: <Declaration> | <Selector>
 }
 ```
 

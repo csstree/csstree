@@ -313,16 +313,56 @@
             }
         }
     },
+    "@media with unclosed parentheses is not an error": {
+        "source": "@media (foo:1",
+        "generate": "@media (foo:1);",
+        "ast": {
+            "type": "Atrule",
+            "name": "media",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "MediaQueryList",
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "loc": null,
+                                "modifier": null,
+                                "mediaType": null,
+                                "condition": {
+                                    "type": "Condition",
+                                    "loc": null,
+                                    "kind": "media",
+                                    "children": [
+                                        {
+                                            "type": "Feature",
+                                            "loc": null,
+                                            "kind": "media",
+                                            "name": "foo",
+                                            "value": {
+                                                "type": "Number",
+                                                "loc": null,
+                                                "value": "1"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
     "error": [
         {
             "source": "@media foo screen {}",
             "offset": "           ^",
             "error": "Identifier \"and\" is expected"
-        },
-        {
-            "source": "@media (foo:1",
-            "offset": "             ^",
-            "error": "\")\" is expected"
         },
         {
             "source": "@media (foo:1) ~",

@@ -12,17 +12,21 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -49,17 +53,21 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -90,17 +98,21 @@
                                 "name": "not"
                             },        
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -126,17 +138,21 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -162,17 +178,21 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "-vendor-name",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "-vendor-name",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -198,12 +218,16 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "--custom",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Raw",
-                                    "value": " 1"
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "--custom",
+                                    "value": {
+                                        "type": "Raw",
+                                        "value": " 1"
+                                    }
                                 }
                             }
                         ]
@@ -234,17 +258,21 @@
                                 "name": "not"
                             },        
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -279,17 +307,21 @@
                                         "name": "not"
                                     },
                                     {
-                                        "type": "Declaration",
-                                        "important": false,
-                                        "property": "flex",
-                                        "value": {
-                                            "type": "Value",
-                                            "children": [
-                                                {
-                                                    "type": "Number",
-                                                    "value": "1"
-                                                }
-                                            ]
+                                        "type": "SupportsFeature",
+                                        "feature": "declaration",
+                                        "value":  {
+                                            "type": "Declaration",
+                                            "important": false,
+                                            "property": "flex",
+                                            "value": {
+                                                "type": "Value",
+                                                "children": [
+                                                    {
+                                                        "type": "Number",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     }
                                 ]
@@ -299,17 +331,21 @@
                                 "name": "or"
                             },
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "grid",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Identifier",
-                                            "name": "support"
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "grid",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "support"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -368,27 +404,31 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": true,
-                                "property": "box-shadow",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Identifier",
-                                            "name": "something"
-                                        },
-                                        {
-                                            "type": "Function",
-                                            "name": "var",
-                                            "children": [
-                                                {
-                                                    "type": "Identifier",
-                                                    "name": "--complex"
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    "type": "Declaration",
+                                    "important": true,
+                                    "property": "box-shadow",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "something"
+                                            },
+                                            {
+                                                "type": "Function",
+                                                "name": "var",
+                                                "children": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "--complex"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -415,15 +455,53 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
+                                "type": "SupportsFeature",
+                                "feature": "declaration",
                                 "value": {
-                                    "type": "Value",
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "@supports with selector()": {
+        "source": "@supports selector(.example) {}",
+        "generate": "@supports selector(.example){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "SupportsFeature",
+                                "feature": "selector",
+                                "value": {
+                                    "type": "Selector",
                                     "children": [
                                         {
-                                            "type": "Number",
-                                            "value": "1"
+                                            "type": "ClassSelector",
+                                            "loc": null,
+                                            "name": "example"
                                         }
                                     ]
                                 }
@@ -432,7 +510,47 @@
                     }
                 ]
             },
-            "block": null
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with selector() case-insensitive": {
+        "source": "@supports SELECTOR(.example) {}",
+        "generate": "@supports SELECTOR(.example){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "SupportsFeature",
+                                "feature": "SELECTOR",
+                                "value": {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "loc": null,
+                                            "name": "example"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
         }
     },
     "@supports with no block is not an error": {

@@ -2,9 +2,9 @@
 
 - Added `TokenStream#lookupTypeNonSC()` method
 - Changed parsing rules of `Ratio`:
-  - Left and right part of ratio can be any number, for now that's not a responsibility of parser to validate numbers are in allowed range
-  - *Left and right part can be a function now. That's not explicitly defined be a spec, but math functions might be used in any place where a number is used, so this change allows to process such cases* (#162)
-  - Right part of `Ratio` can be ommited as per [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) spec. That's impossible to get as a result of parser, since it produces a `Number` node in that case, but can be result of a constructing or tranformation of `Ratio` node.
+    - Left and right part of ratio can be any number, for now that's not a responsibility of parser to validate numbers are in allowed range
+    - Left and right part can be a function now. That's not explicitly defined be a spec, but math functions might be used in any place where a number is used, so this change allows to process such cases (#162)
+    - Right part of `Ratio` can be ommited as per [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) spec. That's impossible to get as a result of parser, since it produces a `Number` node in that case, but can be result of a constructing or tranformation of `Ratio` node.
 - Query related at-rules:
     - Renamed `MediaFeature` node type into `Feature` to use as a common term in various types of queries
     - Added `Condition` and `GeneralEnclosure` node types as a common terms of queries
@@ -20,7 +20,20 @@
             condition: Condition | null;
         }
         ```
-    - Changed `@supports` prelude parsing to use `Condition` nodes with kind `supports` instead of `Parentheses` and `GeneralEnclosed` nodes when content of parentheses can't be parsed
+    - Enhanced the parsing of `@supports` and added support for the [`selector()`](https://drafts.csswg.org/css-conditional-4/#at-supports-ext) feature:
+        - Modified the prelude parsing: 
+            - Now uses `Condition` nodes of kind `supports` in place of `Parentheses`
+            - Reduced likelihood of falling into `Raw` for the entire prelude. If an error occurs inside parentheses, the parentheses are parsed as `GeneralEnclosed`.
+        - Introduced a new `SupportsFeature` node type to capture the feature type and its corresponding value (dependent on the feature type):
+            ```ts
+            type SupportsFeature = {
+                type: "SupportsFeature";
+                feature: "declaration" | "selector" | ...;
+                value: Declaration | Selector | ...;
+            }
+            ```
+        - Added a `supportsFeature` section to the configuration to define features supported by `@supports`. At present, only `selector()` is included. Features not defined in `supportsFeature` are parsed as `GeneralEnclosed`.
+
 
 ## 2.3.1 (December 14, 2022)
 
