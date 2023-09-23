@@ -656,7 +656,7 @@
             "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
             "syntax": "<mask-reference>#"
         },
-        "named-color": {
+        "color": {
             "comment": "added non standard color names",
             "syntax": "| <-non-standard-color>"
         },
