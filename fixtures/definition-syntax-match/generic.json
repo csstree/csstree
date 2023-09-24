@@ -506,6 +506,18 @@
     },
     "<custom-property-name>": {
         "valid": [
+            "--foo"
+        ],
+        "invalid": [
+            "",
+            "foo",
+            "-foo",
+            "-foo--bar",
+            "--"
+        ]
+    },
+    "<dashed-ident>": {
+        "valid": [
             "--",
             "--foo"
         ],

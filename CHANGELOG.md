@@ -1,6 +1,7 @@
 ## next
 
 - Added `TokenStream#lookupTypeNonSC()` method
+- Added `<dashed-ident>` to generic types
 - Changed parsing rules of `Ratio`:
     - Left and right part of ratio can be any number, for now that's not a responsibility of parser to validate numbers are in allowed range
     - Left and right part can be a function now. That's not explicitly defined be a spec, but math functions might be used in any place where a number is used, so this change allows to process such cases (#162)
