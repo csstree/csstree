@@ -28,6 +28,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [DeclarationList](#declarationlist)
     - [Dimension](#dimension)
     - [Feature](#feature)
+    - [FeatureFunction](#featurefunction)
     - [FeatureRange](#featurerange)
     - [Function](#function)
     - [GeneralEnclosed](#generalenclosed)
@@ -51,7 +52,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [SelectorList](#selectorlist)
     - [String](#string)
     - [StyleSheet](#stylesheet)
-    - [SupportsFeature](#supportsfeature)
+    - [SupportsDeclaration](#supportsdeclaration)
     - [TypeSelector](#typeselector)
     - [UnicodeRange](#unicoderange)
     - [Url](#url)
@@ -341,6 +342,17 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
+### FeatureFunction
+
+```js
+{
+    type: "FeatureFunction",
+    kind: String,
+    feature: String,
+    value: <Declaration> | <Selector>
+}
+```
+
 ### FeatureRange
 
 ```js
@@ -370,6 +382,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 ```js
 {
     type: "GeneralEnclosed",
+    kind: String,
     function: String | null,
     children: List
 }
@@ -565,13 +578,12 @@ A sequence of characters enclosed in double quotes or single quotes.
 }
 ```
 
-### SupportsFeature
+### SupportsDeclaration
 
 ```js
 {
-    type: "SupportsFeature",
-    feature: String,
-    value: <Declaration> | <Selector>
+    type: "SupportsDeclaration",
+    declaration: <Declaration>
 }
 ```
 

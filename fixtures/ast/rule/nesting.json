@@ -330,9 +330,8 @@
                                     "kind": "supports",
                                     "children": [
                                         {
-                                            "type": "SupportsFeature",
-                                            "feature": "declaration",
-                                            "value": {
+                                            "type": "SupportsDeclaration",
+                                            "declaration": {
                                                 "type": "Declaration",
                                                 "important": false,
                                                 "property": "prop",
@@ -379,9 +378,8 @@
                                                 "kind": "supports",
                                                 "children": [
                                                     {
-                                                        "type": "SupportsFeature",
-                                                        "feature": "declaration",
-                                                        "value": {
+                                                        "type": "SupportsDeclaration",
+                                                        "declaration": {
                                                             "type": "Declaration",
                                                             "important": false,
                                                             "property": "prop2",
@@ -412,6 +410,143 @@
                                                     "children": [
                                                         {
                                                             "type": "Identifier",
+                                                            "name": "green"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested @container": {
+        "source": "selector { @container card (inline-size > 30em) { @container style(--responsive: true) { color: green; } } }",
+        "generate": "selector{@container card (inline-size>30em){@container style(--responsive: true){color:green}}}",
+        "ast": {
+            "type": "Rule",
+            "loc": null,
+            "prelude": {
+                "type": "SelectorList",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "Selector",
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "loc": null,
+                                "name": "selector"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "loc": null,
+                        "name": "container",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "loc": null,
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "loc": null,
+                                    "name": "card"
+                                },
+                                {
+                                    "type": "Condition",
+                                    "loc": null,
+                                    "kind": "container",
+                                    "children": [
+                                        {
+                                            "type": "FeatureRange",
+                                            "loc": null,
+                                            "kind": "container",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "loc": null,
+                                                "name": "inline-size"
+                                            },
+                                            "leftComparison": ">",
+                                            "middle": {
+                                                "type": "Dimension",
+                                                "loc": null,
+                                                "value": "30",
+                                                "unit": "em"
+                                            },
+                                            "rightComparison": null,
+                                            "right": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": null,
+                            "children": [
+                                {
+                                    "type": "Atrule",
+                                    "loc": null,
+                                    "name": "container",
+                                    "prelude": {
+                                        "type": "AtrulePrelude",
+                                        "loc": null,
+                                        "children": [
+                                            {
+                                                "type": "Condition",
+                                                "loc": null,
+                                                "kind": "container",
+                                                "children": [
+                                                    {
+                                                        "type": "FeatureFunction",
+                                                        "loc": null,
+                                                        "kind": "container",
+                                                        "feature": "style",
+                                                        "value": {
+                                                            "type": "Declaration",
+                                                            "loc": null,
+                                                            "important": false,
+                                                            "property": "--responsive",
+                                                            "value": {
+                                                                "type": "Raw",
+                                                                "loc": null,
+                                                                "value": " true"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "block": {
+                                        "type": "Block",
+                                        "loc": null,
+                                        "children": [
+                                            {
+                                                "type": "Declaration",
+                                                "loc": null,
+                                                "important": false,
+                                                "property": "color",
+                                                "value": {
+                                                    "type": "Value",
+                                                    "loc": null,
+                                                    "children": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "loc": null,
                                                             "name": "green"
                                                         }
                                                     ]

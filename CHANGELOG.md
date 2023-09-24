@@ -3,39 +3,45 @@
 - Bumped `mdn/data` to `2.1.0`
 - Added `TokenStream#lookupTypeNonSC()` method
 - Added `<dashed-ident>` to generic types
-- Changed parsing rules of `Ratio`:
-    - Left and right part of ratio can be any number, for now that's not a responsibility of parser to validate numbers are in allowed range
-    - Left and right part can be a function now. That's not explicitly defined be a spec, but math functions might be used in any place where a number is used, so this change allows to process such cases (#162)
-    - Right part of `Ratio` can be ommited as per [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) spec. That's impossible to get as a result of parser, since it produces a `Number` node in that case, but can be result of a constructing or tranformation of `Ratio` node.
-- Query related at-rules:
-    - Renamed `MediaFeature` node type into `Feature` to use as a common term in various types of queries
-    - Added `Condition` and `GeneralEnclosure` node types as a common terms of queries
-    - Added `FeatureRange` node type to represent [ranges in media queries](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)
-    - Added `condition` context support into parser to parse a query condition. The `kind` option specifies a kind of condition, i.e. `parse('...', { context: 'condition', kind: 'media' })`
-    - Added `kind` property to `Condition`, `Feature` and `FeatureRange` node types to specify a type of condition. Supported kinds: `media`, `supports` and `container`.
-    - Changed `MediaQuery` node structure into the following form:
-        ```ts
-        type MediaQuery = {
-            type: "MediaQuery";
-            modifier: string | null; // e.g. "not", "only", etc.
-            mediaType: string | null; // e.g. "all", "screen", etc.
-            condition: Condition | null;
+- Changed `Ratio` parsing:
+    - Both left and right parts of a ratio can now be any number; validation of number range is no longer within the parser's scope.
+    - Both parts can now be functions. Although not explicitly mentioned in the specification, mathematical functions can replace numbers, addressing potential use cases (#162).
+    - As per the [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) specification, the right part of `Ratio` can be omitted. While this can't be a parser output (which would produce a `Number` node), it's feasible during `Ratio` node construction or transformation.
+- Changed to query-related at-rules:
+    - Added new node types:
+        - [`Feature`](./docs/ast.md#feature): represents features like `(feature)` and `(feature: value)`, fundamental for both `@media` and `@container` at-rules
+        - [`FeatureRange`](./docs/ast.md#featurerange): represents [ranges in media queries](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)
+        - [`FeatureFunction`](./docs/ast.md#featurefunction): represents functional features such as `@supports`'s `selector()` or `@container`'s `style()`
+        - [`Condition`](./docs/ast.md#condition): used across all query-like at-rules, encapsulating queries with features and the `not`, `and`, and `or` operators
+        - [`GeneralEnclosure`](./docs/ast.md#condition): represents the [`<general-enclosed>`](https://www.w3.org/TR/mediaqueries-4/#typedef-general-enclosed) production, which caters to unparsed parentheses or functional expressions
+        > Note: All new nodes include a `kind` property to define the at-rule type. Supported kinds are `media`, `supports`, and `container`.
+
+    - Added a `condition` value for the parser's context option to parse queries. Use the `kind` option to specify the condition type, e.g., `parse('...', { context: 'condition', kind: 'media' })`.
+    - Introduced a `features` section in the syntax configuration for defining functional features of at-rules. Expand definitions using the `fork()` method. The current definition is as follows:
+        ```js
+        features: {
+            supports: { selector() { /* ... */ } },
+            container: { style() { /* ... */ } }
         }
         ```
-    - Enhanced the parsing of `@supports` and added support for the [`selector()`](https://drafts.csswg.org/css-conditional-4/#at-supports-ext) feature:
-        - Modified the prelude parsing: 
-            - Now uses `Condition` nodes of kind `supports` in place of `Parentheses`
-            - Reduced likelihood of falling into `Raw` for the entire prelude. If an error occurs inside parentheses, the parentheses are parsed as `GeneralEnclosed`.
-        - Introduced a new `SupportsFeature` node type to capture the feature type and its corresponding value (dependent on the feature type):
+    - Changes for `@media` at-rule:
+        - Enhanced prelude parsing for complex queries. Parentheses with errors will be parsed as `GeneralEnclosed`.
+        - Transitioned from `MediaFeature` node type to the `Feature` node type with `kind: "media"`.
+        - Changed `MediaQuery` node structure into the following form:
             ```ts
-            type SupportsFeature = {
-                type: "SupportsFeature";
-                feature: "declaration" | "selector" | ...;
-                value: Declaration | Selector | ...;
+            type MediaQuery = {
+                type: "MediaQuery";
+                modifier: string | null; // e.g. "not", "only", etc.
+                mediaType: string | null; // e.g. "all", "screen", etc.
+                condition: Condition | null;
             }
             ```
-        - Added a `supportsFeature` section to the configuration to define features supported by `@supports`. At present, only `selector()` is included. Features not defined in `supportsFeature` are parsed as `GeneralEnclosed`.
-
+    - Changes for `@supports` at-rule:
+        - Enhanced prelude parsing for complex queries. Parentheses with errors will be parsed as `GeneralEnclosed`.
+        - Added `SupportsDeclaration` node type to encapsulate a declaration in a query, replacing `Parentheses`.
+        - Parsing now employs `Condition` or `SupportsDeclaration` nodes of kind `supports` instead of `Parentheses`.
+        - Added support for the [`selector()`](https://drafts.csswg.org/css-conditional-4/#at-supports-ext) feature via the `FeatureFunction` node (configured in `features.supports.selector`).
+    - Added support for the `@container` at-rule
 
 ## 2.3.1 (December 14, 2022)
 

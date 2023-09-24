@@ -1,6 +1,6 @@
 {
     "base test": {
-        "source": "@supports (flex:1){}",
+        "source": "@supports (flex:1){selector{color:green}}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -12,9 +12,8 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "flex",
@@ -35,7 +34,44 @@
             },
             "block": {
                 "type": "Block",
-                "children": []
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "green"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
         }
     },
@@ -53,9 +89,8 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "flex",
@@ -98,9 +133,8 @@
                                 "name": "not"
                             },        
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "flex",
@@ -138,9 +172,8 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "flex",
@@ -178,9 +211,8 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "-vendor-name",
@@ -218,9 +250,8 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "--custom",
@@ -258,9 +289,8 @@
                                 "name": "not"
                             },        
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "flex",
@@ -307,9 +337,8 @@
                                         "name": "not"
                                     },
                                     {
-                                        "type": "SupportsFeature",
-                                        "feature": "declaration",
-                                        "value":  {
+                                        "type": "SupportsDeclaration",
+                                        "declaration":  {
                                             "type": "Declaration",
                                             "important": false,
                                             "property": "flex",
@@ -331,9 +360,8 @@
                                 "name": "or"
                             },
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "grid",
@@ -372,6 +400,7 @@
                         "children": [
                             {
                                 "type": "GeneralEnclosed",
+                                "kind": "supports",
                                 "function": "func",
                                 "children": [
                                     {
@@ -404,9 +433,8 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": true,
                                     "property": "box-shadow",
@@ -455,9 +483,8 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
-                                "feature": "declaration",
-                                "value": {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
                                     "type": "Declaration",
                                     "important": false,
                                     "property": "flex",
@@ -493,14 +520,14 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
+                                "type": "FeatureFunction",
+                                "kind": "supports",
                                 "feature": "selector",
                                 "value": {
                                     "type": "Selector",
                                     "children": [
                                         {
                                             "type": "ClassSelector",
-                                            "loc": null,
                                             "name": "example"
                                         }
                                     ]
@@ -530,14 +557,14 @@
                         "kind": "supports",
                         "children": [
                             {
-                                "type": "SupportsFeature",
+                                "type": "FeatureFunction",
+                                "kind": "supports",
                                 "feature": "SELECTOR",
                                 "value": {
                                     "type": "Selector",
                                     "children": [
                                         {
                                             "type": "ClassSelector",
-                                            "loc": null,
                                             "name": "example"
                                         }
                                     ]

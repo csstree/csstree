@@ -77,3 +77,5 @@ edge\ .c\61ases {
 
 /* general enclosed */
 @media (foo: 123) and (1) and foo(1) {}
+@supports selector(.a) {}
+@container (width > 500px) and style(--foo:1) {}

@@ -321,30 +321,24 @@
             "name": "media",
             "prelude": {
                 "type": "AtrulePrelude",
-                "loc": null,
                 "children": [
                     {
                         "type": "MediaQueryList",
-                        "loc": null,
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "loc": null,
                                 "modifier": null,
                                 "mediaType": null,
                                 "condition": {
                                     "type": "Condition",
-                                    "loc": null,
                                     "kind": "media",
                                     "children": [
                                         {
                                             "type": "Feature",
-                                            "loc": null,
                                             "kind": "media",
                                             "name": "foo",
                                             "value": {
                                                 "type": "Number",
-                                                "loc": null,
                                                 "value": "1"
                                             }
                                         }
