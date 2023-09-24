@@ -16,7 +16,8 @@
         },
         "nest": {
             "prelude": "<complex-selector-list>"
-        }
+        },
+        "scroll-timeline": null
     },
     "properties": {
         "-moz-background-clip": {
@@ -180,14 +181,6 @@
                 "https://www.w3.org/TR/SVG/masking.html#ClipRuleProperty"
             ],
             "syntax": "nonzero | evenodd"
-        },
-        "container": {
-            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container",
-            "syntax": "<'container-name'> [ / <'container-type'> ]?"
-        },
-        "container-name": {
-            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-name",
-            "syntax": "none | <custom-ident>+"
         },
         "container-type": {
             "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-type",
@@ -597,6 +590,14 @@
         "-ms-filter": {
             "syntax": "<string>"
         },
+        "absolute-color-base": {
+            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
+            "syntax": "<hex-color> | <absolute-color-function> | <named-color> | transparent"
+        },
+        "absolute-color-function": {
+            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
+            "syntax": "rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
+        },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
@@ -626,6 +627,9 @@
         "container-condition": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "not <query-in-parens> | <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ]"
+        },
+        "coord-box": {
+            "syntax": "content-box | padding-box | border-box | fill-box | stroke-box | view-box"
         },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
@@ -665,6 +669,10 @@
         "paint": {
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
             "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
+        },
+        "palette-identifier": {
+            "comment": "<palette-identifier> is parsed as a <dashed-ident> (https://drafts.csswg.org/css-fonts/#typedef-font-palette-palette-identifier)",
+            "syntax": "<dashed-ident>"
         },
         "right": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -741,7 +749,42 @@
         "number-one-or-greater": {
             "syntax": "<number [1,∞]>"
         },
-        "query-in-parens":{
+        "color()": {
+            "syntax": "color( <colorspace-params> [ / [ <alpha-value> | none ] ]? )"
+        },
+        "colorspace-params": {
+            "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
+        },
+        "predefined-rgb-params": {
+            "syntax": "<predefined-rgb> [ <number> | <percentage> | none ]{3}"
+        },
+        "predefined-rgb": {
+            "syntax": "srgb | srgb-linear | display-p3 | a98-rgb | prophoto-rgb | rec2020"
+        },
+        "xyz-params": {
+            "syntax": "<xyz-space> [ <number> | <percentage> | none ]{3}"
+        },
+        "xyz-space": {
+            "syntax": "xyz | xyz-d50 | xyz-d65"
+        },
+        "oklab()": {
+            "comment": "https://www.w3.org/TR/css-color-4/#specifying-oklab-oklch",
+            "syntax": "oklab( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? )"
+        },
+        "oklch()": {
+            "comment": "https://www.w3.org/TR/css-color-4/#specifying-oklab-oklch",
+            "syntax": "oklch( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? )"
+        },
+        "offset-path": {
+            "syntax": "<ray()> | <url> | <basic-shape>"
+        },
+        "ray()": {
+            "syntax": "ray( <angle> && <ray-size>? && contain? && [at <position>]? )"
+        },
+        "ray-size": {
+            "syntax": "closest-side | closest-corner | farthest-side | farthest-corner | sides"
+        },
+        "query-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "( <container-condition> ) | ( <size-feature> ) | style( <style-query> ) | <general-enclosed>"
         },

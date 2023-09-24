@@ -1,5 +1,6 @@
 ## next
 
+- Bumped `mdn/data` to `2.1.0`
 - Added `TokenStream#lookupTypeNonSC()` method
 - Added `<dashed-ident>` to generic types
 - Changed parsing rules of `Ratio`:
