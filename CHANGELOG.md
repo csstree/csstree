@@ -10,12 +10,13 @@
 - Changed to query-related at-rules:
     - Added new node types:
         - [`Feature`](./docs/ast.md#feature): represents features like `(feature)` and `(feature: value)`, fundamental for both `@media` and `@container` at-rules
-        - [`FeatureRange`](./docs/ast.md#featurerange): represents [ranges in media queries](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)
+        - [`FeatureRange`](./docs/ast.md#featurerange): represents [features in a range context](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)
         - [`FeatureFunction`](./docs/ast.md#featurefunction): represents functional features such as `@supports`'s `selector()` or `@container`'s `style()`
         - [`Condition`](./docs/ast.md#condition): used across all query-like at-rules, encapsulating queries with features and the `not`, `and`, and `or` operators
         - [`GeneralEnclosure`](./docs/ast.md#condition): represents the [`<general-enclosed>`](https://www.w3.org/TR/mediaqueries-4/#typedef-general-enclosed) production, which caters to unparsed parentheses or functional expressions
         > Note: All new nodes include a `kind` property to define the at-rule type. Supported kinds are `media`, `supports`, and `container`.
 
+    - Added support for functions for features and features in a range context, e.g. `(width: calc(100cm / 6))`
     - Added a `condition` value for the parser's context option to parse queries. Use the `kind` option to specify the condition type, e.g., `parse('...', { context: 'condition', kind: 'media' })`.
     - Introduced a `features` section in the syntax configuration for defining functional features of at-rules. Expand definitions using the `fork()` method. The current definition is as follows:
         ```js
@@ -26,6 +27,7 @@
         ```
     - Changes for `@media` at-rule:
         - Enhanced prelude parsing for complex queries. Parentheses with errors will be parsed as `GeneralEnclosed`.
+        - Added support for features in a range context, e.g. `(width > 100px)` or `(100px < height < 400px)`
         - Transitioned from `MediaFeature` node type to the `Feature` node type with `kind: "media"`.
         - Changed `MediaQuery` node structure into the following form:
             ```ts
@@ -38,6 +40,7 @@
             ```
     - Changes for `@supports` at-rule:
         - Enhanced prelude parsing for complex queries. Parentheses with errors will be parsed as `GeneralEnclosed`.
+        - Added support for features in a range context, e.g. `(width > 100px)` or `(100px < height < 400px)`
         - Added `SupportsDeclaration` node type to encapsulate a declaration in a query, replacing `Parentheses`.
         - Parsing now employs `Condition` or `SupportsDeclaration` nodes of kind `supports` instead of `Parentheses`.
         - Added support for the [`selector()`](https://drafts.csswg.org/css-conditional-4/#at-supports-ext) feature via the `FeatureFunction` node (configured in `features.supports.selector`).

@@ -213,6 +213,75 @@
             }
         }
     },
+    "dashed name feature": {
+        "source": "(--foo:2)",
+        "ast": {
+            "type": "MediaQuery",
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "--foo",
+                        "value": {
+                            "type": "Number",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "with function": {
+        "source": "(  foo  :  calc( 3  /  4 + 2)  )",
+        "generate": "(foo:calc(3/4 + 2))",
+        "ast": {
+            "type": "MediaQuery",
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Function",
+                            "name": "calc",
+                            "children": [
+                                {
+                                    "type": "Number",
+                                    "value": "3"
+                                },
+                                {
+                                    "type": "Operator",
+                                    "value": "/"
+                                },
+                                {
+                                    "type": "Number",
+                                    "value": "4"
+                                },
+                                {
+                                    "type": "Operator",
+                                    "value": " + "
+                                },
+                                {
+                                    "type": "Number",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
     "number with \\0 hack": {
         "source": "(min-width:0\\0)",
         "ast": {
