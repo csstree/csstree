@@ -35,6 +35,8 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [Hash](#hash)
     - [IdSelector](#idselector)
     - [Identifier](#identifier)
+    - [LayerName](#layername)
+    - [LayerNameList](#layernamelist)
     - [MediaQuery](#mediaquery)
     - [MediaQueryList](#mediaquerylist)
     - [NestingSelector](#nestingselector)
@@ -338,7 +340,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
     type: "Feature",
     kind: String,
     name: String,
-    value: <Identifier> | <Number> | <Dimension> | <Ratio> | null
+    value: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function> | null
 }
 ```
 
@@ -359,11 +361,11 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 {
     type: "FeatureRange",
     kind: String,
-    left: <Identifier> | <Number> | <Dimension> | <Ratio>,
+    left: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function>,
     leftComparison: String,
-    middle: <Identifier> | <Number> | <Dimension> | <Ratio>,
+    middle: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function>,
     rightComparison: String | null,
-    right: <Identifier> | <Number> | <Dimension> | <Ratio> | null
+    right: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function> | null
 }
 ```
 
@@ -412,6 +414,24 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 {
     type: "Identifier",
     name: String
+}
+```
+
+### LayerName
+
+```js
+{
+    type: "LayerName",
+    name: String
+}
+```
+
+### LayerNameList
+
+```js
+{
+    type: "LayerNameList",
+    children: List
 }
 ```
 
@@ -514,8 +534,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 ```js
 {
     type: "Ratio",
-    left: String,
-    right: String
+    left: <Number> | <Function>,
+    right: <Number> | <Function> | null
 }
 ```
 
