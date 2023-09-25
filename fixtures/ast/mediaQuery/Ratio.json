@@ -390,7 +390,7 @@
         {
             "source": "(foo: 1/)",
             "offset": "        ^",
-            "error": "Number of function are expected"
+            "error": "Number of function is expected"
         }
     ]
 }

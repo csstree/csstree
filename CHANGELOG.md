@@ -1,5 +1,8 @@
 ## next
 
+- Added support for the `@container` at-rule
+- Added support for the `@layer` at-rule
+- Added `LayerName` and `LayerNameList` node types
 - Bumped `mdn/data` to `2.1.0`
 - Added `TokenStream#lookupTypeNonSC()` method
 - Added `<dashed-ident>` to generic types
@@ -8,7 +11,7 @@
     - Both left and right parts of a ratio can now be any number; validation of number range is no longer within the parser's scope.
     - Both parts can now be functions. Although not explicitly mentioned in the specification, mathematical functions can replace numbers, addressing potential use cases (#162).
     - As per the [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) specification, the right part of `Ratio` can be omitted. While this can't be a parser output (which would produce a `Number` node), it's feasible during `Ratio` node construction or transformation.
-- Changed to query-related at-rules:
+- Changes to query-related at-rules:
     - Added new node types:
         - [`Feature`](./docs/ast.md#feature): represents features like `(feature)` and `(feature: value)`, fundamental for both `@media` and `@container` at-rules
         - [`FeatureRange`](./docs/ast.md#featurerange): represents [features in a range context](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)
@@ -45,7 +48,6 @@
         - Added `SupportsDeclaration` node type to encapsulate a declaration in a query, replacing `Parentheses`.
         - Parsing now employs `Condition` or `SupportsDeclaration` nodes of kind `supports` instead of `Parentheses`.
         - Added support for the [`selector()`](https://drafts.csswg.org/css-conditional-4/#at-supports-ext) feature via the `FeatureFunction` node (configured in `features.supports.selector`).
-    - Added support for the `@container` at-rule
 
 ## 2.3.1 (December 14, 2022)
 
