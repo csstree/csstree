@@ -4,6 +4,7 @@
 - Added `TokenStream#lookupTypeNonSC()` method
 - Added `<dashed-ident>` to generic types
 - Changed `Ratio` parsing:
+    - Left and right parts contain nodes instead of strings
     - Both left and right parts of a ratio can now be any number; validation of number range is no longer within the parser's scope.
     - Both parts can now be functions. Although not explicitly mentioned in the specification, mathematical functions can replace numbers, addressing potential use cases (#162).
     - As per the [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) specification, the right part of `Ratio` can be omitted. While this can't be a parser output (which would produce a `Number` node), it's feasible during `Ratio` node construction or transformation.

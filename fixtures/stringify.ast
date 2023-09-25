@@ -2531,8 +2531,40 @@
                                                         "column": 34
                                                     }
                                                 },
-                                                "left": "16",
-                                                "right": "9"
+                                                "left": {
+                                                    "type": "Number",
+                                                    "loc": {
+                                                        "source": "stringify.css",
+                                                        "start": {
+                                                            "offset": 786,
+                                                            "line": 25,
+                                                            "column": 30
+                                                        },
+                                                        "end": {
+                                                            "offset": 788,
+                                                            "line": 25,
+                                                            "column": 32
+                                                        }
+                                                    },
+                                                    "value": "16"
+                                                },
+                                                "right": {
+                                                    "type": "Number",
+                                                    "loc": {
+                                                        "source": "stringify.css",
+                                                        "start": {
+                                                            "offset": 789,
+                                                            "line": 25,
+                                                            "column": 33
+                                                        },
+                                                        "end": {
+                                                            "offset": 790,
+                                                            "line": 25,
+                                                            "column": 34
+                                                        }
+                                                    },
+                                                    "value": "9"
+                                                }
                                             }
                                         }
                                     ]

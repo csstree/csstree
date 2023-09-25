@@ -158,8 +158,14 @@
                                                     "name": "foo",
                                                     "value": {
                                                         "type": "Ratio",
-                                                        "left": "1",
-                                                        "right": "2"
+                                                        "left": {
+                                                            "type": "Number",
+                                                            "value": "1"
+                                                        },
+                                                        "right": {
+                                                            "type": "Number",
+                                                            "value": "2"
+                                                        }
                                                     }
                                                 },
                                                 {

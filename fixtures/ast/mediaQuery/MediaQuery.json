@@ -105,8 +105,14 @@
                         "name": "foo",
                         "value": {
                             "type": "Ratio",
-                            "left": "3",
-                            "right": "4"
+                            "left": {
+                                "type": "Number",
+                                "value": "3"
+                            },
+                            "right": {
+                                "type": "Number",
+                                "value": "4"
+                            }
                         }
                     }
                 ]
@@ -182,8 +188,14 @@
                         "name": "foo",
                         "value": {
                             "type": "Ratio",
-                            "left": "3",
-                            "right": "4"
+                            "left": {
+                                "type": "Number",
+                                "value": "3"
+                            },
+                            "right": {
+                                "type": "Number",
+                                "value": "4"
+                            }
                         }
                     }
                 ]

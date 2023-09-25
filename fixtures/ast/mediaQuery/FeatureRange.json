@@ -58,8 +58,14 @@
                     "kind": "media",
                     "left": {
                         "type": "Ratio",
-                        "left": "1",
-                        "right": "2"
+                        "left": {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        "right": {
+                            "type": "Number",
+                            "value": "2"
+                        }
                     },
                     "leftComparison": "<",
                     "middle": {
@@ -85,6 +91,44 @@
                         "type": "Dimension",
                         "value": "1",
                         "unit": "px"
+                    },
+                    "leftComparison": "<",
+                    "middle": {
+                        "type": "Identifier",
+                        "name": "foo"
+                    },
+                    "rightComparison": null,
+                    "right": null
+                }
+            ]
+        }
+    },
+    "function first": {
+        "source": "(calc(1 + 2)<foo)",
+        "ast": {
+            "type": "Condition",
+            "kind": "media",
+            "children": [
+                {
+                    "type": "FeatureRange",
+                    "kind": "media",
+                    "left": {
+                        "type": "Function",
+                        "name": "calc",
+                        "children": [
+                            {
+                                "type": "Number",
+                                "value": "1"
+                            },
+                            {
+                                "type": "Operator",
+                                "value": " + "
+                            },
+                            {
+                                "type": "Number",
+                                "value": "2"
+                            }
+                        ]
                     },
                     "leftComparison": "<",
                     "middle": {
@@ -166,20 +210,38 @@
                     "kind": "media",
                     "left": {
                         "type": "Ratio",
-                        "left": "1",
-                        "right": "2"
+                        "left": {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        "right": {
+                            "type": "Number",
+                            "value": "2"
+                        }
                     },
                     "leftComparison": "<",
                     "middle": {
                         "type": "Ratio",
-                        "left": "1",
-                        "right": "3"
+                        "left": {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        "right": {
+                            "type": "Number",
+                            "value": "3"
+                        }
                     },
                     "rightComparison": "<",
                     "right": {
                         "type": "Ratio",
-                        "left": "1",
-                        "right": "4"
+                        "left": {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        "right": {
+                            "type": "Number",
+                            "value": "4"
+                        }
                     }
                 }
             ]
@@ -242,6 +304,157 @@
             ]
         }
     },
+    "function in ratio": [
+        {
+            "source": "(2/calc(1 + 2)<foo)",
+            "ast": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "FeatureRange",
+                        "kind": "media",
+                        "left": {
+                            "type": "Ratio",
+                            "left": {
+                                "type": "Number",
+                                "value": "2"
+                            },
+                            "right": {
+                                "type": "Function",
+                                "name": "calc",
+                                "children": [
+                                    {
+                                        "type": "Number",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "Operator",
+                                        "value": " + "
+                                    },
+                                    {
+                                        "type": "Number",
+                                        "value": "2"
+                                    }
+                                ]
+                            }
+                        },
+                        "leftComparison": "<",
+                        "middle": {
+                            "type": "Identifier",
+                            "name": "foo"
+                        },
+                        "rightComparison": null,
+                        "right": null
+                    }
+                ]
+            }
+        },
+        {
+            "source": "(calc(1 + 2)/2<foo)",
+            "ast": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "FeatureRange",
+                        "kind": "media",
+                        "left": {
+                            "type": "Ratio",
+                            "left": {
+                                "type": "Function",
+                                "name": "calc",
+                                "children": [
+                                    {
+                                        "type": "Number",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "Operator",
+                                        "value": " + "
+                                    },
+                                    {
+                                        "type": "Number",
+                                        "value": "2"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "Number",
+                                "value": "2"
+                            }
+                        },
+                        "leftComparison": "<",
+                        "middle": {
+                            "type": "Identifier",
+                            "name": "foo"
+                        },
+                        "rightComparison": null,
+                        "right": null
+                    }
+                ]
+            }
+        },
+        {
+            "source": "(calc(1 + 2)/calc(1 + 2)<foo)",
+            "ast": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "FeatureRange",
+                        "kind": "media",
+                        "left": {
+                            "type": "Ratio",
+                            "left": {
+                                "type": "Function",
+                                "name": "calc",
+                                "children": [
+                                    {
+                                        "type": "Number",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "Operator",
+                                        "value": " + "
+                                    },
+                                    {
+                                        "type": "Number",
+                                        "value": "2"
+                                    }
+                                ]
+                            },
+                            "right": {
+                                "type": "Function",
+                                "name": "calc",
+                                "children": [
+                                    {
+                                        "type": "Number",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "Operator",
+                                        "value": " + "
+                                    },
+                                    {
+                                        "type": "Number",
+                                        "value": "2"
+                                    }
+                                ]
+                            }
+                        },
+                        "leftComparison": "<",
+                        "middle": {
+                            "type": "Identifier",
+                            "name": "foo"
+                        },
+                        "rightComparison": null,
+                        "right": null
+                    }
+                ]
+            }
+        }
+    ],
     "error": [
         {
             "source": "(foo > 123 123)",
