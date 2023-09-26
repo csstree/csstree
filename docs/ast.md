@@ -35,8 +35,8 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [Hash](#hash)
     - [IdSelector](#idselector)
     - [Identifier](#identifier)
-    - [LayerName](#layername)
-    - [LayerNameList](#layernamelist)
+    - [Layer](#layer)
+    - [LayerList](#layerlist)
     - [MediaQuery](#mediaquery)
     - [MediaQueryList](#mediaquerylist)
     - [NestingSelector](#nestingselector)
@@ -417,20 +417,20 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-### LayerName
+### Layer
 
 ```js
 {
-    type: "LayerName",
+    type: "Layer",
     name: String
 }
 ```
 
-### LayerNameList
+### LayerList
 
 ```js
 {
-    type: "LayerNameList",
+    type: "LayerList",
     children: List
 }
 ```

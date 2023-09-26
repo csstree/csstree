@@ -2,7 +2,7 @@
 
 - Added support for the `@container` at-rule
 - Added support for the `@layer` at-rule
-- Added `LayerName` and `LayerNameList` node types
+- Added `Layer` and `LayerList` node types
 - Bumped `mdn/data` to `2.1.0`
 - Added `TokenStream#lookupTypeNonSC()` method
 - Added `<dashed-ident>` to generic types

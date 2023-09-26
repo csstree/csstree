@@ -59,10 +59,10 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "LayerNameList",
+                        "type": "LayerList",
                         "children": [
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "name": "test"
                             }
                         ]
@@ -81,10 +81,10 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "LayerNameList",
+                        "type": "LayerList",
                         "children": [
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "name": "foo.bar"
                             }
                         ]
@@ -106,11 +106,11 @@
                 "loc": null,
                 "children": [
                     {
-                        "type": "LayerNameList",
+                        "type": "LayerList",
                         "loc": null,
                         "children": [
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "loc": null,
                                 "name": "test"
                             }
@@ -162,18 +162,18 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "LayerNameList",
+                        "type": "LayerList",
                         "children": [
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "name": "foo"
                             },
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "name": "foo.bar"
                             },
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "name": "foo.bar.baz"
                             }
                         ]

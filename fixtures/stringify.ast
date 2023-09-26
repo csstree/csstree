@@ -6116,7 +6116,7 @@
                 },
                 "children": [
                     {
-                        "type": "LayerNameList",
+                        "type": "LayerList",
                         "loc": {
                             "source": "stringify.css",
                             "start": {
@@ -6132,7 +6132,7 @@
                         },
                         "children": [
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
@@ -6149,7 +6149,7 @@
                                 "name": "foo"
                             },
                             {
-                                "type": "LayerName",
+                                "type": "Layer",
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
