@@ -313,19 +313,29 @@
             "syntax": "none | <url>"
         },
         "max-width": {
-            "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/max-width",
-            "syntax": "| <-non-standard-width>"
+            "comment": "extend by non-standard size keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
+            "syntax": "| stretch | <-non-standard-size>"
+        },
+        "max-height": {
+            "comment": "extend by non-standard size keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
+            "syntax": "| stretch | <-non-standard-size>"
         },
         "width": {
             "references": [
                 "https://developer.mozilla.org/en-US/docs/Web/CSS/width",
                 "https://github.com/csstree/stylelint-validator/issues/29"
             ],
-            "syntax": "| fill | stretch | intrinsic | -moz-max-content | -webkit-max-content | -moz-fit-content | -webkit-fit-content"
+            "syntax": "| stretch | <-non-standard-size>"
+        },
+        "height": {
+            "syntax": "| stretch | <-non-standard-size>"
         },
         "min-width": {
             "comment": "extend by non-standard width keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-            "syntax": "| <-non-standard-width>"
+            "syntax": "| stretch | <-non-standard-size>"
+        },
+        "min-height": {
+            "syntax": "| stretch | <-non-standard-size>"
         },
         "overflow": {
             "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
@@ -563,9 +573,9 @@
             "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
             "syntax": "overlay | -moz-scrollbars-none | -moz-scrollbars-horizontal | -moz-scrollbars-vertical | -moz-hidden-unscrollable"
         },
-        "-non-standard-width": {
+        "-non-standard-size": {
             "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-            "syntax": "fill-available | min-intrinsic | intrinsic | -moz-available | -moz-fit-content | -moz-min-content | -moz-max-content | -webkit-min-content | -webkit-max-content"
+            "syntax": "intrinsic | min-intrinsic | -webkit-fill-available | -webkit-fit-content | -webkit-min-content | -webkit-max-content  | -moz-available | -moz-fit-content | -moz-min-content | -moz-max-content"
         },
         "-webkit-gradient()": {
             "comment": "first Apple proposal gradient syntax https://webkit.org/blog/175/introducing-css-gradients/ - TODO: simplify when after match algorithm improvement ( [, point, radius | , point] -> [, radius]? , point )",
