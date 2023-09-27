@@ -1,0 +1,37 @@
+{
+    "base syntax": {
+        "source": "@starting-style { selector {} }",
+        "generate": "@starting-style{selector{}}",
+        "ast": {
+            "type": "Atrule",
+            "name": "starting-style",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -430,18 +430,14 @@
         "generate": "selector{@container card (inline-size>30em){@container style(--responsive: true){color:green}}}",
         "ast": {
             "type": "Rule",
-            "loc": null,
             "prelude": {
                 "type": "SelectorList",
-                "loc": null,
                 "children": [
                     {
                         "type": "Selector",
-                        "loc": null,
                         "children": [
                             {
                                 "type": "TypeSelector",
-                                "loc": null,
                                 "name": "selector"
                             }
                         ]
@@ -450,39 +446,31 @@
             },
             "block": {
                 "type": "Block",
-                "loc": null,
                 "children": [
                     {
                         "type": "Atrule",
-                        "loc": null,
                         "name": "container",
                         "prelude": {
                             "type": "AtrulePrelude",
-                            "loc": null,
                             "children": [
                                 {
                                     "type": "Identifier",
-                                    "loc": null,
                                     "name": "card"
                                 },
                                 {
                                     "type": "Condition",
-                                    "loc": null,
                                     "kind": "container",
                                     "children": [
                                         {
                                             "type": "FeatureRange",
-                                            "loc": null,
                                             "kind": "container",
                                             "left": {
                                                 "type": "Identifier",
-                                                "loc": null,
                                                 "name": "inline-size"
                                             },
                                             "leftComparison": ">",
                                             "middle": {
                                                 "type": "Dimension",
-                                                "loc": null,
                                                 "value": "30",
                                                 "unit": "em"
                                             },
@@ -495,34 +483,27 @@
                         },
                         "block": {
                             "type": "Block",
-                            "loc": null,
                             "children": [
                                 {
                                     "type": "Atrule",
-                                    "loc": null,
                                     "name": "container",
                                     "prelude": {
                                         "type": "AtrulePrelude",
-                                        "loc": null,
                                         "children": [
                                             {
                                                 "type": "Condition",
-                                                "loc": null,
                                                 "kind": "container",
                                                 "children": [
                                                     {
                                                         "type": "FeatureFunction",
-                                                        "loc": null,
                                                         "kind": "container",
                                                         "feature": "style",
                                                         "value": {
                                                             "type": "Declaration",
-                                                            "loc": null,
                                                             "important": false,
                                                             "property": "--responsive",
                                                             "value": {
                                                                 "type": "Raw",
-                                                                "loc": null,
                                                                 "value": " true"
                                                             }
                                                         }
@@ -533,24 +514,70 @@
                                     },
                                     "block": {
                                         "type": "Block",
-                                        "loc": null,
                                         "children": [
                                             {
                                                 "type": "Declaration",
-                                                "loc": null,
                                                 "important": false,
                                                 "property": "color",
                                                 "value": {
                                                     "type": "Value",
-                                                    "loc": null,
                                                     "children": [
                                                         {
                                                             "type": "Identifier",
-                                                            "loc": null,
                                                             "name": "green"
                                                         }
                                                     ]
                                                 }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested @starting-style": {
+        "source": "selector { @starting-style { color: red; } }",
+        "generate": "selector{@starting-style{color:red}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "selector"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "starting-style",
+                        "prelude": null,
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "red"
                                             }
                                         ]
                                     }

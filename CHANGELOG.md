@@ -1,8 +1,9 @@
 ## next
 
-- Added support for the `@container` at-rule
-- Added support for the `@layer` at-rule
-- Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule
+- Added support for the [`@container`](https://drafts.csswg.org/css-contain-3/#container-rule) at-rule
+- Added support for the [`@starting-style`](https://drafts.csswg.org/css-transitions-2/#defining-before-change-style) at-rule
+- Added support for the [`@layer`](https://drafts.csswg.org/css-cascade-5/#at-layer) at-rule
+- Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule (according to [the @import rule](https://drafts.csswg.org/css-cascade-5/#at-import) in Cascading and Inheritance 5)
 - Added `Layer` and `LayerList` node types
 - Bumped `mdn/data` to `2.1.0`
 - Added `TokenStream#lookupTypeNonSC()` method
