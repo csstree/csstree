@@ -561,7 +561,7 @@
         },
         "-non-standard-overflow": {
             "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
-            "syntax": "-moz-scrollbars-none | -moz-scrollbars-horizontal | -moz-scrollbars-vertical | -moz-hidden-unscrollable"
+            "syntax": "overlay | -moz-scrollbars-none | -moz-scrollbars-horizontal | -moz-scrollbars-vertical | -moz-hidden-unscrollable"
         },
         "-non-standard-width": {
             "comment": "non-standard keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
