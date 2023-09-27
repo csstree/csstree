@@ -50,6 +50,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [Ratio](#ratio)
     - [Raw](#raw)
     - [Rule](#rule)
+    - [Scope](#scope)
     - [Selector](#selector)
     - [SelectorList](#selectorlist)
     - [String](#string)
@@ -557,6 +558,16 @@ A sequence of any characters. This node type is used for unparsed fragments of C
     type: "Rule",
     prelude: <SelectorList> | <Raw>,
     block: <Block>
+}
+```
+
+### Scope
+
+```js
+{
+    type: "Scope",
+    root: <SelectorList> | <Raw> | null,
+    limit: <SelectorList> | <Raw> | null
 }
 ```
 
