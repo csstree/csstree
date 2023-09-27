@@ -2,6 +2,7 @@
 
 - Added support for the `@container` at-rule
 - Added support for the `@layer` at-rule
+- Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule
 - Added `Layer` and `LayerList` node types
 - Bumped `mdn/data` to `2.1.0`
 - Added `TokenStream#lookupTypeNonSC()` method
