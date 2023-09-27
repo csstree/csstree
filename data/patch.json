@@ -17,6 +17,9 @@
         "nest": {
             "prelude": "<complex-selector-list>"
         },
+        "scope": {
+            "prelude": "[ ( <scope-start> ) ]? [ to ( <scope-end> ) ]?"
+        },
         "scroll-timeline": null
     },
     "properties": {
@@ -643,6 +646,10 @@
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "male | female | neutral"
         },
+        "general-enclosed": {
+            "comment": "remove ident-token, optional any-value, brackets (see https://drafts.csswg.org/mediaqueries-5/#typedef-general-enclosed)",
+            "syntax": "[ <function-token> <any-value>? ) ] | [ ( <any-value>? ) ]"
+        },
         "generic-family": {
             "comment": "added -apple-system",
             "references": [
@@ -692,6 +699,63 @@
                 "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
             ],
             "syntax": "none | <custom-ident>"
+        },
+        "scope-start": {
+            "syntax": "<forgiving-selector-list>"
+        },
+        "scope-end": {
+            "syntax": "<forgiving-selector-list>"
+        },
+        "forgiving-selector-list": {
+            "syntax": "<complex-real-selector-list>"
+        },
+        "forgiving-relative-selector-list": {
+            "syntax": "<relative-real-selector-list>"
+        },
+        "selector-list": {
+            "syntax": "<complex-selector-list>"
+        },
+        "complex-real-selector-list": {
+            "syntax": "<complex-real-selector>#"
+        },
+        "simple-selector-list": {
+            "syntax": "<simple-selector>#"
+        },
+        "relative-real-selector-list": {
+            "syntax": "<relative-real-selector>#"
+        },
+        "complex-selector": {
+            "syntax": "<complex-selector-unit> [ <combinator>? <complex-selector-unit> ]*"
+        },
+        "complex-selector-unit": {
+            "syntax": "[ <compound-selector>? <pseudo-compound-selector>* ]!"
+        },
+        "complex-real-selector": {
+            "syntax": "<compound-selector> [ <combinator>? <compound-selector> ]*"
+        },
+        "relative-real-selector": {
+            "syntax": "<combinator>? <complex-real-selector>"
+        },
+        "compound-selector": {
+            "syntax": "[ <type-selector>? <subclass-selector>* ]!"
+        },
+        "pseudo-compound-selector": {
+            "syntax": " <pseudo-element-selector> <pseudo-class-selector>*"
+        },
+        "simple-selector": {
+            "syntax": "<type-selector> | <subclass-selector>"
+        },
+        "combinator": {
+            "syntax": "'>' | '+' | '~' | [ '|' '|' ]"
+        },
+        "id-selector": {
+            "syntax": "<hash-token>"
+        },
+        "pseudo-element-selector": {
+            "syntax": "':' <pseudo-class-selector> | <legacy-pseudo-element-selector>"
+        },
+        "legacy-pseudo-element-selector": {
+            "syntax": " ':' [before | after | first-line | first-letter]"
         },
         "single-animation-composition": {
             "comment": "missed definition",

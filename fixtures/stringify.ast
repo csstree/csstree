@@ -8,8 +8,8 @@
             "column": 1
         },
         "end": {
-            "offset": 1802,
-            "line": 83,
+            "offset": 1949,
+            "line": 91,
             "column": 1
         }
     },
@@ -4445,8 +4445,8 @@
                     "column": 1
                 },
                 "end": {
-                    "offset": 1528,
-                    "line": 68,
+                    "offset": 1629,
+                    "line": 74,
                     "column": 2
                 }
             },
@@ -4513,8 +4513,8 @@
                         "column": 6
                     },
                     "end": {
-                        "offset": 1528,
-                        "line": 68,
+                        "offset": 1629,
+                        "line": 74,
                         "column": 2
                     }
                 },
@@ -5137,6 +5137,323 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Atrule",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1531,
+                                "line": 68,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1575,
+                                "line": 70,
+                                "column": 6
+                            }
+                        },
+                        "name": "starting-style",
+                        "prelude": null,
+                        "block": {
+                            "type": "Block",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1547,
+                                    "line": 68,
+                                    "column": 21
+                                },
+                                "end": {
+                                    "offset": 1575,
+                                    "line": 70,
+                                    "column": 6
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1557,
+                                            "line": 69,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "offset": 1568,
+                                            "line": 69,
+                                            "column": 20
+                                        }
+                                    },
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1564,
+                                                "line": 69,
+                                                "column": 16
+                                            },
+                                            "end": {
+                                                "offset": 1568,
+                                                "line": 69,
+                                                "column": 20
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1564,
+                                                        "line": 69,
+                                                        "column": 16
+                                                    },
+                                                    "end": {
+                                                        "offset": 1568,
+                                                        "line": 69,
+                                                        "column": 20
+                                                    }
+                                                },
+                                                "name": "blue"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Atrule",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1580,
+                                "line": 71,
+                                "column": 5
+                            },
+                            "end": {
+                                "offset": 1627,
+                                "line": 73,
+                                "column": 6
+                            }
+                        },
+                        "name": "scope",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1587,
+                                    "line": 71,
+                                    "column": 12
+                                },
+                                "end": {
+                                    "offset": 1597,
+                                    "line": 71,
+                                    "column": 22
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Scope",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1587,
+                                            "line": 71,
+                                            "column": 12
+                                        },
+                                        "end": {
+                                            "offset": 1597,
+                                            "line": 71,
+                                            "column": 22
+                                        }
+                                    },
+                                    "root": {
+                                        "type": "SelectorList",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1588,
+                                                "line": 71,
+                                                "column": 13
+                                            },
+                                            "end": {
+                                                "offset": 1589,
+                                                "line": 71,
+                                                "column": 14
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Selector",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1588,
+                                                        "line": 71,
+                                                        "column": 13
+                                                    },
+                                                    "end": {
+                                                        "offset": 1589,
+                                                        "line": 71,
+                                                        "column": 14
+                                                    }
+                                                },
+                                                "children": [
+                                                    {
+                                                        "type": "TypeSelector",
+                                                        "loc": {
+                                                            "source": "stringify.css",
+                                                            "start": {
+                                                                "offset": 1588,
+                                                                "line": 71,
+                                                                "column": 13
+                                                            },
+                                                            "end": {
+                                                                "offset": 1589,
+                                                                "line": 71,
+                                                                "column": 14
+                                                            }
+                                                        },
+                                                        "name": "a"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "limit": {
+                                        "type": "SelectorList",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1595,
+                                                "line": 71,
+                                                "column": 20
+                                            },
+                                            "end": {
+                                                "offset": 1596,
+                                                "line": 71,
+                                                "column": 21
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Selector",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1595,
+                                                        "line": 71,
+                                                        "column": 20
+                                                    },
+                                                    "end": {
+                                                        "offset": 1596,
+                                                        "line": 71,
+                                                        "column": 21
+                                                    }
+                                                },
+                                                "children": [
+                                                    {
+                                                        "type": "TypeSelector",
+                                                        "loc": {
+                                                            "source": "stringify.css",
+                                                            "start": {
+                                                                "offset": 1595,
+                                                                "line": 71,
+                                                                "column": 20
+                                                            },
+                                                            "end": {
+                                                                "offset": 1596,
+                                                                "line": 71,
+                                                                "column": 21
+                                                            }
+                                                        },
+                                                        "name": "b"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1598,
+                                    "line": 71,
+                                    "column": 23
+                                },
+                                "end": {
+                                    "offset": 1627,
+                                    "line": 73,
+                                    "column": 6
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1608,
+                                            "line": 72,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "offset": 1620,
+                                            "line": 72,
+                                            "column": 21
+                                        }
+                                    },
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1615,
+                                                "line": 72,
+                                                "column": 16
+                                            },
+                                            "end": {
+                                                "offset": 1620,
+                                                "line": 72,
+                                                "column": 21
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "loc": {
+                                                    "source": "stringify.css",
+                                                    "start": {
+                                                        "offset": 1615,
+                                                        "line": 72,
+                                                        "column": 16
+                                                    },
+                                                    "end": {
+                                                        "offset": 1620,
+                                                        "line": 72,
+                                                        "column": 21
+                                                    }
+                                                },
+                                                "name": "black"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             }
@@ -5146,13 +5463,13 @@
             "loc": {
                 "source": "stringify.css",
                 "start": {
-                    "offset": 1530,
-                    "line": 70,
+                    "offset": 1631,
+                    "line": 76,
                     "column": 1
                 },
                 "end": {
-                    "offset": 1643,
-                    "line": 76,
+                    "offset": 1744,
+                    "line": 82,
                     "column": 2
                 }
             },
@@ -5162,13 +5479,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1537,
-                        "line": 70,
+                        "offset": 1638,
+                        "line": 76,
                         "column": 8
                     },
                     "end": {
-                        "offset": 1561,
-                        "line": 70,
+                        "offset": 1662,
+                        "line": 76,
                         "column": 32
                     }
                 },
@@ -5178,13 +5495,13 @@
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 1537,
-                                "line": 70,
+                                "offset": 1638,
+                                "line": 76,
                                 "column": 8
                             },
                             "end": {
-                                "offset": 1561,
-                                "line": 70,
+                                "offset": 1662,
+                                "line": 76,
                                 "column": 32
                             }
                         },
@@ -5194,13 +5511,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1537,
-                                        "line": 70,
+                                        "offset": 1638,
+                                        "line": 76,
                                         "column": 8
                                     },
                                     "end": {
-                                        "offset": 1561,
-                                        "line": 70,
+                                        "offset": 1662,
+                                        "line": 76,
                                         "column": 32
                                     }
                                 },
@@ -5211,13 +5528,13 @@
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 1537,
-                                            "line": 70,
+                                            "offset": 1638,
+                                            "line": 76,
                                             "column": 8
                                         },
                                         "end": {
-                                            "offset": 1560,
-                                            "line": 70,
+                                            "offset": 1661,
+                                            "line": 76,
                                             "column": 31
                                         }
                                     },
@@ -5228,13 +5545,13 @@
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
-                                                    "offset": 1537,
-                                                    "line": 70,
+                                                    "offset": 1638,
+                                                    "line": 76,
                                                     "column": 8
                                                 },
                                                 "end": {
-                                                    "offset": 1560,
-                                                    "line": 70,
+                                                    "offset": 1661,
+                                                    "line": 76,
                                                     "column": 31
                                                 }
                                             },
@@ -5244,13 +5561,13 @@
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
-                                                        "offset": 1538,
-                                                        "line": 70,
+                                                        "offset": 1639,
+                                                        "line": 76,
                                                         "column": 9
                                                     },
                                                     "end": {
-                                                        "offset": 1543,
-                                                        "line": 70,
+                                                        "offset": 1644,
+                                                        "line": 76,
                                                         "column": 14
                                                     }
                                                 },
@@ -5263,13 +5580,13 @@
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
-                                                        "offset": 1546,
-                                                        "line": 70,
+                                                        "offset": 1647,
+                                                        "line": 76,
                                                         "column": 17
                                                     },
                                                     "end": {
-                                                        "offset": 1551,
-                                                        "line": 70,
+                                                        "offset": 1652,
+                                                        "line": 76,
                                                         "column": 22
                                                     }
                                                 },
@@ -5281,13 +5598,13 @@
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
-                                                        "offset": 1554,
-                                                        "line": 70,
+                                                        "offset": 1655,
+                                                        "line": 76,
                                                         "column": 25
                                                     },
                                                     "end": {
-                                                        "offset": 1559,
-                                                        "line": 70,
+                                                        "offset": 1660,
+                                                        "line": 76,
                                                         "column": 30
                                                     }
                                                 },
@@ -5307,13 +5624,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1561,
-                        "line": 70,
+                        "offset": 1662,
+                        "line": 76,
                         "column": 32
                     },
                     "end": {
-                        "offset": 1643,
-                        "line": 76,
+                        "offset": 1744,
+                        "line": 82,
                         "column": 2
                     }
                 },
@@ -5323,13 +5640,13 @@
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 1567,
-                                "line": 71,
+                                "offset": 1668,
+                                "line": 77,
                                 "column": 5
                             },
                             "end": {
-                                "offset": 1641,
-                                "line": 75,
+                                "offset": 1742,
+                                "line": 81,
                                 "column": 6
                             }
                         },
@@ -5339,13 +5656,13 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1578,
-                                    "line": 71,
+                                    "offset": 1679,
+                                    "line": 77,
                                     "column": 16
                                 },
                                 "end": {
-                                    "offset": 1581,
-                                    "line": 71,
+                                    "offset": 1682,
+                                    "line": 77,
                                     "column": 19
                                 }
                             },
@@ -5356,13 +5673,13 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1582,
-                                    "line": 71,
+                                    "offset": 1683,
+                                    "line": 77,
                                     "column": 20
                                 },
                                 "end": {
-                                    "offset": 1641,
-                                    "line": 75,
+                                    "offset": 1742,
+                                    "line": 81,
                                     "column": 6
                                 }
                             },
@@ -5372,13 +5689,13 @@
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 1592,
-                                            "line": 72,
+                                            "offset": 1693,
+                                            "line": 78,
                                             "column": 9
                                         },
                                         "end": {
-                                            "offset": 1635,
-                                            "line": 74,
+                                            "offset": 1736,
+                                            "line": 80,
                                             "column": 10
                                         }
                                     },
@@ -5387,13 +5704,13 @@
                                         "loc": {
                                             "source": "stringify.css",
                                             "start": {
-                                                "offset": 1592,
-                                                "line": 72,
+                                                "offset": 1693,
+                                                "line": 78,
                                                 "column": 9
                                             },
                                             "end": {
-                                                "offset": 1597,
-                                                "line": 72,
+                                                "offset": 1698,
+                                                "line": 78,
                                                 "column": 14
                                             }
                                         },
@@ -5403,13 +5720,13 @@
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
-                                                        "offset": 1592,
-                                                        "line": 72,
+                                                        "offset": 1693,
+                                                        "line": 78,
                                                         "column": 9
                                                     },
                                                     "end": {
-                                                        "offset": 1597,
-                                                        "line": 72,
+                                                        "offset": 1698,
+                                                        "line": 78,
                                                         "column": 14
                                                     }
                                                 },
@@ -5419,13 +5736,13 @@
                                                         "loc": {
                                                             "source": "stringify.css",
                                                             "start": {
-                                                                "offset": 1592,
-                                                                "line": 72,
+                                                                "offset": 1693,
+                                                                "line": 78,
                                                                 "column": 9
                                                             },
                                                             "end": {
-                                                                "offset": 1597,
-                                                                "line": 72,
+                                                                "offset": 1698,
+                                                                "line": 78,
                                                                 "column": 14
                                                             }
                                                         },
@@ -5440,13 +5757,13 @@
                                         "loc": {
                                             "source": "stringify.css",
                                             "start": {
-                                                "offset": 1598,
-                                                "line": 72,
+                                                "offset": 1699,
+                                                "line": 78,
                                                 "column": 15
                                             },
                                             "end": {
-                                                "offset": 1635,
-                                                "line": 74,
+                                                "offset": 1736,
+                                                "line": 80,
                                                 "column": 10
                                             }
                                         },
@@ -5456,13 +5773,13 @@
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
-                                                        "offset": 1612,
-                                                        "line": 73,
+                                                        "offset": 1713,
+                                                        "line": 79,
                                                         "column": 13
                                                     },
                                                     "end": {
-                                                        "offset": 1624,
-                                                        "line": 73,
+                                                        "offset": 1725,
+                                                        "line": 79,
                                                         "column": 25
                                                     }
                                                 },
@@ -5473,13 +5790,13 @@
                                                     "loc": {
                                                         "source": "stringify.css",
                                                         "start": {
-                                                            "offset": 1619,
-                                                            "line": 73,
+                                                            "offset": 1720,
+                                                            "line": 79,
                                                             "column": 20
                                                         },
                                                         "end": {
-                                                            "offset": 1624,
-                                                            "line": 73,
+                                                            "offset": 1725,
+                                                            "line": 79,
                                                             "column": 25
                                                         }
                                                     },
@@ -5489,13 +5806,13 @@
                                                             "loc": {
                                                                 "source": "stringify.css",
                                                                 "start": {
-                                                                    "offset": 1619,
-                                                                    "line": 73,
+                                                                    "offset": 1720,
+                                                                    "line": 79,
                                                                     "column": 20
                                                                 },
                                                                 "end": {
-                                                                    "offset": 1624,
-                                                                    "line": 73,
+                                                                    "offset": 1725,
+                                                                    "line": 79,
                                                                     "column": 25
                                                                 }
                                                             },
@@ -5518,13 +5835,13 @@
             "loc": {
                 "source": "stringify.css",
                 "start": {
-                    "offset": 1668,
-                    "line": 79,
+                    "offset": 1769,
+                    "line": 85,
                     "column": 1
                 },
                 "end": {
-                    "offset": 1707,
-                    "line": 79,
+                    "offset": 1808,
+                    "line": 85,
                     "column": 40
                 }
             },
@@ -5534,13 +5851,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1675,
-                        "line": 79,
+                        "offset": 1776,
+                        "line": 85,
                         "column": 8
                     },
                     "end": {
-                        "offset": 1705,
-                        "line": 79,
+                        "offset": 1806,
+                        "line": 85,
                         "column": 38
                     }
                 },
@@ -5550,13 +5867,13 @@
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 1675,
-                                "line": 79,
+                                "offset": 1776,
+                                "line": 85,
                                 "column": 8
                             },
                             "end": {
-                                "offset": 1705,
-                                "line": 79,
+                                "offset": 1806,
+                                "line": 85,
                                 "column": 38
                             }
                         },
@@ -5566,13 +5883,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1675,
-                                        "line": 79,
+                                        "offset": 1776,
+                                        "line": 85,
                                         "column": 8
                                     },
                                     "end": {
-                                        "offset": 1705,
-                                        "line": 79,
+                                        "offset": 1806,
+                                        "line": 85,
                                         "column": 38
                                     }
                                 },
@@ -5583,13 +5900,13 @@
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 1675,
-                                            "line": 79,
+                                            "offset": 1776,
+                                            "line": 85,
                                             "column": 8
                                         },
                                         "end": {
-                                            "offset": 1704,
-                                            "line": 79,
+                                            "offset": 1805,
+                                            "line": 85,
                                             "column": 37
                                         }
                                     },
@@ -5600,13 +5917,13 @@
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
-                                                    "offset": 1675,
-                                                    "line": 79,
+                                                    "offset": 1776,
+                                                    "line": 85,
                                                     "column": 8
                                                 },
                                                 "end": {
-                                                    "offset": 1685,
-                                                    "line": 79,
+                                                    "offset": 1786,
+                                                    "line": 85,
                                                     "column": 18
                                                 }
                                             },
@@ -5617,13 +5934,13 @@
                                                 "loc": {
                                                     "source": "stringify.css",
                                                     "start": {
-                                                        "offset": 1681,
-                                                        "line": 79,
+                                                        "offset": 1782,
+                                                        "line": 85,
                                                         "column": 14
                                                     },
                                                     "end": {
-                                                        "offset": 1684,
-                                                        "line": 79,
+                                                        "offset": 1785,
+                                                        "line": 85,
                                                         "column": 17
                                                     }
                                                 },
@@ -5635,13 +5952,13 @@
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
-                                                    "offset": 1686,
-                                                    "line": 79,
+                                                    "offset": 1787,
+                                                    "line": 85,
                                                     "column": 19
                                                 },
                                                 "end": {
-                                                    "offset": 1689,
-                                                    "line": 79,
+                                                    "offset": 1790,
+                                                    "line": 85,
                                                     "column": 22
                                                 }
                                             },
@@ -5652,13 +5969,13 @@
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
-                                                    "offset": 1690,
-                                                    "line": 79,
+                                                    "offset": 1791,
+                                                    "line": 85,
                                                     "column": 23
                                                 },
                                                 "end": {
-                                                    "offset": 1693,
-                                                    "line": 79,
+                                                    "offset": 1794,
+                                                    "line": 85,
                                                     "column": 26
                                                 }
                                             },
@@ -5670,13 +5987,13 @@
                                                     "loc": {
                                                         "source": "stringify.css",
                                                         "start": {
-                                                            "offset": 1691,
-                                                            "line": 79,
+                                                            "offset": 1792,
+                                                            "line": 85,
                                                             "column": 24
                                                         },
                                                         "end": {
-                                                            "offset": 1692,
-                                                            "line": 79,
+                                                            "offset": 1793,
+                                                            "line": 85,
                                                             "column": 25
                                                         }
                                                     },
@@ -5689,13 +6006,13 @@
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
-                                                    "offset": 1694,
-                                                    "line": 79,
+                                                    "offset": 1795,
+                                                    "line": 85,
                                                     "column": 27
                                                 },
                                                 "end": {
-                                                    "offset": 1697,
-                                                    "line": 79,
+                                                    "offset": 1798,
+                                                    "line": 85,
                                                     "column": 30
                                                 }
                                             },
@@ -5706,13 +6023,13 @@
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
-                                                    "offset": 1698,
-                                                    "line": 79,
+                                                    "offset": 1799,
+                                                    "line": 85,
                                                     "column": 31
                                                 },
                                                 "end": {
-                                                    "offset": 1704,
-                                                    "line": 79,
+                                                    "offset": 1805,
+                                                    "line": 85,
                                                     "column": 37
                                                 }
                                             },
@@ -5724,13 +6041,13 @@
                                                     "loc": {
                                                         "source": "stringify.css",
                                                         "start": {
-                                                            "offset": 1702,
-                                                            "line": 79,
+                                                            "offset": 1803,
+                                                            "line": 85,
                                                             "column": 35
                                                         },
                                                         "end": {
-                                                            "offset": 1703,
-                                                            "line": 79,
+                                                            "offset": 1804,
+                                                            "line": 85,
                                                             "column": 36
                                                         }
                                                     },
@@ -5750,13 +6067,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1705,
-                        "line": 79,
+                        "offset": 1806,
+                        "line": 85,
                         "column": 38
                     },
                     "end": {
-                        "offset": 1707,
-                        "line": 79,
+                        "offset": 1808,
+                        "line": 85,
                         "column": 40
                     }
                 },
@@ -5768,13 +6085,13 @@
             "loc": {
                 "source": "stringify.css",
                 "start": {
-                    "offset": 1708,
-                    "line": 80,
+                    "offset": 1809,
+                    "line": 86,
                     "column": 1
                 },
                 "end": {
-                    "offset": 1733,
-                    "line": 80,
+                    "offset": 1834,
+                    "line": 86,
                     "column": 26
                 }
             },
@@ -5784,13 +6101,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1718,
-                        "line": 80,
+                        "offset": 1819,
+                        "line": 86,
                         "column": 11
                     },
                     "end": {
-                        "offset": 1730,
-                        "line": 80,
+                        "offset": 1831,
+                        "line": 86,
                         "column": 23
                     }
                 },
@@ -5800,13 +6117,13 @@
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 1718,
-                                "line": 80,
+                                "offset": 1819,
+                                "line": 86,
                                 "column": 11
                             },
                             "end": {
-                                "offset": 1730,
-                                "line": 80,
+                                "offset": 1831,
+                                "line": 86,
                                 "column": 23
                             }
                         },
@@ -5817,13 +6134,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1718,
-                                        "line": 80,
+                                        "offset": 1819,
+                                        "line": 86,
                                         "column": 11
                                     },
                                     "end": {
-                                        "offset": 1730,
-                                        "line": 80,
+                                        "offset": 1831,
+                                        "line": 86,
                                         "column": 23
                                     }
                                 },
@@ -5834,13 +6151,13 @@
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 1727,
-                                            "line": 80,
+                                            "offset": 1828,
+                                            "line": 86,
                                             "column": 20
                                         },
                                         "end": {
-                                            "offset": 1729,
-                                            "line": 80,
+                                            "offset": 1830,
+                                            "line": 86,
                                             "column": 22
                                         }
                                     },
@@ -5850,13 +6167,13 @@
                                             "loc": {
                                                 "source": "stringify.css",
                                                 "start": {
-                                                    "offset": 1727,
-                                                    "line": 80,
+                                                    "offset": 1828,
+                                                    "line": 86,
                                                     "column": 20
                                                 },
                                                 "end": {
-                                                    "offset": 1729,
-                                                    "line": 80,
+                                                    "offset": 1830,
+                                                    "line": 86,
                                                     "column": 22
                                                 }
                                             },
@@ -5874,13 +6191,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1731,
-                        "line": 80,
+                        "offset": 1832,
+                        "line": 86,
                         "column": 24
                     },
                     "end": {
-                        "offset": 1733,
-                        "line": 80,
+                        "offset": 1834,
+                        "line": 86,
                         "column": 26
                     }
                 },
@@ -5892,13 +6209,13 @@
             "loc": {
                 "source": "stringify.css",
                 "start": {
-                    "offset": 1734,
-                    "line": 81,
+                    "offset": 1835,
+                    "line": 87,
                     "column": 1
                 },
                 "end": {
-                    "offset": 1782,
-                    "line": 81,
+                    "offset": 1883,
+                    "line": 87,
                     "column": 49
                 }
             },
@@ -5908,13 +6225,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1745,
-                        "line": 81,
+                        "offset": 1846,
+                        "line": 87,
                         "column": 12
                     },
                     "end": {
-                        "offset": 1779,
-                        "line": 81,
+                        "offset": 1880,
+                        "line": 87,
                         "column": 46
                     }
                 },
@@ -5924,13 +6241,13 @@
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 1745,
-                                "line": 81,
+                                "offset": 1846,
+                                "line": 87,
                                 "column": 12
                             },
                             "end": {
-                                "offset": 1779,
-                                "line": 81,
+                                "offset": 1880,
+                                "line": 87,
                                 "column": 46
                             }
                         },
@@ -5941,13 +6258,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1745,
-                                        "line": 81,
+                                        "offset": 1846,
+                                        "line": 87,
                                         "column": 12
                                     },
                                     "end": {
-                                        "offset": 1760,
-                                        "line": 81,
+                                        "offset": 1861,
+                                        "line": 87,
                                         "column": 27
                                     }
                                 },
@@ -5957,13 +6274,13 @@
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 1746,
-                                            "line": 81,
+                                            "offset": 1847,
+                                            "line": 87,
                                             "column": 13
                                         },
                                         "end": {
-                                            "offset": 1751,
-                                            "line": 81,
+                                            "offset": 1852,
+                                            "line": 87,
                                             "column": 18
                                         }
                                     },
@@ -5975,13 +6292,13 @@
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 1754,
-                                            "line": 81,
+                                            "offset": 1855,
+                                            "line": 87,
                                             "column": 21
                                         },
                                         "end": {
-                                            "offset": 1759,
-                                            "line": 81,
+                                            "offset": 1860,
+                                            "line": 87,
                                             "column": 26
                                         }
                                     },
@@ -5996,13 +6313,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1761,
-                                        "line": 81,
+                                        "offset": 1862,
+                                        "line": 87,
                                         "column": 28
                                     },
                                     "end": {
-                                        "offset": 1764,
-                                        "line": 81,
+                                        "offset": 1865,
+                                        "line": 87,
                                         "column": 31
                                     }
                                 },
@@ -6013,13 +6330,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1765,
-                                        "line": 81,
+                                        "offset": 1866,
+                                        "line": 87,
                                         "column": 32
                                     },
                                     "end": {
-                                        "offset": 1779,
-                                        "line": 81,
+                                        "offset": 1880,
+                                        "line": 87,
                                         "column": 46
                                     }
                                 },
@@ -6030,13 +6347,13 @@
                                     "loc": {
                                         "source": "stringify.css",
                                         "start": {
-                                            "offset": 1771,
-                                            "line": 81,
+                                            "offset": 1872,
+                                            "line": 87,
                                             "column": 38
                                         },
                                         "end": {
-                                            "offset": 1778,
-                                            "line": 81,
+                                            "offset": 1879,
+                                            "line": 87,
                                             "column": 45
                                         }
                                     },
@@ -6047,13 +6364,13 @@
                                         "loc": {
                                             "source": "stringify.css",
                                             "start": {
-                                                "offset": 1777,
-                                                "line": 81,
+                                                "offset": 1878,
+                                                "line": 87,
                                                 "column": 44
                                             },
                                             "end": {
-                                                "offset": 1778,
-                                                "line": 81,
+                                                "offset": 1879,
+                                                "line": 87,
                                                 "column": 45
                                             }
                                         },
@@ -6070,13 +6387,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1780,
-                        "line": 81,
+                        "offset": 1881,
+                        "line": 87,
                         "column": 47
                     },
                     "end": {
-                        "offset": 1782,
-                        "line": 81,
+                        "offset": 1883,
+                        "line": 87,
                         "column": 49
                     }
                 },
@@ -6088,13 +6405,13 @@
             "loc": {
                 "source": "stringify.css",
                 "start": {
-                    "offset": 1783,
-                    "line": 82,
+                    "offset": 1884,
+                    "line": 88,
                     "column": 1
                 },
                 "end": {
-                    "offset": 1801,
-                    "line": 82,
+                    "offset": 1902,
+                    "line": 88,
                     "column": 19
                 }
             },
@@ -6104,13 +6421,13 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1793,
-                        "line": 82,
+                        "offset": 1894,
+                        "line": 88,
                         "column": 11
                     },
                     "end": {
-                        "offset": 1799,
-                        "line": 82,
+                        "offset": 1900,
+                        "line": 88,
                         "column": 17
                     }
                 },
@@ -6120,13 +6437,13 @@
                         "loc": {
                             "source": "stringify.css",
                             "start": {
-                                "offset": 1793,
-                                "line": 82,
+                                "offset": 1894,
+                                "line": 88,
                                 "column": 11
                             },
                             "end": {
-                                "offset": 1799,
-                                "line": 82,
+                                "offset": 1900,
+                                "line": 88,
                                 "column": 17
                             }
                         },
@@ -6136,13 +6453,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1793,
-                                        "line": 82,
+                                        "offset": 1894,
+                                        "line": 88,
                                         "column": 11
                                     },
                                     "end": {
-                                        "offset": 1794,
-                                        "line": 82,
+                                        "offset": 1895,
+                                        "line": 88,
                                         "column": 12
                                     }
                                 },
@@ -6153,13 +6470,13 @@
                                 "loc": {
                                     "source": "stringify.css",
                                     "start": {
-                                        "offset": 1798,
-                                        "line": 82,
+                                        "offset": 1899,
+                                        "line": 88,
                                         "column": 16
                                     },
                                     "end": {
-                                        "offset": 1799,
-                                        "line": 82,
+                                        "offset": 1900,
+                                        "line": 88,
                                         "column": 17
                                     }
                                 },
@@ -6174,17 +6491,313 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1799,
-                        "line": 82,
+                        "offset": 1900,
+                        "line": 88,
                         "column": 17
                     },
                     "end": {
-                        "offset": 1801,
-                        "line": 82,
+                        "offset": 1902,
+                        "line": 88,
                         "column": 19
                     }
                 },
                 "children": []
+            }
+        },
+        {
+            "type": "Atrule",
+            "loc": {
+                "source": "stringify.css",
+                "start": {
+                    "offset": 1903,
+                    "line": 89,
+                    "column": 1
+                },
+                "end": {
+                    "offset": 1921,
+                    "line": 89,
+                    "column": 19
+                }
+            },
+            "name": "starting-style",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1919,
+                        "line": 89,
+                        "column": 17
+                    },
+                    "end": {
+                        "offset": 1921,
+                        "line": 89,
+                        "column": 19
+                    }
+                },
+                "children": []
+            }
+        },
+        {
+            "type": "Atrule",
+            "loc": {
+                "source": "stringify.css",
+                "start": {
+                    "offset": 1922,
+                    "line": 90,
+                    "column": 1
+                },
+                "end": {
+                    "offset": 1948,
+                    "line": 90,
+                    "column": 27
+                }
+            },
+            "name": "scope",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1929,
+                        "line": 90,
+                        "column": 8
+                    },
+                    "end": {
+                        "offset": 1939,
+                        "line": 90,
+                        "column": 18
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Scope",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1929,
+                                "line": 90,
+                                "column": 8
+                            },
+                            "end": {
+                                "offset": 1939,
+                                "line": 90,
+                                "column": 18
+                            }
+                        },
+                        "root": {
+                            "type": "SelectorList",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1930,
+                                    "line": 90,
+                                    "column": 9
+                                },
+                                "end": {
+                                    "offset": 1931,
+                                    "line": 90,
+                                    "column": 10
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1930,
+                                            "line": 90,
+                                            "column": 9
+                                        },
+                                        "end": {
+                                            "offset": 1931,
+                                            "line": 90,
+                                            "column": 10
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1930,
+                                                    "line": 90,
+                                                    "column": 9
+                                                },
+                                                "end": {
+                                                    "offset": 1931,
+                                                    "line": 90,
+                                                    "column": 10
+                                                }
+                                            },
+                                            "name": "a"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "limit": {
+                            "type": "SelectorList",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1937,
+                                    "line": 90,
+                                    "column": 16
+                                },
+                                "end": {
+                                    "offset": 1938,
+                                    "line": 90,
+                                    "column": 17
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1937,
+                                            "line": 90,
+                                            "column": 16
+                                        },
+                                        "end": {
+                                            "offset": 1938,
+                                            "line": 90,
+                                            "column": 17
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1937,
+                                                    "line": 90,
+                                                    "column": 16
+                                                },
+                                                "end": {
+                                                    "offset": 1938,
+                                                    "line": 90,
+                                                    "column": 17
+                                                }
+                                            },
+                                            "name": "b"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "loc": {
+                    "source": "stringify.css",
+                    "start": {
+                        "offset": 1940,
+                        "line": 90,
+                        "column": 19
+                    },
+                    "end": {
+                        "offset": 1948,
+                        "line": 90,
+                        "column": 27
+                    }
+                },
+                "children": [
+                    {
+                        "type": "Rule",
+                        "loc": {
+                            "source": "stringify.css",
+                            "start": {
+                                "offset": 1942,
+                                "line": 90,
+                                "column": 21
+                            },
+                            "end": {
+                                "offset": 1946,
+                                "line": 90,
+                                "column": 25
+                            }
+                        },
+                        "prelude": {
+                            "type": "SelectorList",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1942,
+                                    "line": 90,
+                                    "column": 21
+                                },
+                                "end": {
+                                    "offset": 1943,
+                                    "line": 90,
+                                    "column": 22
+                                }
+                            },
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "loc": {
+                                        "source": "stringify.css",
+                                        "start": {
+                                            "offset": 1942,
+                                            "line": 90,
+                                            "column": 21
+                                        },
+                                        "end": {
+                                            "offset": 1943,
+                                            "line": 90,
+                                            "column": 22
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "loc": {
+                                                "source": "stringify.css",
+                                                "start": {
+                                                    "offset": 1942,
+                                                    "line": 90,
+                                                    "column": 21
+                                                },
+                                                "end": {
+                                                    "offset": 1943,
+                                                    "line": 90,
+                                                    "column": 22
+                                                }
+                                            },
+                                            "name": "c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": {
+                                "source": "stringify.css",
+                                "start": {
+                                    "offset": 1944,
+                                    "line": 90,
+                                    "column": 23
+                                },
+                                "end": {
+                                    "offset": 1946,
+                                    "line": 90,
+                                    "column": 25
+                                }
+                            },
+                            "children": []
+                        }
+                    }
+                ]
             }
         }
     ]

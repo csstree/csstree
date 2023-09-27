@@ -65,6 +65,12 @@ edge\ .c\61ases {
     @media (orientation: vertical) {
         color: red;
     }
+    @starting-style {
+        color: blue;
+    }
+    @scope (a) to (b) {
+        color: black;
+    }
 }
 
 @media (100px < width < 400px) {
@@ -80,3 +86,5 @@ edge\ .c\61ases {
 @supports selector(.a) {}
 @container (width > 500px) and style(--foo:1) {}
 @layer foo, bar {}
+@starting-style {}
+@scope (a) to (b) { c {} }
