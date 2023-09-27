@@ -355,6 +355,27 @@
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
         },
+        "scroll-timeline": {
+            "comment": "fix according to spec",
+            "references": [
+                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
+            ],
+            "syntax": "[ <'scroll-timeline-name'> || <'scroll-timeline-axis'> ]#"
+        },
+        "scroll-timeline-axis": {
+            "comment": "fix according to spec",
+            "references": [
+                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
+            ],
+            "syntax": "[ block | inline | vertical | horizontal ]#"
+        },
+        "scroll-timeline-name": {
+            "comment": "fix according to spec",
+            "references": [
+                "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
+            ],
+            "syntax": "none | <custom-ident>#"
+        },
         "shape-rendering": {
             "comment": "added SVG property",
             "references": [
@@ -669,7 +690,7 @@
             "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
             "syntax": "<mask-reference>#"
         },
-        "named-color": {
+        "color": {
             "comment": "added non standard color names",
             "syntax": "| <-non-standard-color>"
         },
