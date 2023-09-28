@@ -256,6 +256,13 @@
             "comment": "extend with IE legacy syntaxes",
             "syntax": "| <-ms-filter-function-list>"
         },
+        "font": {
+            "comment": "non standard fonts",
+            "references": [
+                "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
+            ],
+            "syntax": "| <-non-standard-font>"
+        },
         "glyph-orientation-horizontal": {
             "comment": "added SVG property",
             "references": [
@@ -601,10 +608,6 @@
             "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
             "syntax": "repeat | stretch | round"
         },
-        "-webkit-mask-clip-style": {
-            "comment": "missed; there is no enough information about `-webkit-mask-clip` property, but looks like all those keywords are working",
-            "syntax": "border | border-box | padding | padding-box | content | content-box | text"
-        },
         "-ms-filter-function-list": {
             "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
             "syntax": "<-ms-filter-function>+"
@@ -620,9 +623,6 @@
         "-ms-filter-function-legacy": {
             "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
             "syntax": "<ident-token> | <function-token> <any-value>? )"
-        },
-        "-ms-filter": {
-            "syntax": "<string>"
         },
         "absolute-color-base": {
             "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
@@ -696,10 +696,6 @@
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
         },
-        "mask-image": {
-            "comment": "missed; https://drafts.fxtf.org/css-masking-1/#the-mask-image",
-            "syntax": "<mask-reference>#"
-        },
         "color": {
             "comment": "added non standard color names",
             "syntax": "| <-non-standard-color>"
@@ -719,17 +715,6 @@
         "shape": {
             "comment": "missed spaces in function body and add backwards compatible syntax",
             "syntax": "rect( <top>, <right>, <bottom>, <left> ) | rect( <top> <right> <bottom> <left> )"
-        },
-        "scroll-timeline-axis": {
-            "comment": "missed definition",
-            "syntax": "block | inline | vertical | horizontal"
-        },
-        "scroll-timeline-name": {
-            "comment": "missed definition",
-            "references": [
-                "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
-            ],
-            "syntax": "none | <custom-ident>"
         },
         "scope-start": {
             "syntax": "<forgiving-selector-list>"
