@@ -9,6 +9,7 @@
 - Bumped `mdn/data` to `2.1.0`
 - Added `<dashed-ident>` to generic types
 - Added `TokenStream#lookupTypeNonSC()` method
+- Fixed initialization when `Object.prototype` is extended or polluted (#262)
 - Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
 - Changed `Ratio` parsing:
     - Left and right parts contain nodes instead of strings
