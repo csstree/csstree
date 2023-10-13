@@ -7,8 +7,9 @@
 - Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule (according to [the @import rule](https://drafts.csswg.org/css-cascade-5/#at-import) in Cascading and Inheritance 5)
 - Added `Layer` and `LayerList` node types
 - Bumped `mdn/data` to `2.1.0`
-- Added `TokenStream#lookupTypeNonSC()` method
 - Added `<dashed-ident>` to generic types
+- Added `TokenStream#lookupTypeNonSC()` method
+- Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
 - Changed `Ratio` parsing:
     - Left and right parts contain nodes instead of strings
     - Both left and right parts of a ratio can now be any number; validation of number range is no longer within the parser's scope.
