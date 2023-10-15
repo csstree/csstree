@@ -11,6 +11,7 @@
 - Added `TokenStream#lookupTypeNonSC()` method
 - Fixed initialization when `Object.prototype` is extended or polluted (#262)
 - Fixed `speak` syntax patch (#241)
+- Fixed crash on parse error when custom `line` or `offset` is specified via options (#251)
 - Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
 - Changed `Block` to not include `{` and `}`
 - Changed `Atrule` and `Rule` to include `{` and `}` for a block
