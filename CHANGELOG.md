@@ -10,6 +10,7 @@
 - Added `<dashed-ident>` to generic types
 - Added `TokenStream#lookupTypeNonSC()` method
 - Fixed initialization when `Object.prototype` is extended or polluted (#262)
+- Fixed `speak` syntax patch (#241)
 - Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
 - Changed `Block` to not include `{` and `}`
 - Changed `Atrule` and `Rule` to include `{` and `}` for a block

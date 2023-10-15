@@ -406,7 +406,7 @@
         },
         "speak": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
-            "syntax": "auto | none | normal"
+            "syntax": "auto | never | always"
         },
         "speak-as": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
