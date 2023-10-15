@@ -1,0 +1,196 @@
+{
+    "rule.4": {
+        "source": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "filter",
+                        "value": {
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rule.5": {
+        "source": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "filter",
+                        "value": {
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rule.s.4": {
+        "source": ".test {\n    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');\n    color:red\n}",
+        "generate": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "filter",
+                        "value": {
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rule.s.5": {
+        "source": ".test {\n    color:red;\n    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')\n}",
+        "generate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "ClassSelector",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "color",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "red"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "filter",
+                        "value": {
+                            "type": "Raw",
+                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

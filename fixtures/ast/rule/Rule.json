@@ -1,5 +1,5 @@
 {
-    "ruleset.0": {
+    "rule.0": {
         "source": "s{p:v}",
         "ast": {
             "type": "Rule",
@@ -38,7 +38,7 @@
             }
         }
     },
-    "ruleset.1": {
+    "rule.1": {
         "source": "s{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
@@ -91,7 +91,7 @@
             }
         }
     },
-    "ruleset.2": {
+    "rule.2": {
         "source": "s0,s1{p:v}",
         "ast": {
             "type": "Rule",
@@ -139,7 +139,7 @@
             }
         }
     },
-    "ruleset.3": {
+    "rule.3": {
         "source": "s0,s1{p0:v0;p1:v1}",
         "ast": {
             "type": "Rule",
@@ -201,103 +201,7 @@
             }
         }
     },
-    "ruleset.4": {
-        "source": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
-        "ast": {
-            "type": "Rule",
-            "prelude": {
-                "type": "SelectorList",
-                "children": [
-                    {
-                        "type": "Selector",
-                        "children": [
-                            {
-                                "type": "ClassSelector",
-                                "name": "test"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "block": {
-                "type": "Block",
-                "children": [
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "filter",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
-                    },
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "color",
-                        "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "red"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "ruleset.5": {
-        "source": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
-        "ast": {
-            "type": "Rule",
-            "prelude": {
-                "type": "SelectorList",
-                "children": [
-                    {
-                        "type": "Selector",
-                        "children": [
-                            {
-                                "type": "ClassSelector",
-                                "name": "test"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "block": {
-                "type": "Block",
-                "children": [
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "color",
-                        "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "red"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "filter",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "ruleset.s.6": {
+    "rule.s.6": {
         "source": ".test\n{\rcolor:red;\r\n}",
         "generate": ".test{color:red}",
         "ast": {
@@ -376,7 +280,7 @@
             }
         }
     },
-    "ruleset.c.0": {
+    "rule.c.0": {
         "source": "s/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
         "generate": "s{p:v}",
         "ast": {
@@ -416,7 +320,7 @@
             }
         }
     },
-    "ruleset.c.1": {
+    "rule.c.1": {
         "source": "s/*test*/{/*test*/p0/*test*/:/*test*/v0/*test*/;/*test*/p1/*test*/:/*test*/v1/*test*/}",
         "generate": "s{p0:v0;p1:v1}",
         "ast": {
@@ -470,7 +374,7 @@
             }
         }
     },
-    "ruleset.c.2": {
+    "rule.c.2": {
         "source": "s0/*test*/,/*test*/s1/*test*/{/*test*/p/*test*/:/*test*/v/*test*/}",
         "generate": "s0,s1{p:v}",
         "ast": {
@@ -519,7 +423,7 @@
             }
         }
     },
-    "ruleset.c.3": {
+    "rule.c.3": {
         "source": "s0/*test*/,/*test*/s1/*test*/{/*test*/p0/*test*/:/*test*/v0/*test*/;/*test*/p1/*test*/:/*test*/v1/*test*/}",
         "generate": "s0,s1{p0:v0;p1:v1}",
         "ast": {
@@ -582,7 +486,7 @@
             }
         }
     },
-    "ruleset.s.0": {
+    "rule.s.0": {
         "source": "s  {  p  :  v  }",
         "generate": "s{p:v}",
         "ast": {
@@ -622,7 +526,7 @@
             }
         }
     },
-    "ruleset.s.1": {
+    "rule.s.1": {
         "source": "s  {  p0  :  v0  ;  p1  :  v1  }",
         "generate": "s{p0:v0;p1:v1}",
         "ast": {
@@ -676,7 +580,7 @@
             }
         }
     },
-    "ruleset.s.2": {
+    "rule.s.2": {
         "source": "s0  ,  s1  {  p  :  v  }",
         "generate": "s0,s1{p:v}",
         "ast": {
@@ -725,7 +629,7 @@
             }
         }
     },
-    "ruleset.s.3": {
+    "rule.s.3": {
         "source": "s0  ,  s1  {  p0  :  v0  ;  p1  :  v1  }",
         "generate": "s0,s1{p0:v0;p1:v1}",
         "ast": {
@@ -782,104 +686,6 @@
                                     "name": "v1"
                                 }
                             ]
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "ruleset.s.4": {
-        "source": ".test {\n    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');\n    color:red\n}",
-        "generate": ".test{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale');color:red}",
-        "ast": {
-            "type": "Rule",
-            "prelude": {
-                "type": "SelectorList",
-                "children": [
-                    {
-                        "type": "Selector",
-                        "children": [
-                            {
-                                "type": "ClassSelector",
-                                "name": "test"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "block": {
-                "type": "Block",
-                "children": [
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "filter",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')"
-                        }
-                    },
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "color",
-                        "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "red"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "ruleset.s.5": {
-        "source": ".test {\n    color:red;\n    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')\n}",
-        "generate": ".test{color:red;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')}",
-        "ast": {
-            "type": "Rule",
-            "prelude": {
-                "type": "SelectorList",
-                "children": [
-                    {
-                        "type": "Selector",
-                        "children": [
-                            {
-                                "type": "ClassSelector",
-                                "name": "test"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "block": {
-                "type": "Block",
-                "children": [
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "color",
-                        "value": {
-                            "type": "Value",
-                            "children": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "red"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Declaration",
-                        "important": false,
-                        "property": "filter",
-                        "value": {
-                            "type": "Raw",
-                            "value": "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/transparent-border.png',sizingMethod='scale')\n           progid:DXImageTransform.Microsoft.AlphaImageLoader(src='test.png',sizingMethod='test')"
                         }
                     }
                 ]
@@ -994,6 +800,31 @@
                         }
                     }
                 ]
+            }
+        }
+    },
+    "unclosed block": {
+        "source": "selector { ",
+        "generate": "selector{}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "selector"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
             }
         }
     }

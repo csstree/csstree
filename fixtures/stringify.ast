@@ -177,14 +177,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 47,
+                        "offset": 48,
                         "line": 3,
-                        "column": 13
+                        "column": 14
                     },
                     "end": {
-                        "offset": 67,
+                        "offset": 66,
                         "line": 5,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -374,14 +374,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 95,
+                        "offset": 96,
                         "line": 6,
-                        "column": 28
+                        "column": 29
                     },
                     "end": {
-                        "offset": 137,
+                        "offset": 136,
                         "line": 10,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -458,14 +458,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 108,
+                                    "offset": 109,
                                     "line": 7,
-                                    "column": 12
+                                    "column": 13
                                 },
                                 "end": {
-                                    "offset": 135,
+                                    "offset": 134,
                                     "line": 9,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -1637,14 +1637,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 351,
+                        "offset": 352,
                         "line": 14,
-                        "column": 13
+                        "column": 14
                     },
                     "end": {
-                        "offset": 755,
+                        "offset": 754,
                         "line": 23,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -2579,14 +2579,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 792,
+                        "offset": 793,
                         "line": 25,
-                        "column": 36
+                        "column": 37
                     },
                     "end": {
-                        "offset": 936,
+                        "offset": 935,
                         "line": 31,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -2681,14 +2681,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 812,
+                                    "offset": 813,
                                     "line": 26,
-                                    "column": 19
+                                    "column": 20
                                 },
                                 "end": {
-                                    "offset": 934,
+                                    "offset": 933,
                                     "line": 30,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -3003,14 +3003,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 987,
+                        "offset": 988,
                         "line": 33,
-                        "column": 50
+                        "column": 51
                     },
                     "end": {
-                        "offset": 1056,
+                        "offset": 1055,
                         "line": 37,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -3087,14 +3087,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 999,
+                                    "offset": 1000,
                                     "line": 34,
-                                    "column": 11
+                                    "column": 12
                                 },
                                 "end": {
-                                    "offset": 1054,
+                                    "offset": 1053,
                                     "line": 36,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -3408,14 +3408,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1082,
+                        "offset": 1083,
                         "line": 39,
-                        "column": 25
+                        "column": 26
                     },
                     "end": {
-                        "offset": 1100,
+                        "offset": 1099,
                         "line": 41,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -3653,14 +3653,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1165,
+                        "offset": 1166,
                         "line": 45,
-                        "column": 19
+                        "column": 20
                     },
                     "end": {
-                        "offset": 1270,
+                        "offset": 1269,
                         "line": 49,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -3737,14 +3737,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1177,
+                                    "offset": 1178,
                                     "line": 46,
-                                    "column": 11
+                                    "column": 12
                                 },
                                 "end": {
-                                    "offset": 1193,
+                                    "offset": 1192,
                                     "line": 46,
-                                    "column": 27
+                                    "column": 26
                                 }
                             },
                             "children": [
@@ -3877,14 +3877,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1204,
+                                    "offset": 1205,
                                     "line": 47,
-                                    "column": 11
+                                    "column": 12
                                 },
                                 "end": {
-                                    "offset": 1239,
+                                    "offset": 1238,
                                     "line": 47,
-                                    "column": 46
+                                    "column": 45
                                 }
                             },
                             "children": [
@@ -4070,14 +4070,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1250,
+                                    "offset": 1251,
                                     "line": 48,
-                                    "column": 11
+                                    "column": 12
                                 },
                                 "end": {
-                                    "offset": 1268,
+                                    "offset": 1267,
                                     "line": 48,
-                                    "column": 29
+                                    "column": 28
                                 }
                             },
                             "children": [
@@ -4264,14 +4264,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1288,
+                        "offset": 1289,
                         "line": 51,
-                        "column": 17
+                        "column": 18
                     },
                     "end": {
-                        "offset": 1347,
+                        "offset": 1346,
                         "line": 55,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -4508,14 +4508,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1354,
+                        "offset": 1355,
                         "line": 57,
-                        "column": 6
+                        "column": 7
                     },
                     "end": {
-                        "offset": 1629,
+                        "offset": 1628,
                         "line": 74,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -4662,14 +4662,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1385,
+                                    "offset": 1386,
                                     "line": 59,
-                                    "column": 13
+                                    "column": 14
                                 },
                                 "end": {
-                                    "offset": 1414,
+                                    "offset": 1413,
                                     "line": 61,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -4875,14 +4875,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1433,
+                                    "offset": 1434,
                                     "line": 62,
-                                    "column": 19
+                                    "column": 20
                                 },
                                 "end": {
-                                    "offset": 1463,
+                                    "offset": 1462,
                                     "line": 64,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -5071,14 +5071,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1499,
+                                    "offset": 1500,
                                     "line": 65,
-                                    "column": 36
+                                    "column": 37
                                 },
                                 "end": {
-                                    "offset": 1526,
+                                    "offset": 1525,
                                     "line": 67,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -5160,14 +5160,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1547,
+                                    "offset": 1548,
                                     "line": 68,
-                                    "column": 21
+                                    "column": 22
                                 },
                                 "end": {
-                                    "offset": 1575,
+                                    "offset": 1574,
                                     "line": 70,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -5388,14 +5388,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1598,
+                                    "offset": 1599,
                                     "line": 71,
-                                    "column": 23
+                                    "column": 24
                                 },
                                 "end": {
-                                    "offset": 1627,
+                                    "offset": 1626,
                                     "line": 73,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -5624,14 +5624,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1662,
+                        "offset": 1663,
                         "line": 76,
-                        "column": 32
+                        "column": 33
                     },
                     "end": {
-                        "offset": 1744,
+                        "offset": 1743,
                         "line": 82,
-                        "column": 2
+                        "column": 1
                     }
                 },
                 "children": [
@@ -5673,14 +5673,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1683,
+                                    "offset": 1684,
                                     "line": 77,
-                                    "column": 20
+                                    "column": 21
                                 },
                                 "end": {
-                                    "offset": 1742,
+                                    "offset": 1741,
                                     "line": 81,
-                                    "column": 6
+                                    "column": 5
                                 }
                             },
                             "children": [
@@ -5757,14 +5757,14 @@
                                         "loc": {
                                             "source": "stringify.css",
                                             "start": {
-                                                "offset": 1699,
+                                                "offset": 1700,
                                                 "line": 78,
-                                                "column": 15
+                                                "column": 16
                                             },
                                             "end": {
-                                                "offset": 1736,
+                                                "offset": 1735,
                                                 "line": 80,
-                                                "column": 10
+                                                "column": 9
                                             }
                                         },
                                         "children": [
@@ -6067,14 +6067,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1806,
+                        "offset": 1807,
                         "line": 85,
-                        "column": 38
+                        "column": 39
                     },
                     "end": {
-                        "offset": 1808,
+                        "offset": 1807,
                         "line": 85,
-                        "column": 40
+                        "column": 39
                     }
                 },
                 "children": []
@@ -6191,14 +6191,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1832,
+                        "offset": 1833,
                         "line": 86,
-                        "column": 24
+                        "column": 25
                     },
                     "end": {
-                        "offset": 1834,
+                        "offset": 1833,
                         "line": 86,
-                        "column": 26
+                        "column": 25
                     }
                 },
                 "children": []
@@ -6387,14 +6387,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1881,
+                        "offset": 1882,
                         "line": 87,
-                        "column": 47
+                        "column": 48
                     },
                     "end": {
-                        "offset": 1883,
+                        "offset": 1882,
                         "line": 87,
-                        "column": 49
+                        "column": 48
                     }
                 },
                 "children": []
@@ -6491,14 +6491,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1900,
+                        "offset": 1901,
                         "line": 88,
-                        "column": 17
+                        "column": 18
                     },
                     "end": {
-                        "offset": 1902,
+                        "offset": 1901,
                         "line": 88,
-                        "column": 19
+                        "column": 18
                     }
                 },
                 "children": []
@@ -6526,14 +6526,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1919,
+                        "offset": 1920,
                         "line": 89,
-                        "column": 17
+                        "column": 18
                     },
                     "end": {
-                        "offset": 1921,
+                        "offset": 1920,
                         "line": 89,
-                        "column": 19
+                        "column": 18
                     }
                 },
                 "children": []
@@ -6700,14 +6700,14 @@
                 "loc": {
                     "source": "stringify.css",
                     "start": {
-                        "offset": 1940,
+                        "offset": 1941,
                         "line": 90,
-                        "column": 19
+                        "column": 20
                     },
                     "end": {
-                        "offset": 1948,
+                        "offset": 1947,
                         "line": 90,
-                        "column": 27
+                        "column": 26
                     }
                 },
                 "children": [
@@ -6784,14 +6784,14 @@
                             "loc": {
                                 "source": "stringify.css",
                                 "start": {
-                                    "offset": 1944,
+                                    "offset": 1945,
                                     "line": 90,
-                                    "column": 23
+                                    "column": 24
                                 },
                                 "end": {
-                                    "offset": 1946,
+                                    "offset": 1945,
                                     "line": 90,
-                                    "column": 25
+                                    "column": 24
                                 }
                             },
                             "children": []

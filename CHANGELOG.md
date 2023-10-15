@@ -11,6 +11,8 @@
 - Added `TokenStream#lookupTypeNonSC()` method
 - Fixed initialization when `Object.prototype` is extended or polluted (#262)
 - Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
+- Changed `Block` to not include `{` and `}`
+- Changed `Atrule` and `Rule` to include `{` and `}` for a block
 - Changed `Ratio` parsing:
     - Left and right parts contain nodes instead of strings
     - Both left and right parts of a ratio can now be any number; validation of number range is no longer within the parser's scope.
