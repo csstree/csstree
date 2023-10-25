@@ -3,79 +3,120 @@
         "source": "(foo)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": null
-                }
-            ]
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": null
+                    }
+                ]
+            }
         }
     },
     "media feature with number value": {
         "source": "(foo:1)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": {
-                        "type": "Number",
-                        "value": "1"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Number",
+                            "value": "1"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "media feature with identifier value": {
         "source": "(foo:bar)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": {
-                        "type": "Identifier",
-                        "name": "bar"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Identifier",
+                            "name": "bar"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "media feature with dimension value": {
         "source": "(foo:2px)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": {
-                        "type": "Dimension",
-                        "value": "2",
-                        "unit": "px"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Dimension",
+                            "value": "2",
+                            "unit": "px"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "media feature with ratio": {
         "source": "(foo:3/4)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": {
-                        "type": "Ratio",
-                        "left": "3",
-                        "right": "4"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Ratio",
+                            "left": {
+                                "type": "Number",
+                                "value": "3"
+                            },
+                            "right": {
+                                "type": "Number",
+                                "value": "4"
+                            }
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "media feature with spaces": {
@@ -83,16 +124,23 @@
         "generate": "(foo:1)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": {
-                        "type": "Number",
-                        "value": "1"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Number",
+                            "value": "1"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "media feature with comments": {
@@ -100,20 +148,27 @@
         "generate": "all (foo:1)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "Identifier",
-                    "name": "all"
-                },
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": {
-                        "type": "Number",
-                        "value": "1"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "all"
+                    },
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Number",
+                            "value": "1"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "media feature with ratio and spaces": {
@@ -121,57 +176,153 @@
         "generate": "(foo:3/4)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "foo",
-                    "value": {
-                        "type": "Ratio",
-                        "left": "3",
-                        "right": "4"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Ratio",
+                            "left": {
+                                "type": "Number",
+                                "value": "3"
+                            },
+                            "right": {
+                                "type": "Number",
+                                "value": "4"
+                            }
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "vendor media feature": {
         "source": "(-webkit-min-device-pixel-ratio:2)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "-webkit-min-device-pixel-ratio",
-                    "value": {
-                        "type": "Number",
-                        "value": "2"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "-webkit-min-device-pixel-ratio",
+                        "value": {
+                            "type": "Number",
+                            "value": "2"
+                        }
                     }
-                }
-            ]
+                ]
+            }
+        }
+    },
+    "dashed name feature": {
+        "source": "(--foo:2)",
+        "ast": {
+            "type": "MediaQuery",
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "--foo",
+                        "value": {
+                            "type": "Number",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "with function": {
+        "source": "(  foo  :  calc( 3  /  4 + 2)  )",
+        "generate": "(foo:calc(3/4 + 2))",
+        "ast": {
+            "type": "MediaQuery",
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "foo",
+                        "value": {
+                            "type": "Function",
+                            "name": "calc",
+                            "children": [
+                                {
+                                    "type": "Number",
+                                    "value": "3"
+                                },
+                                {
+                                    "type": "Operator",
+                                    "value": "/"
+                                },
+                                {
+                                    "type": "Number",
+                                    "value": "4"
+                                },
+                                {
+                                    "type": "Operator",
+                                    "value": " + "
+                                },
+                                {
+                                    "type": "Number",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
         }
     },
     "number with \\0 hack": {
         "source": "(min-width:0\\0)",
         "ast": {
             "type": "MediaQuery",
-            "children": [
-                {
-                    "type": "MediaFeature",
-                    "name": "min-width",
-                    "value": {
-                        "type": "Dimension",
-                        "value": "0",
-                        "unit": "\\0"
+            "modifier": null,
+            "mediaType": null,
+            "condition": {
+                "type": "Condition",
+                "kind": "media",
+                "children": [
+                    {
+                        "type": "Feature",
+                        "kind": "media",
+                        "name": "min-width",
+                        "value": {
+                            "type": "Dimension",
+                            "value": "0",
+                            "unit": "\\0"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         }
     },
     "error": [
         {
             "source": "(foo 123)",
             "offset": "     ^",
-            "error": "Colon is expected"
+            "error": "Expected \":\", \"<\", \">\", \"=\" or \")\""
         },
         {
             "source": "(foo: bar baz)",

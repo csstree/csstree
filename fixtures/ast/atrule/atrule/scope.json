@@ -1,0 +1,168 @@
+{
+    "base syntax": {
+        "source": "@scope (a) to (b) { c {} }",
+        "generate": "@scope (a) to (b){c{}}",
+        "ast": {
+            "type": "Atrule",
+            "name": "scope",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Scope",
+                        "root": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "a"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "limit": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "b"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "only root": {
+        "source": "@scope (root){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "scope",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Scope",
+                        "root": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "root"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "limit": null
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "only limit": {
+        "source": "@scope to (limit){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "scope",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Scope",
+                        "root": null,
+                        "limit": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "limit"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "bad selectors": {
+        "source": "@scope ( .a. ) to ( .b. ) {}",
+        "generate": "@scope (.a.) to (.b.){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "scope",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Scope",
+                        "root": {
+                            "type": "Raw",
+                            "value": ".a."
+                        },
+                        "limit": {
+                            "type": "Raw",
+                            "value": ".b."
+                        }
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    }
+}

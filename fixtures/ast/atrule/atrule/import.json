@@ -51,34 +51,30 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "all"
-                                    }
-                                ]
+                                "modifier": null,
+                                "mediaType": "all",
+                                "condition": null
                             },
                             {
                                 "type": "MediaQuery",
-                                "children": [
-                                    {
-                                        "type": "Identifier",
-                                        "name": "screen"
-                                    },
-                                    {
-                                        "type": "Identifier",
-                                        "name": "and"
-                                    },
-                                    {
-                                        "type": "MediaFeature",
-                                        "name": "min-width",
-                                        "value": {
-                                            "type": "Dimension",
-                                            "value": "600",
-                                            "unit": "px"
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": {
+                                    "type": "Condition",
+                                    "kind": "media",
+                                    "children": [
+                                        {
+                                            "type": "Feature",
+                                            "kind": "media",
+                                            "name": "min-width",
+                                            "value": {
+                                                "type": "Dimension",
+                                                "value": "600",
+                                                "unit": "px"
+                                            }
                                         }
-                                    }
-                                ]
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -105,12 +101,376 @@
                         "children": [
                             {
                                 "type": "MediaQuery",
+                                "modifier": null,
+                                "mediaType": "all",
+                                "condition": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with anonymous layer": {
+        "source": "@import url(test) layer;",
+        "generate": "@import url(test)layer;",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Identifier",
+                        "name": "layer"
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with layer()": {
+        "source": "@import url(test) layer(foo);",
+        "generate": "@import url(test)layer(foo);",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Function",
+                        "name": "layer",
+                        "children": [
+                            {
+                                "type": "Layer",
+                                "name": "foo"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with bad layer()": [
+        {
+            "source": "@import url(test) layer();",
+            "generate": "@import url(test)layer();",
+            "ast": {
+                "type": "Atrule",
+                "name": "import",
+                "prelude": {
+                    "type": "AtrulePrelude",
+                    "children": [
+                        {
+                            "type": "Url",
+                            "value": "test"
+                        },
+                        {
+                            "type": "Function",
+                            "name": "layer",
+                            "children": []
+                        }
+                    ]
+                },
+                "block": null
+            }
+        },
+        {
+            "source": "@import url(test) layer( 2px );",
+            "generate": "@import url(test)layer(2px);",
+            "ast": {
+                "type": "Atrule",
+                "name": "import",
+                "prelude": {
+                    "type": "AtrulePrelude",
+                    "children": [
+                        {
+                            "type": "Url",
+                            "value": "test"
+                        },
+                        {
+                            "type": "Function",
+                            "name": "layer",
+                            "children": [
+                                {
+                                    "type": "Raw",
+                                    "value": "2px"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "block": null
+            }
+        }
+    ],
+    "with supports(declaration)": {
+        "source": "@import url(test) supports(foo:1);",
+        "generate": "@import url(test)supports(foo:1);",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Function",
+                        "name": "supports",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "foo",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with supports(condition)": {
+        "source": "@import url(test) supports(not (foo:1));",
+        "generate": "@import url(test)supports(not (foo:1));",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Function",
+                        "name": "supports",
+                        "children": [
+                            {
+                                "type": "Condition",
+                                "kind": "supports",
                                 "children": [
                                     {
                                         "type": "Identifier",
-                                        "name": "all"
+                                        "name": "not"
+                                    },
+                                    {
+                                        "type": "SupportsDeclaration",
+                                        "declaration": {
+                                            "type": "Declaration",
+                                            "important": false,
+                                            "property": "foo",
+                                            "value": {
+                                                "type": "Value",
+                                                "children": [
+                                                    {
+                                                        "type": "Number",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     }
                                 ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with bad supports()": [
+        {
+            "source": "@import url(test) supports();",
+            "generate": "@import url(test)supports();",
+            "ast": {
+                "type": "Atrule",
+                "name": "import",
+                "prelude": {
+                    "type": "AtrulePrelude",
+                    "children": [
+                        {
+                            "type": "Url",
+                            "value": "test"
+                        },
+                        {
+                            "type": "Function",
+                            "name": "supports",
+                            "children": []
+                        }
+                    ]
+                },
+                "block": null
+            }
+        },
+        {
+            "source": "@import url(test) supports(  2px  );",
+            "generate": "@import url(test)supports(2px);",
+            "ast": {
+                "type": "Atrule",
+                "name": "import",
+                "prelude": {
+                    "type": "AtrulePrelude",
+                    "children": [
+                        {
+                            "type": "Url",
+                            "value": "test"
+                        },
+                        {
+                            "type": "Function",
+                            "name": "supports",
+                            "children": [
+                                {
+                                    "type": "Raw",
+                                    "value": "2px"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "block": null
+            }
+        }
+    ],
+    "with layer & supports": {
+        "source": "@import url(test) layer(name) supports(foo:1);",
+        "generate": "@import url(test)layer(name) supports(foo:1);",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Function",
+                        "name": "layer",
+                        "children": [
+                            {
+                                "type": "Layer",
+                                "name": "name"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Function",
+                        "name": "supports",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "foo",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with layer & supports & media": {
+        "source": "@import url(test) layer(name) supports(foo:1) screen and (min-width: 100px);",
+        "generate": "@import url(test)layer(name) supports(foo:1) screen and (min-width:100px);",
+        "ast": {
+            "type": "Atrule",
+            "name": "import",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Url",
+                        "value": "test"
+                    },
+                    {
+                        "type": "Function",
+                        "name": "layer",
+                        "children": [
+                            {
+                                "type": "Layer",
+                                "name": "name"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Function",
+                        "name": "supports",
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "important": false,
+                                "property": "foo",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Number",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "MediaQueryList",
+                        "children": [
+                            {
+                                "type": "MediaQuery",
+                                "modifier": null,
+                                "mediaType": "screen",
+                                "condition": {
+                                    "type": "Condition",
+                                    "kind": "media",
+                                    "children": [
+                                        {
+                                            "type": "Feature",
+                                            "kind": "media",
+                                            "name": "min-width",
+                                            "value": {
+                                                "type": "Dimension",
+                                                "value": "100",
+                                                "unit": "px"
+                                            }
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }

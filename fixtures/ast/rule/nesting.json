@@ -183,16 +183,23 @@
                                     "children": [
                                         {
                                             "type": "MediaQuery",
-                                            "children": [
-                                                {
-                                                    "type": "MediaFeature",
-                                                    "name": "orientation",
-                                                    "value": {
-                                                        "type": "Identifier",
-                                                        "name": "landscape"
+                                            "modifier": null,
+                                            "mediaType": null,
+                                            "condition": {
+                                                "type": "Condition",
+                                                "kind": "media",
+                                                "children": [
+                                                    {
+                                                        "type": "Feature",
+                                                        "kind": "media",
+                                                        "name": "orientation",
+                                                        "value": {
+                                                            "type": "Identifier",
+                                                            "name": "landscape"
+                                                        }
                                                     }
-                                                }
-                                            ]
+                                                ]
+                                            }
                                         }
                                     ]
                                 }
@@ -226,17 +233,24 @@
                                                 "children": [
                                                     {
                                                         "type": "MediaQuery",
-                                                        "children": [
-                                                            {
-                                                                "type": "MediaFeature",
-                                                                "name": "min-width",
-                                                                "value": {
-                                                                    "type": "Dimension",
-                                                                    "value": "1024",
-                                                                    "unit": "px"
+                                                        "modifier": null,
+                                                        "mediaType": null,
+                                                        "condition": {
+                                                            "type": "Condition",
+                                                            "kind": "media",
+                                                            "children": [
+                                                                {
+                                                                    "type": "Feature",
+                                                                    "kind": "media",
+                                                                    "name": "min-width",
+                                                                    "value": {
+                                                                        "type": "Dimension",
+                                                                        "value": "1024",
+                                                                        "unit": "px"
+                                                                    }
                                                                 }
-                                                            }
-                                                        ]
+                                                            ]
+                                                        }
                                                     }
                                                 ]
                                             }
@@ -312,20 +326,24 @@
                             "type": "AtrulePrelude",
                             "children": [
                                 {
-                                    "type": "Parentheses",
+                                    "type": "Condition",
+                                    "kind": "supports",
                                     "children": [
                                         {
-                                            "type": "Declaration",
-                                            "important": false,
-                                            "property": "prop",
-                                            "value": {
-                                                "type": "Value",
-                                                "children": [
-                                                    {
-                                                        "type": "Identifier",
-                                                        "name": "value"
-                                                    }
-                                                ]
+                                            "type": "SupportsDeclaration",
+                                            "declaration": {
+                                                "type": "Declaration",
+                                                "important": false,
+                                                "property": "prop",
+                                                "value": {
+                                                    "type": "Value",
+                                                    "children": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "value"
+                                                        }
+                                                    ]
+                                                }
                                             }
                                         }
                                     ]
@@ -356,20 +374,24 @@
                                         "type": "AtrulePrelude",
                                         "children": [
                                             {
-                                                "type": "Parentheses",
+                                                "type": "Condition",
+                                                "kind": "supports",
                                                 "children": [
                                                     {
-                                                        "type": "Declaration",
-                                                        "important": false,
-                                                        "property": "prop2",
-                                                        "value": {
-                                                            "type": "Value",
-                                                            "children": [
-                                                                {
-                                                                    "type": "Identifier",
-                                                                    "name": "value2"
-                                                                }
-                                                            ]
+                                                        "type": "SupportsDeclaration",
+                                                        "declaration": {
+                                                            "type": "Declaration",
+                                                            "important": false,
+                                                            "property": "prop2",
+                                                            "value": {
+                                                                "type": "Value",
+                                                                "children": [
+                                                                    {
+                                                                        "type": "Identifier",
+                                                                        "name": "value2"
+                                                                    }
+                                                                ]
+                                                            }
                                                         }
                                                     }
                                                 ]
@@ -392,6 +414,170 @@
                                                         }
                                                     ]
                                                 }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested @container": {
+        "source": "selector { @container card (inline-size > 30em) { @container style(--responsive: true) { color: green; } } }",
+        "generate": "selector{@container card (inline-size>30em){@container style(--responsive: true){color:green}}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "selector"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "container",
+                        "prelude": {
+                            "type": "AtrulePrelude",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "card"
+                                },
+                                {
+                                    "type": "Condition",
+                                    "kind": "container",
+                                    "children": [
+                                        {
+                                            "type": "FeatureRange",
+                                            "kind": "container",
+                                            "left": {
+                                                "type": "Identifier",
+                                                "name": "inline-size"
+                                            },
+                                            "leftComparison": ">",
+                                            "middle": {
+                                                "type": "Dimension",
+                                                "value": "30",
+                                                "unit": "em"
+                                            },
+                                            "rightComparison": null,
+                                            "right": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Atrule",
+                                    "name": "container",
+                                    "prelude": {
+                                        "type": "AtrulePrelude",
+                                        "children": [
+                                            {
+                                                "type": "Condition",
+                                                "kind": "container",
+                                                "children": [
+                                                    {
+                                                        "type": "FeatureFunction",
+                                                        "kind": "container",
+                                                        "feature": "style",
+                                                        "value": {
+                                                            "type": "Declaration",
+                                                            "important": false,
+                                                            "property": "--responsive",
+                                                            "value": {
+                                                                "type": "Raw",
+                                                                "value": " true"
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "block": {
+                                        "type": "Block",
+                                        "children": [
+                                            {
+                                                "type": "Declaration",
+                                                "important": false,
+                                                "property": "color",
+                                                "value": {
+                                                    "type": "Value",
+                                                    "children": [
+                                                        {
+                                                            "type": "Identifier",
+                                                            "name": "green"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested @starting-style": {
+        "source": "selector { @starting-style { color: red; } }",
+        "generate": "selector{@starting-style{color:red}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "selector"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Atrule",
+                        "name": "starting-style",
+                        "prelude": null,
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "red"
                                             }
                                         ]
                                     }

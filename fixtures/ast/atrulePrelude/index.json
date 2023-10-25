@@ -28,12 +28,9 @@
                     "children": [
                         {
                             "type": "MediaQuery",
-                            "children": [
-                                {
-                                    "type": "Identifier",
-                                    "name": "screen"
-                                }
-                            ]
+                            "modifier": null,
+                            "mediaType": "screen",
+                            "condition": null
                         }
                     ]
                 }

@@ -1,0 +1,193 @@
+{
+    "anonymous layer": {
+        "source": "@layer;",
+        "ast": {
+            "type": "Atrule",
+            "name": "layer",
+            "prelude": null,
+            "block": null
+        }
+    },
+    "anonymous layer with block": {
+        "source": "@layer { selector {} }",
+        "generate": "@layer{selector{}}",
+        "ast": {
+            "type": "Atrule",
+            "loc": null,
+            "name": "layer",
+            "prelude": null,
+            "block": {
+                "type": "Block",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "Rule",
+                        "loc": null,
+                        "prelude": {
+                            "type": "SelectorList",
+                            "loc": null,
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "loc": null,
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "loc": null,
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": null,
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "one layer name": {
+        "source": "@layer test;",
+        "ast": {
+            "type": "Atrule",
+            "name": "layer",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "LayerList",
+                        "children": [
+                            {
+                                "type": "Layer",
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "layer name with fullstop": {
+        "source": "@layer foo.bar;",
+        "ast": {
+            "type": "Atrule",
+            "name": "layer",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "LayerList",
+                        "children": [
+                            {
+                                "type": "Layer",
+                                "name": "foo.bar"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "with a block": {
+        "source": "@layer test { selector {} }",
+        "generate": "@layer test{selector{}}",
+        "ast": {
+            "type": "Atrule",
+            "loc": null,
+            "name": "layer",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "LayerList",
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "Layer",
+                                "loc": null,
+                                "name": "test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "loc": null,
+                "children": [
+                    {
+                        "type": "Rule",
+                        "loc": null,
+                        "prelude": {
+                            "type": "SelectorList",
+                            "loc": null,
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "loc": null,
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "loc": null,
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "loc": null,
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "layer name list": {
+        "source": "@layer foo, foo.bar, foo.bar.baz;",
+        "generate": "@layer foo,foo.bar,foo.bar.baz;",
+        "ast": {
+            "type": "Atrule",
+            "name": "layer",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "LayerList",
+                        "children": [
+                            {
+                                "type": "Layer",
+                                "name": "foo"
+                            },
+                            {
+                                "type": "Layer",
+                                "name": "foo.bar"
+                            },
+                            {
+                                "type": "Layer",
+                                "name": "foo.bar.baz"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "error": [
+        {
+            "source": "@layer foo . bar ;",
+            "offset": "           ^",
+            "error": "Semicolon or block is expected"
+        }
+    ]
+}

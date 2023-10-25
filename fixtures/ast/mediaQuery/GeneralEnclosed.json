@@ -1,0 +1,148 @@
+{
+    "function": {
+        "source": "foo(1 2)",
+        "ast": {
+            "type": "Condition",
+            "kind": "media",
+            "children": [
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": "foo",
+                    "children": [
+                        {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        {
+                            "type": "Number",
+                            "value": "2"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "empty function": {
+        "source": "foo()",
+        "ast": {
+            "type": "Condition",
+            "kind": "media",
+            "children": [
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": "foo",
+                    "children": []
+                }
+            ]
+        }
+    },
+    "parentheses": {
+        "source": "(1 2)",
+        "ast": {
+            "type": "Condition",
+            "kind": "media",
+            "children": [
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": null,
+                    "children": [
+                        {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        {
+                            "type": "Number",
+                            "value": "2"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "empty parentheses": {
+        "source": "()",
+        "ast": {
+            "type": "Condition",
+            "kind": "media",
+            "children": [
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": null,
+                    "children": []
+                }
+            ]
+        }
+    },
+    "mixed": {
+        "source": "foo(1 2) and (1 2)",
+        "ast": {
+            "type": "Condition",
+            "kind": "media",
+            "children": [
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": "foo",
+                    "children": [
+                        {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        {
+                            "type": "Number",
+                            "value": "2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Identifier",
+                    "name": "and"
+                },
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": null,
+                    "children": [
+                        {
+                            "type": "Number",
+                            "value": "1"
+                        },
+                        {
+                            "type": "Number",
+                            "value": "2"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "mixed empty": {
+        "source": "foo() and ()",
+        "ast": {
+            "type": "Condition",
+            "kind": "media",
+            "children": [
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": "foo",
+                    "children": []
+                },
+                {
+                    "type": "Identifier",
+                    "name": "and"
+                },
+                {
+                    "type": "GeneralEnclosed",
+                    "kind": "media",
+                    "function": null,
+                    "children": []
+                }
+            ]
+        }
+    }
+}

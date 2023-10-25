@@ -1,3 +1,63 @@
+## next
+
+- Added support for the [`@container`](https://drafts.csswg.org/css-contain-3/#container-rule) at-rule
+- Added support for the [`@starting-style`](https://drafts.csswg.org/css-transitions-2/#defining-before-change-style) at-rule
+- Added support for the [`@scope`](https://drafts.csswg.org/css-cascade-6/#scoped-styles) at-rule
+- Added support for the [`@layer`](https://drafts.csswg.org/css-cascade-5/#at-layer) at-rule
+- Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule (according to [the @import rule](https://drafts.csswg.org/css-cascade-5/#at-import) in Cascading and Inheritance 5)
+- Added `Layer` and `LayerList` node types
+- Bumped `mdn/data` to `2.1.0`
+- Added `<dashed-ident>` to generic types
+- Added `TokenStream#lookupTypeNonSC()` method
+- Fixed initialization when `Object.prototype` is extended or polluted (#262)
+- Fixed `speak` syntax patch (#241)
+- Fixed crash on parse error when custom `line` or `offset` is specified via options (#251)
+- Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
+- Changed `Block` to not include `{` and `}`
+- Changed `Atrule` and `Rule` to include `{` and `}` for a block
+- Changed `Ratio` parsing:
+    - Left and right parts contain nodes instead of strings
+    - Both left and right parts of a ratio can now be any number; validation of number range is no longer within the parser's scope.
+    - Both parts can now be functions. Although not explicitly mentioned in the specification, mathematical functions can replace numbers, addressing potential use cases (#162).
+    - As per the [CSS Values and Units Level 4](https://drafts.csswg.org/css-values-4/#ratios) specification, the right part of `Ratio` can be omitted. While this can't be a parser output (which would produce a `Number` node), it's feasible during `Ratio` node construction or transformation.
+- Changes to query-related at-rules:
+    - Added new node types:
+        - [`Feature`](./docs/ast.md#feature): represents features like `(feature)` and `(feature: value)`, fundamental for both `@media` and `@container` at-rules
+        - [`FeatureRange`](./docs/ast.md#featurerange): represents [features in a range context](https://www.w3.org/TR/mediaqueries-4/#mq-range-context)
+        - [`FeatureFunction`](./docs/ast.md#featurefunction): represents functional features such as `@supports`'s `selector()` or `@container`'s `style()`
+        - [`Condition`](./docs/ast.md#condition): used across all query-like at-rules, encapsulating queries with features and the `not`, `and`, and `or` operators
+        - [`GeneralEnclosure`](./docs/ast.md#condition): represents the [`<general-enclosed>`](https://www.w3.org/TR/mediaqueries-4/#typedef-general-enclosed) production, which caters to unparsed parentheses or functional expressions
+        > Note: All new nodes include a `kind` property to define the at-rule type. Supported kinds are `media`, `supports`, and `container`.
+
+    - Added support for functions for features and features in a range context, e.g. `(width: calc(100cm / 6))`
+    - Added a `condition` value for the parser's context option to parse queries. Use the `kind` option to specify the condition type, e.g., `parse('...', { context: 'condition', kind: 'media' })`.
+    - Introduced a `features` section in the syntax configuration for defining functional features of at-rules. Expand definitions using the `fork()` method. The current definition is as follows:
+        ```js
+        features: {
+            supports: { selector() { /* ... */ } },
+            container: { style() { /* ... */ } }
+        }
+        ```
+    - Changes for `@media` at-rule:
+        - Enhanced prelude parsing for complex queries. Parentheses with errors will be parsed as `GeneralEnclosed`.
+        - Added support for features in a range context, e.g. `(width > 100px)` or `(100px < height < 400px)`
+        - Transitioned from `MediaFeature` node type to the `Feature` node type with `kind: "media"`.
+        - Changed `MediaQuery` node structure into the following form:
+            ```ts
+            type MediaQuery = {
+                type: "MediaQuery";
+                modifier: string | null; // e.g. "not", "only", etc.
+                mediaType: string | null; // e.g. "all", "screen", etc.
+                condition: Condition | null;
+            }
+            ```
+    - Changes for `@supports` at-rule:
+        - Enhanced prelude parsing for complex queries. Parentheses with errors will be parsed as `GeneralEnclosed`.
+        - Added support for features in a range context, e.g. `(width > 100px)` or `(100px < height < 400px)`
+        - Added `SupportsDeclaration` node type to encapsulate a declaration in a query, replacing `Parentheses`.
+        - Parsing now employs `Condition` or `SupportsDeclaration` nodes of kind `supports` instead of `Parentheses`.
+        - Added support for the [`selector()`](https://drafts.csswg.org/css-conditional-4/#at-supports-ext) feature via the `FeatureFunction` node (configured in `features.supports.selector`).
+
 ## 2.3.1 (December 14, 2022)
 
 - Added `:host`, `:host()` and `:host-context()` pseudo class support (#216)

@@ -23,14 +23,20 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [ClassSelector](#classselector)
     - [Combinator](#combinator)
     - [Comment](#comment)
+    - [Condition](#condition)
     - [Declaration](#declaration)
     - [DeclarationList](#declarationlist)
     - [Dimension](#dimension)
+    - [Feature](#feature)
+    - [FeatureFunction](#featurefunction)
+    - [FeatureRange](#featurerange)
     - [Function](#function)
+    - [GeneralEnclosed](#generalenclosed)
     - [Hash](#hash)
     - [IdSelector](#idselector)
     - [Identifier](#identifier)
-    - [MediaFeature](#mediafeature)
+    - [Layer](#layer)
+    - [LayerList](#layerlist)
     - [MediaQuery](#mediaquery)
     - [MediaQueryList](#mediaquerylist)
     - [NestingSelector](#nestingselector)
@@ -44,10 +50,12 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [Ratio](#ratio)
     - [Raw](#raw)
     - [Rule](#rule)
+    - [Scope](#scope)
     - [Selector](#selector)
     - [SelectorList](#selectorlist)
     - [String](#string)
     - [StyleSheet](#stylesheet)
+    - [SupportsDeclaration](#supportsdeclaration)
     - [TypeSelector](#typeselector)
     - [UnicodeRange](#unicoderange)
     - [Url](#url)
@@ -286,6 +294,16 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
+### Condition
+
+```js
+{
+    type: "Condition",
+    kind: String,
+    children: List
+}
+```
+
 ### Declaration
 
 ```js
@@ -316,12 +334,59 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
+### Feature
+
+```js
+{
+    type: "Feature",
+    kind: String,
+    name: String,
+    value: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function> | null
+}
+```
+
+### FeatureFunction
+
+```js
+{
+    type: "FeatureFunction",
+    kind: String,
+    feature: String,
+    value: <Declaration> | <Selector>
+}
+```
+
+### FeatureRange
+
+```js
+{
+    type: "FeatureRange",
+    kind: String,
+    left: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function>,
+    leftComparison: String,
+    middle: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function>,
+    rightComparison: String | null,
+    right: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function> | null
+}
+```
+
 ### Function
 
 ```js
 {
     type: "Function",
     name: String,
+    children: List
+}
+```
+
+### GeneralEnclosed
+
+```js
+{
+    type: "GeneralEnclosed",
+    kind: String,
+    function: String | null,
     children: List
 }
 ```
@@ -353,13 +418,21 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 }
 ```
 
-### MediaFeature
+### Layer
 
 ```js
 {
-    type: "MediaFeature",
-    name: String,
-    value: <Identifier> | <Number> | <Dimension> | <Ratio> | null
+    type: "Layer",
+    name: String
+}
+```
+
+### LayerList
+
+```js
+{
+    type: "LayerList",
+    children: List
 }
 ```
 
@@ -368,7 +441,9 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 ```js
 {
     type: "MediaQuery",
-    children: List
+    modifier: String | null,
+    mediaType: String | null,
+    condition: <Condition> | null
 }
 ```
 
@@ -460,8 +535,8 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 ```js
 {
     type: "Ratio",
-    left: String,
-    right: String
+    left: <Number> | <Function>,
+    right: <Number> | <Function> | null
 }
 ```
 
@@ -483,6 +558,16 @@ A sequence of any characters. This node type is used for unparsed fragments of C
     type: "Rule",
     prelude: <SelectorList> | <Raw>,
     block: <Block>
+}
+```
+
+### Scope
+
+```js
+{
+    type: "Scope",
+    root: <SelectorList> | <Raw> | null,
+    limit: <SelectorList> | <Raw> | null
 }
 ```
 
@@ -521,6 +606,15 @@ A sequence of characters enclosed in double quotes or single quotes.
 {
     type: "StyleSheet",
     children: List
+}
+```
+
+### SupportsDeclaration
+
+```js
+{
+    type: "SupportsDeclaration",
+    declaration: <Declaration>
 }
 ```
 

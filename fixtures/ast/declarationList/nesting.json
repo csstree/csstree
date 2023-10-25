@@ -150,16 +150,23 @@
                                 "children": [
                                     {
                                         "type": "MediaQuery",
-                                        "children": [
-                                            {
-                                                "type": "MediaFeature",
-                                                "name": "orientation",
-                                                "value": {
-                                                    "type": "Identifier",
-                                                    "name": "landscape"
+                                        "modifier": null,
+                                        "mediaType": null,
+                                        "condition": {
+                                            "type": "Condition",
+                                            "kind": "media",
+                                            "children": [
+                                                {
+                                                    "type": "Feature",
+                                                    "kind": "media",
+                                                    "name": "orientation",
+                                                    "value": {
+                                                        "type": "Identifier",
+                                                        "name": "landscape"
+                                                    }
                                                 }
-                                            }
-                                        ]
+                                            ]
+                                        }
                                     }
                                 ]
                             }
@@ -193,17 +200,24 @@
                                             "children": [
                                                 {
                                                     "type": "MediaQuery",
-                                                    "children": [
-                                                        {
-                                                            "type": "MediaFeature",
-                                                            "name": "min-width",
-                                                            "value": {
-                                                                "type": "Dimension",
-                                                                "value": "1024",
-                                                                "unit": "px"
+                                                    "modifier": null,
+                                                    "mediaType": null,
+                                                    "condition": {
+                                                        "type": "Condition",
+                                                        "kind": "media",
+                                                        "children": [
+                                                            {
+                                                                "type": "Feature",
+                                                                "kind": "media",
+                                                                "name": "min-width",
+                                                                "value": {
+                                                                    "type": "Dimension",
+                                                                    "value": "1024",
+                                                                    "unit": "px"
+                                                                }
                                                             }
-                                                        }
-                                                    ]
+                                                        ]
+                                                    }
                                                 }
                                             ]
                                         }

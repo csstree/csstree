@@ -1,6 +1,6 @@
 {
     "base test": {
-        "source": "@supports (flex:1){}",
+        "source": "@supports (flex:1){selector{color:green}}",
         "ast": {
             "type": "Atrule",
             "name": "supports",
@@ -8,20 +8,24 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -30,7 +34,44 @@
             },
             "block": {
                 "type": "Block",
-                "children": []
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "color",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "green"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
         }
     },
@@ -44,20 +85,24 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -80,24 +125,28 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Identifier",
-                        "name": "not"
-                    },
-                    {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                "type": "Identifier",
+                                "name": "not"
+                            },        
+                            {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -119,20 +168,24 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -154,20 +207,24 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "-vendor-name",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "-vendor-name",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -189,15 +246,19 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "--custom",
-                                "value": {
-                                    "type": "Raw",
-                                    "value": " 1"
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "--custom",
+                                    "value": {
+                                        "type": "Raw",
+                                        "value": " 1"
+                                    }
                                 }
                             }
                         ]
@@ -220,24 +281,28 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Identifier",
-                        "name": "not"
-                    },
-                    {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Number",
-                                            "value": "1"
-                                        }
-                                    ]
+                                "type": "Identifier",
+                                "name": "not"
+                            },        
+                            {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -260,52 +325,55 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Identifier",
-                                "name": "not"
-                            },
-                            {
-                                "type": "Parentheses",
+                                "type": "Condition",
+                                "kind": "supports",
                                 "children": [
                                     {
-                                        "type": "Declaration",
-                                        "important": false,
-                                        "property": "flex",
-                                        "value": {
-                                            "type": "Value",
-                                            "children": [
-                                                {
-                                                    "type": "Number",
-                                                    "value": "1"
-                                                }
-                                            ]
+                                        "type": "Identifier",
+                                        "name": "not"
+                                    },
+                                    {
+                                        "type": "SupportsDeclaration",
+                                        "declaration":  {
+                                            "type": "Declaration",
+                                            "important": false,
+                                            "property": "flex",
+                                            "value": {
+                                                "type": "Value",
+                                                "children": [
+                                                    {
+                                                        "type": "Number",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     }
                                 ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "Identifier",
-                        "name": "or"
-                    },
-                    {
-                        "type": "Parentheses",
-                        "children": [
+                            },
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "grid",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Identifier",
-                                            "name": "support"
-                                        }
-                                    ]
+                                "type": "Identifier",
+                                "name": "or"
+                            },
+                            {
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "grid",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "support"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -327,12 +395,19 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Function",
-                        "name": "func",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Raw",
-                                "value": "flex: 1"
+                                "type": "GeneralEnclosed",
+                                "kind": "supports",
+                                "function": "func",
+                                "children": [
+                                    {
+                                        "type": "Raw",
+                                        "value": "flex: 1"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -354,30 +429,34 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": true,
-                                "property": "box-shadow",
-                                "value": {
-                                    "type": "Value",
-                                    "children": [
-                                        {
-                                            "type": "Identifier",
-                                            "name": "something"
-                                        },
-                                        {
-                                            "type": "Function",
-                                            "name": "var",
-                                            "children": [
-                                                {
-                                                    "type": "Identifier",
-                                                    "name": "--complex"
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": true,
+                                    "property": "box-shadow",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "something"
+                                            },
+                                            {
+                                                "type": "Function",
+                                                "name": "var",
+                                                "children": [
+                                                    {
+                                                        "type": "Identifier",
+                                                        "name": "--complex"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         ]
@@ -400,18 +479,56 @@
                 "type": "AtrulePrelude",
                 "children": [
                     {
-                        "type": "Parentheses",
+                        "type": "Condition",
+                        "kind": "supports",
                         "children": [
                             {
-                                "type": "Declaration",
-                                "important": false,
-                                "property": "flex",
+                                "type": "SupportsDeclaration",
+                                "declaration": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "flex",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Number",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": null
+        }
+    },
+    "@supports with selector()": {
+        "source": "@supports selector(.example) {}",
+        "generate": "@supports selector(.example){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "selector",
                                 "value": {
-                                    "type": "Value",
+                                    "type": "Selector",
                                     "children": [
                                         {
-                                            "type": "Number",
-                                            "value": "1"
+                                            "type": "ClassSelector",
+                                            "name": "example"
                                         }
                                     ]
                                 }
@@ -420,7 +537,47 @@
                     }
                 ]
             },
-            "block": null
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "@supports with selector() case-insensitive": {
+        "source": "@supports SELECTOR(.example) {}",
+        "generate": "@supports SELECTOR(.example){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "supports",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "supports",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "supports",
+                                "feature": "SELECTOR",
+                                "value": {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "example"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
         }
     },
     "@supports with no block is not an error": {

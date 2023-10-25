@@ -1,0 +1,400 @@
+{
+    "query with a base feature": {
+        "source": "@container (min-inline-size: 150px) { selector {} }",
+        "generate": "@container (min-inline-size:150px){selector{}}",
+        "ast": {
+            "type": "Atrule",
+            "name": "container",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "container",
+                        "children": [
+                            {
+                                "type": "Feature",
+                                "kind": "container",
+                                "name": "min-inline-size",
+                                "value": {
+                                    "type": "Dimension",
+                                    "value": "150",
+                                    "unit": "px"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "query with a range feature": {
+        "source": "@container (inline-size < 150px) { selector {} }",
+        "generate": "@container (inline-size<150px){selector{}}",
+        "ast": {
+            "type": "Atrule",
+            "name": "container",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "container",
+                        "children": [
+                            {
+                                "type": "FeatureRange",
+                                "kind": "container",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "inline-size"
+                                },
+                                "leftComparison": "<",
+                                "middle": {
+                                    "type": "Dimension",
+                                    "value": "150",
+                                    "unit": "px"
+                                },
+                                "rightComparison": null,
+                                "right": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "with a container name": {
+        "source": "@container my-layout (inline-size > 45em) { selector {} }",
+        "generate": "@container my-layout (inline-size>45em){selector{}}",
+        "ast": {
+            "type": "Atrule",
+            "name": "container",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "my-layout"
+                    },
+                    {
+                        "type": "Condition",
+                        "kind": "container",
+                        "children": [
+                            {
+                                "type": "FeatureRange",
+                                "kind": "container",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "inline-size"
+                                },
+                                "leftComparison": ">",
+                                "middle": {
+                                    "type": "Dimension",
+                                    "value": "45",
+                                    "unit": "em"
+                                },
+                                "rightComparison": null,
+                                "right": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "selector"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": []
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "complex query": {
+        "source": "@container not ( ( a : 500px) and ( not ( b : 500px) ) ) {}",
+        "generate": "@container not ((a:500px) and (not (b:500px))){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "container",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "container",
+                        "children": [
+                            {
+                                "type": "Identifier",
+                                "name": "not"
+                            },
+                            {
+                                "type": "Condition",
+                                "kind": "container",
+                                "children": [
+                                    {
+                                        "type": "Feature",
+                                        "kind": "container",
+                                        "name": "a",
+                                        "value": {
+                                            "type": "Dimension",
+                                            "value": "500",
+                                            "unit": "px"
+                                        }
+                                    },
+                                    {
+                                        "type": "Identifier",
+                                        "name": "and"
+                                    },
+                                    {
+                                        "type": "Condition",
+                                        "kind": "container",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "not"
+                                            },
+                                            {
+                                                "type": "Feature",
+                                                "kind": "container",
+                                                "name": "b",
+                                                "value": {
+                                                    "type": "Dimension",
+                                                    "value": "500",
+                                                    "unit": "px"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "style query": {
+        "source": "@container style(--cards: small){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "container",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "container",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "container",
+                                "feature": "style",
+                                "value": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "--cards",
+                                    "value": {
+                                        "type": "Raw",
+                                        "value": " small"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "style query should case-insensitive": {
+        "source": "@container STYLE(--cards: small){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "container",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Condition",
+                        "kind": "container",
+                        "children": [
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "container",
+                                "feature": "STYLE",
+                                "value": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "--cards",
+                                    "value": {
+                                        "type": "Raw",
+                                        "value": " small"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "all together": {
+        "source": "@container card (inline-size > 30em) and style(--responsive: true) {}",
+        "generate": "@container card (inline-size>30em) and style(--responsive: true){}",
+        "ast": {
+            "type": "Atrule",
+            "name": "container",
+            "prelude": {
+                "type": "AtrulePrelude",
+                "children": [
+                    {
+                        "type": "Identifier",
+                        "name": "card"
+                    },
+                    {
+                        "type": "Condition",
+                        "kind": "container",
+                        "children": [
+                            {
+                                "type": "FeatureRange",
+                                "kind": "container",
+                                "left": {
+                                    "type": "Identifier",
+                                    "name": "inline-size"
+                                },
+                                "leftComparison": ">",
+                                "middle": {
+                                    "type": "Dimension",
+                                    "value": "30",
+                                    "unit": "em"
+                                },
+                                "rightComparison": null,
+                                "right": null
+                            },
+                            {
+                                "type": "Identifier",
+                                "name": "and"
+                            },
+                            {
+                                "type": "FeatureFunction",
+                                "kind": "container",
+                                "feature": "style",
+                                "value": {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "--responsive",
+                                    "value": {
+                                        "type": "Raw",
+                                        "value": " true"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": []
+            }
+        }
+    },
+    "error": [
+        {
+            "source": "@container '' {}",
+            "offset": "           ^",
+            "error": "Condition is expected"
+        },
+        {
+            "source": "@container 1 {}",
+            "offset": "           ^",
+            "error": "Condition is expected"
+        },
+        {
+            "source": "@container flex: 1 {}",
+            "offset": "               ^",
+            "error": "Condition is expected"
+        }
+    ]
+}
