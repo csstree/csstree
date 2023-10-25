@@ -3,6 +3,7 @@ import path from 'path';
 import esbuild from 'esbuild';
 import { lexer } from '../lib/index.js';
 import { createRequire } from 'module';
+import RegexEscape from 'regex-escape';
 
 const { version } = createRequire(import.meta.url)('../package.json');
 const data = JSON.stringify(lexer.dump(), null, 4);
@@ -14,7 +15,7 @@ async function build() {
         [path.resolve('lib/version.js')]: `export const version = "${version}";`,
         [path.resolve('lib/version.cjs')]: `module.exports = "${version}";`
     };
-    const genModulesFilter = new RegExp('(' + Object.keys(genModules).join('|').replace(/\./g, '\\.').replace(/\\/g, '/') + ')$');
+    const genModulesFilter = new RegExp('^(' + Object.keys(genModules).map(RegexEscape).join('|') + ')$');
     const plugins = [{
         name: 'replace',
         setup({ onLoad }) {
@@ -33,7 +34,6 @@ async function build() {
             bundle: true,
             minify: true,
             logLevel: 'info',
-            external: ['module'],
             plugins
         }),
 
@@ -44,7 +44,6 @@ async function build() {
             bundle: true,
             minify: true,
             logLevel: 'info',
-            external: ['module'],
             plugins
         })
     ]);
