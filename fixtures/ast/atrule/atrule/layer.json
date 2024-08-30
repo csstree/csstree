@@ -153,7 +153,7 @@
         }
     },
     "layer name list": {
-        "source": "@layer foo, foo.bar, foo.bar.baz;",
+        "source": "@layer foo, foo.bar , foo.bar.baz;",
         "generate": "@layer foo,foo.bar,foo.bar.baz;",
         "ast": {
             "type": "Atrule",
