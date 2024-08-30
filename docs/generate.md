@@ -20,6 +20,7 @@ Options (optional):
 
 - [sourceMap](#sourcemap)
 - [decorator](#decorator)
+- [mode](#mode)
 
 <!-- /MarkdownTOC -->
 
@@ -52,7 +53,7 @@ A function that returns handlers used by a generator. TBD
 ### mode
 
 Type: `"spec"` or `"safe"`  
-Default: `"spec"`
+Default: `"safe"`
 
 CSS Syntax Module defines [rules for CSS serialization](https://www.w3.org/TR/css-syntax-3/#serialization) that it must "round-trip" with parsing. The generator follows these rules and determines itself when to output the space to avoid unintended CSS tokens combining. However, some older browsers fail to parse the resulting CSS because they didn't follow the spec in some cases. For this reason, the generator supports two modes:
 
