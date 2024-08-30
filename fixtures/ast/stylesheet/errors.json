@@ -87,8 +87,8 @@
         },
         {
             "source": ":lang(var(--test)) {}",
-            "offset": "         ^",
-            "error": "Identifier is expected but function found"
+            "offset": "      ^",
+            "error": "Identifier or string is expected"
         },
         {
             "source": "[",

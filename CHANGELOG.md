@@ -10,8 +10,10 @@
 - Added `<dashed-ident>` to generic types
 - Added `TokenStream#lookupTypeNonSC()` method
 - Fixed initialization when `Object.prototype` is extended or polluted (#262)
-- Fixed `speak` syntax patch (#241)
+- Fixed `fork()` method to consider the `generic` option when creating a Lexer instance (#266)
 - Fixed crash on parse error when custom `line` or `offset` is specified via options (#251)
+- Fixed `speak` syntax patch (#241)
+- Fixed `:lang()` to accept a list of `<ident>` or `<string>` per [spec](https://drafts.csswg.org/selectors/#the-lang-pseudo) (#265)
 - Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
 - Changed `Block` to not include `{` and `}`
 - Changed `Atrule` and `Rule` to include `{` and `}` for a block

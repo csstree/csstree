@@ -1,13 +1,64 @@
 {
-    "basic": {
+    "ident": {
         "source": ":lang(en)",
         "ast": {
             "type": "PseudoClassSelector",
             "name": "lang",
             "children": [
                 {
-                    "type": "Identifier",
-                    "name": "en"
+                    "type": "LanguageRangeList",
+                    "children": [
+                        {
+                            "type": "Identifier",
+                            "name": "en"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "string": {
+        "source": ":lang('en')",
+        "generate": ":lang(\"en\")",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "lang",
+            "children": [
+                {
+                    "type": "LanguageRangeList",
+                    "children": [
+                        {
+                            "type": "String",
+                            "value": "en"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "list": {
+        "source": ":lang( 'en', de-DE ,  \"es\" )",
+        "generate": ":lang(\"en\",de-DE,\"es\")",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "lang",
+            "children": [
+                {
+                    "type": "LanguageRangeList",
+                    "children": [
+                        {
+                            "type": "String",
+                            "value": "en"
+                        },
+                        {
+                            "type": "Identifier",
+                            "name": "de-DE"
+                        },
+                        {
+                            "type": "String",
+                            "value": "es"
+                        }
+                    ]
                 }
             ]
         }
@@ -20,8 +71,13 @@
             "name": "lang",
             "children": [
                 {
-                    "type": "Identifier",
-                    "name": "en"
+                    "type": "LanguageRangeList",
+                    "children": [
+                        {
+                            "type": "Identifier",
+                            "name": "en"
+                        }
+                    ]
                 }
             ]
         }
@@ -33,8 +89,13 @@
             "name": "LanG",
             "children": [
                 {
-                    "type": "Identifier",
-                    "name": "en-US"
+                    "type": "LanguageRangeList",
+                    "children": [
+                        {
+                            "type": "Identifier",
+                            "name": "en-US"
+                        }
+                    ]
                 }
             ]
         }
@@ -43,7 +104,7 @@
         {
             "source": ":lang(1)",
             "offset": "      ^",
-            "error": "Identifier is expected"
+            "error": "Identifier or string is expected"
         },
         {
             "source": ":lang(en en)",

@@ -40,6 +40,8 @@ svg|*:matches(a)::slotted(c) > :nth-child(odd of a, :b):nth-child(2n + 1 of [a])
     -foo: 123;
 }
 
+:lang(en, 'de-DE') {}
+
 <!-- /* CDO/CDC */ -->
 @import 'foo' screen;
 @keyframes 'anim' {
