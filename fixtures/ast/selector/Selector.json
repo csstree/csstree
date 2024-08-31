@@ -206,8 +206,13 @@
                     "name": "lang",
                     "children": [
                         {
-                            "type": "Identifier",
-                            "name": "nl-be"
+                            "type": "LanguageRangeList",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "nl-be"
+                                }
+                            ]
                         }
                     ]
                 }
