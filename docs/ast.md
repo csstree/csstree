@@ -35,6 +35,7 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [Hash](#hash)
     - [IdSelector](#idselector)
     - [Identifier](#identifier)
+    - [LanguageRangeList](#languagerangelist)
     - [Layer](#layer)
     - [LayerList](#layerlist)
     - [MediaQuery](#mediaquery)
@@ -415,6 +416,15 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 {
     type: "Identifier",
     name: String
+}
+```
+
+### LanguageRangeList
+
+```js
+{
+    type: "LanguageRangeList",
+    children: List
 }
 ```
 
