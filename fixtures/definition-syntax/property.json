@@ -30,5 +30,58 @@
             "foo foo bar",
             ""
         ]
+    },
+    "with comma multiplier": {
+        "syntax": "<'property'>#",
+        "lexer": {
+            "properties": {
+                "property": "foo"
+            }
+        },
+        "valid": [
+            "foo",
+            "foo, foo",
+            "foo, foo, foo, foo"
+        ],
+        "invalid": [
+            "foo foo bar",
+            "foo, foo, bar",
+            ""
+        ]
+    },
+    "with multiplier in property": {
+        "syntax": "<'property'>",
+        "lexer": {
+            "properties": {
+                "property": "[ foo ]+"
+            }
+        },
+        "valid": [
+            "foo",
+            "foo foo",
+            "foo foo foo foo"
+        ],
+        "invalid": [
+            "foo foo bar",
+            ""
+        ]
+    },
+    "with comma multiplier in property": {
+        "syntax": "<'property'>",
+        "lexer": {
+            "properties": {
+                "property": "[ foo ]#"
+            }
+        },
+        "valid": [
+            "foo"
+        ],
+        "invalid": [
+            "foo foo bar",
+            "foo, foo",
+            "foo, foo, foo, foo",
+            "foo, foo, bar",
+            ""
+        ]
     }
 }
