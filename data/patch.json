@@ -178,13 +178,6 @@
             "comment": "added old IE property https://msdn.microsoft.com/en-us/library/ms530723(v=vs.85).aspx",
             "syntax": "<url>+"
         },
-        "clip-rule": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/masking.html#ClipRuleProperty"
-            ],
-            "syntax": "nonzero | evenodd"
-        },
         "container-type": {
             "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-type",
             "syntax": "normal || [ size | inline-size ]"
@@ -245,13 +238,6 @@
             ],
             "syntax": "<number-zero-one>"
         },
-        "fill-rule": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#FillProperty"
-            ],
-            "syntax": "nonzero | evenodd"
-        },
         "filter": {
             "comment": "extend with IE legacy syntaxes",
             "syntax": "| <-ms-filter-function-list>"
@@ -290,34 +276,6 @@
                 "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/letter-spacing"
             ],
             "syntax": "normal | <length-percentage>"
-        },
-        "marker": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
-        },
-        "marker-end": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
-        },
-        "marker-mid": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
-        },
-        "marker-start": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
         },
         "max-width": {
             "comment": "extend by non-standard size keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
@@ -385,13 +343,6 @@
                 "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
             ],
             "syntax": "[ none | <dashed-ident> ]#"
-        },
-        "shape-rendering": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#ShapeRenderingPropert"
-            ],
-            "syntax": "auto | optimizeSpeed | crispEdges | geometricPrecision"
         },
         "src": {
             "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
@@ -461,13 +412,6 @@
             ],
             "syntax": "<svg-length>"
         },
-        "text-anchor": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/text.html#TextAlignmentProperties"
-            ],
-            "syntax": "start | middle | end"
-        },
         "unicode-bidi": {
             "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
             "syntax": "| -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate | -webkit-isolate-override | -webkit-plaintext"
@@ -523,10 +467,6 @@
         "position-try-fallbacks": {
             "syntax": "none | [ [<dashed-ident> || <try-tactic>] | <'position-area'> ]#",
             "comment": "replaced <'position-try-options'>, https://drafts.csswg.org/css-anchor-position-1/#position-try-fallbacks"
-        },
-        "position-try": {
-            "syntax": "<'position-try-order'>? <'position-try-fallbacks'>",
-            "comment": "replace <'position-try-options'> with <'position-try-fallbacks'>"
         }
     },
     "types": {

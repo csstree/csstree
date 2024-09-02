@@ -6,7 +6,7 @@
 - Added support for the [`@layer`](https://drafts.csswg.org/css-cascade-5/#at-layer) at-rule
 - Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule (according to [the @import rule](https://drafts.csswg.org/css-cascade-5/#at-import) in Cascading and Inheritance 5)
 - Added `Layer` and `LayerList` node types
-- Bumped `mdn/data` to `2.9.0`
+- Bumped `mdn/data` to `2.10.0`
 - Added `<dashed-ident>` to generic types
 - Added `TokenStream#lookupTypeNonSC()` method
 - Fixed initialization when `Object.prototype` is extended or polluted (#262)
