@@ -192,11 +192,11 @@ Most node types always store an instance of the `List` in this property, even if
 
 Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsyntax).
 
-```js
-{
-    type: "AnPlusB",
-    a: String | null,
-    b: String | null
+```ts
+type AnPlusB = {
+    type: "AnPlusB";
+    a: string | null;
+    b: string | null
 }
 ```
 
@@ -204,349 +204,349 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 ### Atrule
 
-```js
-{
-    type: "Atrule",
-    name: String,
-    prelude: <AtrulePrelude> | <Raw> | null,
-    block: <Block> | null
+```ts
+type Atrule = {
+    type: "Atrule";
+    name: string;
+    prelude: AtrulePrelude | Raw | null;
+    block: Block | null
 }
 ```
 
 ### AtrulePrelude
 
-```js
-{
-    type: "AtrulePrelude",
-    children: List
+```ts
+type AtrulePrelude = {
+    type: "AtrulePrelude";
+    children: List<any>
 }
 ```
 
 ### AttributeSelector
 
-```js
-{
-    type: "AttributeSelector",
-    name: <Identifier>,
-    matcher: String | null,
-    value: <String> | <Identifier> | null,
-    flags: String | null
+```ts
+type AttributeSelector = {
+    type: "AttributeSelector";
+    name: Identifier;
+    matcher: string | null;
+    value: String | Identifier | null;
+    flags: string | null
 }
 ```
 
 ### Block
 
-```js
-{
-    type: "Block",
-    children: List
+```ts
+type Block = {
+    type: "Block";
+    children: List<Atrule | Rule | Declaration>
 }
 ```
 
 ### Brackets
 
-```js
-{
-    type: "Brackets",
-    children: List
+```ts
+type Brackets = {
+    type: "Brackets";
+    children: List<any>
 }
 ```
 
 ### CDC
 
-```js
-{
+```ts
+type CDC = {
     type: "CDC"
 }
 ```
 
 ### CDO
 
-```js
-{
+```ts
+type CDO = {
     type: "CDO"
 }
 ```
 
 ### ClassSelector
 
-```js
-{
-    type: "ClassSelector",
-    name: String
+```ts
+type ClassSelector = {
+    type: "ClassSelector";
+    name: string
 }
 ```
 
 ### Combinator
 
-```js
-{
-    type: "Combinator",
-    name: String
+```ts
+type Combinator = {
+    type: "Combinator";
+    name: string
 }
 ```
 
 ### Comment
 
-```js
-{
-    type: "Comment",
-    value: String
+```ts
+type Comment = {
+    type: "Comment";
+    value: string
 }
 ```
 
 ### Condition
 
-```js
-{
-    type: "Condition",
-    kind: String,
-    children: List
+```ts
+type Condition = {
+    type: "Condition";
+    kind: string;
+    children: List<Identifier | Feature | FeatureFunction | FeatureRange | SupportsDeclaration>
 }
 ```
 
 ### Declaration
 
-```js
-{
-    type: "Declaration",
-    important: Boolean | String,
-    property: String,
-    value: <Value> | <Raw>
+```ts
+type Declaration = {
+    type: "Declaration";
+    important: boolean | string;
+    property: string;
+    value: Value | Raw
 }
 ```
 
 ### DeclarationList
 
-```js
-{
-    type: "DeclarationList",
-    children: List
+```ts
+type DeclarationList = {
+    type: "DeclarationList";
+    children: List<Declaration | Atrule | Rule>
 }
 ```
 
 ### Dimension
 
-```js
-{
-    type: "Dimension",
-    value: String,
-    unit: String
+```ts
+type Dimension = {
+    type: "Dimension";
+    value: string;
+    unit: string
 }
 ```
 
 ### Feature
 
-```js
-{
-    type: "Feature",
-    kind: String,
-    name: String,
-    value: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function> | null
+```ts
+type Feature = {
+    type: "Feature";
+    kind: string;
+    name: string;
+    value: Identifier | Number | Dimension | Ratio | Function | null
 }
 ```
 
 ### FeatureFunction
 
-```js
-{
-    type: "FeatureFunction",
-    kind: String,
-    feature: String,
-    value: <Declaration> | <Selector>
+```ts
+type FeatureFunction = {
+    type: "FeatureFunction";
+    kind: string;
+    feature: string;
+    value: Declaration | Selector
 }
 ```
 
 ### FeatureRange
 
-```js
-{
-    type: "FeatureRange",
-    kind: String,
-    left: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function>,
-    leftComparison: String,
-    middle: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function>,
-    rightComparison: String | null,
-    right: <Identifier> | <Number> | <Dimension> | <Ratio> | <Function> | null
+```ts
+type FeatureRange = {
+    type: "FeatureRange";
+    kind: string;
+    left: Identifier | Number | Dimension | Ratio | Function;
+    leftComparison: string;
+    middle: Identifier | Number | Dimension | Ratio | Function;
+    rightComparison: string | null;
+    right: Identifier | Number | Dimension | Ratio | Function | null
 }
 ```
 
 ### Function
 
-```js
-{
-    type: "Function",
-    name: String,
-    children: List
+```ts
+type Function = {
+    type: "Function";
+    name: string;
+    children: List<any>
 }
 ```
 
 ### GeneralEnclosed
 
-```js
-{
-    type: "GeneralEnclosed",
-    kind: String,
-    function: String | null,
-    children: List
+```ts
+type GeneralEnclosed = {
+    type: "GeneralEnclosed";
+    kind: string;
+    function: string | null;
+    children: List<any>
 }
 ```
 
 ### Hash
 
-```js
-{
-    type: "Hash",
-    value: String
+```ts
+type Hash = {
+    type: "Hash";
+    value: string
 }
 ```
 
 ### IdSelector
 
-```js
-{
-    type: "IdSelector",
-    name: String
+```ts
+type IdSelector = {
+    type: "IdSelector";
+    name: string
 }
 ```
 
 ### Identifier
 
-```js
-{
-    type: "Identifier",
-    name: String
+```ts
+type Identifier = {
+    type: "Identifier";
+    name: string
 }
 ```
 
 ### LanguageRangeList
 
-```js
-{
-    type: "LanguageRangeList",
-    children: List
+```ts
+type LanguageRangeList = {
+    type: "LanguageRangeList";
+    children: List<Identifier | String>
 }
 ```
 
 ### Layer
 
-```js
-{
-    type: "Layer",
-    name: String
+```ts
+type Layer = {
+    type: "Layer";
+    name: string
 }
 ```
 
 ### LayerList
 
-```js
-{
-    type: "LayerList",
-    children: List
+```ts
+type LayerList = {
+    type: "LayerList";
+    children: List<Layer>
 }
 ```
 
 ### MediaQuery
 
-```js
-{
-    type: "MediaQuery",
-    modifier: String | null,
-    mediaType: String | null,
-    condition: <Condition> | null
+```ts
+type MediaQuery = {
+    type: "MediaQuery";
+    modifier: string | null;
+    mediaType: string | null;
+    condition: Condition | null
 }
 ```
 
 ### MediaQueryList
 
-```js
-{
-    type: "MediaQueryList",
-    children: List
+```ts
+type MediaQueryList = {
+    type: "MediaQueryList";
+    children: List<MediaQuery>
 }
 ```
 
 ### NestingSelector
 
-```js
-{
+```ts
+type NestingSelector = {
     type: "NestingSelector"
 }
 ```
 
 ### Nth
 
-```js
-{
-    type: "Nth",
-    nth: <AnPlusB> | <Identifier>,
-    selector: <SelectorList> | null
+```ts
+type Nth = {
+    type: "Nth";
+    nth: AnPlusB | Identifier;
+    selector: SelectorList | null
 }
 ```
 
 ### Number
 
-```js
-{
-    type: "Number",
-    value: String
+```ts
+type Number = {
+    type: "Number";
+    value: string
 }
 ```
 
 ### Operator
 
-```js
-{
-    type: "Operator",
-    value: String
+```ts
+type Operator = {
+    type: "Operator";
+    value: string
 }
 ```
 
 ### Parentheses
 
-```js
-{
-    type: "Parentheses",
-    children: List
+```ts
+type Parentheses = {
+    type: "Parentheses";
+    children: List<any>
 }
 ```
 
 ### Percentage
 
-```js
-{
-    type: "Percentage",
-    value: String
+```ts
+type Percentage = {
+    type: "Percentage";
+    value: string
 }
 ```
 
 ### PseudoClassSelector
 
-```js
-{
-    type: "PseudoClassSelector",
-    name: String,
-    children: List | null
+```ts
+type PseudoClassSelector = {
+    type: "PseudoClassSelector";
+    name: string;
+    children: List<Raw> | null
 }
 ```
 
 ### PseudoElementSelector
 
-```js
-{
-    type: "PseudoElementSelector",
-    name: String,
-    children: List | null
+```ts
+type PseudoElementSelector = {
+    type: "PseudoElementSelector";
+    name: string;
+    children: List<Raw> | null
 }
 ```
 
 ### Ratio
 
-```js
-{
-    type: "Ratio",
-    left: <Number> | <Function>,
-    right: <Number> | <Function> | null
+```ts
+type Ratio = {
+    type: "Ratio";
+    left: Number | Function;
+    right: Number | Function | null
 }
 ```
 
@@ -554,48 +554,48 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 
 A sequence of any characters. This node type is used for unparsed fragments of CSS, e.g. due to parse error or parser settings, and for quirk parts like content of some functions, such as `url()` or `expression()`.
 
-```js
-{
-    type: "Raw",
-    value: String
+```ts
+type Raw = {
+    type: "Raw";
+    value: string
 }
 ```
 
 ### Rule
 
-```js
-{
-    type: "Rule",
-    prelude: <SelectorList> | <Raw>,
-    block: <Block>
+```ts
+type Rule = {
+    type: "Rule";
+    prelude: SelectorList | Raw;
+    block: Block
 }
 ```
 
 ### Scope
 
-```js
-{
-    type: "Scope",
-    root: <SelectorList> | <Raw> | null,
-    limit: <SelectorList> | <Raw> | null
+```ts
+type Scope = {
+    type: "Scope";
+    root: SelectorList | Raw | null;
+    limit: SelectorList | Raw | null
 }
 ```
 
 ### Selector
 
-```js
-{
-    type: "Selector",
-    children: List
+```ts
+type Selector = {
+    type: "Selector";
+    children: List<TypeSelector | IdSelector | ClassSelector | AttributeSelector | PseudoClassSelector | PseudoElementSelector | Combinator>
 }
 ```
 
 ### SelectorList
 
-```js
-{
-    type: "SelectorList",
-    children: List
+```ts
+type SelectorList = {
+    type: "SelectorList";
+    children: List<Selector | Raw>
 }
 ```
 
@@ -603,37 +603,37 @@ A sequence of any characters. This node type is used for unparsed fragments of C
 
 A sequence of characters enclosed in double quotes or single quotes.
 
-```js
-{
-    type: "String",
-    value: String
+```ts
+type String = {
+    type: "String";
+    value: string
 }
 ```
 
 ### StyleSheet
 
-```js
-{
-    type: "StyleSheet",
-    children: List
+```ts
+type StyleSheet = {
+    type: "StyleSheet";
+    children: List<Comment | CDO | CDC | Atrule | Rule | Raw>
 }
 ```
 
 ### SupportsDeclaration
 
-```js
-{
-    type: "SupportsDeclaration",
-    declaration: <Declaration>
+```ts
+type SupportsDeclaration = {
+    type: "SupportsDeclaration";
+    declaration: Declaration
 }
 ```
 
 ### TypeSelector
 
-```js
-{
-    type: "TypeSelector",
-    name: String
+```ts
+type TypeSelector = {
+    type: "TypeSelector";
+    name: string
 }
 ```
 
@@ -641,28 +641,28 @@ A sequence of characters enclosed in double quotes or single quotes.
 
 Used for [the Unicode-Range microsyntax](https://drafts.csswg.org/css-syntax/#urange).
 
-```js
-{
-    type: "UnicodeRange",
-    value: String
+```ts
+type UnicodeRange = {
+    type: "UnicodeRange";
+    value: string
 }
 ```
 
 ### Url
 
-```js
-{
-    type: "Url",
-    value: String
+```ts
+type Url = {
+    type: "Url";
+    value: string
 }
 ```
 
 ### Value
 
-```js
-{
-    type: "Value",
-    children: List
+```ts
+type Value = {
+    type: "Value";
+    children: List<any>
 }
 ```
 
@@ -670,10 +670,10 @@ Used for [the Unicode-Range microsyntax](https://drafts.csswg.org/css-syntax/#ur
 
 A sequence of one or more white spaces, i.e. ` ` (space), `\t`, `\r`, `\n` and `\f`.
 
-```js
-{
-    type: "WhiteSpace",
-    value: String
+```ts
+type WhiteSpace = {
+    type: "WhiteSpace";
+    value: string
 }
 ```
 
