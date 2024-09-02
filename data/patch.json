@@ -518,6 +518,10 @@
         "writing-mode": {
             "comment": "extend with SVG keywords",
             "syntax": "| <svg-writing-mode>"
+        },
+        "white-space-trim": {
+            "syntax": "none | discard-before || discard-after || discard-inner",
+            "comment": "missed, https://www.w3.org/TR/css-text-4/#white-space-trim"
         }
     },
     "types": {
@@ -855,12 +859,6 @@
         "offset-path": {
             "syntax": "<ray()> | <url> | <basic-shape>"
         },
-        "ray()": {
-            "syntax": "ray( <angle> && <ray-size>? && contain? && [at <position>]? )"
-        },
-        "ray-size": {
-            "syntax": "closest-side | closest-corner | farthest-side | farthest-corner | sides"
-        },
         "query-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "( <container-condition> ) | ( <size-feature> ) | style( <style-query> ) | <general-enclosed>"
@@ -887,6 +885,25 @@
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
+        },
+        "inset-area": {
+            "syntax": "[ [ left | center | right | span-left | span-right | x-start | x-end | span-x-start | span-x-end | x-self-start | x-self-end | span-x-self-start | span-x-self-end | span-all ] || [ top | center | bottom | span-top | span-bottom | y-start | y-end | span-y-start | span-y-end | y-self-start | y-self-end | span-y-self-start | span-y-self-end | span-all ] | [ block-start | center | block-end | span-block-start | span-block-end | span-all ] || [ inline-start | center | inline-end | span-inline-start | span-inline-end | span-all ] | [ self-block-start | self-block-end | span-self-block-start | span-self-block-end | span-all ] || [ self-inline-start | self-inline-end | span-self-inline-start | span-self-inline-end | span-all ] | [ start | center | end | span-start | span-end | span-all ]{1,2} | [ self-start | center | self-end | span-self-start | span-self-end | span-all ]{1,2} ]",
+            "comment": "initial name for <position-area> before renamed",
+            "references": [
+                "https://www.w3.org/TR/css-anchor-position-1/#inset-area"
+            ]
+        },
+        "anchor-element": {
+            "syntax": "<dashed-ident>",
+            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-anchor-element"
+        },
+        "try-size": {
+            "syntax": "most-width | most-height | most-block-size | most-inline-size",
+            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-try-size"
+        },
+        "try-tactic": {
+            "syntax": "flip-block || flip-inline || flip-start",
+            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-position-try-fallbacks-try-tactic"
         }
     }
 }
