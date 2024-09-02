@@ -196,7 +196,7 @@ Used for [the An+B microsyntax](https://drafts.csswg.org/css-syntax/#anb-microsy
 type AnPlusB = {
     type: "AnPlusB";
     a: string | null;
-    b: string | null
+    b: string | null;
 }
 ```
 
@@ -209,7 +209,7 @@ type Atrule = {
     type: "Atrule";
     name: string;
     prelude: AtrulePrelude | Raw | null;
-    block: Block | null
+    block: Block | null;
 }
 ```
 
@@ -218,7 +218,7 @@ type Atrule = {
 ```ts
 type AtrulePrelude = {
     type: "AtrulePrelude";
-    children: List<any>
+    children: List<any>;
 }
 ```
 
@@ -230,7 +230,7 @@ type AttributeSelector = {
     name: Identifier;
     matcher: string | null;
     value: String | Identifier | null;
-    flags: string | null
+    flags: string | null;
 }
 ```
 
@@ -239,7 +239,7 @@ type AttributeSelector = {
 ```ts
 type Block = {
     type: "Block";
-    children: List<Atrule | Rule | Declaration>
+    children: List<Atrule | Rule | Declaration>;
 }
 ```
 
@@ -248,7 +248,7 @@ type Block = {
 ```ts
 type Brackets = {
     type: "Brackets";
-    children: List<any>
+    children: List<any>;
 }
 ```
 
@@ -256,7 +256,7 @@ type Brackets = {
 
 ```ts
 type CDC = {
-    type: "CDC"
+    type: "CDC";
 }
 ```
 
@@ -264,7 +264,7 @@ type CDC = {
 
 ```ts
 type CDO = {
-    type: "CDO"
+    type: "CDO";
 }
 ```
 
@@ -273,7 +273,7 @@ type CDO = {
 ```ts
 type ClassSelector = {
     type: "ClassSelector";
-    name: string
+    name: string;
 }
 ```
 
@@ -282,7 +282,7 @@ type ClassSelector = {
 ```ts
 type Combinator = {
     type: "Combinator";
-    name: string
+    name: string;
 }
 ```
 
@@ -291,7 +291,7 @@ type Combinator = {
 ```ts
 type Comment = {
     type: "Comment";
-    value: string
+    value: string;
 }
 ```
 
@@ -301,7 +301,7 @@ type Comment = {
 type Condition = {
     type: "Condition";
     kind: string;
-    children: List<Identifier | Feature | FeatureFunction | FeatureRange | SupportsDeclaration>
+    children: List<Identifier | Feature | FeatureFunction | FeatureRange | SupportsDeclaration>;
 }
 ```
 
@@ -312,7 +312,7 @@ type Declaration = {
     type: "Declaration";
     important: boolean | string;
     property: string;
-    value: Value | Raw
+    value: Value | Raw;
 }
 ```
 
@@ -321,7 +321,7 @@ type Declaration = {
 ```ts
 type DeclarationList = {
     type: "DeclarationList";
-    children: List<Declaration | Atrule | Rule>
+    children: List<Declaration | Atrule | Rule>;
 }
 ```
 
@@ -331,7 +331,7 @@ type DeclarationList = {
 type Dimension = {
     type: "Dimension";
     value: string;
-    unit: string
+    unit: string;
 }
 ```
 
@@ -342,7 +342,7 @@ type Feature = {
     type: "Feature";
     kind: string;
     name: string;
-    value: Identifier | Number | Dimension | Ratio | Function | null
+    value: Identifier | Number | Dimension | Ratio | Function | null;
 }
 ```
 
@@ -353,7 +353,7 @@ type FeatureFunction = {
     type: "FeatureFunction";
     kind: string;
     feature: string;
-    value: Declaration | Selector
+    value: Declaration | Selector;
 }
 ```
 
@@ -367,7 +367,7 @@ type FeatureRange = {
     leftComparison: string;
     middle: Identifier | Number | Dimension | Ratio | Function;
     rightComparison: string | null;
-    right: Identifier | Number | Dimension | Ratio | Function | null
+    right: Identifier | Number | Dimension | Ratio | Function | null;
 }
 ```
 
@@ -377,7 +377,7 @@ type FeatureRange = {
 type Function = {
     type: "Function";
     name: string;
-    children: List<any>
+    children: List<any>;
 }
 ```
 
@@ -388,7 +388,7 @@ type GeneralEnclosed = {
     type: "GeneralEnclosed";
     kind: string;
     function: string | null;
-    children: List<any>
+    children: List<any>;
 }
 ```
 
@@ -397,7 +397,7 @@ type GeneralEnclosed = {
 ```ts
 type Hash = {
     type: "Hash";
-    value: string
+    value: string;
 }
 ```
 
@@ -406,7 +406,7 @@ type Hash = {
 ```ts
 type IdSelector = {
     type: "IdSelector";
-    name: string
+    name: string;
 }
 ```
 
@@ -415,7 +415,7 @@ type IdSelector = {
 ```ts
 type Identifier = {
     type: "Identifier";
-    name: string
+    name: string;
 }
 ```
 
@@ -424,7 +424,7 @@ type Identifier = {
 ```ts
 type LanguageRangeList = {
     type: "LanguageRangeList";
-    children: List<Identifier | String>
+    children: List<Identifier | String>;
 }
 ```
 
@@ -433,7 +433,7 @@ type LanguageRangeList = {
 ```ts
 type Layer = {
     type: "Layer";
-    name: string
+    name: string;
 }
 ```
 
@@ -442,7 +442,7 @@ type Layer = {
 ```ts
 type LayerList = {
     type: "LayerList";
-    children: List<Layer>
+    children: List<Layer>;
 }
 ```
 
@@ -453,7 +453,7 @@ type MediaQuery = {
     type: "MediaQuery";
     modifier: string | null;
     mediaType: string | null;
-    condition: Condition | null
+    condition: Condition | null;
 }
 ```
 
@@ -462,7 +462,7 @@ type MediaQuery = {
 ```ts
 type MediaQueryList = {
     type: "MediaQueryList";
-    children: List<MediaQuery>
+    children: List<MediaQuery>;
 }
 ```
 
@@ -470,7 +470,7 @@ type MediaQueryList = {
 
 ```ts
 type NestingSelector = {
-    type: "NestingSelector"
+    type: "NestingSelector";
 }
 ```
 
@@ -480,7 +480,7 @@ type NestingSelector = {
 type Nth = {
     type: "Nth";
     nth: AnPlusB | Identifier;
-    selector: SelectorList | null
+    selector: SelectorList | null;
 }
 ```
 
@@ -489,7 +489,7 @@ type Nth = {
 ```ts
 type Number = {
     type: "Number";
-    value: string
+    value: string;
 }
 ```
 
@@ -498,7 +498,7 @@ type Number = {
 ```ts
 type Operator = {
     type: "Operator";
-    value: string
+    value: string;
 }
 ```
 
@@ -507,7 +507,7 @@ type Operator = {
 ```ts
 type Parentheses = {
     type: "Parentheses";
-    children: List<any>
+    children: List<any>;
 }
 ```
 
@@ -516,7 +516,7 @@ type Parentheses = {
 ```ts
 type Percentage = {
     type: "Percentage";
-    value: string
+    value: string;
 }
 ```
 
@@ -526,7 +526,7 @@ type Percentage = {
 type PseudoClassSelector = {
     type: "PseudoClassSelector";
     name: string;
-    children: List<Raw> | null
+    children: List<Raw> | null;
 }
 ```
 
@@ -536,7 +536,7 @@ type PseudoClassSelector = {
 type PseudoElementSelector = {
     type: "PseudoElementSelector";
     name: string;
-    children: List<Raw> | null
+    children: List<Raw> | null;
 }
 ```
 
@@ -546,7 +546,7 @@ type PseudoElementSelector = {
 type Ratio = {
     type: "Ratio";
     left: Number | Function;
-    right: Number | Function | null
+    right: Number | Function | null;
 }
 ```
 
@@ -557,7 +557,7 @@ A sequence of any characters. This node type is used for unparsed fragments of C
 ```ts
 type Raw = {
     type: "Raw";
-    value: string
+    value: string;
 }
 ```
 
@@ -567,7 +567,7 @@ type Raw = {
 type Rule = {
     type: "Rule";
     prelude: SelectorList | Raw;
-    block: Block
+    block: Block;
 }
 ```
 
@@ -577,7 +577,7 @@ type Rule = {
 type Scope = {
     type: "Scope";
     root: SelectorList | Raw | null;
-    limit: SelectorList | Raw | null
+    limit: SelectorList | Raw | null;
 }
 ```
 
@@ -586,7 +586,7 @@ type Scope = {
 ```ts
 type Selector = {
     type: "Selector";
-    children: List<TypeSelector | IdSelector | ClassSelector | AttributeSelector | PseudoClassSelector | PseudoElementSelector | Combinator>
+    children: List<TypeSelector | IdSelector | ClassSelector | AttributeSelector | PseudoClassSelector | PseudoElementSelector | Combinator>;
 }
 ```
 
@@ -595,7 +595,7 @@ type Selector = {
 ```ts
 type SelectorList = {
     type: "SelectorList";
-    children: List<Selector | Raw>
+    children: List<Selector | Raw>;
 }
 ```
 
@@ -606,7 +606,7 @@ A sequence of characters enclosed in double quotes or single quotes.
 ```ts
 type String = {
     type: "String";
-    value: string
+    value: string;
 }
 ```
 
@@ -615,7 +615,7 @@ type String = {
 ```ts
 type StyleSheet = {
     type: "StyleSheet";
-    children: List<Comment | CDO | CDC | Atrule | Rule | Raw>
+    children: List<Comment | CDO | CDC | Atrule | Rule | Raw>;
 }
 ```
 
@@ -624,7 +624,7 @@ type StyleSheet = {
 ```ts
 type SupportsDeclaration = {
     type: "SupportsDeclaration";
-    declaration: Declaration
+    declaration: Declaration;
 }
 ```
 
@@ -633,7 +633,7 @@ type SupportsDeclaration = {
 ```ts
 type TypeSelector = {
     type: "TypeSelector";
-    name: string
+    name: string;
 }
 ```
 
@@ -644,7 +644,7 @@ Used for [the Unicode-Range microsyntax](https://drafts.csswg.org/css-syntax/#ur
 ```ts
 type UnicodeRange = {
     type: "UnicodeRange";
-    value: string
+    value: string;
 }
 ```
 
@@ -653,7 +653,7 @@ type UnicodeRange = {
 ```ts
 type Url = {
     type: "Url";
-    value: string
+    value: string;
 }
 ```
 
@@ -662,7 +662,7 @@ type Url = {
 ```ts
 type Value = {
     type: "Value";
-    children: List<any>
+    children: List<any>;
 }
 ```
 
@@ -673,7 +673,7 @@ A sequence of one or more white spaces, i.e. ` ` (space), `\t`, `\r`, `\n` and `
 ```ts
 type WhiteSpace = {
     type: "WhiteSpace";
-    value: string
+    value: string;
 }
 ```
 

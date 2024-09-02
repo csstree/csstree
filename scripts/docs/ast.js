@@ -6,7 +6,7 @@ const ARTICLES_RX = /(<!-- node types -->\n+)((?:\s|.)*?)(\n+<!-- \/node types -
 function genNodeStructure(type, docs) {
     return 'type ' + type + ' = {\n' +
         Object.keys(docs).map(field => `    ${field}: ${docs[field]}`).join(';\n') +
-    '\n}';
+    ';\n}';
 }
 
 function updateTOC(md, toc) {
