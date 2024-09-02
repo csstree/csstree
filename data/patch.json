@@ -467,6 +467,13 @@
         "position-try-fallbacks": {
             "syntax": "none | [ [<dashed-ident> || <try-tactic>] | <'position-area'> ]#",
             "comment": "replaced <'position-try-options'>, https://drafts.csswg.org/css-anchor-position-1/#position-try-fallbacks"
+        },
+        "word-break": {
+            "syntax": "normal | break-all | keep-all | break-word | auto-phrase",
+            "comment": "added in Chrome/Edge 119, not covered by a spec currently (2024-09-02)",
+            "references": [
+                "https://developer.mozilla.org/en-US/docs/Web/CSS/word-break"
+            ]
         }
     },
     "types": {
