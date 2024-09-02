@@ -3540,7 +3540,7 @@
                                 "name": "lang",
                                 "children": [
                                     {
-                                        "type": "LanguageRangeList",
+                                        "type": "Identifier",
                                         "loc": {
                                             "source": "stringify.css",
                                             "start": {
@@ -3549,47 +3549,46 @@
                                                 "column": 7
                                             },
                                             "end": {
+                                                "offset": 1110,
+                                                "line": 43,
+                                                "column": 9
+                                            }
+                                        },
+                                        "name": "en"
+                                    },
+                                    {
+                                        "type": "Operator",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1110,
+                                                "line": 43,
+                                                "column": 9
+                                            },
+                                            "end": {
+                                                "offset": 1111,
+                                                "line": 43,
+                                                "column": 10
+                                            }
+                                        },
+                                        "value": ","
+                                    },
+                                    {
+                                        "type": "String",
+                                        "loc": {
+                                            "source": "stringify.css",
+                                            "start": {
+                                                "offset": 1112,
+                                                "line": 43,
+                                                "column": 11
+                                            },
+                                            "end": {
                                                 "offset": 1119,
                                                 "line": 43,
                                                 "column": 18
                                             }
                                         },
-                                        "children": [
-                                            {
-                                                "type": "Identifier",
-                                                "loc": {
-                                                    "source": "stringify.css",
-                                                    "start": {
-                                                        "offset": 1108,
-                                                        "line": 43,
-                                                        "column": 7
-                                                    },
-                                                    "end": {
-                                                        "offset": 1110,
-                                                        "line": 43,
-                                                        "column": 9
-                                                    }
-                                                },
-                                                "name": "en"
-                                            },
-                                            {
-                                                "type": "String",
-                                                "loc": {
-                                                    "source": "stringify.css",
-                                                    "start": {
-                                                        "offset": 1112,
-                                                        "line": 43,
-                                                        "column": 11
-                                                    },
-                                                    "end": {
-                                                        "offset": 1119,
-                                                        "line": 43,
-                                                        "column": 18
-                                                    }
-                                                },
-                                                "value": "de-DE"
-                                            }
-                                        ]
+                                        "value": "de-DE"
                                     }
                                 ]
                             }

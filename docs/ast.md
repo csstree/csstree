@@ -35,7 +35,6 @@ Interactively explore the AST with [AST Explorer](https://astexplorer.net/#/gist
     - [Hash](#hash)
     - [IdSelector](#idselector)
     - [Identifier](#identifier)
-    - [LanguageRangeList](#languagerangelist)
     - [Layer](#layer)
     - [LayerList](#layerlist)
     - [MediaQuery](#mediaquery)
@@ -416,15 +415,6 @@ type IdSelector = {
 type Identifier = {
     type: "Identifier";
     name: string;
-}
-```
-
-### LanguageRangeList
-
-```ts
-type LanguageRangeList = {
-    type: "LanguageRangeList";
-    children: List<Identifier | String>;
 }
 ```
 
