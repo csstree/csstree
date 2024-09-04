@@ -553,10 +553,6 @@
         ]
     },
     "<any-value>": {
-        "skipped": {
-            "valid": [
-            ]
-        },
         "valid": [
             "foo",
             "123px",

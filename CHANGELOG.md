@@ -14,6 +14,8 @@
 - Fixed crash on parse error when custom `line` or `offset` is specified via options (#251)
 - Fixed `speak` syntax patch (#241)
 - Fixed `:lang()` to accept a list of `<ident>` or `<string>` per [spec](https://drafts.csswg.org/selectors/#the-lang-pseudo) (#265)
+- Fixed matching to syntaxes referred as `<'property'>`, when the syntax has top-level #-multiplier per spec (#102)
+- Fixed lexer matching for syntaxes referred to as `<'property'>`, when the syntax has a top-level `#`-multiplier (#102)
 - Relaxed parsing of syntax definition to allow whitespaces in range multiplier (#270)
 - Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
 - Changed `Block` to not include `{` and `}`

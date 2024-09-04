@@ -30,5 +30,79 @@
             "foo foo bar",
             ""
         ]
+    },
+    "with #-multiplier": {
+        "syntax": "<'property'>#",
+        "lexer": {
+            "properties": {
+                "property": "foo"
+            }
+        },
+        "valid": [
+            "foo",
+            "foo, foo",
+            "foo, foo, foo, foo"
+        ],
+        "invalid": [
+            "foo foo bar",
+            "foo, foo, bar",
+            ""
+        ]
+    },
+    "top-level #-multiplier in property syntax": {
+        "syntax": "<'property'>",
+        "lexer": {
+            "properties": {
+                "property": "[ foo ]#"
+            }
+        },
+        "valid": [
+            "foo"
+        ],
+        "invalid": [
+            "foo foo bar",
+            "foo, foo",
+            "foo, foo, foo, foo",
+            "foo, foo, bar",
+            ""
+        ]
+    },
+    "non top-level #-multiplier in property syntax": {
+        "syntax": "<'property'>",
+        "lexer": {
+            "properties": {
+                "property": "none | [ foo ]#"
+            }
+        },
+        "valid": [
+            "none",
+            "foo",
+            "foo, foo",
+            "foo, foo, foo, foo"
+        ],
+        "invalid": [
+            "none none",
+            "none, none",
+            "foo foo bar",
+            "foo, foo, bar",
+            ""
+        ]
+    },
+    "top-level non #-multiplier in property syntax": {
+        "syntax": "<'property'>",
+        "lexer": {
+            "properties": {
+                "property": "[ foo ]+"
+            }
+        },
+        "valid": [
+            "foo",
+            "foo foo",
+            "foo foo foo foo"
+        ],
+        "invalid": [
+            "foo foo bar",
+            ""
+        ]
     }
 }
