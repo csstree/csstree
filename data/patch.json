@@ -243,11 +243,13 @@
             "syntax": "| <-ms-filter-function-list>"
         },
         "font": {
-            "comment": "non standard fonts",
+            "comment": "align with font-4, fix <'font-family'>#, add non standard fonts",
             "references": [
+                "https://drafts.csswg.org/css-fonts-4/#font-prop",
+                "https://github.com/w3c/csswg-drafts/pull/10832",
                 "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
             ],
-            "syntax": "| <-non-standard-font>"
+            "syntax": "[ [ <'font-style'> || <font-variant-css2> || <'font-weight'> || <font-width-css3> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'># ] | <system-family-name> | <-non-standard-font>"
         },
         "glyph-orientation-horizontal": {
             "comment": "added SVG property",
@@ -638,11 +640,24 @@
             "syntax": "[ <function-token> <any-value>? ) ] | [ ( <any-value>? ) ]"
         },
         "generic-family": {
-            "comment": "added -apple-system",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#typedef-generic-family",
+            "syntax": "<generic-script-specific>| <generic-complete> | <generic-incomplete> | <-non-standard-generic-family>"
+        },
+        "generic-script-specific": {
+            "syntax": "generic(kai) | generic(fangsong) | generic(nastaliq)"
+        },
+        "generic-complete": {
+            "syntax": "serif | sans-serif | system-ui | cursive | fantasy | math | monospace"
+        },
+        "generic-incomplete": {
+            "syntax": "ui-serif | ui-sans-serif | ui-monospace | ui-rounded"
+        },
+        "-non-standard-generic-family": {
+            "syntax": "-apple-system | BlinkMacSystemFont",
             "references": [
+                "https://css-tricks.com/snippets/css/system-font-stack/",
                 "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
-            ],
-            "syntax": "| -apple-system"
+            ]
         },
         "gradient": {
             "comment": "added legacy syntaxes support",
@@ -883,6 +898,18 @@
         "try-tactic": {
             "syntax": "flip-block || flip-inline || flip-start",
             "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-position-try-fallbacks-try-tactic"
+        },
+        "font-variant-css2": {
+            "syntax": "normal | small-caps",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-variant-css21-values"
+        },
+        "font-width-css3": {
+            "syntax": "normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-width-css3-values"
+        },
+        "system-family-name": {
+            "syntax": "caption | icon | menu | message-box | small-caption | status-bar",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#system-family-name-value"
         }
     }
 }
