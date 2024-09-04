@@ -6,9 +6,11 @@
 - Added support for the [`@layer`](https://drafts.csswg.org/css-cascade-5/#at-layer) at-rule
 - Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule (according to [the @import rule](https://drafts.csswg.org/css-cascade-5/#at-import) in Cascading and Inheritance 5)
 - Added `Layer` and `LayerList` node types
-- Bumped `mdn/data` to `2.10.0`
-- Added `<dashed-ident>` to generic types
 - Added `TokenStream#lookupTypeNonSC()` method
+- Added `<dashed-ident>` to generic types
+- Bumped `mdn/data` to `2.10.0`
+- Aligned `<'font'>` to [CSS Fonts 4](https://drafts.csswg.org/css-fonts-4/)
+- Aligned `<color>` to [CSS Color 5](https://drafts.csswg.org/css-color-5/)
 - Fixed initialization when `Object.prototype` is extended or polluted (#262)
 - Fixed `fork()` method to consider the `generic` option when creating a Lexer instance (#266)
 - Fixed crash on parse error when custom `line` or `offset` is specified via options (#251)
