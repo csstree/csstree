@@ -1,4 +1,4 @@
-## next
+## 3.0.0 (September 11, 2024)
 
 - Added support for the [`@container`](https://drafts.csswg.org/css-contain-3/#container-rule) at-rule
 - Added support for the [`@starting-style`](https://drafts.csswg.org/css-transitions-2/#defining-before-change-style) at-rule
