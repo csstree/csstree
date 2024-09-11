@@ -34,7 +34,6 @@
                 "inset-block": "<'inset-block'>",
                 "inset-inline": "<'inset-inline'>",
                 "inset": "<'inset'>",
-
                 "margin-top": "<'margin-top'>",
                 "margin-left": "<'margin-left'>",
                 "margin-bottom": "<'margin-bottom'>",
@@ -46,7 +45,6 @@
                 "margin": "<'margin'>",
                 "margin-block": "<'margin-block'>",
                 "margin-inline": "<'margin-inline'>",
-
                 "width": "<'width'>",
                 "height": "<'height'>",
                 "min-width": "<'min-width'>",
@@ -59,7 +57,6 @@
                 "min-inline-size": "<'min-inline-size'>",
                 "max-block-size": "<'max-block-size'>",
                 "max-inline-size": "<'max-inline-size'>",
-
                 "align-self": "<'align-self'> | anchor-center",
                 "justify-self": "<'justify-self'> | anchor-center"
             }
