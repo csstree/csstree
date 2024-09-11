@@ -20,7 +20,50 @@
         "scope": {
             "prelude": "[ ( <scope-start> ) ]? [ to ( <scope-end> ) ]?"
         },
-        "scroll-timeline": null
+        "position-try": {
+            "comment": "The list of descriptors: https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try",
+            "descriptors": {
+                "top": "<'top'>",
+                "left": "<'left'>",
+                "bottom": "<'bottom'>",
+                "right": "<'right'>",
+                "inset-block-start": "<'inset-block-start'>",
+                "inset-block-end": "<'inset-block-end'>",
+                "inset-inline-start": "<'inset-inline-start'>",
+                "inset-inline-end": "<'inset-inline-end'>",
+                "inset-block": "<'inset-block'>",
+                "inset-inline": "<'inset-inline'>",
+                "inset": "<'inset'>",
+
+                "margin-top": "<'margin-top'>",
+                "margin-left": "<'margin-left'>",
+                "margin-bottom": "<'margin-bottom'>",
+                "margin-right": "<'margin-right'>",
+                "margin-block-start": "<'margin-block-start'>",
+                "margin-block-end": "<'margin-block-end'>",
+                "margin-inline-start": "<'margin-inline-start'>",
+                "margin-inline-end": "<'margin-inline-end'>",
+                "margin": "<'margin'>",
+                "margin-block": "<'margin-block'>",
+                "margin-inline": "<'margin-inline'>",
+
+                "width": "<'width'>",
+                "height": "<'height'>",
+                "min-width": "<'min-width'>",
+                "min-height": "<'min-height'>",
+                "max-width": "<'max-width'>",
+                "max-height": "<'max-height'>",
+                "block-size": "<'block-size'>",
+                "inline-size": "<'inline-size'>",
+                "min-block-size": "<'min-block-size'>",
+                "min-inline-size": "<'min-inline-size'>",
+                "max-block-size": "<'max-block-size'>",
+                "max-inline-size": "<'max-inline-size'>",
+
+                "align-self": "<'align-self'> | anchor-center",
+                "justify-self": "<'justify-self'> | anchor-center"
+            }
+        }
     },
     "properties": {
         "-moz-background-clip": {

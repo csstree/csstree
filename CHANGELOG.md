@@ -3,6 +3,7 @@
 - Added support for the [`@container`](https://drafts.csswg.org/css-contain-3/#container-rule) at-rule
 - Added support for the [`@starting-style`](https://drafts.csswg.org/css-transitions-2/#defining-before-change-style) at-rule
 - Added support for the [`@scope`](https://drafts.csswg.org/css-cascade-6/#scoped-styles) at-rule
+- Added support for the [`@position-try`](https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try) at-rule
 - Added support for the [`@layer`](https://drafts.csswg.org/css-cascade-5/#at-layer) at-rule
 - Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule (according to [the @import rule](https://drafts.csswg.org/css-cascade-5/#at-import) in Cascading and Inheritance 5)
 - Added `Layer` and `LayerList` node types
