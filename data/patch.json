@@ -419,13 +419,6 @@
             ],
             "syntax": "<svg-length>"
         },
-        "stroke-linecap": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
-            ],
-            "syntax": "butt | round | square"
-        },
         "stroke-linejoin": {
             "comment": "added SVG property",
             "references": [
@@ -501,14 +494,6 @@
         "white-space-trim": {
             "syntax": "none | discard-before || discard-after || discard-inner",
             "comment": "missed, https://www.w3.org/TR/css-text-4/#white-space-trim"
-        },
-        "position-area": {
-            "syntax": "none | <position-area>",
-            "comment": "replaced <'inset-area'>, https://drafts.csswg.org/css-anchor-position-1/#position-area"
-        },
-        "position-try-fallbacks": {
-            "syntax": "none | [ [<dashed-ident> || <try-tactic>] | <'position-area'> ]#",
-            "comment": "replaced <'position-try-options'>, https://drafts.csswg.org/css-anchor-position-1/#position-try-fallbacks"
         },
         "word-break": {
             "syntax": "normal | break-all | keep-all | break-word | auto-phrase",
@@ -741,17 +726,8 @@
         "color-space": {
             "syntax": "<rectangular-color-space> | <polar-color-space> | <custom-color-space>"
         },
-        "rectangular-color-space": {
-            "syntax": "srgb | srgb-linear | display-p3 | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | xyz | xyz-d50 | xyz-d65"
-        },
-        "polar-color-space": {
-            "syntax": "hsl | hwb | lch | oklch"
-        },
         "custom-color-space": {
             "syntax": "<dashed-ident>"
-        },
-        "hue-interpolation-method": {
-            "syntax": "[ shorter | longer | increasing | decreasing ] hue"
         },
         "paint": {
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",

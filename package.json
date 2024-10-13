@@ -99,7 +99,7 @@
     "prepublishOnly": "npm run lint-and-test && npm run build-and-test"
   },
   "dependencies": {
-    "mdn-data": "2.10.0",
+    "mdn-data": "2.12.0",
     "source-map-js": "^1.0.1"
   },
   "devDependencies": {
