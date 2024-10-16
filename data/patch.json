@@ -908,6 +908,17 @@
         "offset-path": {
             "syntax": "<ray()> | <url> | <basic-shape>"
         },
+        "basic-shape": {
+            "syntax": "<inset()> | <xywh()> | <rect()> | <circle()> | <ellipse()> | <polygon()> | <path()>"
+        },
+        "rect()": {
+            "comment": "missed, https://drafts.csswg.org/css-shapes/#supported-basic-shapes",
+            "syntax": "rect( [ <length-percentage> | auto ]{4} [ round <'border-radius'> ]? )"
+        },
+        "xywh()": {
+            "comment": "missed, https://drafts.csswg.org/css-shapes/#supported-basic-shapes",
+            "syntax": "xywh( <length-percentage>{2} <length-percentage [0,∞]>{2} [ round <'border-radius'> ]? )"
+        },
         "query-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "( <container-condition> ) | ( <size-feature> ) | style( <style-query> ) | <general-enclosed>"
