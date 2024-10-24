@@ -628,7 +628,7 @@
         },
         "absolute-color-function": {
             "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
+            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
         },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
