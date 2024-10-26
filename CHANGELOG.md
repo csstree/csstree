@@ -1,3 +1,11 @@
+## next
+
+- Added CSS wide keyword customization and introspection:
+  - Added a `Lexer#cssWideKeywords` dictionary to list CSS-wide keywords
+  - Updated the Lexer's constructor to consider `config.cssWideKeywords` for overriding the default list
+  - Expanded the lexer's dump output to include the `cssWideKeywords` dictionary
+  - Modified the `fork()` method to accept a `cssWideKeywords` option, allowing the addition of new keywords to the existing list
+
 ## 3.0.0 (September 11, 2024)
 
 - Added support for the [`@container`](https://drafts.csswg.org/css-contain-3/#container-rule) at-rule
