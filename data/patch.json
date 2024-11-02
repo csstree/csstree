@@ -447,6 +447,10 @@
             ],
             "syntax": "<svg-length>"
         },
+        "text-wrap": {
+            "comment": "broken in mdn/data",
+            "syntax": "<'text-wrap-mode'> || <'text-wrap-style'>"
+        },
         "unicode-bidi": {
             "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
             "syntax": "| -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate | -webkit-isolate-override | -webkit-plaintext"
@@ -618,6 +622,10 @@
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
+        },
+        "anchor-name": {
+            "comment": "missed in mdn/data",
+            "syntax": "<dashed-ident>"
         },
         "attr-name": {
             "syntax": "<wq-name>"
