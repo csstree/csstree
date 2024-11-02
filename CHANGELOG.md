@@ -1,4 +1,4 @@
-## next
+## 3.0.1 (November 1, 2024)
 
 - Bumped `mdn/data` to 2.12.1
 - Added `errors` array to the `Lexer#validate()` method result, providing details on problematic syntax.
@@ -9,6 +9,7 @@
   - Modified the `fork()` method to accept a `cssWideKeywords` option, allowing the addition of new keywords to the existing list
 - Reverted changes to `Block` to include `{` and `}`, and `Atrule` and `Rule` to exclude `{` and `}` for a `block` (#296)
 - Removed second parameter (`assign`) for the callback in the `fork()` method (e.g., `syntax.fork((config, assign) => { ... })`), as it simply refers to `Object.assign()`
+- Fixes in syntaxes: `<basic-shapes>`, `<absolute-color-function>` and `<'stroke-opacity'>`
 
 ## 3.0.0 (September 11, 2024)
 
