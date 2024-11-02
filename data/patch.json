@@ -438,7 +438,7 @@
             "references": [
                 "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
             ],
-            "syntax": "<number-zero-one>"
+            "syntax": "<'opacity'>"
         },
         "stroke-width": {
             "comment": "added SVG property",
