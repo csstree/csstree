@@ -1,5 +1,6 @@
 ## next
 
+- Bumped `mdn/data` to 2.12.1
 - Removed second parameter (`assign`) for the callback in the `fork()` method (e.g., `syntax.fork((config, assign) => { ... })`), as it simply refers to `Object.assign()`
 - Added CSS wide keyword customization and introspection:
   - Added a `Lexer#cssWideKeywords` dictionary to list CSS-wide keywords
