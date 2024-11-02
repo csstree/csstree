@@ -7,6 +7,7 @@
   - Updated the Lexer's constructor to consider `config.cssWideKeywords` for overriding the default list
   - Expanded the lexer's dump output to include the `cssWideKeywords` dictionary
   - Modified the `fork()` method to accept a `cssWideKeywords` option, allowing the addition of new keywords to the existing list
+- Reverted changes to `Block` to include `{` and `}`, and `Atrule` and `Rule` to exclude `{` and `}` for a `block` (#296)
 - Removed second parameter (`assign`) for the callback in the `fork()` method (e.g., `syntax.fork((config, assign) => { ... })`), as it simply refers to `Object.assign()`
 
 ## 3.0.0 (September 11, 2024)
