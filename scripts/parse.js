@@ -1,5 +1,5 @@
 import cli from 'clap';
-import { parse, toPlainObject } from '../lib/index.js';
+import { parse } from '../lib/index.js';
 import { printAstColor } from './utils/print-ast_prototype.js';
 
 cli.command('parse', '[css]')
