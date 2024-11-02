@@ -1,12 +1,13 @@
 ## next
 
 - Bumped `mdn/data` to 2.12.1
-- Removed second parameter (`assign`) for the callback in the `fork()` method (e.g., `syntax.fork((config, assign) => { ... })`), as it simply refers to `Object.assign()`
+- Added `errors` array to the `Lexer#validate()` method result, providing details on problematic syntax.
 - Added CSS wide keyword customization and introspection:
   - Added a `Lexer#cssWideKeywords` dictionary to list CSS-wide keywords
   - Updated the Lexer's constructor to consider `config.cssWideKeywords` for overriding the default list
   - Expanded the lexer's dump output to include the `cssWideKeywords` dictionary
   - Modified the `fork()` method to accept a `cssWideKeywords` option, allowing the addition of new keywords to the existing list
+- Removed second parameter (`assign`) for the callback in the `fork()` method (e.g., `syntax.fork((config, assign) => { ... })`), as it simply refers to `Object.assign()`
 
 ## 3.0.0 (September 11, 2024)
 
