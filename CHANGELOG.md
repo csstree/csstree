@@ -1,3 +1,7 @@
+## next
+
+- Fixed syntax definition parser to allow a token to be followed by a multiplier (#303)
+
 ## 3.0.1 (November 1, 2024)
 
 - Bumped `mdn/data` to 2.12.1
