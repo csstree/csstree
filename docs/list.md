@@ -60,7 +60,7 @@ It's crucial to understand the distinction between the **item** and the **data**
 
 When using CSSTree's `walk()` function to traverse the AST, you interact with `List` instances:
 
-```javascript
+```js
 csstree.walk(ast, function(node, item, list) {
   // node: the current AST node (item.data)
   // item: the current list item
@@ -93,9 +93,7 @@ Creates a new list item containing the provided data.
   - `data`: The data to store in the item.
 - **Returns:** A new list item.
 
-**Example:**
-
-```javascript
+```js
 const item = List.createItem(node);
 ```
 
@@ -105,9 +103,7 @@ const item = List.createItem(node);
 
 Initializes a new empty `List`.
 
-**Example:**
-
-```javascript
+```js
 const list = new List();
 ```
 
@@ -119,9 +115,7 @@ Instance method to create a new list item.
   - `data`: The data to store in the item.
 - **Returns:** A new list item.
 
-**Example:**
-
-```javascript
+```js
 const item = list.createItem(node);
 ```
 
@@ -129,9 +123,7 @@ const item = list.createItem(node);
 
 Allows the list to be iterable using `for...of` loops.
 
-**Example:**
-
-```javascript
+```js
 for (const node of list) {
   console.log(node);
 }
@@ -145,9 +137,7 @@ Returns the number of items in the list.
 
 - **Type:** `number`
 
-**Example:**
-
-```javascript
+```js
 console.log(list.size); // Outputs the size of the list
 ```
 
@@ -157,9 +147,7 @@ Checks if the list is empty.
 
 - **Type:** `boolean`
 
-**Example:**
-
-```javascript
+```js
 if (list.isEmpty) {
   // The list is empty
 }
@@ -171,9 +159,7 @@ Gets the data of the first item.
 
 - **Type:** Same as the data stored in the list.
 
-**Example:**
-
-```javascript
+```js
 const firstNode = list.first;
 ```
 
@@ -183,9 +169,7 @@ Gets the data of the last item.
 
 - **Type:** Same as the data stored in the list.
 
-**Example:**
-
-```javascript
+```js
 const lastNode = list.last;
 ```
 
@@ -199,9 +183,7 @@ Populates the list with items created from the given array.
   - `array`: An array of data elements.
 - **Returns:** The `List` instance (for chaining).
 
-**Example:**
-
-```javascript
+```js
 list.fromArray([node1, node2, node3]);
 ```
 
@@ -211,9 +193,7 @@ Converts the list to an array of data elements.
 
 - **Returns:** An array of the data in the list.
 
-**Example:**
-
-```javascript
+```js
 const nodes = list.toArray();
 ```
 
@@ -223,9 +203,7 @@ Serializes the list to a JSON-compatible array.
 
 - **Returns:** An array suitable for JSON serialization.
 
-**Example:**
-
-```javascript
+```js
 const jsonString = JSON.stringify(list);
 ```
 
@@ -239,9 +217,7 @@ Executes a function for each item in the list, from head to tail.
   - `fn(data, item, list)`: Function to execute for each item.
   - `thisArg` (optional): Value to use as `this` when executing `fn`.
 
-**Example:**
-
-```javascript
+```js
 list.forEach((node, item, list) => {
   console.log(node.type);
 });
@@ -251,9 +227,7 @@ list.forEach((node, item, list) => {
 
 Executes a function for each item in the list, from tail to head.
 
-**Example:**
-
-```javascript
+```js
 list.forEachRight((node, item, list) => {
   console.log(node.type);
 });
@@ -268,9 +242,7 @@ Applies a function against an accumulator and each item to reduce it to a single
   - `initialValue`: Initial value for the accumulator.
   - `thisArg` (optional): Value to use as `this` when executing `fn`.
 
-**Example:**
-
-```javascript
+```js
 const total = list.reduce((sum, node) => sum + node.value, 0);
 ```
 
@@ -278,9 +250,7 @@ const total = list.reduce((sum, node) => sum + node.value, 0);
 
 Same as `reduce`, but from tail to head.
 
-**Example:**
-
-```javascript
+```js
 const total = list.reduceRight((sum, node) => sum + node.value, 0);
 ```
 
@@ -293,9 +263,7 @@ Tests whether at least one element in the list passes the test implemented by `f
   - `thisArg` (optional): Value to use as `this` when executing `fn`.
 - **Returns:** `true` if the callback returns a truthy value for any item; otherwise, `false`.
 
-**Example:**
-
-```javascript
+```js
 const hasTypeA = list.some(node => node.type === 'TypeA');
 ```
 
@@ -308,9 +276,7 @@ Creates a new `List` with the results of calling a function on every element.
   - `thisArg` (optional): Value to use as `this` when executing `fn`.
 - **Returns:** A new `List` instance.
 
-**Example:**
-
-```javascript
+```js
 const mappedList = list.map(node => ({ ...node, value: node.value * 2 }));
 ```
 
@@ -323,9 +289,7 @@ Creates a new `List` with all elements that pass the test implemented by `fn`.
   - `thisArg` (optional): Value to use as `this` when executing `fn`.
 - **Returns:** A new `List` instance.
 
-**Example:**
-
-```javascript
+```js
 const filteredList = list.filter(node => node.isActive);
 ```
 
@@ -338,9 +302,7 @@ Iterates over the list starting from `startItem`, moving forward, until `fn` ret
   - `fn(data, item, list)`: Function to execute for each item.
   - `thisArg` (optional): Value to use as `this` when executing `fn`.
 
-**Example:**
-
-```javascript
+```js
 list.nextUntil(someItem, (node, item) => {
   if (node.type === 'StopType') return true;
   // Process node
@@ -351,9 +313,7 @@ list.nextUntil(someItem, (node, item) => {
 
 Iterates over the list starting from `startItem`, moving backward, until `fn` returns `true`.
 
-**Example:**
-
-```javascript
+```js
 list.prevUntil(someItem, (node, item) => {
   if (node.type === 'StartType') return true;
   // Process node
@@ -366,9 +326,7 @@ list.prevUntil(someItem, (node, item) => {
 
 Removes all items from the list.
 
-**Example:**
-
-```javascript
+```js
 list.clear();
 ```
 
@@ -378,9 +336,7 @@ Creates a shallow copy of the list.
 
 - **Returns:** A new `List` instance.
 
-**Example:**
-
-```javascript
+```js
 const newList = list.copy();
 ```
 
@@ -391,9 +347,7 @@ Inserts an item at the beginning of the list.
 - **Parameters:**
   - `item`: The item to prepend.
 
-**Example:**
-
-```javascript
+```js
 const item = List.createItem(node);
 list.prepend(item);
 ```
@@ -402,9 +356,7 @@ list.prepend(item);
 
 Creates a new item with the provided data and inserts it at the beginning.
 
-**Example:**
-
-```javascript
+```js
 list.prependData(node);
 ```
 
@@ -412,9 +364,7 @@ list.prependData(node);
 
 Inserts an item at the end of the list.
 
-**Example:**
-
-```javascript
+```js
 const item = List.createItem(node);
 list.append(item);
 ```
@@ -423,9 +373,7 @@ list.append(item);
 
 Creates a new item with the provided data and inserts it at the end.
 
-**Example:**
-
-```javascript
+```js
 list.appendData(node);
 ```
 
@@ -437,9 +385,7 @@ Inserts an item into the list before the specified item.
   - `item`: The item to insert.
   - `before` (optional): The item before which the new item will be inserted. If `null` or not provided, the item is appended to the end.
 
-**Example:**
-
-```javascript
+```js
 const item = List.createItem(node);
 list.insert(item, existingItem);
 ```
@@ -448,9 +394,7 @@ list.insert(item, existingItem);
 
 Creates a new item with the provided data and inserts it before the specified item.
 
-**Example:**
-
-```javascript
+```js
 list.insertData(node, existingItem);
 ```
 
@@ -462,9 +406,7 @@ Removes an item from the list.
   - `item`: The item to remove.
 - **Returns:** The removed item.
 
-**Example:**
-
-```javascript
+```js
 list.remove(existingItem);
 ```
 
@@ -472,9 +414,7 @@ list.remove(existingItem);
 
 Appends data to the end of the list (alias for `appendData`).
 
-**Example:**
-
-```javascript
+```js
 list.push(node);
 ```
 
@@ -484,9 +424,7 @@ Removes and returns the last item of the list.
 
 - **Returns:** The removed item, or `null` if the list is empty.
 
-**Example:**
-
-```javascript
+```js
 const lastItem = list.pop();
 ```
 
@@ -494,9 +432,7 @@ const lastItem = list.pop();
 
 Prepends data to the beginning of the list (alias for `prependData`).
 
-**Example:**
-
-```javascript
+```js
 list.unshift(node);
 ```
 
@@ -506,9 +442,7 @@ Removes and returns the first item of the list.
 
 - **Returns:** The removed item, or `null` if the list is empty.
 
-**Example:**
-
-```javascript
+```js
 const firstItem = list.shift();
 ```
 
@@ -519,9 +453,7 @@ Inserts all items from `otherList` at the beginning of the list.
 - **Parameters:**
   - `otherList`: The list to prepend. After the operation, `otherList` will be empty.
 
-**Example:**
-
-```javascript
+```js
 list.prependList(anotherList);
 ```
 
@@ -529,9 +461,7 @@ list.prependList(anotherList);
 
 Inserts all items from `otherList` at the end of the list.
 
-**Example:**
-
-```javascript
+```js
 list.appendList(anotherList);
 ```
 
@@ -543,9 +473,7 @@ Inserts all items from `otherList` into the list before the specified item.
   - `otherList`: The list to insert. After the operation, `otherList` will be empty.
   - `before` (optional): The item before which to insert the new list.
 
-**Example:**
-
-```javascript
+```js
 list.insertList(anotherList, existingItem);
 ```
 
@@ -559,14 +487,14 @@ Replaces `oldItem` with a new item or list.
 
 **Example (with a single item):**
 
-```javascript
+```js
 const newItem = List.createItem(newNode);
 list.replace(oldItem, newItem);
 ```
 
 **Example (with a list):**
 
-```javascript
+```js
 const newList = new List().fromArray([node1, node2]);
 list.replace(oldItem, newList);
 ```
@@ -577,19 +505,19 @@ The `List` class is compatible with arrays in many cases. It provides methods to
 
 **Conversion to Array:**
 
-```javascript
+```js
 const array = list.toArray();
 ```
 
 **Conversion from Array:**
 
-```javascript
+```js
 list.fromArray([node1, node2, node3]);
 ```
 
 **Iteration using `for...of`:**
 
-```javascript
+```js
 for (const node of list) {
   // Process node
 }
@@ -601,10 +529,6 @@ for (const node of list) {
 
 The `List` class implements `toJSON()`, allowing it to be serialized with `JSON.stringify()`.
 
-**Example:**
-
-```javascript
+```js
 const jsonString = JSON.stringify(list);
 ```
-
-This method serializes the list's data into a JSON-compatible array.
