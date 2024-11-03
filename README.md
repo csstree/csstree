@@ -58,6 +58,7 @@ CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) deta
     - [ident](docs/utils.md#ident)
     - [string](docs/utils.md#string)
     - [url](docs/utils.md#url)
+  - [List class](docs/list.md)
   - AST transforming
     - [clone(ast)](docs/utils.md#cloneast)
     - [fromPlainObject(object)](docs/utils.md#fromplainobjectobject)
