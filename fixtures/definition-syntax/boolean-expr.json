@@ -1,6 +1,6 @@
 {
-    "boolean": {
-        "syntax": "<boolean[x]>",
+    "boolean-expr": {
+        "syntax": "<boolean-expr[x]>",
         "valid": [
             "x",
             "not x",
@@ -31,8 +31,8 @@
             "x and not x"
         ]
     },
-    "boolean#2": {
-        "syntax": "<boolean[a | b]>",
+    "boolean-expr#2": {
+        "syntax": "<boolean-expr[a | b]>",
         "valid": [
             "a",
             "b",
