@@ -433,13 +433,6 @@
             ],
             "syntax": "<number-one-or-greater>"
         },
-        "stroke-opacity": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
-            ],
-            "syntax": "<'opacity'>"
-        },
         "stroke-width": {
             "comment": "added SVG property",
             "references": [
@@ -709,9 +702,6 @@
         },
         "color-function": {
             "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
-        },
-        "system-color": {
-            "syntax": "AccentColor | AccentColorText | ActiveText | ButtonBorder | ButtonFace | ButtonText | Canvas | CanvasText | Field | FieldText | GrayText | Highlight | HighlightText | LinkText | Mark | MarkText | SelectedItem | SelectedItemText | VisitedText"
         },
         "device-cmyk()": {
             "syntax": "<legacy-device-cmyk-syntax> | <modern-device-cmyk-syntax>"
