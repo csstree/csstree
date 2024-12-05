@@ -23,7 +23,13 @@
     }
 }
 
-@layer . {
+@layer foo.bar {
+    .class {
+        color: red;
+    }
+}
+
+@layer {
     .class {
         color: red;
     }
