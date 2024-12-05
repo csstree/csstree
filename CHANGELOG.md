@@ -1,6 +1,7 @@
 ## next
 
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
+- Added `source`, `startOffset`, `startLine`, and `startColumn` parameters to `OffsetToLocation` constructor, eliminating the need to call `setSource()` after creating a new `OffsetToLocation` instance
 - Exposed `OffsetToLocation` class in the main entry point, which was previously accessible only via `css-tree/tokenizer`
 - Fixed syntax definition parser to allow a token to be followed by a multiplier (#303)
 - Bumped `mdn/data` to 2.12.2
