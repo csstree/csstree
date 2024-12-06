@@ -131,19 +131,123 @@
     },
     "unclosed unknown functional-pseudo in selector": {
         "source": " foo:bar(x {}",
-        "generate": "foo:bar(x{}",
+        "generate": "foo:bar(x {}",
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Raw",
+                    "value": "foo:bar(x {}"
+                }
+            ]
+        }
+    },
+    "parser should respect bracket balance over stop token": {
+        "skipRoundtrip": "broken round-trip since generator adds } to the end, not critical and can be fixed in the future",
+        "source": ".a{--x:(;color:green;}.b{color:red;--y:);width:10px}",
+        "generate": ".a{--x:(;color:green;}.b{color:red;--y:);width:10px}}",
         "ast": {
             "type": "StyleSheet",
             "children": [
                 {
                     "type": "Rule",
+                    "loc": null,
                     "prelude": {
-                        "type": "Raw",
-                        "value": "foo:bar(x"
+                        "type": "SelectorList",
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "loc": null,
+                                "children": [
+                                    {
+                                        "type": "ClassSelector",
+                                        "loc": null,
+                                        "name": "a"
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     "block": {
                         "type": "Block",
-                        "children": []
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "loc": null,
+                                "important": false,
+                                "property": "--x",
+                                "value": {
+                                    "type": "Raw",
+                                    "loc": null,
+                                    "value": "(;color:green;}.b{color:red;--y:);width:10px}"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "parser should respect bracket balance over stop token #2": {
+        "source": ".a{--x:(;color:green;}.b{color:red;--y:});width:10px}",
+        "ast": {
+            "type": "StyleSheet",
+            "children": [
+                {
+                    "type": "Rule",
+                    "loc": null,
+                    "prelude": {
+                        "type": "SelectorList",
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "Selector",
+                                "loc": null,
+                                "children": [
+                                    {
+                                        "type": "ClassSelector",
+                                        "loc": null,
+                                        "name": "a"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "block": {
+                        "type": "Block",
+                        "loc": null,
+                        "children": [
+                            {
+                                "type": "Declaration",
+                                "loc": null,
+                                "important": false,
+                                "property": "--x",
+                                "value": {
+                                    "type": "Raw",
+                                    "loc": null,
+                                    "value": "(;color:green;}.b{color:red;--y:})"
+                                }
+                            },
+                            {
+                                "type": "Declaration",
+                                "loc": null,
+                                "important": false,
+                                "property": "width",
+                                "value": {
+                                    "type": "Value",
+                                    "children": [
+                                        {
+                                            "type": "Dimension",
+                                            "loc": null,
+                                            "value": "10",
+                                            "unit": "px"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
                     }
                 }
             ]

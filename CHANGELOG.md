@@ -3,7 +3,10 @@
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
 - Added `source`, `startOffset`, `startLine`, and `startColumn` parameters to `OffsetToLocation` constructor, eliminating the need to call `setSource()` after creating a new `OffsetToLocation` instance
 - Exposed `OffsetToLocation` class in the main entry point, which was previously accessible only via `css-tree/tokenizer`
+- Fixed `Raw` node value consumption by ignoring stop tokens inside blocks, resolving an issue where `Raw` value consumption stopped prematurely. This fix also enables parsing of functions whose content includes stop characters (e.g., semicolons and curly braces) within declaration values, aligning with the latest draft of CSS Values and Units Module Level 5.  
+- Fixed `TokenStream#balance` computation to handle unmatched brackets correctly. Previously, when encountering a closing bracket, the `TokenStream` would prioritize it over unmatched opening brackets, leading to improper parsing. For example, the parser would incorrectly consume the declaration value of `.a { prop: ([{); }` as `([{)` instead of consuming it until all opened brackets were closed (`([{); }`). Now, unmatched closing brackets are discarded unless they match the most recent opening bracket on the stack. This change aligns CSSTree with CSS specifications and browser behavior.
 - Fixed syntax definition parser to allow a token to be followed by a multiplier (#303)
+- Fixed location for `Layer` node (#310)
 - Bumped `mdn/data` to 2.12.2
 
 ## 3.0.1 (November 1, 2024)
