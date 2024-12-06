@@ -1,4 +1,4 @@
-## next
+## 3.1.0 (December 6, 2024)
 
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
 - Added `source`, `startOffset`, `startLine`, and `startColumn` parameters to `OffsetToLocation` constructor, eliminating the need to call `setSource()` after creating a new `OffsetToLocation` instance
