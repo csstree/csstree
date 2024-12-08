@@ -1,3 +1,7 @@
+## next
+
+- Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
+
 ## 3.1.0 (December 6, 2024)
 
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
