@@ -42,7 +42,7 @@ Options (optional):
 
 ### context
 
-Type: `string`<br>
+Type: `string`  
 Default: `'stylesheet'`
 
 Defines what part of CSS is parsing.
@@ -64,21 +64,21 @@ Contexts:
 
 ### atrule
 
-Type: `string` or `null`<br>
+Type: `string` or `null`  
 Default: `null`
 
 Using for `atrulePrelude` context to apply atrule specific parse rules.
 
 ### positions
 
-Type: `boolean`<br>
+Type: `boolean`  
 Default: `false`
 
 Specify to store locations of node content in original source. Location is storing as `loc` field of nodes. `loc` property is always `null` when this option is `false`. See structure of [`loc`](ast.md#loc) in AST format description.
 
 ### onParseError
 
-Type: `function(error, fallbackNode)` or `null`<br>
+Type: `function(error, fallbackNode)` or `null`  
 Default: `null`
 
 Parsing is tolerant by default, i.e. any text may to be parsed with no an raised exception. However, mistakes in CSS may make it imposible to parse some part, e.g. a selector or declaration. In that case bad content is wrapping into a `Raw` node and `onParseError` is invoking.
@@ -99,49 +99,49 @@ csstree.parse('example { foo; bar: 1! }', {
 
 ### onComment
 
-Type: `function(value, loc)` or `null`<br>
+Type: `function(value, loc)` or `null`  
 Default: `null`
 
 A handler to call for every comment in parsing source. Value is passing without surrounding `/*` and `*/`. [`loc`](ast.md#loc) will be `null` until `positions` option is set to `true`.
 
-### Token
+### onToken
 
-Type: `function(type, value, loc)` or `null`<br>
+Type: `function(type, start, end, index)` or `Array` or `null`  
 Default: `null`
 
-A handler to call for every non-whitespace, non-comment token in parsing source. [`loc`](ast.md#loc) will be `null` until `positions` option is set to `true`.
+When a function, `onToken` is a handler to call for every token in the parsing source. The arguments are the numeric type of the token, the start offset, the end offset, and the token index. When an array, `onToken` is populated with objects containing the numeric type of the token (`type`), the start offset (`start`), and the end offset (`end`).
 
 ### filename
 
-Type: `string`<br>
+Type: `string`  
 Default: `'<unknown>'`
 
 Filename of source. This value adds to [`loc`](ast.md#loc) as `source` property when `positions` option is `true`. Using for source map generation.
 
 ### offset
 
-Type: `number`<br>
+Type: `number`  
 Default: `0`
 
 Start offset. Useful when parsing a fragment of CSS to store a correct positions for node's [`loc`](ast.md#loc) property.
 
 ### line
 
-Type: `number`<br>
+Type: `number`  
 Default: `1`
 
 Start line number. Useful when parsing fragment of CSS to store correct positions in node's [`loc`](ast.md#loc) property.
 
 ### column
 
-Type: `number`<br>
+Type: `number`  
 Default: `1`
 
 Start column number. Useful when parsing fragment of CSS to store correct positions in node's `loc` property.
 
 ### parseAtrulePrelude
 
-Type: `boolean`<br>
+Type: `boolean`  
 Default: `true`
 
 Defines to parse an at-rule prelude in details (represents as `AtruleExpresion`, `MediaQueryList` or `SelectorList` if any). Otherwise, represents prelude as `Raw` node.
@@ -187,7 +187,7 @@ csstree.parse('@example 1 2;', {
 
 ### parseRulePrelude
 
-Type: `boolean`<br>
+Type: `boolean`  
 Default: `true`
 
 Defines to parse a rule prelude in details or left unparsed (represents as `Raw` node).
@@ -241,7 +241,7 @@ csstree.parse('.foo {}', {
 
 ### parseValue
 
-Type: `boolean`<br>
+Type: `boolean`  
 Default: `true`
 
 Defines to parse a declaration value in details (represents as `Value`). Otherwise represents value as `Raw` node.
@@ -282,7 +282,7 @@ csstree.parse('color: #aabbcc', {
 
 ### parseCustomProperty
 
-Type: `boolean`<br>
+Type: `boolean`  
 Default: `false`
 
 Defines to parse a custom property value and a `var()` fallback in details (represents as `Value`). Otherwise represents value as `Raw` node.
