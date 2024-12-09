@@ -1,3 +1,30 @@
+## next
+
+- Added `onToken` option to the `parse()` method, which can be either an array or a function:
+    - When the value is an array, it is populated with objects `{ type, start, end }` (token type, and its start and end offsets).
+    - When the value is a function, it accepts `type`, `start`, `end`, and `index` parameters, and is invoked with a token API as `this`, enabling advanced token handling (see [onToken](docs/parsing.md#ontoken)). For example, the following demonstrates checking if all block tokens have matching pairs:
+        ```js
+        parse(css, {
+            onToken(type, start, end, index) {
+                if (this.isBlockOpenerTokenType(type)) {
+                    if (this.getBlockPairTokenIndex(index) === -1) {
+                        console.warn('No closing pair for', this.getTokenValue(index), this.getRangeLocation(start, end));
+                    }
+                } else if (this.isBlockCloserTokenType(type)) {
+                    if (this.getBlockPairTokenIndex(index) === -1) {
+                        console.warn('No opening pair for', this.getTokenValue(index), this.getRangeLocation(start, end));
+                    }
+                }
+            }
+        });
+        ```
+- Extended `TokenStream` with the following methods:
+    - `getTokenEnd(tokenIndex)` – returns the token's end offset by index, complementing `getTokenStart(tokenIndex)`
+    - `getTokenType(tokenIndex)` – returns the token's type by index
+    - `isBlockOpenerTokenType(tokenType)` – returns `true` for `<function-token>`, `<(-token>`, `<[-token>`, and `<{-token>`
+    - `isBlockCloserTokenType(tokenType)` – returns `true` for `<)-token>`, `<]-token>`, and `<}-token>`
+    - `getBlockTokenPairIndex(tokenIndex)` – returns the index of the pair token for a block, or `-1` if no pair exists
+
 ## 3.1.0 (December 6, 2024)
 
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
