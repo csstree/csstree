@@ -24,6 +24,7 @@
     - `isBlockOpenerTokenType(tokenType)` – returns `true` for `<function-token>`, `<(-token>`, `<[-token>`, and `<{-token>`
     - `isBlockCloserTokenType(tokenType)` – returns `true` for `<)-token>`, `<]-token>`, and `<}-token>`
     - `getBlockTokenPairIndex(tokenIndex)` – returns the index of the pair token for a block, or `-1` if no pair exists
+- Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
 
 ## 3.1.0 (December 6, 2024)
 
