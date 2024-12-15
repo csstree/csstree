@@ -1,20 +1,53 @@
 ## next
 
-- Added `tokenize` option to the `fork()` method to allow custom tokenization
+- Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
+- Added `tokenize` option to the `fork()` method to allow custom tokenization.
+
+## 3.1.0 (December 6, 2024)
+
+- Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
+- Added `source`, `startOffset`, `startLine`, and `startColumn` parameters to `OffsetToLocation` constructor, eliminating the need to call `setSource()` after creating a new `OffsetToLocation` instance
+- Exposed `OffsetToLocation` class in the main entry point, which was previously accessible only via `css-tree/tokenizer`
+- Fixed `Raw` node value consumption by ignoring stop tokens inside blocks, resolving an issue where `Raw` value consumption stopped prematurely. This fix also enables parsing of functions whose content includes stop characters (e.g., semicolons and curly braces) within declaration values, aligning with the latest draft of CSS Values and Units Module Level 5.
+- Fixed `TokenStream#balance` computation to handle unmatched brackets correctly. Previously, when encountering a closing bracket, the `TokenStream` would prioritize it over unmatched opening brackets, leading to improper parsing. For example, the parser would incorrectly consume the declaration value of `.a { prop: ([{); }` as `([{)` instead of consuming it until all opened brackets were closed (`([{); }`). Now, unmatched closing brackets are discarded unless they match the most recent opening bracket on the stack. This change aligns CSSTree with CSS specifications and browser behavior.
+- Fixed syntax definition parser to allow a token to be followed by a multiplier (#303)
+- Fixed location for `Layer` node (#310)
+- Bumped `mdn/data` to 2.12.2
+
+## 3.0.1 (November 1, 2024)
+
+- Bumped `mdn/data` to 2.12.1
+- Added `errors` array to the `Lexer#validate()` method result, providing details on problematic syntax.
+- Added CSS wide keyword customization and introspection:
+  - Added a `Lexer#cssWideKeywords` dictionary to list CSS-wide keywords
+  - Updated the Lexer's constructor to consider `config.cssWideKeywords` for overriding the default list
+  - Expanded the lexer's dump output to include the `cssWideKeywords` dictionary
+  - Modified the `fork()` method to accept a `cssWideKeywords` option, allowing the addition of new keywords to the existing list
+- Reverted changes to `Block` to include `{` and `}`, and `Atrule` and `Rule` to exclude `{` and `}` for a `block` (#296)
+- Removed second parameter (`assign`) for the callback in the `fork()` method (e.g., `syntax.fork((config, assign) => { ... })`), as it simply refers to `Object.assign()`
+- Fixes in syntaxes: `<basic-shapes>`, `<absolute-color-function>` and `<'stroke-opacity'>`
+
+## 3.0.0 (September 11, 2024)
+
 - Added support for the [`@container`](https://drafts.csswg.org/css-contain-3/#container-rule) at-rule
 - Added support for the [`@starting-style`](https://drafts.csswg.org/css-transitions-2/#defining-before-change-style) at-rule
 - Added support for the [`@scope`](https://drafts.csswg.org/css-cascade-6/#scoped-styles) at-rule
+- Added support for the [`@position-try`](https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try) at-rule
 - Added support for the [`@layer`](https://drafts.csswg.org/css-cascade-5/#at-layer) at-rule
 - Added support for `layer`, `layer()` and `supports()` in the `@media` at-rule (according to [the @import rule](https://drafts.csswg.org/css-cascade-5/#at-import) in Cascading and Inheritance 5)
 - Added `Layer` and `LayerList` node types
-- Bumped `mdn/data` to `2.1.0`
-- Added `<dashed-ident>` to generic types
 - Added `TokenStream#lookupTypeNonSC()` method
+- Added `<dashed-ident>` to generic types
+- Bumped `mdn/data` to `2.10.0`
+- Aligned `<'font'>` to [CSS Fonts 4](https://drafts.csswg.org/css-fonts-4/)
+- Aligned `<color>` to [CSS Color 5](https://drafts.csswg.org/css-color-5/)
 - Fixed initialization when `Object.prototype` is extended or polluted (#262)
 - Fixed `fork()` method to consider the `generic` option when creating a Lexer instance (#266)
 - Fixed crash on parse error when custom `line` or `offset` is specified via options (#251)
 - Fixed `speak` syntax patch (#241)
 - Fixed `:lang()` to accept a list of `<ident>` or `<string>` per [spec](https://drafts.csswg.org/selectors/#the-lang-pseudo) (#265)
+- Fixed lexer matching for syntaxes referred to as `<'property'>`, when the syntax has a top-level `#`-multiplier (#102)
+- Relaxed parsing of syntax definition to allow whitespaces in range multiplier (#270)
 - Changed `parseWithFallback()` to rollback `tokenIndex` before calling a fallback
 - Changed `Block` to not include `{` and `}`
 - Changed `Atrule` and `Rule` to include `{` and `}` for a block

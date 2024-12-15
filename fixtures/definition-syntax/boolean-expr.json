@@ -1,0 +1,69 @@
+{
+    "boolean-expr": {
+        "syntax": "<boolean-expr[x]>",
+        "valid": [
+            "x",
+            "not x",
+            "(not x)",
+            "x and x",
+            "x and (x)",
+            "x and x and x",
+            "x and (not x)",
+            "x and (x or x)",
+            "x and (x and (x or x))",
+            "x or x",
+            "x or (x)",
+            "x or x or x",
+            "x or (not x)",
+            "x or (x and x)",
+            "x or (x or (x and x))",
+            "x and (x and x or x)",
+            "(general enclosed)",
+            "(general enclosed) and x",
+            "(general enclosed) and (general enclosed)",
+            "fn(general enclosed)",
+            "fn(general enclosed) and x",
+            "fn(general enclosed) and (general enclosed)"
+        ],
+        "invalid": [
+            "not x and x",
+            "x and x or x",
+            "x and not x"
+        ]
+    },
+    "boolean-expr#2": {
+        "syntax": "<boolean-expr[a | b]>",
+        "valid": [
+            "a",
+            "b",
+            "not a",
+            "(not b)",
+            "a and b",
+            "a and a and a",
+            "a and b and a",
+            "a and (not b)",
+            "a and (b or a)",
+            "a and (a and (a or a))",
+            "a or b",
+            "a or a or a",
+            "a or b or a",
+            "a or (not b)",
+            "a or (b and a)",
+            "a or (a or (a and a))",
+            "a and (b and a or b)",
+            "(general enclosed)",
+            "(general enclosed) and a",
+            "(general enclosed) and (general enclosed)",
+            "fn(general enclosed)",
+            "fn(general enclosed) and b",
+            "fn(general enclosed) and (general enclosed)"
+        ],
+        "invalid": [
+            "c",
+            "not c",
+            "not a and b",
+            "a and b or a",
+            "a and not b"
+        ]
+    }
+}

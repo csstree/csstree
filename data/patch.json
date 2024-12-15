@@ -20,7 +20,47 @@
         "scope": {
             "prelude": "[ ( <scope-start> ) ]? [ to ( <scope-end> ) ]?"
         },
-        "scroll-timeline": null
+        "position-try": {
+            "comment": "The list of descriptors: https://developer.mozilla.org/en-US/docs/Web/CSS/@position-try",
+            "descriptors": {
+                "top": "<'top'>",
+                "left": "<'left'>",
+                "bottom": "<'bottom'>",
+                "right": "<'right'>",
+                "inset-block-start": "<'inset-block-start'>",
+                "inset-block-end": "<'inset-block-end'>",
+                "inset-inline-start": "<'inset-inline-start'>",
+                "inset-inline-end": "<'inset-inline-end'>",
+                "inset-block": "<'inset-block'>",
+                "inset-inline": "<'inset-inline'>",
+                "inset": "<'inset'>",
+                "margin-top": "<'margin-top'>",
+                "margin-left": "<'margin-left'>",
+                "margin-bottom": "<'margin-bottom'>",
+                "margin-right": "<'margin-right'>",
+                "margin-block-start": "<'margin-block-start'>",
+                "margin-block-end": "<'margin-block-end'>",
+                "margin-inline-start": "<'margin-inline-start'>",
+                "margin-inline-end": "<'margin-inline-end'>",
+                "margin": "<'margin'>",
+                "margin-block": "<'margin-block'>",
+                "margin-inline": "<'margin-inline'>",
+                "width": "<'width'>",
+                "height": "<'height'>",
+                "min-width": "<'min-width'>",
+                "min-height": "<'min-height'>",
+                "max-width": "<'max-width'>",
+                "max-height": "<'max-height'>",
+                "block-size": "<'block-size'>",
+                "inline-size": "<'inline-size'>",
+                "min-block-size": "<'min-block-size'>",
+                "min-inline-size": "<'min-inline-size'>",
+                "max-block-size": "<'max-block-size'>",
+                "max-inline-size": "<'max-inline-size'>",
+                "align-self": "<'align-self'> | anchor-center",
+                "justify-self": "<'justify-self'> | anchor-center"
+            }
+        }
     },
     "properties": {
         "-moz-background-clip": {
@@ -178,13 +218,6 @@
             "comment": "added old IE property https://msdn.microsoft.com/en-us/library/ms530723(v=vs.85).aspx",
             "syntax": "<url>+"
         },
-        "clip-rule": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/masking.html#ClipRuleProperty"
-            ],
-            "syntax": "nonzero | evenodd"
-        },
         "container-type": {
             "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-type",
             "syntax": "normal || [ size | inline-size ]"
@@ -245,23 +278,18 @@
             ],
             "syntax": "<number-zero-one>"
         },
-        "fill-rule": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#FillProperty"
-            ],
-            "syntax": "nonzero | evenodd"
-        },
         "filter": {
             "comment": "extend with IE legacy syntaxes",
             "syntax": "| <-ms-filter-function-list>"
         },
         "font": {
-            "comment": "non standard fonts",
+            "comment": "align with font-4, fix <'font-family'>#, add non standard fonts",
             "references": [
+                "https://drafts.csswg.org/css-fonts-4/#font-prop",
+                "https://github.com/w3c/csswg-drafts/pull/10832",
                 "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
             ],
-            "syntax": "| <-non-standard-font>"
+            "syntax": "[ [ <'font-style'> || <font-variant-css2> || <'font-weight'> || <font-width-css3> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'># ] | <system-family-name> | <-non-standard-font>"
         },
         "glyph-orientation-horizontal": {
             "comment": "added SVG property",
@@ -290,34 +318,6 @@
                 "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/letter-spacing"
             ],
             "syntax": "normal | <length-percentage>"
-        },
-        "marker": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
-        },
-        "marker-end": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
-        },
-        "marker-mid": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
-        },
-        "marker-start": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#MarkerProperties"
-            ],
-            "syntax": "none | <url>"
         },
         "max-width": {
             "comment": "extend by non-standard size keywords https://developer.mozilla.org/en-US/docs/Web/CSS/width",
@@ -379,26 +379,12 @@
             ],
             "syntax": "[ <'scroll-timeline-name'> || <'scroll-timeline-axis'> ]#"
         },
-        "scroll-timeline-axis": {
-            "comment": "fix according to spec",
-            "references": [
-                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
-            ],
-            "syntax": "[ block | inline | vertical | horizontal ]#"
-        },
         "scroll-timeline-name": {
             "comment": "fix according to spec",
             "references": [
                 "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
             ],
-            "syntax": "none | <custom-ident>#"
-        },
-        "shape-rendering": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#ShapeRenderingPropert"
-            ],
-            "syntax": "auto | optimizeSpeed | crispEdges | geometricPrecision"
+            "syntax": "[ none | <dashed-ident> ]#"
         },
         "src": {
             "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
@@ -433,13 +419,6 @@
             ],
             "syntax": "<svg-length>"
         },
-        "stroke-linecap": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
-            ],
-            "syntax": "butt | round | square"
-        },
         "stroke-linejoin": {
             "comment": "added SVG property",
             "references": [
@@ -454,13 +433,6 @@
             ],
             "syntax": "<number-one-or-greater>"
         },
-        "stroke-opacity": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
-            ],
-            "syntax": "<number-zero-one>"
-        },
         "stroke-width": {
             "comment": "added SVG property",
             "references": [
@@ -468,12 +440,9 @@
             ],
             "syntax": "<svg-length>"
         },
-        "text-anchor": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/text.html#TextAlignmentProperties"
-            ],
-            "syntax": "start | middle | end"
+        "text-wrap": {
+            "comment": "broken in mdn/data",
+            "syntax": "<'text-wrap-mode'> || <'text-wrap-style'>"
         },
         "unicode-bidi": {
             "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
@@ -518,6 +487,17 @@
         "writing-mode": {
             "comment": "extend with SVG keywords",
             "syntax": "| <svg-writing-mode>"
+        },
+        "white-space-trim": {
+            "syntax": "none | discard-before || discard-after || discard-inner",
+            "comment": "missed, https://www.w3.org/TR/css-text-4/#white-space-trim"
+        },
+        "word-break": {
+            "syntax": "normal | break-all | keep-all | break-word | auto-phrase",
+            "comment": "added in Chrome/Edge 119, not covered by a spec currently (2024-09-02)",
+            "references": [
+                "https://developer.mozilla.org/en-US/docs/Web/CSS/word-break"
+            ]
         }
     },
     "types": {
@@ -630,11 +610,15 @@
         },
         "absolute-color-function": {
             "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
+            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
         },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
+        },
+        "anchor-name": {
+            "comment": "missed in mdn/data",
+            "syntax": "<dashed-ident>"
         },
         "attr-name": {
             "syntax": "<wq-name>"
@@ -682,11 +666,24 @@
             "syntax": "[ <function-token> <any-value>? ) ] | [ ( <any-value>? ) ]"
         },
         "generic-family": {
-            "comment": "added -apple-system",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#typedef-generic-family",
+            "syntax": "<generic-script-specific>| <generic-complete> | <generic-incomplete> | <-non-standard-generic-family>"
+        },
+        "generic-script-specific": {
+            "syntax": "generic(kai) | generic(fangsong) | generic(nastaliq)"
+        },
+        "generic-complete": {
+            "syntax": "serif | sans-serif | system-ui | cursive | fantasy | math | monospace"
+        },
+        "generic-incomplete": {
+            "syntax": "ui-serif | ui-sans-serif | ui-monospace | ui-rounded"
+        },
+        "-non-standard-generic-family": {
+            "syntax": "-apple-system | BlinkMacSystemFont",
             "references": [
+                "https://css-tricks.com/snippets/css/system-font-stack/",
                 "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
-            ],
-            "syntax": "| -apple-system"
+            ]
         },
         "gradient": {
             "comment": "added legacy syntaxes support",
@@ -697,8 +694,38 @@
             "syntax": "<length> | auto"
         },
         "color": {
-            "comment": "added non standard color names",
-            "syntax": "| <-non-standard-color>"
+            "comment": "css-color-5, added non standard color names",
+            "syntax": "<color-base> | currentColor | <system-color> | <device-cmyk()>  | <light-dark()> | <-non-standard-color>"
+        },
+        "color-base": {
+            "syntax": "<hex-color> | <color-function> | <named-color> | <color-mix()> | transparent"
+        },
+        "color-function": {
+            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
+        },
+        "device-cmyk()": {
+            "syntax": "<legacy-device-cmyk-syntax> | <modern-device-cmyk-syntax>"
+        },
+        "legacy-device-cmyk-syntax": {
+            "syntax": "device-cmyk( <number>#{4} )"
+        },
+        "modern-device-cmyk-syntax": {
+            "syntax": "device-cmyk( <cmyk-component>{4} [ / [ <alpha-value> | none ] ]? )"
+        },
+        "cmyk-component": {
+            "syntax": "<number> | <percentage> | none"
+        },
+        "color-mix()": {
+            "syntax": "color-mix( <color-interpolation-method> , [ <color> && <percentage [0,100]>? ]#{2} )"
+        },
+        "color-interpolation-method": {
+            "syntax": "in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]"
+        },
+        "color-space": {
+            "syntax": "<rectangular-color-space> | <polar-color-space> | <custom-color-space>"
+        },
+        "custom-color-space": {
+            "syntax": "<dashed-ident>"
         },
         "paint": {
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
@@ -855,11 +882,16 @@
         "offset-path": {
             "syntax": "<ray()> | <url> | <basic-shape>"
         },
-        "ray()": {
-            "syntax": "ray( <angle> && <ray-size>? && contain? && [at <position>]? )"
+        "basic-shape": {
+            "syntax": "<inset()> | <xywh()> | <rect()> | <circle()> | <ellipse()> | <polygon()> | <path()>"
         },
-        "ray-size": {
-            "syntax": "closest-side | closest-corner | farthest-side | farthest-corner | sides"
+        "rect()": {
+            "comment": "missed, https://drafts.csswg.org/css-shapes/#supported-basic-shapes",
+            "syntax": "rect( [ <length-percentage> | auto ]{4} [ round <'border-radius'> ]? )"
+        },
+        "xywh()": {
+            "comment": "missed, https://drafts.csswg.org/css-shapes/#supported-basic-shapes",
+            "syntax": "xywh( <length-percentage>{2} <length-percentage [0,∞]>{2} [ round <'border-radius'> ]? )"
         },
         "query-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
@@ -887,6 +919,64 @@
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
+        },
+        "inset-area": {
+            "syntax": "[ [ left | center | right | span-left | span-right | x-start | x-end | span-x-start | span-x-end | x-self-start | x-self-end | span-x-self-start | span-x-self-end | span-all ] || [ top | center | bottom | span-top | span-bottom | y-start | y-end | span-y-start | span-y-end | y-self-start | y-self-end | span-y-self-start | span-y-self-end | span-all ] | [ block-start | center | block-end | span-block-start | span-block-end | span-all ] || [ inline-start | center | inline-end | span-inline-start | span-inline-end | span-all ] | [ self-block-start | self-block-end | span-self-block-start | span-self-block-end | span-all ] || [ self-inline-start | self-inline-end | span-self-inline-start | span-self-inline-end | span-all ] | [ start | center | end | span-start | span-end | span-all ]{1,2} | [ self-start | center | self-end | span-self-start | span-self-end | span-all ]{1,2} ]",
+            "comment": "initial name for <position-area> before renamed",
+            "references": [
+                "https://www.w3.org/TR/css-anchor-position-1/#inset-area"
+            ]
+        },
+        "position-area": {
+            "syntax": "[ [ left | center | right | span-left | span-right | x-start | x-end | span-x-start | span-x-end | x-self-start | x-self-end | span-x-self-start | span-x-self-end | span-all ] || [ top | center | bottom | span-top | span-bottom | y-start | y-end | span-y-start | span-y-end | y-self-start | y-self-end | span-y-self-start | span-y-self-end | span-all ] | [ block-start | center | block-end | span-block-start | span-block-end | span-all ] || [ inline-start | center | inline-end | span-inline-start | span-inline-end | span-all ] | [ self-block-start | center | self-block-end | span-self-block-start | span-self-block-end | span-all ] || [ self-inline-start | center | self-inline-end | span-self-inline-start | span-self-inline-end | span-all ] | [ start | center | end | span-start | span-end | span-all ]{1,2} | [ self-start | center | self-end | span-self-start | span-self-end | span-all ]{1,2} ]",
+            "comment": "replaced <inset-area>",
+            "references": [
+                "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
+            ]
+        },
+        "anchor()": {
+            "syntax": "anchor( <anchor-element>? && <anchor-side>, <length-percentage>? )",
+            "comment": "missed",
+            "references": [
+                "https://drafts.csswg.org/css-anchor-position-1/#anchor-pos"
+            ]
+        },
+        "anchor-side": {
+            "syntax": "inside | outside | top | left | right | bottom | start | end | self-start | self-end | <percentage> | center"
+        },
+        "anchor-size()": {
+            "syntax": "anchor-size( [ <anchor-element> || <anchor-size> ]? , <length-percentage>? )",
+            "comment": "missed",
+            "references": [
+                "https://drafts.csswg.org/css-anchor-position-1/#funcdef-anchor-size"
+            ]
+        },
+        "anchor-size": {
+            "syntax": "width | height | block | inline | self-block | self-inline"
+        },
+        "anchor-element": {
+            "syntax": "<dashed-ident>",
+            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-anchor-element"
+        },
+        "try-size": {
+            "syntax": "most-width | most-height | most-block-size | most-inline-size",
+            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-try-size"
+        },
+        "try-tactic": {
+            "syntax": "flip-block || flip-inline || flip-start",
+            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-position-try-fallbacks-try-tactic"
+        },
+        "font-variant-css2": {
+            "syntax": "normal | small-caps",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-variant-css21-values"
+        },
+        "font-width-css3": {
+            "syntax": "normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-width-css3-values"
+        },
+        "system-family-name": {
+            "syntax": "caption | icon | menu | message-box | small-caption | status-bar",
+            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#system-family-name-value"
         }
     }
 }

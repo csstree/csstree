@@ -97,6 +97,7 @@
         }
     },
     "parentheses.c.3": {
+        "skipRoundtrip": "broken round-trip since generator adds whitespace between + and 1 to prevent tokens merge into single token",
         "source": "(/*test*/x/*test*/+/*test*/1/*test*/)",
         "generate": "(x+ 1)",
         "ast": {

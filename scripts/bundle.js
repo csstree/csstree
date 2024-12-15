@@ -9,17 +9,17 @@ const data = JSON.stringify(lexer.dump(), null, 4);
 
 async function build() {
     const genModules = {
-        [path.resolve('lib/data.js')]: `export default ${data};`,
-        [path.resolve('lib/data.cjs')]: `module.exports = ${data};`,
-        [path.resolve('lib/version.js')]: `export const version = "${version}";`,
-        [path.resolve('lib/version.cjs')]: `module.exports = "${version}";`
+        'data.js': `export default ${data};`,
+        'data.cjs': `module.exports = ${data};`,
+        'version.js': `export const version = "${version}";`,
+        'version.cjs': `module.exports = "${version}";`
     };
-    const genModulesFilter = new RegExp('(' + Object.keys(genModules).join('|').replace(/\./g, '\\.') + ')$');
+    const genModulesFilter = new RegExp('lib[\\\\/](' + Object.keys(genModules).join('|').replace(/\./g, '\\.') + ')$');
     const plugins = [{
         name: 'replace',
         setup({ onLoad }) {
             onLoad({ filter: genModulesFilter }, args => ({
-                contents: genModules[args.path]
+                contents: genModules[path.basename(args.path)]
             }));
         }
     }];

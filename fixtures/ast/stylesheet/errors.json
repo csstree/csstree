@@ -86,11 +86,6 @@
             "error": "\")\" is expected"
         },
         {
-            "source": ":lang(var(--test)) {}",
-            "offset": "      ^",
-            "error": "Identifier or string is expected"
-        },
-        {
             "source": "[",
             "offset": " ^",
             "error": "Unexpected end of input"

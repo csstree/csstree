@@ -183,6 +183,36 @@
             "foo foo foo foo bar"
         ]
     },
+    "should ignore whitespaces": {
+        "syntax": "foo{ 2 }",
+        "valid": [
+            "foo foo"
+        ],
+        "invalid": [
+            "foo",
+            "foo foo foo",
+            "foo foo foo foo",
+            "",
+            "bar",
+            "foo foo bar",
+            "foo foo foo foo bar"
+        ]
+    },
+    "should ignore whitespaces #2": {
+        "syntax": "foo{ 2 , 4 }",
+        "valid": [
+            "foo foo",
+            "foo foo foo",
+            "foo foo foo foo"
+        ],
+        "invalid": [
+            "foo",
+            "",
+            "bar",
+            "foo foo bar",
+            "foo foo foo foo bar"
+        ]
+    },
     "one or more comma separated": {
         "syntax": "foo#",
         "valid": [

@@ -5,4 +5,5 @@
 - [Serialization AST → CSS](generate.md)
 - [AST traversal](traversal.md)
 - [Util functions](utils.md)
+- [List class](list.md)
 - [Working with definition syntax](definition-syntax.md)

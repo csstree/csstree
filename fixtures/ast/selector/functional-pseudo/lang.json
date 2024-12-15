@@ -6,13 +6,8 @@
             "name": "lang",
             "children": [
                 {
-                    "type": "LanguageRangeList",
-                    "children": [
-                        {
-                            "type": "Identifier",
-                            "name": "en"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "en"
                 }
             ]
         }
@@ -25,13 +20,8 @@
             "name": "lang",
             "children": [
                 {
-                    "type": "LanguageRangeList",
-                    "children": [
-                        {
-                            "type": "String",
-                            "value": "en"
-                        }
-                    ]
+                    "type": "String",
+                    "value": "en"
                 }
             ]
         }
@@ -44,21 +34,24 @@
             "name": "lang",
             "children": [
                 {
-                    "type": "LanguageRangeList",
-                    "children": [
-                        {
-                            "type": "String",
-                            "value": "en"
-                        },
-                        {
-                            "type": "Identifier",
-                            "name": "de-DE"
-                        },
-                        {
-                            "type": "String",
-                            "value": "es"
-                        }
-                    ]
+                    "type": "String",
+                    "value": "en"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "Identifier",
+                    "name": "de-DE"
+                },
+                {
+                    "type": "Operator",
+                    "value": ","
+                },
+                {
+                    "type": "String",
+                    "value": "es"
                 }
             ]
         }
@@ -71,13 +64,8 @@
             "name": "lang",
             "children": [
                 {
-                    "type": "LanguageRangeList",
-                    "children": [
-                        {
-                            "type": "Identifier",
-                            "name": "en"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "en"
                 }
             ]
         }
@@ -89,13 +77,25 @@
             "name": "LanG",
             "children": [
                 {
-                    "type": "LanguageRangeList",
-                    "children": [
-                        {
-                            "type": "Identifier",
-                            "name": "en-US"
-                        }
-                    ]
+                    "type": "Identifier",
+                    "name": "en-US"
+                }
+            ]
+        }
+    },
+    "not an error": {
+        "source": ":lang(en en)",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "lang",
+            "children": [
+                {
+                    "type": "Identifier",
+                    "name": "en"
+                },
+                {
+                    "type": "Identifier",
+                    "name": "en"
                 }
             ]
         }
@@ -104,12 +104,12 @@
         {
             "source": ":lang(1)",
             "offset": "      ^",
-            "error": "Identifier or string is expected"
+            "error": "Identifier, string or comma is expected"
         },
         {
-            "source": ":lang(en en)",
-            "offset": "         ^",
-            "error": "\")\" is expected"
+            "source": ":lang(var(--test)) {}",
+            "offset": "      ^",
+            "error": "Identifier, string or comma is expected"
         }
     ]
 }

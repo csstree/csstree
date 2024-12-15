@@ -23,7 +23,10 @@ jobs:
 
     test-bundle:
         name: Test bundle
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
         steps:
             - uses: actions/checkout@v2
             - name: Setup node ${{ env.PRIMARY_NODEJS_VERSION }}
@@ -36,10 +39,11 @@ jobs:
 
     unit-tests:
         name: Unit tests
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
 
         strategy:
             matrix:
+                os: [ubuntu-latest]
                 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
                 node_version:
                     - 10
@@ -48,6 +52,12 @@ jobs:
                     - 16
                     - 18
                     - 20
+                    - 22
+                include:
+                    - os: windows-latest
+                      node: 10
+                    - os: windows-latest
+                      node: 22
 
         steps:
             - uses: actions/checkout@v2

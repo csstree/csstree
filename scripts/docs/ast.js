@@ -3,10 +3,10 @@ import { lexer } from '../../lib/index.js';
 const TOC_RX = /(<!-- MarkdownTOC .*?-->\n+)((?:\s|.)*?)(\n+<!-- \/MarkdownTOC -->)/;
 const ARTICLES_RX = /(<!-- node types -->\n+)((?:\s|.)*?)(\n+<!-- \/node types -->)/;
 
-function genNodeStructure(docs) {
-    return '{\n' +
-        Object.keys(docs).map(field => `    ${field}: ${docs[field]}`).join(',\n') +
-    '\n}';
+function genNodeStructure(type, docs) {
+    return 'type ' + type + ' = {\n' +
+        Object.keys(docs).map(field => `    ${field}: ${docs[field]}`).join(';\n') +
+    ';\n}';
 }
 
 function updateTOC(md, toc) {
@@ -40,8 +40,8 @@ function updateArticles(md, definitions) {
             return (
                 '### ' + type + '\n\n' +
                 (article.before ? article.before + '\n\n' : '') +
-                '```js\n' +
-                genNodeStructure(lexer.structure[type].docs) +
+                '```ts\n' +
+                genNodeStructure(type, lexer.structure[type].docs) +
                 '\n```' +
                 (article.after ?  '\n\n' + article.after : '')
             );

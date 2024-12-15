@@ -26,7 +26,7 @@ CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) deta
 
 - **Syntax validation**
 
-  The build-in lexer can test CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as a basis for lexer's dictionaries and extends it with vendor specific and legacy syntaxes. Lexer can only check the declaration values currently, but this feature will be extended to other parts of the CSS in the future.
+  The built-in lexer can test CSS against syntaxes defined by W3C. CSSTree uses [mdn/data](https://github.com/mdn/data/) as a basis for lexer's dictionaries and extends it with vendor specific and legacy syntaxes. Lexer can only check the declaration values and at-rules currently, but this feature will be extended to other parts of the CSS in the future.
 
 ## Projects using CSSTree
 
@@ -58,6 +58,7 @@ CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) deta
     - [ident](docs/utils.md#ident)
     - [string](docs/utils.md#string)
     - [url](docs/utils.md#url)
+  - [List class](docs/list.md)
   - AST transforming
     - [clone(ast)](docs/utils.md#cloneast)
     - [fromPlainObject(object)](docs/utils.md#fromplainobjectobject)

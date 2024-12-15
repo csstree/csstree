@@ -1,5 +1,6 @@
 import cli from 'clap';
-import { parse, toPlainObject } from '../lib/index.js';
+import { parse } from '../lib/index.js';
+import { printAstColor } from './utils/print-ast_prototype.js';
 
 cli.command('parse', '[css]')
     .option('-c, --context <context>')
@@ -16,6 +17,7 @@ cli.command('parse', '[css]')
         const source = args[0] || '';
         const unescaped = JSON.parse(`"${source.replace(/\\.|"/g, m => m === '"' ? '\\"' : m)}"`);
 
-        console.dir(toPlainObject(parse(unescaped, this.values)), { depth: null });
+        // console.dir(toPlainObject(parse(unescaped, this.values)), { depth: null });
+        console.log(printAstColor(parse(unescaped, this.values)));
     })
     .run();
