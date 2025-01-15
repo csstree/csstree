@@ -27,6 +27,7 @@ Options (optional):
 - [atrule](#atrule)
 - [positions](#positions)
 - [onComment](#oncomment)
+- [onToken](#ontoken)
 - [onParseError](#onparseerror)
 - [filename](#filename)
 - [offset](#offset)
@@ -102,6 +103,13 @@ Type: `function(value, loc)` or `null`
 Default: `null`
 
 A handler to call for every comment in parsing source. Value is passing without surrounding `/*` and `*/`. [`loc`](ast.md#loc) will be `null` until `positions` option is set to `true`.
+
+### onToken
+
+Type: `function(type, start, end, index)` or `Array` or `null`  
+Default: `null`
+
+When a function, `onToken` is a handler to call for every token in the parsing source. The arguments are the numeric type of the token, the start offset, the end offset, and the token index. When an array, `onToken` is populated with objects containing the numeric type of the token (`type`), the start offset (`start`), and the end offset (`end`).
 
 ### filename
 
