@@ -218,10 +218,6 @@
             "comment": "added old IE property https://msdn.microsoft.com/en-us/library/ms530723(v=vs.85).aspx",
             "syntax": "<url>+"
         },
-        "container-type": {
-            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-type",
-            "syntax": "normal || [ size | inline-size ]"
-        },
         "cue": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<'cue-before'> <'cue-after'>?"
