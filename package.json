@@ -1,10 +1,13 @@
 {
-  "name": "css-tree",
+  "name": "@eslint/css-tree",
   "version": "3.1.0",
   "description": "A tool set for CSS: fast detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
   "license": "MIT",
-  "repository": "csstree/csstree",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "eslint/csstree",
   "keywords": [
     "css",
     "ast",

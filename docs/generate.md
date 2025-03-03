@@ -26,13 +26,13 @@ Options (optional):
 
 ### sourceMap
 
-Type: `boolean`  
+Type: `boolean`
 Default: `false`
 
 Generates a source map (nodes should contain positions in `loc` property). Note, that an object instead of string is returned in that case.
 
 ```js
-import { parse, generate } from 'css-tree';
+import { parse, generate } from '@eslint/css-tree';
 
 const ast = parse('.test { color: red }', {
     filename: 'my.css',
@@ -45,14 +45,14 @@ const result = generate(ast, { sourceMap: true });
 
 ### decorator
 
-Type: `function`  
+Type: `function`
 Default: none
 
 A function that returns handlers used by a generator. TBD
 
 ### mode
 
-Type: `"spec"` or `"safe"`  
+Type: `"spec"` or `"safe"`
 Default: `"safe"`
 
 CSS Syntax Module defines [rules for CSS serialization](https://www.w3.org/TR/css-syntax-3/#serialization) that it must "round-trip" with parsing. The generator follows these rules and determines itself when to output the space to avoid unintended CSS tokens combining. However, some older browsers fail to parse the resulting CSS because they didn't follow the spec in some cases. For this reason, the generator supports two modes:
@@ -61,7 +61,7 @@ CSS Syntax Module defines [rules for CSS serialization](https://www.w3.org/TR/cs
 - `spec` which completely follows the spec.
 
 ```js
-import { parse, generate } from 'css-tree';
+import { parse, generate } from '@eslint/css-tree';
 
 const ast = parse('a { border: calc(1px) solid #ff0000 }');
 

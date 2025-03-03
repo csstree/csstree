@@ -21,7 +21,7 @@
 Returns details for a property name, such as vendor prefix, used hack etc. Using for safe test of declaration property names, i.e. `Declaration.property`.
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 csstree.property('*-vendor-property');
 // {
@@ -72,7 +72,7 @@ Supported hacks:
 Mostly the same as `property()` function, but without hack detection. Using for any identifier except declaration property name.
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 csstree.keyword('-vendor-keyword');
 // {
@@ -89,7 +89,7 @@ csstree.keyword('-vendor-keyword');
 Decode and encode of `ident` token values.
 
 ```js
-import { ident } from 'css-tree';
+import { ident } from '@eslint/css-tree';
 
 ident.decode('hello\\9 \\ world')   // hello\t world
 ident.encode('hello\t world')       // hello\9 \ world
@@ -100,7 +100,7 @@ ident.encode('hello\t world')       // hello\9 \ world
 Decode and encode of `string` token values.
 
 ```js
-import { string } from 'css-tree';
+import { string } from '@eslint/css-tree';
 
 string.decode('"hello\\9  \\"world\\""') // hello\t "world"
 string.decode('\'hello\\9  "world"\'')   // hello\t "world"
@@ -113,7 +113,7 @@ string.encode('hello\t "world"', true)   // 'hello\9  "world"'
 Decode and encode of `url` token values.
 
 ```js
-import { url } from 'css-tree';
+import { url } from '@eslint/css-tree';
 
 url.decode('url(file\ \(1\).ext)')  // file (1).ext
 url.encode('file (1).ext')          // url(file\ \(1\).ext)
@@ -146,7 +146,7 @@ console.log(csstree.generate(copy));
 `fromPlainObject()` walks through AST and coverts each `children` value into a `List` instance when value is an array.
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 const ast = {
     type: 'SelectorList',
@@ -173,7 +173,7 @@ astClone = csstree.fromPlainObject(csstree.clone(ast));
 `fromPlainObject()` walks through AST and coverts each `children` value to regular array when value is a `List` instance.
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 const ast = {
     type: 'SelectorList',
