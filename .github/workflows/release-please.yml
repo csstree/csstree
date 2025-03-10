@@ -1,0 +1,45 @@
+on:
+    push:
+        branches:
+            - main
+name: release-please
+jobs:
+    release-please:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+            id-token: write
+        steps:
+            - uses: googleapis/release-please-action@v4
+              id: release
+            - uses: actions/checkout@v4
+              if: ${{ steps.release.outputs.release_created }}
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: lts/*
+                  registry-url: https://registry.npmjs.org
+              if: ${{ steps.release.outputs.release_created }}
+
+            - name: Publish to npm
+              run: |
+                  npm install
+                  npm run build --if-present
+                  npm publish --provenance
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              if: ${{ steps.release.outputs.release_created }}
+
+            - name: Post release announcement
+              run: 'npx @humanwhocodes/crosspost -t -m -b "eslint/css-tree v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }} has been released:\n\n${{ steps.release.outputs.html_url }}"'
+              if: ${{ steps.release.outputs.release_created }}
+              env:
+                  TWITTER_API_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+                  TWITTER_API_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+                  TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
+                  TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+                  MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+                  MASTODON_HOST: ${{ secrets.MASTODON_HOST }}
+                  BLUESKY_IDENTIFIER: ${{ vars.BLUESKY_IDENTIFIER }}
+                  BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
+                  BLUESKY_HOST: ${{ vars.BLUESKY_HOST }}
