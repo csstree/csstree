@@ -106,7 +106,7 @@
     "test:types": "tsc -p tests/types/tsconfig.json"
   },
   "dependencies": {
-    "mdn-data": "2.12.2",
+    "mdn-data": "^2.18.0",
     "source-map-js": "^1.0.1"
   },
   "devDependencies": {
