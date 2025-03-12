@@ -1,4 +1,12 @@
-## next
+# Changelog
+
+## [3.2.0](https://github.com/eslint/csstree/compare/css-tree-v3.1.0...css-tree-v3.2.0) (2025-03-12)
+
+
+### Features
+
+* Add type definitions ([#4](https://github.com/eslint/csstree/issues/4)) ([e407bae](https://github.com/eslint/csstree/commit/e407bae294cdec1f987fac94b75b7ca7f749c229))
+* Rename to @eslint/css-tree ([#1](https://github.com/eslint/csstree/issues/1)) ([6f20a43](https://github.com/eslint/csstree/commit/6f20a4328e323cc0d40dd9407908171a54fac0c0))
 
 - Added `onToken` option to the `parse()` method, which can be either an array or a function:
     - When the value is an array, it is populated with objects `{ type, start, end }` (token type, and its start and end offsets).
@@ -26,12 +34,17 @@
     - `getBlockTokenPairIndex(tokenIndex)` – returns the index of the pair token for a block, or `-1` if no pair exists
 - Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
 
+
+### Bug Fixes
+
+* Update CSS syntax ([#8](https://github.com/eslint/csstree/issues/8)) ([ff07c1e](https://github.com/eslint/csstree/commit/ff07c1e8ce1989f1c94cbb9ae44e3c8feee1de9e))
+
 ## 3.1.0 (December 6, 2024)
 
 - Added support for [boolean expression multiplier](https://drafts.csswg.org/css-values-5/#boolean) in syntax definition, i.e. `<boolean-expr[ test ]>` (#304)
 - Added `source`, `startOffset`, `startLine`, and `startColumn` parameters to `OffsetToLocation` constructor, eliminating the need to call `setSource()` after creating a new `OffsetToLocation` instance
 - Exposed `OffsetToLocation` class in the main entry point, which was previously accessible only via `css-tree/tokenizer`
-- Fixed `Raw` node value consumption by ignoring stop tokens inside blocks, resolving an issue where `Raw` value consumption stopped prematurely. This fix also enables parsing of functions whose content includes stop characters (e.g., semicolons and curly braces) within declaration values, aligning with the latest draft of CSS Values and Units Module Level 5.  
+- Fixed `Raw` node value consumption by ignoring stop tokens inside blocks, resolving an issue where `Raw` value consumption stopped prematurely. This fix also enables parsing of functions whose content includes stop characters (e.g., semicolons and curly braces) within declaration values, aligning with the latest draft of CSS Values and Units Module Level 5.
 - Fixed `TokenStream#balance` computation to handle unmatched brackets correctly. Previously, when encountering a closing bracket, the `TokenStream` would prioritize it over unmatched opening brackets, leading to improper parsing. For example, the parser would incorrectly consume the declaration value of `.a { prop: ([{); }` as `([{)` instead of consuming it until all opened brackets were closed (`([{); }`). Now, unmatched closing brackets are discarded unless they match the most recent opening bracket on the stack. This change aligns CSSTree with CSS specifications and browser behavior.
 - Fixed syntax definition parser to allow a token to be followed by a multiplier (#303)
 - Fixed location for `Layer` node (#310)
