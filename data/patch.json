@@ -63,10 +63,6 @@
         }
     },
     "properties": {
-        "-moz-background-clip": {
-            "comment": "deprecated syntax in old Firefox, https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
-            "syntax": "padding | border"
-        },
         "-moz-border-radius-bottomleft": {
             "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius",
             "syntax": "<'border-bottom-left-radius'>"
@@ -149,10 +145,6 @@
                 "http://css-infos.net/property/-webkit-appearance"
             ],
             "syntax": "none | button | button-bevel | caps-lock-indicator | caret | checkbox | default-button | inner-spin-button | listbox | listitem | media-controls-background | media-controls-fullscreen-background | media-current-time-display | media-enter-fullscreen-button | media-exit-fullscreen-button | media-fullscreen-button | media-mute-button | media-overlay-play-button | media-play-button | media-seek-back-button | media-seek-forward-button | media-slider | media-sliderthumb | media-time-remaining-display | media-toggle-closed-captions-button | media-volume-slider | media-volume-slider-container | media-volume-sliderthumb | menulist | menulist-button | menulist-text | menulist-textfield | meter | progress-bar | progress-bar-value | push-button | radio | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbargripper-horizontal | scrollbargripper-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbartrack-horizontal | scrollbartrack-vertical | searchfield | searchfield-cancel-button | searchfield-decoration | searchfield-results-button | searchfield-results-decoration | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | square-button | textarea | textfield | -apple-pay-button"
-        },
-        "-webkit-background-clip": {
-            "comment": "https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
-            "syntax": "[ <box> | border | padding | content | text ]#"
         },
         "-webkit-column-break-after": {
             "comment": "added, http://help.dottoro.com/lcrthhhv.php",
@@ -591,10 +583,6 @@
         "attr-fallback": {
             "syntax": "<any-value>"
         },
-        "bg-clip": {
-            "comment": "missed, https://drafts.csswg.org/css-backgrounds-4/#typedef-bg-clip",
-            "syntax": "<box> | border | text"
-        },
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -653,6 +641,10 @@
         "gradient": {
             "comment": "added legacy syntaxes support",
             "syntax": "| <-legacy-gradient>"
+        },
+        "intrinsic-size-keyword": {
+            "comment": "Missing from mdn-data. 4.3. Intrinsic Size Keywords https://www.w3.org/TR/css-sizing-4/#intrinsic-size-keywords",
+            "syntax": "min-content | max-content | fit-content"
         },
         "left": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
