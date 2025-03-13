@@ -13,6 +13,28 @@ const astWithOpts = csstree.parse('.example { color: red }', {
     },
     onParseError(error, fallbackNode) {
         console.log(error.message, fallbackNode.type);
+    },
+    onToken(type, start, end, index) {
+        switch (type) {
+            case csstree.tokenTypes.BadString:
+                console.warn('Bad string', this.getRangeLocation(start, end));
+                break;
+
+            case csstree.tokenTypes.BadUrl:
+                console.warn('Bad url', this.getRangeLocation(start, end));
+                break;
+
+            default:
+                if (this.isBlockOpenerTokenType(type)) {
+                    if (this.getBlockTokenPairIndex(index) === -1) {
+                        console.warn('No closing pair', this.getRangeLocation(start, end));
+                    }
+                } else if (this.isBlockCloserTokenType(type)) {
+                    if (this.getBlockTokenPairIndex(index) === -1) {
+                        console.warn('No opening pair', this.getRangeLocation(start, end));
+                    }
+                }
+        }
     }
 });
 

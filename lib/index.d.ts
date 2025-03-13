@@ -997,6 +997,121 @@ export const tokenNames: ReadonlyArray<string>;
 export type CssTokenizerCallback = (token: number, start: number, end: number) => void;
 
 /**
+ * Represents the API for iterating over tokens in a CSS source string.
+ */
+export interface TokenIterateAPI {
+    /**
+     * The name of the file being parsed.
+     */
+    filename: string;
+
+    /**
+     * The CSS source string being tokenized.
+     */
+    source: string;
+
+    /**
+     * The total number of tokens in the stream.
+     */
+    tokenCount: number;
+
+    /**
+     * Gets the type of the token at the specified index.
+     *
+     * @param index - The index of the token.
+     * @returns The numeric type of the token.
+     */
+    getTokenType(index: number): number;
+
+    /**
+     * Gets the name of the token type at the specified index.
+     *
+     * @param index - The index of the token.
+     * @returns The string name of the token type.
+     */
+    getTokenTypeName(index: number): string;
+
+    /**
+     * Gets the start position of the token at the specified index.
+     *
+     * @param index - The index of the token.
+     * @returns The starting character position of the token.
+     */
+    getTokenStart(index: number): number;
+
+    /**
+     * Gets the end position of the token at the specified index.
+     *
+     * @param index - The index of the token.
+     * @returns The ending character position of the token.
+     */
+    getTokenEnd(index: number): number;
+
+    /**
+     * Gets the value of the token at the specified index.
+     *
+     * @param index - The index of the token.
+     * @returns The string value of the token.
+     */
+    getTokenValue(index: number): string;
+
+    /**
+     * Gets a substring from the source string.
+     *
+     * @param start - The starting index.
+     * @param end - The ending index.
+     * @returns The substring from the source.
+     */
+    substring(start: number, end: number): string;
+
+    /**
+     * A Uint32Array containing balance information for tokens.
+     */
+    balance: Uint32Array;
+
+    /**
+     * Checks if a token type represents a block opener.
+     *
+     * @param type - The token type to check.
+     * @returns True if the token type is a block opener.
+     */
+    isBlockOpenerTokenType(type: number): boolean;
+
+    /**
+     * Checks if a token type represents a block closer.
+     *
+     * @param type - The token type to check.
+     * @returns True if the token type is a block closer.
+     */
+    isBlockCloserTokenType(type: number): boolean;
+
+    /**
+     * Gets the index of the matching pair token for a block token.
+     *
+     * @param index - The index of the block token.
+     * @returns The index of the matching pair token.
+     */
+    getBlockTokenPairIndex(index: number): number;
+
+    /**
+     * Gets the location information for a position in the source.
+     *
+     * @param offset - The character offset in the source.
+     * @returns The location information.
+     */
+    getLocation(offset: number): CssLocation;
+
+    /**
+     * Gets the location range information for a range in the source.
+     *
+     * @param start - The starting offset.
+     * @param end - The ending offset.
+     * @returns The location range information.
+     */
+    getRangeLocation(start: number, end: number): CssLocationRange;
+}
+
+/**
  * A function used to tokenize CSS source code.
  *
  * @param css - The CSS source code to tokenize.
@@ -1307,6 +1422,16 @@ export type OnParseCommentCallback = (value: string, loc: CssLocationRange) => v
 export type OnParseErrorCallback = (error: SyntaxParseError, fallbackNode: CssNode) => void;
 
 /**
+ * A callback function invoked for each token encountered during parsing.
+ *
+ * @param token - The numeric type of the token.
+ * @param start - The starting index of the token in the source string.
+ * @param end - The ending index (exclusive) of the token in the source string.
+ * @param index - The index of the token in the stream.
+ */
+export type OnTokenCallback = (this: TokenIterateAPI, token: number, start: number, end: number, index: number) => void;
+
+/**
  * Options for controlling the behavior of the CSS parser.
  */
 export interface ParseOptions {
@@ -1334,6 +1459,11 @@ export interface ParseOptions {
      * A callback function invoked for handling parsing errors.
      */
     onParseError?: OnParseErrorCallback;
+
+    /**
+     * A callback function invoked for each token encountered during parsing.
+     */
+    onToken?: OnTokenCallback;
 
     /**
      * The name of the file being parsed, used for error reporting.
