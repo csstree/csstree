@@ -1508,12 +1508,28 @@ export interface ParseOptions {
 
 /**
  * A function that parses a CSS string into an abstract syntax tree (AST).
- *
- * @param source - The CSS source string to parse.
- * @param options - Optional configuration for the parser.
- * @returns The parsed CSS as a `CssNode`.
  */
-export type ParseFunction = (source: string, options?: ParseOptions) => CssNode;
+export interface ParseFunction {
+
+    /**
+     * Parses a CSS source string into an abstract syntax tree (AST).
+     * @param source - The CSS source string to parse.
+     * @param options - Optional configuration for the parser.
+     * @returns The parsed CSS as a `CssNode`.
+     * @throws {CSSSyntaxError} If a parsing error occurs, this error will be thrown.
+     */
+    (source: string, options?: ParseOptions): CssNode;
+
+    /**
+     * The error class used for parsing errors.
+     */
+    SyntaxError: typeof CSSSyntaxError;
+
+    /**
+     * The configuration used by the parser.
+     */
+    config: ParseConfig;
+}
 
 /**
  * Parses a CSS string into an abstract syntax tree (AST).
@@ -2249,6 +2265,59 @@ export const url: {
 // Lexer
 // https://github.com/csstree/csstree/blob/master/lib/lexer/Lexer.js
 // ----------------------------------------------------------
+
+/**
+ * Represents a syntax error while parsing CSS code. In the actual code,
+ * this is called `SyntaxError`, but that clashes with the global `SyntaxError` class.
+ * This isn't exported separately but rather as a member of the `parse` function.
+ */
+declare class CSSSyntaxError extends SyntaxError {
+
+    /**
+     * Creates a new instance
+     * @param message The error message describing the syntax error.
+     * @param source The source code where the error occurred.
+     * @param offset The character offset in the source code where the error occurred.
+     * @param line The line number (1-indexed) in the source code where the error occurred.
+     * @param column The column number (1-indexed) in the source code where the error occurred.
+     * @param baseLine The base line number (1-indexed) for the error, used for relative positioning.
+     * @param baseColumn The base column number (1-indexed) for the error, used for relative positioning.
+     */
+    constructor(message: string, source: string, offset: number, line: number, column: number, baseLine?: number, baseColumn?: number);
+
+    /**
+     * The source code where the error occurred.
+     */
+    source: string;
+
+    /**
+     * The character offset in the source code where the error occurred.
+     */
+    offset: number;
+
+    /**
+     * The line number (1-indexed) in the source code where the error occurred.
+     */
+    line: number;
+
+    /**
+     * The column number (1-indexed) in the source code where the error occurred.
+     */
+    column: number;
+
+    /**
+     * The source code fragment around the error, including a specified number of extra lines.
+     * @param extraLines The number of extra lines to include in the fragment.
+     * @return A string containing the source code fragment around the error.
+     * This fragment includes the error line and the specified number of lines before and after it.
+     */
+    sourceFragment(extraLines: number): string;
+
+    /**
+     * The error message formatted with the source fragment.
+     */
+    readonly formattedMessage: string;
+}
 
 /**
  * Represents an error that occurs during the syntax matching process.
