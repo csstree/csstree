@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.3.0](https://github.com/eslint/csstree/compare/css-tree-v3.2.0...css-tree-v3.3.0) (2025-03-18)
+
+
+### Features
+
+* add support for typed custom properties ([0e9d141](https://github.com/eslint/csstree/commit/0e9d14129a108f79bc4c772ee0cc4f1812070215))
+* Add support for typed custom properties ([#11](https://github.com/eslint/csstree/issues/11)) ([0e9d141](https://github.com/eslint/csstree/commit/0e9d14129a108f79bc4c772ee0cc4f1812070215))
+* passthrough env in lexer syntax matching ([c0e22c0](https://github.com/eslint/csstree/commit/c0e22c0e7c042a60764a51a519b53f18a8ceae62))
+* passthrough env() in lexer syntax matching ([#12](https://github.com/eslint/csstree/issues/12)) ([c0e22c0](https://github.com/eslint/csstree/commit/c0e22c0e7c042a60764a51a519b53f18a8ceae62))
+
+
+### Bug Fixes
+
+* Add parse.SyntaxError and parse.config types ([#14](https://github.com/eslint/csstree/issues/14)) ([d201786](https://github.com/eslint/csstree/commit/d20178613d5b4d6bf6dce36f94cbb04b0eddfe59))
+* Add types for onToken callback ([#9](https://github.com/eslint/csstree/issues/9)) ([b403ffb](https://github.com/eslint/csstree/commit/b403ffb6085d5e8c481f62026d88eebd632a3cb5))
+
 ## [3.2.0](https://github.com/eslint/csstree/compare/css-tree-v3.1.0...css-tree-v3.2.0) (2025-03-12)
 
 
