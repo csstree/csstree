@@ -38,9 +38,9 @@ const astWithOpts = csstree.parse('.example { color: red }', {
     }
 });
 
-const error1 = new csstree.parse.SyntaxError('Unexpected token', 'x', 0, 1, 1);
-const error2 = new csstree.parse.SyntaxError('Unexpected token', 'x', 0, 1, 1, 4);
-const error3 = new csstree.parse.SyntaxError('Unexpected token', 'x', 0, 1, 1, 4, 5);
+const error1 = csstree.parse.SyntaxError('Unexpected token', 'x', 0, 1, 1);
+const error2 = csstree.parse.SyntaxError('Unexpected token', 'x', 0, 1, 1, 4);
+const error3 = csstree.parse.SyntaxError('Unexpected token', 'x', 0, 1, 1, 4, 5);
 
 // Walking the AST
 csstree.walk(ast, {
