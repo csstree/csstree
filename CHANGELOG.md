@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/eslint/csstree/compare/css-tree-v3.3.0...css-tree-v3.3.1) (2025-03-20)
+
+
+### Bug Fixes
+
+* SyntaxParseError type ([#15](https://github.com/eslint/csstree/issues/15)) ([d95706e](https://github.com/eslint/csstree/commit/d95706e95b2ef8cbfd27211a753adf73381c643f))
+
 ## [3.3.0](https://github.com/eslint/csstree/compare/css-tree-v3.2.0...css-tree-v3.3.0) (2025-03-18)
 
 
