@@ -57,13 +57,13 @@ const declaration = csstree.find(ast, (node) => {
     return node.type === 'Declaration' && node.property === 'color';
 });
 
-declaration satisfies csstree.CssNode | null;
+declaration satisfies csstree.AnyCssNode | null;
 
 const declarations = csstree.findAll(ast, (node) => {
     return node.type === 'Declaration';
 });
 
-declarations satisfies csstree.CssNode[];
+declarations satisfies csstree.AnyCssNode[];
 
 // List manipulation
 const list = new csstree.List<csstree.CssNode>();
@@ -123,6 +123,25 @@ while (!tokenStream.eof) {
     console.log(tokenStream.tokenType);
 }
 
+// Stricter type completeness checks
+type CheckNodeTypesComplete = Exclude<csstree.CssNodeNames, csstree.CssNode['type']> extends never ? true : false;
+type CheckNodeTypesSound = Exclude<csstree.CssNode['type'], csstree.CssNodeNames> extends never ? true : false;
+type CheckPlainTypesComplete = Exclude<csstree.CssNodeNames, csstree.CssNodePlain['type']> extends never ? true : false;
+type CheckPlainTypesSound = Exclude<csstree.CssNodePlain['type'], csstree.CssNodeNames> extends never ? true : false;
+
+// These will error if types don't match
+const _typeChecks: {
+    nodeComplete: CheckNodeTypesComplete extends true ? true : never;
+    nodeSound: CheckNodeTypesSound extends true ? true : never;
+    plainComplete: CheckPlainTypesComplete extends true ? true : never;
+    plainSound: CheckPlainTypesSound extends true ? true : never;
+} = {
+    nodeComplete: true,
+    nodeSound: true,
+    plainComplete: true,
+    plainSound: true
+};
+
 // Definition syntax
 const syntax = csstree.definitionSyntax.parse('<color> | <length>');
 csstree.definitionSyntax.generate(syntax);
@@ -131,7 +150,6 @@ csstree.definitionSyntax.walk(syntax, {
         console.log(node.type);
     }
 });
-
 
 // String encoding/decoding
 const encodedStr = csstree.string.encode('test"string');
@@ -190,3 +208,8 @@ customSyntax.walk(customAst,
         }
     }
 );
+
+const x = (node: csstree.CssNode, nodePlain: csstree.CssNodePlain) => {
+    node.type = nodePlain.type;
+    nodePlain.type = node.type;
+};
