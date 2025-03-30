@@ -28,15 +28,15 @@ This article describes API to work with [Value Definition Syntax](https://www.w3
 
 Arguments:
 
-- **source**: `string`  
+- **source**: `string`
   A definition to parse
 
 ```js
-import { definitionSyntax } from 'css-tree';
+import { definitionSyntax } from '@eslint/css-tree';
 
 definitionSyntax.parse('foo | bar');
 // { Group
-//   terms: 
+//   terms:
 //    [ { Keyword name: 'foo' },
 //      { Keyword name: 'bar' } ],
 //   combinator: '|',
@@ -48,15 +48,15 @@ definitionSyntax.parse('foo | bar');
 
 Arguments:
 
-- **node**: `Object`  
+- **node**: `Object`
   AST node
-- **options**: `{ enter?: function, leave?: function }` or `function`  
+- **options**: `{ enter?: function, leave?: function }` or `function`
   An object to specify enter and/or leave handlers. When value is a function, it treated as `{ enter: function }`. One of handlers is required.
-- **context** (optional): `any`  
+- **context** (optional): `any`
   Defines a value as `this` in enter and leave handlers.
 
 ```js
-import { definitionSyntax } from 'css-tree';
+import { definitionSyntax } from '@eslint/css-tree';
 
 const ast = definitionSyntax.parse('foo | bar');
 
@@ -85,19 +85,19 @@ definitionSyntax.walk(ast, node =>
 
 ## generate(node, options)
 
-- **node**: `Object`  
+- **node**: `Object`
   AST node to generate a string from
-- **options** (optional): `Object`  
+- **options** (optional): `Object`
   An object to specify output behaviour (all options are optional):
-  - **forceBraces**: `Boolean` (default: `false`)  
+  - **forceBraces**: `Boolean` (default: `false`)
     Enforce printing brackets for any groups (even implicit). Useful for debugging and priority revelation.
-  - **compact**: `Boolean` (default: `false`)  
+  - **compact**: `Boolean` (default: `false`)
     Avoid formatting (primary whitespaces around brackets and so on) when possible.
-  - **decorate**: `function(nodeGenerateResult, node)`  
+  - **decorate**: `function(nodeGenerateResult, node)`
     A function to post-process result of node translation to a string. Handy to make some kind of result wrapping.
 
 ```js
-import { definitionSyntax } from 'css-tree';
+import { definitionSyntax } from '@eslint/css-tree';
 
 const ast = definitionSyntax.parse('foo && bar || [ baz | qux ]');
 

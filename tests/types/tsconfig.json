@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "../..",
+    "strict": true,
+    "target": "ES2022",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext"
+  },
+  "files": ["types.test.ts"]
+}

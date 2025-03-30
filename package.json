@@ -1,10 +1,13 @@
 {
-  "name": "css-tree",
-  "version": "3.1.0",
+  "name": "@eslint/css-tree",
+  "version": "3.3.1",
   "description": "A tool set for CSS: fast detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations",
   "author": "Roman Dvornov <rdvornov@gmail.com> (https://github.com/lahmatiy)",
   "license": "MIT",
-  "repository": "csstree/csstree",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "eslint/csstree",
   "keywords": [
     "css",
     "ast",
@@ -19,12 +22,14 @@
   ],
   "type": "module",
   "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "sideEffects": false,
   "main": "./cjs/index.cjs",
   "exports": {
     ".": {
       "import": "./lib/index.js",
-      "require": "./cjs/index.cjs"
+      "require": "./cjs/index.cjs",
+      "types": "./lib/index.d.ts"
     },
     "./dist/*": "./dist/*.js",
     "./package.json": "./package.json",
@@ -97,10 +102,11 @@
     "test:cjs": "mocha cjs/__tests --require lib/__tests/helpers/setup.js --reporter progress",
     "test:dist": "mocha dist/__tests --reporter progress",
     "coverage": "c8 --exclude lib/__tests --reporter=lcovonly npm test",
-    "prepublishOnly": "npm run lint-and-test && npm run build-and-test"
+    "prepublishOnly": "npm run lint-and-test && npm run build-and-test",
+    "test:types": "tsc -p tests/types/tsconfig.json"
   },
   "dependencies": {
-    "mdn-data": "2.12.2",
+    "mdn-data": "^2.18.0",
     "source-map-js": "^1.0.1"
   },
   "devDependencies": {
@@ -110,7 +116,8 @@
     "eslint": "^8.4.1",
     "json-to-ast": "^2.1.0",
     "mocha": "^9.2.2",
-    "rollup": "^2.79.2"
+    "rollup": "^2.79.2",
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": "^10 || ^12.20.0 || ^14.13.0 || >=15.0.0"

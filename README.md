@@ -1,12 +1,6 @@
 <img align="right" width="111" height="111" alt="CSSTree logo" src="assets/csstree-logo-rounded.svg" />
 
-# CSSTree
-
-[![NPM version](https://img.shields.io/npm/v/css-tree.svg)](https://www.npmjs.com/package/css-tree)
-[![Build Status](https://github.com/csstree/csstree/actions/workflows/build.yml/badge.svg)](https://github.com/csstree/csstree/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/csstree/csstree/badge.svg?branch=master)](https://coveralls.io/github/csstree/csstree?branch=master)
-[![NPM Downloads](https://img.shields.io/npm/dm/css-tree.svg)](https://www.npmjs.com/package/css-tree)
-[![Twitter](https://img.shields.io/badge/Twitter-@csstree-blue.svg)](https://twitter.com/csstree)
+# CSSTree (ESLint Fork)
 
 CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) detailed parser (CSS → AST), walker (AST traversal), generator (AST → CSS) and lexer (validation and matching) based on specs and browser implementations. The main goal is to be efficient and W3C spec compliant, with focus on CSS analyzing and source-to-source transforming tasks.
 
@@ -90,13 +84,13 @@ CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) deta
 Install with npm:
 
 ```
-npm install css-tree
+npm install @eslint/css-tree
 ```
 
 Basic usage:
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 // parse CSS to AST
 const ast = csstree.parse('.example { world: "!" }');
@@ -136,17 +130,17 @@ console.log(matchResult.getTrace(ast.children.first));
 
 ### Exports
 
-Is it possible to import just a needed part of library like a parser or a walker. That's might useful for loading time or bundle size optimisations. 
+Is it possible to import just a needed part of library like a parser or a walker. That's might useful for loading time or bundle size optimisations.
 
 ```js
-import * as tokenizer from 'css-tree/tokenizer';
-import * as parser from 'css-tree/parser';
-import * as walker from 'css-tree/walker';
-import * as lexer from 'css-tree/lexer';
-import * as definitionSyntax from 'css-tree/definition-syntax';
-import * as data from 'css-tree/definition-syntax-data';
-import * as dataPatch from 'css-tree/definition-syntax-data-patch';
-import * as utils from 'css-tree/utils';
+import * as tokenizer from '@eslint/css-tree/tokenizer';
+import * as parser from '@eslint/css-tree/parser';
+import * as walker from '@eslint/css-tree/walker';
+import * as lexer from '@eslint/css-tree/lexer';
+import * as definitionSyntax from '@eslint/css-tree/definition-syntax';
+import * as data from '@eslint/css-tree/definition-syntax-data';
+import * as dataPatch from '@eslint/css-tree/definition-syntax-data-patch';
+import * as utils from '@eslint/css-tree/utils';
 ```
 
 ### Using in a browser
@@ -155,7 +149,7 @@ Bundles are available for use in a browser:
 
 - `dist/csstree.js` – minified IIFE with `csstree` as global
 ```html
-<script src="node_modules/css-tree/dist/csstree.js"></script>
+<script src="node_modules/@eslint/css-tree/dist/csstree.js"></script>
 <script>
   csstree.parse('.example { color: green }');
 </script>
@@ -164,7 +158,7 @@ Bundles are available for use in a browser:
 - `dist/csstree.esm.js` – minified ES module
 ```html
 <script type="module">
-  import { parse } from 'node_modules/css-tree/dist/csstree.esm.js'
+  import { parse } from 'node_modules/@eslint/css-tree/dist/csstree.esm.js'
   parse('.example { color: green }');
 </script>
 ```
@@ -174,19 +168,27 @@ One of CDN services like `unpkg` or `jsDelivr` can be used. By default (for shor
 ```html
 <!-- ESM -->
 <script type="module">
-  import * as csstree from 'https://cdn.jsdelivr.net/npm/css-tree';
-  import * as csstree from 'https://unpkg.com/css-tree';
+  import * as csstree from 'https://cdn.jsdelivr.net/npm/@eslint/css-tree';
+  import * as csstree from 'https://unpkg.com/@eslint/css-tree';
 </script>
 
 <!-- IIFE with an export to global -->
-<script src="https://cdn.jsdelivr.net/npm/css-tree/dist/csstree.js"></script>
-<script src="https://unpkg.com/css-tree/dist/csstree.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@eslint/css-tree/dist/csstree.js"></script>
+<script src="https://unpkg.com/@eslint/css-tree/dist/csstree.js"></script>
 ```
 
 ## Top level API
 
-![API map](https://cdn.rawgit.com/csstree/csstree/aaf327e/docs/api-map.svg)
+![API map](https://cdn.rawgit.com/eslint/csstree/aaf327e/docs/api-map.svg)
 
 ## License
 
 MIT
+
+
+## Branch Setup and Development
+
+* `main` - the default branch for new development in the fork repo
+* `upstream` - kept in sync with `csstree/csstree`
+
+When merging in changes from `csstree/csstree`, sync `upstream` in the GitHub UI (if possible). Then send a pull request to `main` to work through any merge conflicts.

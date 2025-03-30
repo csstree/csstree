@@ -10,7 +10,7 @@
 Method visits each node of passed AST in a natural way and calls handlers for each one. It takes two arguments: a root node (`ast`) and an object (`options`). In simple case, it may take a function (handler) instead of `options` (`walk(ast, fn)` is equivalent to `walk(ast, { enter: fn })`).
 
 ```js
-import { parse, walk } from 'css-tree';
+import { parse, walk } from '@eslint/css-tree';
 
 const ast = parse('.a { color: red; }');
 
@@ -67,13 +67,13 @@ Options:
 
 ### enter
 
-Type: `function` or `undefined`  
+Type: `function` or `undefined`
 Default: `undefined`
 
 Handler on node entrance, i.e. before any nested node is processed.
 
 ```js
-import { parse, walk } from 'css-tree';
+import { parse, walk } from '@eslint/css-tree';
 
 const ast = parse('.a { color: red; }');
 
@@ -103,7 +103,7 @@ Handler receives three arguments:
 > NOTE: If `children` is an array, the last two arguments are `index` and `array`, like for `Array#forEach()` or `Array#map()` methods.
 
 ```js
-import { parse, walk, generate } from 'css-tree';
+import { parse, walk, generate } from '@eslint/css-tree';
 
 const ast = parse(`
     .a { foo: 1; bar: 2; }
@@ -140,7 +140,7 @@ Context (`this`) for a handler is an object with a references to the closest anc
 - `function` – refers to closest `Function`, `PseudoClassSelector` or `PseudoElementSelector` node if current node inside one of them
 
 ```js
-import { parse, walk } from 'css-tree';
+import { parse, walk } from '@eslint/css-tree';
 
 const ast = parse(`
     @import url(import.css);
@@ -163,13 +163,13 @@ console.log(urls);
 
 ### leave
 
-Type: `function` or `undefined`  
+Type: `function` or `undefined`
 Default: `undefined`
 
 The same as `enter` handler but invokes on node exit, i.e. after all nested nodes are processed.
 
 ```js
-import { parse, walk } from 'css-tree';
+import { parse, walk } from '@eslint/css-tree';
 
 const ast = parse('.a { color: red; }');
 
@@ -191,13 +191,13 @@ walk(ast, {
 
 ### visit
 
-Type: `string` or `null`  
+Type: `string` or `null`
 Default: `null`
 
 Invokes a handler for a specified node type only.
 
 ```js
-import { parse, walk } from 'css-tree';
+import { parse, walk } from '@eslint/css-tree';
 
 const ast = parse('.a { color: red; } .b { color: green; }');
 
@@ -228,7 +228,7 @@ The traversal for some node types can perform faster (10-15 times depending on t
 
 ### reverse
 
-Type: `boolean`  
+Type: `boolean`
 Default: `false`
 
 Inverts the natural order of node traversing:
@@ -236,7 +236,7 @@ Inverts the natural order of node traversing:
 - children nodes are iterated from last to first
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 const ast = csstree.parse('.a { color: red; }');
 
@@ -301,7 +301,7 @@ csstree.walk(ast, {
 Returns the first node in natural order for which `fn` function returns a truthy value.
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 const ast = csstree.parse('.a { color: red; } .b { color: green; }');
 
@@ -318,7 +318,7 @@ console.log(csstree.generate(firstColorDeclaration));
 Returns the first node in reverse order for which `fn` function returns a truthy value.
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 const ast = csstree.parse('.a { color: red; } .b { color: green; }');
 
@@ -335,7 +335,7 @@ console.log(csstree.generate(firstColorDeclaration));
 Returns all nodes in natural order for which `fn` function returns a truthy value.
 
 ```js
-import * as csstree from 'css-tree';
+import * as csstree from '@eslint/css-tree';
 
 const ast = csstree.parse('.a { color: red; } .b { color: green; }');
 
