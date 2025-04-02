@@ -372,13 +372,6 @@
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
         },
-        "scroll-timeline": {
-            "comment": "fix according to spec",
-            "references": [
-                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
-            ],
-            "syntax": "[ <'scroll-timeline-name'> || <'scroll-timeline-axis'> ]#"
-        },
         "scroll-timeline-name": {
             "comment": "fix according to spec",
             "references": [
