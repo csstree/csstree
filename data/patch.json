@@ -386,10 +386,6 @@
             ],
             "syntax": "[ none | <dashed-ident> ]#"
         },
-        "src": {
-            "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
-            "syntax": "[ <url> [ format( <string># ) ]? | local( <family-name> ) ]#"
-        },
         "speak": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "auto | never | always"
