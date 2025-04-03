@@ -6,14 +6,6 @@
         "container": {
             "prelude": "[ <container-name> ]? <container-condition>"
         },
-        "font-face": {
-            "descriptors": {
-                "unicode-range": {
-                    "comment": "replaces <unicode-range>, an old production name",
-                    "syntax": "<urange>#"
-                }
-            }
-        },
         "nest": {
             "prelude": "<complex-selector-list>"
         },
