@@ -448,10 +448,6 @@
             "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
             "syntax": "| -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate | -webkit-isolate-override | -webkit-plaintext"
         },
-        "unicode-range": {
-            "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
-            "syntax": "<urange>#"
-        },
         "voice-balance": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<number> | left | center | right | leftwards | rightwards"
