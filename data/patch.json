@@ -604,14 +604,6 @@
             "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
             "syntax": "<ident-token> | <function-token> <any-value>? )"
         },
-        "absolute-color-base": {
-            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "<hex-color> | <absolute-color-function> | <named-color> | transparent"
-        },
-        "absolute-color-function": {
-            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
-        },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
