@@ -934,38 +934,6 @@
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
         },
-        "anchor()": {
-            "syntax": "anchor( <anchor-element>? && <anchor-side>, <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#anchor-pos"
-            ]
-        },
-        "anchor-side": {
-            "syntax": "inside | outside | top | left | right | bottom | start | end | self-start | self-end | <percentage> | center"
-        },
-        "anchor-size()": {
-            "syntax": "anchor-size( [ <anchor-element> || <anchor-size> ]? , <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#funcdef-anchor-size"
-            ]
-        },
-        "anchor-size": {
-            "syntax": "width | height | block | inline | self-block | self-inline"
-        },
-        "anchor-element": {
-            "syntax": "<dashed-ident>",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-anchor-element"
-        },
-        "try-size": {
-            "syntax": "most-width | most-height | most-block-size | most-inline-size",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-try-size"
-        },
-        "try-tactic": {
-            "syntax": "flip-block || flip-inline || flip-start",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-position-try-fallbacks-try-tactic"
-        },
         "font-variant-css2": {
             "syntax": "normal | small-caps",
             "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-variant-css21-values"
