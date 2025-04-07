@@ -348,6 +348,14 @@
             "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow",
             "syntax": "| <-non-standard-overflow>"
         },
+        "overflow-x": {
+            "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x",
+            "syntax": "| <-non-standard-overflow>"
+        },
+        "overflow-y": {
+            "comment": "extend by vendor keywords https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y",
+            "syntax": "| <-non-standard-overflow>"
+        },
         "pause": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<'pause-before'> <'pause-after'>?"
