@@ -6,14 +6,6 @@
         "container": {
             "prelude": "[ <container-name> ]? <container-condition>"
         },
-        "font-face": {
-            "descriptors": {
-                "unicode-range": {
-                    "comment": "replaces <unicode-range>, an old production name",
-                    "syntax": "<urange>#"
-                }
-            }
-        },
         "nest": {
             "prelude": "<complex-selector-list>"
         },
@@ -63,6 +55,10 @@
         }
     },
     "properties": {
+        "-moz-background-clip": {
+            "comment": "deprecated syntax in old Firefox, https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
+            "syntax": "padding | border"
+        },
         "-moz-border-radius-bottomleft": {
             "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius",
             "syntax": "<'border-bottom-left-radius'>"
@@ -145,6 +141,10 @@
                 "http://css-infos.net/property/-webkit-appearance"
             ],
             "syntax": "none | button | button-bevel | caps-lock-indicator | caret | checkbox | default-button | inner-spin-button | listbox | listitem | media-controls-background | media-controls-fullscreen-background | media-current-time-display | media-enter-fullscreen-button | media-exit-fullscreen-button | media-fullscreen-button | media-mute-button | media-overlay-play-button | media-play-button | media-seek-back-button | media-seek-forward-button | media-slider | media-sliderthumb | media-time-remaining-display | media-toggle-closed-captions-button | media-volume-slider | media-volume-slider-container | media-volume-sliderthumb | menulist | menulist-button | menulist-text | menulist-textfield | meter | progress-bar | progress-bar-value | push-button | radio | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbargripper-horizontal | scrollbargripper-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbartrack-horizontal | scrollbartrack-vertical | searchfield | searchfield-cancel-button | searchfield-decoration | searchfield-results-button | searchfield-results-decoration | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | square-button | textarea | textfield | -apple-pay-button"
+        },
+        "-webkit-background-clip": {
+            "comment": "https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
+            "syntax": "[ <visual-box> | border | padding | content | text ]#"
         },
         "-webkit-column-break-after": {
             "comment": "added, http://help.dottoro.com/lcrthhhv.php",
@@ -362,17 +362,6 @@
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
         },
-        "scroll-timeline": {
-            "comment": "fix according to spec",
-            "references": [
-                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
-            ],
-            "syntax": "[ <'scroll-timeline-name'> || <'scroll-timeline-axis'> ]#"
-        },
-        "src": {
-            "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
-            "syntax": "[ <url> [ format( <string># ) ]? | local( <family-name> ) ]#"
-        },
         "speak": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "auto | never | always"
@@ -415,10 +404,6 @@
         "unicode-bidi": {
             "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
             "syntax": "| -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate | -webkit-isolate-override | -webkit-plaintext"
-        },
-        "unicode-range": {
-            "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
-            "syntax": "<urange>#"
         },
         "voice-balance": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
@@ -565,14 +550,6 @@
             "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
             "syntax": "<ident-token> | <function-token> <any-value>? )"
         },
-        "absolute-color-base": {
-            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "<hex-color> | <absolute-color-function> | <named-color> | transparent"
-        },
-        "absolute-color-function": {
-            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
-        },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
@@ -591,16 +568,16 @@
             "comment": "added attr(), see https://github.com/csstree/csstree/issues/201",
             "syntax": "[ <string> | contents | <image> | <counter> | <quote> | <target> | <leader()> | <attr()> ]+"
         },
-        "container-name": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
-            "syntax": "<custom-ident>"
-        },
         "container-condition": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "not <query-in-parens> | <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ]"
         },
         "coord-box": {
             "syntax": "content-box | padding-box | border-box | fill-box | stroke-box | view-box"
+        },
+        "cubic-bezier-easing-function": {
+            "comment": "missed, https://drafts.csswg.org/css-easing-1/#cubic-bezier-easing-function",
+            "syntax": "ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )"
         },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
@@ -624,12 +601,6 @@
         },
         "generic-script-specific": {
             "syntax": "generic(kai) | generic(fangsong) | generic(nastaliq)"
-        },
-        "generic-complete": {
-            "syntax": "serif | sans-serif | system-ui | cursive | fantasy | math | monospace"
-        },
-        "generic-incomplete": {
-            "syntax": "ui-serif | ui-sans-serif | ui-monospace | ui-rounded"
         },
         "-non-standard-generic-family": {
             "syntax": "-apple-system | BlinkMacSystemFont",
@@ -796,9 +767,6 @@
         "xyz-space": {
             "syntax": "xyz | xyz-d50 | xyz-d65"
         },
-        "basic-shape": {
-            "syntax": "<inset()> | <xywh()> | <rect()> | <circle()> | <ellipse()> | <polygon()> | <path()>"
-        },
         "query-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "( <container-condition> ) | ( <size-feature> ) | style( <style-query> ) | <general-enclosed>"
@@ -806,10 +774,6 @@
         "size-feature": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#typedef-size-feature",
             "syntax": "<mf-plain> | <mf-boolean> | <mf-range>"
-        },
-        "style-feature": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#typedef-style-feature",
-            "syntax": "<declaration>"
         },
         "style-query": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
@@ -839,24 +803,6 @@
             "references": [
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
-        },
-        "anchor()": {
-            "syntax": "anchor( <anchor-element>? && <anchor-side>, <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#anchor-pos"
-            ]
-        },
-        "anchor-size()": {
-            "syntax": "anchor-size( [ <anchor-element> || <anchor-size> ]? , <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#funcdef-anchor-size"
-            ]
-        },
-        "anchor-element": {
-            "syntax": "<dashed-ident>",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-anchor-element"
         },
         "font-variant-css2": {
             "syntax": "normal | small-caps",
