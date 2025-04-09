@@ -6,14 +6,6 @@
         "container": {
             "prelude": "[ <container-name> ]? <container-condition>"
         },
-        "font-face": {
-            "descriptors": {
-                "unicode-range": {
-                    "comment": "replaces <unicode-range>, an old production name",
-                    "syntax": "<urange>#"
-                }
-            }
-        },
         "nest": {
             "prelude": "<complex-selector-list>"
         },
@@ -152,7 +144,7 @@
         },
         "-webkit-background-clip": {
             "comment": "https://developer.mozilla.org/en/docs/Web/CSS/background-clip",
-            "syntax": "[ <box> | border | padding | content | text ]#"
+            "syntax": "[ <visual-box> | border | padding | content | text ]#"
         },
         "-webkit-column-break-after": {
             "comment": "added, http://help.dottoro.com/lcrthhhv.php",
@@ -199,13 +191,6 @@
                 "https://www.w3.org/TR/SVG/text.html#AlignmentBaselineProperty"
             ],
             "syntax": "auto | baseline | before-edge | text-before-edge | middle | central | after-edge | text-after-edge | ideographic | alphabetic | hanging | mathematical"
-        },
-        "background-clip": {
-            "comment": "used <bg-clip> from CSS Backgrounds and Borders 4 since it adds new values",
-            "references": [
-                "https://github.com/csstree/csstree/issues/190"
-            ],
-            "syntax": "<bg-clip>#"
         },
         "baseline-shift": {
             "comment": "added SVG property",
@@ -263,13 +248,6 @@
                 "https://www.w3.org/TR/SVG/painting.html#ImageRenderingProperty"
             ],
             "syntax": "| optimizeSpeed | optimizeQuality | <-non-standard-image-rendering>"
-        },
-        "fill": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#FillProperty"
-            ],
-            "syntax": "<paint>"
         },
         "fill-opacity": {
             "comment": "added SVG property",
@@ -384,38 +362,9 @@
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "<time> | none | x-weak | weak | medium | strong | x-strong"
         },
-        "scroll-timeline": {
-            "comment": "fix according to spec",
-            "references": [
-                "https://www.w3.org/TR/scroll-animations-1/#scroll-timeline-shorthand"
-            ],
-            "syntax": "[ <'scroll-timeline-name'> || <'scroll-timeline-axis'> ]#"
-        },
-        "scroll-timeline-name": {
-            "comment": "fix according to spec",
-            "references": [
-                "https://w3c.github.io/csswg-drafts/scroll-animations/#propdef-scroll-timeline-name"
-            ],
-            "syntax": "[ none | <dashed-ident> ]#"
-        },
-        "src": {
-            "comment": "added @font-face's src property https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src",
-            "syntax": "[ <url> [ format( <string># ) ]? | local( <family-name> ) ]#"
-        },
         "speak": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
             "syntax": "auto | never | always"
-        },
-        "speak-as": {
-            "comment": "https://www.w3.org/TR/css3-speech/#property-index",
-            "syntax": "normal | spell-out || digits || [ literal-punctuation | no-punctuation ]"
-        },
-        "stroke": {
-            "comment": "added SVG property",
-            "references": [
-                "https://www.w3.org/TR/SVG/painting.html#StrokeProperties"
-            ],
-            "syntax": "<paint>"
         },
         "stroke-dasharray": {
             "comment": "added SVG property; a list of comma and/or white space separated <length>s and <percentage>s",
@@ -452,17 +401,9 @@
             ],
             "syntax": "<svg-length>"
         },
-        "text-wrap": {
-            "comment": "broken in mdn/data",
-            "syntax": "<'text-wrap-mode'> || <'text-wrap-style'>"
-        },
         "unicode-bidi": {
             "comment": "added prefixed keywords https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi",
             "syntax": "| -moz-isolate | -moz-isolate-override | -moz-plaintext | -webkit-isolate | -webkit-isolate-override | -webkit-plaintext"
-        },
-        "unicode-range": {
-            "comment": "added missed property https://developer.mozilla.org/en-US/docs/Web/CSS/%40font-face/unicode-range",
-            "syntax": "<urange>#"
         },
         "voice-balance": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
@@ -503,13 +444,6 @@
         "white-space-trim": {
             "syntax": "none | discard-before || discard-after || discard-inner",
             "comment": "missed, https://www.w3.org/TR/css-text-4/#white-space-trim"
-        },
-        "word-break": {
-            "syntax": "normal | break-all | keep-all | break-word | auto-phrase",
-            "comment": "added in Chrome/Edge 119, not covered by a spec currently (2024-09-02)",
-            "references": [
-                "https://developer.mozilla.org/en-US/docs/Web/CSS/word-break"
-            ]
         }
     },
     "types": {
@@ -616,31 +550,15 @@
             "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
             "syntax": "<ident-token> | <function-token> <any-value>? )"
         },
-        "absolute-color-base": {
-            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "<hex-color> | <absolute-color-function> | <named-color> | transparent"
-        },
-        "absolute-color-function": {
-            "comment": "https://www.w3.org/TR/css-color-4/#color-syntax",
-            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
-        },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
-        },
-        "anchor-name": {
-            "comment": "missed in mdn/data",
-            "syntax": "<dashed-ident>"
         },
         "attr-name": {
             "syntax": "<wq-name>"
         },
         "attr-fallback": {
             "syntax": "<any-value>"
-        },
-        "bg-clip": {
-            "comment": "missed, https://drafts.csswg.org/css-backgrounds-4/#typedef-bg-clip",
-            "syntax": "<box> | border | text"
         },
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -650,16 +568,16 @@
             "comment": "added attr(), see https://github.com/csstree/csstree/issues/201",
             "syntax": "[ <string> | contents | <image> | <counter> | <quote> | <target> | <leader()> | <attr()> ]+"
         },
-        "container-name": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
-            "syntax": "<custom-ident>"
-        },
         "container-condition": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "not <query-in-parens> | <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ]"
         },
         "coord-box": {
             "syntax": "content-box | padding-box | border-box | fill-box | stroke-box | view-box"
+        },
+        "cubic-bezier-easing-function": {
+            "comment": "missed, https://drafts.csswg.org/css-easing-1/#cubic-bezier-easing-function",
+            "syntax": "ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )"
         },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
@@ -684,12 +602,6 @@
         "generic-script-specific": {
             "syntax": "generic(kai) | generic(fangsong) | generic(nastaliq)"
         },
-        "generic-complete": {
-            "syntax": "serif | sans-serif | system-ui | cursive | fantasy | math | monospace"
-        },
-        "generic-incomplete": {
-            "syntax": "ui-serif | ui-sans-serif | ui-monospace | ui-rounded"
-        },
         "-non-standard-generic-family": {
             "syntax": "-apple-system | BlinkMacSystemFont",
             "references": [
@@ -701,6 +613,10 @@
             "comment": "added legacy syntaxes support",
             "syntax": "| <-legacy-gradient>"
         },
+        "intrinsic-size-keyword": {
+            "comment": "Missing from mdn-data. 4.3. Intrinsic Size Keywords https://www.w3.org/TR/css-sizing-4/#intrinsic-size-keywords",
+            "syntax": "min-content | max-content | fit-content"
+        },
         "left": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -708,12 +624,6 @@
         "color": {
             "comment": "css-color-5, added non standard color names",
             "syntax": "<color-base> | currentColor | <system-color> | <device-cmyk()>  | <light-dark()> | <-non-standard-color>"
-        },
-        "color-base": {
-            "syntax": "<hex-color> | <color-function> | <named-color> | <color-mix()> | transparent"
-        },
-        "color-function": {
-            "syntax": "<rgb()> | <rgba()> | <hsl()> | <hsla()> | <hwb()> | <lab()> | <lch()> | <oklab()> | <oklch()> | <color()>"
         },
         "device-cmyk()": {
             "syntax": "<legacy-device-cmyk-syntax> | <modern-device-cmyk-syntax>"
@@ -730,22 +640,12 @@
         "color-mix()": {
             "syntax": "color-mix( <color-interpolation-method> , [ <color> && <percentage [0,100]>? ]#{2} )"
         },
-        "color-interpolation-method": {
-            "syntax": "in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]"
-        },
         "color-space": {
             "syntax": "<rectangular-color-space> | <polar-color-space> | <custom-color-space>"
-        },
-        "custom-color-space": {
-            "syntax": "<dashed-ident>"
         },
         "paint": {
             "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
             "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
-        },
-        "palette-identifier": {
-            "comment": "<palette-identifier> is parsed as a <dashed-ident> (https://drafts.csswg.org/css-fonts/#typedef-font-palette-palette-identifier)",
-            "syntax": "<dashed-ident>"
         },
         "right": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -766,9 +666,6 @@
         },
         "forgiving-relative-selector-list": {
             "syntax": "<relative-real-selector-list>"
-        },
-        "selector-list": {
-            "syntax": "<complex-selector-list>"
         },
         "complex-real-selector-list": {
             "syntax": "<complex-real-selector>#"
@@ -808,13 +705,6 @@
         },
         "legacy-pseudo-element-selector": {
             "syntax": " ':' [before | after | first-line | first-letter]"
-        },
-        "single-animation-composition": {
-            "comment": "missed definition",
-            "references": [
-                "https://w3c.github.io/csswg-drafts/css-animations-2/#typedef-single-animation-composition"
-            ],
-            "syntax": "replace | add | accumulate"
         },
         "svg-length": {
             "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
@@ -871,39 +761,11 @@
         "colorspace-params": {
             "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
         },
-        "predefined-rgb-params": {
-            "syntax": "<predefined-rgb> [ <number> | <percentage> | none ]{3}"
-        },
-        "predefined-rgb": {
-            "syntax": "srgb | srgb-linear | display-p3 | a98-rgb | prophoto-rgb | rec2020"
-        },
         "xyz-params": {
             "syntax": "<xyz-space> [ <number> | <percentage> | none ]{3}"
         },
         "xyz-space": {
             "syntax": "xyz | xyz-d50 | xyz-d65"
-        },
-        "oklab()": {
-            "comment": "https://www.w3.org/TR/css-color-4/#specifying-oklab-oklch",
-            "syntax": "oklab( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ / [<alpha-value> | none] ]? )"
-        },
-        "oklch()": {
-            "comment": "https://www.w3.org/TR/css-color-4/#specifying-oklab-oklch",
-            "syntax": "oklch( [ <percentage> | <number> | none] [ <percentage> | <number> | none] [ <hue> | none] [ / [<alpha-value> | none] ]? )"
-        },
-        "offset-path": {
-            "syntax": "<ray()> | <url> | <basic-shape>"
-        },
-        "basic-shape": {
-            "syntax": "<inset()> | <xywh()> | <rect()> | <circle()> | <ellipse()> | <polygon()> | <path()>"
-        },
-        "rect()": {
-            "comment": "missed, https://drafts.csswg.org/css-shapes/#supported-basic-shapes",
-            "syntax": "rect( [ <length-percentage> | auto ]{4} [ round <'border-radius'> ]? )"
-        },
-        "xywh()": {
-            "comment": "missed, https://drafts.csswg.org/css-shapes/#supported-basic-shapes",
-            "syntax": "xywh( <length-percentage>{2} <length-percentage [0,∞]>{2} [ round <'border-radius'> ]? )"
         },
         "query-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
@@ -912,10 +774,6 @@
         "size-feature": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#typedef-size-feature",
             "syntax": "<mf-plain> | <mf-boolean> | <mf-range>"
-        },
-        "style-feature": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#typedef-style-feature",
-            "syntax": "<declaration>"
         },
         "style-query": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
@@ -945,38 +803,6 @@
             "references": [
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
-        },
-        "anchor()": {
-            "syntax": "anchor( <anchor-element>? && <anchor-side>, <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#anchor-pos"
-            ]
-        },
-        "anchor-side": {
-            "syntax": "inside | outside | top | left | right | bottom | start | end | self-start | self-end | <percentage> | center"
-        },
-        "anchor-size()": {
-            "syntax": "anchor-size( [ <anchor-element> || <anchor-size> ]? , <length-percentage>? )",
-            "comment": "missed",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#funcdef-anchor-size"
-            ]
-        },
-        "anchor-size": {
-            "syntax": "width | height | block | inline | self-block | self-inline"
-        },
-        "anchor-element": {
-            "syntax": "<dashed-ident>",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-anchor-element"
-        },
-        "try-size": {
-            "syntax": "most-width | most-height | most-block-size | most-inline-size",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-try-size"
-        },
-        "try-tactic": {
-            "syntax": "flip-block || flip-inline || flip-start",
-            "comment": "missed, https://drafts.csswg.org/css-anchor-position-1/#typedef-position-try-fallbacks-try-tactic"
         },
         "font-variant-css2": {
             "syntax": "normal | small-caps",
