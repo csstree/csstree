@@ -5,16 +5,16 @@ on:
     pull_request:
 
 env:
-    PRIMARY_NODEJS_VERSION: 18
+    PRIMARY_NODEJS_VERSION: 22
 
 jobs:
     lint:
         name: Lint
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             - name: Setup node ${{ env.PRIMARY_NODEJS_VERSION }}
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                 node-version: ${{ env.PRIMARY_NODEJS_VERSION }}
                 cache: "npm"
@@ -28,9 +28,9 @@ jobs:
             matrix:
                 os: [ubuntu-latest, windows-latest]
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             - name: Setup node ${{ env.PRIMARY_NODEJS_VERSION }}
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                 node-version: ${{ env.PRIMARY_NODEJS_VERSION }}
                 cache: "npm"
@@ -53,16 +53,17 @@ jobs:
                     - 18
                     - 20
                     - 22
+                    - 24
                 include:
                     - os: windows-latest
                       node: 10
                     - os: windows-latest
-                      node: 22
+                      node: 24
 
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             - name: Setup node ${{ matrix.node_version }}
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v4
               with:
                 node-version: ${{ matrix.node_version }}
                 cache: "npm"
