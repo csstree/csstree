@@ -27,12 +27,6 @@
             "-webkit-radial-gradient(ellipse at center, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)"
         ]
     },
-    "src": {
-        "property": "src",
-        "valid": [
-            "local(Example Font), url('examplefont.woff') format(\"woff\"), url('examplefont.woff') format(\"opentype\")"
-        ]
-    },
     "stroke-dasharray": {
         "property": "stroke-dasharray",
         "valid": [

@@ -22,6 +22,11 @@
                     "",
                     "xxx"
                 ]
+            },
+            "src": {
+                "valid": [
+                    "local(Example Font), url('examplefont.woff') format(\"woff\"), url('examplefont.woff') format(\"opentype\")"
+                ]
             }
         }
     }
