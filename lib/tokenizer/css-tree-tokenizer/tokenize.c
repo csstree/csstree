@@ -1,5 +1,8 @@
 #include "tokenize.h"
 
+/**
+ * this code forked from css-tree
+ */
 
 // § 4.3.3. Consume a numeric token
 void consume_numeric_token(const uint16_t* source, int32_t source_length, int32_t* offset, TokenType* type) {
@@ -220,11 +223,7 @@ void consume_url_token(const uint16_t* source, int32_t source_length, int32_t* o
       }
   }
 
-// returns [length, start, end, type, start, end, type, ....]
 void tokenize(const uint16_t* source, int32_t source_length) {
-  // int32_t tokens_size = 128;
-  // int32_t tokens_occupied = 1;
-  // int32_t* tokens = (int32_t*)malloc(sizeof(int32_t) * tokens_size); // Placeholder for token storage
 
   int32_t start = is_bom(get_char_code(source, source_length, 0));
   int32_t offset = start;
@@ -479,20 +478,9 @@ void tokenize(const uint16_t* source, int32_t source_length) {
             type = TOKEN_DELIM;
             offset++;
     }
-
-
-    // if (tokens_occupied + 3 > tokens_size) {
-    //   // Resize the tokens array if necessary
-    //   tokens_size *= 2;
-    //   tokens = (int32_t*)realloc(tokens, sizeof(int32_t) * tokens_size);
-    // }
-    // tokens[tokens_occupied++] = start;
-    // tokens[tokens_occupied++] = offset;
-    // tokens[tokens_occupied++] = type;
     on_token(type, start, offset);
     start = offset;
   }
-  // tokens[0] = tokens_occupied;;
 }
 
 int init() {
