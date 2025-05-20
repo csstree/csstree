@@ -83,7 +83,8 @@
   "jsdelivr": "dist/csstree.esm.js",
   "scripts": {
     "watch": "npm run build -- --watch",
-    "build": "npm run bundle && npm run esm-to-cjs --",
+    "build:wasm":"mkdir -p binary && emcc -std=c17 -O3 lib/tokenizer/css-tree-tokenizer/*.c -o binary/tokenizer.js -sMALLOC=emmalloc -sINITIAL_HEAP=16MB -sSTACK_SIZE=16MB --bind -sMODULARIZE=1 -sEXPORT_ES6=1 -sNO_EXIT_RUNTIME=1 -sEXPORTED_RUNTIME_METHODS=ccall,stringToUTF16,HEAP32 -sEXPORTED_FUNCTIONS=_malloc,_free",
+    "build": "npm run build:wasm && npm run bundle && npm run esm-to-cjs --",
     "build-and-test": "npm run build && npm run test:dist && npm run test:cjs",
     "bundle": "node scripts/bundle",
     "bundle-and-test": "npm run bundle && npm run test:dist",
@@ -93,7 +94,7 @@
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
     "review:syntax-patch": "node scripts/review-syntax-patch",
-    "test": "mocha lib/__tests --require lib/__tests/helpers/setup.js --reporter progress",
+    "test": "npm run build:wasm && mocha lib/__tests --require lib/__tests/helpers/setup.js --reporter progress",
     "test:cjs": "mocha cjs/__tests --require lib/__tests/helpers/setup.js --reporter progress",
     "test:dist": "mocha dist/__tests --reporter progress",
     "coverage": "c8 --exclude lib/__tests --reporter=lcovonly npm test",
