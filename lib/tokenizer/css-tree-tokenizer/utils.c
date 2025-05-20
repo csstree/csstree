@@ -1,20 +1,5 @@
 #include "utils.h"
 
-uint16_t get_char_code(const uint16_t* source, uint32_t source_length, uint32_t offset) {
-  return offset < source_length ? source[offset] : 0;
-}
-
-uint32_t get_new_line_length(const uint16_t* source, uint32_t source_length, uint32_t offset, uint16_t code) {
-  if (code == 13 /* \r */ && get_char_code(source, source_length, offset + 1) == 10 /* \n */) {
-    return 2;
-  }
-  return 1;
-}
-
-int32_t math_min(int32_t a, int32_t b) {
-  return a < b ? a : b;
-}
-
 bool cmp_char(const uint16_t* test_str, const uint32_t test_str_length, uint32_t offset, uint16_t reference_code) {
   if (offset >= test_str_length) {
     return false;

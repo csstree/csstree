@@ -482,8 +482,3 @@ void tokenize(const uint16_t* source, int32_t source_length) {
     start = offset;
   }
 }
-
-int init() {
-  initialize_category_map();
-  return 0;
-}

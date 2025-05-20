@@ -1,91 +1,33 @@
 #include "char_code_definitions.h"
-// https://drafts.csswg.org/css-syntax-3/
-// § 4.2. Definitions
 
-
-
-
-// § 4.3.9. Check if three code points would start an identifier
-bool is_identifier_start(uint16_t first, uint16_t second, uint16_t third) {
-    // Look at the first code point:
-
-    // U+002D HYPHEN-MINUS
-    if (first == 0x002D) {
-        // If the second code point is a name-start code point or a U+002D HYPHEN-MINUS,
-        // or the second and third code points are a valid escape, return true. Otherwise, return false.
-        return (
-            is_name_start(second) ||
-            second == 0x002D ||
-            is_valid_escape(second, third)
-        );
-    }
-
-    // name-start code point
-    if (is_name_start(first)) {
-        // Return true.
-        return true;
-    }
-
-    // U+005C REVERSE SOLIDUS (\)
-    if (first == 0x005C) {
-        // If the first and second code points are a valid escape, return true. Otherwise, return false.
-        return is_valid_escape(first, second);
-    }
-
-    // anything else
-    // Return false.
-    return false;
-}
-
-
-// § 4.3.10. Check if three code points would start a number
-bool is_number_start(uint16_t first, uint16_t second, uint16_t third) {
-    // Look at the first code point:
-
-    // U+002B PLUS SIGN (+)
-    // U+002D HYPHEN-MINUS (-)
-    if (first == 0x002B || first == 0x002D) {
-        // If the second code point is a digit, return true.
-        if (is_digit(second)) {
-            return (bool)2;
-        }
-
-        // Otherwise, if the second code point is a U+002E FULL STOP (.)
-        // and the third code point is a digit, return true.
-        // Otherwise, return false.
-        return second == 0x002E && is_digit(third) ? 3 : 0;
-    }
-
-    // U+002E FULL STOP (.)
-    if (first == 0x002E) {
-        // If the second code point is a digit, return true. Otherwise, return false.
-        return is_digit(second) ? 2 : 0;
-    }
-
-    // digit
-    if (is_digit(first)) {
-        // Return true.
-        return (bool)1;
-    }
-
-    // anything else
-    // Return false.
-    return 0;
-}
-
-
-uint16_t CATEGORY[0x80];
-
-void initialize_category_map() {
-    CATEGORY[0] = Eof_Category;
-    for (int i = 1; i < 0x80; i++) {
-        if (is_white_space(i)) CATEGORY[i] = WhiteSpace_Category; 
-        else if (is_digit(i)) CATEGORY[i] = Digit_Category; 
-        else if (is_name_start(i)) CATEGORY[i] = NameStart_Category; 
-        else if (is_non_printable(i)) CATEGORY[i] = NonPrintable_Category;
-        else CATEGORY[i] = i; // Direct mapping for others like delimiters
-    }
-}
+uint16_t CATEGORY[0x80] = {
+    CATEGORY_MAP(0x00), CATEGORY_MAP(0x01), CATEGORY_MAP(0x02), CATEGORY_MAP(0x03), CATEGORY_MAP(0x04),
+    CATEGORY_MAP(0x05), CATEGORY_MAP(0x06), CATEGORY_MAP(0x07), CATEGORY_MAP(0x08), CATEGORY_MAP(0x09),
+    CATEGORY_MAP(0x0A), CATEGORY_MAP(0x0B), CATEGORY_MAP(0x0C), CATEGORY_MAP(0x0D), CATEGORY_MAP(0x0E),
+    CATEGORY_MAP(0x0F), CATEGORY_MAP(0x10), CATEGORY_MAP(0x11), CATEGORY_MAP(0x12), CATEGORY_MAP(0x13),
+    CATEGORY_MAP(0x14), CATEGORY_MAP(0x15), CATEGORY_MAP(0x16), CATEGORY_MAP(0x17), CATEGORY_MAP(0x18),
+    CATEGORY_MAP(0x19), CATEGORY_MAP(0x1A), CATEGORY_MAP(0x1B), CATEGORY_MAP(0x1C), CATEGORY_MAP(0x1D),
+    CATEGORY_MAP(0x1E), CATEGORY_MAP(0x1F), CATEGORY_MAP(0x20), CATEGORY_MAP(0x21), CATEGORY_MAP(0x22),
+    CATEGORY_MAP(0x23), CATEGORY_MAP(0x24), CATEGORY_MAP(0x25), CATEGORY_MAP(0x26), CATEGORY_MAP(0x27),
+    CATEGORY_MAP(0x28), CATEGORY_MAP(0x29), CATEGORY_MAP(0x2A), CATEGORY_MAP(0x2B), CATEGORY_MAP(0x2C),
+    CATEGORY_MAP(0x2D), CATEGORY_MAP(0x2E), CATEGORY_MAP(0x2F), CATEGORY_MAP(0x30), CATEGORY_MAP(0x31),
+    CATEGORY_MAP(0x32), CATEGORY_MAP(0x33), CATEGORY_MAP(0x34), CATEGORY_MAP(0x35), CATEGORY_MAP(0x36),
+    CATEGORY_MAP(0x37), CATEGORY_MAP(0x38), CATEGORY_MAP(0x39), CATEGORY_MAP(0x3A), CATEGORY_MAP(0x3B),
+    CATEGORY_MAP(0x3C), CATEGORY_MAP(0x3D), CATEGORY_MAP(0x3E), CATEGORY_MAP(0x3F), CATEGORY_MAP(0x40),
+    CATEGORY_MAP(0x41), CATEGORY_MAP(0x42), CATEGORY_MAP(0x43), CATEGORY_MAP(0x44), CATEGORY_MAP(0x45),
+    CATEGORY_MAP(0x46), CATEGORY_MAP(0x47), CATEGORY_MAP(0x48), CATEGORY_MAP(0x49), CATEGORY_MAP(0x4A),
+    CATEGORY_MAP(0x4B), CATEGORY_MAP(0x4C), CATEGORY_MAP(0x4D), CATEGORY_MAP(0x4E), CATEGORY_MAP(0x4F),
+    CATEGORY_MAP(0x50), CATEGORY_MAP(0x51), CATEGORY_MAP(0x52), CATEGORY_MAP(0x53), CATEGORY_MAP(0x54),
+    CATEGORY_MAP(0x55), CATEGORY_MAP(0x56), CATEGORY_MAP(0x57), CATEGORY_MAP(0x58), CATEGORY_MAP(0x59),
+    CATEGORY_MAP(0x5A), CATEGORY_MAP(0x5B), CATEGORY_MAP(0x5C), CATEGORY_MAP(0x5D), CATEGORY_MAP(0x5E),
+    CATEGORY_MAP(0x5F), CATEGORY_MAP(0x60), CATEGORY_MAP(0x61), CATEGORY_MAP(0x62), CATEGORY_MAP(0x63),
+    CATEGORY_MAP(0x64), CATEGORY_MAP(0x65), CATEGORY_MAP(0x66), CATEGORY_MAP(0x67), CATEGORY_MAP(0x68),
+    CATEGORY_MAP(0x69), CATEGORY_MAP(0x6A), CATEGORY_MAP(0x6B), CATEGORY_MAP(0x6C), CATEGORY_MAP(0x6D),
+    CATEGORY_MAP(0x6E), CATEGORY_MAP(0x6F), CATEGORY_MAP(0x70), CATEGORY_MAP(0x71), CATEGORY_MAP(0x72),
+    CATEGORY_MAP(0x73), CATEGORY_MAP(0x74), CATEGORY_MAP(0x75), CATEGORY_MAP(0x76), CATEGORY_MAP(0x77),
+    CATEGORY_MAP(0x78), CATEGORY_MAP(0x79), CATEGORY_MAP(0x7A), CATEGORY_MAP(0x7B), CATEGORY_MAP(0x7C),
+    CATEGORY_MAP(0x7D), CATEGORY_MAP(0x7E), CATEGORY_MAP(0x7F)
+  };
 
 uint32_t char_code_category(uint16_t char_code) {
     return char_code < 0x80 ? CATEGORY[char_code] : NameStart_Category;

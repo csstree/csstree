@@ -10,6 +10,10 @@
 #define NameStart_Category 0x84
 #define NonPrintable_Category 0x85
 
+
+// https://drafts.csswg.org/css-syntax-3/
+// § 4.2. Definitions
+
 // digit
 // A code point between U+0030 DIGIT ZERO (0) and U+0039 DIGIT NINE (9).
 #define is_digit(code) ((code) >= 0x0030 && (code) <= 0x0039)
@@ -81,11 +85,58 @@
 
 #define is_bom(code) ((code) == 0xFEFF || (code) == 0xFFFE) ? 1 : 0
 
-void initialize_category_map();
+// § 4.3.9. Check if three code points would start an identifier
+#define is_identifier_start(first, second, third) \
+    /* Look at the first code point: \
+       U+002D HYPHEN-MINUS */ \
+    (first == 0x002D) ? \
+        /* If the second code point is a name-start code point, return true. */ \
+        /* or the second and third code points are a valid escape, return true. Otherwise, return false. */ \
+        (is_name_start(second) || (second == 0x002D) || is_valid_escape(second, third)) : \
+    /* name-start code point */ \
+    (is_name_start(first)) ? \
+      /*Return true.*/ \
+      true : \
+    /*U+005C REVERSE SOLIDUS (\)*/ \
+    (first == 0x005C) ? \
+        /* If the second code point is a name-start code point, return true. Otherwise, return false.*/ \
+        (is_valid_escape(first, second)) : \
+    /* anything else : return false */ \
+    false
 
-bool is_identifier_start(uint16_t first, uint16_t second, uint16_t third);
-bool is_number_start(uint16_t first, uint16_t second, uint16_t third);
+
+// § 4.3.10. Check if three code points would start a number
+#define is_number_start(first, second, third) ( \
+    /* Look at the first code point: \
+       U+002B PLUS SIGN (+) \
+       U+002D HYPHEN-MINUS (-) */ \
+    (first == 0x002B || first == 0x002D) ? ( \
+      /* If the second code point is a digit, return true. */ \
+      (is_digit(second)) ? \
+        true : \
+        ( \
+          /* Otherwise, if the second code point is a U+002E FULL STOP (.) and the third code point is a digit, return true. \
+            Otherwise, return false. */ \
+          ((second == 0x002E) && (is_digit(third)) ? true : false ) \
+        ) \
+    ) :  \
+    /* U+002E FULL STOP (.) */ \
+    (first == 0x002E) ? ( \
+      /* If the second code point is a digit, return true. Otherwise, return false. */ \
+      (is_digit(second)) ? true : false \
+    ) : \
+    is_digit(first) \
+  )
+
+#define CATEGORY_MAP(code) \
+    ( code == 0 ? Eof_Category : \
+      is_white_space(code) ? WhiteSpace_Category : \
+      is_digit(code) ? Digit_Category : \
+      is_name_start(code) ? NameStart_Category : \
+      is_non_printable(code) ? NonPrintable_Category : \
+      code \
+    )
 
 uint32_t char_code_category(uint16_t char_code);
 
-#endif // TOKENIZER_CHAR_DEFS_H
+#endif
