@@ -596,17 +596,12 @@
             "round(to-zero, 1px, 2px)",
             "mod(1px, 2px)",
             "rem(1px, 2px)",
-            "sin(45deg)",
-            "cos(45deg)",
-            "tan(45deg)",
             "asin(0.5)",
             "acos(0.5)",
             "atan(1)",
             "atan2(1px, 2px)",
             "hypot(3px, 4px)",
-            "abs(-1px)",
-            "sign(-1px)"
-
+            "abs(-1px)"
         ],
         "invalid": [
             "-ms-calc(1px + 1%)",
@@ -655,7 +650,8 @@
             "tan(45deg)",
             "pow(2, 3)",
             "sqrt(16)",
-            "log(100)"
+            "log(100)",
+            "sign(-1px)"
         ],
         "invalid": [
             "asin(1)",
