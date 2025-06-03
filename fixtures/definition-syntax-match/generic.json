@@ -577,7 +577,7 @@
             "[)]"
         ]
     },
-    "calc": {
+    "math-length": {
         "syntax": "<length>",
         "valid": [
             "calc(1px + 1%)",
@@ -585,11 +585,98 @@
             "-moz-calc(1px + 1%)",
             "-MOZ-CALC(1px + 1%)",
             "-webkit-calc(1px + 1%)",
-            "-WEBKIT-CALC(1px + 1%)"
+            "-WEBKIT-CALC(1px + 1%)",
+            "calc(1px + 1%)",
+            "min(1px, 2px)",
+            "max(1px, 2px)",
+            "clamp(1px, 2px, 3px)",
+            "round(nearest, 1px, 2px)",
+            "round(up, 1px, 2px)",
+            "round(down, 1px, 2px)",
+            "round(to-zero, 1px, 2px)",
+            "mod(1px, 2px)",
+            "rem(1px, 2px)",
+            "asin(0.5)",
+            "acos(0.5)",
+            "atan(1)",
+            "atan2(1px, 2px)",
+            "hypot(3px, 4px)",
+            "abs(-1px)"
         ],
         "invalid": [
             "-ms-calc(1px + 1%)",
             "-o-calc(1px + 1%)"
+        ]
+    },
+    "math-angle": {
+        "syntax": "<angle>",
+        "valid": [
+            "calc(1deg + 1grad)",
+            "CALC(1deg + 1grad)",
+            "-moz-calc(1deg + 1grad)",
+            "-MOZ-CALC(1deg + 1grad)",
+            "-webkit-calc(1deg + 1grad)",
+            "-WEBKIT-CALC(1deg + 1grad)",
+            "calc(1rad + 1turn)",
+            "min(1deg, 2rad)",
+            "max(1grad, 2turn)",
+            "clamp(1rad, 2deg, 3turn)"
+        ],
+        "invalid": [
+            "pow(1deg)",
+            "sqrt(1rad)",
+            "log(1grad)",
+            "exp(1turn)"
+        ]
+    },
+    "math-number": {
+        "syntax": "<number>",
+        "valid": [
+            "calc(1 + 1.5)",
+            "CALC(1 + 1.5)",
+            "-moz-calc(1 + 1.5)",
+            "-MOZ-CALC(1 + 1.5)",
+            "-webkit-calc(1 + 1.5)",
+            "-WEBKIT-CALC(1 + 1.5)",
+            "calc(2 * 3)",
+            "min(2, 3)",
+            "max(4, 5)",
+            "clamp(6, 7, 8)",
+            "round(down, 1px, 2px)",
+            "mod(1px, 2px)",
+            "rem(1px, 2px)",
+            "sin(45deg)",
+            "cos(45deg)",
+            "tan(45deg)",
+            "pow(2, 3)",
+            "sqrt(16)",
+            "log(100)",
+            "sign(-1px)"
+        ],
+        "invalid": [
+            "asin(1)",
+            "acos(2)"
+        ]
+    },
+    "math-percentage": {
+        "syntax": "<percentage>",
+        "valid": [
+            "calc(1% + 2%)",
+            "CALC(1% + 2%)",
+            "-moz-calc(1% + 2%)",
+            "-MOZ-CALC(1% + 2%)",
+            "-webkit-calc(1% + 2%)",
+            "-WEBKIT-CALC(1% + 2%)",
+            "calc(50% * 2)",
+            "min(10%, 20%)",
+            "max(30%, 40%)",
+            "clamp(50%, 60%, 70%)"
+        ],
+        "invalid": [
+            "pow(1%)",
+            "sqrt(1%)",
+            "log(1%)",
+            "asin(1)"
         ]
     }
 }
