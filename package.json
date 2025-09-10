@@ -18,69 +18,69 @@
     "validation"
   ],
   "type": "module",
-  "module": "./lib/index.js",
+  "module": "./dist/esm/index.js",
   "sideEffects": false,
-  "main": "./cjs/index.cjs",
+  "main": "./dist/cjs/index.cjs",
   "exports": {
     ".": {
-      "import": "./lib/index.js",
-      "require": "./cjs/index.cjs"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
     },
     "./dist/*": "./dist/*.js",
     "./package.json": "./package.json",
     "./tokenizer": {
-      "import": "./lib/tokenizer/index.js",
-      "require": "./cjs/tokenizer/index.cjs"
+      "import": "./dist/esm/tokenizer/index.js",
+      "require": "./dist/cjs/tokenizer/index.cjs"
     },
     "./parser": {
-      "import": "./lib/parser/index.js",
-      "require": "./cjs/parser/index.cjs"
+      "import": "./dist/esm/parser/index.js",
+      "require": "./dist/cjs/parser/index.cjs"
     },
     "./selector-parser": {
-      "import": "./lib/parser/parse-selector.js",
-      "require": "./cjs/parser/parse-selector.cjs"
+      "import": "./dist/esm/parser/parse-selector.js",
+      "require": "./dist/cjs/parser/parse-selector.cjs"
     },
     "./generator": {
-      "import": "./lib/generator/index.js",
-      "require": "./cjs/generator/index.cjs"
+      "import": "./dist/esm/generator/index.js",
+      "require": "./dist/cjs/generator/index.cjs"
     },
     "./walker": {
-      "import": "./lib/walker/index.js",
-      "require": "./cjs/walker/index.cjs"
+      "import": "./dist/esm/walker/index.js",
+      "require": "./dist/cjs/walker/index.cjs"
     },
     "./convertor": {
-      "import": "./lib/convertor/index.js",
-      "require": "./cjs/convertor/index.cjs"
+      "import": "./dist/esm/convertor/index.js",
+      "require": "./dist/cjs/convertor/index.cjs"
     },
     "./lexer": {
-      "import": "./lib/lexer/index.js",
-      "require": "./cjs/lexer/index.cjs"
+      "import": "./dist/esm/lexer/index.js",
+      "require": "./dist/cjs/lexer/index.cjs"
     },
     "./definition-syntax": {
-      "import": "./lib/definition-syntax/index.js",
-      "require": "./cjs/definition-syntax/index.cjs"
+      "import": "./dist/esm/definition-syntax/index.js",
+      "require": "./dist/cjs/definition-syntax/index.cjs"
     },
     "./definition-syntax-data": {
-      "import": "./lib/data.js",
-      "require": "./cjs/data.cjs"
+      "import": "./dist/esm/data.js",
+      "require": "./dist/cjs/data.cjs"
     },
     "./definition-syntax-data-patch": {
-      "import": "./lib/data-patch.js",
-      "require": "./cjs/data-patch.cjs"
+      "import": "./dist/esm/data-patch.js",
+      "require": "./dist/cjs/data-patch.cjs"
     },
     "./utils": {
-      "import": "./lib/utils/index.js",
-      "require": "./cjs/utils/index.cjs"
+      "import": "./dist/esm/utils/index.js",
+      "require": "./dist/cjs/utils/index.cjs"
     }
   },
   "browser": {
-    "./cjs/data.cjs": "./dist/data.cjs",
-    "./cjs/version.cjs": "./dist/version.cjs",
-    "./lib/data.js": "./dist/data.js",
-    "./lib/version.js": "./dist/version.js"
+    "./cjs/data.cjs": "./dist/browser/data.cjs",
+    "./cjs/version.cjs": "./dist/browser/version.cjs",
+    "./lib/data.js": "./dist/browser/data.js",
+    "./lib/version.js": "./dist/browser/version.js"
   },
-  "unpkg": "dist/csstree.esm.js",
-  "jsdelivr": "dist/csstree.esm.js",
+  "unpkg": "dist/browser/index.js",
+  "jsdelivr": "dist/browser/index.js",
   "scripts": {
     "watch": "npm run build -- --watch",
     "build": "npm run bundle && npm run esm-to-cjs --",
