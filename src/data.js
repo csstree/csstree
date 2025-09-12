@@ -1,10 +1,7 @@
-import { createRequire } from 'module';
 import patch from './data-patch.js';
-
-const require = createRequire(import.meta.url);
-const mdnAtrules = require('mdn-data/css/at-rules.json');
-const mdnProperties = require('mdn-data/css/properties.json');
-const mdnSyntaxes = require('mdn-data/css/syntaxes.json');
+import mdnAtrules from 'mdn-data/css/at-rules.json' with { type: 'json' };
+import mdnProperties from 'mdn-data/css/properties.json' with { type: 'json' };
+import mdnSyntaxes from 'mdn-data/css/syntaxes.json' with { type: 'json' };
 
 const hasOwn = Object.hasOwn || ((object, property) => Object.prototype.hasOwnProperty.call(object, property));
 const extendSyntax = /^\s*\|\s*/;
