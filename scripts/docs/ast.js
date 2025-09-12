@@ -1,4 +1,4 @@
-import { lexer } from '../../lib/index.js';
+import { lexer } from '../../src/index.js';
 
 const TOC_RX = /(<!-- MarkdownTOC .*?-->\n+)((?:\s|.)*?)(\n+<!-- \/MarkdownTOC -->)/;
 const ARTICLES_RX = /(<!-- node types -->\n+)((?:\s|.)*?)(\n+<!-- \/node types -->)/;
