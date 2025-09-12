@@ -1,7 +1,7 @@
 import assert from 'assert';
-import { parse, generate } from '../csstree.esm.js';
+import { parse, generate } from '../index.js';
 
-it('csstree.esm.js', () => {
+it('index.js', () => {
     const ast = parse('.test { color: red }');
     const actual = generate(ast);
 

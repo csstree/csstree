@@ -1,9 +1,10 @@
 /* global csstree */
 const assert = require('assert');
+const path = require('path');
 const fs = require('fs');
 
-it('csstree.js', () => {
-    eval(fs.readFileSync('dist/csstree.js', 'utf8'));
+it('index.life.js', () => {
+    eval(fs.readFileSync(path.resolve(__dirname, `../index.life.js`), 'utf8'));
     const ast = csstree.parse('.test { color: red }');
     const actual = csstree.generate(ast);
 
