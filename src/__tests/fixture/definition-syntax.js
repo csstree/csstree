@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { createLexer, lexer as defaultLexer } from 'css-tree';
+import { createLexer, lexer as defaultLexer } from '../../index.js';
 import { JsonLocator } from '../helpers/JsonLocator.js';
 
 const __dirname = 'fixtures/definition-syntax';

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parse, generate, fromPlainObject, toPlainObject } from 'css-tree';
+import { parse, generate, fromPlainObject, toPlainObject } from '../index.js';
 
 const css = '.test{a:123}';
 

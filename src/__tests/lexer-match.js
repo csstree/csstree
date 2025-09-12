@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parse, generate, fork } from 'css-tree';
+import { parse, generate, fork } from '../index.js';
 
 describe('Lexer#match()', () => {
     const customSyntax = fork(prev => ({

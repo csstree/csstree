@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parse, generate, lexer } from 'css-tree';
+import { parse, generate, lexer } from '../index.js';
 
 function translateFragments(fragments) {
     return fragments.map(fragment => generate({

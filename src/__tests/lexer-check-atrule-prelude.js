@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { lexer } from 'css-tree';
+import { lexer } from '../index.js';
 
 describe('Lexer#checkAtrulePrelude()', () => {
     it('should fail on invalid atrule', () => {

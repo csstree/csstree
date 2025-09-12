@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { lexer, definitionSyntax } from 'css-tree';
+import { lexer, definitionSyntax } from '../index.js';
 import { tests } from './fixture/definition-syntax.js';
 
 const { parse, generate } = definitionSyntax;

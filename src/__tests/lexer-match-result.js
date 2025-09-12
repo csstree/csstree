@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parse, lexer } from 'css-tree';
+import { parse, lexer } from '../index.js';
 
 describe('lexer match result', () => {
     let testNode;

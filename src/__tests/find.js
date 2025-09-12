@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parse, find, findLast, findAll } from 'css-tree';
+import { parse, find, findLast, findAll } from '../index.js';
 import { lazyValues } from './helpers/index.js';
 
 const values = lazyValues({

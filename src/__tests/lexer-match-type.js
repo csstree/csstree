@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parse, fork } from 'css-tree';
+import { parse, fork } from '../index.js';
 import { lazyValues, cssWideKeywords } from './helpers/index.js';
 
 const values = lazyValues({

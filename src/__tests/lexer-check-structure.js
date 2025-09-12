@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parse, lexer, fork } from 'css-tree';
+import { parse, lexer, fork } from '../index.js';
 import { forEachTest as forEachAstTest } from './fixture/ast.js';
 
 describe('Lexer#checkStructure()', () => {

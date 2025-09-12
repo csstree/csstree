@@ -1,4 +1,4 @@
-import { tokenize, tokenTypes, generate } from 'css-tree';
+import { tokenize, tokenTypes, generate } from '../../src/index.js';
 
 function num(postfix = '') {
     return [

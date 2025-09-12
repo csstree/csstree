@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { ident, string, url } from 'css-tree';
+import { ident, string, url } from '../index.js';
 
 function forEachTest(tests, func) {
     Object.keys(tests).forEach((from, idx) => {

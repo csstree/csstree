@@ -4,7 +4,7 @@ import {
     clone,
     walk,
     toPlainObject
-} from 'css-tree';
+} from '../index.js';
 
 function createCloneTest(name, getAst) {
     it(name, () => {

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import assert from 'assert';
-import { parse, walk, fork, version, tokenTypes, generate } from 'css-tree';
+import { parse, walk, fork, version, tokenTypes, generate } from '../index.js';
 
 const fixtureFilename = './fixtures/stringify.css';
 const fixture = normalize(fs.readFileSync(fixtureFilename, 'utf-8'));;

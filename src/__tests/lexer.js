@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { lexer, createLexer, fork } from 'css-tree';
+import { lexer, createLexer, fork } from '../index.js';
 
 describe('lexer', () => {
     it('should not override generic types when used', () => {

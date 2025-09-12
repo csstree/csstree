@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { TokenStream, tokenize, tokenNames } from 'css-tree';
+import { TokenStream, tokenize, tokenNames } from '../index.js';
 import * as fixture from './fixture/tokenize.js';
 
 describe('tokenize/stream', () => {

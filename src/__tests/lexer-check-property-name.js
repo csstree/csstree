@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { lexer } from 'css-tree';
+import { lexer } from '../index.js';
 
 describe('Lexer#checkPropertyName()', () => {
     it('should pass correct property', () => {

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { definitionSyntax } from 'css-tree';
+import { definitionSyntax } from '../index.js';
 
 const { parse, generate, walk } = definitionSyntax;
 

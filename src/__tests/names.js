@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { keyword, property, isCustomProperty, vendorPrefix } from 'css-tree';
+import { keyword, property, isCustomProperty, vendorPrefix } from '../index.js';
 
 describe('names utils', () => {
     describe('keyword', () => {
