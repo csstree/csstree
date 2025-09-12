@@ -84,7 +84,7 @@
   "scripts": {
     "watch": "npm run build -- --watch",
     "build": "node scripts/build",
-    "build-and-test": "npm run build && npm run test:dist && npm run test:cjs",
+    "build-and-test": "npm run build && npm run test:bundled && npm run test:cjs",
     "lint": "eslint src scripts && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
@@ -92,7 +92,7 @@
     "test": "mocha dist/esm/__tests --require src/__tests/helpers/setup.js --reporter progress",
     "test:cjs": "mocha dist/cjs/__tests --require src/__tests/helpers/setup.js --reporter progress",
     "test:bundled": "mocha dist/bundled/__tests --reporter progress",
-    "coverage": "c8 --exclude src/esm/__tests --reporter=lcovonly npm test",
+    "coverage": "c8 --exclude src/__tests --reporter=lcovonly npm test",
     "prepublishOnly": "npm run lint-and-test && npm run build-and-test"
   },
   "dependencies": {
@@ -100,10 +100,12 @@
     "source-map-js": "^1.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.35.0",
     "c8": "^7.12.0",
     "clap": "^2.0.1",
     "esbuild": "^0.24.0",
-    "eslint": "^8.4.1",
+    "eslint": "^9.35.0",
+    "globals": "^16.4.0",
     "json-to-ast": "^2.1.0",
     "mocha": "^9.2.2",
     "rollup": "^2.79.2"
