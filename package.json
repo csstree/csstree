@@ -74,13 +74,13 @@
     }
   },
   "browser": {
-    "./cjs/data.cjs": "./dist/browser/data.cjs",
-    "./cjs/version.cjs": "./dist/browser/version.cjs",
-    "./lib/data.js": "./dist/browser/data.js",
-    "./lib/version.js": "./dist/browser/version.js"
+    "./dist/cjs/data.cjs": "./dist/bundled/data.cjs",
+    "./dist/cjs/version.cjs": "./dist/bundled/version.cjs",
+    "./dist/esm/data.js": "./dist/bundled/data.js",
+    "./dist/esm/version.js": "./dist/bundled/version.js"
   },
-  "unpkg": "dist/browser/index.js",
-  "jsdelivr": "dist/browser/index.js",
+  "unpkg": "dist/bundled/index.js",
+  "jsdelivr": "dist/bundled/index.js",
   "scripts": {
     "watch": "npm run build -- --watch",
     "build": "npm run bundle && npm run esm-to-cjs --",
@@ -118,9 +118,6 @@
   "files": [
     "data",
     "dist",
-    "cjs",
-    "!cjs/__tests",
-    "lib",
-    "!lib/__tests"
+    "!dist/__tests"
   ]
 }
