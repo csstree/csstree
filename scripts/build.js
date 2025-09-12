@@ -127,7 +127,7 @@ async function buildCJS() {
         external,
         treeshake,
         plugins: [
-            hoistJsonImports(),
+            hoistJsonImports()
         ]
     };
     const outputOptions = {
@@ -161,7 +161,7 @@ async function buildESM() {
         external,
         treeshake,
         plugins: [
-            hoistJsonImports(),
+            hoistJsonImports()
         ]
     };
     const outputOptions = {
