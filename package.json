@@ -85,7 +85,7 @@
     "watch": "npm run build -- --watch",
     "build": "node scripts/build",
     "build-and-test": "npm run build && npm run test:dist && npm run test:cjs",
-    "lint": "eslint lib scripts && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
+    "lint": "eslint src scripts && node scripts/review-syntax-patch --lint && node scripts/update-docs --lint",
     "lint-and-test": "npm run lint && npm test",
     "update:docs": "node scripts/update-docs",
     "review:syntax-patch": "node scripts/review-syntax-patch",
