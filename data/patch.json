@@ -550,9 +550,6 @@
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "child | young | old"
         },
-        "attr-name": {
-            "syntax": "<wq-name>"
-        },
         "attr-fallback": {
             "syntax": "<any-value>"
         },
@@ -560,43 +557,13 @@
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
         },
-        "content-list": {
-            "comment": "added attr(), see https://github.com/csstree/csstree/issues/201",
-            "syntax": "[ <string> | contents | <image> | <counter> | <quote> | <target> | <leader()> | <attr()> ]+"
-        },
-        "container-condition": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
-            "syntax": "not <query-in-parens> | <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ]"
-        },
-        "coord-box": {
-            "syntax": "content-box | padding-box | border-box | fill-box | stroke-box | view-box"
-        },
-        "cubic-bezier-easing-function": {
-            "comment": "missed, https://drafts.csswg.org/css-easing-1/#cubic-bezier-easing-function",
-            "syntax": "ease | ease-in | ease-out | ease-in-out | cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )"
-        },
         "element()": {
             "comment": "https://drafts.csswg.org/css-gcpm/#element-syntax & https://drafts.csswg.org/css-images-4/#element-notation",
             "syntax": "element( <custom-ident> , [ first | start | last | first-except ]? ) | element( <id-selector> )"
         },
-        "generic-voice": {
-            "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
-            "syntax": "[ <age>? <gender> <integer>? ]"
-        },
         "gender": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
             "syntax": "male | female | neutral"
-        },
-        "general-enclosed": {
-            "comment": "remove ident-token, optional any-value, brackets (see https://drafts.csswg.org/mediaqueries-5/#typedef-general-enclosed)",
-            "syntax": "[ <function-token> <any-value>? ) ] | [ ( <any-value>? ) ]"
-        },
-        "generic-family": {
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#typedef-generic-family",
-            "syntax": "<generic-script-specific>| <generic-complete> | <generic-incomplete> | <-non-standard-generic-family>"
-        },
-        "generic-script-specific": {
-            "syntax": "generic(kai) | generic(fangsong) | generic(nastaliq)"
         },
         "-non-standard-generic-family": {
             "syntax": "-apple-system | BlinkMacSystemFont",
@@ -604,10 +571,6 @@
                 "https://css-tricks.com/snippets/css/system-font-stack/",
                 "https://webkit.org/blog/3709/using-the-system-font-in-web-content/"
             ]
-        },
-        "gradient": {
-            "comment": "added legacy syntaxes support",
-            "syntax": "| <-legacy-gradient>"
         },
         "intrinsic-size-keyword": {
             "comment": "Missing from mdn-data. 4.3. Intrinsic Size Keywords https://www.w3.org/TR/css-sizing-4/#intrinsic-size-keywords",
@@ -617,31 +580,11 @@
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
         },
-        "color": {
-            "comment": "css-color-5, added non standard color names",
-            "syntax": "<color-base> | currentColor | <system-color> | <device-cmyk()>  | <light-dark()> | <-non-standard-color>"
-        },
         "device-cmyk()": {
             "syntax": "<legacy-device-cmyk-syntax> | <modern-device-cmyk-syntax>"
         },
-        "legacy-device-cmyk-syntax": {
-            "syntax": "device-cmyk( <number>#{4} )"
-        },
-        "modern-device-cmyk-syntax": {
-            "syntax": "device-cmyk( <cmyk-component>{4} [ / [ <alpha-value> | none ] ]? )"
-        },
-        "cmyk-component": {
-            "syntax": "<number> | <percentage> | none"
-        },
         "color-mix()": {
             "syntax": "color-mix( <color-interpolation-method> , [ <color> && <percentage [0,100]>? ]#{2} )"
-        },
-        "color-space": {
-            "syntax": "<rectangular-color-space> | <polar-color-space> | <custom-color-space>"
-        },
-        "paint": {
-            "comment": "used by SVG https://www.w3.org/TR/SVG/painting.html#SpecifyingPaint",
-            "syntax": "none | <color> | <url> [ none | <color> ]? | context-fill | context-stroke"
         },
         "right": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
@@ -662,45 +605,6 @@
         },
         "forgiving-relative-selector-list": {
             "syntax": "<relative-real-selector-list>"
-        },
-        "complex-real-selector-list": {
-            "syntax": "<complex-real-selector>#"
-        },
-        "simple-selector-list": {
-            "syntax": "<simple-selector>#"
-        },
-        "relative-real-selector-list": {
-            "syntax": "<relative-real-selector>#"
-        },
-        "complex-selector": {
-            "syntax": "<complex-selector-unit> [ <combinator>? <complex-selector-unit> ]*"
-        },
-        "complex-selector-unit": {
-            "syntax": "[ <compound-selector>? <pseudo-compound-selector>* ]!"
-        },
-        "complex-real-selector": {
-            "syntax": "<compound-selector> [ <combinator>? <compound-selector> ]*"
-        },
-        "relative-real-selector": {
-            "syntax": "<combinator>? <complex-real-selector>"
-        },
-        "compound-selector": {
-            "syntax": "[ <type-selector>? <subclass-selector>* ]!"
-        },
-        "pseudo-compound-selector": {
-            "syntax": " <pseudo-element-selector> <pseudo-class-selector>*"
-        },
-        "simple-selector": {
-            "syntax": "<type-selector> | <subclass-selector>"
-        },
-        "combinator": {
-            "syntax": "'>' | '+' | '~' | [ '|' '|' ]"
-        },
-        "pseudo-element-selector": {
-            "syntax": "':' <pseudo-class-selector> | <legacy-pseudo-element-selector>"
-        },
-        "legacy-pseudo-element-selector": {
-            "syntax": " ':' [before | after | first-line | first-letter]"
         },
         "svg-length": {
             "comment": "All coordinates and lengths in SVG can be specified with or without a unit identifier",
@@ -737,10 +641,6 @@
             "comment": "missed, restored by https://drafts.csswg.org/css-syntax",
             "syntax": "[ <declaration>? ';' ]* <declaration>?"
         },
-        "url": {
-            "comment": "https://drafts.csswg.org/css-values-4/#urls",
-            "syntax": "url( <string> <url-modifier>* ) | <url-token>"
-        },
         "url-modifier": {
             "comment": "https://drafts.csswg.org/css-values-4/#typedef-url-modifier",
             "syntax": "<ident> | <function-token> <any-value> )"
@@ -754,34 +654,13 @@
         "color()": {
             "syntax": "color( <colorspace-params> [ / [ <alpha-value> | none ] ]? )"
         },
-        "colorspace-params": {
-            "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
-        },
-        "xyz-params": {
-            "syntax": "<xyz-space> [ <number> | <percentage> | none ]{3}"
-        },
-        "xyz-space": {
-            "syntax": "xyz | xyz-d50 | xyz-d65"
-        },
-        "query-in-parens": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
-            "syntax": "( <container-condition> ) | ( <size-feature> ) | style( <style-query> ) | <general-enclosed>"
-        },
         "size-feature": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#typedef-size-feature",
             "syntax": "<mf-plain> | <mf-boolean> | <mf-range>"
         },
-        "style-query": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
-            "syntax": "<style-condition> | <style-feature>"
-        },
         "style-condition": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
             "syntax": "not <style-in-parens> | <style-in-parens> [ [ and <style-in-parens> ]* | [ or <style-in-parens> ]* ]"
-        },
-        "style-in-parens": {
-            "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
-            "syntax": "( <style-condition> ) | ( <style-feature> ) | <general-enclosed>"
         },
         "-non-standard-display": {
             "syntax": "-ms-inline-flexbox | -ms-grid | -ms-inline-grid | -webkit-flex | -webkit-inline-flex | -webkit-box | -webkit-inline-box | -moz-inline-stack | -moz-box | -moz-inline-box"
@@ -792,25 +671,6 @@
             "references": [
                 "https://www.w3.org/TR/css-anchor-position-1/#inset-area"
             ]
-        },
-        "position-area": {
-            "syntax": "[ [ left | center | right | span-left | span-right | x-start | x-end | span-x-start | span-x-end | x-self-start | x-self-end | span-x-self-start | span-x-self-end | span-all ] || [ top | center | bottom | span-top | span-bottom | y-start | y-end | span-y-start | span-y-end | y-self-start | y-self-end | span-y-self-start | span-y-self-end | span-all ] | [ block-start | center | block-end | span-block-start | span-block-end | span-all ] || [ inline-start | center | inline-end | span-inline-start | span-inline-end | span-all ] | [ self-block-start | center | self-block-end | span-self-block-start | span-self-block-end | span-all ] || [ self-inline-start | center | self-inline-end | span-self-inline-start | span-self-inline-end | span-all ] | [ start | center | end | span-start | span-end | span-all ]{1,2} | [ self-start | center | self-end | span-self-start | span-self-end | span-all ]{1,2} ]",
-            "comment": "replaced <inset-area>",
-            "references": [
-                "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
-            ]
-        },
-        "font-variant-css2": {
-            "syntax": "normal | small-caps",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-variant-css21-values"
-        },
-        "font-width-css3": {
-            "syntax": "normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-width-css3-values"
-        },
-        "system-family-name": {
-            "syntax": "caption | icon | menu | message-box | small-caption | status-bar",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#system-family-name-value"
         },
         "absolute-size": {
             "syntax": "xx-small | x-small | small | medium | large | x-large | xx-large | xxx-large"
