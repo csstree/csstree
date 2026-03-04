@@ -1,6 +1,6 @@
 *.js
 *.cjs
-!__tests/*.js
-!__tests/*.cjs
+!bundled/__tests/*.js
+!bundled/__tests/*.cjs
 !.gitignore
 !.npmignore
