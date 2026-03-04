@@ -1,5 +1,6 @@
 ## next
 
+- Changed `generate()` to not auto insert whitespaces between tokens for raw values
 - Added `onToken` option to the `parse()` method, which can be either an array or a function:
     - When the value is an array, it is populated with objects `{ type, start, end }` (token type, and its start and end offsets).
     - When the value is a function, it accepts `type`, `start`, `end`, and `index` parameters, and is invoked with a token API as `this`, enabling advanced token handling (see [onToken](docs/parsing.md#ontoken)). For example, the following demonstrates checking if all block tokens have matching pairs:
