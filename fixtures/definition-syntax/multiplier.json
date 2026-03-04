@@ -274,5 +274,35 @@
             "foo foo",
             "bar"
         ]
+    },
+    "exact with zero or one": {
+        "syntax": "foo{2}?",
+        "valid": [
+            "",
+            "foo foo"
+        ],
+        "invalid": [
+            "foo",
+            "foo foo foo",
+            "bar",
+            "foo foo bar",
+            "foo foo foo foo bar"
+        ]
+    },
+    "range with zero or one": {
+        "syntax": "foo{2,4}?",
+        "valid": [
+            "",
+            "foo foo",
+            "foo foo foo",
+            "foo foo foo foo"
+        ],
+        "invalid": [
+            "foo",
+            "foo foo foo foo foo",
+            "bar",
+            "foo foo bar",
+            "foo foo foo foo bar"
+        ]
     }
 }

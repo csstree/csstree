@@ -1,6 +1,7 @@
 ## next
 
-- Changed `generate()` to not auto insert whitespaces between tokens for raw values
+- Added `list` option to the `parse()` method to specify whether the parser should produce a `List` (by default, `list: true`) or an array (`list: false`) for node's children (e.g., `SelectorList`, `Block`, etc.)
+- Added support for stacked multipliers `{A}?` and `{A,B}?` according to spec in definition syntax parsing (#346)
 - Added `onToken` option to the `parse()` method, which can be either an array or a function:
     - When the value is an array, it is populated with objects `{ type, start, end }` (token type, and its start and end offsets).
     - When the value is a function, it accepts `type`, `start`, `end`, and `index` parameters, and is invoked with a token API as `this`, enabling advanced token handling (see [onToken](docs/parsing.md#ontoken)). For example, the following demonstrates checking if all block tokens have matching pairs:
@@ -25,6 +26,7 @@
     - `isBlockOpenerTokenType(tokenType)` – returns `true` for `<function-token>`, `<(-token>`, `<[-token>`, and `<{-token>`
     - `isBlockCloserTokenType(tokenType)` – returns `true` for `<)-token>`, `<]-token>`, and `<}-token>`
     - `getBlockTokenPairIndex(tokenIndex)` – returns the index of the pair token for a block, or `-1` if no pair exists
+- Changed `generate()` to not auto insert whitespaces between tokens for raw values (#356)
 - Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
 
 ## 3.1.0 (December 6, 2024)
