@@ -5,7 +5,7 @@ on:
     pull_request:
 
 env:
-    PRIMARY_NODEJS_VERSION: 22
+    PRIMARY_NODEJS_VERSION: 24
 
 jobs:
     lint:
@@ -54,6 +54,7 @@ jobs:
                     - 20
                     - 22
                     - 24
+                    - 25
                 include:
                     - os: windows-latest
                       node: 10
