@@ -1,0 +1,352 @@
+{
+  "with character-variant and styleset": {
+    "source": "@font-feature-values InterVariable{@character-variant{cv01:1;cv02:2;cv03:3;alt-1:1;open-4:2;open-6:3}@styleset{ss01:1;ss02:2;ss03:3;open-digits:1;disambiguation:2;round-quotes-and-commas:3}}",
+    "ast": {
+      "type": "Atrule",
+      "name": "font-feature-values",
+      "prelude": {
+        "type": "AtrulePrelude",
+        "children": [
+          {
+            "type": "Identifier",
+            "name": "InterVariable"
+          }
+        ]
+      },
+      "block": {
+        "type": "Block",
+        "children": [
+          {
+            "type": "Atrule",
+            "name": "character-variant",
+            "prelude": null,
+            "block": {
+              "type": "Block",
+              "children": [
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "cv01",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "cv02",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "cv03",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "alt-1",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "open-4",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "open-6",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Atrule",
+            "name": "styleset",
+            "prelude": null,
+            "block": {
+              "type": "Block",
+              "children": [
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "ss01",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "ss02",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "ss03",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "open-digits",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "disambiguation",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "2"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "round-quotes-and-commas",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "with all feature types": {
+    "source": "@font-feature-values \"Another Font\"{@annotation{circled:1}@ornaments{fleuron:1}@stylistic{alt-a:1}@swash{swash1:1}@historical-forms{hist:1}}",
+    "ast": {
+      "type": "Atrule",
+      "name": "font-feature-values",
+      "prelude": {
+        "type": "AtrulePrelude",
+        "children": [
+          {
+            "type": "String",
+            "value": "Another Font"
+          }
+        ]
+      },
+      "block": {
+        "type": "Block",
+        "children": [
+          {
+            "type": "Atrule",
+            "name": "annotation",
+            "prelude": null,
+            "block": {
+              "type": "Block",
+              "children": [
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "circled",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Atrule",
+            "name": "ornaments",
+            "prelude": null,
+            "block": {
+              "type": "Block",
+              "children": [
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "fleuron",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Atrule",
+            "name": "stylistic",
+            "prelude": null,
+            "block": {
+              "type": "Block",
+              "children": [
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "alt-a",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Atrule",
+            "name": "swash",
+            "prelude": null,
+            "block": {
+              "type": "Block",
+              "children": [
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "swash1",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Atrule",
+            "name": "historical-forms",
+            "prelude": null,
+            "block": {
+              "type": "Block",
+              "children": [
+                {
+                  "type": "Declaration",
+                  "important": false,
+                  "property": "hist",
+                  "value": {
+                    "type": "Value",
+                    "children": [
+                      {
+                        "type": "Number",
+                        "value": "1"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

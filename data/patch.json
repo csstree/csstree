@@ -6,8 +6,20 @@
         "container": {
             "prelude": "[ <container-name> ]? <container-condition>"
         },
-        "nest": {
-            "prelude": "<complex-selector-list>"
+        "font-face": {
+            "descriptors": {
+                "unicode-range": {
+                    "comment": "replaces <unicode-range>, an old production name",
+                    "syntax": "<urange>#"
+                }
+            }
+        },
+        "font-features-values": {
+            "comment": "The features values syntax is defined in https://www.w3.org/TR/css-fonts-4/#at-ruledef-font-feature-values",
+            "prelude": "[<string> | <custom-ident>]+",
+            "descriptors": {
+                "font-display": "auto | block | swap | fallback | optional"
+            }
         },
         "scope": {
             "prelude": "[ ( <scope-start> ) ]? [ to ( <scope-end> ) ]?"
@@ -202,6 +214,10 @@
         "behavior": {
             "comment": "added old IE property https://msdn.microsoft.com/en-us/library/ms530723(v=vs.85).aspx",
             "syntax": "<url>+"
+        },
+        "container-type": {
+            "comment": "https://www.w3.org/TR/css-contain-3/#propdef-container-type",
+            "syntax": "normal || [ size | inline-size ]"
         },
         "cue": {
             "comment": "https://www.w3.org/TR/css3-speech/#property-index",
