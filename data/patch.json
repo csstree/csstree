@@ -248,9 +248,10 @@
         "fill-opacity": {
             "comment": "added SVG property",
             "references": [
+                "https://developer.mozilla.org/en-US/docs/Web/CSS/fill-opacity",
                 "https://www.w3.org/TR/SVG/painting.html#FillProperty"
             ],
-            "syntax": "<number-zero-one>"
+            "syntax": "<number-zero-one> | <percentage>"
         },
         "filter": {
             "comment": "extend with IE legacy syntaxes",
