@@ -1,3 +1,7 @@
+## next
+
+- Fixed parsing of nested function in a group in definition syntax (#358)
+
 ## 3.2.0 (March 4, 2026)
 
 - Added `"sideEffects": false` in `package.json`
