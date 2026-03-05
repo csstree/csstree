@@ -1,5 +1,6 @@
-## next
+## 3.2.0 (March 4, 2026)
 
+- Added `"sideEffects": false` in `package.json`
 - Added `list` option to the `parse()` method to specify whether the parser should produce a `List` (by default, `list: true`) or an array (`list: false`) for node's children (e.g., `SelectorList`, `Block`, etc.)
 - Added support for [Functional Notation](https://www.w3.org/TR/css-values-4/#component-functions) in definition syntax (for now by wrapping function arguments into an implicit group when necessary, see #292)
 - Added support for stacked multipliers `{A}?` and `{A,B}?` according to spec in definition syntax parsing (#346)
@@ -30,6 +31,7 @@
     - `getBlockTokenPairIndex(tokenIndex)` – returns the index of the pair token for a block, or `-1` if no pair exists
 - Changed `generate()` to not auto insert whitespaces between tokens for raw values (#356)
 - Fixed `fork()` to extend `node` definitions instead of overriding them. For example, `fork({ node: { Dimension: { generate() { /* ... */ } } } })` will now update only the `generate()` method on the `Dimension` node, while inheriting all other properties from the previous syntax definition.
+- Bumped `mdn/data` to 2.27.1 and various fixes in syntaxes
 
 ## 3.1.0 (December 6, 2024)
 
