@@ -1,4 +1,4 @@
-## next
+## 3.2.1 (March 5, 2026)
 
 - Fixed parsing of nested function in a group in definition syntax (#358)
 
