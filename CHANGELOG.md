@@ -1,7 +1,9 @@
 ## next
 
 - Added `list` option to the `parse()` method to specify whether the parser should produce a `List` (by default, `list: true`) or an array (`list: false`) for node's children (e.g., `SelectorList`, `Block`, etc.)
+- Added support for [Functional Notation](https://www.w3.org/TR/css-values-4/#component-functions) in definition syntax (for now by wrapping function arguments into an implicit group when necessary, see #292)
 - Added support for stacked multipliers `{A}?` and `{A,B}?` according to spec in definition syntax parsing (#346)
+- Added math functions support in syntax matching (e.g., `min()`, `max()`, etc.) (#344)
 - Added `onToken` option to the `parse()` method, which can be either an array or a function:
     - When the value is an array, it is populated with objects `{ type, start, end }` (token type, and its start and end offsets).
     - When the value is a function, it accepts `type`, `start`, `end`, and `index` parameters, and is invoked with a token API as `this`, enabling advanced token handling (see [onToken](docs/parsing.md#ontoken)). For example, the following demonstrates checking if all block tokens have matching pairs:
