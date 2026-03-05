@@ -581,6 +581,9 @@
         "attr-fallback": {
             "syntax": "<any-value>"
         },
+        "autospace": {
+            "syntax": "no-autospace | [ ideograph-alpha || ideograph-numeric || punctuation ] || [ insert | replace ]"
+        },
         "bottom": {
             "comment": "missed; not sure we should add it, but no others except `shape` is using it so it's ok for now; https://drafts.fxtf.org/css-masking-1/#funcdef-clip-rect",
             "syntax": "<length> | auto"
@@ -825,17 +828,26 @@
                 "https://drafts.csswg.org/css-anchor-position-1/#typedef-position-area"
             ]
         },
-        "font-variant-css2": {
-            "syntax": "normal | small-caps",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-variant-css21-values"
+        "syntax": {
+            "syntax": "'*' | <syntax-component> [ <syntax-combinator> <syntax-component> ]* | <syntax-string>"
         },
-        "font-width-css3": {
-            "syntax": "normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#font-width-css3-values"
+        "syntax-component": {
+            "syntax": "<syntax-single-component> <syntax-multiplier>? | '<' transform-list '>'"
         },
-        "system-family-name": {
-            "syntax": "caption | icon | menu | message-box | small-caption | status-bar",
-            "comment": "new definition on font-4, https://drafts.csswg.org/css-fonts-4/#system-family-name-value"
+        "syntax-single-component": {
+            "syntax": "'<' <syntax-type-name> '>' | <ident>"
+        },
+        "syntax-type-name": {
+            "syntax": "angle | color | custom-ident | image | integer | length | length-percentage | number | percentage | resolution | string | time | url | transform-function"
+        },
+        "syntax-combinator": {
+            "syntax": "'|'"
+        },
+        "syntax-multiplier": {
+            "syntax": "'#' | '+'"
+        },
+        "syntax-string": {
+            "syntax": "<string>"
         }
     }
 }
