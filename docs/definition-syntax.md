@@ -203,6 +203,7 @@ A multipler of a term.
 | * | { comma: false, min: 0, max: 0 } | {0,}
 | + | { comma: false, min: 1, max: 0 } | {1,}
 | # | { comma: true, min: 1, max: 0 } | –
+| #? | { comma: true, min: 0, max: 0 } | –
 | {3} | { comma: false, min: 3, max: 3 } | {3}
 | {3,} | { comma: false, min: 3, max: 0 } | {3,}
 | {3,3} | { comma: false, min: 3, max: 3 } | {3}
@@ -210,6 +211,17 @@ A multipler of a term.
 | #{3} | { comma: true, min: 3, max: 3 } | –
 | #{3,} | { comma: true, min: 3, max: 0 } | –
 | #{3,6} | { comma: true, min: 3, max: 6 } | –
+
+> [!NOTE]
+> As per spec [some multipliers may stack](https://drafts.csswg.org/css-values-4/#component-combinators) (e.g. `+#`, `{A}?`, `{A,B}?`), in this case `term` field of `Multiplier` node will contain another `Multiplier` node. For example, `+#` is represented as following AST:
+> ```
+> { ...<multiplier #>,
+>   term: {
+>     ...<multipler +>,
+>     term: node
+>   }
+> }
+> ```
 
 ### Property
 
