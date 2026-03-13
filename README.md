@@ -30,7 +30,6 @@ CSSTree is a tool set for CSS: [fast](https://github.com/postcss/benchmark) deta
 
 ## Projects using CSSTree
 
-- [Svelte](https://github.com/sveltejs/svelte) – Cybernetically enhanced web apps
 - [SVGO](https://github.com/svg/svgo) – Node.js tool for optimizing SVG files
 - [CSSO](https://github.com/css/csso) – CSS minifier with structural optimizations
 - [NativeScript](https://github.com/NativeScript/NativeScript) – NativeScript empowers you to access native APIs from JavaScript directly
