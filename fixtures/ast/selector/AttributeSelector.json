@@ -500,6 +500,54 @@
             "flags": "i"
         }
     },
+    "unclosed at eof recovers as closed": {
+        "source": "[a=\"b\"",
+        "generate": "[a=\"b\"]",
+        "ast": {
+            "type": "AttributeSelector",
+            "name": {
+                "type": "Identifier",
+                "name": "a"
+            },
+            "matcher": "=",
+            "value": {
+                "type": "String",
+                "value": "b"
+            },
+            "flags": null
+        }
+    },
+    "unclosed bare name at eof recovers as closed": {
+        "source": "[foo",
+        "generate": "[foo]",
+        "ast": {
+            "type": "AttributeSelector",
+            "name": {
+                "type": "Identifier",
+                "name": "foo"
+            },
+            "matcher": null,
+            "value": null,
+            "flags": null
+        }
+    },
+    "unclosed with flags at eof recovers as closed": {
+        "source": "[a=b i",
+        "generate": "[a=b i]",
+        "ast": {
+            "type": "AttributeSelector",
+            "name": {
+                "type": "Identifier",
+                "name": "a"
+            },
+            "matcher": "=",
+            "value": {
+                "type": "Identifier",
+                "name": "b"
+            },
+            "flags": "i"
+        }
+    },
     "error": [
         {
             "source": "[a|] {}",
