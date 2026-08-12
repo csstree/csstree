@@ -62,6 +62,13 @@ function removeCreateRequire() {
         name: 'remove-createRequire',
         transform(code) {
             return code
+                // In CJS a relative specifier resolves against the module itself and
+                // `import.meta.url` is not available, so restore the plain specifier.
+                .replace(
+                    /require\(fileURLToPath\(new URL\((['"].+?['"]), import\.meta\.url\)\)\)/g,
+                    'require($1)'
+                )
+                .replace(/import { fileURLToPath } from 'url';\n?/, '')
                 .replace(/import { createRequire } from 'module';\n?/, '')
                 .replace(/const require = createRequire\(.+?\);\n?/, '');
         }
