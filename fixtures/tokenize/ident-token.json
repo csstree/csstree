@@ -12,7 +12,8 @@
         "--foo-bar",
         "foo\\31 23bar",
         "-foo\\31 23bar",
-        "--foo\\31 23bar"
+        "--foo\\31 23bar",
+        "\\"
     ],
     "invalid": [
         "",
