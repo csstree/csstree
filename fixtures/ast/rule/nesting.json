@@ -589,9 +589,9 @@
             }
         }
     },
-    "don't parse nested rule when it not started with &": {
-        "source": ".foo{ .bar & { color: green; }; div:hover { color: red; } }",
-        "generate": ".foo{.bar & { color: green; };div:hover { color: red; }}",
+    "nested class selector": {
+        "source": "s{ p:v;.t { a:b } }",
+        "generate": "s{p:v;.t{a:b}}",
         "ast": {
             "type": "Rule",
             "prelude": {
@@ -601,8 +601,8 @@
                         "type": "Selector",
                         "children": [
                             {
-                                "type": "ClassSelector",
-                                "name": "foo"
+                                "type": "TypeSelector",
+                                "name": "s"
                             }
                         ]
                     }
@@ -612,16 +612,364 @@
                 "type": "Block",
                 "children": [
                     {
-                        "type": "Raw",
-                        "value": ".bar & { color: green; };"
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "p",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "v"
+                                }
+                            ]
+                        }
                     },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "ClassSelector",
+                                            "name": "t"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "a",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "b"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested ID selector": {
+        "source": "s{ p:v; #t { a:b } }",
+        "generate": "s{p:v;#t{a:b}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "s"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
                     {
                         "type": "Declaration",
                         "important": false,
-                        "property": "div",
+                        "property": "p",
                         "value": {
-                            "type": "Raw",
-                            "value": "hover { color: red; }"
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "v"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "IdSelector",
+                                            "name": "t"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "a",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "b"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested attribute selector": {
+        "source": "s{ p:v; [data-foo] {  a: b}}",
+        "generate": "s{p:v;[data-foo]{a:b}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "s"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "p",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "v"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "AttributeSelector",
+                                            "name": {
+                                                "type": "Identifier",
+                                                "name": "data-foo"
+                                            },
+                                            "matcher": null,
+                                            "value": null,
+                                            "flags": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "a",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "b"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested universal selector": {
+        "source": "s{ p: v;*   {a:b }  }",
+        "generate": "s{p:v;*{a:b}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "s"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "p",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "v"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "TypeSelector",
+                                            "name": "*"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "a",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "b"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "nested pseudoclass selector": {
+        "source": "s { p:v; :hover { a: b } }",
+        "generate": "s{p:v;:hover{a:b}}",
+        "ast": {
+            "type": "Rule",
+            "prelude": {
+                "type": "SelectorList",
+                "children": [
+                    {
+                        "type": "Selector",
+                        "children": [
+                            {
+                                "type": "TypeSelector",
+                                "name": "s"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "block": {
+                "type": "Block",
+                "children": [
+                    {
+                        "type": "Declaration",
+                        "important": false,
+                        "property": "p",
+                        "value": {
+                            "type": "Value",
+                            "children": [
+                                {
+                                    "type": "Identifier",
+                                    "name": "v"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Rule",
+                        "prelude": {
+                            "type": "SelectorList",
+                            "children": [
+                                {
+                                    "type": "Selector",
+                                    "children": [
+                                        {
+                                            "type": "PseudoClassSelector",
+                                            "name": "hover",
+                                            "children": null
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "block": {
+                            "type": "Block",
+                            "children": [
+                                {
+                                    "type": "Declaration",
+                                    "important": false,
+                                    "property": "a",
+                                    "value": {
+                                        "type": "Value",
+                                        "children": [
+                                            {
+                                                "type": "Identifier",
+                                                "name": "b"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
                         }
                     }
                 ]
