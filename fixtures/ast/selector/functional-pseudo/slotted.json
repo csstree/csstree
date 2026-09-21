@@ -33,6 +33,15 @@
             "children": []
         }
     },
+    "empty argument with whitespace": {
+        "source": "::slotted( )",
+        "generate": "::slotted()",
+        "ast": {
+            "type": "PseudoElementSelector",
+            "name": "slotted",
+            "children": []
+        }
+    },
     "spaces around selector": {
         "source": "::slotted(  .a.b  )",
         "generate": "::slotted(.a.b)",

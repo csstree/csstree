@@ -91,6 +91,23 @@
             ]
         }
     },
+    "empty argument": {
+        "source": ":is()",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "is",
+            "children": []
+        }
+    },
+    "empty argument with whitespace": {
+        "source": ":is( )",
+        "generate": ":is()",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "is",
+            "children": []
+        }
+    },
     "should be case insensitive": {
         "source": ":HaS(.a,.b)",
         "ast": {

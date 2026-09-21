@@ -91,6 +91,32 @@
             ]
         }
     },
+    "empty argument": {
+        "source": ":not()",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "not",
+            "children": []
+        }
+    },
+    "empty argument with whitespace": {
+        "source": ":not( )",
+        "generate": ":not()",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "not",
+            "children": []
+        }
+    },
+    "comment-only argument": {
+        "source": ":not(/* comment */)",
+        "generate": ":not()",
+        "ast": {
+            "type": "PseudoClassSelector",
+            "name": "not",
+            "children": []
+        }
+    },
     "should be case insensitive": {
         "source": ":NoT(.a,.b)",
         "ast": {
