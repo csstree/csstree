@@ -269,10 +269,6 @@
             ],
             "syntax": "<number-zero-one> | <percentage>"
         },
-        "filter": {
-            "comment": "extend with IE legacy syntaxes",
-            "syntax": "| <-ms-filter-function-list>"
-        },
         "font": {
             "comment": "align with font-4, fix <'font-family'>#, add non standard fonts",
             "references": [
@@ -554,22 +550,6 @@
         "-webkit-mask-box-repeat": {
             "comment": "missed; https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-box-image",
             "syntax": "repeat | stretch | round"
-        },
-        "-ms-filter-function-list": {
-            "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-            "syntax": "<-ms-filter-function>+"
-        },
-        "-ms-filter-function": {
-            "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-            "syntax": "<-ms-filter-function-progid> | <-ms-filter-function-legacy>"
-        },
-        "-ms-filter-function-progid": {
-            "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-            "syntax": "'progid:' [ <ident-token> '.' ]* [ <ident-token> | <function-token> <any-value>? ) ]"
-        },
-        "-ms-filter-function-legacy": {
-            "comment": "https://developer.mozilla.org/en-US/docs/Web/CSS/-ms-filter",
-            "syntax": "<ident-token> | <function-token> <any-value>? )"
         },
         "age": {
             "comment": "https://www.w3.org/TR/css3-speech/#voice-family",
