@@ -1,3 +1,7 @@
+## next
+
+- Fixed `TokenStream#setSource()` clearing the whole `balance` buffer on every call, which made every parse after a large source as slow as the largest source ever parsed (#379)
+
 ## 3.2.1 (March 5, 2026)
 
 - Fixed parsing of nested function in a group in definition syntax (#358)
