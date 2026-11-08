@@ -132,5 +132,31 @@
         "valid": [
             "[first] max-content 1fr max-content [last]"
         ]
+    },
+    "color (relative color syntax issue #390)": {
+        "property": "color",
+        "valid": [
+            "rgb(from red r g b)",
+            "rgb(from #123456 r g b / 0.5)",
+            "rgb(from blue r g b / alpha)",
+            "rgba(from red r g b / 0.5)",
+            "hsl(from red h s l)",
+            "hsl(from red h s l / 0.5)",
+            "hsla(from red h s l / alpha)",
+            "hwb(from red h w b)",
+            "hwb(from red h w b / 0.5)",
+            "lab(from red l a b)",
+            "lab(from red l a b / 0.5)",
+            "lch(from red l c h)",
+            "lch(from red l c h / 0.5)",
+            "oklab(from red l a b)",
+            "oklab(from red l a b / 0.5)",
+            "oklch(from #0af l c h)",
+            "oklch(from red l c h / alpha)",
+            "oklch(from red calc(l * 0.9) c h)",
+            "color(from red srgb r g b)",
+            "color(from red display-p3 r g b / alpha)",
+            "color(from red xyz-d50 x y z / 0.5)"
+        ]
     }
 }
