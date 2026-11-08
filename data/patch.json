@@ -780,16 +780,56 @@
             "syntax": "<number [1,∞]>"
         },
         "color()": {
-            "syntax": "color( <colorspace-params> [ / [ <alpha-value> | none ] ]? )"
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "color( [ from <color> ]? <colorspace-params> [ / [ <alpha-value> | none | <ident> ] ]? )"
         },
         "colorspace-params": {
             "syntax": "[ <predefined-rgb-params> | <xyz-params>]"
         },
         "xyz-params": {
-            "syntax": "<xyz-space> [ <number> | <percentage> | none ]{3}"
+            "syntax": "<xyz-space> [ <number> | <percentage> | none | <ident> ]{3}"
         },
         "xyz-space": {
             "syntax": "xyz | xyz-d50 | xyz-d65"
+        },
+        "predefined-rgb-params": {
+            "syntax": "<predefined-rgb> [ <number> | <percentage> | none | <ident> ]{3}"
+        },
+        "rgb()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? ) | rgb( [ from <color> ]? [ <number> | <percentage> | none | <ident> ]{3} [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "rgba()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "rgba( <percentage>#{3} , <alpha-value>? ) | rgba( <number>#{3} , <alpha-value>? ) | rgba( [ from <color> ]? [ <number> | <percentage> | none | <ident> ]{3} [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "hsl()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "hsl( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsl( [ from <color> ]? [ <hue> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "hsla()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "hsla( <hue>, <percentage>, <percentage>, <alpha-value>? ) | hsla( [ from <color> ]? [ <hue> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "hwb()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "hwb( [ from <color> ]? [ <hue> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "lab()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "lab( [ from <color> ]? [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "lch()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "lch( [ from <color> ]? [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ <hue> | none | <ident> ] [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "oklab()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "oklab( [ from <color> ]? [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ / [ <alpha-value> | none | <ident> ] ]? )"
+        },
+        "oklch()": {
+            "comment": "https://drafts.csswg.org/css-color-5/#relative-colors",
+            "syntax": "oklch( [ from <color> ]? [ <percentage> | <number> | none | <ident> ] [ <percentage> | <number> | none | <ident> ] [ <hue> | none | <ident> ] [ / [ <alpha-value> | none | <ident> ] ]? )"
         },
         "query-in-parens": {
             "comment": "missed, https://drafts.csswg.org/css-contain-3/#container-rule",
