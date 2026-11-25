@@ -143,9 +143,8 @@
         }
     },
     "parser should respect bracket balance over stop token": {
-        "skipRoundtrip": "broken round-trip since generator adds } to the end, not critical and can be fixed in the future",
         "source": ".a{--x:(;color:green;}.b{color:red;--y:);width:10px}",
-        "generate": ".a{--x:(;color:green;}.b{color:red;--y:);width:10px}}",
+        "generate": ".a{--x:(;color:green;}.b{color:red;--y:);width:10px})}",
         "ast": {
             "type": "StyleSheet",
             "children": [
@@ -181,7 +180,7 @@
                                 "value": {
                                     "type": "Raw",
                                     "loc": null,
-                                    "value": "(;color:green;}.b{color:red;--y:);width:10px}"
+                                    "value": "(;color:green;}.b{color:red;--y:);width:10px})"
                                 }
                             }
                         ]
